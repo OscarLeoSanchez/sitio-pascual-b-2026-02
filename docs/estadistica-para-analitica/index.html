@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Herramientas de Programación I – Clases Pascual Bravo 2026-02</title>
+<title>Estadística para Analítica – Clases Pascual Bravo 2026-02</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../herramientas-programacion-1/index.html">Presentación del curso</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../estadistica-para-analitica/index.html">Presentación del módulo</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -111,14 +111,14 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Presentación del curso</span></a>
+  <a href="../estadistica-para-analitica/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Presentación del módulo</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Unidad 1. Aplicaciones de consola con un IDE</span></a>
+ <span class="menu-text">Unidad 1. Análisis descriptivo y exploratorio</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -126,8 +126,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Semana 1. El IDE y el primer programa</span></a>
+  <a href="../estadistica-para-analitica/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Entorno y primeras mediciones</span></a>
   </div>
 </li>
       </ul>
@@ -142,12 +142,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta guía</h2>
    
   <ul>
-  <li><a href="#de-qué-se-trata-el-curso" id="toc-de-qué-se-trata-el-curso" class="nav-link active" data-scroll-target="#de-qué-se-trata-el-curso">De qué se trata el curso</a></li>
+  <li><a href="#de-qué-se-trata-el-módulo" id="toc-de-qué-se-trata-el-módulo" class="nav-link active" data-scroll-target="#de-qué-se-trata-el-módulo">De qué se trata el módulo</a></li>
   <li><a href="#calendario" id="toc-calendario" class="nav-link" data-scroll-target="#calendario">Calendario</a>
   <ul class="collapse">
-  <li><a href="#unidad-1.-aplicaciones-de-consola-con-un-ide" id="toc-unidad-1.-aplicaciones-de-consola-con-un-ide" class="nav-link" data-scroll-target="#unidad-1.-aplicaciones-de-consola-con-un-ide">Unidad 1. Aplicaciones de consola con un IDE</a></li>
-  <li><a href="#unidad-2.-arreglos-y-funciones" id="toc-unidad-2.-arreglos-y-funciones" class="nav-link" data-scroll-target="#unidad-2.-arreglos-y-funciones">Unidad 2. Arreglos y funciones</a></li>
-  <li><a href="#unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas" id="toc-unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas" class="nav-link" data-scroll-target="#unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas">Unidad 3. Programación orientada a objetos y aplicaciones gráficas</a></li>
+  <li><a href="#unidad-1.-análisis-descriptivo-y-exploratorio-de-datos" id="toc-unidad-1.-análisis-descriptivo-y-exploratorio-de-datos" class="nav-link" data-scroll-target="#unidad-1.-análisis-descriptivo-y-exploratorio-de-datos">Unidad 1. Análisis descriptivo y exploratorio de datos</a></li>
+  <li><a href="#unidad-2.-modelos-de-probabilidad" id="toc-unidad-2.-modelos-de-probabilidad" class="nav-link" data-scroll-target="#unidad-2.-modelos-de-probabilidad">Unidad 2. Modelos de probabilidad</a></li>
+  <li><a href="#unidad-3.-inferencia-estadística" id="toc-unidad-3.-inferencia-estadística" class="nav-link" data-scroll-target="#unidad-3.-inferencia-estadística">Unidad 3. Inferencia estadística</a></li>
   </ul></li>
   <li><a href="#distribución-evaluativa" id="toc-distribución-evaluativa" class="nav-link" data-scroll-target="#distribución-evaluativa">Distribución evaluativa</a></li>
   <li><a href="#criterios-de-desempeño" id="toc-criterios-de-desempeño" class="nav-link" data-scroll-target="#criterios-de-desempeño">Criterios de desempeño</a>
@@ -165,8 +165,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Herramientas de Programación I</h1>
-<p class="subtitle lead">ET0047. Tecnología en Desarrollo de Software</p>
+<h1 class="title">Estadística para Analítica</h1>
+<p class="subtitle lead">Especialización en Big Data</p>
 </div>
 
 
@@ -187,12 +187,12 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table">
 <tbody>
 <tr class="odd">
-<td>Asignatura</td>
-<td>Herramientas de Programación I (ET0047)</td>
+<td>Módulo</td>
+<td>Estadística para Analítica</td>
 </tr>
 <tr class="even">
 <td>Programa</td>
-<td>Tecnología en Desarrollo de Software</td>
+<td>Especialización en Big Data</td>
 </tr>
 <tr class="odd">
 <td>Docente</td>
@@ -200,44 +200,44 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>Modalidad</td>
-<td>Virtual. 4 créditos, 192 horas</td>
+<td>Presencial. 192 horas</td>
 </tr>
 <tr class="odd">
 <td>Dedicación</td>
-<td>4 horas de encuentro sincrónico y 8 de trabajo independiente por semana</td>
+<td>3 horas de acompañamiento directo y 9 de trabajo independiente por semana</td>
 </tr>
 <tr class="even">
-<td>Prerrequisito</td>
-<td>ET0045 Fundamentos de Programación</td>
+<td>Prerrequisitos</td>
+<td>Ninguno</td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="de-qué-se-trata-el-curso" class="level2">
-<h2 class="anchored" data-anchor-id="de-qué-se-trata-el-curso">De qué se trata el curso</h2>
-<p>En Fundamentos de Programación escribiste algoritmos. Aquí los conviertes en programas que funcionan. El lenguaje es <strong>C#</strong> y la plataforma es <strong>.NET 10</strong>.</p>
-<p>El semestre avanza en tres tramos. Primero programas de consola: sintaxis, variables, decisiones y ciclos. Después arreglos y funciones, para manejar conjuntos de datos y partir el código en piezas reutilizables. Al final, programación orientada a objetos con interfaz gráfica y guardado de información en archivos.</p>
-<p>Todo se articula alrededor de <strong>un mismo proyecto que crece durante el semestre</strong>. Lo que entregas en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación final.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="de-qué-se-trata-el-módulo" class="level2">
+<h2 class="anchored" data-anchor-id="de-qué-se-trata-el-módulo">De qué se trata el módulo</h2>
+<p>Este módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.</p>
+<p>El semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Si trabajas en macOS o Linux, léelo ahora
+<span class="screen-reader-only">Nota</span>Este módulo se programa
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Las unidades 1 y 2 son de consola y corren igual en Windows, macOS y Linux. La <strong>unidad 3 usa Windows Forms, que solo funciona en Windows</strong>. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o una sala de cómputo de la institución.</p>
-<p>Resuélvelo durante las primeras semanas. Enterarte en la semana 11 te deja sin tiempo.</p>
+<p>Cada tema se implementa en <strong>Python</strong>. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.</p>
+<p>El enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.</p>
 </div>
 </div>
+<p>Todo se articula alrededor de <strong>un conjunto de datos propio que trabajas durante el semestre</strong>. Lo recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir sobre él.</p>
 </section>
 <section id="calendario" class="level2">
 <h2 class="anchored" data-anchor-id="calendario">Calendario</h2>
 <p>Las semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.</p>
-<section id="unidad-1.-aplicaciones-de-consola-con-un-ide" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-1.-aplicaciones-de-consola-con-un-ide">Unidad 1. Aplicaciones de consola con un IDE</h3>
+<section id="unidad-1.-análisis-descriptivo-y-exploratorio-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="unidad-1.-análisis-descriptivo-y-exploratorio-de-datos">Unidad 1. Análisis descriptivo y exploratorio de datos</h3>
 <div class="calendario">
 <table class="caption-top table">
 <thead>
@@ -250,41 +250,41 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><strong><a href="../herramientas-programacion-1/semana-01/index.html">01</a></strong></td>
-<td>Presentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa</td>
-<td>Definición de IDE, estructura y función. Manejo de una herramienta de programación</td>
+<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/semana-01/index.html">01</a></strong></td>
+<td>Presentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento</td>
+<td>Mediciones reales</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">02</td>
-<td>Estructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola</td>
-<td>Manejo de una herramienta de programación. Tipos de variables</td>
+<td>Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales</td>
+<td>Tipos de variables</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">03</td>
-<td>Operadores aritméticos, lógicos y de comparación. Precedencia</td>
-<td>Tipos y precedencia de operadores aritméticos, lógicos y de comparación</td>
+<td>Tablas de frecuencia, histogramas y medidas de localización y dispersión</td>
+<td>Tablas de frecuencia, histogramas, medidas de localización y dispersión</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">04</td>
-<td>Sentencias de control condicionales: <code>if</code>, <code>else</code>, <code>else if</code>, <code>switch</code></td>
-<td>Sentencias de control condicionales</td>
+<td>Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia</td>
+<td>Gráficos de cajas y bigotes. Gráficos de barras, tablas de contingencia</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">05</td>
-<td>Ciclos <code>for</code> y <code>while</code>. Acumuladores, contadores y banderas. <strong>Cierre de la Unidad 1</strong></td>
-<td>Sentencias <code>for</code> y <code>while</code>. Acumuladores, contadores y banderas</td>
+<td>Gráficos de dispersión y gráficos condicionales. Informe exploratorio. <strong>Cierre de la Unidad 1</strong></td>
+<td>Gráficos de dispersión y gráficos condicionales</td>
 <td style="text-align: center;"><strong>30%</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="unidad-2.-arreglos-y-funciones" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-2.-arreglos-y-funciones">Unidad 2. Arreglos y funciones</h3>
+<section id="unidad-2.-modelos-de-probabilidad" class="level3">
+<h3 class="anchored" data-anchor-id="unidad-2.-modelos-de-probabilidad">Unidad 2. Modelos de probabilidad</h3>
 <div class="calendario">
 <table class="caption-top table">
 <thead>
@@ -298,40 +298,40 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">06</td>
-<td>Estructuras de datos tipo arreglo: vectores</td>
-<td>Estructura de datos tipo vectores y matrices</td>
+<td>Variables aleatorias, espacio muestral y función de distribución</td>
+<td>Variables aleatorias, espacio muestral y función de distribución</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">07</td>
-<td>Matrices</td>
-<td>Estructura de datos tipo vectores y matrices</td>
+<td>Probabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes</td>
+<td>Cálculo de probabilidades y teorema de Bayes. Probabilidad condicional e independencia</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">08</td>
-<td>Funciones: parámetros de entrada y valor de retorno</td>
-<td>Funciones, parámetros de entrada y retorno</td>
+<td>Valor esperado y varianza de variables aleatorias y de sus funciones</td>
+<td>Valor esperado y varianza en variables aleatorias y funciones de variables aleatorias</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">09</td>
-<td>Paso de parámetros por valor y por referencia</td>
-<td>Paso de parámetros a funciones por valor y por referencia</td>
+<td>Modelos discretos: uniforme, binomial, hipergeométrica y Poisson</td>
+<td>Modelos para variables aleatorias discretas</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">10</td>
-<td>Creación de menús con aplicación de funciones. <strong>Cierre de la Unidad 2</strong></td>
-<td>Creación de menús con aplicación de funciones</td>
+<td>Modelos continuos: uniforme, normal, gamma y exponencial. <strong>Cierre de la Unidad 2</strong></td>
+<td>Modelos para variables aleatorias continuas</td>
 <td style="text-align: center;"><strong>30%</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas">Unidad 3. Programación orientada a objetos y aplicaciones gráficas</h3>
+<section id="unidad-3.-inferencia-estadística" class="level3">
+<h3 class="anchored" data-anchor-id="unidad-3.-inferencia-estadística">Unidad 3. Inferencia estadística</h3>
 <div class="calendario">
 <table class="caption-top table">
 <thead>
@@ -345,37 +345,37 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: center;">11</td>
-<td>Paradigma de la POO: clases y objetos. Atributos, métodos y constructores</td>
-<td>Definición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase</td>
+<td>Muestreo y distribuciones muestrales. El teorema del límite central por simulación</td>
+<td>Estadísticos de prueba</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">12</td>
-<td>Instanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML</td>
-<td>Instanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados</td>
+<td>Estimación puntual e intervalos de confianza</td>
+<td>Hipótesis nula y alternativa, estadísticos de prueba y valor p</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">13</td>
-<td>Estándares de documentación para escritura de código</td>
-<td>Estándares de documentación para escritura de códigos de programación</td>
+<td>Pruebas de hipótesis: valor p, inferencia sobre una media y una proporción</td>
+<td>Hipótesis nula y alternativa, estadísticos de prueba y valor p</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">14</td>
-<td>Manejo de archivos de texto para persistencia</td>
-<td>Manejo de archivos de texto</td>
+<td>Comparación de dos poblaciones y de varios tratamientos con ANOVA de una vía</td>
+<td>Comparación de tratamientos</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;">15</td>
-<td>Elementos GUI con Windows Forms: propiedades y eventos de control</td>
-<td>Elementos GUI, propiedades y eventos de control</td>
+<td>Modelos de regresión lineal</td>
+<td>Modelos de regresión lineal</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;">16</td>
-<td><strong>Evaluación final.</strong> Aplicación con interfaz gráfica, POO y persistencia en archivo</td>
+<td><strong>Evaluación final.</strong> Informe ejecutivo sobre el conjunto de datos propio</td>
 <td>Todos los de la unidad</td>
 <td style="text-align: center;"><strong>40%</strong></td>
 </tr>
@@ -414,40 +414,46 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </div>
-<p>Cada corte evalúa un incremento del proyecto del semestre. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.</p>
+<p>Cada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.</p>
 </section>
 <section id="criterios-de-desempeño" class="level2">
 <h2 class="anchored" data-anchor-id="criterios-de-desempeño">Criterios de desempeño</h2>
-<p>Toda rúbrica del curso se traza a los criterios de la carta descriptiva. Estos son, por unidad.</p>
+<p>Toda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.</p>
 <section id="unidad-1" class="level3">
 <h3 class="anchored" data-anchor-id="unidad-1">Unidad 1</h3>
 <ul>
-<li>Identifica las características y funciones de un IDE.</li>
-<li>Reconoce la estructura básica de un programa.</li>
-<li>Aplica la sintaxis a un lenguaje de programación de estudio.</li>
-<li>Analiza los tipos de variables y operadores.</li>
-<li>Propone las sentencias aplicadas en una programación estructurada.</li>
-<li>Participa en las actividades propuestas durante la jornada académica y las horas de trabajo independiente.</li>
+<li>Recolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.</li>
+<li>Organizar la información en bases de datos en diferentes formatos de almacenamiento (<code>.txt</code>, <code>.xlsx</code>, <code>.csv</code>).</li>
+<li>Clasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).</li>
+<li>Aplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.</li>
+<li>Aplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.</li>
+<li>Aplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.</li>
+<li>Presentar de forma apropiada los análisis en formato de informe.</li>
+<li>Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.</li>
+<li>Trabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.</li>
 </ul>
 </section>
 <section id="unidad-2" class="level3">
 <h3 class="anchored" data-anchor-id="unidad-2">Unidad 2</h3>
 <ul>
-<li>Identifica sentencias de programación en la solución de problemas básicos.</li>
-<li>Reconoce las estructuras de datos tipo arreglo.</li>
-<li>Manipula el uso de funciones para el diseño de aplicaciones.</li>
-<li>Administra sentencias de programación, estructura de datos y funciones en el diseño de aplicaciones de software.</li>
-<li>Participa en las actividades planteadas actuando de acuerdo con los principios éticos y morales de la misión y visión institucional.</li>
+<li>Conocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.</li>
+<li>Conocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.</li>
+<li>Conocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.</li>
+<li>Aplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.</li>
+<li>Aplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.</li>
+<li>Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.</li>
 </ul>
 </section>
 <section id="unidad-3" class="level3">
 <h3 class="anchored" data-anchor-id="unidad-3">Unidad 3</h3>
 <ul>
-<li>Implementa los elementos de la programación orientada a objetos.</li>
-<li>Emplea archivos de texto para la persistencia de información.</li>
-<li>Construye con diferentes elementos gráficos aplicaciones con interfaz de usuario.</li>
-<li>Documenta los programas según los estándares de programación.</li>
-<li>Asume los valores de orden, organización, responsabilidad y puntualidad, a través del desarrollo de las tareas asignadas.</li>
+<li>Identificar los mecanismos relacionados con procesos inferenciales.</li>
+<li>Construir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.</li>
+<li>Inferir sobre medias y proporciones en aplicaciones de ingeniería.</li>
+<li>Realizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.</li>
+<li>Realizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.</li>
+<li>Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.</li>
+<li>Desempeñar las funciones asignadas con responsabilidad y compromiso.</li>
 </ul>
 </section>
 </section>
@@ -464,18 +470,19 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>Conocimiento</td>
-<td>Respondes preguntas y resuelves problemas sobre los temas de la unidad</td>
+<td>Respondes preguntas orales y escritas sobre los métodos de la unidad</td>
 </tr>
 <tr class="even">
 <td>Desempeño</td>
-<td>Se observa cómo desarrollas la aplicación, no solo el resultado</td>
+<td>Se observa cómo construyes el análisis, no solo el resultado</td>
 </tr>
 <tr class="odd">
 <td>Producto</td>
-<td>Se valora el software entregado: que compile, que funcione y que resuelva lo pedido</td>
+<td>Se valora el informe entregado, con el código que lo produce y las conclusiones</td>
 </tr>
 </tbody>
 </table>
+<p>El contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.</p>
 
 
 </section>

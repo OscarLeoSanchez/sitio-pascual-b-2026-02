@@ -10,7 +10,7 @@ lang: es
 
 website:
   title: "Clases Pascual Bravo 2026-02"
-  description: "Material de Herramientas de Programación I. Institución Universitaria Pascual Bravo."
+  description: "Material de Herramientas de Programación I y Estadística para Analítica. Institución Universitaria Pascual Bravo."
   site-url: "https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/"
   favicon: estilos/favicon.svg
   search:
@@ -32,6 +32,17 @@ website:
           contents:
             - text: "Semana 1. El IDE y el primer programa"
               href: herramientas-programacion-1/semana-01/index.qmd
+    - id: estadistica
+      style: docked
+      background: light
+      collapse-level: 2
+      contents:
+        - text: "Presentación del módulo"
+          href: estadistica-para-analitica/index.qmd
+        - section: "Unidad 1. Análisis descriptivo y exploratorio"
+          contents:
+            - text: "Semana 1. Entorno y primeras mediciones"
+              href: estadistica-para-analitica/semana-01/index.qmd
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

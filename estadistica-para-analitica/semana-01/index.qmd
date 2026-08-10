@@ -1,0 +1,490 @@
+---
+title: "Semana 1. El entorno de trabajo y tus primeras mediciones"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Unidad     | Unidad 1. Análisis descriptivo y exploratorio de datos   |
+| Dedicación | 3 horas de acompañamiento y 9 de trabajo independiente   |
+:::
+
+## Lo que vas a lograr
+
+Al terminar esta guía tienes Python funcionando para análisis de datos, y tienes un conjunto de
+mediciones que produjiste tú, guardado en los tres formatos que vas a usar todo el semestre.
+
+Objetivos concretos:
+
+1. Instalar y verificar el entorno de Python con pandas.
+2. Ejecutar un experimento de medición y observar por qué los resultados no se repiten.
+3. Guardar datos en `.csv`, `.txt` y `.xlsx`, y cargarlos de vuelta comprobando que coinciden.
+4. Distinguir la unidad de observación, la variable y el registro dentro de una tabla de datos.
+
+## La estadística empieza antes del cálculo
+
+La estadística resuelve problemas en cuatro pasos: formular la pregunta, recoger los datos,
+analizarlos con el método que corresponde e interpretar el resultado para decidir.
+
+Los cursos suelen empezar por el tercero. Este empieza por el segundo, porque un análisis impecable
+sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor.
+
+Piensa en el contexto del módulo: un área de mantenimiento que decide cuándo intervenir una
+máquina. Alguien tiene que definir qué se mide, cada cuánto, con qué instrumento y quién lo
+registra. Esas decisiones condicionan todo lo que venga después.
+
+### Versiones de referencia
+
+Esta guía se probó con estas versiones. Instala la misma línea o una superior.
+
+| Herramienta | Versión probada |
+|---|---|
+| Python | 3.13.4 |
+| pandas | 2.3.1 |
+| numpy | 2.3.2 |
+| scipy | 1.17.0 |
+| matplotlib | 3.10.8 |
+| seaborn | 0.13.2 |
+| statsmodels | 0.14.6 |
+| openpyxl | 3.1.5 |
+
+## Instalación paso a paso
+
+### [1]{.paso} Python
+
+Descarga la versión **3.13** desde [python.org/downloads](https://www.python.org/downloads/).
+
+En Windows, **marca la casilla `Add python.exe to PATH`** en la primera pantalla del instalador. Es
+fácil pasarla por alto, y sin ella el comando `python` no funciona en la terminal.
+
+En macOS y Linux el sistema ya trae Python, pero suele ser una versión vieja que además usa el
+sistema operativo. Comprueba con `python3 --version` y, si es anterior a 3.11, instala la 3.13
+aparte.
+
+### [2]{.paso} La carpeta del módulo y el entorno virtual
+
+Crea una carpeta para todo el semestre y ubícate en ella:
+
+```bash
+mkdir estadistica-analitica
+cd estadistica-analitica
+```
+
+Ahora crea un **entorno virtual**. Es una carpeta que contiene una copia aislada de Python con sus
+propias librerías, para que lo que instales aquí no afecte a otros proyectos ni al sistema:
+
+```bash
+python -m venv .venv
+```
+
+Actívalo. El comando cambia según el sistema:
+
+```bash
+# Windows, PowerShell
+.venv\Scripts\Activate.ps1
+
+# Windows, Git Bash
+source .venv/Scripts/activate
+
+# macOS y Linux
+source .venv/bin/activate
+```
+
+Cuando queda activo, el nombre `(.venv)` aparece al comienzo de la línea de la terminal. Si no lo
+ves, no está activo, y todo lo que instales va a parar a otro lado.
+
+::: {.callout-warning}
+## El entorno se activa en cada terminal nueva
+
+Cerrar la terminal desactiva el entorno. Al día siguiente, cuando vuelvas a la carpeta, tienes que
+activarlo otra vez antes de trabajar. Es el tropiezo más común de las primeras semanas.
+:::
+
+### [3]{.paso} Las librerías
+
+Con el entorno activo, crea un archivo `requirements.txt` con este contenido:
+
+```text
+pandas==2.3.1
+numpy==2.3.2
+scipy==1.17.0
+matplotlib==3.10.8
+seaborn==0.13.2
+statsmodels==0.14.6
+openpyxl==3.1.5
+```
+
+E instálalas de una vez:
+
+```bash
+pip install -r requirements.txt
+```
+
+Fijar las versiones con `==` sirve para que el código de la guía se comporte igual en tu máquina y
+en la mía. Cada librería cumple un papel: pandas organiza los datos en tablas, numpy hace el
+cálculo numérico, scipy y statsmodels traen los métodos estadísticos, y matplotlib con seaborn
+producen los gráficos. `openpyxl` es la que permite escribir y leer archivos de Excel.
+
+## Verificación
+
+Con el entorno activo, ejecuta:
+
+```bash
+python -c "import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')"
+```
+
+Si imprime `todo listo`, ya está. Cualquier otra cosa significa que falta una librería o que el
+entorno no está activo.
+
+Para ver las versiones instaladas:
+
+```bash
+python -c "import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)"
+```
+
+```text
+2.3.1 2.3.2 1.17.0
+```
+
+## Experimento: por qué se mide más de una vez
+
+Vas a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La
+operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.
+
+Crea un archivo `experimento.py`:
+
+```python
+import time
+import random
+import pandas as pd
+
+random.seed(2026)
+
+filas = []
+for i in range(1, 201):
+    datos = [random.random() for _ in range(100_000)]
+    inicio = time.perf_counter()
+    datos.sort()
+    fin = time.perf_counter()
+    filas.append({
+        "medicion": i,
+        "tiempo_ms": round((fin - inicio) * 1000, 3),
+        "tamano": 100_000,
+    })
+
+mediciones = pd.DataFrame(filas)
+mediciones.to_csv("tiempos_ordenamiento.csv", index=False)
+
+print(mediciones.head())
+print()
+print(mediciones["tiempo_ms"].describe())
+```
+
+Ejecútalo con `python experimento.py`. Tarda alrededor de un minuto.
+
+Esta es la salida en la máquina donde preparé la guía:
+
+```text
+   medicion  tiempo_ms  tamano
+0         1     23.650  100000
+1         2     22.488  100000
+2         3     25.532  100000
+3         4     25.649  100000
+4         5     25.361  100000
+
+count    200.000000
+mean      22.645985
+std        4.305880
+min       15.767000
+25%       18.478000
+50%       23.849500
+75%       25.551000
+max       38.598000
+Name: tiempo_ms, dtype: float64
+```
+
+### Qué acaba de pasar
+
+Doscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó
+15,8 milisegundos y la más lenta 38,6: **la más lenta se demoró más del doble que la más rápida**.
+
+Tus números van a ser distintos a estos, y eso también es parte del punto.
+
+La causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la
+memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el
+equipo. Ninguno de esos factores se puede controlar por completo desde el programa.
+
+De ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, **¿cuál es el
+valor verdadero?** La respuesta honesta es que no hay uno solo. Hay un rango, y la estadística
+sirve para describirlo, modelarlo y sacar conclusiones a pesar de él.
+
+Fíjate en el `random.seed(2026)` de la tercera línea. Fija la secuencia de números aleatorios que
+se generan, así que la **lista que se ordena es siempre la misma**. Aun controlando eso, los
+tiempos varían. La variabilidad no viene de los datos: viene de la medición.
+
+::: {.callout-tip}
+## Este es el método del módulo
+
+Cada vez que aparezca un concepto nuevo, lo vamos a comprobar así: generar datos, repetir el
+procedimiento muchas veces y mirar si el resultado coincide con lo que la teoría predice.
+
+En la semana 11 vas a ver el teorema del límite central ocurrir en pantalla. En la 12 vas a contar
+cuántas veces falla un intervalo de confianza del 95 por ciento y comprobar que falla cerca de 5
+veces de cada 100.
+:::
+
+## Los tres formatos de almacenamiento
+
+La carta descriptiva pide organizar la información en `.csv`, `.txt` y `.xlsx`. Cada uno tiene su
+lugar.
+
+| Formato | Qué es | Cuándo lo vas a usar |
+|---|---|---|
+| `.csv` | Texto plano, valores separados por comas | El formato por omisión. Lo lee cualquier herramienta y ocupa poco |
+| `.txt` | Texto plano con otro separador, casi siempre tabulación | Lo que exportan muchos equipos de medición y sistemas industriales |
+| `.xlsx` | Libro de Excel | Cuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí |
+
+Descarga el archivo de ejemplo, [`ordenes.csv`](recursos/ordenes.csv), que tiene 12 órdenes de
+mantenimiento. Guárdalo en tu carpeta de trabajo.
+
+Crea `formatos.py`:
+
+```python
+import pandas as pd
+
+ordenes = pd.read_csv("ordenes.csv")
+
+ordenes.to_csv("ordenes_copia.csv", index=False)
+ordenes.to_csv("ordenes.txt", sep="\t", index=False)
+ordenes.to_excel("ordenes.xlsx", index=False)
+
+desde_csv = pd.read_csv("ordenes_copia.csv")
+desde_txt = pd.read_csv("ordenes.txt", sep="\t")
+desde_xlsx = pd.read_excel("ordenes.xlsx")
+
+print("csv  y txt :", desde_csv.equals(desde_txt))
+print("csv  y xlsx:", desde_csv.equals(desde_xlsx))
+print()
+print(desde_csv.head())
+print()
+print(desde_csv.dtypes)
+```
+
+```text
+csv  y txt : True
+csv  y xlsx: True
+
+   orden maquina   turno        tipo criticidad  duracion_min  repuestos
+0    101  TOR-01  manana  preventivo       baja         45.50          1
+1    102  TOR-02   tarde  correctivo       alta        182.00          4
+2    103  FRE-01   noche  preventivo      media         60.25          2
+3    104  TOR-01  manana  predictivo       baja         30.00          0
+4    105  FRE-02   tarde  correctivo       alta        210.50          5
+
+orden             int64
+maquina          object
+turno            object
+tipo             object
+criticidad       object
+duracion_min    float64
+repuestos         int64
+dtype: object
+```
+
+Los tres archivos guardan exactamente lo mismo. El `index=False` evita que pandas agregue una
+columna extra con la numeración de las filas, que no es un dato y ensucia el archivo.
+
+### Anatomía de una tabla de datos
+
+Esa tabla tiene una estructura que se repite en todo el semestre:
+
+- La **unidad de observación** es lo que ocupa cada fila. Aquí, una orden de mantenimiento.
+- Cada **variable** es una columna: algo que se midió u observó de esa unidad.
+- Cada **registro** es una fila completa: todos los valores medidos de una misma unidad.
+
+Cuando recojas tus propios datos, decide primero cuál es tu unidad de observación. Si no lo tienes
+claro, la tabla va a mezclar cosas de distinta naturaleza en la misma columna y ningún análisis
+posterior va a funcionar.
+
+### Lo que pandas dedujo, y lo que no
+
+Mira otra vez la última salida. Pandas leyó `duracion_min` como `float64` y `repuestos` como
+`int64`, y acertó en ambos. Pero puso `object` en `maquina`, `turno`, `tipo` y `criticidad`, que es
+como dice "texto y no sé nada más".
+
+Ahí perdió información importante. `criticidad` tiene un orden natural, baja va antes que media y
+media antes que alta, pero pandas no lo sabe. Se lo puedes declarar:
+
+```python
+import pandas as pd
+
+datos = pd.read_csv("ordenes.csv")
+
+orden_criticidad = pd.CategoricalDtype(["baja", "media", "alta"], ordered=True)
+datos["criticidad"] = datos["criticidad"].astype(orden_criticidad)
+datos["maquina"] = datos["maquina"].astype("category")
+
+print(datos.dtypes)
+print()
+print(datos.loc[datos["criticidad"] > "baja", ["orden", "maquina", "criticidad"]])
+```
+
+```text
+orden              int64
+maquina         category
+turno             object
+tipo              object
+criticidad      category
+duracion_min     float64
+repuestos          int64
+dtype: object
+
+    orden maquina criticidad
+1     102  TOR-02       alta
+2     103  FRE-01      media
+4     105  FRE-02       alta
+5     106  TOR-02      media
+6     107  FRE-01       alta
+8     109  FRE-02      media
+9     110  TOR-02       alta
+11    112  TOR-01      media
+```
+
+La comparación `criticidad > "baja"` funciona porque le declaraste el orden. Sin esa declaración,
+esa línea falla.
+
+Esto es un adelanto de la Semana 02, donde la clasificación de variables se trabaja completa. Por
+ahora quédate con la idea: **la naturaleza de una variable la declaras tú, no la adivina la
+herramienta**, y de esa declaración depende qué análisis puedes hacer después.
+
+## Errores frecuentes
+
+::: {.error-caso}
+[Error 1]{.etiqueta}
+
+### ModuleNotFoundError: No module named 'pandas'
+
+**Causa.** El entorno virtual no está activo, o instalaste las librerías sin activarlo.
+
+**Solución.** Mira el comienzo de la línea de la terminal. Si no dice `(.venv)`, actívalo con el
+comando de tu sistema y vuelve a intentar. Si ya está activo, ejecuta `pip install -r
+requirements.txt` otra vez: la primera vez fue a parar al Python del sistema.
+:::
+
+::: {.error-caso}
+[Error 2]{.etiqueta}
+
+### ModuleNotFoundError: No module named 'openpyxl' al guardar el .xlsx
+
+**Causa.** Pandas no escribe Excel por su cuenta: necesita openpyxl y lo importa solo cuando lo
+usas. Por eso el error aparece en la línea del `to_excel` y no al comienzo.
+
+**Solución.** `pip install openpyxl==3.1.5`, con el entorno activo.
+:::
+
+::: {.error-caso}
+[Error 3]{.etiqueta}
+
+### FileNotFoundError: ordenes.csv
+
+**Causa.** La terminal no está parada en la carpeta donde guardaste el archivo. Python busca los
+archivos desde el directorio actual, no desde donde está el script.
+
+**Solución.** Ejecuta `pwd` en macOS y Linux, o `cd` sin argumentos en PowerShell, para ver dónde
+estás. Muévete a la carpeta correcta con `cd` y vuelve a ejecutar.
+:::
+
+::: {.error-caso}
+[Error 4]{.etiqueta}
+
+### Al abrir el .csv, Excel mete todo en una sola columna
+
+**Causa.** Excel en español espera punto y coma como separador, no coma.
+
+**Solución.** No abras el `.csv` con doble clic. Usa el `.xlsx` que generaste, que es justo para
+eso. Si necesitas el `.csv` en Excel, ábrelo desde **Datos, Obtener datos, Desde un archivo de
+texto** y elige la coma como separador.
+
+No cambies el separador del archivo: la coma es el estándar y el resto del semestre asume que la
+tiene.
+:::
+
+::: {.error-caso}
+[Error 5]{.etiqueta}
+
+### TypeError al comparar criticidad con "baja"
+
+**Causa.** La columna sigue siendo `object`. Sin declararle el orden, pandas no puede decidir si
+`media` es mayor que `baja`.
+
+**Solución.** Conviértela con `pd.CategoricalDtype([...], ordered=True)` antes de compararla, como
+en el ejemplo de arriba. Verifica con `datos.dtypes` que quedó en `category`.
+:::
+
+## Tu conjunto de datos propio
+
+Este es el trabajo principal de la semana y el insumo de las tres entregas calificadas del
+semestre. En la semana 5 lo vas a describir, en la 10 lo vas a modelar y en la 16 vas a inferir
+sobre él.
+
+**Qué tiene que cumplir:**
+
+- Mínimo **40 registros**.
+- Al menos **dos variables numéricas**, una discreta y una continua.
+- Al menos **dos variables categóricas**, una de ellas ordinal.
+- Los datos los produces tú, midiendo u observando. No sirve un archivo descargado de internet.
+
+**De dónde pueden salir.** Tiempos de un proceso que puedas repetir, registros de tu trabajo,
+consumos, mediciones con un sensor o con el teléfono, conteos de eventos por franja horaria. Si
+trabajas en planta, un histórico de intervenciones que tú mismo levantes sirve perfecto.
+
+**Qué entregas:**
+
+1. El conjunto de datos en los tres formatos.
+2. El script que lo generó o el procedimiento de medición escrito, si lo recogiste a mano.
+3. Un **diccionario de datos** de una página: por cada columna, qué mide, en qué unidad, de qué
+   naturaleza es y qué valores puede tomar.
+
+Sustenta el alcance en la sesión antes de empezar a medir. Corregir un conjunto de datos mal
+diseñado en la semana 5 cuesta mucho más que ajustarlo ahora.
+
+## Lista de chequeo de la semana
+
+::: {.checklist}
+**Antes de cerrar la semana, confirma que tienes todo esto**
+
+- [ ] `python --version` responde con 3.13 o superior
+- [ ] El entorno virtual se activa y muestra `(.venv)` en la terminal
+- [ ] El `import` de las seis librerías imprime `todo listo`
+- [ ] `experimento.py` corrió y generó `tiempos_ordenamiento.csv` con 200 filas
+- [ ] Sabes explicar por qué las 200 mediciones dieron distinto
+- [ ] Guardaste y volviste a cargar datos en `.csv`, `.txt` y `.xlsx`, y los tres coinciden
+- [ ] Convertiste `criticidad` a categórica ordenada y la comparación funcionó
+- [ ] Definiste la unidad de observación de tu conjunto de datos propio
+- [ ] Tu conjunto de datos tiene 40 registros, 2 variables numéricas y 2 categóricas
+- [ ] Escribiste el diccionario de datos
+:::
+
+## Recursos
+
+- Descarga de Python: [python.org/downloads](https://www.python.org/downloads/)
+- Entornos virtuales: [docs.python.org/es/3/library/venv.html](https://docs.python.org/es/3/library/venv.html)
+- Lectura y escritura de datos con pandas: [pandas.pydata.org/docs/user_guide/io.html](https://pandas.pydata.org/docs/user_guide/io.html)
+- Datos categóricos en pandas: [pandas.pydata.org/docs/user_guide/categorical.html](https://pandas.pydata.org/docs/user_guide/categorical.html)
+- Dataset de ejemplo de esta guía: [`ordenes.csv`](recursos/ordenes.csv)
+- James, G. et al. (2021). *An Introduction to Statistical Learning.* Capítulo 1.
+
+::: {.pie-doc}
+Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería.
+Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas
+de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del
+material.
+:::

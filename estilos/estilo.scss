@@ -553,3 +553,40 @@ main table td {
     }
   }
 }
+
+/* Calendario en telefono.
+   Los anchos de la primera y la cuarta columna estan en rem, asi que no se
+   encogen con la pantalla: a 390px se llevaban 162 de los 339px disponibles
+   para mostrar "01" y "-", y a la columna de saberes le quedaban 66px. Con
+   table-layout fijo y break-word, las palabras se partian a la mitad
+   ("histogr / amas"). Se recortan las dos columnas angostas y se oculta la de
+   saberes, que es trazabilidad con la carta descriptiva y no la necesita quien
+   consulta el calendario desde el telefono. */
+@media (max-width: 575.98px) {
+  /* Los anchos van en porcentaje y suman 100 a proposito. Con table-layout
+     fijo, si las columnas declaradas suman menos que el ancho disponible, el
+     navegador reparte el sobrante entre todas por igual y los valores fijos
+     dejan de valer: al ocultar la columna 3 con anchos en rem, "Sem" terminaba
+     mas ancha que "Tematica". */
+  .calendario table:has(thead th:nth-child(4)) {
+    th:nth-child(1) { width: 14%; }
+    th:nth-child(2) { width: 72%; }
+    th:nth-child(4) { width: 14%; }
+
+    th:nth-child(3),
+    td:nth-child(3) {
+      display: none;
+    }
+  }
+
+  .calendario table:not(:has(thead th:nth-child(4))) {
+    th:nth-child(1) { width: 52%; }
+    th:nth-child(2) { width: 24%; }
+    th:nth-child(3) { width: 24%; }
+  }
+
+  .calendario td,
+  .calendario th {
+    padding: 0.45rem 0.4rem;
+  }
+}

@@ -1,0 +1,167 @@
+---
+title: "Estadística para Analítica"
+subtitle: "Especialización en Big Data"
+number-sections: false
+# Pandoc reparte los anchos de cada tabla por su cuenta y escribe un colgroup
+# con estilos en linea, asi que ninguna tabla del calendario coincidia con la
+# siguiente. Desactivarlo deja el control en estilo.scss.
+tbl-colwidths: false
+---
+
+::: {.ficha}
+|            |                                            |
+|------------|--------------------------------------------|
+| Módulo     | Estadística para Analítica                 |
+| Programa   | Especialización en Big Data                |
+| Docente    | Oscar Leonel Sánchez Conde                 |
+| Modalidad  | Presencial. 192 horas                      |
+| Dedicación | 3 horas de acompañamiento directo y 9 de trabajo independiente por semana |
+| Prerrequisitos | Ninguno                                |
+:::
+
+## De qué se trata el módulo
+
+Este módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta,
+recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para
+decidir.
+
+El semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales,
+las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con
+probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas
+conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes
+equivocarte.
+
+::: {.callout-note}
+## Este módulo se programa
+
+Cada tema se implementa en **Python**. Vas a escribir código en todas las sesiones: cargar datos,
+calcular, graficar y simular. La estadística que no se ejecuta se olvida.
+
+El enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos,
+repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría
+predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus
+propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.
+:::
+
+Todo se articula alrededor de **un conjunto de datos propio que trabajas durante el semestre**. Lo
+recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir
+sobre él.
+
+## Calendario
+
+Las semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el
+semestre.
+
+### Unidad 1. Análisis descriptivo y exploratorio de datos
+
+::: {.calendario}
+| Sem | Temática | Saberes de la carta descriptiva | % |
+|:---:|---|---|:---:|
+| **[01](semana-01/index.qmd)** | Presentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento | Mediciones reales | - |
+| 02 | Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales | Tipos de variables | - |
+| 03 | Tablas de frecuencia, histogramas y medidas de localización y dispersión | Tablas de frecuencia, histogramas, medidas de localización y dispersión | - |
+| 04 | Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia | Gráficos de cajas y bigotes. Gráficos de barras, tablas de contingencia | - |
+| 05 | Gráficos de dispersión y gráficos condicionales. Informe exploratorio. **Cierre de la Unidad 1** | Gráficos de dispersión y gráficos condicionales | **30%** |
+:::
+
+### Unidad 2. Modelos de probabilidad
+
+::: {.calendario}
+| Sem | Temática | Saberes de la carta descriptiva | % |
+|:---:|---|---|:---:|
+| 06 | Variables aleatorias, espacio muestral y función de distribución | Variables aleatorias, espacio muestral y función de distribución | - |
+| 07 | Probabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes | Cálculo de probabilidades y teorema de Bayes. Probabilidad condicional e independencia | - |
+| 08 | Valor esperado y varianza de variables aleatorias y de sus funciones | Valor esperado y varianza en variables aleatorias y funciones de variables aleatorias | - |
+| 09 | Modelos discretos: uniforme, binomial, hipergeométrica y Poisson | Modelos para variables aleatorias discretas | - |
+| 10 | Modelos continuos: uniforme, normal, gamma y exponencial. **Cierre de la Unidad 2** | Modelos para variables aleatorias continuas | **30%** |
+:::
+
+### Unidad 3. Inferencia estadística
+
+::: {.calendario}
+| Sem | Temática | Saberes de la carta descriptiva | % |
+|:---:|---|---|:---:|
+| 11 | Muestreo y distribuciones muestrales. El teorema del límite central por simulación | Estadísticos de prueba | - |
+| 12 | Estimación puntual e intervalos de confianza | Hipótesis nula y alternativa, estadísticos de prueba y valor p | - |
+| 13 | Pruebas de hipótesis: valor p, inferencia sobre una media y una proporción | Hipótesis nula y alternativa, estadísticos de prueba y valor p | - |
+| 14 | Comparación de dos poblaciones y de varios tratamientos con ANOVA de una vía | Comparación de tratamientos | - |
+| 15 | Modelos de regresión lineal | Modelos de regresión lineal | - |
+| 16 | **Evaluación final.** Informe ejecutivo sobre el conjunto de datos propio | Todos los de la unidad | **40%** |
+:::
+
+## Distribución evaluativa
+
+::: {.calendario}
+| Componente | Semana | Peso |
+|---|:---:|:---:|
+| Cierre de la Unidad 1 | 05 | 30% |
+| Cierre de la Unidad 2 | 10 | 30% |
+| Evaluación final de la Unidad 3 | 16 | 40% |
+:::
+
+Cada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica
+al comenzar la unidad, no la semana de la entrega.
+
+## Criterios de desempeño
+
+Toda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.
+
+### Unidad 1
+
+- Recolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del
+  monitoreo de procesos.
+- Organizar la información en bases de datos en diferentes formatos de almacenamiento (`.txt`,
+  `.xlsx`, `.csv`).
+- Clasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y
+  categóricas (ordinales o nominales).
+- Aplicar los análisis adecuados para cada variable o grupo de variables según la clasificación
+  asignada.
+- Aplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión,
+  boxplot y gráficos de dispersión.
+- Aplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras,
+  segmentar y cruzar variables por categorías.
+- Presentar de forma apropiada los análisis en formato de informe.
+- Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de
+  decisiones.
+- Trabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.
+
+### Unidad 2
+
+- Conocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su
+  aplicación en el cálculo de probabilidades de eventos.
+- Conocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema
+  de Bayes.
+- Conocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.
+- Aplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con
+  procesos industriales y estudios científicos.
+- Aplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con
+  procesos industriales y estudios científicos.
+- Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de
+  decisiones.
+
+### Unidad 3
+
+- Identificar los mecanismos relacionados con procesos inferenciales.
+- Construir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de
+  pruebas científicas.
+- Inferir sobre medias y proporciones en aplicaciones de ingeniería.
+- Realizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.
+- Realizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto
+  de experimentos controlados.
+- Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de
+  decisiones.
+- Desempeñar las funciones asignadas con responsabilidad y compromiso.
+
+## Cómo se evalúa cada entrega
+
+La carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:
+
+| Evidencia | Qué se valora |
+|---|---|
+| Conocimiento | Respondes preguntas orales y escritas sobre los métodos de la unidad |
+| Desempeño | Se observa cómo construyes el análisis, no solo el resultado |
+| Producto | Se valora el informe entregado, con el código que lo produce y las conclusiones |
+
+El contexto de aplicación que fija la carta es el de una planta de producción, en particular el
+área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos
+preventivos y predictivos. Los ejemplos del módulo salen de ahí.

@@ -81,6 +81,187 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/index.html",
+    "href": "estadistica-para-analitica/index.html",
+    "title": "Estadística para Analítica",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "title": "Estadística para Analítica",
+    "section": "De qué se trata el módulo",
+    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. Lo recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir sobre él.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#calendario",
+    "href": "estadistica-para-analitica/index.html#calendario",
+    "title": "Estadística para Analítica",
+    "section": "Calendario",
+    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización y dispersión\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes. Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades y teorema de Bayes. Probabilidad condicional e independencia\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nEstadísticos de prueba\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "title": "Estadística para Analítica",
+    "section": "Distribución evaluativa",
+    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "title": "Estadística para Analítica",
+    "section": "Criterios de desempeño",
+    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "title": "Estadística para Analítica",
+    "section": "Cómo se evalúa cada entrega",
+    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html",
+    "href": "estadistica-para-analitica/semana-01/index.html",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\nDedicación\n3 horas de acompañamiento y 9 de trabajo independiente",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#lo-que-vas-a-lograr",
+    "href": "estadistica-para-analitica/semana-01/index.html#lo-que-vas-a-lograr",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "1 Lo que vas a lograr",
+    "text": "1 Lo que vas a lograr\nAl terminar esta guía tienes Python funcionando para análisis de datos, y tienes un conjunto de mediciones que produjiste tú, guardado en los tres formatos que vas a usar todo el semestre.\nObjetivos concretos:\n\nInstalar y verificar el entorno de Python con pandas.\nEjecutar un experimento de medición y observar por qué los resultados no se repiten.\nGuardar datos en .csv, .txt y .xlsx, y cargarlos de vuelta comprobando que coinciden.\nDistinguir la unidad de observación, la variable y el registro dentro de una tabla de datos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#la-estadística-empieza-antes-del-cálculo",
+    "href": "estadistica-para-analitica/semana-01/index.html#la-estadística-empieza-antes-del-cálculo",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "2 La estadística empieza antes del cálculo",
+    "text": "2 La estadística empieza antes del cálculo\nLa estadística resuelve problemas en cuatro pasos: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nLos cursos suelen empezar por el tercero. Este empieza por el segundo, porque un análisis impecable sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor.\nPiensa en el contexto del módulo: un área de mantenimiento que decide cuándo intervenir una máquina. Alguien tiene que definir qué se mide, cada cuánto, con qué instrumento y quién lo registra. Esas decisiones condicionan todo lo que venga después.\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Instala la misma línea o una superior.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nPython\n3.13.4\n\n\npandas\n2.3.1\n\n\nnumpy\n2.3.2\n\n\nscipy\n1.17.0\n\n\nmatplotlib\n3.10.8\n\n\nseaborn\n0.13.2\n\n\nstatsmodels\n0.14.6\n\n\nopenpyxl\n3.1.5",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
+    "href": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "3 Instalación paso a paso",
+    "text": "3 Instalación paso a paso\n\n1 Python\nDescarga la versión 3.13 desde python.org/downloads.\nEn Windows, marca la casilla Add python.exe to PATH en la primera pantalla del instalador. Es fácil pasarla por alto, y sin ella el comando python no funciona en la terminal.\nEn macOS y Linux el sistema ya trae Python, pero suele ser una versión vieja que además usa el sistema operativo. Comprueba con python3 --version y, si es anterior a 3.11, instala la 3.13 aparte.\n\n\n2 La carpeta del módulo y el entorno virtual\nCrea una carpeta para todo el semestre y ubícate en ella:\nmkdir estadistica-analitica\ncd estadistica-analitica\nAhora crea un entorno virtual. Es una carpeta que contiene una copia aislada de Python con sus propias librerías, para que lo que instales aquí no afecte a otros proyectos ni al sistema:\npython -m venv .venv\nActívalo. El comando cambia según el sistema:\n# Windows, PowerShell\n.venv\\Scripts\\Activate.ps1\n\n# Windows, Git Bash\nsource .venv/Scripts/activate\n\n# macOS y Linux\nsource .venv/bin/activate\nCuando queda activo, el nombre (.venv) aparece al comienzo de la línea de la terminal. Si no lo ves, no está activo, y todo lo que instales va a parar a otro lado.\n\n\n\n\n\n\nAdvertenciaEl entorno se activa en cada terminal nueva\n\n\n\nCerrar la terminal desactiva el entorno. Al día siguiente, cuando vuelvas a la carpeta, tienes que activarlo otra vez antes de trabajar. Es el tropiezo más común de las primeras semanas.\n\n\n\n\n3 Las librerías\nCon el entorno activo, crea un archivo requirements.txt con este contenido:\npandas==2.3.1\nnumpy==2.3.2\nscipy==1.17.0\nmatplotlib==3.10.8\nseaborn==0.13.2\nstatsmodels==0.14.6\nopenpyxl==3.1.5\nE instálalas de una vez:\npip install -r requirements.txt\nFijar las versiones con == sirve para que el código de la guía se comporte igual en tu máquina y en la mía. Cada librería cumple un papel: pandas organiza los datos en tablas, numpy hace el cálculo numérico, scipy y statsmodels traen los métodos estadísticos, y matplotlib con seaborn producen los gráficos. openpyxl es la que permite escribir y leer archivos de Excel.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#verificación",
+    "href": "estadistica-para-analitica/semana-01/index.html#verificación",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "4 Verificación",
+    "text": "4 Verificación\nCon el entorno activo, ejecuta:\npython -c \"import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')\"\nSi imprime todo listo, ya está. Cualquier otra cosa significa que falta una librería o que el entorno no está activo.\nPara ver las versiones instaladas:\npython -c \"import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)\"\n2.3.1 2.3.2 1.17.0",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#experimento-por-qué-se-mide-más-de-una-vez",
+    "href": "estadistica-para-analitica/semana-01/index.html#experimento-por-qué-se-mide-más-de-una-vez",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "5 Experimento: por qué se mide más de una vez",
+    "text": "5 Experimento: por qué se mide más de una vez\nVas a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15,8 milisegundos y la más lenta 38,6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero? La respuesta honesta es que no hay uno solo. Hay un rango, y la estadística sirve para describirlo, modelarlo y sacar conclusiones a pesar de él.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\n\n\n\n\n\n\nTipEste es el método del módulo\n\n\n\nCada vez que aparezca un concepto nuevo, lo vamos a comprobar así: generar datos, repetir el procedimiento muchas veces y mirar si el resultado coincide con lo que la teoría predice.\nEn la semana 11 vas a ver el teorema del límite central ocurrir en pantalla. En la 12 vas a contar cuántas veces falla un intervalo de confianza del 95 por ciento y comprobar que falla cerca de 5 veces de cada 100.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
+    "href": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "6 Los tres formatos de almacenamiento",
+    "text": "6 Los tres formatos de almacenamiento\nLa carta descriptiva pide organizar la información en .csv, .txt y .xlsx. Cada uno tiene su lugar.\n\n\n\n\n\n\n\n\nFormato\nQué es\nCuándo lo vas a usar\n\n\n\n\n.csv\nTexto plano, valores separados por comas\nEl formato por omisión. Lo lee cualquier herramienta y ocupa poco\n\n\n.txt\nTexto plano con otro separador, casi siempre tabulación\nLo que exportan muchos equipos de medición y sistemas industriales\n\n\n.xlsx\nLibro de Excel\nCuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí\n\n\n\nDescarga el archivo de ejemplo, ordenes.csv, que tiene 12 órdenes de mantenimiento. Guárdalo en tu carpeta de trabajo.\nCrea formatos.py:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\n\nordenes.to_csv(\"ordenes_copia.csv\", index=False)\nordenes.to_csv(\"ordenes.txt\", sep=\"\\t\", index=False)\nordenes.to_excel(\"ordenes.xlsx\", index=False)\n\ndesde_csv = pd.read_csv(\"ordenes_copia.csv\")\ndesde_txt = pd.read_csv(\"ordenes.txt\", sep=\"\\t\")\ndesde_xlsx = pd.read_excel(\"ordenes.xlsx\")\n\nprint(\"csv  y txt :\", desde_csv.equals(desde_txt))\nprint(\"csv  y xlsx:\", desde_csv.equals(desde_xlsx))\nprint()\nprint(desde_csv.head())\nprint()\nprint(desde_csv.dtypes)\ncsv  y txt : True\ncsv  y xlsx: True\n\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nLos tres archivos guardan exactamente lo mismo. El index=False evita que pandas agregue una columna extra con la numeración de las filas, que no es un dato y ensucia el archivo.\n\nAnatomía de una tabla de datos\nEsa tabla tiene una estructura que se repite en todo el semestre:\n\nLa unidad de observación es lo que ocupa cada fila. Aquí, una orden de mantenimiento.\nCada variable es una columna: algo que se midió u observó de esa unidad.\nCada registro es una fila completa: todos los valores medidos de una misma unidad.\n\nCuando recojas tus propios datos, decide primero cuál es tu unidad de observación. Si no lo tienes claro, la tabla va a mezclar cosas de distinta naturaleza en la misma columna y ningún análisis posterior va a funcionar.\n\n\nLo que pandas dedujo, y lo que no\nMira otra vez la última salida. Pandas leyó duracion_min como float64 y repuestos como int64, y acertó en ambos. Pero puso object en maquina, turno, tipo y criticidad, que es como dice “texto y no sé nada más”.\nAhí perdió información importante. criticidad tiene un orden natural, baja va antes que media y media antes que alta, pero pandas no lo sabe. Se lo puedes declarar:\nimport pandas as pd\n\ndatos = pd.read_csv(\"ordenes.csv\")\n\norden_criticidad = pd.CategoricalDtype([\"baja\", \"media\", \"alta\"], ordered=True)\ndatos[\"criticidad\"] = datos[\"criticidad\"].astype(orden_criticidad)\ndatos[\"maquina\"] = datos[\"maquina\"].astype(\"category\")\n\nprint(datos.dtypes)\nprint()\nprint(datos.loc[datos[\"criticidad\"] &gt; \"baja\", [\"orden\", \"maquina\", \"criticidad\"]])\norden              int64\nmaquina         category\nturno             object\ntipo              object\ncriticidad      category\nduracion_min     float64\nrepuestos          int64\ndtype: object\n\n    orden maquina criticidad\n1     102  TOR-02       alta\n2     103  FRE-01      media\n4     105  FRE-02       alta\n5     106  TOR-02      media\n6     107  FRE-01       alta\n8     109  FRE-02      media\n9     110  TOR-02       alta\n11    112  TOR-01      media\nLa comparación criticidad &gt; \"baja\" funciona porque le declaraste el orden. Sin esa declaración, esa línea falla.\nEsto es un adelanto de la Semana 02, donde la clasificación de variables se trabaja completa. Por ahora quédate con la idea: la naturaleza de una variable la declaras tú, no la adivina la herramienta, y de esa declaración depende qué análisis puedes hacer después.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "7 Errores frecuentes",
+    "text": "7 Errores frecuentes\n\nError 1\n\nModuleNotFoundError: No module named ‘pandas’\nCausa. El entorno virtual no está activo, o instalaste las librerías sin activarlo.\nSolución. Mira el comienzo de la línea de la terminal. Si no dice (.venv), actívalo con el comando de tu sistema y vuelve a intentar. Si ya está activo, ejecuta pip install -r requirements.txt otra vez: la primera vez fue a parar al Python del sistema.\n\n\n\nError 2\n\nModuleNotFoundError: No module named ‘openpyxl’ al guardar el .xlsx\nCausa. Pandas no escribe Excel por su cuenta: necesita openpyxl y lo importa solo cuando lo usas. Por eso el error aparece en la línea del to_excel y no al comienzo.\nSolución. pip install openpyxl==3.1.5, con el entorno activo.\n\n\n\nError 3\n\nFileNotFoundError: ordenes.csv\nCausa. La terminal no está parada en la carpeta donde guardaste el archivo. Python busca los archivos desde el directorio actual, no desde donde está el script.\nSolución. Ejecuta pwd en macOS y Linux, o cd sin argumentos en PowerShell, para ver dónde estás. Muévete a la carpeta correcta con cd y vuelve a ejecutar.\n\n\n\nError 4\n\nAl abrir el .csv, Excel mete todo en una sola columna\nCausa. Excel en español espera punto y coma como separador, no coma.\nSolución. No abras el .csv con doble clic. Usa el .xlsx que generaste, que es justo para eso. Si necesitas el .csv en Excel, ábrelo desde Datos, Obtener datos, Desde un archivo de texto y elige la coma como separador.\nNo cambies el separador del archivo: la coma es el estándar y el resto del semestre asume que la tiene.\n\n\n\nError 5\n\nTypeError al comparar criticidad con “baja”\nCausa. La columna sigue siendo object. Sin declararle el orden, pandas no puede decidir si media es mayor que baja.\nSolución. Conviértela con pd.CategoricalDtype([...], ordered=True) antes de compararla, como en el ejemplo de arriba. Verifica con datos.dtypes que quedó en category.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#tu-conjunto-de-datos-propio",
+    "href": "estadistica-para-analitica/semana-01/index.html#tu-conjunto-de-datos-propio",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "8 Tu conjunto de datos propio",
+    "text": "8 Tu conjunto de datos propio\nEste es el trabajo principal de la semana y el insumo de las tres entregas calificadas del semestre. En la semana 5 lo vas a describir, en la 10 lo vas a modelar y en la 16 vas a inferir sobre él.\nQué tiene que cumplir:\n\nMínimo 40 registros.\nAl menos dos variables numéricas, una discreta y una continua.\nAl menos dos variables categóricas, una de ellas ordinal.\nLos datos los produces tú, midiendo u observando. No sirve un archivo descargado de internet.\n\nDe dónde pueden salir. Tiempos de un proceso que puedas repetir, registros de tu trabajo, consumos, mediciones con un sensor o con el teléfono, conteos de eventos por franja horaria. Si trabajas en planta, un histórico de intervenciones que tú mismo levantes sirve perfecto.\nQué entregas:\n\nEl conjunto de datos en los tres formatos.\nEl script que lo generó o el procedimiento de medición escrito, si lo recogiste a mano.\nUn diccionario de datos de una página: por cada columna, qué mide, en qué unidad, de qué naturaleza es y qué valores puede tomar.\n\nSustenta el alcance en la sesión antes de empezar a medir. Corregir un conjunto de datos mal diseñado en la semana 5 cuesta mucho más que ajustarlo ahora.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-de-la-semana",
+    "href": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "9 Lista de chequeo de la semana",
+    "text": "9 Lista de chequeo de la semana\n\nAntes de cerrar la semana, confirma que tienes todo esto\n\npython --version responde con 3.13 o superior\nEl entorno virtual se activa y muestra (.venv) en la terminal\nEl import de las seis librerías imprime todo listo\nexperimento.py corrió y generó tiempos_ordenamiento.csv con 200 filas\nSabes explicar por qué las 200 mediciones dieron distinto\nGuardaste y volviste a cargar datos en .csv, .txt y .xlsx, y los tres coinciden\nConvertiste criticidad a categórica ordenada y la comparación funcionó\nDefiniste la unidad de observación de tu conjunto de datos propio\nTu conjunto de datos tiene 40 registros, 2 variables numéricas y 2 categóricas\nEscribiste el diccionario de datos",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-01/index.html#recursos",
+    "title": "Semana 1. El entorno de trabajo y tus primeras mediciones",
+    "section": "10 Recursos",
+    "text": "10 Recursos\n\nDescarga de Python: python.org/downloads\nEntornos virtuales: docs.python.org/es/3/library/venv.html\nLectura y escritura de datos con pandas: pandas.pydata.org/docs/user_guide/io.html\nDatos categóricos en pandas: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de ejemplo de esta guía: ordenes.csv\nJames, G. et al. (2021). An Introduction to Statistical Learning. Capítulo 1.\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Entorno y primeras mediciones"
+    ]
+  },
+  {
     "objectID": "herramientas-programacion-1/semana-01/index.html",
     "href": "herramientas-programacion-1/semana-01/index.html",
     "title": "Semana 1. El IDE y tu primer programa en C#",

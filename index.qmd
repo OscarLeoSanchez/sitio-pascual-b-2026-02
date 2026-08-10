@@ -22,6 +22,17 @@ funciones, programación orientada a objetos e interfaces gráficas con Windows 
 [Ver el curso](herramientas-programacion-1/index.qmd){.btn-curso}
 :::
 
+::: {.curso-tarjeta}
+### [Estadística para Analítica](estadistica-para-analitica/index.qmd)
+
+**Posgrado.** Especialización en Big Data
+
+Estadística aplicada con Python: análisis exploratorio de datos, modelos de probabilidad,
+estimación, pruebas de hipótesis, ANOVA y regresión lineal, con enfoque experimental.
+
+[Ver el módulo](estadistica-para-analitica/index.qmd){.btn-curso}
+:::
+
 :::
 
 ## Cómo usar este sitio
