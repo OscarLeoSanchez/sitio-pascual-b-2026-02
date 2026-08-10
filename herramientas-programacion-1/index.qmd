@@ -1,0 +1,142 @@
+---
+title: "Herramientas de Programación I"
+subtitle: "ET0047. Tecnología en Desarrollo de Software"
+number-sections: false
+# Pandoc reparte los anchos de cada tabla por su cuenta y escribe un colgroup
+# con estilos en linea, asi que ninguna tabla del calendario coincidia con la
+# siguiente. Desactivarlo deja el control en estilo.scss.
+tbl-colwidths: false
+---
+
+::: {.ficha}
+|            |                                            |
+|------------|--------------------------------------------|
+| Asignatura | Herramientas de Programación I (ET0047)    |
+| Programa   | Tecnología en Desarrollo de Software        |
+| Docente    | Oscar Leonel Sánchez Conde                 |
+| Modalidad  | Virtual. 4 créditos, 192 horas             |
+| Dedicación | 4 horas de encuentro sincrónico y 8 de trabajo independiente por semana |
+| Prerrequisito | ET0045 Fundamentos de Programación      |
+:::
+
+## De qué se trata el curso
+
+En Fundamentos de Programación escribiste algoritmos. Aquí los conviertes en programas que
+funcionan. El lenguaje es **C#** y la plataforma es **.NET 10**.
+
+El semestre avanza en tres tramos. Primero programas de consola: sintaxis, variables, decisiones y
+ciclos. Después arreglos y funciones, para manejar conjuntos de datos y partir el código en piezas
+reutilizables. Al final, programación orientada a objetos con interfaz gráfica y guardado de
+información en archivos.
+
+Todo se articula alrededor de **un mismo proyecto que crece durante el semestre**. Lo que entregas
+en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación
+final.
+
+::: {.callout-important}
+## Si trabajas en macOS o Linux, léelo ahora
+
+Las unidades 1 y 2 son de consola y corren igual en Windows, macOS y Linux. La **unidad 3 usa
+Windows Forms, que solo funciona en Windows**. Desde la semana 11 vas a necesitar Windows: una
+máquina virtual, arranque dual o una sala de cómputo de la institución.
+
+Resuélvelo durante las primeras semanas. Enterarte en la semana 11 te deja sin tiempo.
+:::
+
+## Calendario
+
+Las semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el
+semestre.
+
+### Unidad 1. Aplicaciones de consola con un IDE
+
+::: {.calendario}
+| Sem | Temática | Saberes de la carta descriptiva | % |
+|:---:|---|---|:---:|
+| **[01](semana-01/index.qmd)** | Presentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa | Definición de IDE, estructura y función. Manejo de una herramienta de programación | - |
+| 02 | Estructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola | Manejo de una herramienta de programación. Tipos de variables | - |
+| 03 | Operadores aritméticos, lógicos y de comparación. Precedencia | Tipos y precedencia de operadores aritméticos, lógicos y de comparación | - |
+| 04 | Sentencias de control condicionales: `if`, `else`, `else if`, `switch` | Sentencias de control condicionales | - |
+| 05 | Ciclos `for` y `while`. Acumuladores, contadores y banderas. **Cierre de la Unidad 1** | Sentencias `for` y `while`. Acumuladores, contadores y banderas | **30%** |
+:::
+
+### Unidad 2. Arreglos y funciones
+
+::: {.calendario}
+| Sem | Temática | Saberes de la carta descriptiva | % |
+|:---:|---|---|:---:|
+| 06 | Estructuras de datos tipo arreglo: vectores | Estructura de datos tipo vectores y matrices | - |
+| 07 | Matrices | Estructura de datos tipo vectores y matrices | - |
+| 08 | Funciones: parámetros de entrada y valor de retorno | Funciones, parámetros de entrada y retorno | - |
+| 09 | Paso de parámetros por valor y por referencia | Paso de parámetros a funciones por valor y por referencia | - |
+| 10 | Creación de menús con aplicación de funciones. **Cierre de la Unidad 2** | Creación de menús con aplicación de funciones | **30%** |
+:::
+
+### Unidad 3. Programación orientada a objetos y aplicaciones gráficas
+
+::: {.calendario}
+| Sem | Temática | Saberes de la carta descriptiva | % |
+|:---:|---|---|:---:|
+| 11 | Paradigma de la POO: clases y objetos. Atributos, métodos y constructores | Definición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase | - |
+| 12 | Instanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML | Instanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados | - |
+| 13 | Estándares de documentación para escritura de código | Estándares de documentación para escritura de códigos de programación | - |
+| 14 | Manejo de archivos de texto para persistencia | Manejo de archivos de texto | - |
+| 15 | Elementos GUI con Windows Forms: propiedades y eventos de control | Elementos GUI, propiedades y eventos de control | - |
+| 16 | **Evaluación final.** Aplicación con interfaz gráfica, POO y persistencia en archivo | Todos los de la unidad | **40%** |
+:::
+
+## Distribución evaluativa
+
+::: {.calendario}
+| Componente | Semana | Peso |
+|---|:---:|:---:|
+| Cierre de la Unidad 1 | 05 | 30% |
+| Cierre de la Unidad 2 | 10 | 30% |
+| Evaluación final de la Unidad 3 | 16 | 40% |
+:::
+
+Cada corte evalúa un incremento del proyecto del semestre. Publico el enunciado y la rúbrica al
+comenzar la unidad, no la semana de la entrega.
+
+## Criterios de desempeño
+
+Toda rúbrica del curso se traza a los criterios de la carta descriptiva. Estos son, por unidad.
+
+### Unidad 1
+
+- Identifica las características y funciones de un IDE.
+- Reconoce la estructura básica de un programa.
+- Aplica la sintaxis a un lenguaje de programación de estudio.
+- Analiza los tipos de variables y operadores.
+- Propone las sentencias aplicadas en una programación estructurada.
+- Participa en las actividades propuestas durante la jornada académica y las horas de trabajo
+  independiente.
+
+### Unidad 2
+
+- Identifica sentencias de programación en la solución de problemas básicos.
+- Reconoce las estructuras de datos tipo arreglo.
+- Manipula el uso de funciones para el diseño de aplicaciones.
+- Administra sentencias de programación, estructura de datos y funciones en el diseño de
+  aplicaciones de software.
+- Participa en las actividades planteadas actuando de acuerdo con los principios éticos y morales
+  de la misión y visión institucional.
+
+### Unidad 3
+
+- Implementa los elementos de la programación orientada a objetos.
+- Emplea archivos de texto para la persistencia de información.
+- Construye con diferentes elementos gráficos aplicaciones con interfaz de usuario.
+- Documenta los programas según los estándares de programación.
+- Asume los valores de orden, organización, responsabilidad y puntualidad, a través del desarrollo
+  de las tareas asignadas.
+
+## Cómo se evalúa cada entrega
+
+La carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:
+
+| Evidencia | Qué se valora |
+|---|---|
+| Conocimiento | Respondes preguntas y resuelves problemas sobre los temas de la unidad |
+| Desempeño | Se observa cómo desarrollas la aplicación, no solo el resultado |
+| Producto | Se valora el software entregado: que compile, que funcione y que resuelva lo pedido |

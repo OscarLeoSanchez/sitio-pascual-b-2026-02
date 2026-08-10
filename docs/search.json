@@ -1,0 +1,204 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Material de clase 2026-02",
+    "section": "",
+    "text": "Publico aquí las guías de las asignaturas que oriento este semestre. Cada semana tiene la suya: el paso a paso del tema, el código que debe compilar en tu máquina y los errores frecuentes con su solución."
+  },
+  {
+    "objectID": "index.html#cómo-usar-este-sitio",
+    "href": "index.html#cómo-usar-este-sitio",
+    "title": "Material de clase 2026-02",
+    "section": "Cómo usar este sitio",
+    "text": "Cómo usar este sitio\nPublico la guía antes del encuentro sincrónico. Léela antes de conectarte, porque en la sesión avanzamos sobre lo que ya leíste.\nPuedes abrir las guías desde el navegador, en el computador o en el teléfono. No descargas nada ni inicias sesión.\n\n\n\n\n\n\nTipGuarda el enlace, no los archivos\n\n\n\nLa dirección de este sitio no cambia en todo el semestre y muestra la versión más reciente. Si descargas un archivo y después corrijo la guía, te quedas con la copia vieja."
+  },
+  {
+    "objectID": "index.html#sobre-el-material",
+    "href": "index.html#sobre-el-material",
+    "title": "Material de clase 2026-02",
+    "section": "Sobre el material",
+    "text": "Sobre el material\nEscribí las guías para quien ya vio Fundamentos de Programación pero nunca ha escrito código en C#. Probé cada procedimiento y cada programa en una máquina real antes de publicarlo, y las salidas de terminal son auténticas de esa preparación.\nSi encuentras un error, un enlace roto o un paso que falla en tu equipo, dímelo en el encuentro o por el canal del curso. Lo corrijo y queda arreglado para todos.\n\nOscar Leonel Sánchez Conde. Institución Universitaria Pascual Bravo, Facultad de Ingeniería. Semestre 2026-02."
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html",
+    "href": "herramientas-programacion-1/index.html",
+    "title": "Herramientas de Programación I",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nVirtual. 4 créditos, 192 horas\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente por semana\n\n\nPrerrequisito\nET0045 Fundamentos de Programación",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html#de-qué-se-trata-el-curso",
+    "href": "herramientas-programacion-1/index.html#de-qué-se-trata-el-curso",
+    "title": "Herramientas de Programación I",
+    "section": "De qué se trata el curso",
+    "text": "De qué se trata el curso\nEn Fundamentos de Programación escribiste algoritmos. Aquí los conviertes en programas que funcionan. El lenguaje es C# y la plataforma es .NET 10.\nEl semestre avanza en tres tramos. Primero programas de consola: sintaxis, variables, decisiones y ciclos. Después arreglos y funciones, para manejar conjuntos de datos y partir el código en piezas reutilizables. Al final, programación orientada a objetos con interfaz gráfica y guardado de información en archivos.\nTodo se articula alrededor de un mismo proyecto que crece durante el semestre. Lo que entregas en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación final.\n\n\n\n\n\n\nImportanteSi trabajas en macOS o Linux, léelo ahora\n\n\n\nLas unidades 1 y 2 son de consola y corren igual en Windows, macOS y Linux. La unidad 3 usa Windows Forms, que solo funciona en Windows. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o una sala de cómputo de la institución.\nResuélvelo durante las primeras semanas. Enterarte en la semana 11 te deja sin tiempo.",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html#calendario",
+    "href": "herramientas-programacion-1/index.html#calendario",
+    "title": "Herramientas de Programación I",
+    "section": "Calendario",
+    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Aplicaciones de consola con un IDE\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa\nDefinición de IDE, estructura y función. Manejo de una herramienta de programación\n-\n\n\n02\nEstructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola\nManejo de una herramienta de programación. Tipos de variables\n-\n\n\n03\nOperadores aritméticos, lógicos y de comparación. Precedencia\nTipos y precedencia de operadores aritméticos, lógicos y de comparación\n-\n\n\n04\nSentencias de control condicionales: if, else, else if, switch\nSentencias de control condicionales\n-\n\n\n05\nCiclos for y while. Acumuladores, contadores y banderas. Cierre de la Unidad 1\nSentencias for y while. Acumuladores, contadores y banderas\n30%\n\n\n\n\n\n\nUnidad 2. Arreglos y funciones\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nEstructuras de datos tipo arreglo: vectores\nEstructura de datos tipo vectores y matrices\n-\n\n\n07\nMatrices\nEstructura de datos tipo vectores y matrices\n-\n\n\n08\nFunciones: parámetros de entrada y valor de retorno\nFunciones, parámetros de entrada y retorno\n-\n\n\n09\nPaso de parámetros por valor y por referencia\nPaso de parámetros a funciones por valor y por referencia\n-\n\n\n10\nCreación de menús con aplicación de funciones. Cierre de la Unidad 2\nCreación de menús con aplicación de funciones\n30%\n\n\n\n\n\n\nUnidad 3. Programación orientada a objetos y aplicaciones gráficas\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nParadigma de la POO: clases y objetos. Atributos, métodos y constructores\nDefinición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase\n-\n\n\n12\nInstanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML\nInstanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados\n-\n\n\n13\nEstándares de documentación para escritura de código\nEstándares de documentación para escritura de códigos de programación\n-\n\n\n14\nManejo de archivos de texto para persistencia\nManejo de archivos de texto\n-\n\n\n15\nElementos GUI con Windows Forms: propiedades y eventos de control\nElementos GUI, propiedades y eventos de control\n-\n\n\n16\nEvaluación final. Aplicación con interfaz gráfica, POO y persistencia en archivo\nTodos los de la unidad\n40%",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html#distribución-evaluativa",
+    "href": "herramientas-programacion-1/index.html#distribución-evaluativa",
+    "title": "Herramientas de Programación I",
+    "section": "Distribución evaluativa",
+    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte evalúa un incremento del proyecto del semestre. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html#criterios-de-desempeño",
+    "href": "herramientas-programacion-1/index.html#criterios-de-desempeño",
+    "title": "Herramientas de Programación I",
+    "section": "Criterios de desempeño",
+    "text": "Criterios de desempeño\nToda rúbrica del curso se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nIdentifica las características y funciones de un IDE.\nReconoce la estructura básica de un programa.\nAplica la sintaxis a un lenguaje de programación de estudio.\nAnaliza los tipos de variables y operadores.\nPropone las sentencias aplicadas en una programación estructurada.\nParticipa en las actividades propuestas durante la jornada académica y las horas de trabajo independiente.\n\n\n\nUnidad 2\n\nIdentifica sentencias de programación en la solución de problemas básicos.\nReconoce las estructuras de datos tipo arreglo.\nManipula el uso de funciones para el diseño de aplicaciones.\nAdministra sentencias de programación, estructura de datos y funciones en el diseño de aplicaciones de software.\nParticipa en las actividades planteadas actuando de acuerdo con los principios éticos y morales de la misión y visión institucional.\n\n\n\nUnidad 3\n\nImplementa los elementos de la programación orientada a objetos.\nEmplea archivos de texto para la persistencia de información.\nConstruye con diferentes elementos gráficos aplicaciones con interfaz de usuario.\nDocumenta los programas según los estándares de programación.\nAsume los valores de orden, organización, responsabilidad y puntualidad, a través del desarrollo de las tareas asignadas.",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html#cómo-se-evalúa-cada-entrega",
+    "href": "herramientas-programacion-1/index.html#cómo-se-evalúa-cada-entrega",
+    "title": "Herramientas de Programación I",
+    "section": "Cómo se evalúa cada entrega",
+    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas y resuelves problemas sobre los temas de la unidad\n\n\nDesempeño\nSe observa cómo desarrollas la aplicación, no solo el resultado\n\n\nProducto\nSe valora el software entregado: que compile, que funcione y que resuelva lo pedido",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html",
+    "href": "herramientas-programacion-1/semana-01/index.html",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 1. Aplicaciones de consola con un IDE\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#lo-que-vas-a-lograr",
+    "href": "herramientas-programacion-1/semana-01/index.html#lo-que-vas-a-lograr",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "1 Lo que vas a lograr",
+    "text": "1 Lo que vas a lograr\nAl terminar esta guía tu computador queda con las herramientas del semestre instaladas, y tienes un programa en C# compilando y ejecutándose. En la Semana 2 empiezas a trabajar con variables y con la entrada de datos en serio.\nObjetivos concretos:\n\nExplicar qué es un IDE y qué hace cada una de sus partes.\nInstalar y verificar el SDK de .NET, Visual Studio 2026 Community y Git.\nCrear, compilar y ejecutar un proyecto de consola desde la terminal y desde el IDE.\nReconocer las partes de un programa mínimo de C#.\n\n\n\n\n\n\n\nImportanteSi trabajas en macOS o Linux, resuélvelo estas primeras semanas\n\n\n\nLas unidades 1 y 2 son programas de consola y corren igual en los tres sistemas. La unidad 3 usa Windows Forms, que solo existe en Windows. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o la sala de cómputo de la institución.\nOcúpate de esto ahora. Enterarte en la semana 11 te deja sin margen.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#qué-es-un-ide",
+    "href": "herramientas-programacion-1/semana-01/index.html#qué-es-un-ide",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "2 Qué es un IDE",
+    "text": "2 Qué es un IDE\nIDE significa Integrated Development Environment, entorno de desarrollo integrado. Es un solo programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que usarlas por separado, cada una con su propia forma de invocarse.\nEstas son las partes que lo componen y para qué sirve cada una:\n\n\n\n\n\n\n\nParte\nQué hace\n\n\n\n\nEditor de código\nEscribes el código. Colorea la sintaxis, autocompleta nombres y subraya los errores mientras escribes\n\n\nCompilador\nTraduce tu código a algo que la máquina puede ejecutar. Si hay errores de sintaxis, los reporta y no genera nada\n\n\nDepurador\nDetiene el programa en el punto que le indiques y te deja ver el valor de cada variable en ese instante\n\n\nGestor de proyectos\nOrganiza los archivos, las referencias y la configuración de compilación\n\n\nTerminal integrada\nEjecuta comandos sin salir del entorno\n\n\nControl de versiones\nRegistra el historial de cambios y lo sincroniza con un repositorio remoto\n\n\n\nEn este curso el IDE es Visual Studio 2026 Community, el lenguaje es C# y la plataforma es .NET 10.\nConviene separar tres cosas que se confunden:\n\nC# es el lenguaje. Las palabras y las reglas con las que escribes.\n.NET es la plataforma. Las bibliotecas que ya vienen hechas y el motor que ejecuta tu programa.\nVisual Studio es el IDE. La herramienta con la que trabajas sobre los dos anteriores.\n\nPuedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Instala la misma línea o una superior.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nSDK de .NET\n10.0.103\n\n\nGit\n2.50.0\n\n\nVisual Studio 2026 Community\n18.3\n\n\n\n\n\n\n\n\n\nNotaSobre la versión de Visual Studio\n\n\n\nEl número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de Visual Studio 2026 Community sirve para el curso.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#instalación-paso-a-paso",
+    "href": "herramientas-programacion-1/semana-01/index.html#instalación-paso-a-paso",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "3 Instalación paso a paso",
+    "text": "3 Instalación paso a paso\n\n1 SDK de .NET\nEs lo que compila y ejecuta tu código. Descarga la versión 10 desde dotnet.microsoft.com/download.\nInstala el SDK, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más común del curso.\nAcepta las opciones por omisión del instalador.\n\n\n2 Visual Studio 2026 Community\nDescarga desde visualstudio.microsoft.com. La edición Community es gratuita para estudiantes.\nEn el instalador aparece una lista de cargas de trabajo. Marca Desarrollo de escritorio de .NET. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2 y para Windows Forms en la unidad 3.\nNo marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.\n\n\n\n\n\n\nAdvertenciaReserva espacio y tiempo\n\n\n\nLa instalación pasa de 8 GB de descarga. Con una conexión doméstica puede tomar una hora larga. Empieza la descarga antes del encuentro sincrónico, no durante.\nDeja 20 GB libres en disco antes de arrancar.\n\n\n\n\n3 Git\nDescarga desde git-scm.com/downloads y acepta las opciones por omisión.\nEsta semana solo lo instalas. Lo vas a usar para entregar tu proyecto y para guardar el historial de tu trabajo.\n\n\n4 Solo si usas macOS o Linux: VS Code\nVisual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de 2024 y nunca existió para Linux.\nInstala VS Code y la extensión C# Dev Kit, publicada por Microsoft:\ncode --install-extension ms-dotnettools.csdevkit\nCon VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas Windows.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#verificación",
+    "href": "herramientas-programacion-1/semana-01/index.html#verificación",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "4 Verificación",
+    "text": "4 Verificación\nAbre una terminal nueva. Las que ya estaban abiertas no ven los cambios que los instaladores hicieron en el PATH, y los comandos van a fallar aunque la instalación esté bien.\nEjecuta:\ndotnet --version\ngit --version\nEstas son las respuestas reales de la máquina donde preparé la guía:\n&gt; dotnet --version\n10.0.103\n\n&gt; git --version\ngit version 2.50.0.windows.2\nLos números pueden ser mayores que los de arriba y no pasa nada. Lo que importa es que ningún comando responda con un error.\nPara ver todos los SDK instalados:\ndotnet --list-sdks\n10.0.103 [C:\\Program Files\\dotnet\\sdk]",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#tu-primer-programa-desde-la-terminal",
+    "href": "herramientas-programacion-1/semana-01/index.html#tu-primer-programa-desde-la-terminal",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "5 Tu primer programa desde la terminal",
+    "text": "5 Tu primer programa desde la terminal\nVas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un camino que funciona aunque el IDE falle.\n\nPaso 1: crea el proyecto\nUbícate en la carpeta donde guardas tus trabajos y ejecuta:\ndotnet new console -o HolaPascual\nLa salida es esta. Donde dice &lt;tu carpeta&gt; va la ruta real de tu equipo:\nLa plantilla \"Aplicación de consola\" se creó correctamente.\n\nProcesando acciones posteriores a la creación...\nRestaurando &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj:\n  Determinando los proyectos que se van a restaurar...\n  Se ha restaurado &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj (en 91 ms).\nRestauración realizada correctamente.\nSe creó una carpeta HolaPascual con dos archivos que importan.\n\n\nPaso 2: mira lo que se creó\nEl primero es HolaPascual.csproj, el archivo de proyecto:\n&lt;Project Sdk=\"Microsoft.NET.Sdk\"&gt;\n\n  &lt;PropertyGroup&gt;\n    &lt;OutputType&gt;Exe&lt;/OutputType&gt;\n    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;\n    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;\n    &lt;Nullable&gt;enable&lt;/Nullable&gt;\n  &lt;/PropertyGroup&gt;\n\n&lt;/Project&gt;\nDice cuatro cosas: que el resultado es un ejecutable, que apunta a .NET 10, que importa las bibliotecas más comunes sin que las escribas, y que avisa cuando una variable puede quedar sin valor.\nEl segundo es Program.cs, tu código:\n// See https://aka.ms/new-console-template for more information\nConsole.WriteLine(\"Hello, World!\");\nDos líneas. Una de ellas es un comentario.\n\n\nPaso 3: ejecútalo\nEntra a la carpeta y ejecuta:\ncd HolaPascual\ndotnet run\nHello, World!\nYa tienes un programa de C# funcionando.\n\n\nPaso 4: escribe tu propio código\nAbre Program.cs y reemplaza su contenido por esto:\n// Herramientas de Programacion I - Semana 01\n// Primer programa: entrada por teclado y salida por consola.\n\nConsole.WriteLine(\"Herramientas de Programacion I\");\nConsole.WriteLine(\"Tecnologia en Desarrollo de Software\");\nConsole.WriteLine();\n\nConsole.Write(\"Escribe tu nombre: \");\nstring? nombre = Console.ReadLine();\n\nConsole.WriteLine();\nConsole.WriteLine($\"Hola, {nombre}. Tu entorno de desarrollo funciona.\");\nEjecuta dotnet run otra vez y escribe tu nombre cuando lo pida:\nHerramientas de Programacion I\nTecnologia en Desarrollo de Software\n\nEscribe tu nombre: Ana Maria\n\nHola, Ana Maria. Tu entorno de desarrollo funciona.\nCuatro cosas nuevas aparecieron ahí:\n\nConsole.WriteLine escribe y salta de línea. Console.Write escribe y se queda en la misma línea, que es lo que quieres cuando pides un dato.\nConsole.ReadLine espera a que el usuario teclee algo y presione Enter, y devuelve lo que escribió.\nstring? nombre guarda ese texto. El signo de interrogación advierte que podría no llegar nada.\n$\"Hola, {nombre}.\" mete el valor de la variable dentro del texto. Se llama interpolación y la vas a usar todo el semestre.\n\n\n\nPaso 5: compila sin ejecutar\ndotnet run compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien escrito, usa:\ndotnet build\n  Determinando los proyectos que se van a restaurar...\n  Todos los proyectos están actualizados para la restauración.\n  HolaPascual -&gt; &lt;tu carpeta&gt;\\HolaPascual\\bin\\Debug\\net10.0\\HolaPascual.dll\n\nCompilación correcta.\n    0 Advertencia(s)\n    0 Errores\n\nTiempo transcurrido 00:00:01.11\nEsas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no funcione.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#el-mismo-programa-desde-visual-studio",
+    "href": "herramientas-programacion-1/semana-01/index.html#el-mismo-programa-desde-visual-studio",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "6 El mismo programa desde Visual Studio",
+    "text": "6 El mismo programa desde Visual Studio\nAhora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.\n\nAbre Visual Studio y elige Crear un proyecto.\nBusca la plantilla Aplicación de consola y confirma que dice C#. Hay plantillas con nombre parecido para otros lenguajes.\nPonle nombre HolaVisual y elige la carpeta donde guardas tus trabajos.\nEn la pantalla siguiente, deja .NET 10.0 como framework de destino.\nPresiona F5 para ejecutar.\n\nSe abre una ventana de consola con la salida. Al lado tienes el Explorador de soluciones, que es el mismo .csproj y el mismo Program.cs de antes, presentados en forma de árbol.\n\nPrueba el depurador\nEsta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el Program.cs de este proyecto y haz esto:\n\nHaz clic en el margen izquierdo, a la altura de la línea string? nombre = Console.ReadLine();. Aparece un punto rojo: es un punto de interrupción.\nPresiona F5. El programa arranca y se detiene justo en esa línea, antes de ejecutarla.\nPresiona F10 para avanzar una línea. Escribe tu nombre en la consola cuando lo pida.\nPasa el cursor sobre nombre. Visual Studio te muestra el valor que tiene en ese momento.\nPresiona F5 para dejar que termine.\n\nAcabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto es lo que te dice por qué.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#errores-frecuentes",
+    "href": "herramientas-programacion-1/semana-01/index.html#errores-frecuentes",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "7 Errores frecuentes",
+    "text": "7 Errores frecuentes\n\nError 1\n\ndotnet no se reconoce como comando\nCausa. Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el PATH nuevo.\nSolución. Cierra todas las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar el instalador del SDK y revisa que terminara sin errores.\n\n\n\nError 2\n\nInstalé .NET pero dotnet build falla\nCausa. Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no sabe compilar.\nSolución. Ejecuta dotnet --list-sdks. Si no imprime ninguna línea, no tienes SDK. Vuelve a dotnet.microsoft.com/download y descarga el que dice SDK.\n\n\n\nError 3\n\nLa ventana de la consola se cierra de inmediato\nCausa. Ejecutaste con Ctrl+F5 en Visual Studio, o hiciste doble clic sobre el .exe. El programa termina y la ventana se va con él.\nSolución. Ejecuta con F5, que mantiene la ventana abierta al terminar. También puedes agregar Console.ReadKey(); como última línea para que espere una tecla.\n\n\n\nError 4\n\nEl proyecto no compila y no encuentro qué cambié\nCausa. Casi siempre falta un punto y coma, o hay una llave sin cerrar.\nSolución. Mira la ventana Lista de errores de Visual Studio, o la salida de dotnet build en la terminal. Cada error trae archivo y número de línea. Corrige siempre el primero de la lista: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.\n\n\n\nError 5\n\nLos acentos y las eñes salen como símbolos raros en la consola\nCausa. La consola de Windows usa una codificación distinta a la del archivo de código.\nSolución. Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la Semana 2 lo resolvemos con Console.OutputEncoding.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#lista-de-chequeo-de-la-semana",
+    "href": "herramientas-programacion-1/semana-01/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "8 Lista de chequeo de la semana",
+    "text": "8 Lista de chequeo de la semana\n\nAntes de cerrar la semana, confirma que tienes todo esto\n\ndotnet --version responde con la versión del SDK\ndotnet --list-sdks imprime al menos una línea\ngit --version responde\nVisual Studio 2026 instalado con la carga de trabajo de escritorio de .NET, si usas Windows\nCreaste HolaPascual desde la terminal y dotnet run lo ejecutó\nModificaste Program.cs y el programa te saluda con tu nombre\nCreaste el mismo proyecto desde Visual Studio y lo ejecutaste con F5\nPusiste un punto de interrupción y viste el valor de una variable\nSi usas macOS o Linux, ya sabes cómo vas a tener Windows para la unidad 3",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#para-el-trabajo-independiente",
+    "href": "herramientas-programacion-1/semana-01/index.html#para-el-trabajo-independiente",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "9 Para el trabajo independiente",
+    "text": "9 Para el trabajo independiente\nEstas horas son para que el entorno quede sólido, no para adelantar temas.\n\nRepite el proyecto desde cero sin mirar la guía. Bórralo y hazlo otra vez.\nModifica el programa para que pregunte también el semestre y lo incluya en el saludo.\nProvoca un error a propósito: quita un punto y coma, compila y lee el mensaje completo. Fíjate en el archivo y la línea que reporta.\nRecorre tu programa entero con F10, línea por línea, hasta el final.\n\nNo hay entrega calificada esta semana. En la Semana 2 damos por hecho que tu entorno funciona.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/index.html#recursos",
+    "href": "herramientas-programacion-1/semana-01/index.html#recursos",
+    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "section": "10 Recursos",
+    "text": "10 Recursos\n\nDescarga del SDK de .NET: dotnet.microsoft.com/download\nDescarga de Visual Studio Community: visualstudio.microsoft.com\nDescarga de Git: git-scm.com/downloads\nDocumentación de C#: learn.microsoft.com/dotnet/csharp\nComando dotnet new: learn.microsoft.com/dotnet/core/tools/dotnet-new\nDepuración en Visual Studio: learn.microsoft.com/visualstudio/debugger\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, tomadas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. El IDE y el primer programa"
+    ]
+  }
+]

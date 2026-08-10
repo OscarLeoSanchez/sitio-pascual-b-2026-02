@@ -1,0 +1,54 @@
+---
+title: "Material de clase 2026-02"
+subtitle: "Institución Universitaria Pascual Bravo. Facultad de Ingeniería"
+toc: false
+number-sections: false
+---
+
+Publico aquí las guías de las asignaturas que oriento este semestre. Cada semana tiene la suya: el
+paso a paso del tema, el código que debe compilar en tu máquina y los errores frecuentes con su
+solución.
+
+::: {.cursos}
+
+::: {.curso-tarjeta}
+### [Herramientas de Programación I](herramientas-programacion-1/index.qmd)
+
+**ET0047.** Tecnología en Desarrollo de Software
+
+Programación en C# con .NET: entornos de desarrollo, sintaxis y estructuras de control, arreglos y
+funciones, programación orientada a objetos e interfaces gráficas con Windows Forms.
+
+[Ver el curso](herramientas-programacion-1/index.qmd){.btn-curso}
+:::
+
+:::
+
+## Cómo usar este sitio
+
+Publico la guía antes del encuentro sincrónico. Léela antes de conectarte, porque en la sesión
+avanzamos sobre lo que ya leíste.
+
+Puedes abrir las guías desde el navegador, en el computador o en el teléfono. No descargas nada ni
+inicias sesión.
+
+::: {.callout-tip}
+## Guarda el enlace, no los archivos
+
+La dirección de este sitio no cambia en todo el semestre y muestra la versión más reciente. Si
+descargas un archivo y después corrijo la guía, te quedas con la copia vieja.
+:::
+
+## Sobre el material
+
+Escribí las guías para quien ya vio Fundamentos de Programación pero nunca ha escrito código en
+C#. Probé cada procedimiento y cada programa en una máquina real antes de publicarlo, y las salidas
+de terminal son auténticas de esa preparación.
+
+Si encuentras un error, un enlace roto o un paso que falla en tu equipo, dímelo en el encuentro o
+por el canal del curso. Lo corrijo y queda arreglado para todos.
+
+::: {.pie-doc}
+Oscar Leonel Sánchez Conde. Institución Universitaria Pascual Bravo, Facultad de Ingeniería.
+Semestre 2026-02.
+:::

@@ -1,0 +1,449 @@
+---
+title: "Semana 1. El IDE y tu primer programa en C#"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Asignatura | Herramientas de Programación I (ET0047)                  |
+| Programa   | Tecnología en Desarrollo de Software                     |
+| Unidad     | Unidad 1. Aplicaciones de consola con un IDE             |
+| Dedicación | 4 horas de encuentro sincrónico y 8 de trabajo independiente |
+:::
+
+## Lo que vas a lograr
+
+Al terminar esta guía tu computador queda con las herramientas del semestre instaladas, y tienes un
+programa en C# compilando y ejecutándose. En la Semana 2 empiezas a trabajar con variables y con la
+entrada de datos en serio.
+
+Objetivos concretos:
+
+1. Explicar qué es un IDE y qué hace cada una de sus partes.
+2. Instalar y verificar el SDK de .NET, Visual Studio 2026 Community y Git.
+3. Crear, compilar y ejecutar un proyecto de consola desde la terminal y desde el IDE.
+4. Reconocer las partes de un programa mínimo de C#.
+
+::: {.callout-important}
+## Si trabajas en macOS o Linux, resuélvelo estas primeras semanas
+
+Las unidades 1 y 2 son programas de consola y corren igual en los tres sistemas. La **unidad 3 usa
+Windows Forms, que solo existe en Windows**. Desde la semana 11 vas a necesitar Windows: una
+máquina virtual, arranque dual o la sala de cómputo de la institución.
+
+Ocúpate de esto ahora. Enterarte en la semana 11 te deja sin margen.
+:::
+
+## Qué es un IDE
+
+IDE significa *Integrated Development Environment*, entorno de desarrollo integrado. Es un solo
+programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que
+usarlas por separado, cada una con su propia forma de invocarse.
+
+Estas son las partes que lo componen y para qué sirve cada una:
+
+| Parte | Qué hace |
+|---|---|
+| Editor de código | Escribes el código. Colorea la sintaxis, autocompleta nombres y subraya los errores mientras escribes |
+| Compilador | Traduce tu código a algo que la máquina puede ejecutar. Si hay errores de sintaxis, los reporta y no genera nada |
+| Depurador | Detiene el programa en el punto que le indiques y te deja ver el valor de cada variable en ese instante |
+| Gestor de proyectos | Organiza los archivos, las referencias y la configuración de compilación |
+| Terminal integrada | Ejecuta comandos sin salir del entorno |
+| Control de versiones | Registra el historial de cambios y lo sincroniza con un repositorio remoto |
+
+En este curso el IDE es **Visual Studio 2026 Community**, el lenguaje es **C#** y la plataforma es
+**.NET 10**.
+
+Conviene separar tres cosas que se confunden:
+
+- **C#** es el lenguaje. Las palabras y las reglas con las que escribes.
+- **.NET** es la plataforma. Las bibliotecas que ya vienen hechas y el motor que ejecuta tu
+  programa.
+- **Visual Studio** es el IDE. La herramienta con la que trabajas sobre los dos anteriores.
+
+Puedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.
+
+### Versiones de referencia
+
+Esta guía se probó con estas versiones. Instala la misma línea o una superior.
+
+| Herramienta | Versión probada |
+|---|---|
+| SDK de .NET | 10.0.103 |
+| Git | 2.50.0 |
+| Visual Studio 2026 Community | 18.3 |
+
+::: {.callout-note}
+## Sobre la versión de Visual Studio
+
+El número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina
+donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de
+Visual Studio 2026 Community sirve para el curso.
+:::
+
+## Instalación paso a paso
+
+### [1]{.paso} SDK de .NET
+
+Es lo que compila y ejecuta tu código. Descarga la versión **10** desde
+[dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
+
+Instala el **SDK**, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además
+los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más
+común del curso.
+
+Acepta las opciones por omisión del instalador.
+
+### [2]{.paso} Visual Studio 2026 Community
+
+Descarga desde
+[visualstudio.microsoft.com](https://visualstudio.microsoft.com/es/vs/community/). La edición
+Community es gratuita para estudiantes.
+
+En el instalador aparece una lista de **cargas de trabajo**. Marca **Desarrollo de escritorio de
+.NET**. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2
+y para Windows Forms en la unidad 3.
+
+No marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.
+
+::: {.callout-warning}
+## Reserva espacio y tiempo
+
+La instalación pasa de **8 GB** de descarga. Con una conexión doméstica puede tomar una hora larga.
+Empieza la descarga antes del encuentro sincrónico, no durante.
+
+Deja **20 GB libres en disco** antes de arrancar.
+:::
+
+### [3]{.paso} Git
+
+Descarga desde [git-scm.com/downloads](https://git-scm.com/downloads) y acepta las opciones por
+omisión.
+
+Esta semana solo lo instalas. Lo vas a usar para entregar tu proyecto y para guardar el historial
+de tu trabajo.
+
+### [4]{.paso} Solo si usas macOS o Linux: VS Code
+
+Visual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de
+2024 y nunca existió para Linux.
+
+Instala [VS Code](https://code.visualstudio.com/) y la extensión **C# Dev Kit**, publicada por
+Microsoft:
+
+```bash
+code --install-extension ms-dotnettools.csdevkit
+```
+
+Con VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas
+Windows.
+
+## Verificación
+
+Abre una terminal **nueva**. Las que ya estaban abiertas no ven los cambios que los instaladores
+hicieron en el `PATH`, y los comandos van a fallar aunque la instalación esté bien.
+
+Ejecuta:
+
+```bash
+dotnet --version
+git --version
+```
+
+Estas son las respuestas reales de la máquina donde preparé la guía:
+
+```text
+> dotnet --version
+10.0.103
+
+> git --version
+git version 2.50.0.windows.2
+```
+
+Los números pueden ser mayores que los de arriba y no pasa nada. Lo que importa es que ningún
+comando responda con un error.
+
+Para ver todos los SDK instalados:
+
+```bash
+dotnet --list-sdks
+```
+
+```text
+10.0.103 [C:\Program Files\dotnet\sdk]
+```
+
+## Tu primer programa desde la terminal
+
+Vas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un
+camino que funciona aunque el IDE falle.
+
+### Paso 1: crea el proyecto
+
+Ubícate en la carpeta donde guardas tus trabajos y ejecuta:
+
+```bash
+dotnet new console -o HolaPascual
+```
+
+La salida es esta. Donde dice `<tu carpeta>` va la ruta real de tu equipo:
+
+```text
+La plantilla "Aplicación de consola" se creó correctamente.
+
+Procesando acciones posteriores a la creación...
+Restaurando <tu carpeta>\HolaPascual\HolaPascual.csproj:
+  Determinando los proyectos que se van a restaurar...
+  Se ha restaurado <tu carpeta>\HolaPascual\HolaPascual.csproj (en 91 ms).
+Restauración realizada correctamente.
+```
+
+Se creó una carpeta `HolaPascual` con dos archivos que importan.
+
+### Paso 2: mira lo que se creó
+
+El primero es `HolaPascual.csproj`, el archivo de proyecto:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
+```
+
+Dice cuatro cosas: que el resultado es un ejecutable, que apunta a .NET 10, que importa las
+bibliotecas más comunes sin que las escribas, y que avisa cuando una variable puede quedar sin
+valor.
+
+El segundo es `Program.cs`, tu código:
+
+```csharp
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello, World!");
+```
+
+Dos líneas. Una de ellas es un comentario.
+
+### Paso 3: ejecútalo
+
+Entra a la carpeta y ejecuta:
+
+```bash
+cd HolaPascual
+dotnet run
+```
+
+```text
+Hello, World!
+```
+
+Ya tienes un programa de C# funcionando.
+
+### Paso 4: escribe tu propio código
+
+Abre `Program.cs` y reemplaza su contenido por esto:
+
+```csharp
+// Herramientas de Programacion I - Semana 01
+// Primer programa: entrada por teclado y salida por consola.
+
+Console.WriteLine("Herramientas de Programacion I");
+Console.WriteLine("Tecnologia en Desarrollo de Software");
+Console.WriteLine();
+
+Console.Write("Escribe tu nombre: ");
+string? nombre = Console.ReadLine();
+
+Console.WriteLine();
+Console.WriteLine($"Hola, {nombre}. Tu entorno de desarrollo funciona.");
+```
+
+Ejecuta `dotnet run` otra vez y escribe tu nombre cuando lo pida:
+
+```text
+Herramientas de Programacion I
+Tecnologia en Desarrollo de Software
+
+Escribe tu nombre: Ana Maria
+
+Hola, Ana Maria. Tu entorno de desarrollo funciona.
+```
+
+Cuatro cosas nuevas aparecieron ahí:
+
+- `Console.WriteLine` escribe y salta de línea. `Console.Write` escribe y se queda en la misma
+  línea, que es lo que quieres cuando pides un dato.
+- `Console.ReadLine` espera a que el usuario teclee algo y presione Enter, y devuelve lo que
+  escribió.
+- `string? nombre` guarda ese texto. El signo de interrogación advierte que podría no llegar nada.
+- `$"Hola, {nombre}."` mete el valor de la variable dentro del texto. Se llama interpolación y la
+  vas a usar todo el semestre.
+
+### Paso 5: compila sin ejecutar
+
+`dotnet run` compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien
+escrito, usa:
+
+```bash
+dotnet build
+```
+
+```text
+  Determinando los proyectos que se van a restaurar...
+  Todos los proyectos están actualizados para la restauración.
+  HolaPascual -> <tu carpeta>\HolaPascual\bin\Debug\net10.0\HolaPascual.dll
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:01.11
+```
+
+Esas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no
+funcione.
+
+## El mismo programa desde Visual Studio
+
+Ahora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.
+
+1. Abre Visual Studio y elige **Crear un proyecto**.
+2. Busca la plantilla **Aplicación de consola** y confirma que dice **C#**. Hay plantillas con
+   nombre parecido para otros lenguajes.
+3. Ponle nombre `HolaVisual` y elige la carpeta donde guardas tus trabajos.
+4. En la pantalla siguiente, deja **.NET 10.0** como framework de destino.
+5. Presiona `F5` para ejecutar.
+
+Se abre una ventana de consola con la salida. Al lado tienes el **Explorador de soluciones**, que
+es el mismo `.csproj` y el mismo `Program.cs` de antes, presentados en forma de árbol.
+
+### Prueba el depurador
+
+Esta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el
+`Program.cs` de este proyecto y haz esto:
+
+1. Haz clic en el margen izquierdo, a la altura de la línea `string? nombre = Console.ReadLine();`.
+   Aparece un punto rojo: es un **punto de interrupción**.
+2. Presiona `F5`. El programa arranca y se detiene justo en esa línea, antes de ejecutarla.
+3. Presiona `F10` para avanzar una línea. Escribe tu nombre en la consola cuando lo pida.
+4. Pasa el cursor sobre `nombre`. Visual Studio te muestra el valor que tiene en ese momento.
+5. Presiona `F5` para dejar que termine.
+
+Acabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto
+es lo que te dice por qué.
+
+## Errores frecuentes
+
+::: {.error-caso}
+[Error 1]{.etiqueta}
+
+### dotnet no se reconoce como comando
+
+**Causa.** Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el `PATH` nuevo.
+
+**Solución.** Cierra **todas** las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar
+el instalador del SDK y revisa que terminara sin errores.
+:::
+
+::: {.error-caso}
+[Error 2]{.etiqueta}
+
+### Instalé .NET pero dotnet build falla
+
+**Causa.** Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no
+sabe compilar.
+
+**Solución.** Ejecuta `dotnet --list-sdks`. Si no imprime ninguna línea, no tienes SDK. Vuelve a
+[dotnet.microsoft.com/download](https://dotnet.microsoft.com/download) y descarga el que dice
+**SDK**.
+:::
+
+::: {.error-caso}
+[Error 3]{.etiqueta}
+
+### La ventana de la consola se cierra de inmediato
+
+**Causa.** Ejecutaste con `Ctrl+F5` en Visual Studio, o hiciste doble clic sobre el `.exe`. El
+programa termina y la ventana se va con él.
+
+**Solución.** Ejecuta con `F5`, que mantiene la ventana abierta al terminar. También puedes agregar
+`Console.ReadKey();` como última línea para que espere una tecla.
+:::
+
+::: {.error-caso}
+[Error 4]{.etiqueta}
+
+### El proyecto no compila y no encuentro qué cambié
+
+**Causa.** Casi siempre falta un punto y coma, o hay una llave sin cerrar.
+
+**Solución.** Mira la ventana **Lista de errores** de Visual Studio, o la salida de `dotnet build`
+en la terminal. Cada error trae archivo y número de línea. **Corrige siempre el primero de la
+lista**: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.
+:::
+
+::: {.error-caso}
+[Error 5]{.etiqueta}
+
+### Los acentos y las eñes salen como símbolos raros en la consola
+
+**Causa.** La consola de Windows usa una codificación distinta a la del archivo de código.
+
+**Solución.** Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la
+Semana 2 lo resolvemos con `Console.OutputEncoding`.
+:::
+
+## Lista de chequeo de la semana
+
+::: {.checklist}
+**Antes de cerrar la semana, confirma que tienes todo esto**
+
+- [ ] `dotnet --version` responde con la versión del SDK
+- [ ] `dotnet --list-sdks` imprime al menos una línea
+- [ ] `git --version` responde
+- [ ] Visual Studio 2026 instalado con la carga de trabajo de escritorio de .NET, si usas Windows
+- [ ] Creaste `HolaPascual` desde la terminal y `dotnet run` lo ejecutó
+- [ ] Modificaste `Program.cs` y el programa te saluda con tu nombre
+- [ ] Creaste el mismo proyecto desde Visual Studio y lo ejecutaste con `F5`
+- [ ] Pusiste un punto de interrupción y viste el valor de una variable
+- [ ] Si usas macOS o Linux, ya sabes cómo vas a tener Windows para la unidad 3
+:::
+
+## Para el trabajo independiente
+
+Estas horas son para que el entorno quede sólido, no para adelantar temas.
+
+1. Repite el proyecto desde cero sin mirar la guía. Bórralo y hazlo otra vez.
+2. Modifica el programa para que pregunte también el semestre y lo incluya en el saludo.
+3. Provoca un error a propósito: quita un punto y coma, compila y lee el mensaje completo. Fíjate
+   en el archivo y la línea que reporta.
+4. Recorre tu programa entero con `F10`, línea por línea, hasta el final.
+
+No hay entrega calificada esta semana. En la Semana 2 damos por hecho que tu entorno funciona.
+
+## Recursos
+
+- Descarga del SDK de .NET: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+- Descarga de Visual Studio Community: [visualstudio.microsoft.com](https://visualstudio.microsoft.com/es/vs/community/)
+- Descarga de Git: [git-scm.com/downloads](https://git-scm.com/downloads)
+- Documentación de C#: [learn.microsoft.com/dotnet/csharp](https://learn.microsoft.com/es-es/dotnet/csharp/)
+- Comando `dotnet new`: [learn.microsoft.com/dotnet/core/tools/dotnet-new](https://learn.microsoft.com/es-es/dotnet/core/tools/dotnet-new)
+- Depuración en Visual Studio: [learn.microsoft.com/visualstudio/debugger](https://learn.microsoft.com/es-es/visualstudio/debugger/debugger-feature-tour)
+
+::: {.pie-doc}
+Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo.
+Facultad de Ingeniería. Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas
+de terminal son reales, tomadas durante la preparación del material.
+:::
