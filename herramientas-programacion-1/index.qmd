@@ -33,6 +33,14 @@ Todo se articula alrededor de **un mismo proyecto que crece durante el semestre*
 en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación
 final.
 
+::: {.callout-note}
+## Prueba diagnóstica
+
+Responde la [prueba diagnóstica de entrada](https://forms.gle/3BtRJ6ayyygoZxPk9). La actividad
+toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los
+apoyos del curso.
+:::
+
 ::: {.callout-important}
 ## Si trabajas en macOS o Linux, léelo ahora
 

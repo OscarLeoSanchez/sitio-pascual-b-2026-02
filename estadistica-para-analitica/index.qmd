@@ -47,6 +47,14 @@ Todo se articula alrededor de **un conjunto de datos propio que trabajas durante
 recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir
 sobre él.
 
+::: {.callout-note}
+## Prueba diagnóstica
+
+Responde la [prueba diagnóstica de entrada](https://forms.gle/g9LcRj4464CYJqWp8). La actividad
+toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los
+apoyos del módulo.
+:::
+
 ## Calendario
 
 Las semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el
