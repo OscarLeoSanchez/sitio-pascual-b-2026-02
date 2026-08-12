@@ -295,7 +295,7 @@ Name: tiempo_ms, dtype: float64
 ### Qué acaba de pasar
 
 Doscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó
-15,8 milisegundos y la más lenta 38,6: **la más lenta se demoró más del doble que la más rápida**.
+15.8 milisegundos y la más lenta 38.6: **la más lenta se demoró más del doble que la más rápida**.
 
 Tus números van a ser distintos a estos, y eso también es parte del punto.
 
@@ -315,7 +315,7 @@ que las genera. Lo que quisieras conocer es una propiedad de ese proceso complet
 que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.
 
 ::: {.diagrama}
-![](imagenes/muestra-parametro.svg){fig-alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22,6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."}
+![](imagenes/muestra-parametro.svg){fig-alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22.6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."}
 :::
 
 Esa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder

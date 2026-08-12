@@ -569,14 +569,14 @@ max       38.598000
 Name: tiempo_ms, dtype: float64</code></pre>
 <section id="qué-acaba-de-pasar" class="level3">
 <h3 class="anchored" data-anchor-id="qué-acaba-de-pasar">Qué acaba de pasar</h3>
-<p>Doscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15,8 milisegundos y la más lenta 38,6: <strong>la más lenta se demoró más del doble que la más rápida</strong>.</p>
+<p>Doscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15.8 milisegundos y la más lenta 38.6: <strong>la más lenta se demoró más del doble que la más rápida</strong>.</p>
 <p>Tus números van a ser distintos a estos, y eso también es parte del punto.</p>
 <p>La causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.</p>
 <p>Fíjate en el <code>random.seed(2026)</code> de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la <strong>lista que se ordena es siempre la misma</strong>. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.</p>
 <p>De ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, <strong>¿cuál es el valor verdadero?</strong></p>
 <p>No hay uno solo que puedas observar. Lo que tienes son 200 mediciones, una <strong>muestra</strong> del proceso que las genera. Lo que quisieras conocer es una propiedad de ese proceso completo, un <strong>parámetro</strong> que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.</p>
 <div class="diagrama">
-<p><img src="imagenes/muestra-parametro.svg" class="img-fluid" alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22,6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."></p>
+<p><img src="imagenes/muestra-parametro.svg" class="img-fluid" alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22.6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."></p>
 </div>
 <p>Esa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.</p>
 <div class="callout callout-style-default callout-important callout-titled">

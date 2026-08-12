@@ -36,6 +36,6 @@ text{font-family:'Segoe UI',Inter,system-ui,-apple-system,sans-serif;}
 <text class="text-sub" x="440" y="80">lo que sí observas</text>
 
 <rect class="box-highlight" x="640" y="30" width="220" height="76" rx="9"/>
-<text class="text-main" x="750" y="62">Media de 22,6 ms</text>
+<text class="text-main" x="750" y="62">Media de 22.6 ms</text>
 <text class="text-sub" x="750" y="80">un número que sí calculas</text>
 </svg>

@@ -46,17 +46,6 @@ format:
 :::
 :::
 
-## El módulo en una diapositiva
-
-- Especialización en Big Data. Nivel de posgrado.
-- Dieciséis semanas, 3 horas de acompañamiento y 9 de trabajo independiente.
-- Tres unidades y tres cortes: 30, 30 y 40 por ciento.
-- Todo se implementa en **Python**.
-
-. . .
-
-[La estadística responde preguntas con datos para poder decidir.]{.grande}
-
 ## Cuatro pasos, no uno {.solo-diagrama}
 
 ![](imagenes/ciclo-estadistico.svg){fig-alt="Formular la pregunta, recoger los datos, analizar e interpretar, con un retorno de la decisión a la pregunta"}
@@ -100,11 +89,43 @@ alguien fijó tres cosas:
 
 ## Qué responde cada unidad
 
-| Unidad | La pregunta | Lo que produce | Cierre |
-|:---:|---|---|:---:|
-| 1 | Qué hay en estos datos | Informe exploratorio con gráficos y resúmenes numéricos | 30% |
-| 2 | Qué tan probable es lo que observo | Un modelo de probabilidad ajustado al fenómeno | 30% |
-| 3 | Qué puedo afirmar sobre lo que no medí | Conclusiones con su margen de error declarado | 40% |
+::: {.columns}
+::: {.column width="32%"}
+::: {.unidad}
+[Unidad 1]{.titulo-unidad}
+
+[Qué hay en estos datos]{.pregunta-unidad}
+
+Informe exploratorio con gráficos y resúmenes numéricos.
+
+[Cierre 30%]{.peso}
+:::
+:::
+
+::: {.column width="32%"}
+::: {.unidad}
+[Unidad 2]{.titulo-unidad}
+
+[Qué tan probable es lo que observo]{.pregunta-unidad}
+
+Un modelo de probabilidad ajustado al fenómeno.
+
+[Cierre 30%]{.peso}
+:::
+:::
+
+::: {.column width="32%"}
+::: {.unidad}
+[Unidad 3]{.titulo-unidad}
+
+[Qué puedo afirmar sobre lo que no medí]{.pregunta-unidad}
+
+Conclusiones sobre la población, con su margen de error declarado.
+
+[Cierre 40%]{.peso}
+:::
+:::
+:::
 
 ## Cómo se evalúa
 
@@ -119,12 +140,15 @@ rúbrica al comenzar la unidad.
 
 ## El método del módulo
 
-Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento
-muchas veces y contrastamos el resultado con lo que predice la teoría.
+Cada tema entra por el concepto y sale por el computador:
+
+1. **Concepto.** Qué afirma el resultado y bajo qué supuestos se sostiene.
+2. **Implementación.** El mismo resultado escrito en Python, sobre datos reales.
+3. **Simulación.** Repetimos el procedimiento muchas veces y observamos cómo se comporta.
 
 . . .
 
-[Simular, repetir y contrastar.]{.grande}
+Así la distribución de una media deja de ser una fórmula y pasa a ser algo que mediste.
 
 ## El recorrido de los datos {.solo-diagrama}
 
@@ -132,15 +156,46 @@ muchas veces y contrastamos el resultado con lo que predice la teoría.
 
 ## Las siete librerías
 
-| Librería | Qué aporta |
-|---|---|
-| pandas | Carga los datos y los deja como tabla con columnas con nombre |
-| numpy | Cálculo numérico y generación de números aleatorios para simular |
-| openpyxl | Es la que permite a pandas leer y escribir `.xlsx` |
-| matplotlib | Motor de los gráficos |
-| seaborn | Gráficos estadísticos sobre matplotlib, con menos código |
-| scipy | Distribuciones de probabilidad y pruebas de hipótesis |
-| statsmodels | Modelos de regresión y ANOVA con la salida que se reporta |
+::: {.columns}
+::: {.column width="50%"}
+::: {.libreria}
+**pandas**
+Carga los datos y los deja como tabla con columnas con nombre
+:::
+
+::: {.libreria}
+**numpy**
+Cálculo numérico y números aleatorios para simular
+:::
+
+::: {.libreria}
+**openpyxl**
+Deja que pandas lea y escriba archivos de Excel
+:::
+
+::: {.libreria}
+**matplotlib**
+Motor de los gráficos
+:::
+:::
+
+::: {.column width="50%"}
+::: {.libreria}
+**seaborn**
+Gráficos estadísticos con menos código
+:::
+
+::: {.libreria}
+**scipy**
+Distribuciones de probabilidad y pruebas de hipótesis
+:::
+
+::: {.libreria}
+**statsmodels**
+Regresión y ANOVA con la salida que se reporta
+:::
+:::
+:::
 
 ## Qué aísla un entorno virtual {.solo-diagrama}
 
@@ -256,7 +311,7 @@ Name: tiempo_ms, dtype: float64
 
 ## Qué acaba de pasar
 
-- La medición más rápida tardó 15,8 ms. La más lenta, 38,6.
+- La medición más rápida tardó 15.8 ms. La más lenta, 38.6.
 - `random.seed(2026)` fija la secuencia: la lista que se ordena es siempre la misma.
 
 . . .
@@ -276,11 +331,6 @@ Un solo dato no es evidencia.
 Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes todavía si es
 la máquina o es el ruido de una sola medición.
 
-. . .
-
-Esa flecha punteada del diagrama anterior es la Unidad 3. Las unidades 1 y 2 construyen lo que hace
-falta para poder trazarla con honestidad.
-
 ## Tres formatos de almacenamiento
 
 | Formato | Qué es | Cuándo lo vas a usar |
@@ -291,32 +341,16 @@ falta para poder trazarla con honestidad.
 
 Pandas lee y escribe los tres. Para `.xlsx` necesita `openpyxl`.
 
-## Anatomía de una tabla de datos
+## Anatomía de una tabla de datos {.con-definiciones}
 
-- La **unidad de observación** es lo que ocupa cada fila.
-- Cada **variable** es una columna: algo que se midió u observó de esa unidad.
-- Cada **registro** es una fila completa.
+![](imagenes/anatomia-tabla.svg){fig-alt="Una tabla de órdenes de mantenimiento con la columna criticidad resaltada como variable y una fila resaltada como registro"}
 
-. . .
+::: {.definiciones}
+**Variable.** Una columna. Algo que se midió u observó de cada unidad.
 
-[La naturaleza de una variable la declaras tú, no la adivina la herramienta.]{.grande}
+**Registro.** Una fila completa: todos los valores medidos de una misma unidad.
 
-## Antes de la próxima sesión
-
-::: {.regla}
-`python --version` responde con 3.13 o superior
-:::
-
-::: {.regla}
-El entorno virtual se activa y muestra `(.venv)` en la terminal
-:::
-
-::: {.regla}
-El `import` de las seis librerías imprime `todo listo`
-:::
-
-::: {.regla}
-Respondiste la prueba diagnóstica de entrada
+**Unidad de observación.** Lo que representa cada fila. Aquí, una orden de mantenimiento.
 :::
 
 ## Lo que viene
@@ -325,10 +359,3 @@ La semana 2 clasifica las variables por su naturaleza y ahí queda acordado el c
 trabajan las tres unidades.
 
 [Toda la guía de la semana está publicada en el sitio del módulo.]{.grande}
-
-::: {.nota-final}
-Estadística para Analítica. Institución Universitaria Pascual Bravo. Semestre 2026-02.
-
-Redacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado. Las salidas de
-terminal son reales, producidas al ejecutar estos mismos programas.
-:::

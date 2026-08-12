@@ -116,13 +116,6 @@
     "text": "Ruta de la sesión\n\n\nPrimera parte\n\nDe qué se trata el módulo\nLa estadística como proceso\nEl mapa de las 16 semanas\nCómo se evalúa\n\n\nSegunda parte\n\nEl entorno de trabajo\nInstalación y verificación\nDemostración: la variabilidad\nMuestra, parámetro y estimación"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-módulo-en-una-diapositiva",
-    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-módulo-en-una-diapositiva",
-    "title": "Estadística para Analítica",
-    "section": "El módulo en una diapositiva",
-    "text": "El módulo en una diapositiva\n\nEspecialización en Big Data. Nivel de posgrado.\nDieciséis semanas, 3 horas de acompañamiento y 9 de trabajo independiente.\nTres unidades y tres cortes: 30, 30 y 40 por ciento.\nTodo se implementa en Python.\n\n\nLa estadística responde preguntas con datos para poder decidir."
-  },
-  {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cuatro-pasos-no-uno",
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cuatro-pasos-no-uno",
     "title": "Estadística para Analítica",
@@ -162,7 +155,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#qué-responde-cada-unidad",
     "title": "Estadística para Analítica",
     "section": "Qué responde cada unidad",
-    "text": "Qué responde cada unidad\n\n\n\n\n\n\n\n\n\nUnidad\nLa pregunta\nLo que produce\nCierre\n\n\n\n\n1\nQué hay en estos datos\nInforme exploratorio con gráficos y resúmenes numéricos\n30%\n\n\n2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno\n30%\n\n\n3\nQué puedo afirmar sobre lo que no medí\nConclusiones con su margen de error declarado\n40%"
+    "text": "Qué responde cada unidad\n\n\n\nUnidad 1\nQué hay en estos datos\nInforme exploratorio con gráficos y resúmenes numéricos.\nCierre 30%\n\n\n\nUnidad 2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno.\nCierre 30%\n\n\n\nUnidad 3\nQué puedo afirmar sobre lo que no medí\nConclusiones sobre la población, con su margen de error declarado.\nCierre 40%"
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cómo-se-evalúa",
@@ -176,7 +169,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-método-del-módulo",
     "title": "Estadística para Analítica",
     "section": "El método del módulo",
-    "text": "El método del módulo\nComprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento muchas veces y contrastamos el resultado con lo que predice la teoría.\n\nSimular, repetir y contrastar."
+    "text": "El método del módulo\nCada tema entra por el concepto y sale por el computador:\n\nConcepto. Qué afirma el resultado y bajo qué supuestos se sostiene.\nImplementación. El mismo resultado escrito en Python, sobre datos reales.\nSimulación. Repetimos el procedimiento muchas veces y observamos cómo se comporta.\n\n\nAsí la distribución de una media deja de ser una fórmula y pasa a ser algo que mediste."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-recorrido-de-los-datos",
@@ -190,7 +183,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#las-siete-librerías",
     "title": "Estadística para Analítica",
     "section": "Las siete librerías",
-    "text": "Las siete librerías\n\n\n\n\n\n\n\nLibrería\nQué aporta\n\n\n\n\npandas\nCarga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy\nCálculo numérico y generación de números aleatorios para simular\n\n\nopenpyxl\nEs la que permite a pandas leer y escribir .xlsx\n\n\nmatplotlib\nMotor de los gráficos\n\n\nseaborn\nGráficos estadísticos sobre matplotlib, con menos código\n\n\nscipy\nDistribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels\nModelos de regresión y ANOVA con la salida que se reporta"
+    "text": "Las siete librerías\n\n\n\npandas Carga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy Cálculo numérico y números aleatorios para simular\n\n\nopenpyxl Deja que pandas lea y escriba archivos de Excel\n\n\nmatplotlib Motor de los gráficos\n\n\n\nseaborn Gráficos estadísticos con menos código\n\n\nscipy Distribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels Regresión y ANOVA con la salida que se reporta"
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#qué-aísla-un-entorno-virtual",
@@ -239,7 +232,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#qué-acaba-de-pasar",
     "title": "Estadística para Analítica",
     "section": "Qué acaba de pasar",
-    "text": "Qué acaba de pasar\n\nLa medición más rápida tardó 15,8 ms. La más lenta, 38,6.\nrandom.seed(2026) fija la secuencia: la lista que se ordena es siempre la misma.\n\n\nLa variabilidad no viene de los datos. Viene de la medición."
+    "text": "Qué acaba de pasar\n\nLa medición más rápida tardó 15.8 ms. La más lenta, 38.6.\nrandom.seed(2026) fija la secuencia: la lista que se ordena es siempre la misma.\n\n\nLa variabilidad no viene de los datos. Viene de la medición."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#entonces-cuál-es-el-valor-verdadero",
@@ -253,7 +246,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#la-consecuencia-práctica",
     "title": "Estadística para Analítica",
     "section": "La consecuencia práctica",
-    "text": "La consecuencia práctica\n\nUn solo dato no es evidencia.\n\nSi alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes todavía si es la máquina o es el ruido de una sola medición.\n\nEsa flecha punteada del diagrama anterior es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad."
+    "text": "La consecuencia práctica\n\nUn solo dato no es evidencia.\n\nSi alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes todavía si es la máquina o es el ruido de una sola medición."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#tres-formatos-de-almacenamiento",
@@ -267,21 +260,14 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#anatomía-de-una-tabla-de-datos",
     "title": "Estadística para Analítica",
     "section": "Anatomía de una tabla de datos",
-    "text": "Anatomía de una tabla de datos\n\nLa unidad de observación es lo que ocupa cada fila.\nCada variable es una columna: algo que se midió u observó de esa unidad.\nCada registro es una fila completa.\n\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#antes-de-la-próxima-sesión",
-    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#antes-de-la-próxima-sesión",
-    "title": "Estadística para Analítica",
-    "section": "Antes de la próxima sesión",
-    "text": "Antes de la próxima sesión\n\npython --version responde con 3.13 o superior\n\n\nEl entorno virtual se activa y muestra (.venv) en la terminal\n\n\nEl import de las seis librerías imprime todo listo\n\n\nRespondiste la prueba diagnóstica de entrada"
+    "text": "Anatomía de una tabla de datos\n\n\nVariable. Una columna. Algo que se midió u observó de cada unidad.\nRegistro. Una fila completa: todos los valores medidos de una misma unidad.\nUnidad de observación. Lo que representa cada fila. Aquí, una orden de mantenimiento."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#lo-que-viene",
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#lo-que-viene",
     "title": "Estadística para Analítica",
     "section": "Lo que viene",
-    "text": "Lo que viene\nLa semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que trabajan las tres unidades.\nToda la guía de la semana está publicada en el sitio del módulo.\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Semestre 2026-02.\nRedacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas."
+    "text": "Lo que viene\nLa semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que trabajan las tres unidades.\nToda la guía de la semana está publicada en el sitio del módulo."
   },
   {
     "objectID": "estadistica-para-analitica/index.html",
@@ -435,7 +421,7 @@
     "href": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
     "title": "Semana 1. Presentación del módulo y entorno de trabajo",
     "section": "7 Demostración: por qué se mide más de una vez",
-    "text": "7 Demostración: por qué se mide más de una vez\nEsta es la única pieza de código de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.\nVamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15,8 milisegundos y la más lenta 38,6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero?\nNo hay uno solo que puedas observar. Lo que tienes son 200 mediciones, una muestra del proceso que las genera. Lo que quisieras conocer es una propiedad de ese proceso completo, un parámetro que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.\n\n\n\nEsa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.\n\n\n\n\n\n\nImportanteLa consecuencia práctica\n\n\n\nUn solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de este semestre nace ahí.",
+    "text": "7 Demostración: por qué se mide más de una vez\nEsta es la única pieza de código de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.\nVamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15.8 milisegundos y la más lenta 38.6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero?\nNo hay uno solo que puedas observar. Lo que tienes son 200 mediciones, una muestra del proceso que las genera. Lo que quisieras conocer es una propiedad de ese proceso completo, un parámetro que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.\n\n\n\nEsa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.\n\n\n\n\n\n\nImportanteLa consecuencia práctica\n\n\n\nUn solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de este semestre nace ahí.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 1. Presentación y entorno de trabajo"

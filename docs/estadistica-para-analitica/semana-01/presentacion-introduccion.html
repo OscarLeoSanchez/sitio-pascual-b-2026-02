@@ -99,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6232e33ea9d4e66c6f2b42a160ed9741.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8a3add5591bf3871588cc5a2da37974a.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,18 +233,6 @@ Oscar Leonel Sánchez Conde
 </ol>
 </div></div>
 </section>
-<section id="el-módulo-en-una-diapositiva" class="slide level2 center">
-<h2>El módulo en una diapositiva</h2>
-<ul>
-<li>Especialización en Big Data. Nivel de posgrado.</li>
-<li>Dieciséis semanas, 3 horas de acompañamiento y 9 de trabajo independiente.</li>
-<li>Tres unidades y tres cortes: 30, 30 y 40 por ciento.</li>
-<li>Todo se implementa en <strong>Python</strong>.</li>
-</ul>
-<div class="fragment">
-<p><span class="grande">La estadística responde preguntas con datos para poder decidir.</span></p>
-</div>
-</section>
 <section id="cuatro-pasos-no-uno" class="slide level2 solo-diagrama center">
 <h2>Cuatro pasos, no uno</h2>
 <p><img data-src="imagenes/ciclo-estadistico.svg" alt="Formular la pregunta, recoger los datos, analizar e interpretar, con un retorno de la decisión a la pregunta"></p>
@@ -286,42 +274,29 @@ Oscar Leonel Sánchez Conde
 </section>
 <section id="qué-responde-cada-unidad" class="slide level2 center">
 <h2>Qué responde cada unidad</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 31%">
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 31%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Unidad</th>
-<th>La pregunta</th>
-<th>Lo que produce</th>
-<th style="text-align: center;">Cierre</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td>Qué hay en estos datos</td>
-<td>Informe exploratorio con gráficos y resúmenes numéricos</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td>Qué tan probable es lo que observo</td>
-<td>Un modelo de probabilidad ajustado al fenómeno</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td>Qué puedo afirmar sobre lo que no medí</td>
-<td>Conclusiones con su margen de error declarado</td>
-<td style="text-align: center;">40%</td>
-</tr>
-</tbody>
-</table>
+<div class="columns">
+<div class="column" style="width:32%;">
+<div class="unidad">
+<p><span class="titulo-unidad">Unidad 1</span></p>
+<p><span class="pregunta-unidad">Qué hay en estos datos</span></p>
+<p>Informe exploratorio con gráficos y resúmenes numéricos.</p>
+<p><span class="peso">Cierre 30%</span></p>
+</div>
+</div><div class="column" style="width:32%;">
+<div class="unidad">
+<p><span class="titulo-unidad">Unidad 2</span></p>
+<p><span class="pregunta-unidad">Qué tan probable es lo que observo</span></p>
+<p>Un modelo de probabilidad ajustado al fenómeno.</p>
+<p><span class="peso">Cierre 30%</span></p>
+</div>
+</div><div class="column" style="width:32%;">
+<div class="unidad">
+<p><span class="titulo-unidad">Unidad 3</span></p>
+<p><span class="pregunta-unidad">Qué puedo afirmar sobre lo que no medí</span></p>
+<p>Conclusiones sobre la población, con su margen de error declarado.</p>
+<p><span class="peso">Cierre 40%</span></p>
+</div>
+</div></div>
 </section>
 <section id="cómo-se-evalúa" class="slide level2 center">
 <h2>Cómo se evalúa</h2>
@@ -355,9 +330,14 @@ Oscar Leonel Sánchez Conde
 </section>
 <section id="el-método-del-módulo" class="slide level2 center">
 <h2>El método del módulo</h2>
-<p>Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento muchas veces y contrastamos el resultado con lo que predice la teoría.</p>
+<p>Cada tema entra por el concepto y sale por el computador:</p>
+<ol type="1">
+<li><strong>Concepto.</strong> Qué afirma el resultado y bajo qué supuestos se sostiene.</li>
+<li><strong>Implementación.</strong> El mismo resultado escrito en Python, sobre datos reales.</li>
+<li><strong>Simulación.</strong> Repetimos el procedimiento muchas veces y observamos cómo se comporta.</li>
+</ol>
 <div class="fragment">
-<p><span class="grande">Simular, repetir y contrastar.</span></p>
+<p>Así la distribución de una media deja de ser una fórmula y pasa a ser algo que mediste.</p>
 </div>
 </section>
 <section id="el-recorrido-de-los-datos" class="slide level2 solo-diagrama center">
@@ -366,48 +346,31 @@ Oscar Leonel Sánchez Conde
 </section>
 <section id="las-siete-librerías" class="slide level2 center">
 <h2>Las siete librerías</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Librería</th>
-<th>Qué aporta</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>pandas</td>
-<td>Carga los datos y los deja como tabla con columnas con nombre</td>
-</tr>
-<tr class="even">
-<td>numpy</td>
-<td>Cálculo numérico y generación de números aleatorios para simular</td>
-</tr>
-<tr class="odd">
-<td>openpyxl</td>
-<td>Es la que permite a pandas leer y escribir <code>.xlsx</code></td>
-</tr>
-<tr class="even">
-<td>matplotlib</td>
-<td>Motor de los gráficos</td>
-</tr>
-<tr class="odd">
-<td>seaborn</td>
-<td>Gráficos estadísticos sobre matplotlib, con menos código</td>
-</tr>
-<tr class="even">
-<td>scipy</td>
-<td>Distribuciones de probabilidad y pruebas de hipótesis</td>
-</tr>
-<tr class="odd">
-<td>statsmodels</td>
-<td>Modelos de regresión y ANOVA con la salida que se reporta</td>
-</tr>
-</tbody>
-</table>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="libreria">
+<p><strong>pandas</strong> Carga los datos y los deja como tabla con columnas con nombre</p>
+</div>
+<div class="libreria">
+<p><strong>numpy</strong> Cálculo numérico y números aleatorios para simular</p>
+</div>
+<div class="libreria">
+<p><strong>openpyxl</strong> Deja que pandas lea y escriba archivos de Excel</p>
+</div>
+<div class="libreria">
+<p><strong>matplotlib</strong> Motor de los gráficos</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="libreria">
+<p><strong>seaborn</strong> Gráficos estadísticos con menos código</p>
+</div>
+<div class="libreria">
+<p><strong>scipy</strong> Distribuciones de probabilidad y pruebas de hipótesis</p>
+</div>
+<div class="libreria">
+<p><strong>statsmodels</strong> Regresión y ANOVA con la salida que se reporta</p>
+</div>
+</div></div>
 </section>
 <section id="qué-aísla-un-entorno-virtual" class="slide level2 solo-diagrama center">
 <h2>Qué aísla un entorno virtual</h2>
@@ -497,7 +460,7 @@ Oscar Leonel Sánchez Conde
 <section id="qué-acaba-de-pasar" class="slide level2 center">
 <h2>Qué acaba de pasar</h2>
 <ul>
-<li>La medición más rápida tardó 15,8 ms. La más lenta, 38,6.</li>
+<li>La medición más rápida tardó 15.8 ms. La más lenta, 38.6.</li>
 <li><code>random.seed(2026)</code> fija la secuencia: la lista que se ordena es siempre la misma.</li>
 </ul>
 <div class="fragment">
@@ -514,9 +477,6 @@ Oscar Leonel Sánchez Conde
 <p>Un solo dato no es evidencia.</p>
 </div>
 <p>Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes todavía si es la máquina o es el ruido de una sola medición.</p>
-<div class="fragment">
-<p>Esa flecha punteada del diagrama anterior es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad.</p>
-</div>
 </section>
 <section id="tres-formatos-de-almacenamiento" class="slide level2 center">
 <h2>Tres formatos de almacenamiento</h2>
@@ -553,40 +513,19 @@ Oscar Leonel Sánchez Conde
 </table>
 <p>Pandas lee y escribe los tres. Para <code>.xlsx</code> necesita <code>openpyxl</code>.</p>
 </section>
-<section id="anatomía-de-una-tabla-de-datos" class="slide level2 center">
+<section id="anatomía-de-una-tabla-de-datos" class="slide level2 con-definiciones center">
 <h2>Anatomía de una tabla de datos</h2>
-<ul>
-<li>La <strong>unidad de observación</strong> es lo que ocupa cada fila.</li>
-<li>Cada <strong>variable</strong> es una columna: algo que se midió u observó de esa unidad.</li>
-<li>Cada <strong>registro</strong> es una fila completa.</li>
-</ul>
-<div class="fragment">
-<p><span class="grande">La naturaleza de una variable la declaras tú, no la adivina la herramienta.</span></p>
-</div>
-</section>
-<section id="antes-de-la-próxima-sesión" class="slide level2 center">
-<h2>Antes de la próxima sesión</h2>
-<div class="regla">
-<p><code>python --version</code> responde con 3.13 o superior</p>
-</div>
-<div class="regla">
-<p>El entorno virtual se activa y muestra <code>(.venv)</code> en la terminal</p>
-</div>
-<div class="regla">
-<p>El <code>import</code> de las seis librerías imprime <code>todo listo</code></p>
-</div>
-<div class="regla">
-<p>Respondiste la prueba diagnóstica de entrada</p>
+<p><img data-src="imagenes/anatomia-tabla.svg" alt="Una tabla de órdenes de mantenimiento con la columna criticidad resaltada como variable y una fila resaltada como registro"></p>
+<div class="definiciones">
+<p><strong>Variable.</strong> Una columna. Algo que se midió u observó de cada unidad.</p>
+<p><strong>Registro.</strong> Una fila completa: todos los valores medidos de una misma unidad.</p>
+<p><strong>Unidad de observación.</strong> Lo que representa cada fila. Aquí, una orden de mantenimiento.</p>
 </div>
 </section>
 <section id="lo-que-viene" class="slide level2 center">
 <h2>Lo que viene</h2>
 <p>La semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que trabajan las tres unidades.</p>
 <p><span class="grande">Toda la guía de la semana está publicada en el sitio del módulo.</span></p>
-<div class="nota-final">
-<p>Estadística para Analítica. Institución Universitaria Pascual Bravo. Semestre 2026-02.</p>
-<p>Redacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas.</p>
-</div>
 
 
 </section>
