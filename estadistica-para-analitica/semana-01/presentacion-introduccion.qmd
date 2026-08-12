@@ -30,10 +30,10 @@ format:
 ::: {.column width="50%"}
 **Primera parte**
 
-1. De qué se trata el módulo
-2. La estadística como proceso
+1. La estadística como proceso
+2. Un caso de ejemplo
 3. El mapa de las 16 semanas
-4. Cómo se evalúa
+4. Qué produce cada unidad
 :::
 
 ::: {.column width="50%"}
