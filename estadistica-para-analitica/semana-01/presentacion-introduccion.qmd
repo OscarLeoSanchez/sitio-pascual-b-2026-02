@@ -70,14 +70,17 @@ apariencia de rigor.
 
 [Y esa decisión hay que defenderla después ante quien la firma.]{.grande}
 
-## El caso que atraviesa el módulo
+## Un caso de ejemplo: el taller de mantenimiento
 
-Un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla,
-alguien fijó tres cosas:
+Un taller registra cada intervención sobre sus tornos y fresadoras: qué máquina, en qué turno, de
+qué tipo y cuántos minutos tomó. La pregunta del área es cuánto tiempo reservar para una
+intervención y de qué depende.
 
-- Qué variable representa el desgaste.
-- Cada cuánto se lee el instrumento.
-- Quién responde por el registro.
+Tres decisiones tomadas antes de medir deciden si el análisis sirve:
+
+- Qué cuenta como el comienzo y el final de una intervención.
+- Cada cuánto se registra y con qué instrumento se mide el tiempo.
+- Quién responde por el registro cuando cambia el turno.
 
 . . .
 
@@ -127,16 +130,26 @@ Conclusiones sobre la población, con su margen de error declarado.
 :::
 :::
 
-## Cómo se evalúa
+## Unidad 1. Describir lo que hay {.grafico}
 
-| Componente | Semana | Peso |
-|---|:---:|:---:|
-| Cierre de la Unidad 1 | 05 | 30% |
-| Cierre de la Unidad 2 | 10 | 30% |
-| Evaluación final de la Unidad 3 | 16 | 40% |
+![](imagenes/caso-unidad-1.svg){fig-alt="Diagrama de cajas con los puntos superpuestos de la duración de las intervenciones, separadas por tipo. La correctiva tiene mediana 175 minutos, la preventiva 83 y la predictiva 60."}
 
-Cada corte se entrega como informe **con el código que lo produce**. Publico el enunciado y la
-rúbrica al comenzar la unidad.
+[Tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplot. El producto es un
+informe exploratorio del caso. Datos simulados de 240 intervenciones.]{.pie-grafico}
+
+## Unidad 2. Modelar la incertidumbre {.grafico}
+
+![](imagenes/caso-unidad-2.svg){fig-alt="Histograma de la duración de las intervenciones correctivas con una densidad lognormal ajustada encima y la cola sombreada a partir de los 240 minutos, con la probabilidad anotada."}
+
+[Se ajusta una distribución a lo observado y con ella se calculan probabilidades de eventos que
+todavía no ocurrieron. El producto es un modelo que responde preguntas.]{.pie-grafico}
+
+## Unidad 3. Inferir sobre el proceso {.grafico}
+
+![](imagenes/caso-unidad-3.svg){fig-alt="Dispersión de la duración contra las horas de operación, con una recta de regresión y su banda de confianza del 95 por ciento para las intervenciones preventivas y para las correctivas."}
+
+[Intervalos de confianza, pruebas de hipótesis, comparación de tratamientos y regresión. El producto
+son conclusiones sobre el proceso, con su margen de error declarado.]{.pie-grafico}
 
 ## El método del módulo
 
@@ -197,9 +210,14 @@ Regresión y ANOVA con la salida que se reporta
 :::
 :::
 
-## Qué aísla un entorno virtual {.solo-diagrama}
+## Cómo vamos a trabajar {.con-definiciones}
 
 ![](imagenes/entorno-virtual.svg){fig-alt="El Python del sistema y, aparte, el entorno .venv con una copia aislada de Python y las librerías con su versión fijada"}
+
+::: {.definiciones}
+Cada quien trabaja en un entorno aislado con **las mismas versiones**. Así el mismo script produce
+el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.
+:::
 
 ## Laboratorio: crea el entorno
 

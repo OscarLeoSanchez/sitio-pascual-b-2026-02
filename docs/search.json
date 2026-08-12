@@ -137,11 +137,11 @@
     "text": "Dónde se pierde el rigor\nUn análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor.\n\nY esa decisión hay que defenderla después ante quien la firma."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-caso-que-atraviesa-el-módulo",
-    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-caso-que-atraviesa-el-módulo",
+    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#un-caso-de-ejemplo-el-taller-de-mantenimiento",
+    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#un-caso-de-ejemplo-el-taller-de-mantenimiento",
     "title": "Estadística para Analítica",
-    "section": "El caso que atraviesa el módulo",
-    "text": "El caso que atraviesa el módulo\nUn área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó tres cosas:\n\nQué variable representa el desgaste.\nCada cuánto se lee el instrumento.\nQuién responde por el registro.\n\n\nCambia una de esas decisiones y cambia la conclusión."
+    "section": "Un caso de ejemplo: el taller de mantenimiento",
+    "text": "Un caso de ejemplo: el taller de mantenimiento\nUn taller registra cada intervención sobre sus tornos y fresadoras: qué máquina, en qué turno, de qué tipo y cuántos minutos tomó. La pregunta del área es cuánto tiempo reservar para una intervención y de qué depende.\nTres decisiones tomadas antes de medir deciden si el análisis sirve:\n\nQué cuenta como el comienzo y el final de una intervención.\nCada cuánto se registra y con qué instrumento se mide el tiempo.\nQuién responde por el registro cuando cambia el turno.\n\n\nCambia una de esas decisiones y cambia la conclusión."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-mapa-del-módulo",
@@ -158,11 +158,25 @@
     "text": "Qué responde cada unidad\n\n\n\nUnidad 1\nQué hay en estos datos\nInforme exploratorio con gráficos y resúmenes numéricos.\nCierre 30%\n\n\n\nUnidad 2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno.\nCierre 30%\n\n\n\nUnidad 3\nQué puedo afirmar sobre lo que no medí\nConclusiones sobre la población, con su margen de error declarado.\nCierre 40%"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cómo-se-evalúa",
-    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cómo-se-evalúa",
+    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#unidad-1.-describir-lo-que-hay",
+    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#unidad-1.-describir-lo-que-hay",
     "title": "Estadística para Analítica",
-    "section": "Cómo se evalúa",
-    "text": "Cómo se evalúa\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad."
+    "section": "Unidad 1. Describir lo que hay",
+    "text": "Unidad 1. Describir lo que hay\n\nTablas de frecuencia, histogramas, medidas de localización y dispersión, boxplot. El producto es un informe exploratorio del caso. Datos simulados de 240 intervenciones."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#unidad-2.-modelar-la-incertidumbre",
+    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#unidad-2.-modelar-la-incertidumbre",
+    "title": "Estadística para Analítica",
+    "section": "Unidad 2. Modelar la incertidumbre",
+    "text": "Unidad 2. Modelar la incertidumbre\n\nSe ajusta una distribución a lo observado y con ella se calculan probabilidades de eventos que todavía no ocurrieron. El producto es un modelo que responde preguntas."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#unidad-3.-inferir-sobre-el-proceso",
+    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#unidad-3.-inferir-sobre-el-proceso",
+    "title": "Estadística para Analítica",
+    "section": "Unidad 3. Inferir sobre el proceso",
+    "text": "Unidad 3. Inferir sobre el proceso\n\nIntervalos de confianza, pruebas de hipótesis, comparación de tratamientos y regresión. El producto son conclusiones sobre el proceso, con su margen de error declarado."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-método-del-módulo",
@@ -186,11 +200,11 @@
     "text": "Las siete librerías\n\n\n\npandas Carga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy Cálculo numérico y números aleatorios para simular\n\n\nopenpyxl Deja que pandas lea y escriba archivos de Excel\n\n\nmatplotlib Motor de los gráficos\n\n\n\nseaborn Gráficos estadísticos con menos código\n\n\nscipy Distribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels Regresión y ANOVA con la salida que se reporta"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#qué-aísla-un-entorno-virtual",
-    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#qué-aísla-un-entorno-virtual",
+    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cómo-vamos-a-trabajar",
+    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cómo-vamos-a-trabajar",
     "title": "Estadística para Analítica",
-    "section": "Qué aísla un entorno virtual",
-    "text": "Qué aísla un entorno virtual"
+    "section": "Cómo vamos a trabajar",
+    "text": "Cómo vamos a trabajar\n\n\nCada quien trabaja en un entorno aislado con las mismas versiones. Así el mismo script produce el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#laboratorio-crea-el-entorno",

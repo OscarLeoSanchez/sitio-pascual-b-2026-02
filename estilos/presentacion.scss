@@ -203,6 +203,24 @@ $code-block-font-size: 0.72em;
   max-height: none;
 }
 
+/* Diapositiva de grafico de seaborn con su pie. Los graficos vienen en 11 por
+   4.2 pulgadas, asi que a 1120px de ancho ocupan 428 de alto y dejan sitio
+   para el encabezado y el pie. */
+.reveal .grafico img {
+  width: 1120px;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin-bottom: 0.2em;
+}
+
+.reveal .pie-grafico {
+  display: block;
+  font-size: 0.5em;
+  line-height: 1.45;
+  color: $gris-600;
+}
+
 /* Diapositiva con un bloque de codigo largo: el experimento de 20 lineas no
    cabe con el cuerpo normal. */
 .reveal .codigo-largo pre code {

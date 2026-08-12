@@ -99,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8a3add5591bf3871588cc5a2da37974a.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-6a2081e8d72eee2ad681d92298671aaa.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -256,13 +256,14 @@ Oscar Leonel Sánchez Conde
 <p><span class="grande">Y esa decisión hay que defenderla después ante quien la firma.</span></p>
 </div>
 </section>
-<section id="el-caso-que-atraviesa-el-módulo" class="slide level2 center">
-<h2>El caso que atraviesa el módulo</h2>
-<p>Un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó tres cosas:</p>
+<section id="un-caso-de-ejemplo-el-taller-de-mantenimiento" class="slide level2 center">
+<h2>Un caso de ejemplo: el taller de mantenimiento</h2>
+<p>Un taller registra cada intervención sobre sus tornos y fresadoras: qué máquina, en qué turno, de qué tipo y cuántos minutos tomó. La pregunta del área es cuánto tiempo reservar para una intervención y de qué depende.</p>
+<p>Tres decisiones tomadas antes de medir deciden si el análisis sirve:</p>
 <ul>
-<li>Qué variable representa el desgaste.</li>
-<li>Cada cuánto se lee el instrumento.</li>
-<li>Quién responde por el registro.</li>
+<li>Qué cuenta como el comienzo y el final de una intervención.</li>
+<li>Cada cuánto se registra y con qué instrumento se mide el tiempo.</li>
+<li>Quién responde por el registro cuando cambia el turno.</li>
 </ul>
 <div class="fragment">
 <p><span class="pregunta">Cambia una de esas decisiones y cambia la conclusión.</span></p>
@@ -298,35 +299,20 @@ Oscar Leonel Sánchez Conde
 </div>
 </div></div>
 </section>
-<section id="cómo-se-evalúa" class="slide level2 center">
-<h2>Cómo se evalúa</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Componente</th>
-<th style="text-align: center;">Semana</th>
-<th style="text-align: center;">Peso</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Cierre de la Unidad 1</td>
-<td style="text-align: center;">05</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="even">
-<td>Cierre de la Unidad 2</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td>Evaluación final de la Unidad 3</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">40%</td>
-</tr>
-</tbody>
-</table>
-<p>Cada corte se entrega como informe <strong>con el código que lo produce</strong>. Publico el enunciado y la rúbrica al comenzar la unidad.</p>
+<section id="unidad-1.-describir-lo-que-hay" class="slide level2 grafico center">
+<h2>Unidad 1. Describir lo que hay</h2>
+<p><img data-src="imagenes/caso-unidad-1.svg" alt="Diagrama de cajas con los puntos superpuestos de la duración de las intervenciones, separadas por tipo. La correctiva tiene mediana 175 minutos, la preventiva 83 y la predictiva 60."></p>
+<p><span class="pie-grafico">Tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplot. El producto es un informe exploratorio del caso. Datos simulados de 240 intervenciones.</span></p>
+</section>
+<section id="unidad-2.-modelar-la-incertidumbre" class="slide level2 grafico center">
+<h2>Unidad 2. Modelar la incertidumbre</h2>
+<p><img data-src="imagenes/caso-unidad-2.svg" alt="Histograma de la duración de las intervenciones correctivas con una densidad lognormal ajustada encima y la cola sombreada a partir de los 240 minutos, con la probabilidad anotada."></p>
+<p><span class="pie-grafico">Se ajusta una distribución a lo observado y con ella se calculan probabilidades de eventos que todavía no ocurrieron. El producto es un modelo que responde preguntas.</span></p>
+</section>
+<section id="unidad-3.-inferir-sobre-el-proceso" class="slide level2 grafico center">
+<h2>Unidad 3. Inferir sobre el proceso</h2>
+<p><img data-src="imagenes/caso-unidad-3.svg" alt="Dispersión de la duración contra las horas de operación, con una recta de regresión y su banda de confianza del 95 por ciento para las intervenciones preventivas y para las correctivas."></p>
+<p><span class="pie-grafico">Intervalos de confianza, pruebas de hipótesis, comparación de tratamientos y regresión. El producto son conclusiones sobre el proceso, con su margen de error declarado.</span></p>
 </section>
 <section id="el-método-del-módulo" class="slide level2 center">
 <h2>El método del módulo</h2>
@@ -372,9 +358,12 @@ Oscar Leonel Sánchez Conde
 </div>
 </div></div>
 </section>
-<section id="qué-aísla-un-entorno-virtual" class="slide level2 solo-diagrama center">
-<h2>Qué aísla un entorno virtual</h2>
+<section id="cómo-vamos-a-trabajar" class="slide level2 con-definiciones center">
+<h2>Cómo vamos a trabajar</h2>
 <p><img data-src="imagenes/entorno-virtual.svg" alt="El Python del sistema y, aparte, el entorno .venv con una copia aislada de Python y las librerías con su versión fijada"></p>
+<div class="definiciones">
+<p>Cada quien trabaja en un entorno aislado con <strong>las mismas versiones</strong>. Así el mismo script produce el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.</p>
+</div>
 </section>
 <section id="laboratorio-crea-el-entorno" class="slide level2 center">
 <h2>Laboratorio: crea el entorno</h2>
