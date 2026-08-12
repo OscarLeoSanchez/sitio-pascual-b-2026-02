@@ -1,0 +1,334 @@
+---
+title: "Estadística para Analítica"
+subtitle: "Presentación del módulo y entorno de trabajo"
+author: "Oscar Leonel Sánchez Conde"
+institute: "Institución Universitaria Pascual Bravo"
+pagetitle: "Estadística para Analítica. Presentación del módulo"
+title-prefix: ""
+format:
+  revealjs:
+    theme: [default, ../../estilos/presentacion.scss]
+    width: 1280
+    height: 720
+    margin: 0.07
+    center: true
+    slide-number: false
+    progress: true
+    controls: true
+    menu: false
+    transition: fade
+    transition-speed: fast
+    hash: true
+    history: false
+    view-distance: 10
+    auto-stretch: false
+---
+
+## Ruta de la sesión
+
+::: {.columns}
+::: {.column width="50%"}
+**Primera parte**
+
+1. De qué se trata el módulo
+2. La estadística como proceso
+3. El mapa de las 16 semanas
+4. Cómo se evalúa
+:::
+
+::: {.column width="50%"}
+**Segunda parte**
+
+1. El entorno de trabajo
+2. Instalación y verificación
+3. Demostración: la variabilidad
+4. Muestra, parámetro y estimación
+:::
+:::
+
+## El módulo en una diapositiva
+
+- Especialización en Big Data. Nivel de posgrado.
+- Dieciséis semanas, 3 horas de acompañamiento y 9 de trabajo independiente.
+- Tres unidades y tres cortes: 30, 30 y 40 por ciento.
+- Todo se implementa en **Python**.
+
+. . .
+
+[La estadística responde preguntas con datos para poder decidir.]{.grande}
+
+## Cuatro pasos, no uno {.solo-diagrama}
+
+![](imagenes/ciclo-estadistico.svg){fig-alt="Formular la pregunta, recoger los datos, analizar e interpretar, con un retorno de la decisión a la pregunta"}
+
+## Qué se decide en cada paso
+
+- **Formular la pregunta.** Qué decisión depende de la respuesta y con qué precisión hay que darla.
+- **Recoger los datos.** Qué se mide, cada cuánto, con qué instrumento y quién responde por el registro.
+- **Analizar.** Con el método que admite la naturaleza de esas variables.
+- **Interpretar y decidir.** Qué se hace con el resultado y con cuánta confianza.
+
+. . .
+
+Los cuatro pesan igual sobre el resultado.
+
+## Dónde se pierde el rigor
+
+Un análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con
+apariencia de rigor.
+
+. . .
+
+[Y esa decisión hay que defenderla después ante quien la firma.]{.grande}
+
+## El caso que atraviesa el módulo
+
+Un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla,
+alguien fijó tres cosas:
+
+- Qué variable representa el desgaste.
+- Cada cuánto se lee el instrumento.
+- Quién responde por el registro.
+
+. . .
+
+[Cambia una de esas decisiones y cambia la conclusión.]{.pregunta}
+
+## El mapa del módulo {.solo-diagrama}
+
+![](imagenes/mapa-modulo.svg){fig-alt="Unidad 1 entre las semanas 1 y 5, unidad 2 entre la 6 y la 10, unidad 3 entre la 11 y la 16"}
+
+## Qué responde cada unidad
+
+| Unidad | La pregunta | Lo que produce | Cierre |
+|:---:|---|---|:---:|
+| 1 | Qué hay en estos datos | Informe exploratorio con gráficos y resúmenes numéricos | 30% |
+| 2 | Qué tan probable es lo que observo | Un modelo de probabilidad ajustado al fenómeno | 30% |
+| 3 | Qué puedo afirmar sobre lo que no medí | Conclusiones con su margen de error declarado | 40% |
+
+## Cómo se evalúa
+
+| Componente | Semana | Peso |
+|---|:---:|:---:|
+| Cierre de la Unidad 1 | 05 | 30% |
+| Cierre de la Unidad 2 | 10 | 30% |
+| Evaluación final de la Unidad 3 | 16 | 40% |
+
+Cada corte se entrega como informe **con el código que lo produce**. Publico el enunciado y la
+rúbrica al comenzar la unidad.
+
+## El método del módulo
+
+Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento
+muchas veces y contrastamos el resultado con lo que predice la teoría.
+
+. . .
+
+[Simular, repetir y contrastar.]{.grande}
+
+## El recorrido de los datos {.solo-diagrama}
+
+![](imagenes/flujo-librerias.svg){fig-alt="De los archivos al DataFrame con pandas, de ahí a gráficos y a cálculo y modelos, y de los dos al informe"}
+
+## Las siete librerías
+
+| Librería | Qué aporta |
+|---|---|
+| pandas | Carga los datos y los deja como tabla con columnas con nombre |
+| numpy | Cálculo numérico y generación de números aleatorios para simular |
+| openpyxl | Es la que permite a pandas leer y escribir `.xlsx` |
+| matplotlib | Motor de los gráficos |
+| seaborn | Gráficos estadísticos sobre matplotlib, con menos código |
+| scipy | Distribuciones de probabilidad y pruebas de hipótesis |
+| statsmodels | Modelos de regresión y ANOVA con la salida que se reporta |
+
+## Qué aísla un entorno virtual {.solo-diagrama}
+
+![](imagenes/entorno-virtual.svg){fig-alt="El Python del sistema y, aparte, el entorno .venv con una copia aislada de Python y las librerías con su versión fijada"}
+
+## Laboratorio: crea el entorno
+
+```bash
+mkdir estadistica-analitica
+cd estadistica-analitica
+python -m venv .venv
+```
+
+Actívalo según tu sistema:
+
+```bash
+# Windows, PowerShell
+.venv\Scripts\Activate.ps1
+
+# macOS y Linux
+source .venv/bin/activate
+```
+
+Si la terminal no muestra `(.venv)`, el entorno no está activo.
+
+## Laboratorio: instala las librerías
+
+Crea `requirements.txt`:
+
+```text
+pandas==2.3.1
+numpy==2.3.2
+scipy==1.17.0
+matplotlib==3.10.8
+seaborn==0.13.2
+statsmodels==0.14.6
+openpyxl==3.1.5
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+Fijar las versiones con `==` es lo que hace reproducible el análisis.
+
+## Laboratorio: verifica
+
+```bash
+python -c "import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')"
+```
+
+```bash
+python -c "import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)"
+```
+
+```text
+2.3.1 2.3.2 1.17.0
+```
+
+::: {.aviso}
+Cerrar la terminal desactiva el entorno. Hay que activarlo otra vez en cada sesión de trabajo.
+:::
+
+## La misma operación, 200 veces {.codigo-largo}
+
+```python
+import time
+import random
+import pandas as pd
+
+random.seed(2026)
+
+filas = []
+for i in range(1, 201):
+    datos = [random.random() for _ in range(100_000)]
+    inicio = time.perf_counter()
+    datos.sort()
+    fin = time.perf_counter()
+    filas.append({
+        "medicion": i,
+        "tiempo_ms": round((fin - inicio) * 1000, 3),
+        "tamano": 100_000,
+    })
+
+mediciones = pd.DataFrame(filas)
+mediciones.to_csv("tiempos_ordenamiento.csv", index=False)
+
+print(mediciones.head())
+print()
+print(mediciones["tiempo_ms"].describe())
+```
+
+## Doscientos números distintos {.codigo-largo}
+
+```text
+   medicion  tiempo_ms  tamano
+0         1     23.650  100000
+1         2     22.488  100000
+2         3     25.532  100000
+3         4     25.649  100000
+4         5     25.361  100000
+
+count    200.000000
+mean      22.645985
+std        4.305880
+min       15.767000
+25%       18.478000
+50%       23.849500
+75%       25.551000
+max       38.598000
+Name: tiempo_ms, dtype: float64
+```
+
+## Qué acaba de pasar
+
+- La medición más rápida tardó 15,8 ms. La más lenta, 38,6.
+- `random.seed(2026)` fija la secuencia: la lista que se ordena es siempre la misma.
+
+. . .
+
+[La variabilidad no viene de los datos. Viene de la medición.]{.grande}
+
+## Entonces, ¿cuál es el valor verdadero? {.solo-diagrama}
+
+![](imagenes/muestra-parametro.svg){fig-alt="Del proceso completo sale por muestreo un conjunto de 200 mediciones, de ahí una estimación, y la inferencia devuelve una conclusión sobre el proceso"}
+
+## La consecuencia práctica
+
+::: {.aviso}
+Un solo dato no es evidencia.
+:::
+
+Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes todavía si es
+la máquina o es el ruido de una sola medición.
+
+. . .
+
+Esa flecha punteada del diagrama anterior es la Unidad 3. Las unidades 1 y 2 construyen lo que hace
+falta para poder trazarla con honestidad.
+
+## Tres formatos de almacenamiento
+
+| Formato | Qué es | Cuándo lo vas a usar |
+|---|---|---|
+| `.csv` | Texto plano, valores separados por comas | El formato por omisión |
+| `.txt` | Texto plano con tabulación | Lo que exportan muchos equipos de medición |
+| `.xlsx` | Libro de Excel | Cuando el dato llega o se entrega en Excel |
+
+Pandas lee y escribe los tres. Para `.xlsx` necesita `openpyxl`.
+
+## Anatomía de una tabla de datos
+
+- La **unidad de observación** es lo que ocupa cada fila.
+- Cada **variable** es una columna: algo que se midió u observó de esa unidad.
+- Cada **registro** es una fila completa.
+
+. . .
+
+[La naturaleza de una variable la declaras tú, no la adivina la herramienta.]{.grande}
+
+## Antes de la próxima sesión
+
+::: {.regla}
+`python --version` responde con 3.13 o superior
+:::
+
+::: {.regla}
+El entorno virtual se activa y muestra `(.venv)` en la terminal
+:::
+
+::: {.regla}
+El `import` de las seis librerías imprime `todo listo`
+:::
+
+::: {.regla}
+Respondiste la prueba diagnóstica de entrada
+:::
+
+## Lo que viene
+
+La semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que
+trabajan las tres unidades.
+
+[Toda la guía de la semana está publicada en el sitio del módulo.]{.grande}
+
+::: {.nota-final}
+Estadística para Analítica. Institución Universitaria Pascual Bravo. Semestre 2026-02.
+
+Redacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado. Las salidas de
+terminal son reales, producidas al ejecutar estos mismos programas.
+:::

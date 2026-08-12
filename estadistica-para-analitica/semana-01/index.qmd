@@ -13,6 +13,9 @@ date-format: "D [de] MMMM [de] YYYY"
 | Unidad     | Unidad 1. Análisis descriptivo y exploratorio de datos   |
 :::
 
+[Abrir la presentación de la sesión](presentacion-introduccion.html){.btn .btn-primary
+role="button"}
+
 ## De qué va esta semana
 
 Esta semana no tiene entregable ni nota. Hace tres cosas: te muestra cómo está armado el módulo,

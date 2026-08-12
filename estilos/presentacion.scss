@@ -109,6 +109,13 @@ $code-block-font-size: 0.72em;
   max-height: none;
 }
 
+/* Diapositiva con un bloque de codigo largo: el experimento de 20 lineas no
+   cabe con el cuerpo normal. */
+.reveal .codigo-largo pre code {
+  font-size: 0.56em;
+  line-height: 1.3;
+}
+
 /* Portada */
 .reveal .title-slide h1.title {
   font-size: 2.1em;

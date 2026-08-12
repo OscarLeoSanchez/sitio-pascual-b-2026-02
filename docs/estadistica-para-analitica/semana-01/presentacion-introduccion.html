@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Oscar Leonel Sánchez Conde">
-  <title>Git y GitHub con HolaPascual</title>
+  <title>Estadística para Analítica. Presentación del módulo</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -197,8 +197,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Git y GitHub con HolaPascual</h1>
-  <p class="subtitle">Control de versiones sobre tu primer programa</p>
+  <h1 class="title">Estadística para Analítica</h1>
+  <p class="subtitle">Presentación del módulo y entorno de trabajo</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -218,270 +218,374 @@ Oscar Leonel Sánchez Conde
 <div class="column" style="width:50%;">
 <p><strong>Primera parte</strong></p>
 <ol type="1">
-<li>Git y GitHub</li>
-<li>Identidad</li>
-<li><code>.gitignore</code></li>
-<li><code>init</code> y <code>status</code></li>
-<li>Primer commit</li>
+<li>De qué se trata el módulo</li>
+<li>La estadística como proceso</li>
+<li>El mapa de las 16 semanas</li>
+<li>Cómo se evalúa</li>
 </ol>
 </div><div class="column" style="width:50%;">
 <p><strong>Segunda parte</strong></p>
 <ol type="1">
-<li><code>diff</code> y segundo commit</li>
-<li><code>log</code></li>
-<li>Repositorio vacío en GitHub</li>
-<li>Remoto y <code>push</code></li>
-<li>Verificación</li>
+<li>El entorno de trabajo</li>
+<li>Instalación y verificación</li>
+<li>Demostración: la variabilidad</li>
+<li>Muestra, parámetro y estimación</li>
 </ol>
 </div></div>
 </section>
-<section id="sin-control-de-versiones" class="slide level2 solo-diagrama center">
-<h2>Sin control de versiones</h2>
-<p><img data-src="imagenes/problema-carpetas.svg" alt="Cinco carpetas con nombres parecidos y preguntas que ninguna responde"></p>
-</section>
-<section id="lo-que-necesitamos" class="slide level2 center">
-<h2>Lo que necesitamos</h2>
+<section id="el-módulo-en-una-diapositiva" class="slide level2 center">
+<h2>El módulo en una diapositiva</h2>
 <ul>
-<li>Volver a un estado anterior.</li>
-<li>Saber quién cambió qué y cuándo.</li>
-<li>Explicar cada cambio con un mensaje.</li>
-<li>Recuperar el proyecto desde otro computador.</li>
+<li>Especialización en Big Data. Nivel de posgrado.</li>
+<li>Dieciséis semanas, 3 horas de acompañamiento y 9 de trabajo independiente.</li>
+<li>Tres unidades y tres cortes: 30, 30 y 40 por ciento.</li>
+<li>Todo se implementa en <strong>Python</strong>.</li>
 </ul>
 <div class="fragment">
-<p><span class="grande">Git registra la historia. GitHub aloja una copia.</span></p>
+<p><span class="grande">La estadística responde preguntas con datos para poder decidir.</span></p>
 </div>
 </section>
-<section id="git-y-github-son-distintos" class="slide level2 solo-diagrama center">
-<h2>Git y GitHub son distintos</h2>
-<p><img data-src="imagenes/git-y-github.svg" alt="Git es un programa en el computador y GitHub es un servicio en internet"></p>
+<section id="cuatro-pasos-no-uno" class="slide level2 solo-diagrama center">
+<h2>Cuatro pasos, no uno</h2>
+<p><img data-src="imagenes/ciclo-estadistico.svg" alt="Formular la pregunta, recoger los datos, analizar e interpretar, con un retorno de la decisión a la pregunta"></p>
 </section>
-<section id="laboratorio-identifica-tus-commits" class="slide level2 center">
-<h2>Laboratorio: identifica tus commits</h2>
-<p>Una sola vez por computador:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Tu nombre"</span></span>
-<span id="cb1-2"><a></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"tu.correo@example.com"</span></span>
-<span id="cb1-3"><a></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Usa el correo asociado a GitHub si quieres que los commits aparezcan en tu perfil.</p>
-</section>
-<section id="gitignore-para-este-proyecto" class="slide level2 center">
-<h2><code>.gitignore</code> para este proyecto</h2>
-<p>Créalo en la raíz de <code>HolaPascual</code> antes de iniciar el repositorio:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource gitignore number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a></a>.vs/</span>
-<span id="cb2-2"><a></a>bin/</span>
-<span id="cb2-3"><a></a>obj/</span>
-<span id="cb2-4"><a></a>*.user</span>
-<span id="cb2-5"><a></a>*.suo</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>bin</code> y <code>obj</code> se reconstruyen. <code>Program.cs</code>, el <code>.csproj</code> y <code>README.md</code> sí describen el proyecto.</p>
-</section>
-<section id="lo-que-queda-fuera" class="slide level2 solo-diagrama center">
-<h2>Lo que queda fuera</h2>
-<p><img data-src="imagenes/gitignore-filtro.svg" alt="El gitignore deja pasar Program.cs, el archivo de proyecto y README, y excluye .vs, bin y obj"></p>
-</section>
-<section id="laboratorio-inicia-holapascual" class="slide level2 center">
-<h2>Laboratorio: inicia HolaPascual</h2>
-<p>Abre la terminal en la raíz del proyecto:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a></a><span class="fu">git</span> init</span>
-<span id="cb3-2"><a></a><span class="fu">git</span> status <span class="at">--short</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="qué-se-decide-en-cada-paso" class="slide level2 center">
+<h2>Qué se decide en cada paso</h2>
 <ul>
-<li><code>.git</code> guarda la historia local.</li>
-<li><code>??</code> identifica archivos nuevos sin seguimiento.</li>
-<li>Ejecuta <code>init</code> una sola vez en cada proyecto.</li>
+<li><strong>Formular la pregunta.</strong> Qué decisión depende de la respuesta y con qué precisión hay que darla.</li>
+<li><strong>Recoger los datos.</strong> Qué se mide, cada cuánto, con qué instrumento y quién responde por el registro.</li>
+<li><strong>Analizar.</strong> Con el método que admite la naturaleza de esas variables.</li>
+<li><strong>Interpretar y decidir.</strong> Qué se hace con el resultado y con cuánta confianza.</li>
 </ul>
+<div class="fragment">
+<p>Los cuatro pesan igual sobre el resultado.</p>
+</div>
 </section>
-<section id="dónde-vive-cada-cambio" class="slide level2 solo-diagrama center">
-<h2>Dónde vive cada cambio</h2>
-<p><img data-src="imagenes/git-cuatro-areas.svg" alt="Directorio de trabajo, área de preparación, repositorio local y repositorio remoto"></p>
+<section id="dónde-se-pierde-el-rigor" class="slide level2 center">
+<h2>Dónde se pierde el rigor</h2>
+<p>Un análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor.</p>
+<div class="fragment">
+<p><span class="grande">Y esa decisión hay que defenderla después ante quien la firma.</span></p>
+</div>
 </section>
-<section id="convención-de-mensajes" class="slide level2 center">
-<h2>Convención de mensajes</h2>
-<p>Git acepta cualquier mensaje. En el curso adoptamos <strong>Conventional Commits</strong> como convención de equipo:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a></a>tipo: descripción breve</span>
-<span id="cb4-2"><a></a>tipo(alcance): descripción breve</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="el-caso-que-atraviesa-el-módulo" class="slide level2 center">
+<h2>El caso que atraviesa el módulo</h2>
+<p>Un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó tres cosas:</p>
 <ul>
-<li>El alcance es opcional: <code>salida</code>, <code>entrada</code>, <code>readme</code> o <code>config</code>.</li>
-<li>Escribe una descripción breve, en minúscula, con verbo y sin punto final.</li>
-<li>El mensaje explica el propósito del cambio, no solo el archivo modificado.</li>
+<li>Qué variable representa el desgaste.</li>
+<li>Cada cuánto se lee el instrumento.</li>
+<li>Quién responde por el registro.</li>
 </ul>
+<div class="fragment">
+<p><span class="pregunta">Cambia una de esas decisiones y cambia la conclusión.</span></p>
+</div>
 </section>
-<section id="tipos-para-cambios-funcionales" class="slide level2 center">
-<h2>Tipos para cambios funcionales</h2>
+<section id="el-mapa-del-módulo" class="slide level2 solo-diagrama center">
+<h2>El mapa del módulo</h2>
+<p><img data-src="imagenes/mapa-modulo.svg" alt="Unidad 1 entre las semanas 1 y 5, unidad 2 entre la 6 y la 10, unidad 3 entre la 11 y la 16"></p>
+</section>
+<section id="qué-responde-cada-unidad" class="slide level2 center">
+<h2>Qué responde cada unidad</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 31%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tipo</th>
-<th>Úsalo cuando…</th>
-<th>Ejemplo</th>
+<th style="text-align: center;">Unidad</th>
+<th>La pregunta</th>
+<th>Lo que produce</th>
+<th style="text-align: center;">Cierre</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>feat</code></td>
-<td>agregas funcionalidad observable</td>
-<td><code>feat(entrada): solicita el nombre</code></td>
+<td style="text-align: center;">1</td>
+<td>Qué hay en estos datos</td>
+<td>Informe exploratorio con gráficos y resúmenes numéricos</td>
+<td style="text-align: center;">30%</td>
 </tr>
 <tr class="even">
-<td><code>fix</code></td>
-<td>corriges un comportamiento incorrecto</td>
-<td><code>fix(salida): evita saludar con un nombre vacío</code></td>
+<td style="text-align: center;">2</td>
+<td>Qué tan probable es lo que observo</td>
+<td>Un modelo de probabilidad ajustado al fenómeno</td>
+<td style="text-align: center;">30%</td>
 </tr>
 <tr class="odd">
-<td><code>refactor</code></td>
-<td>reorganizas sin agregar funcionalidad ni corregir un fallo</td>
-<td><code>refactor: extrae la construcción del saludo</code></td>
-</tr>
-<tr class="even">
-<td><code>test</code></td>
-<td>agregas o ajustas pruebas</td>
-<td><code>test: verifica el saludo con nombre</code></td>
+<td style="text-align: center;">3</td>
+<td>Qué puedo afirmar sobre lo que no medí</td>
+<td>Conclusiones con su margen de error declarado</td>
+<td style="text-align: center;">40%</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="tipos-para-apoyo-y-mantenimiento" class="slide level2 center">
-<h2>Tipos para apoyo y mantenimiento</h2>
+<section id="cómo-se-evalúa" class="slide level2 center">
+<h2>Cómo se evalúa</h2>
 <table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Tipo</th>
-<th>Úsalo cuando…</th>
-<th>Ejemplo</th>
+<th>Componente</th>
+<th style="text-align: center;">Semana</th>
+<th style="text-align: center;">Peso</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>docs</code></td>
-<td>solo cambias documentación</td>
-<td><code>docs: explica cómo ejecutar HolaPascual</code></td>
+<td>Cierre de la Unidad 1</td>
+<td style="text-align: center;">05</td>
+<td style="text-align: center;">30%</td>
 </tr>
 <tr class="even">
-<td><code>style</code></td>
-<td>cambias formato sin alterar el comportamiento</td>
-<td><code>style: ordena la sangría de Program.cs</code></td>
+<td>Cierre de la Unidad 2</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">30%</td>
 </tr>
 <tr class="odd">
-<td><code>chore</code></td>
-<td>haces mantenimiento o configuración sin funcionalidad</td>
-<td><code>chore: configura el gitignore de .NET</code></td>
+<td>Evaluación final de la Unidad 3</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">40%</td>
 </tr>
 </tbody>
 </table>
-<p><code>style</code> cubre espacios, sangría y formato del código. <code>chore</code> cubre configuración, dependencias y otras tareas de mantenimiento.</p>
+<p>Cada corte se entrega como informe <strong>con el código que lo produce</strong>. Publico el enunciado y la rúbrica al comenzar la unidad.</p>
 </section>
-<section id="mensajes-que-sí-ayudan" class="slide level2 center">
-<h2>Mensajes que sí ayudan</h2>
-<div class="columns">
-<div class="column" style="width:52%;">
-<p><strong>Buenos</strong></p>
-<ul>
-<li><code>feat: crea el primer programa de consola</code></li>
-<li><code>feat(salida): informa que Git registra el cambio</code></li>
-<li><code>docs: explica cómo ejecutar HolaPascual</code></li>
-</ul>
-</div><div class="column" style="width:48%;">
-<p><strong>Malos</strong></p>
-<ul>
-<li><code>cambios</code>: no dice qué ocurrió.</li>
-<li><code>fix cosas</code>: no sigue la forma y es impreciso.</li>
-<li><code>feat: actualiza Program.cs</code>: nombra el archivo, no el propósito.</li>
-</ul>
-</div></div>
+<section id="el-método-del-módulo" class="slide level2 center">
+<h2>El método del módulo</h2>
+<p>Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento muchas veces y contrastamos el resultado con lo que predice la teoría.</p>
+<div class="fragment">
+<p><span class="grande">Simular, repetir y contrastar.</span></p>
+</div>
 </section>
-<section id="laboratorio-primer-commit" class="slide level2 center">
-<h2>Laboratorio: primer commit</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="fu">git</span> add .</span>
-<span id="cb5-2"><a></a><span class="fu">git</span> status <span class="at">--short</span></span>
-<span id="cb5-3"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat: crea el primer programa de consola"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>add</code> selecciona contenido.</li>
-<li><code>commit</code> registra esa selección.</li>
-<li>El mensaje explica el cambio, no el nombre del archivo.</li>
-</ul>
+<section id="el-recorrido-de-los-datos" class="slide level2 solo-diagrama center">
+<h2>El recorrido de los datos</h2>
+<p><img data-src="imagenes/flujo-librerias.svg" alt="De los archivos al DataFrame con pandas, de ahí a gráficos y a cálculo y modelos, y de los dos al informe"></p>
 </section>
-<section id="qué-guarda-un-commit" class="slide level2 solo-diagrama center">
-<h2>Qué guarda un commit</h2>
-<p><img data-src="imagenes/anatomia-commit.svg" alt="Un commit guarda autor, fecha, mensaje, contenido y vínculo con el commit anterior"></p>
+<section id="las-siete-librerías" class="slide level2 center">
+<h2>Las siete librerías</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Librería</th>
+<th>Qué aporta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pandas</td>
+<td>Carga los datos y los deja como tabla con columnas con nombre</td>
+</tr>
+<tr class="even">
+<td>numpy</td>
+<td>Cálculo numérico y generación de números aleatorios para simular</td>
+</tr>
+<tr class="odd">
+<td>openpyxl</td>
+<td>Es la que permite a pandas leer y escribir <code>.xlsx</code></td>
+</tr>
+<tr class="even">
+<td>matplotlib</td>
+<td>Motor de los gráficos</td>
+</tr>
+<tr class="odd">
+<td>seaborn</td>
+<td>Gráficos estadísticos sobre matplotlib, con menos código</td>
+</tr>
+<tr class="even">
+<td>scipy</td>
+<td>Distribuciones de probabilidad y pruebas de hipótesis</td>
+</tr>
+<tr class="odd">
+<td>statsmodels</td>
+<td>Modelos de regresión y ANOVA con la salida que se reporta</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="laboratorio-mira-antes-de-guardar" class="slide level2 center">
-<h2>Laboratorio: mira antes de guardar</h2>
-<p>Agrega una instrucción al final de <code>Program.cs</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource csharp number-lines code-with-copy"><code class="sourceCode cs"><span id="cb6-1"><a></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Este cambio queda registrado con Git."</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="fu">git</span> diff</span>
-<span id="cb7-2"><a></a><span class="fu">git</span> status <span class="at">--short</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><code>diff</code> muestra el cambio que todavía no está en el próximo commit.</p>
+<section id="qué-aísla-un-entorno-virtual" class="slide level2 solo-diagrama center">
+<h2>Qué aísla un entorno virtual</h2>
+<p><img data-src="imagenes/entorno-virtual.svg" alt="El Python del sistema y, aparte, el entorno .venv con una copia aislada de Python y las librerías con su versión fijada"></p>
 </section>
-<section id="laboratorio-segundo-commit" class="slide level2 center">
-<h2>Laboratorio: segundo commit</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="fu">git</span> add Program.cs</span>
-<span id="cb8-2"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat(salida): informa que Git registra el cambio"</span></span>
-<span id="cb8-3"><a></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Los hashes serán distintos en cada computador. El orden y los mensajes deben coincidir.</p>
+<section id="laboratorio-crea-el-entorno" class="slide level2 center">
+<h2>Laboratorio: crea el entorno</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="fu">mkdir</span> estadistica-analitica</span>
+<span id="cb1-2"><a></a><span class="bu">cd</span> estadistica-analitica</span>
+<span id="cb1-3"><a></a><span class="ex">python</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Actívalo según tu sistema:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="co"># Windows, PowerShell</span></span>
+<span id="cb2-2"><a></a><span class="ex">.venv\Scripts\Activate.ps1</span></span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="co"># macOS y Linux</span></span>
+<span id="cb2-5"><a></a><span class="bu">source</span> .venv/bin/activate</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Si la terminal no muestra <code>(.venv)</code>, el entorno no está activo.</p>
 </section>
-<section id="la-historia-es-una-cadena" class="slide level2 solo-diagrama center">
-<h2>La historia es una cadena</h2>
-<p><img data-src="imagenes/git-cadena-commits.svg" alt="Los dos commits del laboratorio, con main y HEAD sobre el más reciente"></p>
+<section id="laboratorio-instala-las-librerías" class="slide level2 center">
+<h2>Laboratorio: instala las librerías</h2>
+<p>Crea <code>requirements.txt</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a></a>pandas==2.3.1</span>
+<span id="cb3-2"><a></a>numpy==2.3.2</span>
+<span id="cb3-3"><a></a>scipy==1.17.0</span>
+<span id="cb3-4"><a></a>matplotlib==3.10.8</span>
+<span id="cb3-5"><a></a>seaborn==0.13.2</span>
+<span id="cb3-6"><a></a>statsmodels==0.14.6</span>
+<span id="cb3-7"><a></a>openpyxl==3.1.5</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Fijar las versiones con <code>==</code> es lo que hace reproducible el análisis.</p>
 </section>
-<section id="github-crea-un-repositorio-vacío" class="slide level2 center">
-<h2>GitHub: crea un repositorio vacío</h2>
-<ol type="1">
-<li>Selecciona <strong>New repository</strong>.</li>
-<li>Escribe <code>HolaPascual</code>.</li>
-<li>Elige la visibilidad.</li>
-<li>Deja sin marcar README, <code>.gitignore</code> y licencia.</li>
-<li>Selecciona <strong>Create repository</strong>.</li>
-</ol>
+<section id="laboratorio-verifica" class="slide level2 center">
+<h2>Laboratorio: verifica</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">python</span> <span class="at">-c</span> <span class="st">"import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a></a>2.3.1 2.3.2 1.17.0</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="aviso">
-<p>Tu computador ya tiene la historia. No crees otra historia desde GitHub.</p>
+<p>Cerrar la terminal desactiva el entorno. Hay que activarlo otra vez en cada sesión de trabajo.</p>
 </div>
 </section>
-<section id="el-remoto" class="slide level2 solo-diagrama center">
-<h2>El remoto</h2>
-<p><img data-src="imagenes/remoto-copias.svg" alt="GitHub guarda una copia y el computador conserva el repositorio local"></p>
+<section id="la-misma-operación-200-veces" class="slide level2 codigo-largo center">
+<h2>La misma operación, 200 veces</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> time</span>
+<span id="cb8-2"><a></a><span class="im">import</span> random</span>
+<span id="cb8-3"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a>random.seed(<span class="dv">2026</span>)</span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a>filas <span class="op">=</span> []</span>
+<span id="cb8-8"><a></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">201</span>):</span>
+<span id="cb8-9"><a></a>    datos <span class="op">=</span> [random.random() <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100_000</span>)]</span>
+<span id="cb8-10"><a></a>    inicio <span class="op">=</span> time.perf_counter()</span>
+<span id="cb8-11"><a></a>    datos.sort()</span>
+<span id="cb8-12"><a></a>    fin <span class="op">=</span> time.perf_counter()</span>
+<span id="cb8-13"><a></a>    filas.append({</span>
+<span id="cb8-14"><a></a>        <span class="st">"medicion"</span>: i,</span>
+<span id="cb8-15"><a></a>        <span class="st">"tiempo_ms"</span>: <span class="bu">round</span>((fin <span class="op">-</span> inicio) <span class="op">*</span> <span class="dv">1000</span>, <span class="dv">3</span>),</span>
+<span id="cb8-16"><a></a>        <span class="st">"tamano"</span>: <span class="dv">100_000</span>,</span>
+<span id="cb8-17"><a></a>    })</span>
+<span id="cb8-18"><a></a></span>
+<span id="cb8-19"><a></a>mediciones <span class="op">=</span> pd.DataFrame(filas)</span>
+<span id="cb8-20"><a></a>mediciones.to_csv(<span class="st">"tiempos_ordenamiento.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-21"><a></a></span>
+<span id="cb8-22"><a></a><span class="bu">print</span>(mediciones.head())</span>
+<span id="cb8-23"><a></a><span class="bu">print</span>()</span>
+<span id="cb8-24"><a></a><span class="bu">print</span>(mediciones[<span class="st">"tiempo_ms"</span>].describe())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="laboratorio-conecta-y-publica" class="slide level2 center">
-<h2>Laboratorio: conecta y publica</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">git</span> remote add origin https://github.com/<span class="op">&lt;</span>usuario<span class="op">&gt;</span>/HolaPascual.git</span>
-<span id="cb9-2"><a></a><span class="fu">git</span> remote <span class="at">-v</span></span>
-<span id="cb9-3"><a></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>origin</code> es el nombre corto de la dirección.</li>
-<li><code>push</code> sube los commits.</li>
-<li><code>-u</code> conecta <code>main</code> local con <code>origin/main</code>.</li>
-</ul>
-<p>GitHub puede abrir el navegador para autorizar el acceso.</p>
+<section id="doscientos-números-distintos" class="slide level2 codigo-largo center">
+<h2>Doscientos números distintos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a></a>   medicion  tiempo_ms  tamano</span>
+<span id="cb9-2"><a></a>0         1     23.650  100000</span>
+<span id="cb9-3"><a></a>1         2     22.488  100000</span>
+<span id="cb9-4"><a></a>2         3     25.532  100000</span>
+<span id="cb9-5"><a></a>3         4     25.649  100000</span>
+<span id="cb9-6"><a></a>4         5     25.361  100000</span>
+<span id="cb9-7"><a></a></span>
+<span id="cb9-8"><a></a>count    200.000000</span>
+<span id="cb9-9"><a></a>mean      22.645985</span>
+<span id="cb9-10"><a></a>std        4.305880</span>
+<span id="cb9-11"><a></a>min       15.767000</span>
+<span id="cb9-12"><a></a>25%       18.478000</span>
+<span id="cb9-13"><a></a>50%       23.849500</span>
+<span id="cb9-14"><a></a>75%       25.551000</span>
+<span id="cb9-15"><a></a>max       38.598000</span>
+<span id="cb9-16"><a></a>Name: tiempo_ms, dtype: float64</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="verifica-en-github" class="slide level2 center">
-<h2>Verifica en GitHub</h2>
-<p>Debes encontrar:</p>
+<section id="qué-acaba-de-pasar" class="slide level2 center">
+<h2>Qué acaba de pasar</h2>
 <ul>
-<li><code>Program.cs</code>, <code>HolaPascual.csproj</code>, <code>README.md</code> y <code>.gitignore</code>.</li>
-<li>Dos commits con mensajes claros.</li>
-<li>Ninguna carpeta <code>.vs</code>, <code>bin</code> u <code>obj</code>.</li>
+<li>La medición más rápida tardó 15,8 ms. La más lenta, 38,6.</li>
+<li><code>random.seed(2026)</code> fija la secuencia: la lista que se ordena es siempre la misma.</li>
 </ul>
 <div class="fragment">
-<p>Si falta el último commit, ejecuta <code>git push</code>.</p>
+<p><span class="grande">La variabilidad no viene de los datos. Viene de la medición.</span></p>
 </div>
 </section>
-<section id="el-flujo-desde-ahora" class="slide level2 center">
-<h2>El flujo desde ahora</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a></a><span class="fu">git</span> status</span>
-<span id="cb10-2"><a></a><span class="fu">git</span> diff</span>
-<span id="cb10-3"><a></a><span class="fu">git</span> add <span class="op">&lt;</span>archivo<span class="op">&gt;</span></span>
-<span id="cb10-4"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"tipo: describe el cambio"</span></span>
-<span id="cb10-5"><a></a><span class="fu">git</span> push</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p><span class="grande">Cambios pequeños, mensajes claros y un historial que puedas explicar.</span></p>
+<section id="entonces-cuál-es-el-valor-verdadero" class="slide level2 solo-diagrama center">
+<h2>Entonces, ¿cuál es el valor verdadero?</h2>
+<p><img data-src="imagenes/muestra-parametro.svg" alt="Del proceso completo sale por muestreo un conjunto de 200 mediciones, de ahí una estimación, y la inferencia devuelve una conclusión sobre el proceso"></p>
+</section>
+<section id="la-consecuencia-práctica" class="slide level2 center">
+<h2>La consecuencia práctica</h2>
+<div class="aviso">
+<p>Un solo dato no es evidencia.</p>
+</div>
+<p>Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes todavía si es la máquina o es el ruido de una sola medición.</p>
+<div class="fragment">
+<p>Esa flecha punteada del diagrama anterior es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad.</p>
+</div>
+</section>
+<section id="tres-formatos-de-almacenamiento" class="slide level2 center">
+<h2>Tres formatos de almacenamiento</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Formato</th>
+<th>Qué es</th>
+<th>Cuándo lo vas a usar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>.csv</code></td>
+<td>Texto plano, valores separados por comas</td>
+<td>El formato por omisión</td>
+</tr>
+<tr class="even">
+<td><code>.txt</code></td>
+<td>Texto plano con tabulación</td>
+<td>Lo que exportan muchos equipos de medición</td>
+</tr>
+<tr class="odd">
+<td><code>.xlsx</code></td>
+<td>Libro de Excel</td>
+<td>Cuando el dato llega o se entrega en Excel</td>
+</tr>
+</tbody>
+</table>
+<p>Pandas lee y escribe los tres. Para <code>.xlsx</code> necesita <code>openpyxl</code>.</p>
+</section>
+<section id="anatomía-de-una-tabla-de-datos" class="slide level2 center">
+<h2>Anatomía de una tabla de datos</h2>
+<ul>
+<li>La <strong>unidad de observación</strong> es lo que ocupa cada fila.</li>
+<li>Cada <strong>variable</strong> es una columna: algo que se midió u observó de esa unidad.</li>
+<li>Cada <strong>registro</strong> es una fila completa.</li>
+</ul>
+<div class="fragment">
+<p><span class="grande">La naturaleza de una variable la declaras tú, no la adivina la herramienta.</span></p>
+</div>
+</section>
+<section id="antes-de-la-próxima-sesión" class="slide level2 center">
+<h2>Antes de la próxima sesión</h2>
+<div class="regla">
+<p><code>python --version</code> responde con 3.13 o superior</p>
+</div>
+<div class="regla">
+<p>El entorno virtual se activa y muestra <code>(.venv)</code> en la terminal</p>
+</div>
+<div class="regla">
+<p>El <code>import</code> de las seis librerías imprime <code>todo listo</code></p>
+</div>
+<div class="regla">
+<p>Respondiste la prueba diagnóstica de entrada</p>
+</div>
+</section>
+<section id="lo-que-viene" class="slide level2 center">
+<h2>Lo que viene</h2>
+<p>La semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que trabajan las tres unidades.</p>
+<p><span class="grande">Toda la guía de la semana está publicada en el sitio del módulo.</span></p>
 <div class="nota-final">
-<p>Herramientas de Programación I. Institución Universitaria Pascual Bravo. Semestre 2026-02.</p>
-<p>Redacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado.</p>
+<p>Estadística para Analítica. Institución Universitaria Pascual Bravo. Semestre 2026-02.</p>
+<p>Redacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas.</p>
 </div>
 
 
