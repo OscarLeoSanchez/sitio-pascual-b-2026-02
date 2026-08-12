@@ -13,10 +13,20 @@ tbl-colwidths: false
 |------------|--------------------------------------------|
 | Módulo     | Estadística para Analítica                 |
 | Programa   | Especialización en Big Data                |
+| Nivel      | Posgrado                                   |
 | Docente    | Oscar Leonel Sánchez Conde                 |
 | Modalidad  | Presencial. 192 horas                      |
 | Dedicación | 3 horas de acompañamiento directo y 9 de trabajo independiente por semana |
 | Prerrequisitos | Ninguno                                |
+:::
+
+::: {.diagnostico}
+## Prueba diagnóstica de entrada
+
+Respóndela antes del primer encuentro. Toma entre 30 y 45 minutos, no tiene nota y sus resultados
+me sirven para ajustar el ritmo y los apoyos del módulo a lo que el grupo ya sabe.
+
+[Responder la prueba diagnóstica](https://forms.gle/g9LcRj4464CYJqWp8){.btn-diagnostico role="button" target="_blank" rel="noopener"}
 :::
 
 ## De qué se trata el módulo
@@ -43,16 +53,23 @@ predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y va
 propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.
 :::
 
-Todo se articula alrededor de **un conjunto de datos propio que trabajas durante el semestre**. Lo
-recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir
-sobre él.
+Todo se articula alrededor de **un conjunto de datos propio que trabajas durante el semestre**. La
+semana 1 presenta el módulo y deja el entorno instalado; la recolección arranca en la semana 2, con
+la clasificación de variables ya vista. Ese mismo conjunto vuelve en cada entrega: primero lo
+describes, después lo modelas y al final infieres sobre él.
 
-::: {.callout-note}
-## Prueba diagnóstica
+::: {.callout-important}
+## Qué se espera en un posgrado
 
-Responde la [prueba diagnóstica de entrada](https://forms.gle/g9LcRj4464CYJqWp8). La actividad
-toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los
-apoyos del módulo.
+El módulo no evalúa que sepas ejecutar un procedimiento. Evalúa que decidas cuál corresponde,
+que justifiques por qué, y que reconozcas cuándo los supuestos del método no se cumplen.
+
+Tres condiciones aplican a toda entrega:
+
+- **Reproducible.** El informe viene con el código que lo produce, y ese código corre en otra
+  máquina sin retoques.
+- **Trazable.** Cada conclusión se sostiene en una salida concreta del análisis.
+- **Ejecutiva.** Escribes para quien toma la decisión, no para el que revisa la fórmula.
 :::
 
 ## Calendario
@@ -67,8 +84,8 @@ semestre.
 |:---:|---|---|:---:|
 | **[01](semana-01/index.qmd)** | Presentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento | Mediciones reales | - |
 | 02 | Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales | Tipos de variables | - |
-| 03 | Tablas de frecuencia, histogramas y medidas de localización y dispersión | Tablas de frecuencia, histogramas, medidas de localización y dispersión | - |
-| 04 | Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia | Gráficos de cajas y bigotes. Gráficos de barras, tablas de contingencia | - |
+| 03 | Tablas de frecuencia, histogramas y medidas de localización y dispersión | Tablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación) | - |
+| 04 | Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia | Gráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia | - |
 | 05 | Gráficos de dispersión y gráficos condicionales. Informe exploratorio. **Cierre de la Unidad 1** | Gráficos de dispersión y gráficos condicionales | **30%** |
 :::
 
@@ -78,10 +95,10 @@ semestre.
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
 | 06 | Variables aleatorias, espacio muestral y función de distribución | Variables aleatorias, espacio muestral y función de distribución | - |
-| 07 | Probabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes | Cálculo de probabilidades y teorema de Bayes. Probabilidad condicional e independencia | - |
+| 07 | Probabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes | Cálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística | - |
 | 08 | Valor esperado y varianza de variables aleatorias y de sus funciones | Valor esperado y varianza en variables aleatorias y funciones de variables aleatorias | - |
-| 09 | Modelos discretos: uniforme, binomial, hipergeométrica y Poisson | Modelos para variables aleatorias discretas | - |
-| 10 | Modelos continuos: uniforme, normal, gamma y exponencial. **Cierre de la Unidad 2** | Modelos para variables aleatorias continuas | **30%** |
+| 09 | Modelos discretos: uniforme, binomial, hipergeométrica y Poisson | Modelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson | - |
+| 10 | Modelos continuos: uniforme, normal, gamma y exponencial. **Cierre de la Unidad 2** | Modelos para variables aleatorias continuas: uniforme, normal, gamma, exponencial | **30%** |
 :::
 
 ### Unidad 3. Inferencia estadística
@@ -89,7 +106,7 @@ semestre.
 ::: {.calendario}
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
-| 11 | Muestreo y distribuciones muestrales. El teorema del límite central por simulación | Estadísticos de prueba | - |
+| 11 | Muestreo y distribuciones muestrales. El teorema del límite central por simulación | Hipótesis nula y alternativa, estadísticos de prueba y valor p | - |
 | 12 | Estimación puntual e intervalos de confianza | Hipótesis nula y alternativa, estadísticos de prueba y valor p | - |
 | 13 | Pruebas de hipótesis: valor p, inferencia sobre una media y una proporción | Hipótesis nula y alternativa, estadísticos de prueba y valor p | - |
 | 14 | Comparación de dos poblaciones y de varios tratamientos con ANOVA de una vía | Comparación de tratamientos | - |

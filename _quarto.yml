@@ -41,7 +41,7 @@ website:
           href: estadistica-para-analitica/index.qmd
         - section: "Unidad 1. Análisis descriptivo y exploratorio"
           contents:
-            - text: "Semana 1. Entorno y primeras mediciones"
+            - text: "Semana 1. Presentación y entorno de trabajo"
               href: estadistica-para-analitica/semana-01/index.qmd
   page-footer:
     background: light

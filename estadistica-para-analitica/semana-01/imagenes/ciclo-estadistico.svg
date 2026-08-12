@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 200" width="880" height="200" role="img" aria-labelledby="t">
+<title id="t">El ciclo de resolución de un problema con datos</title>
+<defs>
+<marker id="arrowhead" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876" />
+</marker>
+</defs>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.badge-circle { fill: #17456f; }
+.badge-text { fill: #ffffff; font-size: 14px; font-weight: 700; text-anchor: middle; }
+.box-text { fill: #16202b; font-size: 15px; text-anchor: middle; }
+.arrow { stroke: #5b6876; stroke-width: 2; fill: none; }
+.arrow-return { stroke: #5b6876; stroke-width: 2; fill: none; stroke-dasharray: 6 5; }
+.arrow-label { fill: #5b6876; font-size: 12.5px; text-anchor: middle; }
+.label-bg { fill: #ffffff; }
+</style>
+
+<path class="arrow" d="M196,76 L228,76" marker-end="url(#arrowhead)" />
+<path class="arrow" d="M420,76 L452,76" marker-end="url(#arrowhead)" />
+<path class="arrow" d="M644,76 L676,76" marker-end="url(#arrowhead)" />
+
+<path class="arrow-return" d="M776,122 L776,162 Q776,170 768,170 L112,170 Q104,170 104,162 L104,124" marker-end="url(#arrowhead)" />
+<rect class="label-bg" x="325" y="161" width="230" height="18" />
+<text class="arrow-label" x="440" y="170" dominant-baseline="central">La decisión abre preguntas nuevas</text>
+
+<rect class="box" x="12" y="36" width="184" height="80" rx="9" />
+<rect class="box" x="236" y="36" width="184" height="80" rx="9" />
+<rect class="box" x="460" y="36" width="184" height="80" rx="9" />
+<rect class="box" x="684" y="36" width="184" height="80" rx="9" />
+
+<text class="box-text" x="104" y="71"><tspan x="104" dy="0">Formular la</tspan><tspan x="104" dy="18">pregunta</tspan></text>
+<text class="box-text" x="328" y="71"><tspan x="328" dy="0">Recoger los</tspan><tspan x="328" dy="18">datos</tspan></text>
+<text class="box-text" x="552" y="71"><tspan x="552" dy="0">Analizar con el método</tspan><tspan x="552" dy="18">que corresponde</tspan></text>
+<text class="box-text" x="776" y="71"><tspan x="776" dy="0">Interpretar y</tspan><tspan x="776" dy="18">decidir</tspan></text>
+
+<circle class="badge-circle" cx="32" cy="36" r="14" />
+<text class="badge-text" x="32" y="36" dominant-baseline="central">1</text>
+<circle class="badge-circle" cx="256" cy="36" r="14" />
+<text class="badge-text" x="256" y="36" dominant-baseline="central">2</text>
+<circle class="badge-circle" cx="480" cy="36" r="14" />
+<text class="badge-text" x="480" y="36" dominant-baseline="central">3</text>
+<circle class="badge-circle" cx="704" cy="36" r="14" />
+<text class="badge-text" x="704" y="36" dominant-baseline="central">4</text>
+</svg>

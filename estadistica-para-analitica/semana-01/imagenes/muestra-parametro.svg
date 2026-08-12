@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 190" width="880" height="190" role="img" aria-labelledby="t">
+<title id="t">De la muestra al parámetro</title>
+<defs>
+<marker id="arrow-head" viewBox="0 0 9 7" refX="8.5" refY="3.5" markerWidth="9" markerHeight="7" orient="auto-start-reverse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876"/>
+</marker>
+</defs>
+<style>
+text{font-family:'Segoe UI',Inter,system-ui,-apple-system,sans-serif;}
+.box-accent{fill:#e9f6f5;stroke:#0e8f8f;stroke-width:1.75;stroke-dasharray:5 4;}
+.box-normal{fill:#ffffff;stroke:#cfd8e3;stroke-width:1.5;}
+.box-highlight{fill:#f6f8fa;stroke:#2f7bb8;stroke-width:1.75;}
+.text-main{font-size:15px;fill:#16202b;text-anchor:middle;}
+.text-sub{font-size:13px;fill:#5b6876;text-anchor:middle;}
+.arrow-label{font-size:12.5px;fill:#5b6876;text-anchor:middle;}
+.arrow{stroke:#5b6876;stroke-width:2;fill:none;marker-end:url(#arrow-head);}
+.arrow-return{stroke:#5b6876;stroke-width:2;fill:none;stroke-dasharray:6 5;marker-end:url(#arrow-head);}
+.label-bg{fill:#ffffff;}
+</style>
+
+<line class="arrow" x1="240" y1="68" x2="330" y2="68"/>
+<text class="arrow-label" x="285" y="60">muestreo</text>
+<line class="arrow" x1="550" y1="68" x2="640" y2="68"/>
+<text class="arrow-label" x="595" y="60">estimación</text>
+
+<path class="arrow-return" d="M750,112 L750,157 Q750,165 742,165 L138,165 Q130,165 130,157 L130,114"/>
+<rect class="label-bg" x="293" y="156" width="294" height="18"/>
+<text class="arrow-label" x="440" y="169">inferencia con margen de error. Unidad 3</text>
+
+<rect class="box-accent" x="20" y="30" width="220" height="76" rx="9"/>
+<text class="text-main" x="130" y="62">El proceso completo</text>
+<text class="text-sub" x="130" y="80">parámetro desconocido</text>
+
+<rect class="box-normal" x="330" y="30" width="220" height="76" rx="9"/>
+<text class="text-main" x="440" y="62">200 mediciones</text>
+<text class="text-sub" x="440" y="80">lo que sí observas</text>
+
+<rect class="box-highlight" x="640" y="30" width="220" height="76" rx="9"/>
+<text class="text-main" x="750" y="62">Media de 22,6 ms</text>
+<text class="text-sub" x="750" y="80">un número que sí calculas</text>
+</svg>

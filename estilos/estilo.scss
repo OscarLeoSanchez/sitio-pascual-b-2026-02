@@ -269,6 +269,81 @@ td, th {
   margin-bottom: 0.5rem;
 }
 
+/* Llamado a la prueba diagnostica.
+   Va arriba del todo en la presentacion del modulo: dentro de un callout
+   normal quedaba al mismo nivel visual que el resto del texto y se pasaba
+   por alto. */
+.diagnostico {
+  background: #f1fbfa;
+  border: 1px solid #a9d9d7;
+  border-left: 5px solid $teal-500;
+  border-radius: 9px;
+  padding: 1.3rem 1.5rem 1.4rem;
+  margin: 2rem 0 2.6rem;
+  box-shadow: 0 2px 10px rgba(15, 37, 64, 0.07);
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.55rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+    font-size: 1.3rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.btn-diagnostico {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.62rem 1.4rem;
+  border-radius: 6px;
+  background: $teal-500;
+  color: #fff !important;
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none !important;
+  box-shadow: 0 2px 8px rgba(14, 143, 143, 0.28);
+
+  &:hover {
+    background: #0b7575;
+  }
+}
+
+/* Diagramas.
+   Son SVG dibujados a mano, guardados en la carpeta imagenes/ de cada semana y
+   trazados sobre un lienzo de 880px de ancho. No llevan el marco ni la sombra
+   de una captura de pantalla: son parte del texto. */
+.diagrama {
+  margin: 2rem 0;
+  overflow-x: auto;
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* En telefono, encoger el diagrama al ancho de la pantalla deja la letra en
+   cinco pixeles. Se le fija un ancho comodo y el contenedor se desliza. */
+@media (max-width: 575.98px) {
+  .diagrama img {
+    max-width: none;
+    width: 660px;
+  }
+}
+
 /* Lista de verificacion */
 .checklist {
   background: #f4faf7;
@@ -326,6 +401,7 @@ nav#TOC a.nav-link.active {
   .error-caso,
   .checklist,
   .ficha,
+  .diagnostico,
   div.sourceCode,
   .callout {
     break-inside: avoid;

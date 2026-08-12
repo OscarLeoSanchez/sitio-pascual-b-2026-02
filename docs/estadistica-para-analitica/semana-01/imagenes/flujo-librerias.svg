@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 240" width="880" height="240" role="img" aria-labelledby="t">
+<title id="t">El recorrido de los datos por las librerías</title>
+<defs>
+<marker id="punta" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876"/>
+</marker>
+</defs>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.caja { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.caja-destacada { fill: #f6f8fa; stroke: #2f7bb8; stroke-width: 1.75; }
+.caja-acento { fill: #e9f6f5; stroke: #0e8f8f; stroke-width: 1.75; }
+.principal { font-size: 15px; fill: #16202b; text-anchor: middle; }
+.sub { font-size: 13px; fill: #5b6876; text-anchor: middle; }
+.etiqueta { font-size: 12.5px; fill: #5b6876; text-anchor: middle; }
+.flecha { stroke: #5b6876; stroke-width: 2; fill: none; }
+.fondo-etiqueta { fill: #ffffff; }
+</style>
+
+<path class="flecha" d="M160,120 L202,120" marker-end="url(#punta)"/>
+<path class="flecha" d="M380,120 C430,120 460,65 502,65" marker-end="url(#punta)"/>
+<path class="flecha" d="M380,120 C430,120 460,175 502,175" marker-end="url(#punta)"/>
+<path class="flecha" d="M680,65 C706,65 706,120 722,120" marker-end="url(#punta)"/>
+<path class="flecha" d="M680,175 C706,175 706,120 722,120" marker-end="url(#punta)"/>
+
+<rect class="caja" x="10" y="85" width="150" height="70" rx="9"/>
+<text class="principal" x="85" y="113">Archivos</text>
+<text class="sub" x="85" y="133">.csv, .txt, .xlsx</text>
+
+<rect class="caja-destacada" x="210" y="85" width="170" height="70" rx="9"/>
+<text class="principal" x="295" y="113">DataFrame</text>
+<text class="sub" x="295" y="133">la tabla en memoria</text>
+
+<rect class="caja" x="510" y="30" width="170" height="70" rx="9"/>
+<text class="principal" x="595" y="70">Gráficos</text>
+
+<rect class="caja" x="510" y="140" width="170" height="70" rx="9"/>
+<text class="principal" x="595" y="168">Cálculo, modelos</text>
+<text class="principal" x="595" y="188">y pruebas</text>
+
+<rect class="caja-acento" x="730" y="85" width="140" height="70" rx="9"/>
+<text class="principal" x="800" y="113">Informe con</text>
+<text class="principal" x="800" y="133">la decisión</text>
+
+<text class="etiqueta" x="181" y="112">pandas</text>
+
+<rect class="fondo-etiqueta" x="403" y="76" width="82" height="33" rx="3"/>
+<text class="etiqueta" x="444" y="89">matplotlib</text>
+<text class="etiqueta" x="444" y="104">y seaborn</text>
+
+<rect class="fondo-etiqueta" x="393" y="131" width="102" height="33" rx="3"/>
+<text class="etiqueta" x="444" y="144">numpy, scipy</text>
+<text class="etiqueta" x="444" y="159">y statsmodels</text>
+</svg>

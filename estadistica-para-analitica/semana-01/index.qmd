@@ -1,5 +1,5 @@
 ---
-title: "Semana 1. El entorno de trabajo y tus primeras mediciones"
+title: "Semana 1. Presentación del módulo y entorno de trabajo"
 author: "Oscar Leonel Sánchez Conde"
 date: last-modified
 date-format: "D [de] MMMM [de] YYYY"
@@ -11,32 +11,113 @@ date-format: "D [de] MMMM [de] YYYY"
 | Módulo     | Estadística para Analítica                               |
 | Programa   | Especialización en Big Data                              |
 | Unidad     | Unidad 1. Análisis descriptivo y exploratorio de datos   |
-| Dedicación | 3 horas de acompañamiento y 9 de trabajo independiente   |
 :::
 
-## Lo que vas a lograr
+## De qué va esta semana
 
-Al terminar esta guía tienes Python funcionando para análisis de datos, y tienes un conjunto de
-mediciones que produjiste tú, guardado en los tres formatos que vas a usar todo el semestre.
+Esta semana no tiene entregable ni nota. Hace tres cosas: te muestra cómo está armado el módulo,
+deja el entorno de Python instalado y verificado, y pone sobre la mesa el problema que la
+estadística existe para resolver.
 
-Objetivos concretos:
+Al cerrar la guía deberías poder:
 
-1. Instalar y verificar el entorno de Python con pandas.
-2. Ejecutar un experimento de medición y observar por qué los resultados no se repiten.
-3. Guardar datos en `.csv`, `.txt` y `.xlsx`, y cargarlos de vuelta comprobando que coinciden.
-4. Distinguir la unidad de observación, la variable y el registro dentro de una tabla de datos.
+1. Ubicar cada unidad del módulo dentro del ciclo de resolución de un problema con datos.
+2. Ejecutar Python en un entorno virtual con las siete librerías del semestre.
+3. Decir qué aporta cada librería y por qué están todas.
+4. Explicar por qué una medición repetida no devuelve el mismo número, y qué consecuencia tiene eso
+   para una decisión.
 
-## La estadística empieza antes del cálculo
+## La estadística como proceso de decisión
 
-La estadística resuelve problemas en cuatro pasos: formular la pregunta, recoger los datos,
-analizarlos con el método que corresponde e interpretar el resultado para decidir.
+Resolver un problema con datos toma cuatro pasos:
 
-Los cursos suelen empezar por el tercero. Este empieza por el segundo, porque un análisis impecable
-sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor.
+- **Formular la pregunta.** Qué decisión depende de la respuesta y con qué precisión hay que darla.
+- **Recoger los datos.** Qué se mide, cada cuánto, con qué instrumento y quién responde por el
+  registro.
+- **Analizar.** Con el método que admite la naturaleza de esas variables.
+- **Interpretar y decidir.** Qué se hace con el resultado y con cuánta confianza.
 
-Piensa en el contexto del módulo: un área de mantenimiento que decide cuándo intervenir una
-máquina. Alguien tiene que definir qué se mide, cada cuánto, con qué instrumento y quién lo
-registra. Esas decisiones condicionan todo lo que venga después.
+::: {.diagrama}
+![](imagenes/ciclo-estadistico.svg){fig-alt="Los cuatro pasos en secuencia: formular la pregunta, recoger los datos, analizar con el método que corresponde e interpretar y decidir, con una flecha de retorno desde la decisión hasta la pregunta."}
+:::
+
+Los cuatro pasos pesan igual sobre el resultado. Un análisis impecable montado sobre datos mal
+recogidos produce una decisión equivocada con apariencia de rigor, y esa decisión hay que
+defenderla después ante quien la firma.
+
+Toma el caso que atraviesa el módulo: un área de mantenimiento decide cuándo intervenir una máquina.
+Antes de que exista una tabla, alguien fijó qué variable representa el desgaste, cada cuánto se lee
+el instrumento y quién responde por el registro. Cambia una de esas decisiones y cambia la
+conclusión.
+
+El módulo recorre los cuatro pasos y le da al diseño de la medición el mismo peso que al cálculo.
+
+## El mapa del módulo
+
+Dieciséis semanas repartidas en tres unidades. Cada una responde una pregunta distinta sobre el
+mismo caso.
+
+::: {.diagrama}
+![](imagenes/mapa-modulo.svg){fig-alt="Las tres unidades en secuencia: la 1 entre las semanas 1 y 5 para describir, la 2 entre la 6 y la 10 para modelar la incertidumbre, y la 3 entre la 11 y la 16 para inferir sobre la población."}
+:::
+
+::: {tbl-colwidths="[10,30,48,12]"}
+| Unidad | La pregunta que responde | Lo que produce | Cierre |
+|---|---|---|:---:|
+| 1 | Qué hay en estos datos | Un informe exploratorio con gráficos y resúmenes numéricos | 30% |
+| 2 | Qué tan probable es lo que observo | Un modelo de probabilidad ajustado al fenómeno | 30% |
+| 3 | Qué puedo afirmar sobre lo que no medí | Conclusiones sobre la población, con su margen de error declarado | 40% |
+:::
+
+Las tres unidades trabajan sobre un mismo caso. Lo primero es **definir el proceso**: qué se observa,
+qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al
+final, la inferencia. El alcance del caso se acuerda en la Semana 02.
+
+::: {.callout-tip}
+## El método del módulo
+
+Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento muchas
+veces y contrastamos el resultado con lo que predice la teoría.
+
+Ese contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto
+falla en la práctica un intervalo de confianza.
+:::
+
+## El entorno de trabajo
+
+Todo el módulo se programa en Python. Un análisis que llega sin el código que lo produjo no se puede
+reproducir ni auditar, y la estadística que no se ejecuta se olvida.
+
+Estas son las piezas y lo que hace cada una.
+
+::: {.diagrama}
+![](imagenes/flujo-librerias.svg){fig-alt="Los archivos .csv, .txt y .xlsx entran con pandas a un DataFrame. De ahí salen dos caminos: gráficos con matplotlib y seaborn, y cálculo, modelos y pruebas con numpy, scipy y statsmodels. Los dos desembocan en el informe con la decisión."}
+:::
+
+::: {tbl-colwidths="[18,82]"}
+| Librería | Qué aporta |
+|---|---|
+| pandas | Carga los datos y los deja como tabla con columnas con nombre |
+| numpy | Cálculo numérico y generación de números aleatorios para simular |
+| openpyxl | Es la que permite a pandas leer y escribir `.xlsx` |
+| matplotlib | Motor de los gráficos |
+| seaborn | Gráficos estadísticos sobre matplotlib, con menos código |
+| scipy | Distribuciones de probabilidad y pruebas de hipótesis |
+| statsmodels | Modelos de regresión y ANOVA con la salida que se reporta |
+:::
+
+### Por qué un entorno virtual
+
+Un entorno virtual es una carpeta con una copia aislada de Python y sus librerías. Lo que instalas
+adentro no toca el Python del sistema ni el de otros proyectos.
+
+::: {.diagrama}
+![](imagenes/entorno-virtual.svg){fig-alt="El Python del sistema, del que dependen otros programas, y a su derecha el entorno .venv, un contenedor aparte que encierra una copia aislada de Python y las siete librerías con su versión fijada."}
+:::
+
+Sirve para dos cosas concretas. La primera, que actualizar una librería para otro proyecto no rompa
+el código de este. La segunda, que fijar las versiones haga que el mismo script produzca el mismo
+resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.
 
 ### Versiones de referencia
 
@@ -75,8 +156,7 @@ mkdir estadistica-analitica
 cd estadistica-analitica
 ```
 
-Ahora crea un **entorno virtual**. Es una carpeta que contiene una copia aislada de Python con sus
-propias librerías, para que lo que instales aquí no afecte a otros proyectos ni al sistema:
+Crea el entorno virtual dentro de esa carpeta:
 
 ```bash
 python -m venv .venv
@@ -125,10 +205,8 @@ E instálalas de una vez:
 pip install -r requirements.txt
 ```
 
-Fijar las versiones con `==` sirve para que el código de la guía se comporte igual en tu máquina y
-en la mía. Cada librería cumple un papel: pandas organiza los datos en tablas, numpy hace el
-cálculo numérico, scipy y statsmodels traen los métodos estadísticos, y matplotlib con seaborn
-producen los gráficos. `openpyxl` es la que permite escribir y leer archivos de Excel.
+Fijar las versiones con `==` es lo que hace reproducible el análisis. El archivo se versiona junto
+con el código: quien reciba tu informe puede recrear el entorno exacto con una sola orden.
 
 ## Verificación
 
@@ -151,9 +229,12 @@ python -c "import pandas, numpy, scipy; print(pandas.__version__, numpy.__versio
 2.3.1 2.3.2 1.17.0
 ```
 
-## Experimento: por qué se mide más de una vez
+## Demostración: por qué se mide más de una vez
 
-Vas a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La
+Esta es la única pieza de código de la semana y no hay que entregar nada con ella. La corremos en la
+sesión y la repites en tu equipo para comprobar que el entorno funciona.
+
+Vamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La
 operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.
 
 Crea un archivo `experimento.py`:
@@ -219,29 +300,35 @@ La causa no es el azar puro. El sistema operativo reparte el procesador entre mu
 memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el
 equipo. Ninguno de esos factores se puede controlar por completo desde el programa.
 
+Fíjate en el `random.seed(2026)` de la tercera línea. Fija la secuencia de números aleatorios que se
+generan, así que la **lista que se ordena es siempre la misma**. Aun controlando eso, los tiempos
+varían. La variabilidad no viene de los datos: viene de la medición.
+
 De ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, **¿cuál es el
-valor verdadero?** La respuesta honesta es que no hay uno solo. Hay un rango, y la estadística
-sirve para describirlo, modelarlo y sacar conclusiones a pesar de él.
+valor verdadero?**
 
-Fíjate en el `random.seed(2026)` de la tercera línea. Fija la secuencia de números aleatorios que
-se generan, así que la **lista que se ordena es siempre la misma**. Aun controlando eso, los
-tiempos varían. La variabilidad no viene de los datos: viene de la medición.
+No hay uno solo que puedas observar. Lo que tienes son 200 mediciones, una **muestra** del proceso
+que las genera. Lo que quisieras conocer es una propiedad de ese proceso completo, un **parámetro**
+que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.
 
-::: {.callout-tip}
-## Este es el método del módulo
+::: {.diagrama}
+![](imagenes/muestra-parametro.svg){fig-alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22,6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."}
+:::
 
-Cada vez que aparezca un concepto nuevo, lo vamos a comprobar así: generar datos, repetir el
-procedimiento muchas veces y mirar si el resultado coincide con lo que la teoría predice.
+Esa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder
+trazarla con honestidad: describir la muestra y modelar la variabilidad.
 
-En la semana 11 vas a ver el teorema del límite central ocurrir en pantalla. En la 12 vas a contar
-cuántas veces falla un intervalo de confianza del 95 por ciento y comprobar que falla cerca de 5
-veces de cada 100.
+::: {.callout-important}
+## La consecuencia práctica
+
+Un solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una
+intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de
+este semestre nace ahí.
 :::
 
 ## Los tres formatos de almacenamiento
 
-La carta descriptiva pide organizar la información en `.csv`, `.txt` y `.xlsx`. Cada uno tiene su
-lugar.
+El módulo organiza la información en tres formatos de almacenamiento. Cada uno tiene su lugar.
 
 | Formato | Qué es | Cuándo lo vas a usar |
 |---|---|---|
@@ -307,60 +394,14 @@ Esa tabla tiene una estructura que se repite en todo el semestre:
 - Cada **variable** es una columna: algo que se midió u observó de esa unidad.
 - Cada **registro** es una fila completa: todos los valores medidos de una misma unidad.
 
-Cuando recojas tus propios datos, decide primero cuál es tu unidad de observación. Si no lo tienes
-claro, la tabla va a mezclar cosas de distinta naturaleza en la misma columna y ningún análisis
-posterior va a funcionar.
+Mira la última salida. Pandas leyó `duracion_min` como `float64` y `repuestos` como `int64`, y
+acertó en ambos. Pero puso `object` en `maquina`, `turno`, `tipo` y `criticidad`, que es como decir
+"texto y no sé nada más". Ahí perdió información: `criticidad` tiene un orden natural, baja va antes
+que media y media antes que alta, y esa tabla no lo registra.
 
-### Lo que pandas dedujo, y lo que no
-
-Mira otra vez la última salida. Pandas leyó `duracion_min` como `float64` y `repuestos` como
-`int64`, y acertó en ambos. Pero puso `object` en `maquina`, `turno`, `tipo` y `criticidad`, que es
-como dice "texto y no sé nada más".
-
-Ahí perdió información importante. `criticidad` tiene un orden natural, baja va antes que media y
-media antes que alta, pero pandas no lo sabe. Se lo puedes declarar:
-
-```python
-import pandas as pd
-
-datos = pd.read_csv("ordenes.csv")
-
-orden_criticidad = pd.CategoricalDtype(["baja", "media", "alta"], ordered=True)
-datos["criticidad"] = datos["criticidad"].astype(orden_criticidad)
-datos["maquina"] = datos["maquina"].astype("category")
-
-print(datos.dtypes)
-print()
-print(datos.loc[datos["criticidad"] > "baja", ["orden", "maquina", "criticidad"]])
-```
-
-```text
-orden              int64
-maquina         category
-turno             object
-tipo              object
-criticidad      category
-duracion_min     float64
-repuestos          int64
-dtype: object
-
-    orden maquina criticidad
-1     102  TOR-02       alta
-2     103  FRE-01      media
-4     105  FRE-02       alta
-5     106  TOR-02      media
-6     107  FRE-01       alta
-8     109  FRE-02      media
-9     110  TOR-02       alta
-11    112  TOR-01      media
-```
-
-La comparación `criticidad > "baja"` funciona porque le declaraste el orden. Sin esa declaración,
-esa línea falla.
-
-Esto es un adelanto de la Semana 02, donde la clasificación de variables se trabaja completa. Por
-ahora quédate con la idea: **la naturaleza de una variable la declaras tú, no la adivina la
-herramienta**, y de esa declaración depende qué análisis puedes hacer después.
+Quédate con la idea, porque la semana 2 arranca justo ahí: **la naturaleza de una variable la
+declaras tú, no la adivina la herramienta**, y de esa declaración depende qué análisis puedes hacer
+después.
 
 ## Errores frecuentes
 
@@ -414,60 +455,18 @@ No cambies el separador del archivo: la coma es el estándar y el resto del seme
 tiene.
 :::
 
-::: {.error-caso}
-[Error 5]{.etiqueta}
-
-### TypeError al comparar criticidad con "baja"
-
-**Causa.** La columna sigue siendo `object`. Sin declararle el orden, pandas no puede decidir si
-`media` es mayor que `baja`.
-
-**Solución.** Conviértela con `pd.CategoricalDtype([...], ordered=True)` antes de compararla, como
-en el ejemplo de arriba. Verifica con `datos.dtypes` que quedó en `category`.
-:::
-
-## Tu conjunto de datos propio
-
-Este es el trabajo principal de la semana y el insumo de las tres entregas calificadas del
-semestre. En la semana 5 lo vas a describir, en la 10 lo vas a modelar y en la 16 vas a inferir
-sobre él.
-
-**Qué tiene que cumplir:**
-
-- Mínimo **40 registros**.
-- Al menos **dos variables numéricas**, una discreta y una continua.
-- Al menos **dos variables categóricas**, una de ellas ordinal.
-- Los datos los produces tú, midiendo u observando. No sirve un archivo descargado de internet.
-
-**De dónde pueden salir.** Tiempos de un proceso que puedas repetir, registros de tu trabajo,
-consumos, mediciones con un sensor o con el teléfono, conteos de eventos por franja horaria. Si
-trabajas en planta, un histórico de intervenciones que tú mismo levantes sirve perfecto.
-
-**Qué entregas:**
-
-1. El conjunto de datos en los tres formatos.
-2. El script que lo generó o el procedimiento de medición escrito, si lo recogiste a mano.
-3. Un **diccionario de datos** de una página: por cada columna, qué mide, en qué unidad, de qué
-   naturaleza es y qué valores puede tomar.
-
-Sustenta el alcance en la sesión antes de empezar a medir. Corregir un conjunto de datos mal
-diseñado en la semana 5 cuesta mucho más que ajustarlo ahora.
-
-## Lista de chequeo de la semana
+## Lista de chequeo del entorno
 
 ::: {.checklist}
-**Antes de cerrar la semana, confirma que tienes todo esto**
+**Confirma que tienes todo esto antes de la próxima sesión**
 
 - [ ] `python --version` responde con 3.13 o superior
 - [ ] El entorno virtual se activa y muestra `(.venv)` en la terminal
 - [ ] El `import` de las seis librerías imprime `todo listo`
 - [ ] `experimento.py` corrió y generó `tiempos_ordenamiento.csv` con 200 filas
 - [ ] Sabes explicar por qué las 200 mediciones dieron distinto
-- [ ] Guardaste y volviste a cargar datos en `.csv`, `.txt` y `.xlsx`, y los tres coinciden
-- [ ] Convertiste `criticidad` a categórica ordenada y la comparación funcionó
-- [ ] Definiste la unidad de observación de tu conjunto de datos propio
-- [ ] Tu conjunto de datos tiene 40 registros, 2 variables numéricas y 2 categóricas
-- [ ] Escribiste el diccionario de datos
+- [ ] Ejecutaste `formatos.py` y los tres archivos coincidieron
+- [ ] Respondiste la prueba diagnóstica de entrada
 :::
 
 ## Recursos
@@ -475,7 +474,6 @@ diseñado en la semana 5 cuesta mucho más que ajustarlo ahora.
 - Descarga de Python: [python.org/downloads](https://www.python.org/downloads/)
 - Entornos virtuales: [docs.python.org/es/3/library/venv.html](https://docs.python.org/es/3/library/venv.html)
 - Lectura y escritura de datos con pandas: [pandas.pydata.org/docs/user_guide/io.html](https://pandas.pydata.org/docs/user_guide/io.html)
-- Datos categóricos en pandas: [pandas.pydata.org/docs/user_guide/categorical.html](https://pandas.pydata.org/docs/user_guide/categorical.html)
 - Dataset de ejemplo de esta guía: [`ordenes.csv`](recursos/ordenes.csv)
 - James, G. et al. (2021). *An Introduction to Statistical Learning.* Capítulo 1.
 
