@@ -8,7 +8,7 @@
 
 <meta name="author" content="Oscar Leonel Sánchez Conde">
 
-<title>Semana 1. El IDE y tu primer programa en C# – Clases Pascual Bravo 2026-02</title>
+<title>Semana 1. Entorno, Git y GitHub – Clases Pascual Bravo 2026-02</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Unidad 1. Aplicaciones de consola con un IDE</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Semana 1. El IDE y el primer programa</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Unidad 1. Aplicaciones de consola con un IDE</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Semana 1. Entorno, Git y GitHub</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -163,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Semana 1. El IDE y el primer programa</span></a>
+ <span class="menu-text">Semana 1. Entorno, Git y GitHub</span></a>
   </div>
 </li>
       </ul>
@@ -179,43 +179,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#lo-que-vas-a-lograr" id="toc-lo-que-vas-a-lograr" class="nav-link active" data-scroll-target="#lo-que-vas-a-lograr"><span class="header-section-number">1</span> Lo que vas a lograr</a></li>
-  <li><a href="#qué-es-un-ide" id="toc-qué-es-un-ide" class="nav-link" data-scroll-target="#qué-es-un-ide"><span class="header-section-number">2</span> Qué es un IDE</a>
+  <li><a href="#sesión-1.-el-ide-y-tu-primer-programa" id="toc-sesión-1.-el-ide-y-tu-primer-programa" class="nav-link" data-scroll-target="#sesión-1.-el-ide-y-tu-primer-programa"><span class="header-section-number">2</span> Sesión 1. El IDE y tu primer programa</a>
   <ul class="collapse">
-  <li><a href="#versiones-de-referencia" id="toc-versiones-de-referencia" class="nav-link" data-scroll-target="#versiones-de-referencia">Versiones de referencia</a></li>
+  <li><a href="#qué-es-un-ide" id="toc-qué-es-un-ide" class="nav-link" data-scroll-target="#qué-es-un-ide">Qué es un IDE</a></li>
+  <li><a href="#instalación-paso-a-paso" id="toc-instalación-paso-a-paso" class="nav-link" data-scroll-target="#instalación-paso-a-paso">Instalación paso a paso</a></li>
+  <li><a href="#verificación" id="toc-verificación" class="nav-link" data-scroll-target="#verificación">Verificación</a></li>
+  <li><a href="#tu-primer-programa-desde-la-terminal" id="toc-tu-primer-programa-desde-la-terminal" class="nav-link" data-scroll-target="#tu-primer-programa-desde-la-terminal">Tu primer programa desde la terminal</a></li>
+  <li><a href="#el-mismo-programa-desde-visual-studio" id="toc-el-mismo-programa-desde-visual-studio" class="nav-link" data-scroll-target="#el-mismo-programa-desde-visual-studio">El mismo programa desde Visual Studio</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes">Errores frecuentes</a></li>
   </ul></li>
-  <li><a href="#instalación-paso-a-paso" id="toc-instalación-paso-a-paso" class="nav-link" data-scroll-target="#instalación-paso-a-paso"><span class="header-section-number">3</span> Instalación paso a paso</a>
+  <li><a href="#cierre-de-la-sesión-1" id="toc-cierre-de-la-sesión-1" class="nav-link" data-scroll-target="#cierre-de-la-sesión-1"><span class="header-section-number">3</span> Cierre de la sesión 1</a></li>
+  <li><a href="#sesión-2.-git-y-github-con-holapascual" id="toc-sesión-2.-git-y-github-con-holapascual" class="nav-link" data-scroll-target="#sesión-2.-git-y-github-con-holapascual"><span class="header-section-number">4</span> Sesión 2. Git y GitHub con HolaPascual</a>
   <ul class="collapse">
-  <li><a href="#sdk-de-.net" id="toc-sdk-de-.net" class="nav-link" data-scroll-target="#sdk-de-.net"><span class="paso">1</span> SDK de .NET</a></li>
-  <li><a href="#visual-studio-2026-community" id="toc-visual-studio-2026-community" class="nav-link" data-scroll-target="#visual-studio-2026-community"><span class="paso">2</span> Visual Studio 2026 Community</a></li>
-  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git"><span class="paso">3</span> Git</a></li>
-  <li><a href="#solo-si-usas-macos-o-linux-vs-code" id="toc-solo-si-usas-macos-o-linux-vs-code" class="nav-link" data-scroll-target="#solo-si-usas-macos-o-linux-vs-code"><span class="paso">4</span> Solo si usas macOS o Linux: VS Code</a></li>
+  <li><a href="#git-y-github-cumplen-trabajos-distintos" id="toc-git-y-github-cumplen-trabajos-distintos" class="nav-link" data-scroll-target="#git-y-github-cumplen-trabajos-distintos">Git y GitHub cumplen trabajos distintos</a></li>
+  <li><a href="#configura-tu-identidad" id="toc-configura-tu-identidad" class="nav-link" data-scroll-target="#configura-tu-identidad">Configura tu identidad</a></li>
+  <li><a href="#prepara-el-.gitignore-de-.net" id="toc-prepara-el-.gitignore-de-.net" class="nav-link" data-scroll-target="#prepara-el-.gitignore-de-.net">Prepara el <code>.gitignore</code> de .NET</a></li>
+  <li><a href="#inicia-el-repositorio-y-revisa-su-estado" id="toc-inicia-el-repositorio-y-revisa-su-estado" class="nav-link" data-scroll-target="#inicia-el-repositorio-y-revisa-su-estado">Inicia el repositorio y revisa su estado</a></li>
+  <li><a href="#agrega-un-readme" id="toc-agrega-un-readme" class="nav-link" data-scroll-target="#agrega-un-readme">Agrega un README</a></li>
+  <li><a href="#prepara-y-registra-el-primer-commit" id="toc-prepara-y-registra-el-primer-commit" class="nav-link" data-scroll-target="#prepara-y-registra-el-primer-commit">Prepara y registra el primer commit</a></li>
+  <li><a href="#escribe-mensajes-de-commit-con-una-convención" id="toc-escribe-mensajes-de-commit-con-una-convención" class="nav-link" data-scroll-target="#escribe-mensajes-de-commit-con-una-convención">Escribe mensajes de commit con una convención</a></li>
+  <li><a href="#observa-un-cambio-antes-de-registrarlo" id="toc-observa-un-cambio-antes-de-registrarlo" class="nav-link" data-scroll-target="#observa-un-cambio-antes-de-registrarlo">Observa un cambio antes de registrarlo</a></li>
+  <li><a href="#crea-el-repositorio-vacío-en-github" id="toc-crea-el-repositorio-vacío-en-github" class="nav-link" data-scroll-target="#crea-el-repositorio-vacío-en-github">Crea el repositorio vacío en GitHub</a></li>
+  <li><a href="#conecta-y-publica" id="toc-conecta-y-publica" class="nav-link" data-scroll-target="#conecta-y-publica">Conecta y publica</a></li>
+  <li><a href="#el-flujo-que-repetirás" id="toc-el-flujo-que-repetirás" class="nav-link" data-scroll-target="#el-flujo-que-repetirás">El flujo que repetirás</a></li>
   </ul></li>
-  <li><a href="#verificación" id="toc-verificación" class="nav-link" data-scroll-target="#verificación"><span class="header-section-number">4</span> Verificación</a></li>
-  <li><a href="#tu-primer-programa-desde-la-terminal" id="toc-tu-primer-programa-desde-la-terminal" class="nav-link" data-scroll-target="#tu-primer-programa-desde-la-terminal"><span class="header-section-number">5</span> Tu primer programa desde la terminal</a>
-  <ul class="collapse">
-  <li><a href="#paso-1-crea-el-proyecto" id="toc-paso-1-crea-el-proyecto" class="nav-link" data-scroll-target="#paso-1-crea-el-proyecto">Paso 1: crea el proyecto</a></li>
-  <li><a href="#paso-2-mira-lo-que-se-creó" id="toc-paso-2-mira-lo-que-se-creó" class="nav-link" data-scroll-target="#paso-2-mira-lo-que-se-creó">Paso 2: mira lo que se creó</a></li>
-  <li><a href="#paso-3-ejecútalo" id="toc-paso-3-ejecútalo" class="nav-link" data-scroll-target="#paso-3-ejecútalo">Paso 3: ejecútalo</a></li>
-  <li><a href="#paso-4-escribe-tu-propio-código" id="toc-paso-4-escribe-tu-propio-código" class="nav-link" data-scroll-target="#paso-4-escribe-tu-propio-código">Paso 4: escribe tu propio código</a></li>
-  <li><a href="#paso-5-compila-sin-ejecutar" id="toc-paso-5-compila-sin-ejecutar" class="nav-link" data-scroll-target="#paso-5-compila-sin-ejecutar">Paso 5: compila sin ejecutar</a></li>
-  </ul></li>
-  <li><a href="#el-mismo-programa-desde-visual-studio" id="toc-el-mismo-programa-desde-visual-studio" class="nav-link" data-scroll-target="#el-mismo-programa-desde-visual-studio"><span class="header-section-number">6</span> El mismo programa desde Visual Studio</a>
-  <ul class="collapse">
-  <li><a href="#prueba-el-depurador" id="toc-prueba-el-depurador" class="nav-link" data-scroll-target="#prueba-el-depurador">Prueba el depurador</a></li>
-  </ul></li>
-  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">7</span> Errores frecuentes</a></li>
-  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">8</span> Lista de chequeo de la semana</a></li>
-  <li><a href="#para-el-trabajo-independiente" id="toc-para-el-trabajo-independiente" class="nav-link" data-scroll-target="#para-el-trabajo-independiente"><span class="header-section-number">9</span> Para el trabajo independiente</a></li>
-  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">10</span> Recursos</a></li>
+  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">5</span> Lista de chequeo de la semana</a></li>
+  <li><a href="#trabajo-independiente" id="toc-trabajo-independiente" class="nav-link" data-scroll-target="#trabajo-independiente"><span class="header-section-number">6</span> Trabajo independiente</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">7</span> Recursos</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Unidad 1. Aplicaciones de consola con un IDE</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Semana 1. El IDE y el primer programa</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Unidad 1. Aplicaciones de consola con un IDE</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/semana-01/index.html">Semana 1. Entorno, Git y GitHub</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Semana 1. El IDE y tu primer programa en C#</h1>
+<h1 class="title">Semana 1. Entorno, Git y GitHub</h1>
 </div>
 
 
@@ -232,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">10 de agosto de 2026</p>
+      <p class="date">12 de agosto de 2026</p>
     </div>
   </div>
   
@@ -272,13 +271,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="lo-que-vas-a-lograr" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="lo-que-vas-a-lograr"><span class="header-section-number">1</span> Lo que vas a lograr</h2>
-<p>Al terminar esta guía tu computador queda con las herramientas del semestre instaladas, y tienes un programa en C# compilando y ejecutándose. En la Semana 2 empiezas a trabajar con variables y con la entrada de datos en serio.</p>
+<p>La semana tiene dos sesiones. En la primera dejas el entorno instalado y un programa de C# ejecutándose. En la segunda conviertes ese mismo proyecto en un repositorio de Git y publicas su historial en GitHub.</p>
 <p>Objetivos concretos:</p>
 <ol type="1">
 <li>Explicar qué es un IDE y qué hace cada una de sus partes.</li>
 <li>Instalar y verificar el SDK de .NET, Visual Studio 2026 Community y Git.</li>
 <li>Crear, compilar y ejecutar un proyecto de consola desde la terminal y desde el IDE.</li>
-<li>Reconocer las partes de un programa mínimo de C#.</li>
+<li>Registrar cambios con <code>init</code>, <code>status</code>, <code>add</code>, <code>commit</code>, <code>log</code> y <code>diff</code>.</li>
+<li>Publicar el repositorio local en GitHub mediante un remoto y <code>push</code>.</li>
 </ol>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -295,8 +295,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="qué-es-un-ide" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="qué-es-un-ide"><span class="header-section-number">2</span> Qué es un IDE</h2>
+<section id="sesión-1.-el-ide-y-tu-primer-programa" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sesión-1.-el-ide-y-tu-primer-programa"><span class="header-section-number">2</span> Sesión 1. El IDE y tu primer programa</h2>
+<section id="qué-es-un-ide" class="level3">
+<h3 class="anchored" data-anchor-id="qué-es-un-ide">Qué es un IDE</h3>
 <p>IDE significa <em>Integrated Development Environment</em>, entorno de desarrollo integrado. Es un solo programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que usarlas por separado, cada una con su propia forma de invocarse.</p>
 <p>Estas son las partes que lo componen y para qué sirve cada una:</p>
 <table class="caption-top table">
@@ -345,8 +347,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Visual Studio</strong> es el IDE. La herramienta con la que trabajas sobre los dos anteriores.</li>
 </ul>
 <p>Puedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.</p>
-<section id="versiones-de-referencia" class="level3">
-<h3 class="anchored" data-anchor-id="versiones-de-referencia">Versiones de referencia</h3>
+<section id="versiones-de-referencia" class="level4">
+<h4 class="anchored" data-anchor-id="versiones-de-referencia">Versiones de referencia</h4>
 <p>Esta guía se probó con estas versiones. Instala la misma línea o una superior.</p>
 <table class="caption-top table">
 <thead>
@@ -385,16 +387,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="instalación-paso-a-paso" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="instalación-paso-a-paso"><span class="header-section-number">3</span> Instalación paso a paso</h2>
-<section id="sdk-de-.net" class="level3">
-<h3 class="anchored" data-anchor-id="sdk-de-.net"><span class="paso">1</span> SDK de .NET</h3>
+<section id="instalación-paso-a-paso" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-paso-a-paso">Instalación paso a paso</h3>
+<section id="sdk-de-.net" class="level4">
+<h4 class="anchored" data-anchor-id="sdk-de-.net"><span class="paso">1</span> SDK de .NET</h4>
 <p>Es lo que compila y ejecuta tu código. Descarga la versión <strong>10</strong> desde <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com/download</a>.</p>
 <p>Instala el <strong>SDK</strong>, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más común del curso.</p>
 <p>Acepta las opciones por omisión del instalador.</p>
 </section>
-<section id="visual-studio-2026-community" class="level3">
-<h3 class="anchored" data-anchor-id="visual-studio-2026-community"><span class="paso">2</span> Visual Studio 2026 Community</h3>
+<section id="visual-studio-2026-community" class="level4">
+<h4 class="anchored" data-anchor-id="visual-studio-2026-community"><span class="paso">2</span> Visual Studio 2026 Community</h4>
 <p>Descarga desde <a href="https://visualstudio.microsoft.com/es/vs/community/">visualstudio.microsoft.com</a>. La edición Community es gratuita para estudiantes.</p>
 <p>En el instalador aparece una lista de <strong>cargas de trabajo</strong>. Marca <strong>Desarrollo de escritorio de .NET</strong>. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2 y para Windows Forms en la unidad 3.</p>
 <p>No marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.</p>
@@ -413,21 +415,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="git" class="level3">
-<h3 class="anchored" data-anchor-id="git"><span class="paso">3</span> Git</h3>
+<section id="git" class="level4">
+<h4 class="anchored" data-anchor-id="git"><span class="paso">3</span> Git</h4>
 <p>Descarga desde <a href="https://git-scm.com/downloads">git-scm.com/downloads</a> y acepta las opciones por omisión.</p>
-<p>Esta semana solo lo instalas. Lo vas a usar para entregar tu proyecto y para guardar el historial de tu trabajo.</p>
+<p>Lo usarás en la segunda sesión para guardar el historial del proyecto que vas a crear.</p>
 </section>
-<section id="solo-si-usas-macos-o-linux-vs-code" class="level3">
-<h3 class="anchored" data-anchor-id="solo-si-usas-macos-o-linux-vs-code"><span class="paso">4</span> Solo si usas macOS o Linux: VS Code</h3>
+<section id="solo-si-usas-macos-o-linux-vs-code" class="level4">
+<h4 class="anchored" data-anchor-id="solo-si-usas-macos-o-linux-vs-code"><span class="paso">4</span> Solo si usas macOS o Linux: VS Code</h4>
 <p>Visual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de 2024 y nunca existió para Linux.</p>
 <p>Instala <a href="https://code.visualstudio.com/">VS Code</a> y la extensión <strong>C# Dev Kit</strong>, publicada por Microsoft:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">code</span> <span class="at">--install-extension</span> ms-dotnettools.csdevkit</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Con VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas Windows.</p>
 </section>
 </section>
-<section id="verificación" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="verificación"><span class="header-section-number">4</span> Verificación</h2>
+<section id="verificación" class="level3">
+<h3 class="anchored" data-anchor-id="verificación">Verificación</h3>
 <p>Abre una terminal <strong>nueva</strong>. Las que ya estaban abiertas no ven los cambios que los instaladores hicieron en el <code>PATH</code>, y los comandos van a fallar aunque la instalación esté bien.</p>
 <p>Ejecuta:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> <span class="at">--version</span></span>
@@ -443,11 +445,11 @@ git version 2.50.0.windows.2</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> <span class="at">--list-sdks</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>10.0.103 [C:\Program Files\dotnet\sdk]</code></pre>
 </section>
-<section id="tu-primer-programa-desde-la-terminal" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="tu-primer-programa-desde-la-terminal"><span class="header-section-number">5</span> Tu primer programa desde la terminal</h2>
+<section id="tu-primer-programa-desde-la-terminal" class="level3">
+<h3 class="anchored" data-anchor-id="tu-primer-programa-desde-la-terminal">Tu primer programa desde la terminal</h3>
 <p>Vas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un camino que funciona aunque el IDE falle.</p>
-<section id="paso-1-crea-el-proyecto" class="level3">
-<h3 class="anchored" data-anchor-id="paso-1-crea-el-proyecto">Paso 1: crea el proyecto</h3>
+<section id="paso-1-crea-el-proyecto" class="level4">
+<h4 class="anchored" data-anchor-id="paso-1-crea-el-proyecto">Paso 1: crea el proyecto</h4>
 <p>Ubícate en la carpeta donde guardas tus trabajos y ejecuta:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> new console <span class="at">-o</span> HolaPascual</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>La salida es esta. Donde dice <code>&lt;tu carpeta&gt;</code> va la ruta real de tu equipo:</p>
@@ -460,8 +462,8 @@ Restaurando &lt;tu carpeta&gt;\HolaPascual\HolaPascual.csproj:
 Restauración realizada correctamente.</code></pre>
 <p>Se creó una carpeta <code>HolaPascual</code> con dos archivos que importan.</p>
 </section>
-<section id="paso-2-mira-lo-que-se-creó" class="level3">
-<h3 class="anchored" data-anchor-id="paso-2-mira-lo-que-se-creó">Paso 2: mira lo que se creó</h3>
+<section id="paso-2-mira-lo-que-se-creó" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2-mira-lo-que-se-creó">Paso 2: mira lo que se creó</h4>
 <p>El primero es <code>HolaPascual.csproj</code>, el archivo de proyecto:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Project</span> <span class="ot">Sdk=</span><span class="st">"Microsoft.NET.Sdk"</span>&gt;</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -479,16 +481,16 @@ Restauración realizada correctamente.</code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Hello, World!"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Dos líneas. Una de ellas es un comentario.</p>
 </section>
-<section id="paso-3-ejecútalo" class="level3">
-<h3 class="anchored" data-anchor-id="paso-3-ejecútalo">Paso 3: ejecútalo</h3>
+<section id="paso-3-ejecútalo" class="level4">
+<h4 class="anchored" data-anchor-id="paso-3-ejecútalo">Paso 3: ejecútalo</h4>
 <p>Entra a la carpeta y ejecuta:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> HolaPascual</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> run</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>Hello, World!</code></pre>
 <p>Ya tienes un programa de C# funcionando.</p>
 </section>
-<section id="paso-4-escribe-tu-propio-código" class="level3">
-<h3 class="anchored" data-anchor-id="paso-4-escribe-tu-propio-código">Paso 4: escribe tu propio código</h3>
+<section id="paso-4-escribe-tu-propio-código" class="level4">
+<h4 class="anchored" data-anchor-id="paso-4-escribe-tu-propio-código">Paso 4: escribe tu propio código</h4>
 <p>Abre <code>Program.cs</code> y reemplaza su contenido por esto:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Herramientas de Programacion I - Semana 01</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Primer programa: entrada por teclado y salida por consola.</span></span>
@@ -517,8 +519,8 @@ Hola, Ana Maria. Tu entorno de desarrollo funciona.</code></pre>
 <li><code>$"Hola, {nombre}."</code> mete el valor de la variable dentro del texto. Se llama interpolación y la vas a usar todo el semestre.</li>
 </ul>
 </section>
-<section id="paso-5-compila-sin-ejecutar" class="level3">
-<h3 class="anchored" data-anchor-id="paso-5-compila-sin-ejecutar">Paso 5: compila sin ejecutar</h3>
+<section id="paso-5-compila-sin-ejecutar" class="level4">
+<h4 class="anchored" data-anchor-id="paso-5-compila-sin-ejecutar">Paso 5: compila sin ejecutar</h4>
 <p><code>dotnet run</code> compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien escrito, usa:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dotnet</span> build</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>  Determinando los proyectos que se van a restaurar...
@@ -533,8 +535,8 @@ Tiempo transcurrido 00:00:01.11</code></pre>
 <p>Esas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no funcione.</p>
 </section>
 </section>
-<section id="el-mismo-programa-desde-visual-studio" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="el-mismo-programa-desde-visual-studio"><span class="header-section-number">6</span> El mismo programa desde Visual Studio</h2>
+<section id="el-mismo-programa-desde-visual-studio" class="level3">
+<h3 class="anchored" data-anchor-id="el-mismo-programa-desde-visual-studio">El mismo programa desde Visual Studio</h3>
 <p>Ahora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.</p>
 <ol type="1">
 <li>Abre Visual Studio y elige <strong>Crear un proyecto</strong>.</li>
@@ -544,8 +546,8 @@ Tiempo transcurrido 00:00:01.11</code></pre>
 <li>Presiona <code>F5</code> para ejecutar.</li>
 </ol>
 <p>Se abre una ventana de consola con la salida. Al lado tienes el <strong>Explorador de soluciones</strong>, que es el mismo <code>.csproj</code> y el mismo <code>Program.cs</code> de antes, presentados en forma de árbol.</p>
-<section id="prueba-el-depurador" class="level3">
-<h3 class="anchored" data-anchor-id="prueba-el-depurador">Prueba el depurador</h3>
+<section id="prueba-el-depurador" class="level4">
+<h4 class="anchored" data-anchor-id="prueba-el-depurador">Prueba el depurador</h4>
 <p>Esta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el <code>Program.cs</code> de este proyecto y haz esto:</p>
 <ol type="1">
 <li>Haz clic en el margen izquierdo, a la altura de la línea <code>string? nombre = Console.ReadLine();</code>. Aparece un punto rojo: es un <strong>punto de interrupción</strong>.</li>
@@ -557,86 +559,365 @@ Tiempo transcurrido 00:00:01.11</code></pre>
 <p>Acabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto es lo que te dice por qué.</p>
 </section>
 </section>
-<section id="errores-frecuentes" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">7</span> Errores frecuentes</h2>
+<section id="errores-frecuentes" class="level3">
+<h3 class="anchored" data-anchor-id="errores-frecuentes">Errores frecuentes</h3>
 <div class="error-caso">
 <p><span class="etiqueta">Error 1</span></p>
-<section id="dotnet-no-se-reconoce-como-comando" class="level3">
-<h3 class="anchored" data-anchor-id="dotnet-no-se-reconoce-como-comando">dotnet no se reconoce como comando</h3>
+<section id="dotnet-no-se-reconoce-como-comando" class="level4">
+<h4 class="anchored" data-anchor-id="dotnet-no-se-reconoce-como-comando">dotnet no se reconoce como comando</h4>
 <p><strong>Causa.</strong> Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el <code>PATH</code> nuevo.</p>
 <p><strong>Solución.</strong> Cierra <strong>todas</strong> las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar el instalador del SDK y revisa que terminara sin errores.</p>
 </section>
 </div>
 <div class="error-caso">
 <p><span class="etiqueta">Error 2</span></p>
-<section id="instalé-.net-pero-dotnet-build-falla" class="level3">
-<h3 class="anchored" data-anchor-id="instalé-.net-pero-dotnet-build-falla">Instalé .NET pero dotnet build falla</h3>
+<section id="instalé-.net-pero-dotnet-build-falla" class="level4">
+<h4 class="anchored" data-anchor-id="instalé-.net-pero-dotnet-build-falla">Instalé .NET pero dotnet build falla</h4>
 <p><strong>Causa.</strong> Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no sabe compilar.</p>
 <p><strong>Solución.</strong> Ejecuta <code>dotnet --list-sdks</code>. Si no imprime ninguna línea, no tienes SDK. Vuelve a <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com/download</a> y descarga el que dice <strong>SDK</strong>.</p>
 </section>
 </div>
 <div class="error-caso">
 <p><span class="etiqueta">Error 3</span></p>
-<section id="la-ventana-de-la-consola-se-cierra-de-inmediato" class="level3">
-<h3 class="anchored" data-anchor-id="la-ventana-de-la-consola-se-cierra-de-inmediato">La ventana de la consola se cierra de inmediato</h3>
+<section id="la-ventana-de-la-consola-se-cierra-de-inmediato" class="level4">
+<h4 class="anchored" data-anchor-id="la-ventana-de-la-consola-se-cierra-de-inmediato">La ventana de la consola se cierra de inmediato</h4>
 <p><strong>Causa.</strong> Ejecutaste con <code>Ctrl+F5</code> en Visual Studio, o hiciste doble clic sobre el <code>.exe</code>. El programa termina y la ventana se va con él.</p>
 <p><strong>Solución.</strong> Ejecuta con <code>F5</code>, que mantiene la ventana abierta al terminar. También puedes agregar <code>Console.ReadKey();</code> como última línea para que espere una tecla.</p>
 </section>
 </div>
 <div class="error-caso">
 <p><span class="etiqueta">Error 4</span></p>
-<section id="el-proyecto-no-compila-y-no-encuentro-qué-cambié" class="level3">
-<h3 class="anchored" data-anchor-id="el-proyecto-no-compila-y-no-encuentro-qué-cambié">El proyecto no compila y no encuentro qué cambié</h3>
+<section id="el-proyecto-no-compila-y-no-encuentro-qué-cambié" class="level4">
+<h4 class="anchored" data-anchor-id="el-proyecto-no-compila-y-no-encuentro-qué-cambié">El proyecto no compila y no encuentro qué cambié</h4>
 <p><strong>Causa.</strong> Casi siempre falta un punto y coma, o hay una llave sin cerrar.</p>
 <p><strong>Solución.</strong> Mira la ventana <strong>Lista de errores</strong> de Visual Studio, o la salida de <code>dotnet build</code> en la terminal. Cada error trae archivo y número de línea. <strong>Corrige siempre el primero de la lista</strong>: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.</p>
 </section>
 </div>
 <div class="error-caso">
 <p><span class="etiqueta">Error 5</span></p>
-<section id="los-acentos-y-las-eñes-salen-como-símbolos-raros-en-la-consola" class="level3">
-<h3 class="anchored" data-anchor-id="los-acentos-y-las-eñes-salen-como-símbolos-raros-en-la-consola">Los acentos y las eñes salen como símbolos raros en la consola</h3>
+<section id="los-acentos-y-las-eñes-salen-como-símbolos-raros-en-la-consola" class="level4">
+<h4 class="anchored" data-anchor-id="los-acentos-y-las-eñes-salen-como-símbolos-raros-en-la-consola">Los acentos y las eñes salen como símbolos raros en la consola</h4>
 <p><strong>Causa.</strong> La consola de Windows usa una codificación distinta a la del archivo de código.</p>
 <p><strong>Solución.</strong> Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la Semana 2 lo resolvemos con <code>Console.OutputEncoding</code>.</p>
 </section>
 </div>
 </section>
-<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">8</span> Lista de chequeo de la semana</h2>
-<div class="checklist">
-<p><strong>Antes de cerrar la semana, confirma que tienes todo esto</strong></p>
+</section>
+<section id="cierre-de-la-sesión-1" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="cierre-de-la-sesión-1"><span class="header-section-number">3</span> Cierre de la sesión 1</h2>
+<p>Antes de pasar a Git, confirma lo siguiente:</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><code>dotnet --version</code> responde con la versión del SDK</label></li>
-<li><label><input type="checkbox"><code>dotnet --list-sdks</code> imprime al menos una línea</label></li>
-<li><label><input type="checkbox"><code>git --version</code> responde</label></li>
-<li><label><input type="checkbox">Visual Studio 2026 instalado con la carga de trabajo de escritorio de .NET, si usas Windows</label></li>
-<li><label><input type="checkbox">Creaste <code>HolaPascual</code> desde la terminal y <code>dotnet run</code> lo ejecutó</label></li>
-<li><label><input type="checkbox">Modificaste <code>Program.cs</code> y el programa te saluda con tu nombre</label></li>
-<li><label><input type="checkbox">Creaste el mismo proyecto desde Visual Studio y lo ejecutaste con <code>F5</code></label></li>
-<li><label><input type="checkbox">Pusiste un punto de interrupción y viste el valor de una variable</label></li>
-<li><label><input type="checkbox">Si usas macOS o Linux, ya sabes cómo vas a tener Windows para la unidad 3</label></li>
+<li><label><input type="checkbox"><code>dotnet --version</code> responde con la versión del SDK.</label></li>
+<li><label><input type="checkbox"><code>git --version</code> responde.</label></li>
+<li><label><input type="checkbox"><code>HolaPascual</code> ejecuta con <code>dotnet run</code>.</label></li>
+<li><label><input type="checkbox">Modificaste <code>Program.cs</code> y el programa te saluda con tu nombre.</label></li>
+<li><label><input type="checkbox">Abriste el proyecto en Visual Studio y probaste un punto de interrupción.</label></li>
+<li><label><input type="checkbox">Si usas macOS o Linux, sabes cómo vas a acceder a Windows para la unidad 3.</label></li>
 </ul>
+</section>
+<section id="sesión-2.-git-y-github-con-holapascual" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sesión-2.-git-y-github-con-holapascual"><span class="header-section-number">4</span> Sesión 2. Git y GitHub con HolaPascual</h2>
+<p>En esta sesión no creas otro ejercicio. Tomas <code>HolaPascual</code>, el proyecto que ya funciona, y le agregas un historial verificable. Al final tendrás el mismo proyecto en tu computador y en GitHub.</p>
+<p><a href="presentacion-git-github.html" class="btn btn-primary" role="button">Abrir la presentación de Git y GitHub</a></p>
+<section id="git-y-github-cumplen-trabajos-distintos" class="level3">
+<h3 class="anchored" data-anchor-id="git-y-github-cumplen-trabajos-distintos">Git y GitHub cumplen trabajos distintos</h3>
+<p><strong>Git</strong> es el programa que registra cambios en tu computador. Funciona sin internet. <strong>GitHub</strong> es un servicio web que recibe una copia del repositorio para consultarla, compartirla y recuperarla desde otro equipo.</p>
+<p>Un repositorio de Git guarda versiones del proyecto llamadas <em>commits</em>. Cada commit registra el autor, la fecha, un mensaje y el estado de los archivos en ese momento.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/git-y-github.svg" class="img-fluid figure-img" alt="Git es un programa local y GitHub es un servicio en internet"></p>
+<figcaption>Git trabaja en el computador y GitHub aloja una copia en internet.</figcaption>
+</figure>
 </div>
 </section>
-<section id="para-el-trabajo-independiente" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="para-el-trabajo-independiente"><span class="header-section-number">9</span> Para el trabajo independiente</h2>
-<p>Estas horas son para que el entorno quede sólido, no para adelantar temas.</p>
-<ol type="1">
-<li>Repite el proyecto desde cero sin mirar la guía. Bórralo y hazlo otra vez.</li>
-<li>Modifica el programa para que pregunte también el semestre y lo incluya en el saludo.</li>
-<li>Provoca un error a propósito: quita un punto y coma, compila y lee el mensaje completo. Fíjate en el archivo y la línea que reporta.</li>
-<li>Recorre tu programa entero con <code>F10</code>, línea por línea, hasta el final.</li>
-</ol>
-<p>No hay entrega calificada esta semana. En la Semana 2 damos por hecho que tu entorno funciona.</p>
+<section id="configura-tu-identidad" class="level3">
+<h3 class="anchored" data-anchor-id="configura-tu-identidad">Configura tu identidad</h3>
+<p>Git necesita saber quién firma los commits. Ejecuta estos comandos una sola vez en tu computador. Reemplaza los datos de ejemplo por los tuyos. Usa el correo asociado a tu cuenta de GitHub si quieres que la plataforma relacione los commits con tu perfil.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Ana Maria Perez"</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"ana.perez@example.com"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Comprueba la configuración:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> init.defaultBranch</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Ana Maria Perez
+ana.perez@example.com
+main</code></pre>
+<p>Tu nombre y tu correo producirán una salida distinta.</p>
 </section>
-<section id="recursos" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="recursos"><span class="header-section-number">10</span> Recursos</h2>
+<section id="prepara-el-.gitignore-de-.net" class="level3">
+<h3 class="anchored" data-anchor-id="prepara-el-.gitignore-de-.net">Prepara el <code>.gitignore</code> de .NET</h3>
+<p><code>dotnet run</code>, <code>dotnet build</code> y Visual Studio generan carpetas que puedes reconstruir. Versionarlas solo agrega archivos temporales y diferencias innecesarias. Crea un archivo llamado <code>.gitignore</code> en la raíz de <code>HolaPascual</code> con este contenido:</p>
+<pre class="gitignore"><code>.vs/
+bin/
+obj/
+*.user
+*.suo</code></pre>
+<p>El punto inicial forma parte del nombre. En Windows, créalo desde Visual Studio o desde la terminal si el Explorador no acepta el nombre.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/gitignore-filtro.svg" class="img-fluid figure-img" alt="El gitignore deja pasar Program.cs, el archivo de proyecto y README, y excluye .vs, bin y obj"></p>
+<figcaption>El archivo gitignore deja pasar el código y detiene los archivos generados.</figcaption>
+</figure>
+</div>
+</section>
+<section id="inicia-el-repositorio-y-revisa-su-estado" class="level3">
+<h3 class="anchored" data-anchor-id="inicia-el-repositorio-y-revisa-su-estado">Inicia el repositorio y revisa su estado</h3>
+<p>Abre la terminal en la carpeta <code>HolaPascual</code>. No ejecutes <code>git init</code> en la carpeta que contiene todas tus clases.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--short</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La primera orden crea la carpeta oculta <code>.git</code>. La segunda muestra los archivos que Git todavía no sigue:</p>
+<pre class="text"><code>?? .gitignore
+?? HolaPascual.csproj
+?? Program.cs</code></pre>
+<p><code>??</code> significa “archivo nuevo sin seguimiento”. Las carpetas <code>bin</code> y <code>obj</code> no aparecen porque el <code>.gitignore</code> ya las filtró.</p>
+</section>
+<section id="agrega-un-readme" class="level3">
+<h3 class="anchored" data-anchor-id="agrega-un-readme">Agrega un README</h3>
+<p>Crea <code>README.md</code> en la raíz del proyecto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># HolaPascual</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>Primer programa de consola de Herramientas de Programación I.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Este archivo explica el propósito del repositorio cuando alguien lo abre en GitHub.</p>
+</section>
+<section id="prepara-y-registra-el-primer-commit" class="level3">
+<h3 class="anchored" data-anchor-id="prepara-y-registra-el-primer-commit">Prepara y registra el primer commit</h3>
+<p>Git trabaja con tres zonas: los archivos que editas, el área de preparación y el historial. <code>add</code> selecciona lo que entrará al próximo commit. <code>commit</code> registra esa selección.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/git-cuatro-areas.svg" class="img-fluid figure-img" alt="Directorio de trabajo, área de preparación, repositorio local y repositorio remoto"></p>
+<figcaption>Las áreas de Git y los comandos que mueven los cambios.</figcaption>
+</figure>
+</div>
+</section>
+<section id="escribe-mensajes-de-commit-con-una-convención" class="level3">
+<h3 class="anchored" data-anchor-id="escribe-mensajes-de-commit-con-una-convención">Escribe mensajes de commit con una convención</h3>
+<p>Git acepta cualquier texto como mensaje. En este curso adoptamos <strong>Conventional Commits</strong> como convención de equipo para que el historial sea fácil de leer. La forma básica es:</p>
+<pre class="text"><code>tipo: descripción breve</code></pre>
+<p>Cuando el proyecto crezca, puedes añadir un alcance entre paréntesis para indicar qué parte cambió:</p>
+<pre class="text"><code>tipo(alcance): descripción breve</code></pre>
+<p>Escribe la descripción en minúscula, con un verbo que diga qué hace el cambio y sin punto final. El alcance es opcional. Por ejemplo, <code>salida</code>, <code>entrada</code>, <code>readme</code> o <code>config</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipo</th>
+<th>Cuándo usarlo</th>
+<th>Ejemplo en HolaPascual</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>feat</code></td>
+<td>Agregas una funcionalidad que la persona usuaria puede observar</td>
+<td><code>feat(entrada): solicita el nombre</code></td>
+</tr>
+<tr class="even">
+<td><code>fix</code></td>
+<td>Corriges un comportamiento incorrecto</td>
+<td><code>fix(salida): evita saludar con un nombre vacío</code></td>
+</tr>
+<tr class="odd">
+<td><code>docs</code></td>
+<td>Cambias documentación, como <code>README.md</code>, sin cambiar el programa</td>
+<td><code>docs: explica cómo ejecutar HolaPascual</code></td>
+</tr>
+<tr class="even">
+<td><code>style</code></td>
+<td>Cambias formato, espacios o sangría sin alterar el comportamiento</td>
+<td><code>style: ordena la sangría de Program.cs</code></td>
+</tr>
+<tr class="odd">
+<td><code>refactor</code></td>
+<td>Reorganizas el código sin agregar funcionalidad ni corregir un fallo</td>
+<td><code>refactor: extrae la construcción del saludo</code></td>
+</tr>
+<tr class="even">
+<td><code>test</code></td>
+<td>Agregas o ajustas pruebas automatizadas</td>
+<td><code>test: verifica el saludo con nombre</code></td>
+</tr>
+<tr class="odd">
+<td><code>chore</code></td>
+<td>Haces mantenimiento o configuración sin agregar funcionalidad</td>
+<td><code>chore: configura el gitignore de .NET</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>style</code> no significa cambiar el diseño de la salida del programa: solo cubre formato del código sin cambio de comportamiento. <code>chore</code> cubre tareas de mantenimiento, configuración o dependencias que tampoco agregan funcionalidad.</p>
+<p>Compara estos mensajes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mensaje</th>
+<th>Veredicto</th>
+<th>Razón</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>feat: crea el primer programa de consola</code></td>
+<td>Bueno</td>
+<td>Declara el tipo y el resultado del cambio</td>
+</tr>
+<tr class="even">
+<td><code>feat(salida): informa que Git registra el cambio</code></td>
+<td>Bueno</td>
+<td>Añade un alcance útil y explica el comportamiento</td>
+</tr>
+<tr class="odd">
+<td><code>cambios</code></td>
+<td>Malo</td>
+<td>No declara tipo ni explica qué cambió</td>
+</tr>
+<tr class="even">
+<td><code>fix cosas</code></td>
+<td>Malo</td>
+<td>No usa la forma de la convención y sigue siendo impreciso</td>
+</tr>
+<tr class="odd">
+<td><code>feat: actualiza Program.cs</code></td>
+<td>Malo</td>
+<td>Nombra el archivo, pero no explica el propósito del cambio</td>
+</tr>
+</tbody>
+</table>
+<p>Ejecuta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--short</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>A  .gitignore
+A  HolaPascual.csproj
+A  Program.cs
+A  README.md</code></pre>
+<p>La <code>A</code> indica que cada archivo está preparado. Registra el commit:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat: crea el primer programa de consola"</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El texto que imprime Git incluye un hash y un conteo de líneas que varían según tu proyecto. La comprobación estable es esta:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--short</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>status</code> no imprime nada cuando no quedan cambios. <code>log</code> muestra una línea similar a esta:</p>
+<pre class="text"><code>&lt;hash&gt; feat: crea el primer programa de consola</code></pre>
+<p><code>&lt;hash&gt;</code> representa los primeros caracteres del identificador real de tu commit.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/anatomia-commit.svg" class="img-fluid figure-img" alt="Elementos que guarda un commit de Git"></p>
+<figcaption>Cada commit guarda autor, fecha, mensaje, contenido y vínculo con el commit anterior.</figcaption>
+</figure>
+</div>
+</section>
+<section id="observa-un-cambio-antes-de-registrarlo" class="level3">
+<h3 class="anchored" data-anchor-id="observa-un-cambio-antes-de-registrarlo">Observa un cambio antes de registrarlo</h3>
+<p>Agrega esta instrucción al final de <code>Program.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Este cambio queda registrado con Git."</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Mira la diferencia:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La salida muestra las líneas anteriores con <code>-</code> y las nuevas con <code>+</code>. Los encabezados y números de línea dependen del contenido actual de tu archivo. Confirma el cambio con:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="at">--short</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code> M Program.cs</code></pre>
+<p>El espacio antes de <code>M</code> indica que modificaste el archivo en el directorio de trabajo, pero todavía no lo preparaste. Regístralo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add Program.cs</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"feat(salida): informa que Git registra el cambio"</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El historial queda en este orden:</p>
+<pre class="text"><code>&lt;hash nuevo&gt; feat(salida): informa que Git registra el cambio
+&lt;hash inicial&gt; feat: crea el primer programa de consola</code></pre>
+<p>Los hashes serán distintos en cada computador. Los mensajes y el orden deben coincidir.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/git-cadena-commits.svg" class="img-fluid figure-img" alt="Los dos commits del laboratorio, con main y HEAD sobre el más reciente"></p>
+<figcaption>Los commits forman una historia ordenada y main señala el estado actual.</figcaption>
+</figure>
+</div>
+</section>
+<section id="crea-el-repositorio-vacío-en-github" class="level3">
+<h3 class="anchored" data-anchor-id="crea-el-repositorio-vacío-en-github">Crea el repositorio vacío en GitHub</h3>
+<ol type="1">
+<li>Inicia sesión en <a href="https://github.com/">github.com</a>.</li>
+<li>Selecciona <strong>New repository</strong>.</li>
+<li>Escribe <code>HolaPascual</code> como nombre.</li>
+<li>Elige visibilidad pública o privada según prefieras.</li>
+<li>Deja sin marcar <strong>Add a README file</strong>, <strong>Add .gitignore</strong> y <strong>Choose a license</strong>.</li>
+<li>Selecciona <strong>Create repository</strong>.</li>
+</ol>
+<p>El repositorio debe quedar vacío porque tu computador ya tiene los primeros commits. Si GitHub crea otro commit con un README, aparecen dos historias que todavía no necesitas reconciliar.</p>
+</section>
+<section id="conecta-y-publica" class="level3">
+<h3 class="anchored" data-anchor-id="conecta-y-publica">Conecta y publica</h3>
+<p>Copia la URL HTTPS que GitHub muestra para el repositorio. Sustituye <code>&lt;usuario&gt;</code> por tu nombre de usuario real:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/<span class="op">&lt;</span>usuario<span class="op">&gt;</span>/HolaPascual.git</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>remote add</code> guarda la dirección con el nombre <code>origin</code>. <code>push</code> envía los commits y <code>-u</code> deja conectada la rama local <code>main</code> con la remota. GitHub puede abrir el navegador para que autorices el acceso. Esa pantalla y la salida de la terminal cambian según el sistema y el método de autenticación.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/remoto-copias.svg" class="img-fluid figure-img" alt="Repositorio remoto en GitHub y copia local del historial"></p>
+<figcaption>GitHub aloja una copia del historial que Git mantiene en el computador.</figcaption>
+</figure>
+</div>
+<p>Recarga la página del repositorio y comprueba que aparecen <code>Program.cs</code>, <code>HolaPascual.csproj</code>, <code>README.md</code>, <code>.gitignore</code> y los dos commits. No deben aparecer <code>.vs</code>, <code>bin</code> ni <code>obj</code>.</p>
+</section>
+<section id="el-flujo-que-repetirás" class="level3">
+<h3 class="anchored" data-anchor-id="el-flujo-que-repetirás">El flujo que repetirás</h3>
+<p>Después del primer <code>push</code>, el ciclo cotidiano es corto:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>archivo<span class="op">&gt;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"tipo: describe el cambio"</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Usa mensajes que expliquen el cambio. <code>feat: agrega el saludo por nombre</code> informa más que <code>cambios</code> o <code>actualiza Program.cs</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Ampliación: ramas y Pull Requests
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Una rama permite trabajar aparte de <code>main</code>. Un Pull Request propone incorporar esa rama desde GitHub y facilita revisar el cambio. Los usarás cuando el proyecto necesite colaboración. En esta sesión basta con reconocer los conceptos; conflictos, etiquetas y reversión quedan para otro momento.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">5</span> Lista de chequeo de la semana</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">El SDK de .NET, Visual Studio y Git funcionan.</label></li>
+<li><label><input type="checkbox"><code>HolaPascual</code> compila y ejecuta.</label></li>
+<li><label><input type="checkbox">Git tiene configurados tu nombre, correo y rama inicial <code>main</code>.</label></li>
+<li><label><input type="checkbox"><code>.gitignore</code> excluye <code>.vs</code>, <code>bin</code> y <code>obj</code>.</label></li>
+<li><label><input type="checkbox">El historial local tiene al menos dos commits con mensajes claros.</label></li>
+<li><label><input type="checkbox"><code>git status --short</code> queda vacío después del último commit.</label></li>
+<li><label><input type="checkbox">GitHub muestra los archivos y commits del proyecto.</label></li>
+</ul>
+</section>
+<section id="trabajo-independiente" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="trabajo-independiente"><span class="header-section-number">6</span> Trabajo independiente</h2>
+<p>Completa estas actividades después de cada sesión:</p>
+<ol type="1">
+<li><strong>Después de la sesión 1:</strong> termina la instalación, repite el proyecto sin mirar la guía, provoca un error de compilación y recorre el programa con el depurador.</li>
+<li><strong>Después de la sesión 2:</strong> repite el flujo de Git en un proyecto de prueba, amplía el <code>README.md</code>, registra el cambio y publícalo con <code>git push</code>.</li>
+</ol>
+<p>Conserva <code>HolaPascual</code>: lo usarás como referencia cuando empieces con variables y entrada de datos en la Semana 2.</p>
+</section>
+<section id="recursos" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="recursos"><span class="header-section-number">7</span> Recursos</h2>
 <ul>
-<li>Descarga del SDK de .NET: <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com/download</a></li>
-<li>Descarga de Visual Studio Community: <a href="https://visualstudio.microsoft.com/es/vs/community/">visualstudio.microsoft.com</a></li>
-<li>Descarga de Git: <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></li>
+<li>SDK de .NET: <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com/download</a></li>
+<li>Visual Studio Community: <a href="https://visualstudio.microsoft.com/es/vs/community/">visualstudio.microsoft.com</a></li>
+<li>Git: <a href="https://git-scm.com/downloads">git-scm.com/downloads</a></li>
+<li>GitHub: <a href="https://docs.github.com/es">docs.github.com</a></li>
+<li>Referencia de Git: <a href="https://git-scm.com/docs">git-scm.com/docs</a></li>
 <li>Documentación de C#: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/">learn.microsoft.com/dotnet/csharp</a></li>
-<li>Comando <code>dotnet new</code>: <a href="https://learn.microsoft.com/es-es/dotnet/core/tools/dotnet-new">learn.microsoft.com/dotnet/core/tools/dotnet-new</a></li>
-<li>Depuración en Visual Studio: <a href="https://learn.microsoft.com/es-es/visualstudio/debugger/debugger-feature-tour">learn.microsoft.com/visualstudio/debugger</a></li>
 </ul>
 <div class="pie-doc">
 <p>Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>

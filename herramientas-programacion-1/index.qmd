@@ -36,9 +36,11 @@ final.
 ::: {.callout-note}
 ## Prueba diagnóstica
 
-Responde la [prueba diagnóstica de entrada](https://forms.gle/3BtRJ6ayyygoZxPk9). La actividad
-toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los
-apoyos del curso.
+La actividad toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el
+ritmo y los apoyos del curso.
+
+[Responder la prueba diagnóstica de entrada](https://forms.gle/3BtRJ6ayyygoZxPk9){.btn .btn-primary
+role="button" target="_blank" rel="noopener"}
 :::
 
 ::: {.callout-important}

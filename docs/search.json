@@ -21,123 +21,91 @@
     "text": "Sobre el material\nEscribí las guías para quien ya vio Fundamentos de Programación pero nunca ha escrito código en C#. Probé cada procedimiento y cada programa en una máquina real antes de publicarlo, y las salidas de terminal son auténticas de esa preparación.\nSi encuentras un error, un enlace roto o un paso que falla en tu equipo, dímelo en el encuentro o por el canal del curso. Lo corrijo y queda arreglado para todos.\n\nOscar Leonel Sánchez Conde. Institución Universitaria Pascual Bravo, Facultad de Ingeniería. Semestre 2026-02."
   },
   {
-    "objectID": "herramientas-programacion-1/index.html",
-    "href": "herramientas-programacion-1/index.html",
-    "title": "Herramientas de Programación I",
+    "objectID": "herramientas-programacion-1/semana-01/index.html",
+    "href": "herramientas-programacion-1/semana-01/index.html",
+    "title": "Semana 1. Entorno, Git y GitHub",
     "section": "",
-    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nVirtual. 4 créditos, 192 horas\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente por semana\n\n\nPrerrequisito\nET0045 Fundamentos de Programación",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 1. Aplicaciones de consola con un IDE\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente",
     "crumbs": [
-      "Presentación del curso"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/index.html#de-qué-se-trata-el-curso",
-    "href": "herramientas-programacion-1/index.html#de-qué-se-trata-el-curso",
-    "title": "Herramientas de Programación I",
-    "section": "De qué se trata el curso",
-    "text": "De qué se trata el curso\nEn Fundamentos de Programación escribiste algoritmos. Aquí los conviertes en programas que funcionan. El lenguaje es C# y la plataforma es .NET 10.\nEl semestre avanza en tres tramos. Primero programas de consola: sintaxis, variables, decisiones y ciclos. Después arreglos y funciones, para manejar conjuntos de datos y partir el código en piezas reutilizables. Al final, programación orientada a objetos con interfaz gráfica y guardado de información en archivos.\nTodo se articula alrededor de un mismo proyecto que crece durante el semestre. Lo que entregas en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación final.\n\n\n\n\n\n\nNotaPrueba diagnóstica\n\n\n\nResponde la prueba diagnóstica de entrada. La actividad toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los apoyos del curso.\n\n\n\n\n\n\n\n\nImportanteSi trabajas en macOS o Linux, léelo ahora\n\n\n\nLas unidades 1 y 2 son de consola y corren igual en Windows, macOS y Linux. La unidad 3 usa Windows Forms, que solo funciona en Windows. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o una sala de cómputo de la institución.\nResuélvelo durante las primeras semanas. Enterarte en la semana 11 te deja sin tiempo.",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#lo-que-vas-a-lograr",
+    "href": "herramientas-programacion-1/semana-01/index.html#lo-que-vas-a-lograr",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "1 Lo que vas a lograr",
+    "text": "1 Lo que vas a lograr\nLa semana tiene dos sesiones. En la primera dejas el entorno instalado y un programa de C# ejecutándose. En la segunda conviertes ese mismo proyecto en un repositorio de Git y publicas su historial en GitHub.\nObjetivos concretos:\n\nExplicar qué es un IDE y qué hace cada una de sus partes.\nInstalar y verificar el SDK de .NET, Visual Studio 2026 Community y Git.\nCrear, compilar y ejecutar un proyecto de consola desde la terminal y desde el IDE.\nRegistrar cambios con init, status, add, commit, log y diff.\nPublicar el repositorio local en GitHub mediante un remoto y push.\n\n\n\n\n\n\n\nImportanteSi trabajas en macOS o Linux, resuélvelo estas primeras semanas\n\n\n\nLas unidades 1 y 2 son programas de consola y corren igual en los tres sistemas. La unidad 3 usa Windows Forms, que solo existe en Windows. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o la sala de cómputo de la institución.\nOcúpate de esto ahora. Enterarte en la semana 11 te deja sin margen.",
     "crumbs": [
-      "Presentación del curso"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/index.html#calendario",
-    "href": "herramientas-programacion-1/index.html#calendario",
-    "title": "Herramientas de Programación I",
-    "section": "Calendario",
-    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Aplicaciones de consola con un IDE\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa\nDefinición de IDE, estructura y función. Manejo de una herramienta de programación\n-\n\n\n02\nEstructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola\nManejo de una herramienta de programación. Tipos de variables\n-\n\n\n03\nOperadores aritméticos, lógicos y de comparación. Precedencia\nTipos y precedencia de operadores aritméticos, lógicos y de comparación\n-\n\n\n04\nSentencias de control condicionales: if, else, else if, switch\nSentencias de control condicionales\n-\n\n\n05\nCiclos for y while. Acumuladores, contadores y banderas. Cierre de la Unidad 1\nSentencias for y while. Acumuladores, contadores y banderas\n30%\n\n\n\n\n\n\nUnidad 2. Arreglos y funciones\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nEstructuras de datos tipo arreglo: vectores\nEstructura de datos tipo vectores y matrices\n-\n\n\n07\nMatrices\nEstructura de datos tipo vectores y matrices\n-\n\n\n08\nFunciones: parámetros de entrada y valor de retorno\nFunciones, parámetros de entrada y retorno\n-\n\n\n09\nPaso de parámetros por valor y por referencia\nPaso de parámetros a funciones por valor y por referencia\n-\n\n\n10\nCreación de menús con aplicación de funciones. Cierre de la Unidad 2\nCreación de menús con aplicación de funciones\n30%\n\n\n\n\n\n\nUnidad 3. Programación orientada a objetos y aplicaciones gráficas\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nParadigma de la POO: clases y objetos. Atributos, métodos y constructores\nDefinición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase\n-\n\n\n12\nInstanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML\nInstanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados\n-\n\n\n13\nEstándares de documentación para escritura de código\nEstándares de documentación para escritura de códigos de programación\n-\n\n\n14\nManejo de archivos de texto para persistencia\nManejo de archivos de texto\n-\n\n\n15\nElementos GUI con Windows Forms: propiedades y eventos de control\nElementos GUI, propiedades y eventos de control\n-\n\n\n16\nEvaluación final. Aplicación con interfaz gráfica, POO y persistencia en archivo\nTodos los de la unidad\n40%",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#sesión-1.-el-ide-y-tu-primer-programa",
+    "href": "herramientas-programacion-1/semana-01/index.html#sesión-1.-el-ide-y-tu-primer-programa",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "2 Sesión 1. El IDE y tu primer programa",
+    "text": "2 Sesión 1. El IDE y tu primer programa\n\nQué es un IDE\nIDE significa Integrated Development Environment, entorno de desarrollo integrado. Es un solo programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que usarlas por separado, cada una con su propia forma de invocarse.\nEstas son las partes que lo componen y para qué sirve cada una:\n\n\n\n\n\n\n\nParte\nQué hace\n\n\n\n\nEditor de código\nEscribes el código. Colorea la sintaxis, autocompleta nombres y subraya los errores mientras escribes\n\n\nCompilador\nTraduce tu código a algo que la máquina puede ejecutar. Si hay errores de sintaxis, los reporta y no genera nada\n\n\nDepurador\nDetiene el programa en el punto que le indiques y te deja ver el valor de cada variable en ese instante\n\n\nGestor de proyectos\nOrganiza los archivos, las referencias y la configuración de compilación\n\n\nTerminal integrada\nEjecuta comandos sin salir del entorno\n\n\nControl de versiones\nRegistra el historial de cambios y lo sincroniza con un repositorio remoto\n\n\n\nEn este curso el IDE es Visual Studio 2026 Community, el lenguaje es C# y la plataforma es .NET 10.\nConviene separar tres cosas que se confunden:\n\nC# es el lenguaje. Las palabras y las reglas con las que escribes.\n.NET es la plataforma. Las bibliotecas que ya vienen hechas y el motor que ejecuta tu programa.\nVisual Studio es el IDE. La herramienta con la que trabajas sobre los dos anteriores.\n\nPuedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Instala la misma línea o una superior.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nSDK de .NET\n10.0.103\n\n\nGit\n2.50.0\n\n\nVisual Studio 2026 Community\n18.3\n\n\n\n\n\n\n\n\n\nNotaSobre la versión de Visual Studio\n\n\n\nEl número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de Visual Studio 2026 Community sirve para el curso.\n\n\n\n\n\nInstalación paso a paso\n\n1 SDK de .NET\nEs lo que compila y ejecuta tu código. Descarga la versión 10 desde dotnet.microsoft.com/download.\nInstala el SDK, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más común del curso.\nAcepta las opciones por omisión del instalador.\n\n\n2 Visual Studio 2026 Community\nDescarga desde visualstudio.microsoft.com. La edición Community es gratuita para estudiantes.\nEn el instalador aparece una lista de cargas de trabajo. Marca Desarrollo de escritorio de .NET. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2 y para Windows Forms en la unidad 3.\nNo marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.\n\n\n\n\n\n\nAdvertenciaReserva espacio y tiempo\n\n\n\nLa instalación pasa de 8 GB de descarga. Con una conexión doméstica puede tomar una hora larga. Empieza la descarga antes del encuentro sincrónico, no durante.\nDeja 20 GB libres en disco antes de arrancar.\n\n\n\n\n3 Git\nDescarga desde git-scm.com/downloads y acepta las opciones por omisión.\nLo usarás en la segunda sesión para guardar el historial del proyecto que vas a crear.\n\n\n4 Solo si usas macOS o Linux: VS Code\nVisual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de 2024 y nunca existió para Linux.\nInstala VS Code y la extensión C# Dev Kit, publicada por Microsoft:\ncode --install-extension ms-dotnettools.csdevkit\nCon VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas Windows.\n\n\n\nVerificación\nAbre una terminal nueva. Las que ya estaban abiertas no ven los cambios que los instaladores hicieron en el PATH, y los comandos van a fallar aunque la instalación esté bien.\nEjecuta:\ndotnet --version\ngit --version\nEstas son las respuestas reales de la máquina donde preparé la guía:\n&gt; dotnet --version\n10.0.103\n\n&gt; git --version\ngit version 2.50.0.windows.2\nLos números pueden ser mayores que los de arriba y no pasa nada. Lo que importa es que ningún comando responda con un error.\nPara ver todos los SDK instalados:\ndotnet --list-sdks\n10.0.103 [C:\\Program Files\\dotnet\\sdk]\n\n\nTu primer programa desde la terminal\nVas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un camino que funciona aunque el IDE falle.\n\nPaso 1: crea el proyecto\nUbícate en la carpeta donde guardas tus trabajos y ejecuta:\ndotnet new console -o HolaPascual\nLa salida es esta. Donde dice &lt;tu carpeta&gt; va la ruta real de tu equipo:\nLa plantilla \"Aplicación de consola\" se creó correctamente.\n\nProcesando acciones posteriores a la creación...\nRestaurando &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj:\n  Determinando los proyectos que se van a restaurar...\n  Se ha restaurado &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj (en 91 ms).\nRestauración realizada correctamente.\nSe creó una carpeta HolaPascual con dos archivos que importan.\n\n\nPaso 2: mira lo que se creó\nEl primero es HolaPascual.csproj, el archivo de proyecto:\n&lt;Project Sdk=\"Microsoft.NET.Sdk\"&gt;\n\n  &lt;PropertyGroup&gt;\n    &lt;OutputType&gt;Exe&lt;/OutputType&gt;\n    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;\n    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;\n    &lt;Nullable&gt;enable&lt;/Nullable&gt;\n  &lt;/PropertyGroup&gt;\n\n&lt;/Project&gt;\nDice cuatro cosas: que el resultado es un ejecutable, que apunta a .NET 10, que importa las bibliotecas más comunes sin que las escribas, y que avisa cuando una variable puede quedar sin valor.\nEl segundo es Program.cs, tu código:\n// See https://aka.ms/new-console-template for more information\nConsole.WriteLine(\"Hello, World!\");\nDos líneas. Una de ellas es un comentario.\n\n\nPaso 3: ejecútalo\nEntra a la carpeta y ejecuta:\ncd HolaPascual\ndotnet run\nHello, World!\nYa tienes un programa de C# funcionando.\n\n\nPaso 4: escribe tu propio código\nAbre Program.cs y reemplaza su contenido por esto:\n// Herramientas de Programacion I - Semana 01\n// Primer programa: entrada por teclado y salida por consola.\n\nConsole.WriteLine(\"Herramientas de Programacion I\");\nConsole.WriteLine(\"Tecnologia en Desarrollo de Software\");\nConsole.WriteLine();\n\nConsole.Write(\"Escribe tu nombre: \");\nstring? nombre = Console.ReadLine();\n\nConsole.WriteLine();\nConsole.WriteLine($\"Hola, {nombre}. Tu entorno de desarrollo funciona.\");\nEjecuta dotnet run otra vez y escribe tu nombre cuando lo pida:\nHerramientas de Programacion I\nTecnologia en Desarrollo de Software\n\nEscribe tu nombre: Ana Maria\n\nHola, Ana Maria. Tu entorno de desarrollo funciona.\nCuatro cosas nuevas aparecieron ahí:\n\nConsole.WriteLine escribe y salta de línea. Console.Write escribe y se queda en la misma línea, que es lo que quieres cuando pides un dato.\nConsole.ReadLine espera a que el usuario teclee algo y presione Enter, y devuelve lo que escribió.\nstring? nombre guarda ese texto. El signo de interrogación advierte que podría no llegar nada.\n$\"Hola, {nombre}.\" mete el valor de la variable dentro del texto. Se llama interpolación y la vas a usar todo el semestre.\n\n\n\nPaso 5: compila sin ejecutar\ndotnet run compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien escrito, usa:\ndotnet build\n  Determinando los proyectos que se van a restaurar...\n  Todos los proyectos están actualizados para la restauración.\n  HolaPascual -&gt; &lt;tu carpeta&gt;\\HolaPascual\\bin\\Debug\\net10.0\\HolaPascual.dll\n\nCompilación correcta.\n    0 Advertencia(s)\n    0 Errores\n\nTiempo transcurrido 00:00:01.11\nEsas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no funcione.\n\n\n\nEl mismo programa desde Visual Studio\nAhora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.\n\nAbre Visual Studio y elige Crear un proyecto.\nBusca la plantilla Aplicación de consola y confirma que dice C#. Hay plantillas con nombre parecido para otros lenguajes.\nPonle nombre HolaVisual y elige la carpeta donde guardas tus trabajos.\nEn la pantalla siguiente, deja .NET 10.0 como framework de destino.\nPresiona F5 para ejecutar.\n\nSe abre una ventana de consola con la salida. Al lado tienes el Explorador de soluciones, que es el mismo .csproj y el mismo Program.cs de antes, presentados en forma de árbol.\n\nPrueba el depurador\nEsta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el Program.cs de este proyecto y haz esto:\n\nHaz clic en el margen izquierdo, a la altura de la línea string? nombre = Console.ReadLine();. Aparece un punto rojo: es un punto de interrupción.\nPresiona F5. El programa arranca y se detiene justo en esa línea, antes de ejecutarla.\nPresiona F10 para avanzar una línea. Escribe tu nombre en la consola cuando lo pida.\nPasa el cursor sobre nombre. Visual Studio te muestra el valor que tiene en ese momento.\nPresiona F5 para dejar que termine.\n\nAcabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto es lo que te dice por qué.\n\n\n\nErrores frecuentes\n\nError 1\n\ndotnet no se reconoce como comando\nCausa. Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el PATH nuevo.\nSolución. Cierra todas las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar el instalador del SDK y revisa que terminara sin errores.\n\n\n\nError 2\n\nInstalé .NET pero dotnet build falla\nCausa. Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no sabe compilar.\nSolución. Ejecuta dotnet --list-sdks. Si no imprime ninguna línea, no tienes SDK. Vuelve a dotnet.microsoft.com/download y descarga el que dice SDK.\n\n\n\nError 3\n\nLa ventana de la consola se cierra de inmediato\nCausa. Ejecutaste con Ctrl+F5 en Visual Studio, o hiciste doble clic sobre el .exe. El programa termina y la ventana se va con él.\nSolución. Ejecuta con F5, que mantiene la ventana abierta al terminar. También puedes agregar Console.ReadKey(); como última línea para que espere una tecla.\n\n\n\nError 4\n\nEl proyecto no compila y no encuentro qué cambié\nCausa. Casi siempre falta un punto y coma, o hay una llave sin cerrar.\nSolución. Mira la ventana Lista de errores de Visual Studio, o la salida de dotnet build en la terminal. Cada error trae archivo y número de línea. Corrige siempre el primero de la lista: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.\n\n\n\nError 5\n\nLos acentos y las eñes salen como símbolos raros en la consola\nCausa. La consola de Windows usa una codificación distinta a la del archivo de código.\nSolución. Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la Semana 2 lo resolvemos con Console.OutputEncoding.",
     "crumbs": [
-      "Presentación del curso"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/index.html#distribución-evaluativa",
-    "href": "herramientas-programacion-1/index.html#distribución-evaluativa",
-    "title": "Herramientas de Programación I",
-    "section": "Distribución evaluativa",
-    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte evalúa un incremento del proyecto del semestre. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#cierre-de-la-sesión-1",
+    "href": "herramientas-programacion-1/semana-01/index.html#cierre-de-la-sesión-1",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "3 Cierre de la sesión 1",
+    "text": "3 Cierre de la sesión 1\nAntes de pasar a Git, confirma lo siguiente:\n\ndotnet --version responde con la versión del SDK.\ngit --version responde.\nHolaPascual ejecuta con dotnet run.\nModificaste Program.cs y el programa te saluda con tu nombre.\nAbriste el proyecto en Visual Studio y probaste un punto de interrupción.\nSi usas macOS o Linux, sabes cómo vas a acceder a Windows para la unidad 3.",
     "crumbs": [
-      "Presentación del curso"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/index.html#criterios-de-desempeño",
-    "href": "herramientas-programacion-1/index.html#criterios-de-desempeño",
-    "title": "Herramientas de Programación I",
-    "section": "Criterios de desempeño",
-    "text": "Criterios de desempeño\nToda rúbrica del curso se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nIdentifica las características y funciones de un IDE.\nReconoce la estructura básica de un programa.\nAplica la sintaxis a un lenguaje de programación de estudio.\nAnaliza los tipos de variables y operadores.\nPropone las sentencias aplicadas en una programación estructurada.\nParticipa en las actividades propuestas durante la jornada académica y las horas de trabajo independiente.\n\n\n\nUnidad 2\n\nIdentifica sentencias de programación en la solución de problemas básicos.\nReconoce las estructuras de datos tipo arreglo.\nManipula el uso de funciones para el diseño de aplicaciones.\nAdministra sentencias de programación, estructura de datos y funciones en el diseño de aplicaciones de software.\nParticipa en las actividades planteadas actuando de acuerdo con los principios éticos y morales de la misión y visión institucional.\n\n\n\nUnidad 3\n\nImplementa los elementos de la programación orientada a objetos.\nEmplea archivos de texto para la persistencia de información.\nConstruye con diferentes elementos gráficos aplicaciones con interfaz de usuario.\nDocumenta los programas según los estándares de programación.\nAsume los valores de orden, organización, responsabilidad y puntualidad, a través del desarrollo de las tareas asignadas.",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#sesión-2.-git-y-github-con-holapascual",
+    "href": "herramientas-programacion-1/semana-01/index.html#sesión-2.-git-y-github-con-holapascual",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "4 Sesión 2. Git y GitHub con HolaPascual",
+    "text": "4 Sesión 2. Git y GitHub con HolaPascual\nEn esta sesión no creas otro ejercicio. Tomas HolaPascual, el proyecto que ya funciona, y le agregas un historial verificable. Al final tendrás el mismo proyecto en tu computador y en GitHub.\nAbrir la presentación de Git y GitHub\n\nGit y GitHub cumplen trabajos distintos\nGit es el programa que registra cambios en tu computador. Funciona sin internet. GitHub es un servicio web que recibe una copia del repositorio para consultarla, compartirla y recuperarla desde otro equipo.\nUn repositorio de Git guarda versiones del proyecto llamadas commits. Cada commit registra el autor, la fecha, un mensaje y el estado de los archivos en ese momento.\n\n\n\nGit trabaja en el computador y GitHub aloja una copia en internet.\n\n\n\n\nConfigura tu identidad\nGit necesita saber quién firma los commits. Ejecuta estos comandos una sola vez en tu computador. Reemplaza los datos de ejemplo por los tuyos. Usa el correo asociado a tu cuenta de GitHub si quieres que la plataforma relacione los commits con tu perfil.\ngit config --global user.name \"Ana Maria Perez\"\ngit config --global user.email \"ana.perez@example.com\"\ngit config --global init.defaultBranch main\nComprueba la configuración:\ngit config --global user.name\ngit config --global user.email\ngit config --global init.defaultBranch\nAna Maria Perez\nana.perez@example.com\nmain\nTu nombre y tu correo producirán una salida distinta.\n\n\nPrepara el .gitignore de .NET\ndotnet run, dotnet build y Visual Studio generan carpetas que puedes reconstruir. Versionarlas solo agrega archivos temporales y diferencias innecesarias. Crea un archivo llamado .gitignore en la raíz de HolaPascual con este contenido:\n.vs/\nbin/\nobj/\n*.user\n*.suo\nEl punto inicial forma parte del nombre. En Windows, créalo desde Visual Studio o desde la terminal si el Explorador no acepta el nombre.\n\n\n\nEl archivo gitignore deja pasar el código y detiene los archivos generados.\n\n\n\n\nInicia el repositorio y revisa su estado\nAbre la terminal en la carpeta HolaPascual. No ejecutes git init en la carpeta que contiene todas tus clases.\ngit init\ngit status --short\nLa primera orden crea la carpeta oculta .git. La segunda muestra los archivos que Git todavía no sigue:\n?? .gitignore\n?? HolaPascual.csproj\n?? Program.cs\n?? significa “archivo nuevo sin seguimiento”. Las carpetas bin y obj no aparecen porque el .gitignore ya las filtró.\n\n\nAgrega un README\nCrea README.md en la raíz del proyecto:\n# HolaPascual\n\nPrimer programa de consola de Herramientas de Programación I.\nEste archivo explica el propósito del repositorio cuando alguien lo abre en GitHub.\n\n\nPrepara y registra el primer commit\nGit trabaja con tres zonas: los archivos que editas, el área de preparación y el historial. add selecciona lo que entrará al próximo commit. commit registra esa selección.\n\n\n\nLas áreas de Git y los comandos que mueven los cambios.\n\n\n\n\nEscribe mensajes de commit con una convención\nGit acepta cualquier texto como mensaje. En este curso adoptamos Conventional Commits como convención de equipo para que el historial sea fácil de leer. La forma básica es:\ntipo: descripción breve\nCuando el proyecto crezca, puedes añadir un alcance entre paréntesis para indicar qué parte cambió:\ntipo(alcance): descripción breve\nEscribe la descripción en minúscula, con un verbo que diga qué hace el cambio y sin punto final. El alcance es opcional. Por ejemplo, salida, entrada, readme o config.\n\n\n\n\n\n\n\n\nTipo\nCuándo usarlo\nEjemplo en HolaPascual\n\n\n\n\nfeat\nAgregas una funcionalidad que la persona usuaria puede observar\nfeat(entrada): solicita el nombre\n\n\nfix\nCorriges un comportamiento incorrecto\nfix(salida): evita saludar con un nombre vacío\n\n\ndocs\nCambias documentación, como README.md, sin cambiar el programa\ndocs: explica cómo ejecutar HolaPascual\n\n\nstyle\nCambias formato, espacios o sangría sin alterar el comportamiento\nstyle: ordena la sangría de Program.cs\n\n\nrefactor\nReorganizas el código sin agregar funcionalidad ni corregir un fallo\nrefactor: extrae la construcción del saludo\n\n\ntest\nAgregas o ajustas pruebas automatizadas\ntest: verifica el saludo con nombre\n\n\nchore\nHaces mantenimiento o configuración sin agregar funcionalidad\nchore: configura el gitignore de .NET\n\n\n\nstyle no significa cambiar el diseño de la salida del programa: solo cubre formato del código sin cambio de comportamiento. chore cubre tareas de mantenimiento, configuración o dependencias que tampoco agregan funcionalidad.\nCompara estos mensajes:\n\n\n\n\n\n\n\n\nMensaje\nVeredicto\nRazón\n\n\n\n\nfeat: crea el primer programa de consola\nBueno\nDeclara el tipo y el resultado del cambio\n\n\nfeat(salida): informa que Git registra el cambio\nBueno\nAñade un alcance útil y explica el comportamiento\n\n\ncambios\nMalo\nNo declara tipo ni explica qué cambió\n\n\nfix cosas\nMalo\nNo usa la forma de la convención y sigue siendo impreciso\n\n\nfeat: actualiza Program.cs\nMalo\nNombra el archivo, pero no explica el propósito del cambio\n\n\n\nEjecuta:\ngit add .\ngit status --short\nA  .gitignore\nA  HolaPascual.csproj\nA  Program.cs\nA  README.md\nLa A indica que cada archivo está preparado. Registra el commit:\ngit commit -m \"feat: crea el primer programa de consola\"\nEl texto que imprime Git incluye un hash y un conteo de líneas que varían según tu proyecto. La comprobación estable es esta:\ngit status --short\ngit log --oneline\nstatus no imprime nada cuando no quedan cambios. log muestra una línea similar a esta:\n&lt;hash&gt; feat: crea el primer programa de consola\n&lt;hash&gt; representa los primeros caracteres del identificador real de tu commit.\n\n\n\nCada commit guarda autor, fecha, mensaje, contenido y vínculo con el commit anterior.\n\n\n\n\nObserva un cambio antes de registrarlo\nAgrega esta instrucción al final de Program.cs:\nConsole.WriteLine(\"Este cambio queda registrado con Git.\");\nMira la diferencia:\ngit diff\nLa salida muestra las líneas anteriores con - y las nuevas con +. Los encabezados y números de línea dependen del contenido actual de tu archivo. Confirma el cambio con:\ngit status --short\n M Program.cs\nEl espacio antes de M indica que modificaste el archivo en el directorio de trabajo, pero todavía no lo preparaste. Regístralo:\ngit add Program.cs\ngit commit -m \"feat(salida): informa que Git registra el cambio\"\ngit log --oneline\nEl historial queda en este orden:\n&lt;hash nuevo&gt; feat(salida): informa que Git registra el cambio\n&lt;hash inicial&gt; feat: crea el primer programa de consola\nLos hashes serán distintos en cada computador. Los mensajes y el orden deben coincidir.\n\n\n\nLos commits forman una historia ordenada y main señala el estado actual.\n\n\n\n\nCrea el repositorio vacío en GitHub\n\nInicia sesión en github.com.\nSelecciona New repository.\nEscribe HolaPascual como nombre.\nElige visibilidad pública o privada según prefieras.\nDeja sin marcar Add a README file, Add .gitignore y Choose a license.\nSelecciona Create repository.\n\nEl repositorio debe quedar vacío porque tu computador ya tiene los primeros commits. Si GitHub crea otro commit con un README, aparecen dos historias que todavía no necesitas reconciliar.\n\n\nConecta y publica\nCopia la URL HTTPS que GitHub muestra para el repositorio. Sustituye &lt;usuario&gt; por tu nombre de usuario real:\ngit remote add origin https://github.com/&lt;usuario&gt;/HolaPascual.git\ngit remote -v\ngit push -u origin main\nremote add guarda la dirección con el nombre origin. push envía los commits y -u deja conectada la rama local main con la remota. GitHub puede abrir el navegador para que autorices el acceso. Esa pantalla y la salida de la terminal cambian según el sistema y el método de autenticación.\n\n\n\nGitHub aloja una copia del historial que Git mantiene en el computador.\n\n\nRecarga la página del repositorio y comprueba que aparecen Program.cs, HolaPascual.csproj, README.md, .gitignore y los dos commits. No deben aparecer .vs, bin ni obj.\n\n\nEl flujo que repetirás\nDespués del primer push, el ciclo cotidiano es corto:\ngit status\ngit diff\ngit add &lt;archivo&gt;\ngit commit -m \"tipo: describe el cambio\"\ngit push\nUsa mensajes que expliquen el cambio. feat: agrega el saludo por nombre informa más que cambios o actualiza Program.cs.\n\n\n\n\n\n\nNotaAmpliación: ramas y Pull Requests\n\n\n\nUna rama permite trabajar aparte de main. Un Pull Request propone incorporar esa rama desde GitHub y facilita revisar el cambio. Los usarás cuando el proyecto necesite colaboración. En esta sesión basta con reconocer los conceptos; conflictos, etiquetas y reversión quedan para otro momento.",
     "crumbs": [
-      "Presentación del curso"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/index.html#cómo-se-evalúa-cada-entrega",
-    "href": "herramientas-programacion-1/index.html#cómo-se-evalúa-cada-entrega",
-    "title": "Herramientas de Programación I",
-    "section": "Cómo se evalúa cada entrega",
-    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas y resuelves problemas sobre los temas de la unidad\n\n\nDesempeño\nSe observa cómo desarrollas la aplicación, no solo el resultado\n\n\nProducto\nSe valora el software entregado: que compile, que funcione y que resuelva lo pedido",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#lista-de-chequeo-de-la-semana",
+    "href": "herramientas-programacion-1/semana-01/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "5 Lista de chequeo de la semana",
+    "text": "5 Lista de chequeo de la semana\n\nEl SDK de .NET, Visual Studio y Git funcionan.\nHolaPascual compila y ejecuta.\nGit tiene configurados tu nombre, correo y rama inicial main.\n.gitignore excluye .vs, bin y obj.\nEl historial local tiene al menos dos commits con mensajes claros.\ngit status --short queda vacío después del último commit.\nGitHub muestra los archivos y commits del proyecto.",
     "crumbs": [
-      "Presentación del curso"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/index.html",
-    "href": "estadistica-para-analitica/index.html",
-    "title": "Estadística para Analítica",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#trabajo-independiente",
+    "href": "herramientas-programacion-1/semana-01/index.html#trabajo-independiente",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "6 Trabajo independiente",
+    "text": "6 Trabajo independiente\nCompleta estas actividades después de cada sesión:\n\nDespués de la sesión 1: termina la instalación, repite el proyecto sin mirar la guía, provoca un error de compilación y recorre el programa con el depurador.\nDespués de la sesión 2: repite el flujo de Git en un proyecto de prueba, amplía el README.md, registra el cambio y publícalo con git push.\n\nConserva HolaPascual: lo usarás como referencia cuando empieces con variables y entrada de datos en la Semana 2.",
     "crumbs": [
-      "Presentación del módulo"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
-    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
-    "title": "Estadística para Analítica",
-    "section": "De qué se trata el módulo",
-    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. Lo recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir sobre él.\n\n\n\n\n\n\nNotaPrueba diagnóstica\n\n\n\nResponde la prueba diagnóstica de entrada. La actividad toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los apoyos del módulo.",
+    "objectID": "herramientas-programacion-1/semana-01/index.html#recursos",
+    "href": "herramientas-programacion-1/semana-01/index.html#recursos",
+    "title": "Semana 1. Entorno, Git y GitHub",
+    "section": "7 Recursos",
+    "text": "7 Recursos\n\nSDK de .NET: dotnet.microsoft.com/download\nVisual Studio Community: visualstudio.microsoft.com\nGit: git-scm.com/downloads\nGitHub: docs.github.com\nReferencia de Git: git-scm.com/docs\nDocumentación de C#: learn.microsoft.com/dotnet/csharp\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, tomadas durante la preparación del material.",
     "crumbs": [
-      "Presentación del módulo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/index.html#calendario",
-    "href": "estadistica-para-analitica/index.html#calendario",
-    "title": "Estadística para Analítica",
-    "section": "Calendario",
-    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización y dispersión\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes. Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades y teorema de Bayes. Probabilidad condicional e independencia\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nEstadísticos de prueba\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
-    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
-    "title": "Estadística para Analítica",
-    "section": "Distribución evaluativa",
-    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
-    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
-    "title": "Estadística para Analítica",
-    "section": "Criterios de desempeño",
-    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
-    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
-    "title": "Estadística para Analítica",
-    "section": "Cómo se evalúa cada entrega",
-    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
-    "crumbs": [
-      "Presentación del módulo"
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 1. Entorno, Git y GitHub"
     ]
   },
   {
@@ -262,124 +230,284 @@
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html",
-    "href": "herramientas-programacion-1/semana-01/index.html",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
+    "objectID": "estadistica-para-analitica/index.html",
+    "href": "estadistica-para-analitica/index.html",
+    "title": "Estadística para Analítica",
     "section": "",
-    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 1. Aplicaciones de consola con un IDE\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del módulo"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#lo-que-vas-a-lograr",
-    "href": "herramientas-programacion-1/semana-01/index.html#lo-que-vas-a-lograr",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "1 Lo que vas a lograr",
-    "text": "1 Lo que vas a lograr\nAl terminar esta guía tu computador queda con las herramientas del semestre instaladas, y tienes un programa en C# compilando y ejecutándose. En la Semana 2 empiezas a trabajar con variables y con la entrada de datos en serio.\nObjetivos concretos:\n\nExplicar qué es un IDE y qué hace cada una de sus partes.\nInstalar y verificar el SDK de .NET, Visual Studio 2026 Community y Git.\nCrear, compilar y ejecutar un proyecto de consola desde la terminal y desde el IDE.\nReconocer las partes de un programa mínimo de C#.\n\n\n\n\n\n\n\nImportanteSi trabajas en macOS o Linux, resuélvelo estas primeras semanas\n\n\n\nLas unidades 1 y 2 son programas de consola y corren igual en los tres sistemas. La unidad 3 usa Windows Forms, que solo existe en Windows. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o la sala de cómputo de la institución.\nOcúpate de esto ahora. Enterarte en la semana 11 te deja sin margen.",
+    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "title": "Estadística para Analítica",
+    "section": "De qué se trata el módulo",
+    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. Lo recoges en la semana 1 y lo vuelves a usar en cada entrega: describirlo, modelarlo y luego inferir sobre él.\n\n\n\n\n\n\nNotaPrueba diagnóstica\n\n\n\nResponde la prueba diagnóstica de entrada. La actividad toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los apoyos del módulo.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del módulo"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#qué-es-un-ide",
-    "href": "herramientas-programacion-1/semana-01/index.html#qué-es-un-ide",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "2 Qué es un IDE",
-    "text": "2 Qué es un IDE\nIDE significa Integrated Development Environment, entorno de desarrollo integrado. Es un solo programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que usarlas por separado, cada una con su propia forma de invocarse.\nEstas son las partes que lo componen y para qué sirve cada una:\n\n\n\n\n\n\n\nParte\nQué hace\n\n\n\n\nEditor de código\nEscribes el código. Colorea la sintaxis, autocompleta nombres y subraya los errores mientras escribes\n\n\nCompilador\nTraduce tu código a algo que la máquina puede ejecutar. Si hay errores de sintaxis, los reporta y no genera nada\n\n\nDepurador\nDetiene el programa en el punto que le indiques y te deja ver el valor de cada variable en ese instante\n\n\nGestor de proyectos\nOrganiza los archivos, las referencias y la configuración de compilación\n\n\nTerminal integrada\nEjecuta comandos sin salir del entorno\n\n\nControl de versiones\nRegistra el historial de cambios y lo sincroniza con un repositorio remoto\n\n\n\nEn este curso el IDE es Visual Studio 2026 Community, el lenguaje es C# y la plataforma es .NET 10.\nConviene separar tres cosas que se confunden:\n\nC# es el lenguaje. Las palabras y las reglas con las que escribes.\n.NET es la plataforma. Las bibliotecas que ya vienen hechas y el motor que ejecuta tu programa.\nVisual Studio es el IDE. La herramienta con la que trabajas sobre los dos anteriores.\n\nPuedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Instala la misma línea o una superior.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nSDK de .NET\n10.0.103\n\n\nGit\n2.50.0\n\n\nVisual Studio 2026 Community\n18.3\n\n\n\n\n\n\n\n\n\nNotaSobre la versión de Visual Studio\n\n\n\nEl número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de Visual Studio 2026 Community sirve para el curso.",
+    "objectID": "estadistica-para-analitica/index.html#calendario",
+    "href": "estadistica-para-analitica/index.html#calendario",
+    "title": "Estadística para Analítica",
+    "section": "Calendario",
+    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización y dispersión\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes. Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades y teorema de Bayes. Probabilidad condicional e independencia\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nEstadísticos de prueba\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del módulo"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#instalación-paso-a-paso",
-    "href": "herramientas-programacion-1/semana-01/index.html#instalación-paso-a-paso",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "3 Instalación paso a paso",
-    "text": "3 Instalación paso a paso\n\n1 SDK de .NET\nEs lo que compila y ejecuta tu código. Descarga la versión 10 desde dotnet.microsoft.com/download.\nInstala el SDK, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más común del curso.\nAcepta las opciones por omisión del instalador.\n\n\n2 Visual Studio 2026 Community\nDescarga desde visualstudio.microsoft.com. La edición Community es gratuita para estudiantes.\nEn el instalador aparece una lista de cargas de trabajo. Marca Desarrollo de escritorio de .NET. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2 y para Windows Forms en la unidad 3.\nNo marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.\n\n\n\n\n\n\nAdvertenciaReserva espacio y tiempo\n\n\n\nLa instalación pasa de 8 GB de descarga. Con una conexión doméstica puede tomar una hora larga. Empieza la descarga antes del encuentro sincrónico, no durante.\nDeja 20 GB libres en disco antes de arrancar.\n\n\n\n\n3 Git\nDescarga desde git-scm.com/downloads y acepta las opciones por omisión.\nEsta semana solo lo instalas. Lo vas a usar para entregar tu proyecto y para guardar el historial de tu trabajo.\n\n\n4 Solo si usas macOS o Linux: VS Code\nVisual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de 2024 y nunca existió para Linux.\nInstala VS Code y la extensión C# Dev Kit, publicada por Microsoft:\ncode --install-extension ms-dotnettools.csdevkit\nCon VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas Windows.",
+    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "title": "Estadística para Analítica",
+    "section": "Distribución evaluativa",
+    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del módulo"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#verificación",
-    "href": "herramientas-programacion-1/semana-01/index.html#verificación",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "4 Verificación",
-    "text": "4 Verificación\nAbre una terminal nueva. Las que ya estaban abiertas no ven los cambios que los instaladores hicieron en el PATH, y los comandos van a fallar aunque la instalación esté bien.\nEjecuta:\ndotnet --version\ngit --version\nEstas son las respuestas reales de la máquina donde preparé la guía:\n&gt; dotnet --version\n10.0.103\n\n&gt; git --version\ngit version 2.50.0.windows.2\nLos números pueden ser mayores que los de arriba y no pasa nada. Lo que importa es que ningún comando responda con un error.\nPara ver todos los SDK instalados:\ndotnet --list-sdks\n10.0.103 [C:\\Program Files\\dotnet\\sdk]",
+    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "title": "Estadística para Analítica",
+    "section": "Criterios de desempeño",
+    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del módulo"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#tu-primer-programa-desde-la-terminal",
-    "href": "herramientas-programacion-1/semana-01/index.html#tu-primer-programa-desde-la-terminal",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "5 Tu primer programa desde la terminal",
-    "text": "5 Tu primer programa desde la terminal\nVas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un camino que funciona aunque el IDE falle.\n\nPaso 1: crea el proyecto\nUbícate en la carpeta donde guardas tus trabajos y ejecuta:\ndotnet new console -o HolaPascual\nLa salida es esta. Donde dice &lt;tu carpeta&gt; va la ruta real de tu equipo:\nLa plantilla \"Aplicación de consola\" se creó correctamente.\n\nProcesando acciones posteriores a la creación...\nRestaurando &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj:\n  Determinando los proyectos que se van a restaurar...\n  Se ha restaurado &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj (en 91 ms).\nRestauración realizada correctamente.\nSe creó una carpeta HolaPascual con dos archivos que importan.\n\n\nPaso 2: mira lo que se creó\nEl primero es HolaPascual.csproj, el archivo de proyecto:\n&lt;Project Sdk=\"Microsoft.NET.Sdk\"&gt;\n\n  &lt;PropertyGroup&gt;\n    &lt;OutputType&gt;Exe&lt;/OutputType&gt;\n    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;\n    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;\n    &lt;Nullable&gt;enable&lt;/Nullable&gt;\n  &lt;/PropertyGroup&gt;\n\n&lt;/Project&gt;\nDice cuatro cosas: que el resultado es un ejecutable, que apunta a .NET 10, que importa las bibliotecas más comunes sin que las escribas, y que avisa cuando una variable puede quedar sin valor.\nEl segundo es Program.cs, tu código:\n// See https://aka.ms/new-console-template for more information\nConsole.WriteLine(\"Hello, World!\");\nDos líneas. Una de ellas es un comentario.\n\n\nPaso 3: ejecútalo\nEntra a la carpeta y ejecuta:\ncd HolaPascual\ndotnet run\nHello, World!\nYa tienes un programa de C# funcionando.\n\n\nPaso 4: escribe tu propio código\nAbre Program.cs y reemplaza su contenido por esto:\n// Herramientas de Programacion I - Semana 01\n// Primer programa: entrada por teclado y salida por consola.\n\nConsole.WriteLine(\"Herramientas de Programacion I\");\nConsole.WriteLine(\"Tecnologia en Desarrollo de Software\");\nConsole.WriteLine();\n\nConsole.Write(\"Escribe tu nombre: \");\nstring? nombre = Console.ReadLine();\n\nConsole.WriteLine();\nConsole.WriteLine($\"Hola, {nombre}. Tu entorno de desarrollo funciona.\");\nEjecuta dotnet run otra vez y escribe tu nombre cuando lo pida:\nHerramientas de Programacion I\nTecnologia en Desarrollo de Software\n\nEscribe tu nombre: Ana Maria\n\nHola, Ana Maria. Tu entorno de desarrollo funciona.\nCuatro cosas nuevas aparecieron ahí:\n\nConsole.WriteLine escribe y salta de línea. Console.Write escribe y se queda en la misma línea, que es lo que quieres cuando pides un dato.\nConsole.ReadLine espera a que el usuario teclee algo y presione Enter, y devuelve lo que escribió.\nstring? nombre guarda ese texto. El signo de interrogación advierte que podría no llegar nada.\n$\"Hola, {nombre}.\" mete el valor de la variable dentro del texto. Se llama interpolación y la vas a usar todo el semestre.\n\n\n\nPaso 5: compila sin ejecutar\ndotnet run compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien escrito, usa:\ndotnet build\n  Determinando los proyectos que se van a restaurar...\n  Todos los proyectos están actualizados para la restauración.\n  HolaPascual -&gt; &lt;tu carpeta&gt;\\HolaPascual\\bin\\Debug\\net10.0\\HolaPascual.dll\n\nCompilación correcta.\n    0 Advertencia(s)\n    0 Errores\n\nTiempo transcurrido 00:00:01.11\nEsas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no funcione.",
+    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "title": "Estadística para Analítica",
+    "section": "Cómo se evalúa cada entrega",
+    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del módulo"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#el-mismo-programa-desde-visual-studio",
-    "href": "herramientas-programacion-1/semana-01/index.html#el-mismo-programa-desde-visual-studio",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "6 El mismo programa desde Visual Studio",
-    "text": "6 El mismo programa desde Visual Studio\nAhora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.\n\nAbre Visual Studio y elige Crear un proyecto.\nBusca la plantilla Aplicación de consola y confirma que dice C#. Hay plantillas con nombre parecido para otros lenguajes.\nPonle nombre HolaVisual y elige la carpeta donde guardas tus trabajos.\nEn la pantalla siguiente, deja .NET 10.0 como framework de destino.\nPresiona F5 para ejecutar.\n\nSe abre una ventana de consola con la salida. Al lado tienes el Explorador de soluciones, que es el mismo .csproj y el mismo Program.cs de antes, presentados en forma de árbol.\n\nPrueba el depurador\nEsta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el Program.cs de este proyecto y haz esto:\n\nHaz clic en el margen izquierdo, a la altura de la línea string? nombre = Console.ReadLine();. Aparece un punto rojo: es un punto de interrupción.\nPresiona F5. El programa arranca y se detiene justo en esa línea, antes de ejecutarla.\nPresiona F10 para avanzar una línea. Escribe tu nombre en la consola cuando lo pida.\nPasa el cursor sobre nombre. Visual Studio te muestra el valor que tiene en ese momento.\nPresiona F5 para dejar que termine.\n\nAcabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto es lo que te dice por qué.",
+    "objectID": "herramientas-programacion-1/index.html",
+    "href": "herramientas-programacion-1/index.html",
+    "title": "Herramientas de Programación I",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nVirtual. 4 créditos, 192 horas\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente por semana\n\n\nPrerrequisito\nET0045 Fundamentos de Programación",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del curso"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#errores-frecuentes",
-    "href": "herramientas-programacion-1/semana-01/index.html#errores-frecuentes",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "7 Errores frecuentes",
-    "text": "7 Errores frecuentes\n\nError 1\n\ndotnet no se reconoce como comando\nCausa. Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el PATH nuevo.\nSolución. Cierra todas las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar el instalador del SDK y revisa que terminara sin errores.\n\n\n\nError 2\n\nInstalé .NET pero dotnet build falla\nCausa. Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no sabe compilar.\nSolución. Ejecuta dotnet --list-sdks. Si no imprime ninguna línea, no tienes SDK. Vuelve a dotnet.microsoft.com/download y descarga el que dice SDK.\n\n\n\nError 3\n\nLa ventana de la consola se cierra de inmediato\nCausa. Ejecutaste con Ctrl+F5 en Visual Studio, o hiciste doble clic sobre el .exe. El programa termina y la ventana se va con él.\nSolución. Ejecuta con F5, que mantiene la ventana abierta al terminar. También puedes agregar Console.ReadKey(); como última línea para que espere una tecla.\n\n\n\nError 4\n\nEl proyecto no compila y no encuentro qué cambié\nCausa. Casi siempre falta un punto y coma, o hay una llave sin cerrar.\nSolución. Mira la ventana Lista de errores de Visual Studio, o la salida de dotnet build en la terminal. Cada error trae archivo y número de línea. Corrige siempre el primero de la lista: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.\n\n\n\nError 5\n\nLos acentos y las eñes salen como símbolos raros en la consola\nCausa. La consola de Windows usa una codificación distinta a la del archivo de código.\nSolución. Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la Semana 2 lo resolvemos con Console.OutputEncoding.",
+    "objectID": "herramientas-programacion-1/index.html#de-qué-se-trata-el-curso",
+    "href": "herramientas-programacion-1/index.html#de-qué-se-trata-el-curso",
+    "title": "Herramientas de Programación I",
+    "section": "De qué se trata el curso",
+    "text": "De qué se trata el curso\nEn Fundamentos de Programación escribiste algoritmos. Aquí los conviertes en programas que funcionan. El lenguaje es C# y la plataforma es .NET 10.\nEl semestre avanza en tres tramos. Primero programas de consola: sintaxis, variables, decisiones y ciclos. Después arreglos y funciones, para manejar conjuntos de datos y partir el código en piezas reutilizables. Al final, programación orientada a objetos con interfaz gráfica y guardado de información en archivos.\nTodo se articula alrededor de un mismo proyecto que crece durante el semestre. Lo que entregas en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación final.\n\n\n\n\n\n\nNotaPrueba diagnóstica\n\n\n\nLa actividad toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los apoyos del curso.\nResponder la prueba diagnóstica de entrada\n\n\n\n\n\n\n\n\nImportanteSi trabajas en macOS o Linux, léelo ahora\n\n\n\nLas unidades 1 y 2 son de consola y corren igual en Windows, macOS y Linux. La unidad 3 usa Windows Forms, que solo funciona en Windows. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o una sala de cómputo de la institución.\nResuélvelo durante las primeras semanas. Enterarte en la semana 11 te deja sin tiempo.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del curso"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#lista-de-chequeo-de-la-semana",
-    "href": "herramientas-programacion-1/semana-01/index.html#lista-de-chequeo-de-la-semana",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "8 Lista de chequeo de la semana",
-    "text": "8 Lista de chequeo de la semana\n\nAntes de cerrar la semana, confirma que tienes todo esto\n\ndotnet --version responde con la versión del SDK\ndotnet --list-sdks imprime al menos una línea\ngit --version responde\nVisual Studio 2026 instalado con la carga de trabajo de escritorio de .NET, si usas Windows\nCreaste HolaPascual desde la terminal y dotnet run lo ejecutó\nModificaste Program.cs y el programa te saluda con tu nombre\nCreaste el mismo proyecto desde Visual Studio y lo ejecutaste con F5\nPusiste un punto de interrupción y viste el valor de una variable\nSi usas macOS o Linux, ya sabes cómo vas a tener Windows para la unidad 3",
+    "objectID": "herramientas-programacion-1/index.html#calendario",
+    "href": "herramientas-programacion-1/index.html#calendario",
+    "title": "Herramientas de Programación I",
+    "section": "Calendario",
+    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Aplicaciones de consola con un IDE\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa\nDefinición de IDE, estructura y función. Manejo de una herramienta de programación\n-\n\n\n02\nEstructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola\nManejo de una herramienta de programación. Tipos de variables\n-\n\n\n03\nOperadores aritméticos, lógicos y de comparación. Precedencia\nTipos y precedencia de operadores aritméticos, lógicos y de comparación\n-\n\n\n04\nSentencias de control condicionales: if, else, else if, switch\nSentencias de control condicionales\n-\n\n\n05\nCiclos for y while. Acumuladores, contadores y banderas. Cierre de la Unidad 1\nSentencias for y while. Acumuladores, contadores y banderas\n30%\n\n\n\n\n\n\nUnidad 2. Arreglos y funciones\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nEstructuras de datos tipo arreglo: vectores\nEstructura de datos tipo vectores y matrices\n-\n\n\n07\nMatrices\nEstructura de datos tipo vectores y matrices\n-\n\n\n08\nFunciones: parámetros de entrada y valor de retorno\nFunciones, parámetros de entrada y retorno\n-\n\n\n09\nPaso de parámetros por valor y por referencia\nPaso de parámetros a funciones por valor y por referencia\n-\n\n\n10\nCreación de menús con aplicación de funciones. Cierre de la Unidad 2\nCreación de menús con aplicación de funciones\n30%\n\n\n\n\n\n\nUnidad 3. Programación orientada a objetos y aplicaciones gráficas\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nParadigma de la POO: clases y objetos. Atributos, métodos y constructores\nDefinición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase\n-\n\n\n12\nInstanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML\nInstanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados\n-\n\n\n13\nEstándares de documentación para escritura de código\nEstándares de documentación para escritura de códigos de programación\n-\n\n\n14\nManejo de archivos de texto para persistencia\nManejo de archivos de texto\n-\n\n\n15\nElementos GUI con Windows Forms: propiedades y eventos de control\nElementos GUI, propiedades y eventos de control\n-\n\n\n16\nEvaluación final. Aplicación con interfaz gráfica, POO y persistencia en archivo\nTodos los de la unidad\n40%",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del curso"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#para-el-trabajo-independiente",
-    "href": "herramientas-programacion-1/semana-01/index.html#para-el-trabajo-independiente",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "9 Para el trabajo independiente",
-    "text": "9 Para el trabajo independiente\nEstas horas son para que el entorno quede sólido, no para adelantar temas.\n\nRepite el proyecto desde cero sin mirar la guía. Bórralo y hazlo otra vez.\nModifica el programa para que pregunte también el semestre y lo incluya en el saludo.\nProvoca un error a propósito: quita un punto y coma, compila y lee el mensaje completo. Fíjate en el archivo y la línea que reporta.\nRecorre tu programa entero con F10, línea por línea, hasta el final.\n\nNo hay entrega calificada esta semana. En la Semana 2 damos por hecho que tu entorno funciona.",
+    "objectID": "herramientas-programacion-1/index.html#distribución-evaluativa",
+    "href": "herramientas-programacion-1/index.html#distribución-evaluativa",
+    "title": "Herramientas de Programación I",
+    "section": "Distribución evaluativa",
+    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte evalúa un incremento del proyecto del semestre. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del curso"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-01/index.html#recursos",
-    "href": "herramientas-programacion-1/semana-01/index.html#recursos",
-    "title": "Semana 1. El IDE y tu primer programa en C#",
-    "section": "10 Recursos",
-    "text": "10 Recursos\n\nDescarga del SDK de .NET: dotnet.microsoft.com/download\nDescarga de Visual Studio Community: visualstudio.microsoft.com\nDescarga de Git: git-scm.com/downloads\nDocumentación de C#: learn.microsoft.com/dotnet/csharp\nComando dotnet new: learn.microsoft.com/dotnet/core/tools/dotnet-new\nDepuración en Visual Studio: learn.microsoft.com/visualstudio/debugger\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, tomadas durante la preparación del material.",
+    "objectID": "herramientas-programacion-1/index.html#criterios-de-desempeño",
+    "href": "herramientas-programacion-1/index.html#criterios-de-desempeño",
+    "title": "Herramientas de Programación I",
+    "section": "Criterios de desempeño",
+    "text": "Criterios de desempeño\nToda rúbrica del curso se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nIdentifica las características y funciones de un IDE.\nReconoce la estructura básica de un programa.\nAplica la sintaxis a un lenguaje de programación de estudio.\nAnaliza los tipos de variables y operadores.\nPropone las sentencias aplicadas en una programación estructurada.\nParticipa en las actividades propuestas durante la jornada académica y las horas de trabajo independiente.\n\n\n\nUnidad 2\n\nIdentifica sentencias de programación en la solución de problemas básicos.\nReconoce las estructuras de datos tipo arreglo.\nManipula el uso de funciones para el diseño de aplicaciones.\nAdministra sentencias de programación, estructura de datos y funciones en el diseño de aplicaciones de software.\nParticipa en las actividades planteadas actuando de acuerdo con los principios éticos y morales de la misión y visión institucional.\n\n\n\nUnidad 3\n\nImplementa los elementos de la programación orientada a objetos.\nEmplea archivos de texto para la persistencia de información.\nConstruye con diferentes elementos gráficos aplicaciones con interfaz de usuario.\nDocumenta los programas según los estándares de programación.\nAsume los valores de orden, organización, responsabilidad y puntualidad, a través del desarrollo de las tareas asignadas.",
     "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 1. El IDE y el primer programa"
+      "Presentación del curso"
     ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/index.html#cómo-se-evalúa-cada-entrega",
+    "href": "herramientas-programacion-1/index.html#cómo-se-evalúa-cada-entrega",
+    "title": "Herramientas de Programación I",
+    "section": "Cómo se evalúa cada entrega",
+    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas y resuelves problemas sobre los temas de la unidad\n\n\nDesempeño\nSe observa cómo desarrollas la aplicación, no solo el resultado\n\n\nProducto\nSe valora el software entregado: que compile, que funcione y que resuelva lo pedido",
+    "crumbs": [
+      "Presentación del curso"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#ruta-de-la-sesión",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#ruta-de-la-sesión",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Ruta de la sesión",
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nGit y GitHub\nIdentidad\n.gitignore\ninit y status\nPrimer commit\n\n\nSegunda parte\n\ndiff y segundo commit\nlog\nRepositorio vacío en GitHub\nRemoto y push\nVerificación"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#sin-control-de-versiones",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#sin-control-de-versiones",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Sin control de versiones",
+    "text": "Sin control de versiones"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#lo-que-necesitamos",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#lo-que-necesitamos",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Lo que necesitamos",
+    "text": "Lo que necesitamos\n\nVolver a un estado anterior.\nSaber quién cambió qué y cuándo.\nExplicar cada cambio con un mensaje.\nRecuperar el proyecto desde otro computador.\n\n\nGit registra la historia. GitHub aloja una copia."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#git-y-github-son-distintos",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#git-y-github-son-distintos",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Git y GitHub son distintos",
+    "text": "Git y GitHub son distintos"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-identifica-tus-commits",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-identifica-tus-commits",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Laboratorio: identifica tus commits",
+    "text": "Laboratorio: identifica tus commits\nUna sola vez por computador:\ngit config --global user.name \"Tu nombre\"\ngit config --global user.email \"tu.correo@example.com\"\ngit config --global init.defaultBranch main\nUsa el correo asociado a GitHub si quieres que los commits aparezcan en tu perfil."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#gitignore-para-este-proyecto",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#gitignore-para-este-proyecto",
+    "title": "Git y GitHub con HolaPascual",
+    "section": ".gitignore para este proyecto",
+    "text": ".gitignore para este proyecto\nCréalo en la raíz de HolaPascual antes de iniciar el repositorio:\n.vs/\nbin/\nobj/\n*.user\n*.suo\nbin y obj se reconstruyen. Program.cs, el .csproj y README.md sí describen el proyecto."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#lo-que-queda-fuera",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#lo-que-queda-fuera",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Lo que queda fuera",
+    "text": "Lo que queda fuera"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-inicia-holapascual",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-inicia-holapascual",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Laboratorio: inicia HolaPascual",
+    "text": "Laboratorio: inicia HolaPascual\nAbre la terminal en la raíz del proyecto:\ngit init\ngit status --short\n\n.git guarda la historia local.\n?? identifica archivos nuevos sin seguimiento.\nEjecuta init una sola vez en cada proyecto."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#dónde-vive-cada-cambio",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#dónde-vive-cada-cambio",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Dónde vive cada cambio",
+    "text": "Dónde vive cada cambio"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#convención-de-mensajes",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#convención-de-mensajes",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Convención de mensajes",
+    "text": "Convención de mensajes\nGit acepta cualquier mensaje. En el curso adoptamos Conventional Commits como convención de equipo:\ntipo: descripción breve\ntipo(alcance): descripción breve\n\nEl alcance es opcional: salida, entrada, readme o config.\nEscribe una descripción breve, en minúscula, con verbo y sin punto final.\nEl mensaje explica el propósito del cambio, no solo el archivo modificado."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#tipos-para-cambios-funcionales",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#tipos-para-cambios-funcionales",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Tipos para cambios funcionales",
+    "text": "Tipos para cambios funcionales\n\n\n\n\n\n\n\n\nTipo\nÚsalo cuando…\nEjemplo\n\n\n\n\nfeat\nagregas funcionalidad observable\nfeat(entrada): solicita el nombre\n\n\nfix\ncorriges un comportamiento incorrecto\nfix(salida): evita saludar con un nombre vacío\n\n\nrefactor\nreorganizas sin agregar funcionalidad ni corregir un fallo\nrefactor: extrae la construcción del saludo\n\n\ntest\nagregas o ajustas pruebas\ntest: verifica el saludo con nombre"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#tipos-para-apoyo-y-mantenimiento",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#tipos-para-apoyo-y-mantenimiento",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Tipos para apoyo y mantenimiento",
+    "text": "Tipos para apoyo y mantenimiento\n\n\n\n\n\n\n\n\nTipo\nÚsalo cuando…\nEjemplo\n\n\n\n\ndocs\nsolo cambias documentación\ndocs: explica cómo ejecutar HolaPascual\n\n\nstyle\ncambias formato sin alterar el comportamiento\nstyle: ordena la sangría de Program.cs\n\n\nchore\nhaces mantenimiento o configuración sin funcionalidad\nchore: configura el gitignore de .NET\n\n\n\nstyle cubre espacios, sangría y formato del código. chore cubre configuración, dependencias y otras tareas de mantenimiento."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#mensajes-que-sí-ayudan",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#mensajes-que-sí-ayudan",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Mensajes que sí ayudan",
+    "text": "Mensajes que sí ayudan\n\n\nBuenos\n\nfeat: crea el primer programa de consola\nfeat(salida): informa que Git registra el cambio\ndocs: explica cómo ejecutar HolaPascual\n\n\nMalos\n\ncambios: no dice qué ocurrió.\nfix cosas: no sigue la forma y es impreciso.\nfeat: actualiza Program.cs: nombra el archivo, no el propósito."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-primer-commit",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-primer-commit",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Laboratorio: primer commit",
+    "text": "Laboratorio: primer commit\ngit add .\ngit status --short\ngit commit -m \"feat: crea el primer programa de consola\"\n\nadd selecciona contenido.\ncommit registra esa selección.\nEl mensaje explica el cambio, no el nombre del archivo."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#qué-guarda-un-commit",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#qué-guarda-un-commit",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Qué guarda un commit",
+    "text": "Qué guarda un commit"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-mira-antes-de-guardar",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-mira-antes-de-guardar",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Laboratorio: mira antes de guardar",
+    "text": "Laboratorio: mira antes de guardar\nAgrega una instrucción al final de Program.cs:\nConsole.WriteLine(\"Este cambio queda registrado con Git.\");\ngit diff\ngit status --short\ndiff muestra el cambio que todavía no está en el próximo commit."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-segundo-commit",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-segundo-commit",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Laboratorio: segundo commit",
+    "text": "Laboratorio: segundo commit\ngit add Program.cs\ngit commit -m \"feat(salida): informa que Git registra el cambio\"\ngit log --oneline\nLos hashes serán distintos en cada computador. El orden y los mensajes deben coincidir."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#la-historia-es-una-cadena",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#la-historia-es-una-cadena",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "La historia es una cadena",
+    "text": "La historia es una cadena"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#github-crea-un-repositorio-vacío",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#github-crea-un-repositorio-vacío",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "GitHub: crea un repositorio vacío",
+    "text": "GitHub: crea un repositorio vacío\n\nSelecciona New repository.\nEscribe HolaPascual.\nElige la visibilidad.\nDeja sin marcar README, .gitignore y licencia.\nSelecciona Create repository.\n\n\nTu computador ya tiene la historia. No crees otra historia desde GitHub."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#el-remoto",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#el-remoto",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "El remoto",
+    "text": "El remoto"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-conecta-y-publica",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#laboratorio-conecta-y-publica",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Laboratorio: conecta y publica",
+    "text": "Laboratorio: conecta y publica\ngit remote add origin https://github.com/&lt;usuario&gt;/HolaPascual.git\ngit remote -v\ngit push -u origin main\n\norigin es el nombre corto de la dirección.\npush sube los commits.\n-u conecta main local con origin/main.\n\nGitHub puede abrir el navegador para autorizar el acceso."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#verifica-en-github",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#verifica-en-github",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "Verifica en GitHub",
+    "text": "Verifica en GitHub\nDebes encontrar:\n\nProgram.cs, HolaPascual.csproj, README.md y .gitignore.\nDos commits con mensajes claros.\nNinguna carpeta .vs, bin u obj.\n\n\nSi falta el último commit, ejecuta git push."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-01/presentacion-git-github.html#el-flujo-desde-ahora",
+    "href": "herramientas-programacion-1/semana-01/presentacion-git-github.html#el-flujo-desde-ahora",
+    "title": "Git y GitHub con HolaPascual",
+    "section": "El flujo desde ahora",
+    "text": "El flujo desde ahora\ngit status\ngit diff\ngit add &lt;archivo&gt;\ngit commit -m \"tipo: describe el cambio\"\ngit push\nCambios pequeños, mensajes claros y un historial que puedas explicar.\n\nHerramientas de Programación I. Institución Universitaria Pascual Bravo. Semestre 2026-02.\nRedacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado."
   }
 ]

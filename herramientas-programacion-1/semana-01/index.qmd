@@ -1,5 +1,5 @@
 ---
-title: "Semana 1. El IDE y tu primer programa en C#"
+title: "Semana 1. Entorno, Git y GitHub"
 author: "Oscar Leonel Sánchez Conde"
 date: last-modified
 date-format: "D [de] MMMM [de] YYYY"
@@ -16,16 +16,17 @@ date-format: "D [de] MMMM [de] YYYY"
 
 ## Lo que vas a lograr
 
-Al terminar esta guía tu computador queda con las herramientas del semestre instaladas, y tienes un
-programa en C# compilando y ejecutándose. En la Semana 2 empiezas a trabajar con variables y con la
-entrada de datos en serio.
+La semana tiene dos sesiones. En la primera dejas el entorno instalado y un programa de C#
+ejecutándose. En la segunda conviertes ese mismo proyecto en un repositorio de Git y publicas su
+historial en GitHub.
 
 Objetivos concretos:
 
 1. Explicar qué es un IDE y qué hace cada una de sus partes.
 2. Instalar y verificar el SDK de .NET, Visual Studio 2026 Community y Git.
 3. Crear, compilar y ejecutar un proyecto de consola desde la terminal y desde el IDE.
-4. Reconocer las partes de un programa mínimo de C#.
+4. Registrar cambios con `init`, `status`, `add`, `commit`, `log` y `diff`.
+5. Publicar el repositorio local en GitHub mediante un remoto y `push`.
 
 ::: {.callout-important}
 ## Si trabajas en macOS o Linux, resuélvelo estas primeras semanas
@@ -37,7 +38,9 @@ máquina virtual, arranque dual o la sala de cómputo de la institución.
 Ocúpate de esto ahora. Enterarte en la semana 11 te deja sin margen.
 :::
 
-## Qué es un IDE
+## Sesión 1. El IDE y tu primer programa
+
+### Qué es un IDE
 
 IDE significa *Integrated Development Environment*, entorno de desarrollo integrado. Es un solo
 programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que
@@ -66,7 +69,7 @@ Conviene separar tres cosas que se confunden:
 
 Puedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.
 
-### Versiones de referencia
+#### Versiones de referencia
 
 Esta guía se probó con estas versiones. Instala la misma línea o una superior.
 
@@ -77,16 +80,16 @@ Esta guía se probó con estas versiones. Instala la misma línea o una superior
 | Visual Studio 2026 Community | 18.3 |
 
 ::: {.callout-note}
-## Sobre la versión de Visual Studio
+### Sobre la versión de Visual Studio
 
 El número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina
 donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de
 Visual Studio 2026 Community sirve para el curso.
 :::
 
-## Instalación paso a paso
+### Instalación paso a paso
 
-### [1]{.paso} SDK de .NET
+#### [1]{.paso} SDK de .NET
 
 Es lo que compila y ejecuta tu código. Descarga la versión **10** desde
 [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download).
@@ -97,7 +100,7 @@ común del curso.
 
 Acepta las opciones por omisión del instalador.
 
-### [2]{.paso} Visual Studio 2026 Community
+#### [2]{.paso} Visual Studio 2026 Community
 
 Descarga desde
 [visualstudio.microsoft.com](https://visualstudio.microsoft.com/es/vs/community/). La edición
@@ -110,7 +113,7 @@ y para Windows Forms en la unidad 3.
 No marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.
 
 ::: {.callout-warning}
-## Reserva espacio y tiempo
+### Reserva espacio y tiempo
 
 La instalación pasa de **8 GB** de descarga. Con una conexión doméstica puede tomar una hora larga.
 Empieza la descarga antes del encuentro sincrónico, no durante.
@@ -118,15 +121,14 @@ Empieza la descarga antes del encuentro sincrónico, no durante.
 Deja **20 GB libres en disco** antes de arrancar.
 :::
 
-### [3]{.paso} Git
+#### [3]{.paso} Git
 
 Descarga desde [git-scm.com/downloads](https://git-scm.com/downloads) y acepta las opciones por
 omisión.
 
-Esta semana solo lo instalas. Lo vas a usar para entregar tu proyecto y para guardar el historial
-de tu trabajo.
+Lo usarás en la segunda sesión para guardar el historial del proyecto que vas a crear.
 
-### [4]{.paso} Solo si usas macOS o Linux: VS Code
+#### [4]{.paso} Solo si usas macOS o Linux: VS Code
 
 Visual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de
 2024 y nunca existió para Linux.
@@ -141,7 +143,7 @@ code --install-extension ms-dotnettools.csdevkit
 Con VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas
 Windows.
 
-## Verificación
+### Verificación
 
 Abre una terminal **nueva**. Las que ya estaban abiertas no ven los cambios que los instaladores
 hicieron en el `PATH`, y los comandos van a fallar aunque la instalación esté bien.
@@ -176,12 +178,12 @@ dotnet --list-sdks
 10.0.103 [C:\Program Files\dotnet\sdk]
 ```
 
-## Tu primer programa desde la terminal
+### Tu primer programa desde la terminal
 
 Vas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un
 camino que funciona aunque el IDE falle.
 
-### Paso 1: crea el proyecto
+#### Paso 1: crea el proyecto
 
 Ubícate en la carpeta donde guardas tus trabajos y ejecuta:
 
@@ -203,7 +205,7 @@ Restauración realizada correctamente.
 
 Se creó una carpeta `HolaPascual` con dos archivos que importan.
 
-### Paso 2: mira lo que se creó
+#### Paso 2: mira lo que se creó
 
 El primero es `HolaPascual.csproj`, el archivo de proyecto:
 
@@ -233,7 +235,7 @@ Console.WriteLine("Hello, World!");
 
 Dos líneas. Una de ellas es un comentario.
 
-### Paso 3: ejecútalo
+#### Paso 3: ejecútalo
 
 Entra a la carpeta y ejecuta:
 
@@ -248,7 +250,7 @@ Hello, World!
 
 Ya tienes un programa de C# funcionando.
 
-### Paso 4: escribe tu propio código
+#### Paso 4: escribe tu propio código
 
 Abre `Program.cs` y reemplaza su contenido por esto:
 
@@ -288,7 +290,7 @@ Cuatro cosas nuevas aparecieron ahí:
 - `$"Hola, {nombre}."` mete el valor de la variable dentro del texto. Se llama interpolación y la
   vas a usar todo el semestre.
 
-### Paso 5: compila sin ejecutar
+#### Paso 5: compila sin ejecutar
 
 `dotnet run` compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien
 escrito, usa:
@@ -312,7 +314,7 @@ Tiempo transcurrido 00:00:01.11
 Esas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no
 funcione.
 
-## El mismo programa desde Visual Studio
+### El mismo programa desde Visual Studio
 
 Ahora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.
 
@@ -326,7 +328,7 @@ Ahora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo ha
 Se abre una ventana de consola con la salida. Al lado tienes el **Explorador de soluciones**, que
 es el mismo `.csproj` y el mismo `Program.cs` de antes, presentados en forma de árbol.
 
-### Prueba el depurador
+#### Prueba el depurador
 
 Esta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el
 `Program.cs` de este proyecto y haz esto:
@@ -341,12 +343,12 @@ Esta es la razón principal para usar un IDE. Pega tu código de la sección ant
 Acabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto
 es lo que te dice por qué.
 
-## Errores frecuentes
+### Errores frecuentes
 
 ::: {.error-caso}
 [Error 1]{.etiqueta}
 
-### dotnet no se reconoce como comando
+#### dotnet no se reconoce como comando
 
 **Causa.** Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el `PATH` nuevo.
 
@@ -357,7 +359,7 @@ el instalador del SDK y revisa que terminara sin errores.
 ::: {.error-caso}
 [Error 2]{.etiqueta}
 
-### Instalé .NET pero dotnet build falla
+#### Instalé .NET pero dotnet build falla
 
 **Causa.** Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no
 sabe compilar.
@@ -370,7 +372,7 @@ sabe compilar.
 ::: {.error-caso}
 [Error 3]{.etiqueta}
 
-### La ventana de la consola se cierra de inmediato
+#### La ventana de la consola se cierra de inmediato
 
 **Causa.** Ejecutaste con `Ctrl+F5` en Visual Studio, o hiciste doble clic sobre el `.exe`. El
 programa termina y la ventana se va con él.
@@ -382,7 +384,7 @@ programa termina y la ventana se va con él.
 ::: {.error-caso}
 [Error 4]{.etiqueta}
 
-### El proyecto no compila y no encuentro qué cambié
+#### El proyecto no compila y no encuentro qué cambié
 
 **Causa.** Casi siempre falta un punto y coma, o hay una llave sin cerrar.
 
@@ -394,7 +396,7 @@ lista**: un error temprano genera otros en cascada, y al arreglarlo suelen desap
 ::: {.error-caso}
 [Error 5]{.etiqueta}
 
-### Los acentos y las eñes salen como símbolos raros en la consola
+#### Los acentos y las eñes salen como símbolos raros en la consola
 
 **Causa.** La consola de Windows usa una codificación distinta a la del archivo de código.
 
@@ -402,42 +404,337 @@ lista**: un error temprano genera otros en cascada, y al arreglarlo suelen desap
 Semana 2 lo resolvemos con `Console.OutputEncoding`.
 :::
 
-## Lista de chequeo de la semana
+## Cierre de la sesión 1
 
-::: {.checklist}
-**Antes de cerrar la semana, confirma que tienes todo esto**
+Antes de pasar a Git, confirma lo siguiente:
 
-- [ ] `dotnet --version` responde con la versión del SDK
-- [ ] `dotnet --list-sdks` imprime al menos una línea
-- [ ] `git --version` responde
-- [ ] Visual Studio 2026 instalado con la carga de trabajo de escritorio de .NET, si usas Windows
-- [ ] Creaste `HolaPascual` desde la terminal y `dotnet run` lo ejecutó
-- [ ] Modificaste `Program.cs` y el programa te saluda con tu nombre
-- [ ] Creaste el mismo proyecto desde Visual Studio y lo ejecutaste con `F5`
-- [ ] Pusiste un punto de interrupción y viste el valor de una variable
-- [ ] Si usas macOS o Linux, ya sabes cómo vas a tener Windows para la unidad 3
+- [ ] `dotnet --version` responde con la versión del SDK.
+- [ ] `git --version` responde.
+- [ ] `HolaPascual` ejecuta con `dotnet run`.
+- [ ] Modificaste `Program.cs` y el programa te saluda con tu nombre.
+- [ ] Abriste el proyecto en Visual Studio y probaste un punto de interrupción.
+- [ ] Si usas macOS o Linux, sabes cómo vas a acceder a Windows para la unidad 3.
+
+## Sesión 2. Git y GitHub con HolaPascual
+
+En esta sesión no creas otro ejercicio. Tomas `HolaPascual`, el proyecto que ya funciona, y le
+agregas un historial verificable. Al final tendrás el mismo proyecto en tu computador y en GitHub.
+
+[Abrir la presentación de Git y GitHub](presentacion-git-github.html){.btn .btn-primary
+role="button"}
+
+### Git y GitHub cumplen trabajos distintos
+
+**Git** es el programa que registra cambios en tu computador. Funciona sin internet. **GitHub** es
+un servicio web que recibe una copia del repositorio para consultarla, compartirla y recuperarla
+desde otro equipo.
+
+Un repositorio de Git guarda versiones del proyecto llamadas *commits*. Cada commit registra el
+autor, la fecha, un mensaje y el estado de los archivos en ese momento.
+
+![Git trabaja en el computador y GitHub aloja una copia en internet.](imagenes/git-y-github.svg){fig-alt="Git es un programa local y GitHub es un servicio en internet"}
+
+### Configura tu identidad
+
+Git necesita saber quién firma los commits. Ejecuta estos comandos una sola vez en tu computador.
+Reemplaza los datos de ejemplo por los tuyos. Usa el correo asociado a tu cuenta de GitHub si
+quieres que la plataforma relacione los commits con tu perfil.
+
+```bash
+git config --global user.name "Ana Maria Perez"
+git config --global user.email "ana.perez@example.com"
+git config --global init.defaultBranch main
+```
+
+Comprueba la configuración:
+
+```bash
+git config --global user.name
+git config --global user.email
+git config --global init.defaultBranch
+```
+
+```text
+Ana Maria Perez
+ana.perez@example.com
+main
+```
+
+Tu nombre y tu correo producirán una salida distinta.
+
+### Prepara el `.gitignore` de .NET
+
+`dotnet run`, `dotnet build` y Visual Studio generan carpetas que puedes reconstruir. Versionarlas
+solo agrega archivos temporales y diferencias innecesarias. Crea un archivo llamado `.gitignore`
+en la raíz de `HolaPascual` con este contenido:
+
+```gitignore
+.vs/
+bin/
+obj/
+*.user
+*.suo
+```
+
+El punto inicial forma parte del nombre. En Windows, créalo desde Visual Studio o desde la terminal
+si el Explorador no acepta el nombre.
+
+![El archivo gitignore deja pasar el código y detiene los archivos generados.](imagenes/gitignore-filtro.svg){fig-alt="El gitignore deja pasar Program.cs, el archivo de proyecto y README, y excluye .vs, bin y obj"}
+
+### Inicia el repositorio y revisa su estado
+
+Abre la terminal en la carpeta `HolaPascual`. No ejecutes `git init` en la carpeta que contiene
+todas tus clases.
+
+```bash
+git init
+git status --short
+```
+
+La primera orden crea la carpeta oculta `.git`. La segunda muestra los archivos que Git todavía no
+sigue:
+
+```text
+?? .gitignore
+?? HolaPascual.csproj
+?? Program.cs
+```
+
+`??` significa "archivo nuevo sin seguimiento". Las carpetas `bin` y `obj` no aparecen porque el
+`.gitignore` ya las filtró.
+
+### Agrega un README
+
+Crea `README.md` en la raíz del proyecto:
+
+```markdown
+# HolaPascual
+
+Primer programa de consola de Herramientas de Programación I.
+```
+
+Este archivo explica el propósito del repositorio cuando alguien lo abre en GitHub.
+
+### Prepara y registra el primer commit
+
+Git trabaja con tres zonas: los archivos que editas, el área de preparación y el historial. `add`
+selecciona lo que entrará al próximo commit. `commit` registra esa selección.
+
+![Las áreas de Git y los comandos que mueven los cambios.](imagenes/git-cuatro-areas.svg){fig-alt="Directorio de trabajo, área de preparación, repositorio local y repositorio remoto"}
+
+### Escribe mensajes de commit con una convención
+
+Git acepta cualquier texto como mensaje. En este curso adoptamos **Conventional Commits** como
+convención de equipo para que el historial sea fácil de leer. La forma básica es:
+
+```text
+tipo: descripción breve
+```
+
+Cuando el proyecto crezca, puedes añadir un alcance entre paréntesis para indicar qué parte
+cambió:
+
+```text
+tipo(alcance): descripción breve
+```
+
+Escribe la descripción en minúscula, con un verbo que diga qué hace el cambio y sin punto final.
+El alcance es opcional. Por ejemplo, `salida`, `entrada`, `readme` o `config`.
+
+| Tipo | Cuándo usarlo | Ejemplo en HolaPascual |
+|---|---|---|
+| `feat` | Agregas una funcionalidad que la persona usuaria puede observar | `feat(entrada): solicita el nombre` |
+| `fix` | Corriges un comportamiento incorrecto | `fix(salida): evita saludar con un nombre vacío` |
+| `docs` | Cambias documentación, como `README.md`, sin cambiar el programa | `docs: explica cómo ejecutar HolaPascual` |
+| `style` | Cambias formato, espacios o sangría sin alterar el comportamiento | `style: ordena la sangría de Program.cs` |
+| `refactor` | Reorganizas el código sin agregar funcionalidad ni corregir un fallo | `refactor: extrae la construcción del saludo` |
+| `test` | Agregas o ajustas pruebas automatizadas | `test: verifica el saludo con nombre` |
+| `chore` | Haces mantenimiento o configuración sin agregar funcionalidad | `chore: configura el gitignore de .NET` |
+
+`style` no significa cambiar el diseño de la salida del programa: solo cubre formato del código
+sin cambio de comportamiento. `chore` cubre tareas de mantenimiento, configuración o
+dependencias que tampoco agregan funcionalidad.
+
+Compara estos mensajes:
+
+| Mensaje | Veredicto | Razón |
+|---|---|---|
+| `feat: crea el primer programa de consola` | Bueno | Declara el tipo y el resultado del cambio |
+| `feat(salida): informa que Git registra el cambio` | Bueno | Añade un alcance útil y explica el comportamiento |
+| `cambios` | Malo | No declara tipo ni explica qué cambió |
+| `fix cosas` | Malo | No usa la forma de la convención y sigue siendo impreciso |
+| `feat: actualiza Program.cs` | Malo | Nombra el archivo, pero no explica el propósito del cambio |
+
+Ejecuta:
+
+```bash
+git add .
+git status --short
+```
+
+```text
+A  .gitignore
+A  HolaPascual.csproj
+A  Program.cs
+A  README.md
+```
+
+La `A` indica que cada archivo está preparado. Registra el commit:
+
+```bash
+git commit -m "feat: crea el primer programa de consola"
+```
+
+El texto que imprime Git incluye un hash y un conteo de líneas que varían según tu proyecto. La
+comprobación estable es esta:
+
+```bash
+git status --short
+git log --oneline
+```
+
+`status` no imprime nada cuando no quedan cambios. `log` muestra una línea similar a esta:
+
+```text
+<hash> feat: crea el primer programa de consola
+```
+
+`<hash>` representa los primeros caracteres del identificador real de tu commit.
+
+![Cada commit guarda autor, fecha, mensaje, contenido y vínculo con el commit anterior.](imagenes/anatomia-commit.svg){fig-alt="Elementos que guarda un commit de Git"}
+
+### Observa un cambio antes de registrarlo
+
+Agrega esta instrucción al final de `Program.cs`:
+
+```csharp
+Console.WriteLine("Este cambio queda registrado con Git.");
+```
+
+Mira la diferencia:
+
+```bash
+git diff
+```
+
+La salida muestra las líneas anteriores con `-` y las nuevas con `+`. Los encabezados y números de
+línea dependen del contenido actual de tu archivo. Confirma el cambio con:
+
+```bash
+git status --short
+```
+
+```text
+ M Program.cs
+```
+
+El espacio antes de `M` indica que modificaste el archivo en el directorio de trabajo, pero todavía
+no lo preparaste. Regístralo:
+
+```bash
+git add Program.cs
+git commit -m "feat(salida): informa que Git registra el cambio"
+git log --oneline
+```
+
+El historial queda en este orden:
+
+```text
+<hash nuevo> feat(salida): informa que Git registra el cambio
+<hash inicial> feat: crea el primer programa de consola
+```
+
+Los hashes serán distintos en cada computador. Los mensajes y el orden deben coincidir.
+
+![Los commits forman una historia ordenada y main señala el estado actual.](imagenes/git-cadena-commits.svg){fig-alt="Los dos commits del laboratorio, con main y HEAD sobre el más reciente"}
+
+### Crea el repositorio vacío en GitHub
+
+1. Inicia sesión en [github.com](https://github.com/).
+2. Selecciona **New repository**.
+3. Escribe `HolaPascual` como nombre.
+4. Elige visibilidad pública o privada según prefieras.
+5. Deja sin marcar **Add a README file**, **Add .gitignore** y **Choose a license**.
+6. Selecciona **Create repository**.
+
+El repositorio debe quedar vacío porque tu computador ya tiene los primeros commits. Si GitHub
+crea otro commit con un README, aparecen dos historias que todavía no necesitas reconciliar.
+
+### Conecta y publica
+
+Copia la URL HTTPS que GitHub muestra para el repositorio. Sustituye `<usuario>` por tu nombre de
+usuario real:
+
+```bash
+git remote add origin https://github.com/<usuario>/HolaPascual.git
+git remote -v
+git push -u origin main
+```
+
+`remote add` guarda la dirección con el nombre `origin`. `push` envía los commits y `-u` deja
+conectada la rama local `main` con la remota. GitHub puede abrir el navegador para que autorices el
+acceso. Esa pantalla y la salida de la terminal cambian según el sistema y el método de
+autenticación.
+
+![GitHub aloja una copia del historial que Git mantiene en el computador.](imagenes/remoto-copias.svg){fig-alt="Repositorio remoto en GitHub y copia local del historial"}
+
+Recarga la página del repositorio y comprueba que aparecen `Program.cs`, `HolaPascual.csproj`,
+`README.md`, `.gitignore` y los dos commits. No deben aparecer `.vs`, `bin` ni `obj`.
+
+### El flujo que repetirás
+
+Después del primer `push`, el ciclo cotidiano es corto:
+
+```bash
+git status
+git diff
+git add <archivo>
+git commit -m "tipo: describe el cambio"
+git push
+```
+
+Usa mensajes que expliquen el cambio. `feat: agrega el saludo por nombre` informa más que
+`cambios` o `actualiza Program.cs`.
+
+::: {.callout-note}
+## Ampliación: ramas y Pull Requests
+
+Una rama permite trabajar aparte de `main`. Un Pull Request propone incorporar esa rama desde
+GitHub y facilita revisar el cambio. Los usarás cuando el proyecto necesite colaboración. En esta
+sesión basta con reconocer los conceptos; conflictos, etiquetas y reversión quedan para otro
+momento.
 :::
 
-## Para el trabajo independiente
+## Lista de chequeo de la semana
 
-Estas horas son para que el entorno quede sólido, no para adelantar temas.
+- [ ] El SDK de .NET, Visual Studio y Git funcionan.
+- [ ] `HolaPascual` compila y ejecuta.
+- [ ] Git tiene configurados tu nombre, correo y rama inicial `main`.
+- [ ] `.gitignore` excluye `.vs`, `bin` y `obj`.
+- [ ] El historial local tiene al menos dos commits con mensajes claros.
+- [ ] `git status --short` queda vacío después del último commit.
+- [ ] GitHub muestra los archivos y commits del proyecto.
 
-1. Repite el proyecto desde cero sin mirar la guía. Bórralo y hazlo otra vez.
-2. Modifica el programa para que pregunte también el semestre y lo incluya en el saludo.
-3. Provoca un error a propósito: quita un punto y coma, compila y lee el mensaje completo. Fíjate
-   en el archivo y la línea que reporta.
-4. Recorre tu programa entero con `F10`, línea por línea, hasta el final.
+## Trabajo independiente
 
-No hay entrega calificada esta semana. En la Semana 2 damos por hecho que tu entorno funciona.
+Completa estas actividades después de cada sesión:
+
+1. **Después de la sesión 1:** termina la instalación, repite el proyecto sin mirar la guía,
+   provoca un error de compilación y recorre el programa con el depurador.
+2. **Después de la sesión 2:** repite el flujo de Git en un proyecto de prueba, amplía el
+   `README.md`, registra el cambio y publícalo con `git push`.
+
+Conserva `HolaPascual`: lo usarás como referencia cuando empieces con variables y entrada de datos
+en la Semana 2.
 
 ## Recursos
 
-- Descarga del SDK de .NET: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
-- Descarga de Visual Studio Community: [visualstudio.microsoft.com](https://visualstudio.microsoft.com/es/vs/community/)
-- Descarga de Git: [git-scm.com/downloads](https://git-scm.com/downloads)
+- SDK de .NET: [dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+- Visual Studio Community: [visualstudio.microsoft.com](https://visualstudio.microsoft.com/es/vs/community/)
+- Git: [git-scm.com/downloads](https://git-scm.com/downloads)
+- GitHub: [docs.github.com](https://docs.github.com/es)
+- Referencia de Git: [git-scm.com/docs](https://git-scm.com/docs)
 - Documentación de C#: [learn.microsoft.com/dotnet/csharp](https://learn.microsoft.com/es-es/dotnet/csharp/)
-- Comando `dotnet new`: [learn.microsoft.com/dotnet/core/tools/dotnet-new](https://learn.microsoft.com/es-es/dotnet/core/tools/dotnet-new)
-- Depuración en Visual Studio: [learn.microsoft.com/visualstudio/debugger](https://learn.microsoft.com/es-es/visualstudio/debugger/debugger-feature-tour)
 
 ::: {.pie-doc}
 Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo.

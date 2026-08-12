@@ -30,7 +30,7 @@ website:
           href: herramientas-programacion-1/index.qmd
         - section: "Unidad 1. Aplicaciones de consola con un IDE"
           contents:
-            - text: "Semana 1. El IDE y el primer programa"
+            - text: "Semana 1. Entorno, Git y GitHub"
               href: herramientas-programacion-1/semana-01/index.qmd
     - id: estadistica
       style: docked
