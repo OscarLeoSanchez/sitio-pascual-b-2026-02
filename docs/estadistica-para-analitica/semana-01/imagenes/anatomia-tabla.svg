@@ -1,74 +1,74 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 290" width="880" height="290" role="img" aria-labelledby="t">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" width="1000" height="300" role="img" aria-labelledby="t">
 <title id="t">Anatomía de una tabla de datos</title>
 <defs>
-<marker id="punta-azul" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
-<path d="M0,0 L9,3.5 L0,7 Z" fill="#2f7bb8"/>
-</marker>
-<marker id="punta-teal" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
-<path d="M0,0 L9,3.5 L0,7 Z" fill="#0e8f8f"/>
-</marker>
+  <marker id="punta-azul" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L9,3.5 L0,7 Z" fill="#2f7bb8"/>
+  </marker>
+  <marker id="punta-teal" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+    <path d="M0,0 L9,3.5 L0,7 Z" fill="#0e8f8f"/>
+  </marker>
 </defs>
 <style>
 text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
 .cabecera { fill: #0f2540; }
-.cabecera-texto { font-size: 13px; font-weight: 600; fill: #ffffff; }
+.cabecera-texto { font-size: 15px; font-weight: 600; fill: #ffffff; }
 .fila-par { fill: #f6f8fa; }
 .fila-impar { fill: #ffffff; }
-.celda { font-size: 14px; fill: #16202b; }
+.celda { font-size: 16px; fill: #16202b; }
 .reja { stroke: #cfd8e3; stroke-width: 1; }
 .marco { fill: none; stroke: #cfd8e3; stroke-width: 1.5; }
 .pinta-variable { fill: #2f7bb8; fill-opacity: 0.12; }
 .pinta-registro { fill: #0e8f8f; fill-opacity: 0.12; }
 .borde-variable { fill: none; stroke: #2f7bb8; stroke-width: 2; }
 .borde-registro { fill: none; stroke: #0e8f8f; stroke-width: 2; }
-.rotulo-variable { font-size: 14px; font-weight: 700; fill: #2f7bb8; text-anchor: middle; }
-.rotulo-registro { font-size: 14px; font-weight: 700; fill: #0e8f8f; text-anchor: end; }
-.pie { font-size: 13px; fill: #5b6876; text-anchor: middle; }
-.flecha-azul { stroke: #2f7bb8; stroke-width: 2; fill: none; }
-.flecha-teal { stroke: #0e8f8f; stroke-width: 2; fill: none; }
+.rotulo-variable { font-size: 16px; font-weight: 700; fill: #2f7bb8; text-anchor: middle; }
+.rotulo-registro { font-size: 16px; font-weight: 700; fill: #0e8f8f; text-anchor: end; }
+.pie { font-size: 14px; fill: #5b6876; text-anchor: middle; }
+.flecha-azul { stroke: #2f7bb8; stroke-width: 2; fill: none; marker-end: url(#punta-azul); }
+.flecha-teal { stroke: #0e8f8f; stroke-width: 2; fill: none; marker-end: url(#punta-teal); }
 </style>
 
-<rect class="fila-impar" x="250" y="106" width="540" height="36"/>
-<rect class="fila-par" x="250" y="142" width="540" height="36"/>
-<rect class="fila-impar" x="250" y="178" width="540" height="36"/>
-<rect class="fila-par" x="250" y="214" width="540" height="36"/>
+<rect class="fila-impar" x="130" y="100" width="800" height="40"/>
+<rect class="fila-par" x="130" y="140" width="800" height="40"/>
+<rect class="fila-impar" x="130" y="180" width="800" height="40"/>
+<rect class="fila-par" x="130" y="220" width="800" height="40"/>
 
-<rect class="pinta-variable" x="550" y="106" width="120" height="144"/>
-<rect class="pinta-registro" x="250" y="142" width="540" height="36"/>
+<rect class="pinta-variable" x="545" y="100" width="180" height="160"/>
+<rect class="pinta-registro" x="130" y="140" width="800" height="40"/>
 
-<rect class="cabecera" x="250" y="70" width="540" height="36"/>
-<text class="cabecera-texto" x="262" y="93">orden</text>
-<text class="cabecera-texto" x="342" y="93">maquina</text>
-<text class="cabecera-texto" x="452" y="93">turno</text>
-<text class="cabecera-texto" x="562" y="93">criticidad</text>
-<text class="cabecera-texto" x="682" y="93">duracion_min</text>
+<rect class="cabecera" x="130" y="60" width="800" height="40"/>
+<text class="cabecera-texto" x="144" y="85">orden</text>
+<text class="cabecera-texto" x="249" y="85">maquina</text>
+<text class="cabecera-texto" x="419" y="85">turno</text>
+<text class="cabecera-texto" x="559" y="85">criticidad</text>
+<text class="cabecera-texto" x="739" y="85">duracion_min</text>
 
 <g class="reja">
-<line x1="330" y1="106" x2="330" y2="250"/>
-<line x1="440" y1="106" x2="440" y2="250"/>
-<line x1="550" y1="106" x2="550" y2="250"/>
-<line x1="670" y1="106" x2="670" y2="250"/>
-<line x1="250" y1="142" x2="790" y2="142"/>
-<line x1="250" y1="178" x2="790" y2="178"/>
-<line x1="250" y1="214" x2="790" y2="214"/>
+  <line x1="235" y1="100" x2="235" y2="260"/>
+  <line x1="405" y1="100" x2="405" y2="260"/>
+  <line x1="545" y1="100" x2="545" y2="260"/>
+  <line x1="725" y1="100" x2="725" y2="260"/>
+  <line x1="130" y1="140" x2="930" y2="140"/>
+  <line x1="130" y1="180" x2="930" y2="180"/>
+  <line x1="130" y1="220" x2="930" y2="220"/>
 </g>
 
 <g class="celda">
-<text x="262" y="129">101</text><text x="342" y="129">TOR-01</text><text x="452" y="129">manana</text><text x="562" y="129">baja</text><text x="682" y="129">45.50</text>
-<text x="262" y="165">102</text><text x="342" y="165">TOR-02</text><text x="452" y="165">tarde</text><text x="562" y="165">alta</text><text x="682" y="165">182.00</text>
-<text x="262" y="201">103</text><text x="342" y="201">FRE-01</text><text x="452" y="201">noche</text><text x="562" y="201">media</text><text x="682" y="201">60.25</text>
-<text x="262" y="237">104</text><text x="342" y="237">TOR-01</text><text x="452" y="237">manana</text><text x="562" y="237">baja</text><text x="682" y="237">30.00</text>
+  <text x="144" y="126">101</text><text x="249" y="126">TOR-01</text><text x="419" y="126">manana</text><text x="559" y="126">baja</text><text x="739" y="126">45.50</text>
+  <text x="144" y="166">102</text><text x="249" y="166">TOR-02</text><text x="419" y="166">tarde</text><text x="559" y="166">alta</text><text x="739" y="166">182.00</text>
+  <text x="144" y="206">103</text><text x="249" y="206">FRE-01</text><text x="419" y="206">noche</text><text x="559" y="206">media</text><text x="739" y="206">60.25</text>
+  <text x="144" y="246">104</text><text x="249" y="246">TOR-01</text><text x="419" y="246">manana</text><text x="559" y="246">baja</text><text x="739" y="246">30.00</text>
 </g>
 
-<rect class="marco" x="250" y="70" width="540" height="180"/>
-<rect class="borde-variable" x="550" y="70" width="120" height="180"/>
-<rect class="borde-registro" x="250" y="142" width="540" height="36"/>
+<rect class="marco" x="130" y="60" width="800" height="200"/>
+<rect class="borde-variable" x="545" y="60" width="180" height="200"/>
+<rect class="borde-registro" x="130" y="140" width="800" height="40"/>
 
-<text class="rotulo-variable" x="610" y="42">Variable</text>
-<path class="flecha-azul" d="M610,50 L610,62" marker-end="url(#punta-azul)"/>
+<text class="rotulo-variable" x="635" y="25">Variable</text>
+<path class="flecha-azul" d="M635,33 L635,52"/>
 
-<text class="rotulo-registro" x="180" y="165">Registro</text>
-<path class="flecha-teal" d="M192,160 L242,160" marker-end="url(#punta-teal)"/>
+<text class="rotulo-registro" x="103" y="166">Registro</text>
+<path class="flecha-teal" d="M108,160 L122,160"/>
 
-<text class="pie" x="520" y="276">Cada fila describe una unidad de observación: aquí, una orden de mantenimiento</text>
+<text class="pie" x="530" y="290">Cada fila describe una unidad de observación: aquí, una orden de mantenimiento</text>
 </svg>

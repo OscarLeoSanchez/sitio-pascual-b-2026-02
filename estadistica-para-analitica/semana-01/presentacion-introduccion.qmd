@@ -31,9 +31,8 @@ format:
 **Primera parte**
 
 1. La estadística como proceso
-2. Un caso de ejemplo
-3. El mapa de las 16 semanas
-4. Qué produce cada unidad
+2. El mapa de las 16 semanas
+3. Qué produce cada unidad
 :::
 
 ::: {.column width="50%"}
@@ -69,22 +68,6 @@ apariencia de rigor.
 . . .
 
 [Y esa decisión hay que defenderla después ante quien la firma.]{.grande}
-
-## Un caso de ejemplo: el taller de mantenimiento
-
-Un taller registra cada intervención sobre sus tornos y fresadoras: qué máquina, en qué turno, de
-qué tipo y cuántos minutos tomó. La pregunta del área es cuánto tiempo reservar para una
-intervención y de qué depende.
-
-Tres decisiones tomadas antes de medir deciden si el análisis sirve:
-
-- Qué cuenta como el comienzo y el final de una intervención.
-- Cada cuánto se registra y con qué instrumento se mide el tiempo.
-- Quién responde por el registro cuando cambia el turno.
-
-. . .
-
-[Cambia una de esas decisiones y cambia la conclusión.]{.pregunta}
 
 ## El mapa del módulo {.solo-diagrama}
 
@@ -212,7 +195,7 @@ Regresión y ANOVA con la salida que se reporta
 
 ## Cómo vamos a trabajar {.con-definiciones}
 
-![](imagenes/entorno-virtual.svg){fig-alt="El Python del sistema y, aparte, el entorno .venv con una copia aislada de Python y las librerías con su versión fijada"}
+<img src="imagenes/entorno-virtual.svg" alt="El Python del sistema y, aparte, el entorno .venv con una copia aislada de Python y las librerías con su versión fijada">
 
 ::: {.definiciones}
 Cada quien trabaja en un entorno aislado con **las mismas versiones**. Así el mismo script produce
@@ -338,7 +321,7 @@ Name: tiempo_ms, dtype: float64
 
 ## Entonces, ¿cuál es el valor verdadero? {.solo-diagrama}
 
-![](imagenes/muestra-parametro.svg){fig-alt="Del proceso completo sale por muestreo un conjunto de 200 mediciones, de ahí una estimación, y la inferencia devuelve una conclusión sobre el proceso"}
+<img src="imagenes/muestra-parametro.svg" alt="Del proceso completo sale por muestreo un conjunto de 200 mediciones, de ahí una estimación, y la inferencia devuelve una conclusión sobre el proceso">
 
 ## La consecuencia práctica
 
@@ -361,7 +344,7 @@ Pandas lee y escribe los tres. Para `.xlsx` necesita `openpyxl`.
 
 ## Anatomía de una tabla de datos {.con-definiciones}
 
-![](imagenes/anatomia-tabla.svg){fig-alt="Una tabla de órdenes de mantenimiento con la columna criticidad resaltada como variable y una fila resaltada como registro"}
+<img src="imagenes/anatomia-tabla.svg" alt="Una tabla de órdenes de mantenimiento con la columna criticidad resaltada como variable y una fila resaltada como registro">
 
 ::: {.definiciones}
 **Variable.** Una columna. Algo que se midió u observó de cada unidad.
@@ -373,7 +356,11 @@ Pandas lee y escribe los tres. Para `.xlsx` necesita `openpyxl`.
 
 ## Lo que viene
 
-La semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que
-trabajan las tres unidades.
-
-[Toda la guía de la semana está publicada en el sitio del módulo.]{.grande}
+- **Semana 2.** Clasificarás variables numéricas discretas y continuas, y variables categóricas
+  nominales y ordinales.
+- **Semana 3.** Construirás tablas de frecuencia e histogramas, y calcularás medidas de
+  localización y dispersión.
+- **Semana 4.** Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos
+  de barras y tablas de contingencia.
+- **Semana 5.** Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un
+  informe exploratorio para cerrar la Unidad 1.

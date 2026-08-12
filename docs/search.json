@@ -113,7 +113,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#ruta-de-la-sesión",
     "title": "Estadística para Analítica",
     "section": "Ruta de la sesión",
-    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nLa estadística como proceso\nUn caso de ejemplo\nEl mapa de las 16 semanas\nQué produce cada unidad\n\n\nSegunda parte\n\nEl entorno de trabajo\nInstalación y verificación\nDemostración: la variabilidad\nMuestra, parámetro y estimación"
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nLa estadística como proceso\nEl mapa de las 16 semanas\nQué produce cada unidad\n\n\nSegunda parte\n\nEl entorno de trabajo\nInstalación y verificación\nDemostración: la variabilidad\nMuestra, parámetro y estimación"
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#cuatro-pasos-no-uno",
@@ -135,13 +135,6 @@
     "title": "Estadística para Analítica",
     "section": "Dónde se pierde el rigor",
     "text": "Dónde se pierde el rigor\nUn análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor.\n\nY esa decisión hay que defenderla después ante quien la firma."
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#un-caso-de-ejemplo-el-taller-de-mantenimiento",
-    "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#un-caso-de-ejemplo-el-taller-de-mantenimiento",
-    "title": "Estadística para Analítica",
-    "section": "Un caso de ejemplo: el taller de mantenimiento",
-    "text": "Un caso de ejemplo: el taller de mantenimiento\nUn taller registra cada intervención sobre sus tornos y fresadoras: qué máquina, en qué turno, de qué tipo y cuántos minutos tomó. La pregunta del área es cuánto tiempo reservar para una intervención y de qué depende.\nTres decisiones tomadas antes de medir deciden si el análisis sirve:\n\nQué cuenta como el comienzo y el final de una intervención.\nCada cuánto se registra y con qué instrumento se mide el tiempo.\nQuién responde por el registro cuando cambia el turno.\n\n\nCambia una de esas decisiones y cambia la conclusión."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#el-mapa-del-módulo",
@@ -281,7 +274,7 @@
     "href": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#lo-que-viene",
     "title": "Estadística para Analítica",
     "section": "Lo que viene",
-    "text": "Lo que viene\nLa semana 2 clasifica las variables por su naturaleza y ahí queda acordado el caso sobre el que trabajan las tres unidades.\nToda la guía de la semana está publicada en el sitio del módulo."
+    "text": "Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1."
   },
   {
     "objectID": "estadistica-para-analitica/index.html",
