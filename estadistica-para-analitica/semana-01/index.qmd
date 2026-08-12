@@ -34,7 +34,8 @@ Al cerrar la guía deberías poder:
 
 Resolver un problema con datos toma cuatro pasos:
 
-- **Formular la pregunta.** Qué decisión depende de la respuesta y con qué precisión hay que darla.
+- **Formular la pregunta.** Qué se quiere saber, sobre qué proceso, y en qué términos medibles se
+  deja plantear.
 - **Recoger los datos.** Qué se mide, cada cuánto, con qué instrumento y quién responde por el
   registro.
 - **Analizar.** Con el método que admite la naturaleza de esas variables.
