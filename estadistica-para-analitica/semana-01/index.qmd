@@ -73,6 +73,32 @@ mismo caso.
 | 3 | Qué puedo afirmar sobre lo que no medí | Conclusiones sobre la población, con su margen de error declarado | 40% |
 :::
 
+### Qué hará cada unidad
+
+**Unidad 1. Describir lo que hay.** Construirás tablas de frecuencia, histogramas, medidas de
+localización y dispersión, boxplots y gráficos de dispersión. El cierre será un informe
+exploratorio que muestre qué dicen los datos observados.
+
+::: {.diagrama}
+![](imagenes/caso-unidad-1.svg){fig-alt="Diagrama de cajas de la duración de intervenciones preventivas, predictivas y correctivas, con sus observaciones superpuestas y medianas diferenciadas."}
+:::
+
+**Unidad 2. Modelar la incertidumbre.** Ajustarás distribuciones de probabilidad y las usarás para
+calcular la posibilidad de eventos que todavía no ocurrieron. El cierre será un modelo que
+responda preguntas sobre el fenómeno.
+
+::: {.diagrama}
+![](imagenes/caso-unidad-2.svg){fig-alt="Histograma de la duración de las intervenciones correctivas con una distribución ajustada y el área correspondiente a duraciones superiores a 240 minutos."}
+:::
+
+**Unidad 3. Inferir sobre el proceso.** Construirás intervalos de confianza, pruebas de hipótesis,
+comparaciones y modelos de regresión. El cierre presentará conclusiones sobre el proceso y
+declarará el margen de error.
+
+::: {.diagrama}
+![](imagenes/caso-unidad-3.svg){fig-alt="Relación entre horas de operación y duración de las intervenciones, con rectas de regresión y bandas de confianza para intervenciones preventivas y correctivas."}
+:::
+
 Las tres unidades trabajan sobre un mismo caso. Lo primero es **definir el proceso**: qué se observa,
 qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al
 final, la inferencia. El alcance del caso se acuerda en la Semana 02.
@@ -80,8 +106,12 @@ final, la inferencia. El alcance del caso se acuerda en la Semana 02.
 ::: {.callout-tip}
 ## El método del módulo
 
-Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento muchas
-veces y contrastamos el resultado con lo que predice la teoría.
+Cada tema pasa por tres momentos:
+
+1. **Concepto.** Precisamos qué afirma el resultado y bajo qué supuestos se sostiene.
+2. **Implementación.** Escribimos el procedimiento en Python y lo ejecutamos sobre datos.
+3. **Simulación.** Repetimos el procedimiento muchas veces y contrastamos su comportamiento con lo
+   que predice la teoría.
 
 Ese contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto
 falla en la práctica un intervalo de confianza.
@@ -125,7 +155,8 @@ resultado en tu máquina, en la mía y en la de quien revise tu informe dentro d
 
 ### Versiones de referencia
 
-Esta guía se probó con estas versiones. Instala la misma línea o una superior.
+Esta guía se probó con estas versiones. Recrea el entorno con las versiones exactas de la tabla; el
+`requirements.txt` del paso 3 las fija con `==`.
 
 | Herramienta | Versión probada |
 |---|---|
@@ -235,8 +266,8 @@ python -c "import pandas, numpy, scipy; print(pandas.__version__, numpy.__versio
 
 ## Demostración: por qué se mide más de una vez
 
-Esta es la única pieza de código de la semana y no hay que entregar nada con ella. La corremos en la
-sesión y la repites en tu equipo para comprobar que el entorno funciona.
+Esta es la demostración principal de la semana y no hay que entregar nada con ella. La corremos en
+la sesión y la repites en tu equipo para comprobar que el entorno funciona.
 
 Vamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La
 operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.
@@ -309,11 +340,16 @@ generan, así que la **lista que se ordena es siempre la misma**. Aun controland
 varían. La variabilidad no viene de los datos: viene de la medición.
 
 De ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, **¿cuál es el
-valor verdadero?**
+valor verdadero?** Para responderla, separa cuatro ideas:
 
-No hay uno solo que puedas observar. Lo que tienes son 200 mediciones, una **muestra** del proceso
-que las genera. Lo que quisieras conocer es una propiedad de ese proceso completo, un **parámetro**
-que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.
+- La **población** es el conjunto completo de resultados que podría producir el proceso. En este
+  experimento incluye todos los tiempos que obtendrías al repetir la operación bajo condiciones
+  comparables.
+- La **muestra** contiene los resultados que sí observaste: las 200 mediciones.
+- Un **parámetro** resume una propiedad de la población, como su media. Permanece desconocido porque
+  no puedes observar todos los resultados posibles.
+- Un **estadístico** es un número calculado con la muestra. La media de 22.6 milisegundos es un
+  estadístico y funciona como estimación del parámetro.
 
 ::: {.diagrama}
 ![](imagenes/muestra-parametro.svg){fig-alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22.6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."}
@@ -394,6 +430,10 @@ columna extra con la numeración de las filas, que no es un dato y ensucia el ar
 
 Esa tabla tiene una estructura que se repite en todo el semestre:
 
+::: {.diagrama}
+![](imagenes/anatomia-tabla.svg){fig-alt="Tabla de órdenes de mantenimiento con la columna criticidad resaltada como variable, una fila resaltada como registro y la indicación de que cada fila representa una unidad de observación."}
+:::
+
 - La **unidad de observación** es lo que ocupa cada fila. Aquí, una orden de mantenimiento.
 - Cada **variable** es una columna: algo que se midió u observó de esa unidad.
 - Cada **registro** es una fila completa: todos los valores medidos de una misma unidad.
@@ -406,6 +446,28 @@ que media y media antes que alta, y esa tabla no lo registra.
 Quédate con la idea, porque la semana 2 arranca justo ahí: **la naturaleza de una variable la
 declaras tú, no la adivina la herramienta**, y de esa declaración depende qué análisis puedes hacer
 después.
+
+## Trabajo independiente de la semana
+
+Reproduce en tu equipo la instalación, el experimento de las 200 mediciones y la conversión entre
+los tres formatos.
+
+- **Entregable:** ninguno. Esta semana no tiene peso evaluativo ni requiere subir archivos.
+- **Formato de trabajo:** una carpeta local `estadistica-analitica` con `.venv`,
+  `requirements.txt`, `experimento.py`, `formatos.py` y los archivos generados.
+- **Criterios de verificación:** el entorno se activa, los imports funcionan, el experimento genera
+  200 registros y los archivos `.csv`, `.txt` y `.xlsx` conservan los mismos datos.
+
+## Lo que viene
+
+- **Semana 2.** Clasificarás variables numéricas discretas y continuas, y variables categóricas
+  nominales y ordinales.
+- **Semana 3.** Construirás tablas de frecuencia e histogramas, y calcularás medidas de
+  localización y dispersión.
+- **Semana 4.** Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos
+  de barras y tablas de contingencia.
+- **Semana 5.** Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un
+  informe exploratorio para cerrar la Unidad 1.
 
 ## Errores frecuentes
 
@@ -470,7 +532,6 @@ tiene.
 - [ ] `experimento.py` corrió y generó `tiempos_ordenamiento.csv` con 200 filas
 - [ ] Sabes explicar por qué las 200 mediciones dieron distinto
 - [ ] Ejecutaste `formatos.py` y los tres archivos coincidieron
-- [ ] Respondiste la prueba diagnóstica de entrada
 :::
 
 ## Recursos

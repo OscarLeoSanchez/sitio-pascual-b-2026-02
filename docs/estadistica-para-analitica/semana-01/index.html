@@ -180,7 +180,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#de-qué-va-esta-semana" id="toc-de-qué-va-esta-semana" class="nav-link active" data-scroll-target="#de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</a></li>
   <li><a href="#la-estadística-como-proceso-de-decisión" id="toc-la-estadística-como-proceso-de-decisión" class="nav-link" data-scroll-target="#la-estadística-como-proceso-de-decisión"><span class="header-section-number">2</span> La estadística como proceso de decisión</a></li>
-  <li><a href="#el-mapa-del-módulo" id="toc-el-mapa-del-módulo" class="nav-link" data-scroll-target="#el-mapa-del-módulo"><span class="header-section-number">3</span> El mapa del módulo</a></li>
+  <li><a href="#el-mapa-del-módulo" id="toc-el-mapa-del-módulo" class="nav-link" data-scroll-target="#el-mapa-del-módulo"><span class="header-section-number">3</span> El mapa del módulo</a>
+  <ul class="collapse">
+  <li><a href="#qué-hará-cada-unidad" id="toc-qué-hará-cada-unidad" class="nav-link" data-scroll-target="#qué-hará-cada-unidad">Qué hará cada unidad</a></li>
+  </ul></li>
   <li><a href="#el-entorno-de-trabajo" id="toc-el-entorno-de-trabajo" class="nav-link" data-scroll-target="#el-entorno-de-trabajo"><span class="header-section-number">4</span> El entorno de trabajo</a>
   <ul class="collapse">
   <li><a href="#por-qué-un-entorno-virtual" id="toc-por-qué-un-entorno-virtual" class="nav-link" data-scroll-target="#por-qué-un-entorno-virtual">Por qué un entorno virtual</a></li>
@@ -201,9 +204,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#anatomía-de-una-tabla-de-datos" id="toc-anatomía-de-una-tabla-de-datos" class="nav-link" data-scroll-target="#anatomía-de-una-tabla-de-datos">Anatomía de una tabla de datos</a></li>
   </ul></li>
-  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">9</span> Errores frecuentes</a></li>
-  <li><a href="#lista-de-chequeo-del-entorno" id="toc-lista-de-chequeo-del-entorno" class="nav-link" data-scroll-target="#lista-de-chequeo-del-entorno"><span class="header-section-number">10</span> Lista de chequeo del entorno</a></li>
-  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">11</span> Recursos</a></li>
+  <li><a href="#trabajo-independiente-de-la-semana" id="toc-trabajo-independiente-de-la-semana" class="nav-link" data-scroll-target="#trabajo-independiente-de-la-semana"><span class="header-section-number">9</span> Trabajo independiente de la semana</a></li>
+  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">10</span> Lo que viene</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">11</span> Errores frecuentes</a></li>
+  <li><a href="#lista-de-chequeo-del-entorno" id="toc-lista-de-chequeo-del-entorno" class="nav-link" data-scroll-target="#lista-de-chequeo-del-entorno"><span class="header-section-number">12</span> Lista de chequeo del entorno</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">13</span> Recursos</a></li>
   </ul>
 </nav>
     </div>
@@ -335,6 +340,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 </div>
+<section id="qué-hará-cada-unidad" class="level3">
+<h3 class="anchored" data-anchor-id="qué-hará-cada-unidad">Qué hará cada unidad</h3>
+<p><strong>Unidad 1. Describir lo que hay.</strong> Construirás tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplots y gráficos de dispersión. El cierre será un informe exploratorio que muestre qué dicen los datos observados.</p>
+<div class="diagrama">
+<p><img src="imagenes/caso-unidad-1.svg" class="img-fluid" alt="Diagrama de cajas de la duración de intervenciones preventivas, predictivas y correctivas, con sus observaciones superpuestas y medianas diferenciadas."></p>
+</div>
+<p><strong>Unidad 2. Modelar la incertidumbre.</strong> Ajustarás distribuciones de probabilidad y las usarás para calcular la posibilidad de eventos que todavía no ocurrieron. El cierre será un modelo que responda preguntas sobre el fenómeno.</p>
+<div class="diagrama">
+<p><img src="imagenes/caso-unidad-2.svg" class="img-fluid" alt="Histograma de la duración de las intervenciones correctivas con una distribución ajustada y el área correspondiente a duraciones superiores a 240 minutos."></p>
+</div>
+<p><strong>Unidad 3. Inferir sobre el proceso.</strong> Construirás intervalos de confianza, pruebas de hipótesis, comparaciones y modelos de regresión. El cierre presentará conclusiones sobre el proceso y declarará el margen de error.</p>
+<div class="diagrama">
+<p><img src="imagenes/caso-unidad-3.svg" class="img-fluid" alt="Relación entre horas de operación y duración de las intervenciones, con rectas de regresión y bandas de confianza para intervenciones preventivas y correctivas."></p>
+</div>
 <p>Las tres unidades trabajan sobre un mismo caso. Lo primero es <strong>definir el proceso</strong>: qué se observa, qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al final, la inferencia. El alcance del caso se acuerda en la Semana 02.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -346,10 +365,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Comprobamos cada concepto nuevo en el computador: simulamos datos, repetimos el procedimiento muchas veces y contrastamos el resultado con lo que predice la teoría.</p>
+<p>Cada tema pasa por tres momentos:</p>
+<ol type="1">
+<li><strong>Concepto.</strong> Precisamos qué afirma el resultado y bajo qué supuestos se sostiene.</li>
+<li><strong>Implementación.</strong> Escribimos el procedimiento en Python y lo ejecutamos sobre datos.</li>
+<li><strong>Simulación.</strong> Repetimos el procedimiento muchas veces y contrastamos su comportamiento con lo que predice la teoría.</li>
+</ol>
 <p>Ese contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto falla en la práctica un intervalo de confianza.</p>
 </div>
 </div>
+</section>
 </section>
 <section id="el-entorno-de-trabajo" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="el-entorno-de-trabajo"><span class="header-section-number">4</span> El entorno de trabajo</h2>
@@ -412,7 +437,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="versiones-de-referencia" class="level3">
 <h3 class="anchored" data-anchor-id="versiones-de-referencia">Versiones de referencia</h3>
-<p>Esta guía se probó con estas versiones. Instala la misma línea o una superior.</p>
+<p>Esta guía se probó con estas versiones. Recrea el entorno con las versiones exactas de la tabla; el <code>requirements.txt</code> del paso 3 las fija con <code>==</code>.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -522,7 +547,7 @@ openpyxl==3.1.5</code></pre>
 </section>
 <section id="demostración-por-qué-se-mide-más-de-una-vez" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="demostración-por-qué-se-mide-más-de-una-vez"><span class="header-section-number">7</span> Demostración: por qué se mide más de una vez</h2>
-<p>Esta es la única pieza de código de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.</p>
+<p>Esta es la demostración principal de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.</p>
 <p>Vamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.</p>
 <p>Crea un archivo <code>experimento.py</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -573,8 +598,13 @@ Name: tiempo_ms, dtype: float64</code></pre>
 <p>Tus números van a ser distintos a estos, y eso también es parte del punto.</p>
 <p>La causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.</p>
 <p>Fíjate en el <code>random.seed(2026)</code> de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la <strong>lista que se ordena es siempre la misma</strong>. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.</p>
-<p>De ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, <strong>¿cuál es el valor verdadero?</strong></p>
-<p>No hay uno solo que puedas observar. Lo que tienes son 200 mediciones, una <strong>muestra</strong> del proceso que las genera. Lo que quisieras conocer es una propiedad de ese proceso completo, un <strong>parámetro</strong> que nunca vas a medir directamente porque exigiría repetir el experimento infinitas veces.</p>
+<p>De ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, <strong>¿cuál es el valor verdadero?</strong> Para responderla, separa cuatro ideas:</p>
+<ul>
+<li>La <strong>población</strong> es el conjunto completo de resultados que podría producir el proceso. En este experimento incluye todos los tiempos que obtendrías al repetir la operación bajo condiciones comparables.</li>
+<li>La <strong>muestra</strong> contiene los resultados que sí observaste: las 200 mediciones.</li>
+<li>Un <strong>parámetro</strong> resume una propiedad de la población, como su media. Permanece desconocido porque no puedes observar todos los resultados posibles.</li>
+<li>Un <strong>estadístico</strong> es un número calculado con la muestra. La media de 22.6 milisegundos es un estadístico y funciona como estimación del parámetro.</li>
+</ul>
 <div class="diagrama">
 <p><img src="imagenes/muestra-parametro.svg" class="img-fluid" alt="Del proceso completo, con su parámetro desconocido, sale por muestreo un conjunto de 200 mediciones. De esas mediciones se calcula una estimación, la media de 22.6 milisegundos. Una flecha punteada devuelve esa estimación al proceso como inferencia con margen de error."></p>
 </div>
@@ -670,6 +700,9 @@ dtype: object</code></pre>
 <section id="anatomía-de-una-tabla-de-datos" class="level3">
 <h3 class="anchored" data-anchor-id="anatomía-de-una-tabla-de-datos">Anatomía de una tabla de datos</h3>
 <p>Esa tabla tiene una estructura que se repite en todo el semestre:</p>
+<div class="diagrama">
+<p><img src="imagenes/anatomia-tabla.svg" class="img-fluid" alt="Tabla de órdenes de mantenimiento con la columna criticidad resaltada como variable, una fila resaltada como registro y la indicación de que cada fila representa una unidad de observación."></p>
+</div>
 <ul>
 <li>La <strong>unidad de observación</strong> es lo que ocupa cada fila. Aquí, una orden de mantenimiento.</li>
 <li>Cada <strong>variable</strong> es una columna: algo que se midió u observó de esa unidad.</li>
@@ -679,8 +712,26 @@ dtype: object</code></pre>
 <p>Quédate con la idea, porque la semana 2 arranca justo ahí: <strong>la naturaleza de una variable la declaras tú, no la adivina la herramienta</strong>, y de esa declaración depende qué análisis puedes hacer después.</p>
 </section>
 </section>
-<section id="errores-frecuentes" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">9</span> Errores frecuentes</h2>
+<section id="trabajo-independiente-de-la-semana" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="trabajo-independiente-de-la-semana"><span class="header-section-number">9</span> Trabajo independiente de la semana</h2>
+<p>Reproduce en tu equipo la instalación, el experimento de las 200 mediciones y la conversión entre los tres formatos.</p>
+<ul>
+<li><strong>Entregable:</strong> ninguno. Esta semana no tiene peso evaluativo ni requiere subir archivos.</li>
+<li><strong>Formato de trabajo:</strong> una carpeta local <code>estadistica-analitica</code> con <code>.venv</code>, <code>requirements.txt</code>, <code>experimento.py</code>, <code>formatos.py</code> y los archivos generados.</li>
+<li><strong>Criterios de verificación:</strong> el entorno se activa, los imports funcionan, el experimento genera 200 registros y los archivos <code>.csv</code>, <code>.txt</code> y <code>.xlsx</code> conservan los mismos datos.</li>
+</ul>
+</section>
+<section id="lo-que-viene" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">10</span> Lo que viene</h2>
+<ul>
+<li><strong>Semana 2.</strong> Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.</li>
+<li><strong>Semana 3.</strong> Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.</li>
+<li><strong>Semana 4.</strong> Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.</li>
+<li><strong>Semana 5.</strong> Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1.</li>
+</ul>
+</section>
+<section id="errores-frecuentes" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">11</span> Errores frecuentes</h2>
 <div class="error-caso">
 <p><span class="etiqueta">Error 1</span></p>
 <section id="modulenotfounderror-no-module-named-pandas" class="level3">
@@ -715,8 +766,8 @@ dtype: object</code></pre>
 </section>
 </div>
 </section>
-<section id="lista-de-chequeo-del-entorno" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="lista-de-chequeo-del-entorno"><span class="header-section-number">10</span> Lista de chequeo del entorno</h2>
+<section id="lista-de-chequeo-del-entorno" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="lista-de-chequeo-del-entorno"><span class="header-section-number">12</span> Lista de chequeo del entorno</h2>
 <div class="checklist">
 <p><strong>Confirma que tienes todo esto antes de la próxima sesión</strong></p>
 <ul class="task-list">
@@ -726,12 +777,11 @@ dtype: object</code></pre>
 <li><label><input type="checkbox"><code>experimento.py</code> corrió y generó <code>tiempos_ordenamiento.csv</code> con 200 filas</label></li>
 <li><label><input type="checkbox">Sabes explicar por qué las 200 mediciones dieron distinto</label></li>
 <li><label><input type="checkbox">Ejecutaste <code>formatos.py</code> y los tres archivos coincidieron</label></li>
-<li><label><input type="checkbox">Respondiste la prueba diagnóstica de entrada</label></li>
 </ul>
 </div>
 </section>
-<section id="recursos" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="recursos"><span class="header-section-number">11</span> Recursos</h2>
+<section id="recursos" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="recursos"><span class="header-section-number">13</span> Recursos</h2>
 <ul>
 <li>Descarga de Python: <a href="https://www.python.org/downloads/">python.org/downloads</a></li>
 <li>Entornos virtuales: <a href="https://docs.python.org/es/3/library/venv.html">docs.python.org/es/3/library/venv.html</a></li>
