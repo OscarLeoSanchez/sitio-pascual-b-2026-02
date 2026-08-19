@@ -256,7 +256,7 @@
     "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
     "title": "Estadística para Analítica",
     "section": "Ruta de la sesión",
-    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nLa pregunta que dejó abierta la Semana 1\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\nCategóricas: nominal y ordinal\n\n\nSegunda parte\n\nLaboratorio: CategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva\nEl conjunto de datos propio"
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nLa pregunta pendiente sobre criticidad\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\nCategóricas: nominal y ordinal\n\n\nSegunda parte\n\nCategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva"
   },
   {
     "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-quedó-pendiente",
@@ -424,7 +424,7 @@
     "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
     "title": "Estadística para Analítica",
     "section": "Lo que viene",
-    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio del conjunto de datos propio para cerrar la Unidad 1."
+    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#ruta-de-la-sesión",
@@ -834,7 +834,7 @@
     "href": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
     "title": "Semana 2. Tipos de variables",
     "section": "1 De qué va esta semana",
-    "text": "1 De qué va esta semana\nLa semana pasada quedó pendiente una pregunta: pandas leyó duracion_min y repuestos con el tipo correcto, pero puso object en criticidad, que es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde que baja, media y alta tienen un orden, y ese orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías, a declarar esa clasificación en pandas para que el software la respete, y a cerrar la sesión diseñando las columnas de tu propio conjunto de datos.\nAl terminar deberías poder:\n\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.\nDiseñar las columnas de un conjunto de datos propio, con al menos dos variables numéricas y dos categóricas, una de ellas ordinal.",
+    "text": "1 De qué va esta semana\nLa semana pasada quedó pendiente una pregunta: pandas leyó duracion_min y repuestos con el tipo correcto, pero puso object en criticidad, que es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde que baja, media y alta tienen un orden, y ese orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.\nAl terminar deberías poder:\n\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 2. Tipos de variables"
@@ -910,8 +910,8 @@
     "objectID": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
     "href": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
     "title": "Semana 2. Tipos de variables",
-    "section": "8 Errores frecuentes",
-    "text": "8 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
+    "section": "7 Errores frecuentes",
+    "text": "7 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 2. Tipos de variables"
@@ -921,8 +921,8 @@
     "objectID": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
     "href": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
     "title": "Semana 2. Tipos de variables",
-    "section": "9 Lista de chequeo de la semana",
-    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden\nElegiste el proceso que vas a medir para tu conjunto de datos propio\nEscribiste la tabla de clasificación de tus columnas, antes de recoger el primer dato\nEmpezaste a recoger registros: al menos algunos deben estar listos para la Semana 3",
+    "section": "8 Lista de chequeo de la semana",
+    "text": "8 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 2. Tipos de variables"
@@ -932,8 +932,8 @@
     "objectID": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
     "href": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
     "title": "Semana 2. Tipos de variables",
-    "section": "10 Lo que viene",
-    "text": "10 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio de tu conjunto de datos propio para cerrar la Unidad 1.",
+    "section": "9 Lo que viene",
+    "text": "9 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 2. Tipos de variables"
@@ -943,8 +943,8 @@
     "objectID": "estadistica-para-analitica/semana-02/index.html#recursos",
     "href": "estadistica-para-analitica/semana-02/index.html#recursos",
     "title": "Semana 2. Tipos de variables",
-    "section": "11 Recursos",
-    "text": "11 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "section": "10 Recursos",
+    "text": "10 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 2. Tipos de variables"
@@ -1373,5 +1373,19 @@
     "title": "Sintaxis, variables y consola",
     "section": "Caso de uso: construir el resumen",
     "text": "Caso de uso: construir el resumen\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto: revisa el precio y la cantidad.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n\n    Console.WriteLine(\"Resumen del producto\");\n    Console.WriteLine(\"---------------------\");\n    Console.WriteLine($\"Nombre     : {nombre}\");\n    Console.WriteLine($\"Precio     : {precio}\");\n    Console.WriteLine($\"Cantidad   : {cantidad}\");\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
+    "title": "Estadística para Analítica",
+    "section": "El error, explicado",
+    "text": "El error, explicado\nprint(ordenes.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "Declarar el orden",
+    "text": "Declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
   }
 ]

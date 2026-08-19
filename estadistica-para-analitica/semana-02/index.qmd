@@ -24,8 +24,7 @@ etiqueta genérica esconde que `baja`, `media` y `alta` tienen un orden, y ese o
 lo declaras tú.
 
 Esta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en
-cuatro categorías, a declarar esa clasificación en pandas para que el software la respete, y a
-cerrar la sesión diseñando las columnas de tu propio conjunto de datos.
+cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.
 
 Al terminar deberías poder:
 
@@ -34,8 +33,6 @@ Al terminar deberías poder:
 2. Explicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.
 3. Declarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para
    ordenar y filtrar.
-4. Diseñar las columnas de un conjunto de datos propio, con al menos dos variables numéricas y dos
-   categóricas, una de ellas ordinal.
 
 ## Por qué clasificar una variable no es un trámite
 
@@ -324,52 +321,6 @@ produce decimales, coherente con que es una variable continua. `tecnico` y `apro
 `object`, coherente con que son nominales. `desgaste` es la única que declaraste como `category`
 ordenada, porque es la única con un orden real.
 
-## El conjunto de datos propio: arranca esta semana
-
-Desde aquí en adelante trabajas con datos que tú mismo mides u observas. Es el proyecto que atraviesa
-el semestre: lo describes en la Semana 5, lo modelas con una distribución en la Semana 10 y al final
-infieres sobre él en la Semana 16.
-
-::: {.callout-important}
-## Entregable: diseño y arranque de la recolección
-
-**Qué entregas.** Un archivo `.csv` con las columnas de tu conjunto de datos y los primeros
-registros que ya hayas recogido para el momento de la Semana 3. La recolección completa se
-verifica en la Semana 5, cuando entregas el informe exploratorio; esta semana entregas el diseño y
-el arranque.
-
-**Mínimos exigidos:**
-
-- Al menos **40 registros**, medidos u observados de un proceso real. No sirve un archivo
-  descargado de internet: el criterio de la carta pide mediciones propias, no un dataset ajeno.
-- Al menos **dos variables numéricas**.
-- Al menos **dos variables categóricas**, y **una de ellas debe ser ordinal**.
-- Cada columna clasificada con las dos preguntas de esta guía, en una tabla como la del caso de
-  mantenimiento, antes de recoger el primer dato.
-
-**Qué puedes medir.** Cualquier proceso al que tengas acceso repetido: tu propio trabajo (tiempos
-de una tarea que repites, calidad de un entregable), un proceso doméstico o de tu barrio (consumo
-de un servicio, tiempos de un trayecto), o si trabajas en una planta o taller, algo del proceso que
-ya conoces. La carta descriptiva ancla los ejemplos del módulo en mantenimiento industrial, pero el
-conjunto de datos propio no tiene que venir de ahí: tiene que venir de algo que puedas medir de
-verdad, varias veces, durante las próximas semanas.
-
-**Formato de entrega.** Un archivo `.csv`, separado por comas, con encabezados sin tildes ni
-espacios (`duracion_min`, no `duración (min)`). Sube también un párrafo corto que explique qué mide
-cada columna y por qué la clasificaste así.
-
-**Criterios de verificación:**
-
-- El archivo abre con `pd.read_csv` sin ajustes manuales.
-- Cada columna tiene la clasificación declarada por escrito y coincide con lo que un compañero
-  concluiría aplicando las mismas dos preguntas.
-- Al menos una columna categórica está declarada como `category` ordenada en el código que
-  acompaña la entrega.
-:::
-
-Este entregable no tiene nota. Es la base de la Semana 5, que sí la tiene con el 30% del cierre de
-la Unidad 1. Diseñar mal las columnas ahora se paga con trabajo doble entonces.
-
 ## Errores frecuentes
 
 ::: {.error-caso}
@@ -423,9 +374,6 @@ vuelve a ser alfabética sin avisar.
       lista de ejemplos
 - [ ] Ejecutaste el bloque de `CategoricalDtype` y el `sort_values` quedó en baja, media, alta
 - [ ] Entiendes por qué un valor suelto extraído con `.iloc` pierde el orden
-- [ ] Elegiste el proceso que vas a medir para tu conjunto de datos propio
-- [ ] Escribiste la tabla de clasificación de tus columnas, antes de recoger el primer dato
-- [ ] Empezaste a recoger registros: al menos algunos deben estar listos para la Semana 3
 :::
 
 ## Lo que viene
@@ -435,7 +383,7 @@ vuelve a ser alfabética sin avisar.
 - **Semana 4.** Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y
   gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.
 - **Semana 5.** Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el
-  informe exploratorio de tu conjunto de datos propio para cerrar la Unidad 1.
+  informe exploratorio para cerrar la Unidad 1.
 
 ## Recursos
 

@@ -218,7 +218,7 @@ Oscar Leonel Sánchez Conde
 <div class="column" style="width:50%;">
 <p><strong>Primera parte</strong></p>
 <ol type="1">
-<li>La pregunta que dejó abierta la Semana 1</li>
+<li>La pregunta pendiente sobre <code>criticidad</code></li>
 <li>Dos preguntas para clasificar cualquier variable</li>
 <li>Numéricas: discreta y continua</li>
 <li>Categóricas: nominal y ordinal</li>
@@ -226,10 +226,9 @@ Oscar Leonel Sánchez Conde
 </div><div class="column" style="width:50%;">
 <p><strong>Segunda parte</strong></p>
 <ol type="1">
-<li>Laboratorio: <code>CategoricalDtype</code> y el orden en pandas</li>
+<li><code>CategoricalDtype</code> y el orden en pandas</li>
 <li>La trampa del valor suelto</li>
 <li>Caso de uso: una orden de trabajo nueva</li>
-<li>El conjunto de datos propio</li>
 </ol>
 </div></div>
 </section>
@@ -305,8 +304,8 @@ Oscar Leonel Sánchez Conde
 <h2>Categórica ordinal: con orden</h2>
 <p><code>criticidad</code>: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir la distancia entre una y otra.</p>
 </section>
-<section id="el-error-de-la-semana-1-explicado" class="slide level2 codigo-largo center">
-<h2>El error de la Semana 1, explicado</h2>
+<section id="el-error-explicado" class="slide level2 codigo-largo center">
+<h2>El error, explicado</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a></a> orden criticidad</span>
 <span id="cb5-2"><a></a>   102       alta</span>
@@ -324,8 +323,8 @@ Oscar Leonel Sánchez Conde
 <p><img data-src="imagenes/nominal-vs-ordinal.svg" alt="A la izquierda, barras de maquina en cuatro categorias sin orden particular. A la derecha, barras de criticidad en su orden correcto: baja, media, alta"></p>
 <p><span class="pie-grafico">La izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único orden que tiene sentido.</span></p>
 </section>
-<section id="laboratorio-declarar-el-orden" class="slide level2 codigo-largo center">
-<h2>Laboratorio: declarar el orden</h2>
+<section id="declarar-el-orden" class="slide level2 codigo-largo center">
+<h2>Declarar el orden</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="im">from</span> pandas.api.types <span class="im">import</span> CategoricalDtype</span>
 <span id="cb6-2"><a></a></span>
 <span id="cb6-3"><a></a>orden_criticidad <span class="op">=</span> CategoricalDtype(</span>
@@ -433,35 +432,12 @@ Oscar Leonel Sánchez Conde
 <h2>Qué análisis habilita cada tipo</h2>
 <p><img data-src="imagenes/analisis-por-tipo.svg" alt="Discreta y continua llevan a tablas de frecuencia, histogramas, medidas de localizacion y dispersion y boxplot. Nominal y ordinal llevan a tablas de frecuencia y graficos de barras, con la ordinal respetando su orden"></p>
 </section>
-<section id="el-conjunto-de-datos-propio-arranca-hoy" class="slide level2 center">
-<h2>El conjunto de datos propio arranca hoy</h2>
-<div class="aviso">
-<p>Se mide u observa un proceso real. No sirve un archivo descargado de internet.</p>
-</div>
-<ul>
-<li>Mínimo <strong>40 registros</strong>.</li>
-<li>Al menos <strong>dos variables numéricas</strong>.</li>
-<li>Al menos <strong>dos variables categóricas</strong>, una de ellas <strong>ordinal</strong>.</li>
-<li>Cada columna clasificada por escrito, antes de recoger el primer dato.</li>
-</ul>
-</section>
-<section id="qué-entregas-esta-semana" class="slide level2 center">
-<h2>Qué entregas esta semana</h2>
-<ul>
-<li>Un <code>.csv</code> con las columnas diseñadas.</li>
-<li>Los primeros registros que ya tengas recogidos.</li>
-<li>Un párrafo que explique qué mide cada columna y por qué se clasificó así.</li>
-</ul>
-<div class="fragment">
-<p><span class="grande">La recolección completa se verifica en la Semana 5, junto con el informe exploratorio.</span></p>
-</div>
-</section>
 <section id="lo-que-viene" class="slide level2 center">
 <h2>Lo que viene</h2>
 <ul>
 <li><strong>Semana 3.</strong> Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.</li>
 <li><strong>Semana 4.</strong> Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.</li>
-<li><strong>Semana 5.</strong> Gráficos de dispersión y condicionales, e informe exploratorio del conjunto de datos propio para cerrar la Unidad 1.</li>
+<li><strong>Semana 5.</strong> Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1.</li>
 </ul>
 
 

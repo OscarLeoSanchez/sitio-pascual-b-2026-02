@@ -193,11 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#declarar-el-orden-en-pandas" id="toc-declarar-el-orden-en-pandas" class="nav-link" data-scroll-target="#declarar-el-orden-en-pandas">Declarar el orden en pandas</a></li>
   </ul></li>
   <li><a href="#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" id="toc-caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" class="nav-link" data-scroll-target="#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo"><span class="header-section-number">6</span> Caso de uso: diseñar las columnas de una orden de trabajo</a></li>
-  <li><a href="#el-conjunto-de-datos-propio-arranca-esta-semana" id="toc-el-conjunto-de-datos-propio-arranca-esta-semana" class="nav-link" data-scroll-target="#el-conjunto-de-datos-propio-arranca-esta-semana"><span class="header-section-number">7</span> El conjunto de datos propio: arranca esta semana</a></li>
-  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">8</span> Errores frecuentes</a></li>
-  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">9</span> Lista de chequeo de la semana</a></li>
-  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">10</span> Lo que viene</a></li>
-  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">11</span> Recursos</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">7</span> Errores frecuentes</a></li>
+  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">8</span> Lista de chequeo de la semana</a></li>
+  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">9</span> Lo que viene</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">10</span> Recursos</a></li>
   </ul>
 </nav>
     </div>
@@ -261,13 +260,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="de-qué-va-esta-semana" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</h2>
 <p>La semana pasada quedó pendiente una pregunta: pandas leyó <code>duracion_min</code> y <code>repuestos</code> con el tipo correcto, pero puso <code>object</code> en <code>criticidad</code>, que es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde que <code>baja</code>, <code>media</code> y <code>alta</code> tienen un orden, y ese orden se pierde si no lo declaras tú.</p>
-<p>Esta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías, a declarar esa clasificación en pandas para que el software la respete, y a cerrar la sesión diseñando las columnas de tu propio conjunto de datos.</p>
+<p>Esta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.</p>
 <p>Al terminar deberías poder:</p>
 <ol type="1">
 <li>Clasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.</li>
 <li>Explicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.</li>
 <li>Declarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.</li>
-<li>Diseñar las columnas de un conjunto de datos propio, con al menos dos variables numéricas y dos categóricas, una de ellas ordinal.</li>
 </ol>
 </section>
 <section id="por-qué-clasificar-una-variable-no-es-un-trámite" class="level2" data-number="2">
@@ -480,41 +478,8 @@ desgaste         category
 dtype: object</code></pre>
 <p><code>temperatura_c</code> quedó <code>float64</code> sin que lo pidieras: <code>np.random.default_rng().uniform</code> siempre produce decimales, coherente con que es una variable continua. <code>tecnico</code> y <code>aprobada</code> quedan <code>object</code>, coherente con que son nominales. <code>desgaste</code> es la única que declaraste como <code>category</code> ordenada, porque es la única con un orden real.</p>
 </section>
-<section id="el-conjunto-de-datos-propio-arranca-esta-semana" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="el-conjunto-de-datos-propio-arranca-esta-semana"><span class="header-section-number">7</span> El conjunto de datos propio: arranca esta semana</h2>
-<p>Desde aquí en adelante trabajas con datos que tú mismo mides u observas. Es el proyecto que atraviesa el semestre: lo describes en la Semana 5, lo modelas con una distribución en la Semana 10 y al final infieres sobre él en la Semana 16.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Entregable: diseño y arranque de la recolección
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Qué entregas.</strong> Un archivo <code>.csv</code> con las columnas de tu conjunto de datos y los primeros registros que ya hayas recogido para el momento de la Semana 3. La recolección completa se verifica en la Semana 5, cuando entregas el informe exploratorio; esta semana entregas el diseño y el arranque.</p>
-<p><strong>Mínimos exigidos:</strong></p>
-<ul>
-<li>Al menos <strong>40 registros</strong>, medidos u observados de un proceso real. No sirve un archivo descargado de internet: el criterio de la carta pide mediciones propias, no un dataset ajeno.</li>
-<li>Al menos <strong>dos variables numéricas</strong>.</li>
-<li>Al menos <strong>dos variables categóricas</strong>, y <strong>una de ellas debe ser ordinal</strong>.</li>
-<li>Cada columna clasificada con las dos preguntas de esta guía, en una tabla como la del caso de mantenimiento, antes de recoger el primer dato.</li>
-</ul>
-<p><strong>Qué puedes medir.</strong> Cualquier proceso al que tengas acceso repetido: tu propio trabajo (tiempos de una tarea que repites, calidad de un entregable), un proceso doméstico o de tu barrio (consumo de un servicio, tiempos de un trayecto), o si trabajas en una planta o taller, algo del proceso que ya conoces. La carta descriptiva ancla los ejemplos del módulo en mantenimiento industrial, pero el conjunto de datos propio no tiene que venir de ahí: tiene que venir de algo que puedas medir de verdad, varias veces, durante las próximas semanas.</p>
-<p><strong>Formato de entrega.</strong> Un archivo <code>.csv</code>, separado por comas, con encabezados sin tildes ni espacios (<code>duracion_min</code>, no <code>duración (min)</code>). Sube también un párrafo corto que explique qué mide cada columna y por qué la clasificaste así.</p>
-<p><strong>Criterios de verificación:</strong></p>
-<ul>
-<li>El archivo abre con <code>pd.read_csv</code> sin ajustes manuales.</li>
-<li>Cada columna tiene la clasificación declarada por escrito y coincide con lo que un compañero concluiría aplicando las mismas dos preguntas.</li>
-<li>Al menos una columna categórica está declarada como <code>category</code> ordenada en el código que acompaña la entrega.</li>
-</ul>
-</div>
-</div>
-<p>Este entregable no tiene nota. Es la base de la Semana 5, que sí la tiene con el 30% del cierre de la Unidad 1. Diseñar mal las columnas ahora se paga con trabajo doble entonces.</p>
-</section>
-<section id="errores-frecuentes" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">8</span> Errores frecuentes</h2>
+<section id="errores-frecuentes" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">7</span> Errores frecuentes</h2>
 <div class="error-caso">
 <p><span class="etiqueta">Error 1</span></p>
 <section id="tratar-un-código-numérico-como-si-fuera-una-cantidad" class="level3">
@@ -540,30 +505,27 @@ dtype: object</code></pre>
 </section>
 </div>
 </section>
-<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">9</span> Lista de chequeo de la semana</h2>
+<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">8</span> Lista de chequeo de la semana</h2>
 <div class="checklist">
 <p><strong>Antes de la próxima sesión</strong></p>
 <ul class="task-list">
 <li><label><input type="checkbox">Sabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos</label></li>
 <li><label><input type="checkbox">Ejecutaste el bloque de <code>CategoricalDtype</code> y el <code>sort_values</code> quedó en baja, media, alta</label></li>
 <li><label><input type="checkbox">Entiendes por qué un valor suelto extraído con <code>.iloc</code> pierde el orden</label></li>
-<li><label><input type="checkbox">Elegiste el proceso que vas a medir para tu conjunto de datos propio</label></li>
-<li><label><input type="checkbox">Escribiste la tabla de clasificación de tus columnas, antes de recoger el primer dato</label></li>
-<li><label><input type="checkbox">Empezaste a recoger registros: al menos algunos deben estar listos para la Semana 3</label></li>
 </ul>
 </div>
 </section>
-<section id="lo-que-viene" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">10</span> Lo que viene</h2>
+<section id="lo-que-viene" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">9</span> Lo que viene</h2>
 <ul>
 <li><strong>Semana 3.</strong> Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.</li>
 <li><strong>Semana 4.</strong> Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.</li>
-<li><strong>Semana 5.</strong> Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio de tu conjunto de datos propio para cerrar la Unidad 1.</li>
+<li><strong>Semana 5.</strong> Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.</li>
 </ul>
 </section>
-<section id="recursos" class="level2" data-number="11">
-<h2 data-number="11" class="anchored" data-anchor-id="recursos"><span class="header-section-number">11</span> Recursos</h2>
+<section id="recursos" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="recursos"><span class="header-section-number">10</span> Recursos</h2>
 <ul>
 <li>Clasificación de datos en escalas de medición: Stevens, S. S. (1946). <em>On the theory of scales of measurement.</em></li>
 <li>Variables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. <em>Applied Statistics and Probability for Engineers.</em> 7.ª edición, capítulo 1.</li>

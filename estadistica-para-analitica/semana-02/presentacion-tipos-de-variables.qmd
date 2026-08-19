@@ -30,7 +30,7 @@ format:
 ::: {.column width="50%"}
 **Primera parte**
 
-1. La pregunta que dejó abierta la Semana 1
+1. La pregunta pendiente sobre `criticidad`
 2. Dos preguntas para clasificar cualquier variable
 3. Numéricas: discreta y continua
 4. Categóricas: nominal y ordinal
@@ -39,10 +39,9 @@ format:
 ::: {.column width="50%"}
 **Segunda parte**
 
-1. Laboratorio: `CategoricalDtype` y el orden en pandas
+1. `CategoricalDtype` y el orden en pandas
 2. La trampa del valor suelto
 3. Caso de uso: una orden de trabajo nueva
-4. El conjunto de datos propio
 :::
 :::
 
@@ -134,7 +133,7 @@ entre el mínimo y el máximo es posible.]{.pie-grafico}
 `criticidad`: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir
 la distancia entre una y otra.
 
-## El error de la Semana 1, explicado {.codigo-largo}
+## El error, explicado {.codigo-largo}
 
 ```python
 print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
@@ -162,7 +161,7 @@ permite.]{.grande}
 [La izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único
 orden que tiene sentido.]{.pie-grafico}
 
-## Laboratorio: declarar el orden {.codigo-largo}
+## Declarar el orden {.codigo-largo}
 
 ```python
 from pandas.api.types import CategoricalDtype
@@ -264,32 +263,11 @@ ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es
 
 ![](imagenes/analisis-por-tipo.svg){fig-alt="Discreta y continua llevan a tablas de frecuencia, histogramas, medidas de localizacion y dispersion y boxplot. Nominal y ordinal llevan a tablas de frecuencia y graficos de barras, con la ordinal respetando su orden"}
 
-## El conjunto de datos propio arranca hoy
-
-::: {.aviso}
-Se mide u observa un proceso real. No sirve un archivo descargado de internet.
-:::
-
-- Mínimo **40 registros**.
-- Al menos **dos variables numéricas**.
-- Al menos **dos variables categóricas**, una de ellas **ordinal**.
-- Cada columna clasificada por escrito, antes de recoger el primer dato.
-
-## Qué entregas esta semana
-
-- Un `.csv` con las columnas diseñadas.
-- Los primeros registros que ya tengas recogidos.
-- Un párrafo que explique qué mide cada columna y por qué se clasificó así.
-
-. . .
-
-[La recolección completa se verifica en la Semana 5, junto con el informe exploratorio.]{.grande}
-
 ## Lo que viene
 
 - **Semana 3.** Con las variables ya clasificadas, tablas de frecuencia e histogramas para las
   numéricas, y medidas de localización y dispersión.
 - **Semana 4.** Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de
   barras para las categóricas, en su orden correcto cuando aplique.
-- **Semana 5.** Gráficos de dispersión y condicionales, e informe exploratorio del conjunto de
-  datos propio para cerrar la Unidad 1.
+- **Semana 5.** Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la
+  Unidad 1.
