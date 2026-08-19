@@ -1,0 +1,529 @@
+---
+title: "Semana 2. Sintaxis, variables y consola"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Asignatura | Herramientas de Programación I (ET0047)                  |
+| Programa   | Tecnología en Desarrollo de Software                     |
+| Unidad     | Unidad 1. Aplicaciones de consola con un IDE             |
+| Dedicación | 4 horas de encuentro sincrónico y 8 de trabajo independiente |
+:::
+
+Esta guía se probó con el SDK de .NET **10.0.302**. Si `dotnet --version` te muestra un número
+mayor dentro de la misma línea 10, el material funciona igual.
+
+## Lo que vas a lograr
+
+En la Semana 1 dejaste `HolaPascual` ejecutando y publicado en GitHub. Esta semana abres ese mismo
+tipo de proyecto y aprendes de qué está hecho por dentro: cómo se organiza un programa de C#, qué
+tipos de datos existen para representar la información y cómo entra y sale esa información por la
+consola.
+
+Objetivos concretos:
+
+1. Explicar la estructura de un archivo `Program.cs` con sentencias de nivel superior.
+2. Aplicar la sintaxis básica del lenguaje: sentencias, bloques, comentarios y convenciones de
+   nombres.
+3. Elegir el tipo de variable correcto según el dato que representa: enteros, reales, texto,
+   caracteres y valores lógicos.
+4. Leer datos por consola y convertir el texto que devuelve `Console.ReadLine` al tipo que
+   necesitas, sin que un dato inválido detenga el programa.
+
+[Abrir la presentación de la sesión](presentacion-sintaxis-variables.html){.btn .btn-primary
+role="button"}
+
+::: {.callout-note}
+## Opcional: los acentos en la consola
+
+En la Semana 1 quedó pendiente el error de los acentos en la consola de Windows. La causa es que la
+consola usa una página de códigos distinta a la codificación UTF-8 del archivo fuente. Este curso
+deja la consola con su configuración por defecto y evita tildes y eñes en lo que imprime, así que
+no vas a necesitar nada especial para seguir el material.
+
+Si prefieres ver los acentos en tu propia consola, agrega esta línea al inicio del programa, antes
+de la primera instrucción que escriba texto:
+
+```csharp
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+Console.WriteLine("Programación en C#: tildes, eñes y signos como el guion.");
+```
+
+```text
+Programación en C#: tildes, eñes y signos como el guion.
+```
+
+Es opcional: ningún ejercicio del curso lo exige.
+:::
+
+## Anatomía de un programa con sentencias de nivel superior
+
+Desde `dotnet new console`, el `Program.cs` que generó el SDK no tiene una clase `Program` ni un
+método `Main` visibles. Eso no significa que no existan: el compilador los genera por ti a partir
+de lo que escribes. A este estilo se le llama **sentencias de nivel superior** (*top-level
+statements*), y es la forma recomendada para escribir programas nuevos en C#.
+
+Un archivo con sentencias de nivel superior se organiza en tres bloques, en este orden:
+
+::: {.diagrama}
+![Un archivo Program.cs con sentencias de nivel superior se organiza en directivas using, el cuerpo del programa y, al final, las definiciones de tipos.](imagenes/anatomia-programa.svg){fig-alt="Anatomia de un Program.cs: directivas using arriba, sentencias de nivel superior en el centro, definiciones de tipos opcionales al final, y el Main que genera el compilador"}
+:::
+
+1. **Directivas `using`**, si necesitas una biblioteca que no está entre las que `.NET` importa de
+   forma implícita (`ImplicitUsings` en el `.csproj`, que ya viste en la Semana 1).
+2. **Las sentencias de nivel superior**, que son el cuerpo real de tu programa. Van directamente en
+   la raíz del archivo, sin envolverlas en una clase ni en un método.
+3. **Definiciones de tipos**, si el archivo también declara una clase o un `struct`. Deben ir
+   después de las sentencias de nivel superior, nunca antes.
+
+Solo puede haber **un archivo del proyecto** con sentencias de nivel superior. Cuando el proyecto
+crezca y necesites varias clases en archivos separados (a partir de la Unidad 3), esos archivos
+adicionales no llevan sentencias de nivel superior: solo definiciones de tipos.
+
+::: {.callout-note}
+## Qué genera el compilador por dentro
+
+El compilador convierte tus sentencias de nivel superior en un método `Main` real. La firma exacta
+depende de si usas `return` o `await` en el cuerpo:
+
+| Tu código usa | Firma que genera el compilador |
+|---|---|
+| Ni `return` ni `await` | `static void Main(string[] args)` |
+| Solo `return` | `static int Main(string[] args)` |
+| Solo `await` | `static async Task Main(string[] args)` |
+| `return` y `await` | `static async Task<int> Main(string[] args)` |
+
+No necesitas escribir esa firma. La vas a reconocer cuando en la Unidad 3 vuelvas a un `Main`
+explícito para organizar un proyecto más grande.
+:::
+
+También tienes disponible la variable `args`, con los argumentos que reciba tu programa desde la
+línea de comandos. Nunca es `null`: si no pasaste ninguno, `args.Length` vale cero.
+
+## Sintaxis básica del lenguaje
+
+C# comparte varias reglas con el pseudocódigo que ya escribiste en Fundamentos de Programación,
+más un conjunto de símbolos que el compilador exige de forma estricta.
+
+| Regla | En C# |
+|---|---|
+| Fin de sentencia | Punto y coma `;` al final de cada instrucción |
+| Bloque de código | Llaves `{ }`. Todo lo que agrupas (el cuerpo de una función, de un `if`, de un ciclo) va entre ellas |
+| Comentario de una línea | `// texto`, desde ahí hasta el final del renglón |
+| Comentario de varias líneas | `/* texto */`, puede abarcar varios renglones |
+| Mayúsculas y minúsculas | El lenguaje distingue: `precio` y `Precio` son variables distintas |
+| Espacios e indentación | No afectan la ejecución, pero sí la lectura. Este curso indenta con 4 espacios |
+
+```csharp
+// Esto es un comentario de una linea.
+int cantidad = 5;   // el punto y coma cierra la sentencia
+
+/* Esto es un comentario
+   de varias lineas. */
+if (cantidad > 0)
+{
+    Console.WriteLine("Hay existencias.");
+}
+```
+
+Olvidar el punto y coma o dejar una llave sin cerrar es, con diferencia, el error más común de las
+primeras semanas. El compilador señala la línea siguiente a la del error real, así que si un
+mensaje no tiene sentido, revisa primero la línea de arriba.
+
+### Convenciones de nombres
+
+C# no obliga un estilo de nombres, pero la comunidad y Microsoft usan uno consistente que este
+curso sigue desde ya:
+
+| Elemento | Convención | Ejemplo |
+|---|---|---|
+| Variables y parámetros | `camelCase`: primera palabra en minúscula, las siguientes con inicial mayúscula | `precioUnitario`, `nombreProducto` |
+| Clases, métodos y tipos propios | `PascalCase`: todas las palabras con inicial mayúscula | `Producto`, `CalcularTotal` |
+| Constantes | `PascalCase` también, en este curso | `StockMinimo` |
+
+Un nombre de variable debe decir qué representa. `cantidad` comunica más que `c`, y
+`cantidadEnInventario` más que `cantidad` cuando el programa maneja varias cantidades a la vez.
+
+## Tipos de variables
+
+Cada variable en C# tiene un tipo fijo, decidido cuando la declaras. El compilador impide mezclar
+tipos incompatibles antes de que el programa llegue a ejecutarse: es lo que se llama **tipado
+fuerte**, y es una de las diferencias más notorias frente al pseudocódigo de Fundamentos de
+Programación.
+
+```csharp
+int a = 5;
+bool esValido = true;
+
+int total = a + 2;        // correcto
+// int error = a + esValido;   // el compilador lo rechaza: no se puede sumar int y bool
+```
+
+### Tipos por valor y tipos por referencia
+
+Todos los tipos de C# caen en una de dos categorías, y la diferencia importa desde ya porque
+determina qué pasa cuando copias una variable en otra.
+
+::: {.diagrama}
+![Los tipos por valor guardan el dato directamente y cada variable tiene su propia copia. Los tipos por referencia guardan una direccion hacia un objeto compartido.](imagenes/tipos-valor-vs-referencia.svg){fig-alt="Comparacion entre tipos por valor, con copias independientes, y tipos por referencia, donde dos variables apuntan al mismo objeto"}
+:::
+
+- **Tipos por valor**: `int`, `double`, `bool`, `char` y los demás tipos numéricos. La variable
+  guarda el dato directamente. Copiarla crea una copia independiente.
+- **Tipos por referencia**: `string`, los arreglos (Semana 6) y las clases que definas desde la
+  Unidad 3. La variable guarda una dirección hacia el dato real, que vive aparte. Copiar la
+  variable copia la dirección, no el contenido: las dos variables terminan apuntando al mismo
+  dato.
+
+Por ahora vas a trabajar sobre todo con tipos por valor y con `string`. La diferencia se vuelve
+crítica más adelante, cuando pases arreglos y objetos como parámetros de una función.
+
+### Tipos numéricos: cuál usar y cuándo
+
+C# tiene varios tipos numéricos, cada uno con un tamaño y un propósito distinto.
+
+::: {.diagrama}
+![Los tipos enteros se diferencian por su tamaño en bits y por eso por el rango de valores que admiten. Los tipos reales se diferencian por su precision.](imagenes/mapa-tipos-numericos.svg){fig-alt="Mapa de los tipos numericos de C Sharp: sbyte, short, int y long segun su tamano en bits, y float, double y decimal segun su precision"}
+:::
+
+Para este curso, la regla práctica es corta:
+
+- **Cuenta cosas con `int`.** Es el tipo entero por omisión y alcanza para prácticamente cualquier
+  cantidad que vayas a manejar en los ejercicios del semestre.
+- **Mide cosas con `double`.** Es el tipo real por omisión: precios, promedios, medidas.
+- Vas a conocer `decimal` en esta semana porque explica un comportamiento de `double` que
+  necesitas entender antes de calcular con dinero, aunque en este curso sigas usando `double`
+  para mantener la sintaxis simple.
+
+```csharp
+double resultado = 0.1 + 0.2;
+Console.WriteLine(resultado);
+
+decimal resultadoExacto = 0.1m + 0.2m;
+Console.WriteLine(resultadoExacto);
+```
+
+```text
+0.30000000000000004
+0.3
+```
+
+`double` no representa exactamente todas las fracciones decimales, porque internamente guarda el
+número en base binaria. Para la mayoría de los cálculos del curso esa diferencia no se nota. Cuando
+trabajes con dinero de verdad, fuera de este curso, ese es el motivo por el que se usa `decimal`.
+
+### Caracteres, texto y valores lógicos
+
+| Tipo | Guarda | Ejemplo | Nota |
+|---|---|---|---|
+| `char` | Un solo carácter, entre comillas simples | `char inicial = 'P';` | Es un tipo por valor, aunque parezca texto |
+| `string` | Texto de cualquier longitud, entre comillas dobles | `string nombre = "Cable HDMI";` | Es un tipo por referencia |
+| `bool` | `true` o `false`, nada más | `bool activo = true;` | Resultado natural de una comparación |
+
+### `var` y el tipo explícito
+
+`var` le pide al compilador que **infiera** el tipo a partir del valor que asignas. El tipo queda
+igual de fijo que si lo hubieras escrito tú: `var` no crea una variable de tipo flexible.
+
+```csharp
+var cantidad = 12;        // el compilador fija el tipo en int
+var precio = 4599.90;     // el compilador fija el tipo en double
+```
+
+Este curso usa el tipo explícito (`int cantidad = 12;`) en el material, porque para quien empieza
+es más fácil verificar que declaró el tipo que quería. Usa `var` cuando el tipo ya es obvio por el
+lado derecho de la asignación; en cualquier otro caso, prefiere escribirlo.
+
+### Valores por defecto
+
+Toda variable de tipo por valor tiene un valor por defecto si la inicializas con la palabra clave
+`default` en lugar de un literal:
+
+```csharp
+int contador = default;
+double total = default;
+bool encontrado = default;
+
+Console.WriteLine($"contador: {contador}, total: {total}, encontrado: {encontrado}");
+```
+
+```text
+contador: 0, total: 0, encontrado: False
+```
+
+El compilador exige que toda variable local tenga un valor antes de leerla. `default` es útil
+cuando el valor inicial no importa porque lo vas a sobrescribir enseguida, por ejemplo antes de
+convertir un dato leído por consola, como haces en la sección siguiente.
+
+## Entrada y salida por consola
+
+Ya usaste `Console.WriteLine`, `Console.Write` y `Console.ReadLine` en la Semana 1. Esta semana los
+usas con intención: para construir un pequeño registro de datos.
+
+::: {.diagrama}
+![Console.Write muestra el mensaje, Console.ReadLine devuelve siempre texto, una conversion cambia ese texto a un tipo numerico o logico, y Console.WriteLine muestra el resultado.](imagenes/flujo-entrada-salida-consola.svg){fig-alt="Flujo de cuatro pasos: pedir el dato, leerlo como texto, convertir el tipo y mostrar el resultado"}
+:::
+
+El punto que hay que fijar es este: **`Console.ReadLine` siempre devuelve `string`**, sin importar
+qué le pidas al usuario que escriba. Si necesitas un número, tienes que convertir ese texto tú
+mismo antes de poder operar con él.
+
+```csharp
+Console.Write("Cantidad: ");
+string? texto = Console.ReadLine();
+
+// texto es "12", una cadena. Todavia no es un numero.
+// int total = texto + 3;   // el compilador lo rechaza
+```
+
+### Qué significa el signo de interrogación en `string?`
+
+`Console.ReadLine` puede devolver `null` si la entrada estándar se cierra, por ejemplo cuando el
+programa corre sin una consola interactiva detrás. C# rastrea esa posibilidad con los **tipos de
+referencia que admiten valores nulos**: `string?` dice "esta variable puede contener un `string` o
+puede contener `null`". Un `string` sin el `?` es una promesa al compilador de que la variable
+nunca va a ser `null`; si igual llega a serlo, el compilador te avisa con una advertencia.
+
+Este curso usa `string?` en todo lo que venga directo de `Console.ReadLine`, y resuelve el posible
+`null` de una de estas dos formas:
+
+- **`??` (coalescencia nula).** `Console.ReadLine() ?? ""` usa la cadena vacía si el resultado fue
+  `null`.
+- **`!` (perdón nulo, *null-forgiving*).** `texto!` le dice al compilador "confía en mí, aquí no va
+  a ser `null`". No hace ninguna comprobación real: úsalo solo cuando estás seguro, porque si te
+  equivocas el programa falla al ejecutarse en vez de avisarte al compilar.
+
+## Conversión de tipos: `Convert`, `Parse` y `TryParse`
+
+C# ofrece varias formas de convertir un `string` a un tipo numérico. No son intercambiables: se
+diferencian en qué hacen cuando el texto no es un número válido.
+
+| Forma | Si el texto no es válido | Cuándo usarla |
+|---|---|---|
+| `Convert.ToInt32(texto)` | Lanza una excepción (`FormatException`, o `ArgumentNullException` si el texto es `null`) | Casi nunca en este curso: mezcla mal el manejo de `null` con el de texto inválido |
+| `int.Parse(texto)` | Lanza `FormatException` y detiene el programa si no atrapas el error | Cuando ya validaste el texto por otro medio y confías en que es válido |
+| `int.TryParse(texto, out int valor)` | Devuelve `false` y `valor` queda en `0`. No lanza ninguna excepción | La opción por omisión para leer datos del usuario |
+
+Compruébalo con `Parse`, sin protegerlo:
+
+```csharp
+Console.Write("Precio unitario: ");
+string? texto = Console.ReadLine();
+double precio = double.Parse(texto!);
+Console.WriteLine($"Precio registrado: {precio}");
+```
+
+Si el usuario escribe algo que no es un número, el programa se detiene con un error sin manejar:
+
+```text
+Precio unitario: abc
+Unhandled exception. System.FormatException: The input string 'abc' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Double.Parse(String s)
+   at Program.<Main>$(String[] args) in ...\Program.cs:line 18
+```
+
+`TryParse` evita ese desenlace. Intenta la conversión y te dice si funcionó con un valor lógico,
+en vez de interrumpir el programa:
+
+::: {.diagrama}
+![TryParse intenta la conversion y devuelve true o false. Si es true, la variable de salida queda con el valor convertido. Si es false, la variable queda en su valor por defecto y no se lanza ninguna excepcion.](imagenes/patron-tryparse.svg){fig-alt="Diagrama de decision del patron TryParse: rama verdadera con el valor convertido y rama falsa sin excepcion"}
+:::
+
+```csharp
+Console.Write("Cantidad en inventario: ");
+string? texto = Console.ReadLine();
+
+if (int.TryParse(texto, out int cantidad))
+{
+    Console.WriteLine($"Cantidad valida: {cantidad}");
+}
+else
+{
+    Console.WriteLine($"'{texto}' no es un numero entero valido.");
+}
+```
+
+`out int cantidad` declara la variable de salida en el mismo lugar donde la usas. Dentro del
+bloque `if`, `cantidad` ya tiene el valor convertido y disponible.
+
+Desde esta semana, **usa `TryParse` para todo dato que venga del teclado**. Vas a usar `Parse` y
+`Convert` en contadas ocasiones, cuando el dato venga de una fuente que ya validaste antes.
+
+## Caso de uso: el primer registro del sistema de gestión
+
+El proyecto que vas a construir durante el semestre es un sistema de gestión: la semana 5 le suma
+decisiones y ciclos, la 10 arreglos y funciones, y la 16 lo reescribe con clases e interfaz
+gráfica. Esta semana sientas la base: representar los datos de **un producto** con las variables
+correctas y leerlos de forma segura por consola.
+
+```csharp
+// Herramientas de Programacion I - Semana 02
+// Registro de un producto para el futuro sistema de gestion de inventario.
+
+Console.WriteLine("Sistema de gestion - Registro de producto");
+Console.WriteLine("==========================================");
+Console.WriteLine();
+
+Console.Write("Nombre del producto: ");
+string nombre = Console.ReadLine() ?? "";
+
+Console.Write("Precio unitario: ");
+string? textoPrecio = Console.ReadLine();
+bool precioValido = double.TryParse(textoPrecio, out double precio);
+
+Console.Write("Cantidad en inventario: ");
+string? textoCantidad = Console.ReadLine();
+bool cantidadValida = int.TryParse(textoCantidad, out int cantidad);
+
+Console.WriteLine();
+
+if (!precioValido || !cantidadValida)
+{
+    Console.WriteLine("No se pudo registrar el producto: revisa el precio y la cantidad.");
+}
+else
+{
+    double valorTotal = precio * cantidad;
+
+    Console.WriteLine("Resumen del producto");
+    Console.WriteLine("---------------------");
+    Console.WriteLine($"Nombre     : {nombre}");
+    Console.WriteLine($"Precio     : {precio}");
+    Console.WriteLine($"Cantidad   : {cantidad}");
+    Console.WriteLine($"Valor total: {valorTotal}");
+}
+```
+
+Una corrida con datos válidos:
+
+```text
+Sistema de gestion - Registro de producto
+==========================================
+
+Nombre del producto: Cable HDMI 2 metros
+Precio unitario: 4599.90
+Cantidad en inventario: 12
+
+Resumen del producto
+---------------------
+Nombre     : Cable HDMI 2 metros
+Precio     : 4599.9
+Cantidad   : 12
+Valor total: 55198.799999999996
+```
+
+Dos detalles reales de esta salida, no simplificados a propósito:
+
+- `Precio` imprime `4599.9`, sin el cero final que escribiste. `double` no guarda ceros
+  decorativos: guarda el número.
+- `Valor total` imprime `55198.799999999996` en vez de `55198.8`. Es la misma imprecisión de
+  `double` que viste en la sección de tipos numéricos, ahora aplicada a un cálculo real. No es un
+  error del programa: es el comportamiento documentado del tipo.
+
+Una corrida con un dato inválido, sin que el programa se caiga:
+
+```text
+Sistema de gestion - Registro de producto
+==========================================
+
+Nombre del producto: Mouse inalambrico
+Precio unitario: abc
+Cantidad en inventario: 5
+
+No se pudo registrar el producto: revisa el precio y la cantidad.
+```
+
+`TryParse` dejó `precioValido` en `false` y el programa siguió corriendo hasta el final, sin lanzar
+ninguna excepción.
+
+## Errores frecuentes
+
+::: {.error-caso}
+[Error 1]{.etiqueta}
+
+#### `FormatException` al leer un número
+
+**Causa.** Usaste `Parse` o `Convert.ToInt32` sobre un texto que no es un número válido, y nadie
+protegió esa conversión.
+
+**Solución.** Cambia a `TryParse` y decide qué hacer en la rama `false`, en vez de dejar que el
+programa se detenga con una excepción sin manejar.
+:::
+
+::: {.error-caso}
+[Error 2]{.etiqueta}
+
+#### El compilador rechaza una operación entre tipos
+
+**Causa.** Intentaste sumar o comparar valores de tipos incompatibles, por ejemplo un `string` con
+un `int` sin convertir, o un `int` con un `bool`.
+
+**Solución.** Revisa el tipo de cada variable involucrada. El tipado fuerte de C# no permite las
+conversiones implícitas que sí acepta el pseudocódigo de Fundamentos de Programación.
+:::
+
+::: {.error-caso}
+[Error 3]{.etiqueta}
+
+#### El texto que pide el dato queda pegado a la respuesta
+
+**Causa.** Usaste `Console.WriteLine` en vez de `Console.Write` para el mensaje que precede a un
+`Console.ReadLine`. `WriteLine` salta de línea antes de que el usuario escriba, y el mensaje queda
+separado de la respuesta.
+
+**Solución.** Usa `Console.Write` (sin `Line`) cuando el siguiente paso es leer una respuesta en la
+misma línea.
+:::
+
+## Lista de verificación de la semana
+
+::: {.checklist}
+- [ ] Sabes qué genera el compilador a partir de las sentencias de nivel superior.
+- [ ] Distingues un tipo por valor de uno por referencia con un ejemplo propio.
+- [ ] Eliges `int` o `double` según el dato que vas a representar.
+- [ ] Sabes por qué `Console.ReadLine` siempre devuelve `string`.
+- [ ] Usas `TryParse` para convertir datos que vienen del teclado, sin que un dato inválido
+  detenga el programa.
+- [ ] Explicas qué significa el `?` en `string?` y cuándo usar `!` para descartar un posible
+  `null`.
+:::
+
+## Trabajo independiente
+
+Amplía el ejercicio de registro de producto:
+
+1. Agrega una cuarta variable, `codigo`, de tipo `string`, y pide su valor por consola.
+2. Agrega una quinta variable, `stockMinimo`, de tipo `int`, leída con `TryParse`.
+3. En el resumen final, agrega una línea que indique si `cantidad` es menor que `stockMinimo`,
+   usando lo que ya sabes de tipos lógicos (todavía sin `if`: basta con guardar el resultado de la
+   comparación en una variable `bool` e imprimirla).
+4. Prueba el programa dos veces: una con todos los datos válidos y otra con al menos un dato
+   inválido, y confirma que el segundo caso no lanza ninguna excepción.
+
+Guarda el ejercicio en un proyecto nuevo, dentro de la misma carpeta de trabajos donde tienes
+`HolaPascual`. No hace falta subirlo a GitHub esta semana; retomas ese flujo cuando el proyecto del
+curso lo requiera.
+
+## Recursos
+
+- Sentencias de nivel superior: [learn.microsoft.com/dotnet/csharp/fundamentals/program-structure/top-level-statements](https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/program-structure/top-level-statements)
+- El sistema de tipos de C#: [learn.microsoft.com/dotnet/csharp/fundamentals/types](https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/types/)
+- Tipos enteros integrados: [learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types](https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/integral-numeric-types)
+- Tipos reales integrados: [learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types](https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types)
+- Conversión de texto a número: [learn.microsoft.com/dotnet/standard/base-types/parsing-numeric](https://learn.microsoft.com/es-es/dotnet/standard/base-types/parsing-numeric)
+
+::: {.pie-doc}
+Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo.
+Facultad de Ingeniería. Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las
+salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK
+de .NET 10.0.302.
+:::

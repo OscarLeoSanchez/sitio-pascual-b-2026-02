@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="230" viewBox="0 0 880 230" role="img" aria-label="Flujo de entrada y salida por consola: Console Write muestra el mensaje, Console ReadLine devuelve siempre texto, una conversion pasa ese texto a un tipo numerico o logico, y Console WriteLine muestra el resultado" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="fe-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .paso-n { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .08em; fill: #5b6876; }
+    .paso-t { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #16202b; }
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 12px; fill: #16202b; }
+  </style>
+
+  <rect x="10" y="60" width="195" height="110" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="30" y="82" class="paso-n">1. PIDE EL DATO</text>
+  <text x="30" y="106" class="paso-t">Console.Write</text>
+  <text x="30" y="130" class="codigo">"Precio: "</text>
+  <text x="30" y="152" class="codigo" fill="#5b6876">deja el cursor</text>
+
+  <rect x="225" y="60" width="195" height="110" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="245" y="82" class="paso-n">2. LEE COMO TEXTO</text>
+  <text x="245" y="106" class="paso-t">Console.ReadLine</text>
+  <text x="245" y="130" class="codigo">string? texto</text>
+  <text x="245" y="152" class="codigo" fill="#5b6876">siempre string</text>
+
+  <rect x="440" y="60" width="220" height="110" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="460" y="82" class="paso-n">3. CONVIERTE EL TIPO</text>
+  <text x="460" y="106" class="paso-t">double.TryParse</text>
+  <text x="460" y="130" class="codigo">(texto, out precio)</text>
+  <text x="460" y="152" class="codigo" fill="#5b6876">texto -&gt; double</text>
+
+  <rect x="675" y="60" width="195" height="110" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="695" y="82" class="paso-n">4. MUESTRA EL RESULTADO</text>
+  <text x="695" y="106" class="paso-t">Console.WriteLine</text>
+  <text x="695" y="130" class="codigo">$"{precio}"</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none" marker-end="url(#fe-punta)">
+    <path d="M 205,115 L 220,115"/>
+    <path d="M 420,115 L 435,115"/>
+    <path d="M 660,115 L 670,115"/>
+  </g>
+
+  <text x="440" y="205" text-anchor="middle" class="codigo" fill="#5b6876" font-size="12">ReadLine nunca devuelve un numero. Convierte antes de operar con el valor.</text>
+</svg>

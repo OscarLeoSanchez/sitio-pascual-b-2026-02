@@ -1,0 +1,13 @@
+orden,maquina,turno,tipo,criticidad,duracion_min,repuestos
+101,TOR-01,manana,preventivo,baja,45.5,1
+102,TOR-02,tarde,correctivo,alta,182.0,4
+103,FRE-01,noche,preventivo,media,60.25,2
+104,TOR-01,manana,predictivo,baja,30.0,0
+105,FRE-02,tarde,correctivo,alta,210.5,5
+106,TOR-02,noche,preventivo,media,55.75,1
+107,FRE-01,manana,correctivo,alta,165.0,3
+108,TOR-01,tarde,preventivo,baja,40.5,1
+109,FRE-02,noche,predictivo,media,35.25,0
+110,TOR-02,manana,correctivo,alta,195.0,4
+111,FRE-01,tarde,preventivo,baja,50.0,2
+112,TOR-01,noche,correctivo,media,175.5,3

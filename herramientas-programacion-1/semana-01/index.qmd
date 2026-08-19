@@ -400,8 +400,9 @@ lista**: un error temprano genera otros en cascada, y al arreglarlo suelen desap
 
 **Causa.** La consola de Windows usa una codificación distinta a la del archivo de código.
 
-**Solución.** Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la
-Semana 2 lo resolvemos con `Console.OutputEncoding`.
+**Solución.** Escribe los mensajes sin tildes, como en los ejemplos de esta guía: es la opción que
+usa el curso por defecto. Si prefieres ver los acentos en tu propia consola, la Semana 2 trae la
+línea opcional que lo permite.
 :::
 
 ## Cierre de la sesión 1

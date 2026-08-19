@@ -64,7 +64,7 @@ semestre.
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
 | **[01](semana-01/index.qmd)** | Presentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa | Definición de IDE, estructura y función. Manejo de una herramienta de programación | - |
-| 02 | Estructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola | Manejo de una herramienta de programación. Tipos de variables | - |
+| **[02](semana-02/index.qmd)** | Estructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola | Manejo de una herramienta de programación. Tipos de variables | - |
 | 03 | Operadores aritméticos, lógicos y de comparación. Precedencia | Tipos y precedencia de operadores aritméticos, lógicos y de comparación | - |
 | 04 | Sentencias de control condicionales: `if`, `else`, `else if`, `switch` | Sentencias de control condicionales | - |
 | 05 | Ciclos `for` y `while`. Acumuladores, contadores y banderas. **Cierre de la Unidad 1** | Sentencias `for` y `while`. Acumuladores, contadores y banderas | **30%** |

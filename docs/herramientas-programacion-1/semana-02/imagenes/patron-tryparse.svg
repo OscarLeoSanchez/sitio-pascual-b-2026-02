@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="365" viewBox="0 0 880 365" role="img" aria-label="Patron de TryParse: intenta convertir el texto, si devuelve verdadero la variable de salida queda con el valor convertido y el programa sigue, si devuelve falso no se lanza ninguna excepcion y el programa decide que hacer" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="pt-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="pt-punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#2e7d5b"/>
+    </marker>
+    <marker id="pt-punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#a32d22"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12px; fill: #5b6876; }
+    .etq-v { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2e7d5b; }
+    .etq-r { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #a32d22; }
+  </style>
+
+  <rect x="270" y="20" width="340" height="70" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="440" y="48" text-anchor="middle" class="codigo">bool valido = int.TryParse(</text>
+  <text x="440" y="66" text-anchor="middle" class="codigo">texto, out int cantidad);</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 440,90 L 440,120" marker-end="url(#pt-punta)"/>
+  </g>
+
+  <path d="M 440,120 L 500,150 L 440,180 L 380,150 Z" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="440" y="155" text-anchor="middle" class="sec" font-weight="700">valido?</text>
+
+  <g stroke="#2e7d5b" stroke-width="2" fill="none" marker-end="url(#pt-punta-v)">
+    <path d="M 480,165 C 560,210 620,210 660,225"/>
+  </g>
+  <text x="560" y="200" class="etq-v">true</text>
+
+  <rect x="640" y="230" width="220" height="76" rx="9" fill="#f4faf7" stroke="#2e7d5b" stroke-width="1.75"/>
+  <text x="660" y="252" class="txt" font-weight="700" fill="#2e7d5b">cantidad tiene el valor</text>
+  <text x="660" y="272" class="codigo">// usa "cantidad" con</text>
+  <text x="660" y="290" class="codigo">// confianza aqui abajo</text>
+
+  <g stroke="#a32d22" stroke-width="2" fill="none" marker-end="url(#pt-punta-r)">
+    <path d="M 400,165 C 320,210 260,210 220,225"/>
+  </g>
+  <text x="290" y="200" class="etq-r">false</text>
+
+  <rect x="20" y="230" width="220" height="76" rx="9" fill="#fffbfb" stroke="#a32d22" stroke-width="1.75"/>
+  <text x="40" y="252" class="txt" font-weight="700" fill="#a32d22">cantidad queda en 0</text>
+  <text x="40" y="272" class="codigo" font-size="12">// no hay excepcion:</text>
+  <text x="40" y="290" class="codigo" font-size="12">// decides tu que hacer</text>
+
+  <text x="440" y="340" text-anchor="middle" class="sec">int.Parse en cambio lanza FormatException y detiene el programa si el texto no es valido.</text>
+</svg>

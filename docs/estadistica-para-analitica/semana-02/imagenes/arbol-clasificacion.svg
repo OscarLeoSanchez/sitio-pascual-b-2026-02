@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" width="880" height="420" role="img" aria-labelledby="t">
+<title id="t">Árbol de clasificación de una variable: numérica discreta o continua, categórica nominal u ordinal, con un ejemplo de mantenimiento en cada rama</title>
+<defs>
+<marker id="arrowhead2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876" />
+</marker>
+</defs>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.box-destacada { fill: #f6f8fa; stroke: #2f7bb8; stroke-width: 1.75; }
+.box-acento { fill: #e9f6f5; stroke: #0e8f8f; stroke-width: 1.75; }
+.box-ejemplo { fill: #f6f8fa; stroke: #cfd8e3; stroke-width: 1.5; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.ejemplo-texto { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.arrow { stroke: #5b6876; stroke-width: 2; fill: none; }
+</style>
+
+<path class="arrow" d="M440,70 L206,138" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M440,70 L674,138" marker-end="url(#arrowhead2)" />
+
+<path class="arrow" d="M200,204 L124,252" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M200,204 L276,252" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M680,204 L604,252" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M680,204 L756,252" marker-end="url(#arrowhead2)" />
+
+<path class="arrow" d="M120,318 L120,350" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M280,318 L280,350" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M600,318 L600,350" marker-end="url(#arrowhead2)" />
+<path class="arrow" d="M760,318 L760,350" marker-end="url(#arrowhead2)" />
+
+<rect class="box-destacada" x="320" y="16" width="240" height="54" rx="9" />
+<text class="titulo" x="440" y="38"><tspan x="440" dy="0">La variable que</tspan><tspan x="440" dy="18">vas a registrar</tspan></text>
+
+<rect class="box-destacada" x="70" y="140" width="260" height="64" rx="9" />
+<text class="titulo" x="200" y="168"><tspan x="200" dy="0">Numérica</tspan></text>
+<text class="subtitulo" x="200" y="188">se cuenta o se mide</text>
+
+<rect class="box-acento" x="550" y="140" width="260" height="64" rx="9" />
+<text class="titulo" x="680" y="168"><tspan x="680" dy="0">Categórica</tspan></text>
+<text class="subtitulo" x="680" y="188">describe una cualidad</text>
+
+<rect class="box" x="45" y="254" width="150" height="64" rx="9" />
+<text class="titulo" x="120" y="280"><tspan x="120" dy="0">Discreta</tspan></text>
+<text class="subtitulo" x="120" y="300">valores contables</text>
+
+<rect class="box" x="205" y="254" width="150" height="64" rx="9" />
+<text class="titulo" x="280" y="280"><tspan x="280" dy="0">Continua</tspan></text>
+<text class="subtitulo" x="280" y="300">escala continua</text>
+
+<rect class="box" x="525" y="254" width="150" height="64" rx="9" />
+<text class="titulo" x="600" y="280"><tspan x="600" dy="0">Nominal</tspan></text>
+<text class="subtitulo" x="600" y="300">sin orden natural</text>
+
+<rect class="box" x="685" y="254" width="150" height="64" rx="9" />
+<text class="titulo" x="760" y="280"><tspan x="760" dy="0">Ordinal</tspan></text>
+<text class="subtitulo" x="760" y="300">con orden natural</text>
+
+<rect class="box-ejemplo" x="45" y="350" width="150" height="56" rx="9" />
+<text class="ejemplo-texto" x="120" y="376"><tspan x="120" dy="0">Repuestos usados</tspan><tspan x="120" dy="17">por intervención</tspan></text>
+
+<rect class="box-ejemplo" x="205" y="350" width="150" height="56" rx="9" />
+<text class="ejemplo-texto" x="280" y="376"><tspan x="280" dy="0">Duración de la</tspan><tspan x="280" dy="17">intervención (min)</tspan></text>
+
+<rect class="box-ejemplo" x="525" y="350" width="150" height="56" rx="9" />
+<text class="ejemplo-texto" x="600" y="376"><tspan x="600" dy="0">Máquina y turno</tspan><tspan x="600" dy="17">de la intervención</tspan></text>
+
+<rect class="box-ejemplo" x="685" y="350" width="150" height="56" rx="9" />
+<text class="ejemplo-texto" x="760" y="376"><tspan x="760" dy="0">Criticidad: baja,</tspan><tspan x="760" dy="17">media o alta</tspan></text>
+</svg>

@@ -21,6 +21,149 @@
     "text": "Sobre el material\nEscribí las guías para quien ya vio Fundamentos de Programación pero nunca ha escrito código en C#. Probé cada procedimiento y cada programa en una máquina real antes de publicarlo, y las salidas de terminal son auténticas de esa preparación.\nSi encuentras un error, un enlace roto o un paso que falla en tu equipo, dímelo en el encuentro o por el canal del curso. Lo corrijo y queda arreglado para todos.\n\nOscar Leonel Sánchez Conde. Institución Universitaria Pascual Bravo, Facultad de Ingeniería. Semestre 2026-02."
   },
   {
+    "objectID": "herramientas-programacion-1/semana-02/index.html",
+    "href": "herramientas-programacion-1/semana-02/index.html",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 1. Aplicaciones de consola con un IDE\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente\nEsta guía se probó con el SDK de .NET 10.0.302. Si dotnet --version te muestra un número mayor dentro de la misma línea 10, el material funciona igual.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#lo-que-vas-a-lograr",
+    "href": "herramientas-programacion-1/semana-02/index.html#lo-que-vas-a-lograr",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "1 Lo que vas a lograr",
+    "text": "1 Lo que vas a lograr\nEn la Semana 1 dejaste HolaPascual ejecutando y publicado en GitHub. Esta semana abres ese mismo tipo de proyecto y aprendes de qué está hecho por dentro: cómo se organiza un programa de C#, qué tipos de datos existen para representar la información y cómo entra y sale esa información por la consola.\nObjetivos concretos:\n\nExplicar la estructura de un archivo Program.cs con sentencias de nivel superior.\nAplicar la sintaxis básica del lenguaje: sentencias, bloques, comentarios y convenciones de nombres.\nElegir el tipo de variable correcto según el dato que representa: enteros, reales, texto, caracteres y valores lógicos.\nLeer datos por consola y convertir el texto que devuelve Console.ReadLine al tipo que necesitas, sin que un dato inválido detenga el programa.\n\nAbrir la presentación de la sesión\n\n\n\n\n\n\nNotaOpcional: los acentos en la consola\n\n\n\nEn la Semana 1 quedó pendiente el error de los acentos en la consola de Windows. La causa es que la consola usa una página de códigos distinta a la codificación UTF-8 del archivo fuente. Este curso deja la consola con su configuración por defecto y evita tildes y eñes en lo que imprime, así que no vas a necesitar nada especial para seguir el material.\nSi prefieres ver los acentos en tu propia consola, agrega esta línea al inicio del programa, antes de la primera instrucción que escriba texto:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\n\nConsole.WriteLine(\"Programación en C#: tildes, eñes y signos como el guion.\");\nProgramación en C#: tildes, eñes y signos como el guion.\nEs opcional: ningún ejercicio del curso lo exige.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#antes-de-empezar-los-acentos-en-la-consola",
+    "href": "herramientas-programacion-1/semana-02/index.html#antes-de-empezar-los-acentos-en-la-consola",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "2 Antes de empezar: los acentos en la consola",
+    "text": "2 Antes de empezar: los acentos en la consola\nEn la Semana 1 quedó pendiente el error de los acentos en la consola de Windows. La causa es que la consola usa una página de códigos distinta a la codificación UTF-8 del archivo fuente. Se resuelve con una sola línea al inicio del programa:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nPruébalo en HolaPascual o en un proyecto nuevo:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\n\nConsole.WriteLine(\"Programación en C#: tildes, eñes y signos como el guion.\");\nConsole.WriteLine(\"Cantidad: 12, Precio: $4599.90 (número con punto decimal)\");\nProgramación en C#: tildes, eñes y signos como el guion.\nCantidad: 12, Precio: $4599.90 (número con punto decimal)\nAgrega esa línea al principio de cada proyecto nuevo de este curso, antes de la primera instrucción que escriba texto.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#anatomía-de-un-programa-con-sentencias-de-nivel-superior",
+    "href": "herramientas-programacion-1/semana-02/index.html#anatomía-de-un-programa-con-sentencias-de-nivel-superior",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "2 Anatomía de un programa con sentencias de nivel superior",
+    "text": "2 Anatomía de un programa con sentencias de nivel superior\nDesde dotnet new console, el Program.cs que generó el SDK no tiene una clase Program ni un método Main visibles. Eso no significa que no existan: el compilador los genera por ti a partir de lo que escribes. A este estilo se le llama sentencias de nivel superior (top-level statements), y es la forma recomendada para escribir programas nuevos en C#.\nUn archivo con sentencias de nivel superior se organiza en tres bloques, en este orden:\n\n\n\n\nUn archivo Program.cs con sentencias de nivel superior se organiza en directivas using, el cuerpo del programa y, al final, las definiciones de tipos.\n\n\n\n\nDirectivas using, si necesitas una biblioteca que no está entre las que .NET importa de forma implícita (ImplicitUsings en el .csproj, que ya viste en la Semana 1).\nLas sentencias de nivel superior, que son el cuerpo real de tu programa. Van directamente en la raíz del archivo, sin envolverlas en una clase ni en un método.\nDefiniciones de tipos, si el archivo también declara una clase o un struct. Deben ir después de las sentencias de nivel superior, nunca antes.\n\nSolo puede haber un archivo del proyecto con sentencias de nivel superior. Cuando el proyecto crezca y necesites varias clases en archivos separados (a partir de la Unidad 3), esos archivos adicionales no llevan sentencias de nivel superior: solo definiciones de tipos.\n\n\n\n\n\n\nNotaQué genera el compilador por dentro\n\n\n\nEl compilador convierte tus sentencias de nivel superior en un método Main real. La firma exacta depende de si usas return o await en el cuerpo:\n\n\n\nTu código usa\nFirma que genera el compilador\n\n\n\n\nNi return ni await\nstatic void Main(string[] args)\n\n\nSolo return\nstatic int Main(string[] args)\n\n\nSolo await\nstatic async Task Main(string[] args)\n\n\nreturn y await\nstatic async Task&lt;int&gt; Main(string[] args)\n\n\n\nNo necesitas escribir esa firma. La vas a reconocer cuando en la Unidad 3 vuelvas a un Main explícito para organizar un proyecto más grande.\n\n\nTambién tienes disponible la variable args, con los argumentos que reciba tu programa desde la línea de comandos. Nunca es null: si no pasaste ninguno, args.Length vale cero.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#sintaxis-básica-del-lenguaje",
+    "href": "herramientas-programacion-1/semana-02/index.html#sintaxis-básica-del-lenguaje",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "3 Sintaxis básica del lenguaje",
+    "text": "3 Sintaxis básica del lenguaje\nC# comparte varias reglas con el pseudocódigo que ya escribiste en Fundamentos de Programación, más un conjunto de símbolos que el compilador exige de forma estricta.\n\n\n\n\n\n\n\nRegla\nEn C#\n\n\n\n\nFin de sentencia\nPunto y coma ; al final de cada instrucción\n\n\nBloque de código\nLlaves { }. Todo lo que agrupas (el cuerpo de una función, de un if, de un ciclo) va entre ellas\n\n\nComentario de una línea\n// texto, desde ahí hasta el final del renglón\n\n\nComentario de varias líneas\n/* texto */, puede abarcar varios renglones\n\n\nMayúsculas y minúsculas\nEl lenguaje distingue: precio y Precio son variables distintas\n\n\nEspacios e indentación\nNo afectan la ejecución, pero sí la lectura. Este curso indenta con 4 espacios\n\n\n\n// Esto es un comentario de una linea.\nint cantidad = 5;   // el punto y coma cierra la sentencia\n\n/* Esto es un comentario\n   de varias lineas. */\nif (cantidad &gt; 0)\n{\n    Console.WriteLine(\"Hay existencias.\");\n}\nOlvidar el punto y coma o dejar una llave sin cerrar es, con diferencia, el error más común de las primeras semanas. El compilador señala la línea siguiente a la del error real, así que si un mensaje no tiene sentido, revisa primero la línea de arriba.\n\nConvenciones de nombres\nC# no obliga un estilo de nombres, pero la comunidad y Microsoft usan uno consistente que este curso sigue desde ya:\n\n\n\n\n\n\n\n\nElemento\nConvención\nEjemplo\n\n\n\n\nVariables y parámetros\ncamelCase: primera palabra en minúscula, las siguientes con inicial mayúscula\nprecioUnitario, nombreProducto\n\n\nClases, métodos y tipos propios\nPascalCase: todas las palabras con inicial mayúscula\nProducto, CalcularTotal\n\n\nConstantes\nPascalCase también, en este curso\nStockMinimo\n\n\n\nUn nombre de variable debe decir qué representa. cantidad comunica más que c, y cantidadEnInventario más que cantidad cuando el programa maneja varias cantidades a la vez.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#tipos-de-variables",
+    "href": "herramientas-programacion-1/semana-02/index.html#tipos-de-variables",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "4 Tipos de variables",
+    "text": "4 Tipos de variables\nCada variable en C# tiene un tipo fijo, decidido cuando la declaras. El compilador impide mezclar tipos incompatibles antes de que el programa llegue a ejecutarse: es lo que se llama tipado fuerte, y es una de las diferencias más notorias frente al pseudocódigo de Fundamentos de Programación.\nint a = 5;\nbool esValido = true;\n\nint total = a + 2;        // correcto\n// int error = a + esValido;   // el compilador lo rechaza: no se puede sumar int y bool\n\nTipos por valor y tipos por referencia\nTodos los tipos de C# caen en una de dos categorías, y la diferencia importa desde ya porque determina qué pasa cuando copias una variable en otra.\n\n\n\n\nLos tipos por valor guardan el dato directamente y cada variable tiene su propia copia. Los tipos por referencia guardan una direccion hacia un objeto compartido.\n\n\n\n\nTipos por valor: int, double, bool, char y los demás tipos numéricos. La variable guarda el dato directamente. Copiarla crea una copia independiente.\nTipos por referencia: string, los arreglos (Semana 6) y las clases que definas desde la Unidad 3. La variable guarda una dirección hacia el dato real, que vive aparte. Copiar la variable copia la dirección, no el contenido: las dos variables terminan apuntando al mismo dato.\n\nPor ahora vas a trabajar sobre todo con tipos por valor y con string. La diferencia se vuelve crítica más adelante, cuando pases arreglos y objetos como parámetros de una función.\n\n\nTipos numéricos: cuál usar y cuándo\nC# tiene varios tipos numéricos, cada uno con un tamaño y un propósito distinto.\n\n\n\n\nLos tipos enteros se diferencian por su tamaño en bits y por eso por el rango de valores que admiten. Los tipos reales se diferencian por su precision.\n\n\n\nPara este curso, la regla práctica es corta:\n\nCuenta cosas con int. Es el tipo entero por omisión y alcanza para prácticamente cualquier cantidad que vayas a manejar en los ejercicios del semestre.\nMide cosas con double. Es el tipo real por omisión: precios, promedios, medidas.\nVas a conocer decimal en esta semana porque explica un comportamiento de double que necesitas entender antes de calcular con dinero, aunque en este curso sigas usando double para mantener la sintaxis simple.\n\ndouble resultado = 0.1 + 0.2;\nConsole.WriteLine(resultado);\n\ndecimal resultadoExacto = 0.1m + 0.2m;\nConsole.WriteLine(resultadoExacto);\n0.30000000000000004\n0.3\ndouble no representa exactamente todas las fracciones decimales, porque internamente guarda el número en base binaria. Para la mayoría de los cálculos del curso esa diferencia no se nota. Cuando trabajes con dinero de verdad, fuera de este curso, ese es el motivo por el que se usa decimal.\n\n\nCaracteres, texto y valores lógicos\n\n\n\n\n\n\n\n\n\nTipo\nGuarda\nEjemplo\nNota\n\n\n\n\nchar\nUn solo carácter, entre comillas simples\nchar inicial = 'P';\nEs un tipo por valor, aunque parezca texto\n\n\nstring\nTexto de cualquier longitud, entre comillas dobles\nstring nombre = \"Cable HDMI\";\nEs un tipo por referencia\n\n\nbool\ntrue o false, nada más\nbool activo = true;\nResultado natural de una comparación\n\n\n\n\n\nvar y el tipo explícito\nvar le pide al compilador que infiera el tipo a partir del valor que asignas. El tipo queda igual de fijo que si lo hubieras escrito tú: var no crea una variable de tipo flexible.\nvar cantidad = 12;        // el compilador fija el tipo en int\nvar precio = 4599.90;     // el compilador fija el tipo en double\nEste curso usa el tipo explícito (int cantidad = 12;) en el material, porque para quien empieza es más fácil verificar que declaró el tipo que quería. Usa var cuando el tipo ya es obvio por el lado derecho de la asignación; en cualquier otro caso, prefiere escribirlo.\n\n\nValores por defecto\nToda variable de tipo por valor tiene un valor por defecto si la inicializas con la palabra clave default en lugar de un literal:\nint contador = default;\ndouble total = default;\nbool encontrado = default;\n\nConsole.WriteLine($\"contador: {contador}, total: {total}, encontrado: {encontrado}\");\ncontador: 0, total: 0, encontrado: False\nEl compilador exige que toda variable local tenga un valor antes de leerla. default es útil cuando el valor inicial no importa porque lo vas a sobrescribir enseguida, por ejemplo antes de convertir un dato leído por consola, como haces en la sección siguiente.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#entrada-y-salida-por-consola",
+    "href": "herramientas-programacion-1/semana-02/index.html#entrada-y-salida-por-consola",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "5 Entrada y salida por consola",
+    "text": "5 Entrada y salida por consola\nYa usaste Console.WriteLine, Console.Write y Console.ReadLine en la Semana 1. Esta semana los usas con intención: para construir un pequeño registro de datos.\n\n\n\n\nConsole.Write muestra el mensaje, Console.ReadLine devuelve siempre texto, una conversion cambia ese texto a un tipo numerico o logico, y Console.WriteLine muestra el resultado.\n\n\n\nEl punto que hay que fijar es este: Console.ReadLine siempre devuelve string, sin importar qué le pidas al usuario que escriba. Si necesitas un número, tienes que convertir ese texto tú mismo antes de poder operar con él.\nConsole.Write(\"Cantidad: \");\nstring? texto = Console.ReadLine();\n\n// texto es \"12\", una cadena. Todavia no es un numero.\n// int total = texto + 3;   // el compilador lo rechaza\n\nQué significa el signo de interrogación en string?\nConsole.ReadLine puede devolver null si la entrada estándar se cierra, por ejemplo cuando el programa corre sin una consola interactiva detrás. C# rastrea esa posibilidad con los tipos de referencia que admiten valores nulos: string? dice “esta variable puede contener un string o puede contener null”. Un string sin el ? es una promesa al compilador de que la variable nunca va a ser null; si igual llega a serlo, el compilador te avisa con una advertencia.\nEste curso usa string? en todo lo que venga directo de Console.ReadLine, y resuelve el posible null de una de estas dos formas:\n\n?? (coalescencia nula). Console.ReadLine() ?? \"\" usa la cadena vacía si el resultado fue null.\n! (perdón nulo, null-forgiving). texto! le dice al compilador “confía en mí, aquí no va a ser null”. No hace ninguna comprobación real: úsalo solo cuando estás seguro, porque si te equivocas el programa falla al ejecutarse en vez de avisarte al compilar.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#conversión-de-tipos-convert-parse-y-tryparse",
+    "href": "herramientas-programacion-1/semana-02/index.html#conversión-de-tipos-convert-parse-y-tryparse",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "6 Conversión de tipos: Convert, Parse y TryParse",
+    "text": "6 Conversión de tipos: Convert, Parse y TryParse\nC# ofrece varias formas de convertir un string a un tipo numérico. No son intercambiables: se diferencian en qué hacen cuando el texto no es un número válido.\n\n\n\n\n\n\n\n\nForma\nSi el texto no es válido\nCuándo usarla\n\n\n\n\nConvert.ToInt32(texto)\nLanza una excepción (FormatException, o ArgumentNullException si el texto es null)\nCasi nunca en este curso: mezcla mal el manejo de null con el de texto inválido\n\n\nint.Parse(texto)\nLanza FormatException y detiene el programa si no atrapas el error\nCuando ya validaste el texto por otro medio y confías en que es válido\n\n\nint.TryParse(texto, out int valor)\nDevuelve false y valor queda en 0. No lanza ninguna excepción\nLa opción por omisión para leer datos del usuario\n\n\n\nCompruébalo con Parse, sin protegerlo:\nConsole.Write(\"Precio unitario: \");\nstring? texto = Console.ReadLine();\ndouble precio = double.Parse(texto!);\nConsole.WriteLine($\"Precio registrado: {precio}\");\nSi el usuario escribe algo que no es un número, el programa se detiene con un error sin manejar:\nPrecio unitario: abc\nUnhandled exception. System.FormatException: The input string 'abc' was not in a correct format.\n   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)\n   at System.Double.Parse(String s)\n   at Program.&lt;Main&gt;$(String[] args) in ...\\Program.cs:line 18\nTryParse evita ese desenlace. Intenta la conversión y te dice si funcionó con un valor lógico, en vez de interrumpir el programa:\n\n\n\n\nTryParse intenta la conversion y devuelve true o false. Si es true, la variable de salida queda con el valor convertido. Si es false, la variable queda en su valor por defecto y no se lanza ninguna excepcion.\n\n\n\nConsole.Write(\"Cantidad en inventario: \");\nstring? texto = Console.ReadLine();\n\nif (int.TryParse(texto, out int cantidad))\n{\n    Console.WriteLine($\"Cantidad valida: {cantidad}\");\n}\nelse\n{\n    Console.WriteLine($\"'{texto}' no es un numero entero valido.\");\n}\nout int cantidad declara la variable de salida en el mismo lugar donde la usas. Dentro del bloque if, cantidad ya tiene el valor convertido y disponible.\nDesde esta semana, usa TryParse para todo dato que venga del teclado. Vas a usar Parse y Convert en contadas ocasiones, cuando el dato venga de una fuente que ya validaste antes.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#caso-de-uso-el-primer-registro-del-sistema-de-gestión",
+    "href": "herramientas-programacion-1/semana-02/index.html#caso-de-uso-el-primer-registro-del-sistema-de-gestión",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "7 Caso de uso: el primer registro del sistema de gestión",
+    "text": "7 Caso de uso: el primer registro del sistema de gestión\nEl proyecto que vas a construir durante el semestre es un sistema de gestión: la semana 5 le suma decisiones y ciclos, la 10 arreglos y funciones, y la 16 lo reescribe con clases e interfaz gráfica. Esta semana sientas la base: representar los datos de un producto con las variables correctas y leerlos de forma segura por consola.\n// Herramientas de Programacion I - Semana 02\n// Registro de un producto para el futuro sistema de gestion de inventario.\n\nConsole.WriteLine(\"Sistema de gestion - Registro de producto\");\nConsole.WriteLine(\"==========================================\");\nConsole.WriteLine();\n\nConsole.Write(\"Nombre del producto: \");\nstring nombre = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Precio unitario: \");\nstring? textoPrecio = Console.ReadLine();\nbool precioValido = double.TryParse(textoPrecio, out double precio);\n\nConsole.Write(\"Cantidad en inventario: \");\nstring? textoCantidad = Console.ReadLine();\nbool cantidadValida = int.TryParse(textoCantidad, out int cantidad);\n\nConsole.WriteLine();\n\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto: revisa el precio y la cantidad.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n\n    Console.WriteLine(\"Resumen del producto\");\n    Console.WriteLine(\"---------------------\");\n    Console.WriteLine($\"Nombre     : {nombre}\");\n    Console.WriteLine($\"Precio     : {precio}\");\n    Console.WriteLine($\"Cantidad   : {cantidad}\");\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}\nUna corrida con datos válidos:\nSistema de gestion - Registro de producto\n==========================================\n\nNombre del producto: Cable HDMI 2 metros\nPrecio unitario: 4599.90\nCantidad en inventario: 12\n\nResumen del producto\n---------------------\nNombre     : Cable HDMI 2 metros\nPrecio     : 4599.9\nCantidad   : 12\nValor total: 55198.799999999996\nDos detalles reales de esta salida, no simplificados a propósito:\n\nPrecio imprime 4599.9, sin el cero final que escribiste. double no guarda ceros decorativos: guarda el número.\nValor total imprime 55198.799999999996 en vez de 55198.8. Es la misma imprecisión de double que viste en la sección de tipos numéricos, ahora aplicada a un cálculo real. No es un error del programa: es el comportamiento documentado del tipo.\n\nUna corrida con un dato inválido, sin que el programa se caiga:\nSistema de gestion - Registro de producto\n==========================================\n\nNombre del producto: Mouse inalambrico\nPrecio unitario: abc\nCantidad en inventario: 5\n\nNo se pudo registrar el producto: revisa el precio y la cantidad.\nTryParse dejó precioValido en false y el programa siguió corriendo hasta el final, sin lanzar ninguna excepción.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#errores-frecuentes",
+    "href": "herramientas-programacion-1/semana-02/index.html#errores-frecuentes",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "8 Errores frecuentes",
+    "text": "8 Errores frecuentes\n\nError 1\n\nFormatException al leer un número\nCausa. Usaste Parse o Convert.ToInt32 sobre un texto que no es un número válido, y nadie protegió esa conversión.\nSolución. Cambia a TryParse y decide qué hacer en la rama false, en vez de dejar que el programa se detenga con una excepción sin manejar.\n\n\n\nError 2\n\nEl compilador rechaza una operación entre tipos\nCausa. Intentaste sumar o comparar valores de tipos incompatibles, por ejemplo un string con un int sin convertir, o un int con un bool.\nSolución. Revisa el tipo de cada variable involucrada. El tipado fuerte de C# no permite las conversiones implícitas que sí acepta el pseudocódigo de Fundamentos de Programación.\n\n\n\nError 3\n\nEl texto que pide el dato queda pegado a la respuesta\nCausa. Usaste Console.WriteLine en vez de Console.Write para el mensaje que precede a un Console.ReadLine. WriteLine salta de línea antes de que el usuario escriba, y el mensaje queda separado de la respuesta.\nSolución. Usa Console.Write (sin Line) cuando el siguiente paso es leer una respuesta en la misma línea.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#lista-de-verificación-de-la-semana",
+    "href": "herramientas-programacion-1/semana-02/index.html#lista-de-verificación-de-la-semana",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "9 Lista de verificación de la semana",
+    "text": "9 Lista de verificación de la semana\n\n\nSabes qué genera el compilador a partir de las sentencias de nivel superior.\nDistingues un tipo por valor de uno por referencia con un ejemplo propio.\nEliges int o double según el dato que vas a representar.\nSabes por qué Console.ReadLine siempre devuelve string.\nUsas TryParse para convertir datos que vienen del teclado, sin que un dato inválido detenga el programa.\nExplicas qué significa el ? en string? y cuándo usar ! para descartar un posible null.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#trabajo-independiente",
+    "href": "herramientas-programacion-1/semana-02/index.html#trabajo-independiente",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "10 Trabajo independiente",
+    "text": "10 Trabajo independiente\nAmplía el ejercicio de registro de producto:\n\nAgrega una cuarta variable, codigo, de tipo string, y pide su valor por consola.\nAgrega una quinta variable, stockMinimo, de tipo int, leída con TryParse.\nEn el resumen final, agrega una línea que indique si cantidad es menor que stockMinimo, usando lo que ya sabes de tipos lógicos (todavía sin if: basta con guardar el resultado de la comparación en una variable bool e imprimirla).\nPrueba el programa dos veces: una con todos los datos válidos y otra con al menos un dato inválido, y confirma que el segundo caso no lanza ninguna excepción.\n\nGuarda el ejercicio en un proyecto nuevo, dentro de la misma carpeta de trabajos donde tienes HolaPascual. No hace falta subirlo a GitHub esta semana; retomas ese flujo cuando el proyecto del curso lo requiera.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/index.html#recursos",
+    "href": "herramientas-programacion-1/semana-02/index.html#recursos",
+    "title": "Semana 2. Sintaxis, variables y consola",
+    "section": "11 Recursos",
+    "text": "11 Recursos\n\nSentencias de nivel superior: learn.microsoft.com/dotnet/csharp/fundamentals/program-structure/top-level-statements\nEl sistema de tipos de C#: learn.microsoft.com/dotnet/csharp/fundamentals/types\nTipos enteros integrados: learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types\nTipos reales integrados: learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/floating-point-numeric-types\nConversión de texto a número: learn.microsoft.com/dotnet/standard/base-types/parsing-numeric\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "Semana 2. Sintaxis, variables y consola"
+    ]
+  },
+  {
     "objectID": "herramientas-programacion-1/semana-01/index.html",
     "href": "herramientas-programacion-1/semana-01/index.html",
     "title": "Semana 1. Entorno, Git y GitHub",
@@ -47,7 +190,7 @@
     "href": "herramientas-programacion-1/semana-01/index.html#sesión-1.-el-ide-y-tu-primer-programa",
     "title": "Semana 1. Entorno, Git y GitHub",
     "section": "2 Sesión 1. El IDE y tu primer programa",
-    "text": "2 Sesión 1. El IDE y tu primer programa\n\nQué es un IDE\nIDE significa Integrated Development Environment, entorno de desarrollo integrado. Es un solo programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que usarlas por separado, cada una con su propia forma de invocarse.\nEstas son las partes que lo componen y para qué sirve cada una:\n\n\n\n\n\n\n\nParte\nQué hace\n\n\n\n\nEditor de código\nEscribes el código. Colorea la sintaxis, autocompleta nombres y subraya los errores mientras escribes\n\n\nCompilador\nTraduce tu código a algo que la máquina puede ejecutar. Si hay errores de sintaxis, los reporta y no genera nada\n\n\nDepurador\nDetiene el programa en el punto que le indiques y te deja ver el valor de cada variable en ese instante\n\n\nGestor de proyectos\nOrganiza los archivos, las referencias y la configuración de compilación\n\n\nTerminal integrada\nEjecuta comandos sin salir del entorno\n\n\nControl de versiones\nRegistra el historial de cambios y lo sincroniza con un repositorio remoto\n\n\n\nEn este curso el IDE es Visual Studio 2026 Community, el lenguaje es C# y la plataforma es .NET 10.\nConviene separar tres cosas que se confunden:\n\nC# es el lenguaje. Las palabras y las reglas con las que escribes.\n.NET es la plataforma. Las bibliotecas que ya vienen hechas y el motor que ejecuta tu programa.\nVisual Studio es el IDE. La herramienta con la que trabajas sobre los dos anteriores.\n\nPuedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Instala la misma línea o una superior.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nSDK de .NET\n10.0.103\n\n\nGit\n2.50.0\n\n\nVisual Studio 2026 Community\n18.3\n\n\n\n\n\n\n\n\n\nNotaSobre la versión de Visual Studio\n\n\n\nEl número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de Visual Studio 2026 Community sirve para el curso.\n\n\n\n\n\nInstalación paso a paso\n\n1 SDK de .NET\nEs lo que compila y ejecuta tu código. Descarga la versión 10 desde dotnet.microsoft.com/download.\nInstala el SDK, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más común del curso.\nAcepta las opciones por omisión del instalador.\n\n\n2 Visual Studio 2026 Community\nDescarga desde visualstudio.microsoft.com. La edición Community es gratuita para estudiantes.\nEn el instalador aparece una lista de cargas de trabajo. Marca Desarrollo de escritorio de .NET. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2 y para Windows Forms en la unidad 3.\nNo marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.\n\n\n\n\n\n\nAdvertenciaReserva espacio y tiempo\n\n\n\nLa instalación pasa de 8 GB de descarga. Con una conexión doméstica puede tomar una hora larga. Empieza la descarga antes del encuentro sincrónico, no durante.\nDeja 20 GB libres en disco antes de arrancar.\n\n\n\n\n3 Git\nDescarga desde git-scm.com/downloads y acepta las opciones por omisión.\nLo usarás en la segunda sesión para guardar el historial del proyecto que vas a crear.\n\n\n4 Solo si usas macOS o Linux: VS Code\nVisual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de 2024 y nunca existió para Linux.\nInstala VS Code y la extensión C# Dev Kit, publicada por Microsoft:\ncode --install-extension ms-dotnettools.csdevkit\nCon VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas Windows.\n\n\n\nVerificación\nAbre una terminal nueva. Las que ya estaban abiertas no ven los cambios que los instaladores hicieron en el PATH, y los comandos van a fallar aunque la instalación esté bien.\nEjecuta:\ndotnet --version\ngit --version\nEstas son las respuestas reales de la máquina donde preparé la guía:\n&gt; dotnet --version\n10.0.103\n\n&gt; git --version\ngit version 2.50.0.windows.2\nLos números pueden ser mayores que los de arriba y no pasa nada. Lo que importa es que ningún comando responda con un error.\nPara ver todos los SDK instalados:\ndotnet --list-sdks\n10.0.103 [C:\\Program Files\\dotnet\\sdk]\n\n\nTu primer programa desde la terminal\nVas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un camino que funciona aunque el IDE falle.\n\nPaso 1: crea el proyecto\nUbícate en la carpeta donde guardas tus trabajos y ejecuta:\ndotnet new console -o HolaPascual\nLa salida es esta. Donde dice &lt;tu carpeta&gt; va la ruta real de tu equipo:\nLa plantilla \"Aplicación de consola\" se creó correctamente.\n\nProcesando acciones posteriores a la creación...\nRestaurando &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj:\n  Determinando los proyectos que se van a restaurar...\n  Se ha restaurado &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj (en 91 ms).\nRestauración realizada correctamente.\nSe creó una carpeta HolaPascual con dos archivos que importan.\n\n\nPaso 2: mira lo que se creó\nEl primero es HolaPascual.csproj, el archivo de proyecto:\n&lt;Project Sdk=\"Microsoft.NET.Sdk\"&gt;\n\n  &lt;PropertyGroup&gt;\n    &lt;OutputType&gt;Exe&lt;/OutputType&gt;\n    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;\n    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;\n    &lt;Nullable&gt;enable&lt;/Nullable&gt;\n  &lt;/PropertyGroup&gt;\n\n&lt;/Project&gt;\nDice cuatro cosas: que el resultado es un ejecutable, que apunta a .NET 10, que importa las bibliotecas más comunes sin que las escribas, y que avisa cuando una variable puede quedar sin valor.\nEl segundo es Program.cs, tu código:\n// See https://aka.ms/new-console-template for more information\nConsole.WriteLine(\"Hello, World!\");\nDos líneas. Una de ellas es un comentario.\n\n\nPaso 3: ejecútalo\nEntra a la carpeta y ejecuta:\ncd HolaPascual\ndotnet run\nHello, World!\nYa tienes un programa de C# funcionando.\n\n\nPaso 4: escribe tu propio código\nAbre Program.cs y reemplaza su contenido por esto:\n// Herramientas de Programacion I - Semana 01\n// Primer programa: entrada por teclado y salida por consola.\n\nConsole.WriteLine(\"Herramientas de Programacion I\");\nConsole.WriteLine(\"Tecnologia en Desarrollo de Software\");\nConsole.WriteLine();\n\nConsole.Write(\"Escribe tu nombre: \");\nstring? nombre = Console.ReadLine();\n\nConsole.WriteLine();\nConsole.WriteLine($\"Hola, {nombre}. Tu entorno de desarrollo funciona.\");\nEjecuta dotnet run otra vez y escribe tu nombre cuando lo pida:\nHerramientas de Programacion I\nTecnologia en Desarrollo de Software\n\nEscribe tu nombre: Ana Maria\n\nHola, Ana Maria. Tu entorno de desarrollo funciona.\nCuatro cosas nuevas aparecieron ahí:\n\nConsole.WriteLine escribe y salta de línea. Console.Write escribe y se queda en la misma línea, que es lo que quieres cuando pides un dato.\nConsole.ReadLine espera a que el usuario teclee algo y presione Enter, y devuelve lo que escribió.\nstring? nombre guarda ese texto. El signo de interrogación advierte que podría no llegar nada.\n$\"Hola, {nombre}.\" mete el valor de la variable dentro del texto. Se llama interpolación y la vas a usar todo el semestre.\n\n\n\nPaso 5: compila sin ejecutar\ndotnet run compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien escrito, usa:\ndotnet build\n  Determinando los proyectos que se van a restaurar...\n  Todos los proyectos están actualizados para la restauración.\n  HolaPascual -&gt; &lt;tu carpeta&gt;\\HolaPascual\\bin\\Debug\\net10.0\\HolaPascual.dll\n\nCompilación correcta.\n    0 Advertencia(s)\n    0 Errores\n\nTiempo transcurrido 00:00:01.11\nEsas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no funcione.\n\n\n\nEl mismo programa desde Visual Studio\nAhora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.\n\nAbre Visual Studio y elige Crear un proyecto.\nBusca la plantilla Aplicación de consola y confirma que dice C#. Hay plantillas con nombre parecido para otros lenguajes.\nPonle nombre HolaVisual y elige la carpeta donde guardas tus trabajos.\nEn la pantalla siguiente, deja .NET 10.0 como framework de destino.\nPresiona F5 para ejecutar.\n\nSe abre una ventana de consola con la salida. Al lado tienes el Explorador de soluciones, que es el mismo .csproj y el mismo Program.cs de antes, presentados en forma de árbol.\n\nPrueba el depurador\nEsta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el Program.cs de este proyecto y haz esto:\n\nHaz clic en el margen izquierdo, a la altura de la línea string? nombre = Console.ReadLine();. Aparece un punto rojo: es un punto de interrupción.\nPresiona F5. El programa arranca y se detiene justo en esa línea, antes de ejecutarla.\nPresiona F10 para avanzar una línea. Escribe tu nombre en la consola cuando lo pida.\nPasa el cursor sobre nombre. Visual Studio te muestra el valor que tiene en ese momento.\nPresiona F5 para dejar que termine.\n\nAcabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto es lo que te dice por qué.\n\n\n\nErrores frecuentes\n\nError 1\n\ndotnet no se reconoce como comando\nCausa. Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el PATH nuevo.\nSolución. Cierra todas las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar el instalador del SDK y revisa que terminara sin errores.\n\n\n\nError 2\n\nInstalé .NET pero dotnet build falla\nCausa. Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no sabe compilar.\nSolución. Ejecuta dotnet --list-sdks. Si no imprime ninguna línea, no tienes SDK. Vuelve a dotnet.microsoft.com/download y descarga el que dice SDK.\n\n\n\nError 3\n\nLa ventana de la consola se cierra de inmediato\nCausa. Ejecutaste con Ctrl+F5 en Visual Studio, o hiciste doble clic sobre el .exe. El programa termina y la ventana se va con él.\nSolución. Ejecuta con F5, que mantiene la ventana abierta al terminar. También puedes agregar Console.ReadKey(); como última línea para que espere una tecla.\n\n\n\nError 4\n\nEl proyecto no compila y no encuentro qué cambié\nCausa. Casi siempre falta un punto y coma, o hay una llave sin cerrar.\nSolución. Mira la ventana Lista de errores de Visual Studio, o la salida de dotnet build en la terminal. Cada error trae archivo y número de línea. Corrige siempre el primero de la lista: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.\n\n\n\nError 5\n\nLos acentos y las eñes salen como símbolos raros en la consola\nCausa. La consola de Windows usa una codificación distinta a la del archivo de código.\nSolución. Por ahora escribe los mensajes sin tildes, como en los ejemplos de esta guía. En la Semana 2 lo resolvemos con Console.OutputEncoding.",
+    "text": "2 Sesión 1. El IDE y tu primer programa\n\nQué es un IDE\nIDE significa Integrated Development Environment, entorno de desarrollo integrado. Es un solo programa que reúne las herramientas que necesitas para escribir software. Sin él tendrías que usarlas por separado, cada una con su propia forma de invocarse.\nEstas son las partes que lo componen y para qué sirve cada una:\n\n\n\n\n\n\n\nParte\nQué hace\n\n\n\n\nEditor de código\nEscribes el código. Colorea la sintaxis, autocompleta nombres y subraya los errores mientras escribes\n\n\nCompilador\nTraduce tu código a algo que la máquina puede ejecutar. Si hay errores de sintaxis, los reporta y no genera nada\n\n\nDepurador\nDetiene el programa en el punto que le indiques y te deja ver el valor de cada variable en ese instante\n\n\nGestor de proyectos\nOrganiza los archivos, las referencias y la configuración de compilación\n\n\nTerminal integrada\nEjecuta comandos sin salir del entorno\n\n\nControl de versiones\nRegistra el historial de cambios y lo sincroniza con un repositorio remoto\n\n\n\nEn este curso el IDE es Visual Studio 2026 Community, el lenguaje es C# y la plataforma es .NET 10.\nConviene separar tres cosas que se confunden:\n\nC# es el lenguaje. Las palabras y las reglas con las que escribes.\n.NET es la plataforma. Las bibliotecas que ya vienen hechas y el motor que ejecuta tu programa.\nVisual Studio es el IDE. La herramienta con la que trabajas sobre los dos anteriores.\n\nPuedes programar en C# sin Visual Studio. No puedes hacerlo sin .NET.\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Instala la misma línea o una superior.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nSDK de .NET\n10.0.103\n\n\nGit\n2.50.0\n\n\nVisual Studio 2026 Community\n18.3\n\n\n\n\n\n\n\n\n\nNotaSobre la versión de Visual Studio\n\n\n\nEl número de Visual Studio viene del proyecto donde probé el resto del material, no de la máquina donde preparé esta guía. Si el instalador te ofrece otro, instálalo igual: cualquier versión de Visual Studio 2026 Community sirve para el curso.\n\n\n\n\n\nInstalación paso a paso\n\n1 SDK de .NET\nEs lo que compila y ejecuta tu código. Descarga la versión 10 desde dotnet.microsoft.com/download.\nInstala el SDK, no el Runtime. El Runtime solo ejecuta programas ya compilados. El SDK además los construye, que es justo lo que vas a hacer todo el semestre. Es el error de instalación más común del curso.\nAcepta las opciones por omisión del instalador.\n\n\n2 Visual Studio 2026 Community\nDescarga desde visualstudio.microsoft.com. La edición Community es gratuita para estudiantes.\nEn el instalador aparece una lista de cargas de trabajo. Marca Desarrollo de escritorio de .NET. Con esa basta: incluye lo necesario para las aplicaciones de consola de las unidades 1 y 2 y para Windows Forms en la unidad 3.\nNo marques las demás cargas. Cada una suma varios gigabytes que no vas a usar.\n\n\n\n\n\n\nAdvertenciaReserva espacio y tiempo\n\n\n\nLa instalación pasa de 8 GB de descarga. Con una conexión doméstica puede tomar una hora larga. Empieza la descarga antes del encuentro sincrónico, no durante.\nDeja 20 GB libres en disco antes de arrancar.\n\n\n\n\n3 Git\nDescarga desde git-scm.com/downloads y acepta las opciones por omisión.\nLo usarás en la segunda sesión para guardar el historial del proyecto que vas a crear.\n\n\n4 Solo si usas macOS o Linux: VS Code\nVisual Studio 2026 es únicamente para Windows. Microsoft retiró Visual Studio para Mac en agosto de 2024 y nunca existió para Linux.\nInstala VS Code y la extensión C# Dev Kit, publicada por Microsoft:\ncode --install-extension ms-dotnettools.csdevkit\nCon VS Code y el SDK de .NET haces completas las unidades 1 y 2. Para la unidad 3 necesitas Windows.\n\n\n\nVerificación\nAbre una terminal nueva. Las que ya estaban abiertas no ven los cambios que los instaladores hicieron en el PATH, y los comandos van a fallar aunque la instalación esté bien.\nEjecuta:\ndotnet --version\ngit --version\nEstas son las respuestas reales de la máquina donde preparé la guía:\n&gt; dotnet --version\n10.0.103\n\n&gt; git --version\ngit version 2.50.0.windows.2\nLos números pueden ser mayores que los de arriba y no pasa nada. Lo que importa es que ningún comando responda con un error.\nPara ver todos los SDK instalados:\ndotnet --list-sdks\n10.0.103 [C:\\Program Files\\dotnet\\sdk]\n\n\nTu primer programa desde la terminal\nVas a hacerlo primero sin el IDE. Así ves los pasos que Visual Studio automatiza, y te queda un camino que funciona aunque el IDE falle.\n\nPaso 1: crea el proyecto\nUbícate en la carpeta donde guardas tus trabajos y ejecuta:\ndotnet new console -o HolaPascual\nLa salida es esta. Donde dice &lt;tu carpeta&gt; va la ruta real de tu equipo:\nLa plantilla \"Aplicación de consola\" se creó correctamente.\n\nProcesando acciones posteriores a la creación...\nRestaurando &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj:\n  Determinando los proyectos que se van a restaurar...\n  Se ha restaurado &lt;tu carpeta&gt;\\HolaPascual\\HolaPascual.csproj (en 91 ms).\nRestauración realizada correctamente.\nSe creó una carpeta HolaPascual con dos archivos que importan.\n\n\nPaso 2: mira lo que se creó\nEl primero es HolaPascual.csproj, el archivo de proyecto:\n&lt;Project Sdk=\"Microsoft.NET.Sdk\"&gt;\n\n  &lt;PropertyGroup&gt;\n    &lt;OutputType&gt;Exe&lt;/OutputType&gt;\n    &lt;TargetFramework&gt;net10.0&lt;/TargetFramework&gt;\n    &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;\n    &lt;Nullable&gt;enable&lt;/Nullable&gt;\n  &lt;/PropertyGroup&gt;\n\n&lt;/Project&gt;\nDice cuatro cosas: que el resultado es un ejecutable, que apunta a .NET 10, que importa las bibliotecas más comunes sin que las escribas, y que avisa cuando una variable puede quedar sin valor.\nEl segundo es Program.cs, tu código:\n// See https://aka.ms/new-console-template for more information\nConsole.WriteLine(\"Hello, World!\");\nDos líneas. Una de ellas es un comentario.\n\n\nPaso 3: ejecútalo\nEntra a la carpeta y ejecuta:\ncd HolaPascual\ndotnet run\nHello, World!\nYa tienes un programa de C# funcionando.\n\n\nPaso 4: escribe tu propio código\nAbre Program.cs y reemplaza su contenido por esto:\n// Herramientas de Programacion I - Semana 01\n// Primer programa: entrada por teclado y salida por consola.\n\nConsole.WriteLine(\"Herramientas de Programacion I\");\nConsole.WriteLine(\"Tecnologia en Desarrollo de Software\");\nConsole.WriteLine();\n\nConsole.Write(\"Escribe tu nombre: \");\nstring? nombre = Console.ReadLine();\n\nConsole.WriteLine();\nConsole.WriteLine($\"Hola, {nombre}. Tu entorno de desarrollo funciona.\");\nEjecuta dotnet run otra vez y escribe tu nombre cuando lo pida:\nHerramientas de Programacion I\nTecnologia en Desarrollo de Software\n\nEscribe tu nombre: Ana Maria\n\nHola, Ana Maria. Tu entorno de desarrollo funciona.\nCuatro cosas nuevas aparecieron ahí:\n\nConsole.WriteLine escribe y salta de línea. Console.Write escribe y se queda en la misma línea, que es lo que quieres cuando pides un dato.\nConsole.ReadLine espera a que el usuario teclee algo y presione Enter, y devuelve lo que escribió.\nstring? nombre guarda ese texto. El signo de interrogación advierte que podría no llegar nada.\n$\"Hola, {nombre}.\" mete el valor de la variable dentro del texto. Se llama interpolación y la vas a usar todo el semestre.\n\n\n\nPaso 5: compila sin ejecutar\ndotnet run compila y ejecuta de un solo golpe. Cuando solo quieres saber si el código está bien escrito, usa:\ndotnet build\n  Determinando los proyectos que se van a restaurar...\n  Todos los proyectos están actualizados para la restauración.\n  HolaPascual -&gt; &lt;tu carpeta&gt;\\HolaPascual\\bin\\Debug\\net10.0\\HolaPascual.dll\n\nCompilación correcta.\n    0 Advertencia(s)\n    0 Errores\n\nTiempo transcurrido 00:00:01.11\nEsas dos líneas del final, advertencias y errores, son las que vas a mirar cada vez que algo no funcione.\n\n\n\nEl mismo programa desde Visual Studio\nAhora repítelo con el IDE. El resultado es idéntico; cambia cuánto trabajo haces tú.\n\nAbre Visual Studio y elige Crear un proyecto.\nBusca la plantilla Aplicación de consola y confirma que dice C#. Hay plantillas con nombre parecido para otros lenguajes.\nPonle nombre HolaVisual y elige la carpeta donde guardas tus trabajos.\nEn la pantalla siguiente, deja .NET 10.0 como framework de destino.\nPresiona F5 para ejecutar.\n\nSe abre una ventana de consola con la salida. Al lado tienes el Explorador de soluciones, que es el mismo .csproj y el mismo Program.cs de antes, presentados en forma de árbol.\n\nPrueba el depurador\nEsta es la razón principal para usar un IDE. Pega tu código de la sección anterior en el Program.cs de este proyecto y haz esto:\n\nHaz clic en el margen izquierdo, a la altura de la línea string? nombre = Console.ReadLine();. Aparece un punto rojo: es un punto de interrupción.\nPresiona F5. El programa arranca y se detiene justo en esa línea, antes de ejecutarla.\nPresiona F10 para avanzar una línea. Escribe tu nombre en la consola cuando lo pida.\nPasa el cursor sobre nombre. Visual Studio te muestra el valor que tiene en ese momento.\nPresiona F5 para dejar que termine.\n\nAcabas de ver el programa por dentro mientras corre. Cuando un ejercicio dé un resultado raro, esto es lo que te dice por qué.\n\n\n\nErrores frecuentes\n\nError 1\n\ndotnet no se reconoce como comando\nCausa. Abriste la terminal antes de instalar el SDK, así que esa ventana no ve el PATH nuevo.\nSolución. Cierra todas las terminales y abre una nueva. Si el error sigue, vuelve a ejecutar el instalador del SDK y revisa que terminara sin errores.\n\n\n\nError 2\n\nInstalé .NET pero dotnet build falla\nCausa. Instalaste el Runtime en lugar del SDK. El Runtime ejecuta programas ya compilados y no sabe compilar.\nSolución. Ejecuta dotnet --list-sdks. Si no imprime ninguna línea, no tienes SDK. Vuelve a dotnet.microsoft.com/download y descarga el que dice SDK.\n\n\n\nError 3\n\nLa ventana de la consola se cierra de inmediato\nCausa. Ejecutaste con Ctrl+F5 en Visual Studio, o hiciste doble clic sobre el .exe. El programa termina y la ventana se va con él.\nSolución. Ejecuta con F5, que mantiene la ventana abierta al terminar. También puedes agregar Console.ReadKey(); como última línea para que espere una tecla.\n\n\n\nError 4\n\nEl proyecto no compila y no encuentro qué cambié\nCausa. Casi siempre falta un punto y coma, o hay una llave sin cerrar.\nSolución. Mira la ventana Lista de errores de Visual Studio, o la salida de dotnet build en la terminal. Cada error trae archivo y número de línea. Corrige siempre el primero de la lista: un error temprano genera otros en cascada, y al arreglarlo suelen desaparecer varios.\n\n\n\nError 5\n\nLos acentos y las eñes salen como símbolos raros en la consola\nCausa. La consola de Windows usa una codificación distinta a la del archivo de código.\nSolución. Escribe los mensajes sin tildes, como en los ejemplos de esta guía: es la opción que usa el curso por defecto. Si prefieres ver los acentos en tu propia consola, la Semana 2 trae la línea opcional que lo permite.",
     "crumbs": [
       "Unidad 1. Aplicaciones de consola con un IDE",
       "Semana 1. Entorno, Git y GitHub"
@@ -107,6 +250,181 @@
       "Unidad 1. Aplicaciones de consola con un IDE",
       "Semana 1. Entorno, Git y GitHub"
     ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
+    "title": "Estadística para Analítica",
+    "section": "Ruta de la sesión",
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nLa pregunta que dejó abierta la Semana 1\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\nCategóricas: nominal y ordinal\n\n\nSegunda parte\n\nLaboratorio: CategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva\nEl conjunto de datos propio"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-quedó-pendiente",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-quedó-pendiente",
+    "title": "Estadística para Analítica",
+    "section": "Lo que quedó pendiente",
+    "text": "Lo que quedó pendiente\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
+    "title": "Estadística para Analítica",
+    "section": "criticidad quedó como object",
+    "text": "criticidad quedó como object\n\nPandas no sabe que baja, media y alta tienen un orden.\n\nEsa palabra genérica, object, esconde información: hay un orden real y el software no lo ve hasta que se lo declaras."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
+    "title": "Estadística para Analítica",
+    "section": "Dos preguntas clasifican cualquier variable",
+    "text": "Dos preguntas clasifican cualquier variable"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
+    "title": "Estadística para Analítica",
+    "section": "Primera pregunta",
+    "text": "Primera pregunta\n¿El valor se cuenta o se mide?\n\nSe cuenta, en unidades completas: numérica discreta.\nSe mide, en una escala donde caben decimales: numérica continua."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
+    "title": "Estadística para Analítica",
+    "section": "Segunda pregunta",
+    "text": "Segunda pregunta\nSi no es un número: ¿las categorías tienen un orden natural?\n\nSí lo tienen, sin inventar el criterio: categórica ordinal.\nNo lo tienen, o hay varios criterios igual de válidos: categórica nominal."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
+    "title": "Estadística para Analítica",
+    "section": "Numérica discreta: se cuenta",
+    "text": "Numérica discreta: se cuenta\nRepuestos usados, paradas no programadas en el mes, operarios asignados a una orden.\nNo hay un valor intermedio entre dos consecutivos: no existen 2.5 repuestos."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
+    "title": "Estadística para Analítica",
+    "section": "Numérica continua: se mide",
+    "text": "Numérica continua: se mide\nDuración de la intervención, temperatura del rodamiento, vibración en milímetros por segundo.\nEntre dos valores cualesquiera siempre cabe otro."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
+    "title": "Estadística para Analítica",
+    "section": "Verificación con datos reales",
+    "text": "Verificación con datos reales\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(sorted(ordenes[\"duracion_min\"].unique().tolist()))\n[0, 1, 2, 3, 4, 5]\n[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
+    "title": "Estadística para Analítica",
+    "section": "Discreta vs continua, en el mismo eje",
+    "text": "Discreta vs continua, en el mismo eje\n\nSeis barras separadas, en valores exactos, contra una nube de puntos donde cualquier posición entre el mínimo y el máximo es posible."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
+    "title": "Estadística para Analítica",
+    "section": "Categórica nominal: sin orden",
+    "text": "Categórica nominal: sin orden\nmaquina: los códigos de torno y fresadora no tienen un antes y un después.\ntipo de intervención: preventivo, correctivo y predictivo no forman una escala."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
+    "title": "Estadística para Analítica",
+    "section": "Categórica ordinal: con orden",
+    "text": "Categórica ordinal: con orden\ncriticidad: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir la distancia entre una y otra."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-de-la-semana-1-explicado",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-de-la-semana-1-explicado",
+    "title": "Estadística para Analítica",
+    "section": "El error de la Semana 1, explicado",
+    "text": "El error de la Semana 1, explicado\nprint(ordenes.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
+    "title": "Estadística para Analítica",
+    "section": "Nominal vs ordinal, en el mismo eje",
+    "text": "Nominal vs ordinal, en el mismo eje\n\nLa izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único orden que tiene sentido."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#laboratorio-declarar-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#laboratorio-declarar-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "Laboratorio: declarar el orden",
+    "text": "Laboratorio: declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
+    "title": "Estadística para Analítica",
+    "section": "El mismo sort_values, sin cambiar nada más",
+    "text": "El mismo sort_values, sin cambiar nada más\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   ...\n   102       alta\n\nLa diferencia no está en el método. Está en lo que le dijiste al dato sobre sí mismo."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
+    "title": "Estadística para Analítica",
+    "section": "Ahora el orden sirve para filtrar",
+    "text": "Ahora el orden sirve para filtrar\nurgentes = ordenes[ordenes[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "La trampa: un valor suelto pierde el orden",
+    "text": "La trampa: un valor suelto pierde el orden\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\n&lt;class 'str'&gt; baja\nFalse\n\n.iloc entrega texto normal. La comparación vuelve a ser alfabética, sin avisar."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
+    "title": "Estadística para Analítica",
+    "section": "La solución: .cat.codes",
+    "text": "La solución: .cat.codes\nprint(ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\nTrue\nEl orden vive en la columna completa. Si necesitas comparar dos valores sueltos, usa los códigos internos."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
+    "title": "Estadística para Analítica",
+    "section": "Caso de uso: una orden de trabajo nueva",
+    "text": "Caso de uso: una orden de trabajo nueva\nCuatro columnas nuevas, sin escribir todavía una línea de análisis:\n\n\n\n\n\n\n\n\n\nVariable nueva\nSe cuenta o se mide\nTiene orden\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es número\nSin orden\nCategórica nominal\n\n\nAprobada por supervisor\nNo es número\nSin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es número\nLeve &lt; moderado &lt; severo\nCategórica ordinal"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
+    "title": "Estadística para Analítica",
+    "section": "¿Y el sí/no de “aprobada”?",
+    "text": "¿Y el sí/no de “aprobada”?\n\nParece que pudiera codificarse como 1/0 y tratarse como número. No lo es: sumar o promediar esos ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es contar cuántas órdenes caen en cada categoría, que es el tratamiento de una variable nominal."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
+    "title": "Estadística para Analítica",
+    "section": "Qué análisis habilita cada tipo",
+    "text": "Qué análisis habilita cada tipo"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-conjunto-de-datos-propio-arranca-hoy",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-conjunto-de-datos-propio-arranca-hoy",
+    "title": "Estadística para Analítica",
+    "section": "El conjunto de datos propio arranca hoy",
+    "text": "El conjunto de datos propio arranca hoy\n\nSe mide u observa un proceso real. No sirve un archivo descargado de internet.\n\n\nMínimo 40 registros.\nAl menos dos variables numéricas.\nAl menos dos variables categóricas, una de ellas ordinal.\nCada columna clasificada por escrito, antes de recoger el primer dato."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-entregas-esta-semana",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-entregas-esta-semana",
+    "title": "Estadística para Analítica",
+    "section": "Qué entregas esta semana",
+    "text": "Qué entregas esta semana\n\nUn .csv con las columnas diseñadas.\nLos primeros registros que ya tengas recogidos.\nUn párrafo que explique qué mide cada columna y por qué se clasificó así.\n\n\nLa recolección completa se verifica en la Semana 5, junto con el informe exploratorio."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "title": "Estadística para Analítica",
+    "section": "Lo que viene",
+    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio del conjunto de datos propio para cerrar la Unidad 1."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#ruta-de-la-sesión",
@@ -501,6 +819,138 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/semana-02/index.html",
+    "href": "estadistica-para-analitica/semana-02/index.html",
+    "title": "Semana 2. Tipos de variables",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nLa semana pasada quedó pendiente una pregunta: pandas leyó duracion_min y repuestos con el tipo correcto, pero puso object en criticidad, que es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde que baja, media y alta tienen un orden, y ese orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías, a declarar esa clasificación en pandas para que el software la respete, y a cerrar la sesión diseñando las columnas de tu propio conjunto de datos.\nAl terminar deberías poder:\n\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.\nDiseñar las columnas de un conjunto de datos propio, con al menos dos variables numéricas y dos categóricas, una de ellas ordinal.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
+    "href": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
+    "title": "Semana 2. Tipos de variables",
+    "section": "2 Por qué clasificar una variable no es un trámite",
+    "text": "2 Por qué clasificar una variable no es un trámite\nAntes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y cuáles son un error disfrazado de número.\nSumar repuestos (1, 4, 2, 0…) tiene sentido: el total de repuestos usados en el mes es una cantidad real. Sumar un código de máquina no lo tiene, aunque pandas lo deje intentar si lo codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si antes no declaraste que ese orden existe: el promedio de “baja” y “alta” no es “media” por casualidad aritmética, es media porque tú fijaste ese orden.\nLa consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
+    "href": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
+    "title": "Semana 2. Tipos de variables",
+    "section": "3 Dos preguntas clasifican cualquier variable",
+    "text": "3 Dos preguntas clasifican cualquier variable\nNo hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable en una de las cuatro categorías.\nPrimera pregunta: ¿el valor se cuenta o se mide?\nSi la respuesta es un número entero que sale de contar unidades completas, la variable es numérica discreta. Si sale de medir en una escala donde caben decimales, sin importar cuántos apliques, la variable es numérica continua.\nSegunda pregunta, solo si la variable no es un número: ¿las categorías tienen un orden natural?\nSi puedes ordenar las categorías de menor a mayor sin inventar el criterio, la variable es categórica ordinal. Si no existe ese orden, o existen varios criterios igual de válidos para ordenarla, la variable es categórica nominal.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
+    "href": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
+    "title": "Semana 2. Tipos de variables",
+    "section": "4 Numéricas: discretas y continuas",
+    "text": "4 Numéricas: discretas y continuas\nUna variable numérica discreta se cuenta. Sus valores posibles son un conjunto que puedes enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención, número de paradas no programadas en un mes, número de operarios asignados a una orden.\nUna variable numérica continua se mide. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.\nVerifícalo con datos reales. Descarga ordenes.csv, el mismo dataset de 12 órdenes de mantenimiento de la Semana 1, y ábrelo con pandas:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\n\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(sorted(ordenes[\"duracion_min\"].unique().tolist()))\n[0, 1, 2, 3, 4, 5]\n[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]\nrepuestos solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. duracion_min trae decimales y no hay un conjunto finito de valores esperables: cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.\n\n\n\n\n\n\nNotaUn caso que confunde: cuando lo continuo se registra redondeado\n\n\n\nSi un instrumento solo reporta minutos enteros, duracion_min seguiría siendo continua: la variable en sí admite cualquier valor real, aunque el instrumento con el que la mides tenga una resolución limitada. La naturaleza de la variable no cambia porque el aparato que la registra sea más o menos preciso.\n\n\n\n\n\nEl gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y 2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
+    "href": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
+    "title": "Semana 2. Tipos de variables",
+    "section": "5 Categóricas: nominales y ordinales",
+    "text": "5 Categóricas: nominales y ordinales\nUna variable categórica nominal describe una cualidad sin orden natural. Puedes reordenar sus categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque ninguna ordenación es más correcta que otra. En el dataset: maquina (los códigos de torno y fresadora no tienen un “antes” y un “después”) y tipo de intervención (preventivo, correctivo y predictivo no forman una escala).\nUna variable categórica ordinal describe una cualidad con un orden natural, aunque no puedas medir la distancia entre categorías consecutivas. criticidad es el ejemplo del dataset: baja, media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave es “alta” que “media” en un número, como sí puedes hacerlo con dos duraciones.\nprint(ordenes[\"maquina\"].dtype)\nprint(sorted(ordenes[\"maquina\"].unique().tolist()))\nobject\n['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']\nOrdenar maquina alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con criticidad pasa lo contrario, y ahí está el problema que arrastramos de la Semana 1.\nprint(ordenes.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\nPandas ordenó por texto, alfabéticamente: alta, baja, media. Es un orden válido para una cadena de texto y un orden equivocado para la criticidad de una intervención. El software no cometió un error: hizo exactamente lo que el tipo object le permite hacer. El error es no haberle dicho que criticidad es ordinal.\n\n\n\n\nDeclarar el orden en pandas\nPandas tiene un tipo de dato para esto: category, con el argumento ordered=True. Declaras la lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra respetando ese orden.\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(categories=[\"baja\", \"media\", \"alta\"], ordered=True)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\n\nprint(ordenes[\"criticidad\"].dtype)\nprint(ordenes.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\ncategory\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\n   102       alta\n   105       alta\n   107       alta\n   110       alta\nEl mismo sort_values, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.\nCon el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto.\nurgentes = ordenes[ordenes[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n\nprint(\"maximo:\", ordenes[\"criticidad\"].max())\nprint(\"minimo:\", ordenes[\"criticidad\"].min())\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta\nmaximo: alta\nminimo: baja\n\n\n\n\n\n\nAdvertenciaLa trampa: un valor suelto pierde el orden\n\n\n\nEl orden vive en el tipo de la columna completa, no en cada valor por separado. Si sacas un solo dato con .iloc y lo guardas en una variable, pandas te lo entrega convertido a texto normal, y una comparación entre esos dos valores vuelve a ser alfabética.\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(\"baja &lt; alta como texto suelto:\", ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\nprint(\"baja &lt; alta con los codigos internos:\",\n      ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\n&lt;class 'str'&gt; baja\nbaja &lt; alta como texto suelto: False\nbaja &lt; alta con los codigos internos: True\nbaja &lt; alta da False porque, como texto suelto, compara alfabéticamente (“b” va después de “a”). Compara filas dentro de una operación de pandas (sort_values, un filtro con [], .max(), .min()) y el orden se respeta. Si necesitas comparar dos valores sueltos, usa .cat.codes, que son los números internos que pandas asigna según el orden que declaraste.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
+    "href": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
+    "title": "Semana 2. Tipos de variables",
+    "section": "6 Caso de uso: diseñar las columnas de una orden de trabajo",
+    "text": "6 Caso de uso: diseñar las columnas de una orden de trabajo\nAsí se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir una sola línea de análisis.\nUn área de mantenimiento quiere registrar, además de lo que ya trae ordenes.csv, cuatro datos nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado, severo.\n\n\n\n\n\n\n\n\n\nVariable nueva\nPregunta 1: ¿se cuenta o se mide?\nPregunta 2: ¿tiene orden?\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide, con decimales\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es un número\nSin orden natural\nCategórica nominal\n\n\nAprobada por el supervisor\nNo es un número\nSolo dos valores, sin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es un número\nLeve, moderado y severo sí ordenan\nCategórica ordinal\n\n\n\n“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.\nVerifica la tabla con código, construyendo esas cuatro columnas nuevas para las 12 órdenes existentes:\nimport numpy as np\n\nrng = np.random.default_rng(2026)\n\nordenes[\"temperatura_c\"] = rng.uniform(38, 92, size=len(ordenes)).round(1)\nordenes[\"tecnico\"] = rng.choice([\"Diaz\", \"Moreno\", \"Restrepo\"], size=len(ordenes))\nordenes[\"aprobada\"] = rng.choice([\"si\", \"no\"], size=len(ordenes))\n\norden_desgaste = CategoricalDtype(categories=[\"leve\", \"moderado\", \"severo\"], ordered=True)\nordenes[\"desgaste\"] = rng.choice([\"leve\", \"moderado\", \"severo\"], size=len(ordenes))\nordenes[\"desgaste\"] = ordenes[\"desgaste\"].astype(orden_desgaste)\n\nprint(ordenes[[\"orden\", \"temperatura_c\", \"tecnico\", \"aprobada\", \"desgaste\"]].dtypes)\norden               int64\ntemperatura_c     float64\ntecnico            object\naprobada           object\ndesgaste         category\ndtype: object\ntemperatura_c quedó float64 sin que lo pidieras: np.random.default_rng().uniform siempre produce decimales, coherente con que es una variable continua. tecnico y aprobada quedan object, coherente con que son nominales. desgaste es la única que declaraste como category ordenada, porque es la única con un orden real.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#el-conjunto-de-datos-propio-arranca-esta-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#el-conjunto-de-datos-propio-arranca-esta-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "7 El conjunto de datos propio: arranca esta semana",
+    "text": "7 El conjunto de datos propio: arranca esta semana\nDesde aquí en adelante trabajas con datos que tú mismo mides u observas. Es el proyecto que atraviesa el semestre: lo describes en la Semana 5, lo modelas con una distribución en la Semana 10 y al final infieres sobre él en la Semana 16.\n\n\n\n\n\n\nImportanteEntregable: diseño y arranque de la recolección\n\n\n\nQué entregas. Un archivo .csv con las columnas de tu conjunto de datos y los primeros registros que ya hayas recogido para el momento de la Semana 3. La recolección completa se verifica en la Semana 5, cuando entregas el informe exploratorio; esta semana entregas el diseño y el arranque.\nMínimos exigidos:\n\nAl menos 40 registros, medidos u observados de un proceso real. No sirve un archivo descargado de internet: el criterio de la carta pide mediciones propias, no un dataset ajeno.\nAl menos dos variables numéricas.\nAl menos dos variables categóricas, y una de ellas debe ser ordinal.\nCada columna clasificada con las dos preguntas de esta guía, en una tabla como la del caso de mantenimiento, antes de recoger el primer dato.\n\nQué puedes medir. Cualquier proceso al que tengas acceso repetido: tu propio trabajo (tiempos de una tarea que repites, calidad de un entregable), un proceso doméstico o de tu barrio (consumo de un servicio, tiempos de un trayecto), o si trabajas en una planta o taller, algo del proceso que ya conoces. La carta descriptiva ancla los ejemplos del módulo en mantenimiento industrial, pero el conjunto de datos propio no tiene que venir de ahí: tiene que venir de algo que puedas medir de verdad, varias veces, durante las próximas semanas.\nFormato de entrega. Un archivo .csv, separado por comas, con encabezados sin tildes ni espacios (duracion_min, no duración (min)). Sube también un párrafo corto que explique qué mide cada columna y por qué la clasificaste así.\nCriterios de verificación:\n\nEl archivo abre con pd.read_csv sin ajustes manuales.\nCada columna tiene la clasificación declarada por escrito y coincide con lo que un compañero concluiría aplicando las mismas dos preguntas.\nAl menos una columna categórica está declarada como category ordenada en el código que acompaña la entrega.\n\n\n\nEste entregable no tiene nota. Es la base de la Semana 5, que sí la tiene con el 30% del cierre de la Unidad 1. Diseñar mal las columnas ahora se paga con trabajo doble entonces.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
+    "title": "Semana 2. Tipos de variables",
+    "section": "8 Errores frecuentes",
+    "text": "8 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "9 Lista de chequeo de la semana",
+    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden\nElegiste el proceso que vas a medir para tu conjunto de datos propio\nEscribiste la tabla de clasificación de tus columnas, antes de recoger el primer dato\nEmpezaste a recoger registros: al menos algunos deben estar listos para la Semana 3",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
+    "title": "Semana 2. Tipos de variables",
+    "section": "10 Lo que viene",
+    "text": "10 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio de tu conjunto de datos propio para cerrar la Unidad 1.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-02/index.html#recursos",
+    "title": "Semana 2. Tipos de variables",
+    "section": "11 Recursos",
+    "text": "11 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
     "objectID": "herramientas-programacion-1/index.html",
     "href": "herramientas-programacion-1/index.html",
     "title": "Herramientas de Programación I",
@@ -720,5 +1170,208 @@
     "title": "Git y GitHub con HolaPascual",
     "section": "El flujo desde ahora",
     "text": "El flujo desde ahora\ngit status\ngit diff\ngit add &lt;archivo&gt;\ngit commit -m \"tipo: describe el cambio\"\ngit push\nCambios pequeños, mensajes claros y un historial que puedas explicar.\n\nHerramientas de Programación I. Institución Universitaria Pascual Bravo. Semestre 2026-02.\nRedacción apoyada por Claude Opus 5 de Anthropic. Contenido revisado y validado."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#ruta-de-la-sesión",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#ruta-de-la-sesión",
+    "title": "Sintaxis, variables y consola",
+    "section": "Ruta de la sesión",
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nAcentos en la consola (opcional)\nAnatomía de un programa\nSintaxis y convenciones\nTipos por valor y por referencia\n\n\nSegunda parte\n\nTipos numéricos y precisión\nEntrada y salida por consola\nConvert, Parse y TryParse\nCaso de uso: registro de producto"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#de-holapascual-a-hoy",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#de-holapascual-a-hoy",
+    "title": "Sintaxis, variables y consola",
+    "section": "De HolaPascual a hoy",
+    "text": "De HolaPascual a hoy\n\nYa tienes el entorno, un programa que ejecuta y un repositorio en GitHub.\nHoy abres ese Program.cs y entiendes cada línea que ya escribiste.\nAl final de la sesión vas a leer datos del usuario sin que un error tumbe tu programa.\n\n\nTodo lo de hoy alimenta el sistema de gestión que vas a construir el resto del semestre."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-arregla-los-acentos",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-arregla-los-acentos",
+    "title": "Sintaxis, variables y consola",
+    "section": "Laboratorio: arregla los acentos",
+    "text": "Laboratorio: arregla los acentos\nPendiente de la Semana 1. Agrega esta línea antes de cualquier Console.WriteLine:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nProgramación en C#: tildes, eñes y signos como el guion.\nAgrégala al inicio de todo proyecto nuevo de este curso."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#sentencias-de-nivel-superior",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#sentencias-de-nivel-superior",
+    "title": "Sintaxis, variables y consola",
+    "section": "Sentencias de nivel superior",
+    "text": "Sentencias de nivel superior"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#qué-genera-el-compilador",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#qué-genera-el-compilador",
+    "title": "Sintaxis, variables y consola",
+    "section": "Qué genera el compilador",
+    "text": "Qué genera el compilador\n\n\n\nTu código usa\nFirma que genera\n\n\n\n\nNi return ni await\nstatic void Main(string[] args)\n\n\nSolo return\nstatic int Main(string[] args)\n\n\nSolo await\nstatic async Task Main(string[] args)\n\n\nreturn y await\nstatic async Task&lt;int&gt; Main(string[] args)\n\n\n\nUn solo archivo del proyecto puede tener sentencias de nivel superior."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#sintaxis-básica",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#sintaxis-básica",
+    "title": "Sintaxis, variables y consola",
+    "section": "Sintaxis básica",
+    "text": "Sintaxis básica\n\n\n\nRegla\nEn C#\n\n\n\n\nFin de sentencia\n; al final de cada instrucción\n\n\nBloque de código\n{ }\n\n\nComentario de una línea\n// texto\n\n\nComentario de varias líneas\n/* texto */\n\n\nMayúsculas y minúsculas\nEl lenguaje distingue\n\n\n\nint cantidad = 5;   // el punto y coma cierra la sentencia\nif (cantidad &gt; 0)\n{\n    Console.WriteLine(\"Hay existencias.\");\n}"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-encuentra-el-error",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-encuentra-el-error",
+    "title": "Sintaxis, variables y consola",
+    "section": "Laboratorio: encuentra el error",
+    "text": "Laboratorio: encuentra el error\nint cantidad = 5\nConsole.WriteLine(cantidad)\n\nFalta el punto y coma en las dos líneas. El compilador señala la línea siguiente a la del error real: revisa siempre un renglón arriba cuando el mensaje no cuadre."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#convenciones-de-nombres",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#convenciones-de-nombres",
+    "title": "Sintaxis, variables y consola",
+    "section": "Convenciones de nombres",
+    "text": "Convenciones de nombres\n\n\n\n\n\n\n\n\nElemento\nConvención\nEjemplo\n\n\n\n\nVariables y parámetros\ncamelCase\nprecioUnitario\n\n\nClases, métodos y tipos propios\nPascalCase\nProducto, CalcularTotal\n\n\nConstantes\nPascalCase en este curso\nStockMinimo\n\n\n\nUn nombre debe decir qué representa: cantidadEnInventario comunica más que c."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tipado-fuerte",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tipado-fuerte",
+    "title": "Sintaxis, variables y consola",
+    "section": "Tipado fuerte",
+    "text": "Tipado fuerte\nint a = 5;\nbool esValido = true;\n\nint total = a + 2;        // correcto\n// int error = a + esValido;   // el compilador lo rechaza\nC# no mezcla tipos incompatibles. El compilador lo detecta antes de ejecutar el programa."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tipos-por-valor-y-por-referencia",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tipos-por-valor-y-por-referencia",
+    "title": "Sintaxis, variables y consola",
+    "section": "Tipos por valor y por referencia",
+    "text": "Tipos por valor y por referencia\n\n\nPor valor: int, double, bool, char. Cada variable copia el dato. Por referencia: string, arreglos, clases. Las variables comparten el mismo objeto."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tipos-numéricos",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tipos-numéricos",
+    "title": "Sintaxis, variables y consola",
+    "section": "Tipos numéricos",
+    "text": "Tipos numéricos"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#la-regla-práctica-de-este-curso",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#la-regla-práctica-de-este-curso",
+    "title": "Sintaxis, variables y consola",
+    "section": "La regla práctica de este curso",
+    "text": "La regla práctica de este curso\n\nCuenta cosas con int. Es el tipo entero por omisión.\nMide cosas con double. Es el tipo real por omisión.\ndecimal existe para dinero real, fuera de este curso: 28 a 29 dígitos exactos."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-la-imprecisión-de-double",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-la-imprecisión-de-double",
+    "title": "Sintaxis, variables y consola",
+    "section": "Laboratorio: la imprecisión de double",
+    "text": "Laboratorio: la imprecisión de double\ndouble resultado = 0.1 + 0.2;\nConsole.WriteLine(resultado);\n\ndecimal resultadoExacto = 0.1m + 0.2m;\nConsole.WriteLine(resultadoExacto);\n0.30000000000000004\n0.3\ndouble guarda el número en base binaria. La mayoría de las fracciones decimales no tienen una representación exacta ahí."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caracteres-texto-y-lógicos",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caracteres-texto-y-lógicos",
+    "title": "Sintaxis, variables y consola",
+    "section": "Caracteres, texto y lógicos",
+    "text": "Caracteres, texto y lógicos\n\n\n\n\n\n\n\n\nTipo\nGuarda\nEjemplo\n\n\n\n\nchar\nUn solo carácter\nchar inicial = 'P';\n\n\nstring\nTexto de cualquier longitud\nstring nombre = \"Cable HDMI\";\n\n\nbool\ntrue o false\nbool activo = true;\n\n\n\nchar usa comillas simples. string usa comillas dobles."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#var-y-valores-por-defecto",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#var-y-valores-por-defecto",
+    "title": "Sintaxis, variables y consola",
+    "section": "var y valores por defecto",
+    "text": "var y valores por defecto\nvar cantidad = 12;        // el compilador fija el tipo en int\n\nint contador = default;\ndouble total = default;\nbool encontrado = default;\ncontador: 0, total: 0, encontrado: False\nvar no vuelve flexible el tipo: el compilador lo fija igual que si lo escribieras tú."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#console.readline-siempre-devuelve-texto",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#console.readline-siempre-devuelve-texto",
+    "title": "Sintaxis, variables y consola",
+    "section": "Console.ReadLine siempre devuelve texto",
+    "text": "Console.ReadLine siempre devuelve texto"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tres-formas-de-convertir-texto-a-número",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tres-formas-de-convertir-texto-a-número",
+    "title": "Sintaxis, variables y consola",
+    "section": "Tres formas de convertir texto a número",
+    "text": "Tres formas de convertir texto a número\n\n\n\n\n\n\n\nForma\nSi el texto no es válido\n\n\n\n\nConvert.ToInt32(texto)\nLanza una excepción\n\n\nint.Parse(texto)\nLanza FormatException\n\n\nint.TryParse(texto, out int valor)\nDevuelve false, sin excepción\n\n\n\nDesde hoy: TryParse para todo dato que venga del teclado."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-parse-sin-proteger",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-parse-sin-proteger",
+    "title": "Sintaxis, variables y consola",
+    "section": "Laboratorio: Parse sin proteger",
+    "text": "Laboratorio: Parse sin proteger\nConsole.Write(\"Precio unitario: \");\nstring? texto = Console.ReadLine();\ndouble precio = double.Parse(texto!);\nPrecio unitario: abc\nUnhandled exception. System.FormatException:\nThe input string 'abc' was not in a correct format.\nUn texto inválido detiene el programa por completo."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#el-patrón-tryparse",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#el-patrón-tryparse",
+    "title": "Sintaxis, variables y consola",
+    "section": "El patrón TryParse",
+    "text": "El patrón TryParse"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-tryparse-en-acción",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-tryparse-en-acción",
+    "title": "Sintaxis, variables y consola",
+    "section": "Laboratorio: TryParse en acción",
+    "text": "Laboratorio: TryParse en acción\nConsole.Write(\"Cantidad en inventario: \");\nstring? texto = Console.ReadLine();\n\nif (int.TryParse(texto, out int cantidad))\n{\n    Console.WriteLine($\"Cantidad valida: {cantidad}\");\n}\nelse\n{\n    Console.WriteLine($\"'{texto}' no es un numero entero valido.\");\n}\nout int cantidad declara la variable de salida en el mismo lugar donde la usas."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-registro-de-producto",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-registro-de-producto",
+    "title": "Sintaxis, variables y consola",
+    "section": "Caso de uso: registro de producto",
+    "text": "Caso de uso: registro de producto\nConsole.Write(\"Nombre del producto: \");\nstring nombre = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Precio unitario: \");\nbool precioValido = double.TryParse(Console.ReadLine(), out double precio);\n\nConsole.Write(\"Cantidad en inventario: \");\nbool cantidadValida = int.TryParse(Console.ReadLine(), out int cantidad);\n\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#corrida-con-datos-válidos",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#corrida-con-datos-válidos",
+    "title": "Sintaxis, variables y consola",
+    "section": "Corrida con datos válidos",
+    "text": "Corrida con datos válidos\nNombre del producto: Cable HDMI 2 metros\nPrecio unitario: 4599.90\nCantidad en inventario: 12\n\nResumen del producto\n---------------------\nNombre     : Cable HDMI 2 metros\nPrecio     : 4599.9\nCantidad   : 12\nValor total: 55198.799999999996\n\nEl valor total no es un error: es la misma imprecisión de double que ya viste."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#corrida-con-un-dato-inválido",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#corrida-con-un-dato-inválido",
+    "title": "Sintaxis, variables y consola",
+    "section": "Corrida con un dato inválido",
+    "text": "Corrida con un dato inválido\nNombre del producto: Mouse inalambrico\nPrecio unitario: abc\nCantidad en inventario: 5\n\nNo se pudo registrar el producto: revisa el precio y la cantidad.\nEl programa terminó completo. TryParse nunca lanzó una excepción."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tres-errores-frecuentes-de-hoy",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#tres-errores-frecuentes-de-hoy",
+    "title": "Sintaxis, variables y consola",
+    "section": "Tres errores frecuentes de hoy",
+    "text": "Tres errores frecuentes de hoy\n\n\nCompilación\n\nFalta ; o una llave sin cerrar.\nOperación entre tipos incompatibles.\n\n\nEjecución\n\nParse sin proteger sobre un dato inválido.\nWriteLine en vez de Write antes de un ReadLine."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#trabajo-independiente",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#trabajo-independiente",
+    "title": "Sintaxis, variables y consola",
+    "section": "Trabajo independiente",
+    "text": "Trabajo independiente\n\nAgrega codigo (string) y stockMinimo (int, con TryParse).\nGuarda en una variable bool si cantidad es menor que stockMinimo.\nPrueba el programa con datos válidos y con al menos un dato inválido.\n\nRetomas este ejercicio como base para las decisiones y ciclos de la Semana 3 en adelante."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#opcional-los-acentos-en-la-consola",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#opcional-los-acentos-en-la-consola",
+    "title": "Sintaxis, variables y consola",
+    "section": "Opcional: los acentos en la consola",
+    "text": "Opcional: los acentos en la consola\nPendiente de la Semana 1. El curso usa la consola con su configuración por defecto y evita tildes en lo que imprime, así que no necesitas nada especial para seguir el material.\nSi quieres ver los acentos en tu propia consola, agrega esta línea antes del primer Console.WriteLine:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nProgramación en C#: tildes, eñes y signos como el guion."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#string-y-el-operador",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#string-y-el-operador",
+    "title": "Sintaxis, variables y consola",
+    "section": "string? y el operador !",
+    "text": "string? y el operador !\nConsole.ReadLine puede devolver null. C# lo marca con string?: “puede ser string o puede ser null”.\n\n\n\n\n\n\n\nOperador\nQué hace\n\n\n\n\n??\nSi el valor es null, usa el de la derecha: texto ?? \"\"\n\n\n!\nLe dice al compilador “confía en mí, aquí no es null”, sin comprobarlo\n\n\n\nUsa ! solo cuando estás seguro. Si te equivocas, el programa falla al ejecutarse, no al compilar."
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-leer-y-validar-los-datos",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-leer-y-validar-los-datos",
+    "title": "Sintaxis, variables y consola",
+    "section": "Caso de uso: leer y validar los datos",
+    "text": "Caso de uso: leer y validar los datos\nConsole.WriteLine(\"Sistema de gestion - Registro de producto\");\nConsole.WriteLine(\"==========================================\");\nConsole.WriteLine();\n\nConsole.Write(\"Nombre del producto: \");\nstring nombre = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Precio unitario: \");\nstring? textoPrecio = Console.ReadLine();\nbool precioValido = double.TryParse(textoPrecio, out double precio);\n\nConsole.Write(\"Cantidad en inventario: \");\nstring? textoCantidad = Console.ReadLine();\nbool cantidadValida = int.TryParse(textoCantidad, out int cantidad);"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-construir-el-resumen",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-construir-el-resumen",
+    "title": "Sintaxis, variables y consola",
+    "section": "Caso de uso: construir el resumen",
+    "text": "Caso de uso: construir el resumen\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto: revisa el precio y la cantidad.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n\n    Console.WriteLine(\"Resumen del producto\");\n    Console.WriteLine(\"---------------------\");\n    Console.WriteLine($\"Nombre     : {nombre}\");\n    Console.WriteLine($\"Precio     : {precio}\");\n    Console.WriteLine($\"Cantidad   : {cantidad}\");\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}"
   }
 ]

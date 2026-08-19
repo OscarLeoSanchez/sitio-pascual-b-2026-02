@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="400" viewBox="0 0 880 400" role="img" aria-label="Anatomia de un archivo Program.cs con sentencias de nivel superior: directivas using arriba, el cuerpo del programa en el centro y las definiciones de tipos opcionales al final" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ap-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .titulo { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 700; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13.5px; fill: #16202b; }
+    .anot { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; fill: #5b6876; }
+  </style>
+
+  <text x="20" y="26" class="titulo">Program.cs generado por dotnet new console</text>
+
+  <rect x="20" y="42" width="560" height="52" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="34" y="62" class="sec">Directivas using (si las necesitas)</text>
+  <text x="34" y="82" class="codigo">using System.Globalization;</text>
+
+  <rect x="20" y="106" width="560" height="160" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="34" y="126" class="sec">Sentencias de nivel superior: el cuerpo real del programa</text>
+  <text x="34" y="148" class="codigo">Console.WriteLine("Sistema de gestion");</text>
+  <text x="34" y="168" class="codigo">Console.Write("Nombre del producto: ");</text>
+  <text x="34" y="188" class="codigo">string nombre = Console.ReadLine() ?? "";</text>
+  <text x="34" y="208" class="codigo">int cantidad = int.Parse(Console.ReadLine()!);</text>
+  <text x="34" y="228" class="codigo">Console.WriteLine($"Registrado: {nombre}");</text>
+
+  <rect x="20" y="282" width="560" height="98" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="34" y="302" class="sec">Tipos que definas van despues (opcional, semana 11 en adelante)</text>
+  <text x="34" y="324" class="codigo">class Producto</text>
+  <text x="34" y="344" class="codigo">{</text>
+  <text x="34" y="364" class="codigo">    // atributos y metodos</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none" marker-end="url(#ap-punta)">
+    <path d="M 600,186 C 650,186 650,140 690,140"/>
+  </g>
+  <text x="695" y="120" class="anot" font-weight="700" fill="#17456f">El compilador genera</text>
+  <rect x="695" y="128" width="165" height="86" rx="8" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="708" y="150" class="codigo" font-size="11.5">static void Main(</text>
+  <text x="708" y="167" class="codigo" font-size="11.5">  string[] args)</text>
+  <text x="708" y="184" class="codigo" font-size="11.5">{</text>
+  <text x="708" y="201" class="codigo" font-size="11.5">  // tu codigo aqui</text>
+
+  <text x="695" y="245" class="anot">Un solo archivo del proyecto</text>
+  <text x="695" y="260" class="anot">puede tener sentencias de</text>
+  <text x="695" y="275" class="anot">nivel superior. Los demas</text>
+  <text x="695" y="290" class="anot">archivos .cs no las llevan.</text>
+</svg>

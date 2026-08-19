@@ -83,7 +83,7 @@ semestre.
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
 | **[01](semana-01/index.qmd)** | Presentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento | Mediciones reales | - |
-| 02 | Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales | Tipos de variables | - |
+| **[02](semana-02/index.qmd)** | Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales | Tipos de variables | - |
 | 03 | Tablas de frecuencia, histogramas y medidas de localización y dispersión | Tablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación) | - |
 | 04 | Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia | Gráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia | - |
 | 05 | Gráficos de dispersión y gráficos condicionales. Informe exploratorio. **Cierre de la Unidad 1** | Gráficos de dispersión y gráficos condicionales | **30%** |

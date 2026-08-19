@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="420" viewBox="0 0 880 420" role="img" aria-label="Mapa de los tipos numericos de C sostenido: los tipos enteros sbyte, short, int y long segun su tamano en bits, y los tipos reales float, double y decimal segun su precision en digitos" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .titulo { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #0f2540; }
+    .nombre { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13px; font-weight: 700; fill: #16202b; }
+    .rango { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 11.5px; fill: #5b6876; }
+    .barra-txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 11px; fill: #ffffff; font-weight: 700; }
+  </style>
+
+  <text x="20" y="24" class="titulo">Tipos enteros, segun su tamano en bits</text>
+
+  <text x="142" y="52" class="nombre" text-anchor="end">sbyte</text>
+  <rect x="150" y="40" width="20" height="18" rx="3" fill="#2f7bb8"/>
+  <text x="180" y="53" class="rango">8 bits, -128 a 127</text>
+
+  <text x="142" y="82" class="nombre" text-anchor="end">short</text>
+  <rect x="150" y="70" width="40" height="18" rx="3" fill="#2f7bb8"/>
+  <text x="200" y="83" class="rango">16 bits, -32.768 a 32.767</text>
+
+  <text x="142" y="112" class="nombre" text-anchor="end">int</text>
+  <rect x="150" y="100" width="80" height="18" rx="3" fill="#17456f"/>
+  <text x="240" y="113" class="rango">32 bits, -2.147.483.648 a 2.147.483.647</text>
+
+  <text x="142" y="142" class="nombre" text-anchor="end">long</text>
+  <rect x="150" y="130" width="160" height="18" rx="3" fill="#0f2540"/>
+  <text x="320" y="143" class="rango">64 bits, -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807</text>
+
+  <text x="20" y="180" class="rango">El tipo por omision para contar es int. Usa long solo cuando el valor puede superar unos 2.100 millones.</text>
+
+  <line x1="20" y1="205" x2="860" y2="205" stroke="#eef2f6" stroke-width="1.5"/>
+
+  <text x="20" y="232" class="titulo">Tipos reales, segun su precision</text>
+
+  <rect x="20" y="252" width="270" height="140" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="36" y="276" class="nombre">float</text>
+  <text x="36" y="296" class="rango">4 bytes</text>
+  <text x="36" y="314" class="rango">~6 a 9 digitos</text>
+  <text x="36" y="332" class="rango">significativos</text>
+  <text x="36" y="356" class="rango">Se usa poco: solo</text>
+  <text x="36" y="372" class="rango">cuando el volumen</text>
+  <text x="36" y="386" class="rango">de datos importa mas</text>
+
+  <rect x="305" y="252" width="270" height="140" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="321" y="276" class="nombre">double</text>
+  <text x="321" y="296" class="rango">8 bytes</text>
+  <text x="321" y="314" class="rango">~15 a 17 digitos</text>
+  <text x="321" y="332" class="rango">significativos</text>
+  <text x="321" y="356" class="rango">Tipo real por omision.</text>
+  <text x="321" y="372" class="rango">Calculos cientificos y</text>
+  <text x="321" y="386" class="rango">de ingenieria</text>
+
+  <rect x="590" y="252" width="270" height="140" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="606" y="276" class="nombre">decimal</text>
+  <text x="606" y="296" class="rango">16 bytes</text>
+  <text x="606" y="314" class="rango">28 a 29 digitos</text>
+  <text x="606" y="332" class="rango">significativos, exactos</text>
+  <text x="606" y="356" class="rango">Dinero y cualquier valor</text>
+  <text x="606" y="372" class="rango">donde el redondeo de</text>
+  <text x="606" y="386" class="rango">double no es aceptable</text>
+</svg>

@@ -1,0 +1,295 @@
+---
+title: "Estadística para Analítica"
+subtitle: "Tipos de variables"
+author: "Oscar Leonel Sánchez Conde"
+institute: "Institución Universitaria Pascual Bravo"
+pagetitle: "Estadística para Analítica. Tipos de variables"
+title-prefix: ""
+format:
+  revealjs:
+    theme: [default, ../../estilos/presentacion.scss]
+    width: 1280
+    height: 720
+    margin: 0.07
+    center: true
+    slide-number: false
+    progress: true
+    controls: true
+    menu: false
+    transition: fade
+    transition-speed: fast
+    hash: true
+    history: false
+    view-distance: 10
+    auto-stretch: false
+---
+
+## Ruta de la sesión
+
+::: {.columns}
+::: {.column width="50%"}
+**Primera parte**
+
+1. La pregunta que dejó abierta la Semana 1
+2. Dos preguntas para clasificar cualquier variable
+3. Numéricas: discreta y continua
+4. Categóricas: nominal y ordinal
+:::
+
+::: {.column width="50%"}
+**Segunda parte**
+
+1. Laboratorio: `CategoricalDtype` y el orden en pandas
+2. La trampa del valor suelto
+3. Caso de uso: una orden de trabajo nueva
+4. El conjunto de datos propio
+:::
+:::
+
+## Lo que quedó pendiente
+
+```text
+orden             int64
+maquina          object
+turno            object
+tipo             object
+criticidad       object
+duracion_min    float64
+repuestos         int64
+dtype: object
+```
+
+. . .
+
+[La naturaleza de una variable la declaras tú, no la adivina la herramienta.]{.grande}
+
+## `criticidad` quedó como `object`
+
+::: {.aviso}
+Pandas no sabe que baja, media y alta tienen un orden.
+:::
+
+Esa palabra genérica, `object`, esconde información: hay un orden real y el software no lo ve
+hasta que se lo declaras.
+
+## Dos preguntas clasifican cualquier variable {.solo-diagrama}
+
+![](imagenes/arbol-clasificacion.svg){fig-alt="Arbol de clasificacion: se cuenta o se mide, si es numerica es discreta o continua; si no es numerica, tiene o no tiene orden natural, ordinal o nominal, con ejemplos de mantenimiento en cada hoja"}
+
+## Primera pregunta
+
+**¿El valor se cuenta o se mide?**
+
+- Se cuenta, en unidades completas: **numérica discreta**.
+- Se mide, en una escala donde caben decimales: **numérica continua**.
+
+. . .
+
+## Segunda pregunta
+
+**Si no es un número: ¿las categorías tienen un orden natural?**
+
+- Sí lo tienen, sin inventar el criterio: **categórica ordinal**.
+- No lo tienen, o hay varios criterios igual de válidos: **categórica nominal**.
+
+## Numérica discreta: se cuenta
+
+Repuestos usados, paradas no programadas en el mes, operarios asignados a una orden.
+
+No hay un valor intermedio entre dos consecutivos: no existen 2.5 repuestos.
+
+## Numérica continua: se mide
+
+Duración de la intervención, temperatura del rodamiento, vibración en milímetros por segundo.
+
+Entre dos valores cualesquiera siempre cabe otro.
+
+## Verificación con datos reales {.codigo-largo}
+
+```python
+print(sorted(ordenes["repuestos"].unique().tolist()))
+print(sorted(ordenes["duracion_min"].unique().tolist()))
+```
+
+```text
+[0, 1, 2, 3, 4, 5]
+[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]
+```
+
+## Discreta vs continua, en el mismo eje {.grafico}
+
+![](imagenes/discreta-vs-continua.svg){fig-alt="A la izquierda, barras de repuestos usados en seis valores enteros posibles. A la derecha, puntos de la duracion en minutos repartidos en una escala continua"}
+
+[Seis barras separadas, en valores exactos, contra una nube de puntos donde cualquier posición
+entre el mínimo y el máximo es posible.]{.pie-grafico}
+
+## Categórica nominal: sin orden
+
+`maquina`: los códigos de torno y fresadora no tienen un antes y un después.
+
+`tipo` de intervención: preventivo, correctivo y predictivo no forman una escala.
+
+## Categórica ordinal: con orden
+
+`criticidad`: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir
+la distancia entre una y otra.
+
+## El error de la Semana 1, explicado {.codigo-largo}
+
+```python
+print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
+```
+
+```text
+ orden criticidad
+   102       alta
+   105       alta
+   107       alta
+   110       alta
+   101       baja
+   ...
+```
+
+. . .
+
+[Pandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que `object`
+permite.]{.grande}
+
+## Nominal vs ordinal, en el mismo eje {.grafico}
+
+![](imagenes/nominal-vs-ordinal.svg){fig-alt="A la izquierda, barras de maquina en cuatro categorias sin orden particular. A la derecha, barras de criticidad en su orden correcto: baja, media, alta"}
+
+[La izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único
+orden que tiene sentido.]{.pie-grafico}
+
+## Laboratorio: declarar el orden {.codigo-largo}
+
+```python
+from pandas.api.types import CategoricalDtype
+
+orden_criticidad = CategoricalDtype(
+    categories=["baja", "media", "alta"], ordered=True
+)
+ordenes["criticidad"] = ordenes["criticidad"].astype(orden_criticidad)
+
+print(ordenes["criticidad"].dtype)
+```
+
+```text
+category
+```
+
+## El mismo `sort_values`, sin cambiar nada más {.codigo-largo}
+
+```text
+ orden criticidad
+   101       baja
+   104       baja
+   108       baja
+   111       baja
+   103      media
+   ...
+   102       alta
+```
+
+. . .
+
+[La diferencia no está en el método. Está en lo que le dijiste al dato sobre sí mismo.]{.grande}
+
+## Ahora el orden sirve para filtrar {.codigo-largo}
+
+```python
+urgentes = ordenes[ordenes["criticidad"] > "media"]
+print(urgentes[["orden", "maquina", "criticidad"]].to_string(index=False))
+```
+
+```text
+ orden maquina criticidad
+   102  TOR-02       alta
+   105  FRE-02       alta
+   107  FRE-01       alta
+   110  TOR-02       alta
+```
+
+## La trampa: un valor suelto pierde el orden {.codigo-largo}
+
+```python
+valor_suelto = ordenes["criticidad"].iloc[0]
+print(type(valor_suelto), valor_suelto)
+print(ordenes["criticidad"].iloc[0] < ordenes["criticidad"].iloc[1])
+```
+
+```text
+<class 'str'> baja
+False
+```
+
+::: {.aviso}
+`.iloc` entrega texto normal. La comparación vuelve a ser alfabética, sin avisar.
+:::
+
+## La solución: `.cat.codes` {.codigo-largo}
+
+```python
+print(ordenes["criticidad"].cat.codes.iloc[0] < ordenes["criticidad"].cat.codes.iloc[1])
+```
+
+```text
+True
+```
+
+El orden vive en la **columna completa**. Si necesitas comparar dos valores sueltos, usa los
+códigos internos.
+
+## Caso de uso: una orden de trabajo nueva
+
+Cuatro columnas nuevas, sin escribir todavía una línea de análisis:
+
+| Variable nueva | Se cuenta o se mide | Tiene orden | Clasificación |
+|---|---|---|---|
+| Temperatura en grados | Se mide | No aplica | Numérica continua |
+| Nombre del técnico | No es número | Sin orden | Categórica nominal |
+| Aprobada por supervisor | No es número | Sin orden entre sí | Categórica nominal |
+| Nivel de desgaste | No es número | Leve < moderado < severo | Categórica ordinal |
+
+## ¿Y el sí/no de "aprobada"? {.con-definiciones}
+
+::: {.definiciones}
+Parece que pudiera codificarse como 1/0 y tratarse como número. No lo es: sumar o promediar esos
+ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es **contar** cuántas
+órdenes caen en cada categoría, que es el tratamiento de una variable nominal.
+:::
+
+## Qué análisis habilita cada tipo {.solo-diagrama}
+
+![](imagenes/analisis-por-tipo.svg){fig-alt="Discreta y continua llevan a tablas de frecuencia, histogramas, medidas de localizacion y dispersion y boxplot. Nominal y ordinal llevan a tablas de frecuencia y graficos de barras, con la ordinal respetando su orden"}
+
+## El conjunto de datos propio arranca hoy
+
+::: {.aviso}
+Se mide u observa un proceso real. No sirve un archivo descargado de internet.
+:::
+
+- Mínimo **40 registros**.
+- Al menos **dos variables numéricas**.
+- Al menos **dos variables categóricas**, una de ellas **ordinal**.
+- Cada columna clasificada por escrito, antes de recoger el primer dato.
+
+## Qué entregas esta semana
+
+- Un `.csv` con las columnas diseñadas.
+- Los primeros registros que ya tengas recogidos.
+- Un párrafo que explique qué mide cada columna y por qué se clasificó así.
+
+. . .
+
+[La recolección completa se verifica en la Semana 5, junto con el informe exploratorio.]{.grande}
+
+## Lo que viene
+
+- **Semana 3.** Con las variables ya clasificadas, tablas de frecuencia e histogramas para las
+  numéricas, y medidas de localización y dispersión.
+- **Semana 4.** Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de
+  barras para las categóricas, en su orden correcto cuando aplique.
+- **Semana 5.** Gráficos de dispersión y condicionales, e informe exploratorio del conjunto de
+  datos propio para cerrar la Unidad 1.

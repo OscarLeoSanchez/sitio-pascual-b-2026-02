@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="330" viewBox="0 0 880 330" role="img" aria-label="Comparacion entre tipos por valor, que guardan el dato directamente y se copian, y tipos por referencia, donde la variable guarda una direccion hacia el objeto en el monton" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="tv-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="6" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#17456f"/>
+    </marker>
+  </defs>
+  <style>
+    .titulo { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #0f2540; }
+    .cuerpo { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; fill: #5b6876; }
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 12.5px; fill: #16202b; }
+    .cod-b { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 12.5px; font-weight: 700; fill: #0f2540; }
+  </style>
+
+  <text x="220" y="24" text-anchor="middle" class="titulo">Tipos por valor (int, double, bool, char...)</text>
+  <text x="660" y="24" text-anchor="middle" class="titulo">Tipos por referencia (string, arreglos, clases...)</text>
+
+  <rect x="20" y="40" width="400" height="270" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <rect x="460" y="40" width="400" height="270" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+
+  <text x="40" y="68" class="codigo">int cantidad = 12;</text>
+  <text x="40" y="90" class="codigo">int copia = cantidad;</text>
+  <text x="40" y="112" class="codigo">copia = 30;</text>
+
+  <rect x="40" y="140" width="150" height="46" rx="6" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="115" y="158" text-anchor="middle" class="cod-b">cantidad</text>
+  <text x="115" y="176" text-anchor="middle" class="codigo">12</text>
+
+  <rect x="230" y="140" width="150" height="46" rx="6" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="305" y="158" text-anchor="middle" class="cod-b">copia</text>
+  <text x="305" y="176" text-anchor="middle" class="codigo">30</text>
+
+  <text x="220" y="212" text-anchor="middle" class="sec">Cada variable tiene su propia copia del dato.</text>
+  <text x="220" y="230" text-anchor="middle" class="sec">Cambiar copia no afecta a cantidad.</text>
+  <text x="220" y="260" text-anchor="middle" class="sec">Viven en la pila (stack): rapidos de crear</text>
+  <text x="220" y="278" text-anchor="middle" class="sec">y de descartar cuando salen de alcance.</text>
+
+  <text x="480" y="68" class="codigo">var lista1 = new List&lt;int&gt;();</text>
+  <text x="480" y="90" class="codigo">var lista2 = lista1;</text>
+  <text x="480" y="112" class="codigo">lista2.Add(4);</text>
+
+  <rect x="480" y="140" width="130" height="42" rx="6" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="545" y="157" text-anchor="middle" class="cod-b">lista1</text>
+  <text x="545" y="174" text-anchor="middle" class="sec" font-size="10.5">referencia</text>
+
+  <rect x="620" y="140" width="130" height="42" rx="6" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="685" y="157" text-anchor="middle" class="cod-b">lista2</text>
+  <text x="685" y="174" text-anchor="middle" class="sec" font-size="10.5">referencia</text>
+
+  <rect x="560" y="205" width="150" height="46" rx="6" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="635" y="223" text-anchor="middle" class="cod-b">List&lt;int&gt;</text>
+  <text x="635" y="241" text-anchor="middle" class="codigo">[4]</text>
+
+  <g stroke="#17456f" stroke-width="1.75" fill="none" marker-end="url(#tv-punta)">
+    <path d="M 545,182 L 620,205"/>
+    <path d="M 685,182 L 650,205"/>
+  </g>
+
+  <text x="635" y="270" text-anchor="middle" class="sec">Las dos variables apuntan al mismo objeto en</text>
+  <text x="635" y="288" text-anchor="middle" class="sec">el monton (heap). Cambiar uno cambia el otro.</text>
+</svg>

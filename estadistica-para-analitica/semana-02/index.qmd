@@ -1,0 +1,458 @@
+---
+title: "Semana 2. Tipos de variables"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Unidad     | Unidad 1. Análisis descriptivo y exploratorio de datos   |
+:::
+
+[Abrir la presentación de la sesión](presentacion-tipos-de-variables.html){.btn .btn-primary
+role="button"}
+
+## De qué va esta semana
+
+La semana pasada quedó pendiente una pregunta: pandas leyó `duracion_min` y `repuestos` con el tipo
+correcto, pero puso `object` en `criticidad`, que es como decir "texto y no sé nada más". Esa
+etiqueta genérica esconde que `baja`, `media` y `alta` tienen un orden, y ese orden se pierde si no
+lo declaras tú.
+
+Esta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en
+cuatro categorías, a declarar esa clasificación en pandas para que el software la respete, y a
+cerrar la sesión diseñando las columnas de tu propio conjunto de datos.
+
+Al terminar deberías poder:
+
+1. Clasificar una variable como numérica discreta, numérica continua, categórica nominal o
+   categórica ordinal, con dos preguntas.
+2. Explicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.
+3. Declarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para
+   ordenar y filtrar.
+4. Diseñar las columnas de un conjunto de datos propio, con al menos dos variables numéricas y dos
+   categóricas, una de ellas ordinal.
+
+## Por qué clasificar una variable no es un trámite
+
+Antes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa
+decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y
+cuáles son un error disfrazado de número.
+
+Sumar `repuestos` (1, 4, 2, 0...) tiene sentido: el total de repuestos usados en el mes es una
+cantidad real. Sumar un código de máquina no lo tiene, aunque `pandas` lo deje intentar si lo
+codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si
+antes no declaraste que ese orden existe: el promedio de "baja" y "alta" no es "media" por
+casualidad aritmética, es media porque tú fijaste ese orden.
+
+La consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y
+las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.
+
+::: {.diagrama}
+![](imagenes/analisis-por-tipo.svg){fig-alt="Discreta y continua llevan a tablas de frecuencia, medidas de localizacion y dispersion y boxplot. Nominal y ordinal llevan a tablas de frecuencia y graficos de barras, con la ordinal respetando su orden."}
+:::
+
+## Dos preguntas clasifican cualquier variable
+
+No hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable
+en una de las cuatro categorías.
+
+**Primera pregunta: ¿el valor se cuenta o se mide?**
+
+Si la respuesta es un número entero que sale de contar unidades completas, la variable es
+**numérica discreta**. Si sale de medir en una escala donde caben decimales, sin importar cuántos
+apliques, la variable es **numérica continua**.
+
+**Segunda pregunta, solo si la variable no es un número: ¿las categorías tienen un orden natural?**
+
+Si puedes ordenar las categorías de menor a mayor sin inventar el criterio, la variable es
+**categórica ordinal**. Si no existe ese orden, o existen varios criterios igual de válidos para
+ordenarla, la variable es **categórica nominal**.
+
+::: {.diagrama}
+![](imagenes/arbol-clasificacion.svg){fig-alt="Arbol de clasificacion: la variable se cuenta o se mide, si se cuenta es discreta y si se mide es continua; si no es numerica, se pregunta si tiene un orden natural, si lo tiene es ordinal y si no es nominal. Cada hoja lleva un ejemplo de mantenimiento."}
+:::
+
+## Numéricas: discretas y continuas
+
+Una variable numérica discreta se **cuenta**. Sus valores posibles son un conjunto que puedes
+enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no
+hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención,
+número de paradas no programadas en un mes, número de operarios asignados a una orden.
+
+Una variable numérica continua se **mide**. Entre dos valores cualesquiera siempre cabe otro, y el
+número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la
+variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento
+en grados, vibración medida en milímetros por segundo.
+
+Verifícalo con datos reales. Descarga [`ordenes.csv`](recursos/ordenes.csv), el mismo dataset de
+12 órdenes de mantenimiento de la Semana 1, y ábrelo con pandas:
+
+```python
+import pandas as pd
+
+ordenes = pd.read_csv("ordenes.csv")
+
+print(sorted(ordenes["repuestos"].unique().tolist()))
+print(sorted(ordenes["duracion_min"].unique().tolist()))
+```
+
+```text
+[0, 1, 2, 3, 4, 5]
+[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]
+```
+
+`repuestos` solo toma seis valores posibles, todos enteros: los puedes contar con los dedos.
+`duracion_min` trae decimales y no hay un conjunto finito de valores esperables: cualquier número
+positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la
+cantidad de valores distintos que aparezcan en tu muestra.
+
+::: {.callout-note}
+## Un caso que confunde: cuando lo continuo se registra redondeado
+
+Si un instrumento solo reporta minutos enteros, `duracion_min` seguiría siendo continua: la
+variable en sí admite cualquier valor real, aunque el instrumento con el que la mides tenga una
+resolución limitada. La naturaleza de la variable no cambia porque el aparato que la registra sea
+más o menos preciso.
+:::
+
+::: {.diagrama}
+![](imagenes/discreta-vs-continua.svg){fig-alt="A la izquierda, un grafico de barras de repuestos usados con seis valores enteros posibles, de 0 a 5. A la derecha, un grafico de puntos de la duracion en minutos, repartidos en una escala continua."}
+:::
+
+El gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y
+2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una
+recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.
+
+## Categóricas: nominales y ordinales
+
+Una variable categórica nominal describe una cualidad **sin orden natural**. Puedes reordenar sus
+categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque
+ninguna ordenación es más correcta que otra. En el dataset: `maquina` (los códigos de torno y
+fresadora no tienen un "antes" y un "después") y `tipo` de intervención (preventivo, correctivo y
+predictivo no forman una escala).
+
+Una variable categórica ordinal describe una cualidad **con un orden natural**, aunque no puedas
+medir la distancia entre categorías consecutivas. `criticidad` es el ejemplo del dataset: baja,
+media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave
+es "alta" que "media" en un número, como sí puedes hacerlo con dos duraciones.
+
+```python
+print(ordenes["maquina"].dtype)
+print(sorted(ordenes["maquina"].unique().tolist()))
+```
+
+```text
+object
+['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']
+```
+
+Ordenar `maquina` alfabéticamente no le agrega ni le quita información: es una lista, no una escala.
+Con `criticidad` pasa lo contrario, y ahí está el problema que arrastramos de la Semana 1.
+
+```python
+print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
+```
+
+```text
+ orden criticidad
+   102       alta
+   105       alta
+   107       alta
+   110       alta
+   101       baja
+   104       baja
+   108       baja
+   111       baja
+   103      media
+   106      media
+   109      media
+   112      media
+```
+
+Pandas ordenó por texto, alfabéticamente: alta, baja, media. Es un orden válido para una cadena de
+texto y un orden equivocado para la criticidad de una intervención. El software no cometió un
+error: hizo exactamente lo que el tipo `object` le permite hacer. El error es no haberle dicho que
+`criticidad` es ordinal.
+
+::: {.diagrama}
+![](imagenes/nominal-vs-ordinal.svg){fig-alt="A la izquierda, un grafico de barras de la maquina con cuatro categorias sin orden particular. A la derecha, un grafico de barras de la criticidad en su orden correcto: baja, media, alta."}
+:::
+
+### Declarar el orden en pandas
+
+Pandas tiene un tipo de dato para esto: `category`, con el argumento `ordered=True`. Declaras la
+lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra
+respetando ese orden.
+
+```python
+from pandas.api.types import CategoricalDtype
+
+orden_criticidad = CategoricalDtype(categories=["baja", "media", "alta"], ordered=True)
+ordenes["criticidad"] = ordenes["criticidad"].astype(orden_criticidad)
+
+print(ordenes["criticidad"].dtype)
+print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
+```
+
+```text
+category
+ orden criticidad
+   101       baja
+   104       baja
+   108       baja
+   111       baja
+   103      media
+   106      media
+   109      media
+   112      media
+   102       alta
+   105       alta
+   107       alta
+   110       alta
+```
+
+El mismo `sort_values`, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no
+está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.
+
+Con el orden declarado, filtrar por criticidad también gana sentido: puedes pedir "todo lo que sea
+más grave que media" con el operador de comparación normal, algo que no puedes hacer con un texto
+suelto.
+
+```python
+urgentes = ordenes[ordenes["criticidad"] > "media"]
+print(urgentes[["orden", "maquina", "criticidad"]].to_string(index=False))
+
+print("maximo:", ordenes["criticidad"].max())
+print("minimo:", ordenes["criticidad"].min())
+```
+
+```text
+ orden maquina criticidad
+   102  TOR-02       alta
+   105  FRE-02       alta
+   107  FRE-01       alta
+   110  TOR-02       alta
+maximo: alta
+minimo: baja
+```
+
+::: {.callout-warning}
+## La trampa: un valor suelto pierde el orden
+
+El orden vive en el tipo de la **columna completa**, no en cada valor por separado. Si sacas un
+solo dato con `.iloc` y lo guardas en una variable, pandas te lo entrega convertido a texto normal,
+y una comparación entre esos dos valores vuelve a ser alfabética.
+
+```python
+valor_suelto = ordenes["criticidad"].iloc[0]
+print(type(valor_suelto), valor_suelto)
+print("baja < alta como texto suelto:", ordenes["criticidad"].iloc[0] < ordenes["criticidad"].iloc[1])
+print("baja < alta con los codigos internos:",
+      ordenes["criticidad"].cat.codes.iloc[0] < ordenes["criticidad"].cat.codes.iloc[1])
+```
+
+```text
+<class 'str'> baja
+baja < alta como texto suelto: False
+baja < alta con los codigos internos: True
+```
+
+`baja < alta` da `False` porque, como texto suelto, compara alfabéticamente ("b" va después de
+"a"). Compara filas dentro de una operación de pandas (`sort_values`, un filtro con `[]`, `.max()`,
+`.min()`) y el orden se respeta. Si necesitas comparar dos valores sueltos, usa `.cat.codes`, que
+son los números internos que pandas asigna según el orden que declaraste.
+:::
+
+## Caso de uso: diseñar las columnas de una orden de trabajo
+
+Así se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir
+una sola línea de análisis.
+
+Un área de mantenimiento quiere registrar, además de lo que ya trae `ordenes.csv`, cuatro datos
+nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del
+técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de
+desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado,
+severo.
+
+| Variable nueva | Pregunta 1: ¿se cuenta o se mide? | Pregunta 2: ¿tiene orden? | Clasificación |
+|---|---|---|---|
+| Temperatura en grados | Se mide, con decimales | No aplica | Numérica continua |
+| Nombre del técnico | No es un número | Sin orden natural | Categórica nominal |
+| Aprobada por el supervisor | No es un número | Solo dos valores, sin orden entre sí | Categórica nominal |
+| Nivel de desgaste | No es un número | Leve, moderado y severo sí ordenan | Categórica ordinal |
+
+"Aprobada por el supervisor" tiene solo dos categorías (sí o no), y eso confunde: parece que un
+sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y
+unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes
+caen en cada categoría, que es exactamente el tratamiento de una variable nominal.
+
+Verifica la tabla con código, construyendo esas cuatro columnas nuevas para las 12 órdenes
+existentes:
+
+```python
+import numpy as np
+
+rng = np.random.default_rng(2026)
+
+ordenes["temperatura_c"] = rng.uniform(38, 92, size=len(ordenes)).round(1)
+ordenes["tecnico"] = rng.choice(["Diaz", "Moreno", "Restrepo"], size=len(ordenes))
+ordenes["aprobada"] = rng.choice(["si", "no"], size=len(ordenes))
+
+orden_desgaste = CategoricalDtype(categories=["leve", "moderado", "severo"], ordered=True)
+ordenes["desgaste"] = rng.choice(["leve", "moderado", "severo"], size=len(ordenes))
+ordenes["desgaste"] = ordenes["desgaste"].astype(orden_desgaste)
+
+print(ordenes[["orden", "temperatura_c", "tecnico", "aprobada", "desgaste"]].dtypes)
+```
+
+```text
+orden               int64
+temperatura_c     float64
+tecnico            object
+aprobada           object
+desgaste         category
+dtype: object
+```
+
+`temperatura_c` quedó `float64` sin que lo pidieras: `np.random.default_rng().uniform` siempre
+produce decimales, coherente con que es una variable continua. `tecnico` y `aprobada` quedan
+`object`, coherente con que son nominales. `desgaste` es la única que declaraste como `category`
+ordenada, porque es la única con un orden real.
+
+## El conjunto de datos propio: arranca esta semana
+
+Desde aquí en adelante trabajas con datos que tú mismo mides u observas. Es el proyecto que atraviesa
+el semestre: lo describes en la Semana 5, lo modelas con una distribución en la Semana 10 y al final
+infieres sobre él en la Semana 16.
+
+::: {.callout-important}
+## Entregable: diseño y arranque de la recolección
+
+**Qué entregas.** Un archivo `.csv` con las columnas de tu conjunto de datos y los primeros
+registros que ya hayas recogido para el momento de la Semana 3. La recolección completa se
+verifica en la Semana 5, cuando entregas el informe exploratorio; esta semana entregas el diseño y
+el arranque.
+
+**Mínimos exigidos:**
+
+- Al menos **40 registros**, medidos u observados de un proceso real. No sirve un archivo
+  descargado de internet: el criterio de la carta pide mediciones propias, no un dataset ajeno.
+- Al menos **dos variables numéricas**.
+- Al menos **dos variables categóricas**, y **una de ellas debe ser ordinal**.
+- Cada columna clasificada con las dos preguntas de esta guía, en una tabla como la del caso de
+  mantenimiento, antes de recoger el primer dato.
+
+**Qué puedes medir.** Cualquier proceso al que tengas acceso repetido: tu propio trabajo (tiempos
+de una tarea que repites, calidad de un entregable), un proceso doméstico o de tu barrio (consumo
+de un servicio, tiempos de un trayecto), o si trabajas en una planta o taller, algo del proceso que
+ya conoces. La carta descriptiva ancla los ejemplos del módulo en mantenimiento industrial, pero el
+conjunto de datos propio no tiene que venir de ahí: tiene que venir de algo que puedas medir de
+verdad, varias veces, durante las próximas semanas.
+
+**Formato de entrega.** Un archivo `.csv`, separado por comas, con encabezados sin tildes ni
+espacios (`duracion_min`, no `duración (min)`). Sube también un párrafo corto que explique qué mide
+cada columna y por qué la clasificaste así.
+
+**Criterios de verificación:**
+
+- El archivo abre con `pd.read_csv` sin ajustes manuales.
+- Cada columna tiene la clasificación declarada por escrito y coincide con lo que un compañero
+  concluiría aplicando las mismas dos preguntas.
+- Al menos una columna categórica está declarada como `category` ordenada en el código que
+  acompaña la entrega.
+:::
+
+Este entregable no tiene nota. Es la base de la Semana 5, que sí la tiene con el 30% del cierre de
+la Unidad 1. Diseñar mal las columnas ahora se paga con trabajo doble entonces.
+
+## Errores frecuentes
+
+::: {.error-caso}
+[Error 1]{.etiqueta}
+
+### Tratar un código numérico como si fuera una cantidad
+
+**Causa.** Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como
+`int64` si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada
+interpretable: es una etiqueta, no una cantidad.
+
+**Solución.** Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es
+categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con
+`ordenes["codigo"] = ordenes["codigo"].astype(str)` para que quede claro que no se opera
+aritméticamente sobre ella.
+:::
+
+::: {.error-caso}
+[Error 2]{.etiqueta}
+
+### Declarar una ordinal sin `ordered=True`
+
+**Causa.** `ordenes["criticidad"].astype("category")`, sin pasar por `CategoricalDtype`, sí crea
+una columna categórica, pero sin orden. `sort_values` la sigue ordenando de forma arbitraria (por el
+orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.
+
+**Solución.** Para cualquier variable ordinal, usa siempre
+`CategoricalDtype(categories=[...], ordered=True)` y pasa la lista de categorías en el orden que
+corresponde. `astype("category")` a secas sirve para nominales.
+:::
+
+::: {.error-caso}
+[Error 3]{.etiqueta}
+
+### Comparar dos valores sueltos y confiar en el resultado
+
+**Causa.** Como viste en el callout de esta guía, extraer un valor individual de una columna
+categórica con `.iloc` lo convierte en texto normal, y una comparación entre dos de esos valores
+vuelve a ser alfabética sin avisar.
+
+**Solución.** Compara dentro de operaciones de pandas (`sort_values`, un filtro con corchetes,
+`.max()`, `.min()`), o usa `.cat.codes` si de verdad necesitas dos valores sueltos.
+:::
+
+## Lista de chequeo de la semana
+
+::: {.checklist}
+**Antes de la próxima sesión**
+
+- [ ] Sabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una
+      lista de ejemplos
+- [ ] Ejecutaste el bloque de `CategoricalDtype` y el `sort_values` quedó en baja, media, alta
+- [ ] Entiendes por qué un valor suelto extraído con `.iloc` pierde el orden
+- [ ] Elegiste el proceso que vas a medir para tu conjunto de datos propio
+- [ ] Escribiste la tabla de clasificación de tus columnas, antes de recoger el primer dato
+- [ ] Empezaste a recoger registros: al menos algunos deben estar listos para la Semana 3
+:::
+
+## Lo que viene
+
+- **Semana 3.** Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas
+  para las numéricas, y calcularás medidas de localización y dispersión.
+- **Semana 4.** Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y
+  gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.
+- **Semana 5.** Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el
+  informe exploratorio de tu conjunto de datos propio para cerrar la Unidad 1.
+
+## Recursos
+
+- Clasificación de datos en escalas de medición: Stevens, S. S. (1946). *On the theory of scales of
+  measurement.*
+- Variables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C.
+  y Runger, G. C. *Applied Statistics and Probability for Engineers.* 7.ª edición, capítulo 1.
+- Datos categóricos en pandas, con `CategoricalDtype` y orden explícito:
+  [pandas.pydata.org/docs/user_guide/categorical.html](https://pandas.pydata.org/docs/user_guide/categorical.html)
+- Dataset de esta guía: [`ordenes.csv`](recursos/ordenes.csv)
+
+::: {.pie-doc}
+Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería.
+Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas
+de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del
+material.
+:::
