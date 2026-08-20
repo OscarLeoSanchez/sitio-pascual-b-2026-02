@@ -64,7 +64,7 @@ print(ordenes.head())
 4    105  FRE-02   tarde  correctivo       alta        210.50          5
 ```
 
-Doce órdenes de mantenimiento, siete columnas.
+120 órdenes de mantenimiento, siete columnas.
 
 ## Los tipos que asignó pandas
 
@@ -132,12 +132,13 @@ Entre dos valores cualesquiera siempre cabe otro.
 
 ```python
 print(sorted(ordenes["repuestos"].unique().tolist()))
-print(sorted(ordenes["duracion_min"].unique().tolist()))
+print(ordenes["duracion_min"].nunique(), "valores distintos, entre",
+      ordenes["duracion_min"].min(), "y", ordenes["duracion_min"].max())
 ```
 
 ```text
 [0, 1, 2, 3, 4, 5]
-[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]
+120 valores distintos, entre 26.03 y 217.56
 ```
 
 ## Discreta vs continua, en el mismo eje {.grafico}
@@ -160,8 +161,11 @@ la distancia entre una y otra.
 
 ## El error, explicado {.codigo-largo}
 
+Muestra de las primeras 12 órdenes, para que quepa en pantalla:
+
 ```python
-print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
+muestra = ordenes.head(12)
+print(muestra.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
 ```
 
 ```text
@@ -195,6 +199,7 @@ orden_criticidad = CategoricalDtype(
     categories=["baja", "media", "alta"], ordered=True
 )
 ordenes["criticidad"] = ordenes["criticidad"].astype(orden_criticidad)
+muestra = ordenes.head(12)
 
 print(ordenes["criticidad"].dtype)
 ```
@@ -223,7 +228,7 @@ category
 ## Ahora el orden sirve para filtrar {.codigo-largo}
 
 ```python
-urgentes = ordenes[ordenes["criticidad"] > "media"]
+urgentes = muestra[muestra["criticidad"] > "media"]
 print(urgentes[["orden", "maquina", "criticidad"]].to_string(index=False))
 ```
 

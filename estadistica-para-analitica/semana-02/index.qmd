@@ -38,8 +38,8 @@ Al terminar deberías poder:
 
 ## Cargar el dataset y ver qué tipos asignó pandas
 
-Vas a trabajar con un registro de 12 órdenes de mantenimiento y siete columnas: el número de orden,
-la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los
+Vas a trabajar con un registro de 120 órdenes de mantenimiento y siete columnas: el número de
+orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los
 repuestos usados. Descarga [`ordenes.csv`](recursos/ordenes.csv) y ábrelo con pandas:
 
 ```python
@@ -136,18 +136,19 @@ Verifícalo con el mismo `ordenes` que ya cargaste:
 
 ```python
 print(sorted(ordenes["repuestos"].unique().tolist()))
-print(sorted(ordenes["duracion_min"].unique().tolist()))
+print(ordenes["duracion_min"].nunique(), "valores distintos, entre",
+      ordenes["duracion_min"].min(), "y", ordenes["duracion_min"].max())
 ```
 
 ```text
 [0, 1, 2, 3, 4, 5]
-[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]
+120 valores distintos, entre 26.03 y 217.56
 ```
 
-`repuestos` solo toma seis valores posibles, todos enteros: los puedes contar con los dedos.
-`duracion_min` trae decimales y no hay un conjunto finito de valores esperables: cualquier número
-positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la
-cantidad de valores distintos que aparezcan en tu muestra.
+`repuestos` solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. En
+120 órdenes, `duracion_min` no repite ni un solo valor: trae decimales y no hay un conjunto finito
+de valores esperables, cualquier número positivo es una duración posible. Esa diferencia es la que
+separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.
 
 ::: {.callout-note}
 ## Un caso que confunde: cuando lo continuo se registra redondeado
@@ -192,8 +193,12 @@ object
 Ordenar `maquina` alfabéticamente no le agrega ni le quita información: es una lista, no una escala.
 Con `criticidad` pasa lo contrario, y ahí está el problema que viste al cargar el dataset.
 
+El dataset completo tiene 120 filas: para que la tabla quepa completa en la página, trabaja con una
+muestra de las primeras 12 órdenes.
+
 ```python
-print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
+muestra = ordenes.head(12)
+print(muestra.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
 ```
 
 ```text
@@ -232,9 +237,10 @@ from pandas.api.types import CategoricalDtype
 
 orden_criticidad = CategoricalDtype(categories=["baja", "media", "alta"], ordered=True)
 ordenes["criticidad"] = ordenes["criticidad"].astype(orden_criticidad)
+muestra = ordenes.head(12)
 
 print(ordenes["criticidad"].dtype)
-print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
+print(muestra.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))
 ```
 
 ```text
@@ -259,10 +265,11 @@ está en el método que llamaste: está en lo que le dijiste al dato sobre sí m
 
 Con el orden declarado, filtrar por criticidad también gana sentido: puedes pedir "todo lo que sea
 más grave que media" con el operador de comparación normal, algo que no puedes hacer con un texto
-suelto.
+suelto. Sigue el filtro sobre la misma muestra de 12, y el máximo y el mínimo sobre el dataset
+completo:
 
 ```python
-urgentes = ordenes[ordenes["criticidad"] > "media"]
+urgentes = muestra[muestra["criticidad"] > "media"]
 print(urgentes[["orden", "maquina", "criticidad"]].to_string(index=False))
 
 print("maximo:", ordenes["criticidad"].max())
@@ -329,7 +336,7 @@ sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o p
 unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes
 caen en cada categoría, que es exactamente el tratamiento de una variable nominal.
 
-Verifica la tabla con código, construyendo esas cuatro columnas nuevas para las 12 órdenes
+Verifica la tabla con código, construyendo esas cuatro columnas nuevas para las 120 órdenes
 existentes:
 
 ```python

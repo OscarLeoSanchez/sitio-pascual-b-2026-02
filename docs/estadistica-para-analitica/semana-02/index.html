@@ -272,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cargar-el-dataset-y-ver-qué-tipos-asignó-pandas" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="cargar-el-dataset-y-ver-qué-tipos-asignó-pandas"><span class="header-section-number">2</span> Cargar el dataset y ver qué tipos asignó pandas</h2>
-<p>Vas a trabajar con un registro de 12 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga <a href="recursos/ordenes.csv"><code>ordenes.csv</code></a> y ábrelo con pandas:</p>
+<p>Vas a trabajar con un registro de 120 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga <a href="recursos/ordenes.csv"><code>ordenes.csv</code></a> y ábrelo con pandas:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ordenes <span class="op">=</span> pd.read_csv(<span class="st">"ordenes.csv"</span>)</span>
@@ -321,10 +321,11 @@ dtype: object</code></pre>
 <p>Una variable numérica continua se <strong>mide</strong>. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.</p>
 <p>Verifícalo con el mismo <code>ordenes</code> que ya cargaste:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"repuestos"</span>].unique().tolist()))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"duracion_min"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"duracion_min"</span>].nunique(), <span class="st">"valores distintos, entre"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>      ordenes[<span class="st">"duracion_min"</span>].<span class="bu">min</span>(), <span class="st">"y"</span>, ordenes[<span class="st">"duracion_min"</span>].<span class="bu">max</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>[0, 1, 2, 3, 4, 5]
-[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]</code></pre>
-<p><code>repuestos</code> solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. <code>duracion_min</code> trae decimales y no hay un conjunto finito de valores esperables: cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.</p>
+120 valores distintos, entre 26.03 y 217.56</code></pre>
+<p><code>repuestos</code> solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. En 120 órdenes, <code>duracion_min</code> no repite ni un solo valor: trae decimales y no hay un conjunto finito de valores esperables, cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -352,7 +353,9 @@ dtype: object</code></pre>
 <pre class="text"><code>object
 ['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']</code></pre>
 <p>Ordenar <code>maquina</code> alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con <code>criticidad</code> pasa lo contrario, y ahí está el problema que viste al cargar el dataset.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El dataset completo tiene 120 filas: para que la tabla quepa completa en la página, trabaja con una muestra de las primeras 12 órdenes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>muestra <span class="op">=</span> ordenes.head(<span class="dv">12</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(muestra.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code> orden criticidad
    102       alta
    105       alta
@@ -377,9 +380,10 @@ dtype: object</code></pre>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>orden_criticidad <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">"baja"</span>, <span class="st">"media"</span>, <span class="st">"alta"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"criticidad"</span>] <span class="op">=</span> ordenes[<span class="st">"criticidad"</span>].astype(orden_criticidad)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"criticidad"</span>].dtype)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>muestra <span class="op">=</span> ordenes.head(<span class="dv">12</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"criticidad"</span>].dtype)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(muestra.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>category
  orden criticidad
    101       baja
@@ -395,8 +399,8 @@ dtype: object</code></pre>
    107       alta
    110       alta</code></pre>
 <p>El mismo <code>sort_values</code>, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.</p>
-<p>Con el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>urgentes <span class="op">=</span> ordenes[ordenes[<span class="st">"criticidad"</span>] <span class="op">&gt;</span> <span class="st">"media"</span>]</span>
+<p>Con el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto. Sigue el filtro sobre la misma muestra de 12, y el máximo y el mínimo sobre el dataset completo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>urgentes <span class="op">=</span> muestra[muestra[<span class="st">"criticidad"</span>] <span class="op">&gt;</span> <span class="st">"media"</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(urgentes[[<span class="st">"orden"</span>, <span class="st">"maquina"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"maximo:"</span>, ordenes[<span class="st">"criticidad"</span>].<span class="bu">max</span>())</span>
@@ -479,7 +483,7 @@ baja &lt; alta con los codigos internos: True</code></pre>
 </tbody>
 </table>
 <p>“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.</p>
-<p>Verifica la tabla con código, construyendo esas cuatro columnas nuevas para las 12 órdenes existentes:</p>
+<p>Verifica la tabla con código, construyendo esas cuatro columnas nuevas para las 120 órdenes existentes:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2026</span>)</span>

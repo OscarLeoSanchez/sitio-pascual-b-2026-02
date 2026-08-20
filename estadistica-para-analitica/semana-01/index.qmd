@@ -376,7 +376,7 @@ El módulo organiza la información en tres formatos de almacenamiento. Cada uno
 | `.txt` | Texto plano con otro separador, casi siempre tabulación | Lo que exportan muchos equipos de medición y sistemas industriales |
 | `.xlsx` | Libro de Excel | Cuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí |
 
-Descarga el archivo de ejemplo, [`ordenes.csv`](recursos/ordenes.csv), que tiene 12 órdenes de
+Descarga el archivo de ejemplo, [`ordenes.csv`](recursos/ordenes.csv), que tiene 120 órdenes de
 mantenimiento. Guárdalo en tu carpeta de trabajo.
 
 Crea `formatos.py`:

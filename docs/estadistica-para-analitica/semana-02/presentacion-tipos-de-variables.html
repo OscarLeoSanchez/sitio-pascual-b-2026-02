@@ -245,7 +245,7 @@ Oscar Leonel Sánchez Conde
 <span id="cb2-4"><a></a>2    103  FRE-01   noche  preventivo      media         60.25          2</span>
 <span id="cb2-5"><a></a>3    104  TOR-01  manana  predictivo       baja         30.00          0</span>
 <span id="cb2-6"><a></a>4    105  FRE-02   tarde  correctivo       alta        210.50          5</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Doce órdenes de mantenimiento, siete columnas.</p>
+<p>120 órdenes de mantenimiento, siete columnas.</p>
 </section>
 <section id="los-tipos-que-asignó-pandas" class="slide level2 center">
 <h2>Los tipos que asignó pandas</h2>
@@ -302,9 +302,10 @@ Oscar Leonel Sánchez Conde
 <section id="verificación-con-datos-reales" class="slide level2 codigo-largo center">
 <h2>Verificación con datos reales</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"repuestos"</span>].unique().tolist()))</span>
-<span id="cb5-2"><a></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"duracion_min"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a></a><span class="bu">print</span>(ordenes[<span class="st">"duracion_min"</span>].nunique(), <span class="st">"valores distintos, entre"</span>,</span>
+<span id="cb5-3"><a></a>      ordenes[<span class="st">"duracion_min"</span>].<span class="bu">min</span>(), <span class="st">"y"</span>, ordenes[<span class="st">"duracion_min"</span>].<span class="bu">max</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a></a>[0, 1, 2, 3, 4, 5]</span>
-<span id="cb6-2"><a></a>[30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a></a>120 valores distintos, entre 26.03 y 217.56</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="discreta-vs-continua-en-el-mismo-eje" class="slide level2 grafico center">
 <h2>Discreta vs continua, en el mismo eje</h2>
@@ -322,7 +323,9 @@ Oscar Leonel Sánchez Conde
 </section>
 <section id="el-error-explicado" class="slide level2 codigo-largo center">
 <h2>El error, explicado</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Muestra de las primeras 12 órdenes, para que quepa en pantalla:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>muestra <span class="op">=</span> ordenes.head(<span class="dv">12</span>)</span>
+<span id="cb7-2"><a></a><span class="bu">print</span>(muestra.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a></a> orden criticidad</span>
 <span id="cb8-2"><a></a>   102       alta</span>
 <span id="cb8-3"><a></a>   105       alta</span>
@@ -347,8 +350,9 @@ Oscar Leonel Sánchez Conde
 <span id="cb9-4"><a></a>    categories<span class="op">=</span>[<span class="st">"baja"</span>, <span class="st">"media"</span>, <span class="st">"alta"</span>], ordered<span class="op">=</span><span class="va">True</span></span>
 <span id="cb9-5"><a></a>)</span>
 <span id="cb9-6"><a></a>ordenes[<span class="st">"criticidad"</span>] <span class="op">=</span> ordenes[<span class="st">"criticidad"</span>].astype(orden_criticidad)</span>
-<span id="cb9-7"><a></a></span>
-<span id="cb9-8"><a></a><span class="bu">print</span>(ordenes[<span class="st">"criticidad"</span>].dtype)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-7"><a></a>muestra <span class="op">=</span> ordenes.head(<span class="dv">12</span>)</span>
+<span id="cb9-8"><a></a></span>
+<span id="cb9-9"><a></a><span class="bu">print</span>(ordenes[<span class="st">"criticidad"</span>].dtype)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a></a>category</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="el-mismo-sort_values-sin-cambiar-nada-más" class="slide level2 codigo-largo center">
@@ -367,7 +371,7 @@ Oscar Leonel Sánchez Conde
 </section>
 <section id="ahora-el-orden-sirve-para-filtrar" class="slide level2 codigo-largo center">
 <h2>Ahora el orden sirve para filtrar</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>urgentes <span class="op">=</span> ordenes[ordenes[<span class="st">"criticidad"</span>] <span class="op">&gt;</span> <span class="st">"media"</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>urgentes <span class="op">=</span> muestra[muestra[<span class="st">"criticidad"</span>] <span class="op">&gt;</span> <span class="st">"media"</span>]</span>
 <span id="cb12-2"><a></a><span class="bu">print</span>(urgentes[[<span class="st">"orden"</span>, <span class="st">"maquina"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a></a> orden maquina criticidad</span>
 <span id="cb13-2"><a></a>   102  TOR-02       alta</span>
