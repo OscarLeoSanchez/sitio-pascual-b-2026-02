@@ -18,21 +18,67 @@ role="button"}
 
 ## De qué va esta semana
 
-La semana pasada quedó pendiente una pregunta: pandas leyó `duracion_min` y `repuestos` con el tipo
-correcto, pero puso `object` en `criticidad`, que es como decir "texto y no sé nada más". Esa
-etiqueta genérica esconde que `baja`, `media` y `alta` tienen un orden, y ese orden se pierde si no
-lo declaras tú.
+Vas a cargar un dataset con pandas y a observar algo que pasa siempre: la herramienta adivina el
+tipo de cada columna, y a veces adivina mal. Acierta con las columnas numéricas, pero le pone
+`object` a una columna que sí tiene un orden real (`criticidad`: baja, media, alta), porque
+`object` es como decir "texto y no sé nada más". Esa etiqueta genérica esconde el orden, y el orden
+se pierde si no lo declaras tú.
 
 Esta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en
 cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.
 
 Al terminar deberías poder:
 
-1. Clasificar una variable como numérica discreta, numérica continua, categórica nominal o
+1. Cargar un dataset con pandas y leer los tipos que asigna automáticamente a cada columna.
+2. Clasificar una variable como numérica discreta, numérica continua, categórica nominal o
    categórica ordinal, con dos preguntas.
-2. Explicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.
-3. Declarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para
+3. Explicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.
+4. Declarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para
    ordenar y filtrar.
+
+## Cargar el dataset y ver qué tipos asignó pandas
+
+Vas a trabajar con un registro de 12 órdenes de mantenimiento y siete columnas: el número de orden,
+la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los
+repuestos usados. Descarga [`ordenes.csv`](recursos/ordenes.csv) y ábrelo con pandas:
+
+```python
+import pandas as pd
+
+ordenes = pd.read_csv("ordenes.csv")
+print(ordenes.head())
+```
+
+```text
+   orden maquina   turno        tipo criticidad  duracion_min  repuestos
+0    101  TOR-01  manana  preventivo       baja         45.50          1
+1    102  TOR-02   tarde  correctivo       alta        182.00          4
+2    103  FRE-01   noche  preventivo      media         60.25          2
+3    104  TOR-01  manana  predictivo       baja         30.00          0
+4    105  FRE-02   tarde  correctivo       alta        210.50          5
+```
+
+`pd.read_csv` adivina el tipo de cada columna a partir de lo que encuentra en el archivo. Pídele la
+lista completa con `.dtypes`:
+
+```python
+print(ordenes.dtypes)
+```
+
+```text
+orden             int64
+maquina          object
+turno            object
+tipo             object
+criticidad       object
+duracion_min    float64
+repuestos         int64
+dtype: object
+```
+
+Acertó con `orden` y `repuestos` (`int64`) y con `duracion_min` (`float64`). Pero `criticidad`
+quedó en `object`, la etiqueta genérica que pandas usa para "texto y no sé nada más". Ese detalle
+no es un error de pandas: es la pregunta que resuelve el resto de esta guía.
 
 ## Por qué clasificar una variable no es un trámite
 
@@ -86,14 +132,9 @@ número de decimales que reportes depende de la precisión del instrumento, no d
 variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento
 en grados, vibración medida en milímetros por segundo.
 
-Verifícalo con datos reales. Descarga [`ordenes.csv`](recursos/ordenes.csv), el mismo dataset de
-12 órdenes de mantenimiento de la Semana 1, y ábrelo con pandas:
+Verifícalo con el mismo `ordenes` que ya cargaste:
 
 ```python
-import pandas as pd
-
-ordenes = pd.read_csv("ordenes.csv")
-
 print(sorted(ordenes["repuestos"].unique().tolist()))
 print(sorted(ordenes["duracion_min"].unique().tolist()))
 ```
@@ -149,7 +190,7 @@ object
 ```
 
 Ordenar `maquina` alfabéticamente no le agrega ni le quita información: es una lista, no una escala.
-Con `criticidad` pasa lo contrario, y ahí está el problema que arrastramos de la Semana 1.
+Con `criticidad` pasa lo contrario, y ahí está el problema que viste al cargar el dataset.
 
 ```python
 print(ordenes.sort_values("criticidad")[["orden", "criticidad"]].to_string(index=False))

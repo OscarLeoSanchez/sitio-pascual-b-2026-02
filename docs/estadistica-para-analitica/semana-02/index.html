@@ -185,18 +185,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#de-qué-va-esta-semana" id="toc-de-qué-va-esta-semana" class="nav-link active" data-scroll-target="#de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</a></li>
-  <li><a href="#por-qué-clasificar-una-variable-no-es-un-trámite" id="toc-por-qué-clasificar-una-variable-no-es-un-trámite" class="nav-link" data-scroll-target="#por-qué-clasificar-una-variable-no-es-un-trámite"><span class="header-section-number">2</span> Por qué clasificar una variable no es un trámite</a></li>
-  <li><a href="#dos-preguntas-clasifican-cualquier-variable" id="toc-dos-preguntas-clasifican-cualquier-variable" class="nav-link" data-scroll-target="#dos-preguntas-clasifican-cualquier-variable"><span class="header-section-number">3</span> Dos preguntas clasifican cualquier variable</a></li>
-  <li><a href="#numéricas-discretas-y-continuas" id="toc-numéricas-discretas-y-continuas" class="nav-link" data-scroll-target="#numéricas-discretas-y-continuas"><span class="header-section-number">4</span> Numéricas: discretas y continuas</a></li>
-  <li><a href="#categóricas-nominales-y-ordinales" id="toc-categóricas-nominales-y-ordinales" class="nav-link" data-scroll-target="#categóricas-nominales-y-ordinales"><span class="header-section-number">5</span> Categóricas: nominales y ordinales</a>
+  <li><a href="#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas" id="toc-cargar-el-dataset-y-ver-qué-tipos-asignó-pandas" class="nav-link" data-scroll-target="#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas"><span class="header-section-number">2</span> Cargar el dataset y ver qué tipos asignó pandas</a></li>
+  <li><a href="#por-qué-clasificar-una-variable-no-es-un-trámite" id="toc-por-qué-clasificar-una-variable-no-es-un-trámite" class="nav-link" data-scroll-target="#por-qué-clasificar-una-variable-no-es-un-trámite"><span class="header-section-number">3</span> Por qué clasificar una variable no es un trámite</a></li>
+  <li><a href="#dos-preguntas-clasifican-cualquier-variable" id="toc-dos-preguntas-clasifican-cualquier-variable" class="nav-link" data-scroll-target="#dos-preguntas-clasifican-cualquier-variable"><span class="header-section-number">4</span> Dos preguntas clasifican cualquier variable</a></li>
+  <li><a href="#numéricas-discretas-y-continuas" id="toc-numéricas-discretas-y-continuas" class="nav-link" data-scroll-target="#numéricas-discretas-y-continuas"><span class="header-section-number">5</span> Numéricas: discretas y continuas</a></li>
+  <li><a href="#categóricas-nominales-y-ordinales" id="toc-categóricas-nominales-y-ordinales" class="nav-link" data-scroll-target="#categóricas-nominales-y-ordinales"><span class="header-section-number">6</span> Categóricas: nominales y ordinales</a>
   <ul class="collapse">
   <li><a href="#declarar-el-orden-en-pandas" id="toc-declarar-el-orden-en-pandas" class="nav-link" data-scroll-target="#declarar-el-orden-en-pandas">Declarar el orden en pandas</a></li>
   </ul></li>
-  <li><a href="#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" id="toc-caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" class="nav-link" data-scroll-target="#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo"><span class="header-section-number">6</span> Caso de uso: diseñar las columnas de una orden de trabajo</a></li>
-  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">7</span> Errores frecuentes</a></li>
-  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">8</span> Lista de chequeo de la semana</a></li>
-  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">9</span> Lo que viene</a></li>
-  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">10</span> Recursos</a></li>
+  <li><a href="#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" id="toc-caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" class="nav-link" data-scroll-target="#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo"><span class="header-section-number">7</span> Caso de uso: diseñar las columnas de una orden de trabajo</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">8</span> Errores frecuentes</a></li>
+  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">9</span> Lista de chequeo de la semana</a></li>
+  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">10</span> Lo que viene</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">11</span> Recursos</a></li>
   </ul>
 </nav>
     </div>
@@ -259,17 +260,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="presentacion-tipos-de-variables.html" class="btn btn-primary" role="button">Abrir la presentación de la sesión</a></p>
 <section id="de-qué-va-esta-semana" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</h2>
-<p>La semana pasada quedó pendiente una pregunta: pandas leyó <code>duracion_min</code> y <code>repuestos</code> con el tipo correcto, pero puso <code>object</code> en <code>criticidad</code>, que es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde que <code>baja</code>, <code>media</code> y <code>alta</code> tienen un orden, y ese orden se pierde si no lo declaras tú.</p>
+<p>Vas a cargar un dataset con pandas y a observar algo que pasa siempre: la herramienta adivina el tipo de cada columna, y a veces adivina mal. Acierta con las columnas numéricas, pero le pone <code>object</code> a una columna que sí tiene un orden real (<code>criticidad</code>: baja, media, alta), porque <code>object</code> es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde el orden, y el orden se pierde si no lo declaras tú.</p>
 <p>Esta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.</p>
 <p>Al terminar deberías poder:</p>
 <ol type="1">
+<li>Cargar un dataset con pandas y leer los tipos que asigna automáticamente a cada columna.</li>
 <li>Clasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.</li>
 <li>Explicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.</li>
 <li>Declarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.</li>
 </ol>
 </section>
-<section id="por-qué-clasificar-una-variable-no-es-un-trámite" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="por-qué-clasificar-una-variable-no-es-un-trámite"><span class="header-section-number">2</span> Por qué clasificar una variable no es un trámite</h2>
+<section id="cargar-el-dataset-y-ver-qué-tipos-asignó-pandas" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="cargar-el-dataset-y-ver-qué-tipos-asignó-pandas"><span class="header-section-number">2</span> Cargar el dataset y ver qué tipos asignó pandas</h2>
+<p>Vas a trabajar con un registro de 12 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga <a href="recursos/ordenes.csv"><code>ordenes.csv</code></a> y ábrelo con pandas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ordenes <span class="op">=</span> pd.read_csv(<span class="st">"ordenes.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.head())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>   orden maquina   turno        tipo criticidad  duracion_min  repuestos
+0    101  TOR-01  manana  preventivo       baja         45.50          1
+1    102  TOR-02   tarde  correctivo       alta        182.00          4
+2    103  FRE-01   noche  preventivo      media         60.25          2
+3    104  TOR-01  manana  predictivo       baja         30.00          0
+4    105  FRE-02   tarde  correctivo       alta        210.50          5</code></pre>
+<p><code>pd.read_csv</code> adivina el tipo de cada columna a partir de lo que encuentra en el archivo. Pídele la lista completa con <code>.dtypes</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.dtypes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>orden             int64
+maquina          object
+turno            object
+tipo             object
+criticidad       object
+duracion_min    float64
+repuestos         int64
+dtype: object</code></pre>
+<p>Acertó con <code>orden</code> y <code>repuestos</code> (<code>int64</code>) y con <code>duracion_min</code> (<code>float64</code>). Pero <code>criticidad</code> quedó en <code>object</code>, la etiqueta genérica que pandas usa para “texto y no sé nada más”. Ese detalle no es un error de pandas: es la pregunta que resuelve el resto de esta guía.</p>
+</section>
+<section id="por-qué-clasificar-una-variable-no-es-un-trámite" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="por-qué-clasificar-una-variable-no-es-un-trámite"><span class="header-section-number">3</span> Por qué clasificar una variable no es un trámite</h2>
 <p>Antes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y cuáles son un error disfrazado de número.</p>
 <p>Sumar <code>repuestos</code> (1, 4, 2, 0…) tiene sentido: el total de repuestos usados en el mes es una cantidad real. Sumar un código de máquina no lo tiene, aunque <code>pandas</code> lo deje intentar si lo codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si antes no declaraste que ese orden existe: el promedio de “baja” y “alta” no es “media” por casualidad aritmética, es media porque tú fijaste ese orden.</p>
 <p>La consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.</p>
@@ -277,8 +304,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="imagenes/analisis-por-tipo.svg" class="img-fluid" alt="Discreta y continua llevan a tablas de frecuencia, medidas de localizacion y dispersion y boxplot. Nominal y ordinal llevan a tablas de frecuencia y graficos de barras, con la ordinal respetando su orden."></p>
 </div>
 </section>
-<section id="dos-preguntas-clasifican-cualquier-variable" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="dos-preguntas-clasifican-cualquier-variable"><span class="header-section-number">3</span> Dos preguntas clasifican cualquier variable</h2>
+<section id="dos-preguntas-clasifican-cualquier-variable" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="dos-preguntas-clasifican-cualquier-variable"><span class="header-section-number">4</span> Dos preguntas clasifican cualquier variable</h2>
 <p>No hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable en una de las cuatro categorías.</p>
 <p><strong>Primera pregunta: ¿el valor se cuenta o se mide?</strong></p>
 <p>Si la respuesta es un número entero que sale de contar unidades completas, la variable es <strong>numérica discreta</strong>. Si sale de medir en una escala donde caben decimales, sin importar cuántos apliques, la variable es <strong>numérica continua</strong>.</p>
@@ -288,17 +315,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="imagenes/arbol-clasificacion.svg" class="img-fluid" alt="Arbol de clasificacion: la variable se cuenta o se mide, si se cuenta es discreta y si se mide es continua; si no es numerica, se pregunta si tiene un orden natural, si lo tiene es ordinal y si no es nominal. Cada hoja lleva un ejemplo de mantenimiento."></p>
 </div>
 </section>
-<section id="numéricas-discretas-y-continuas" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="numéricas-discretas-y-continuas"><span class="header-section-number">4</span> Numéricas: discretas y continuas</h2>
+<section id="numéricas-discretas-y-continuas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="numéricas-discretas-y-continuas"><span class="header-section-number">5</span> Numéricas: discretas y continuas</h2>
 <p>Una variable numérica discreta se <strong>cuenta</strong>. Sus valores posibles son un conjunto que puedes enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención, número de paradas no programadas en un mes, número de operarios asignados a una orden.</p>
 <p>Una variable numérica continua se <strong>mide</strong>. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.</p>
-<p>Verifícalo con datos reales. Descarga <a href="recursos/ordenes.csv"><code>ordenes.csv</code></a>, el mismo dataset de 12 órdenes de mantenimiento de la Semana 1, y ábrelo con pandas:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ordenes <span class="op">=</span> pd.read_csv(<span class="st">"ordenes.csv"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"repuestos"</span>].unique().tolist()))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"duracion_min"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Verifícalo con el mismo <code>ordenes</code> que ya cargaste:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"repuestos"</span>].unique().tolist()))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"duracion_min"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>[0, 1, 2, 3, 4, 5]
 [30.0, 35.25, 40.5, 45.5, 50.0, 55.75, 60.25, 165.0, 175.5, 182.0, 195.0, 210.5]</code></pre>
 <p><code>repuestos</code> solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. <code>duracion_min</code> trae decimales y no hay un conjunto finito de valores esperables: cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.</p>
@@ -320,16 +343,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>El gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y 2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.</p>
 </section>
-<section id="categóricas-nominales-y-ordinales" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="categóricas-nominales-y-ordinales"><span class="header-section-number">5</span> Categóricas: nominales y ordinales</h2>
+<section id="categóricas-nominales-y-ordinales" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="categóricas-nominales-y-ordinales"><span class="header-section-number">6</span> Categóricas: nominales y ordinales</h2>
 <p>Una variable categórica nominal describe una cualidad <strong>sin orden natural</strong>. Puedes reordenar sus categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque ninguna ordenación es más correcta que otra. En el dataset: <code>maquina</code> (los códigos de torno y fresadora no tienen un “antes” y un “después”) y <code>tipo</code> de intervención (preventivo, correctivo y predictivo no forman una escala).</p>
 <p>Una variable categórica ordinal describe una cualidad <strong>con un orden natural</strong>, aunque no puedas medir la distancia entre categorías consecutivas. <code>criticidad</code> es el ejemplo del dataset: baja, media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave es “alta” que “media” en un número, como sí puedes hacerlo con dos duraciones.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"maquina"</span>].dtype)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"maquina"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"maquina"</span>].dtype)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(ordenes[<span class="st">"maquina"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>object
 ['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']</code></pre>
-<p>Ordenar <code>maquina</code> alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con <code>criticidad</code> pasa lo contrario, y ahí está el problema que arrastramos de la Semana 1.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ordenar <code>maquina</code> alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con <code>criticidad</code> pasa lo contrario, y ahí está el problema que viste al cargar el dataset.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code> orden criticidad
    102       alta
    105       alta
@@ -350,13 +373,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="declarar-el-orden-en-pandas" class="level3">
 <h3 class="anchored" data-anchor-id="declarar-el-orden-en-pandas">Declarar el orden en pandas</h3>
 <p>Pandas tiene un tipo de dato para esto: <code>category</code>, con el argumento <code>ordered=True</code>. Declaras la lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra respetando ese orden.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.api.types <span class="im">import</span> CategoricalDtype</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>orden_criticidad <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">"baja"</span>, <span class="st">"media"</span>, <span class="st">"alta"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"criticidad"</span>] <span class="op">=</span> ordenes[<span class="st">"criticidad"</span>].astype(orden_criticidad)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"criticidad"</span>].dtype)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas.api.types <span class="im">import</span> CategoricalDtype</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>orden_criticidad <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">"baja"</span>, <span class="st">"media"</span>, <span class="st">"alta"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"criticidad"</span>] <span class="op">=</span> ordenes[<span class="st">"criticidad"</span>].astype(orden_criticidad)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[<span class="st">"criticidad"</span>].dtype)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes.sort_values(<span class="st">"criticidad"</span>)[[<span class="st">"orden"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>category
  orden criticidad
    101       baja
@@ -373,11 +396,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    110       alta</code></pre>
 <p>El mismo <code>sort_values</code>, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.</p>
 <p>Con el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>urgentes <span class="op">=</span> ordenes[ordenes[<span class="st">"criticidad"</span>] <span class="op">&gt;</span> <span class="st">"media"</span>]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(urgentes[[<span class="st">"orden"</span>, <span class="st">"maquina"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"maximo:"</span>, ordenes[<span class="st">"criticidad"</span>].<span class="bu">max</span>())</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"minimo:"</span>, ordenes[<span class="st">"criticidad"</span>].<span class="bu">min</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>urgentes <span class="op">=</span> ordenes[ordenes[<span class="st">"criticidad"</span>] <span class="op">&gt;</span> <span class="st">"media"</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(urgentes[[<span class="st">"orden"</span>, <span class="st">"maquina"</span>, <span class="st">"criticidad"</span>]].to_string(index<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"maximo:"</span>, ordenes[<span class="st">"criticidad"</span>].<span class="bu">max</span>())</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"minimo:"</span>, ordenes[<span class="st">"criticidad"</span>].<span class="bu">min</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code> orden maquina criticidad
    102  TOR-02       alta
    105  FRE-02       alta
@@ -396,11 +419,11 @@ minimo: baja</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <p>El orden vive en el tipo de la <strong>columna completa</strong>, no en cada valor por separado. Si sacas un solo dato con <code>.iloc</code> y lo guardas en una variable, pandas te lo entrega convertido a texto normal, y una comparación entre esos dos valores vuelve a ser alfabética.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>valor_suelto <span class="op">=</span> ordenes[<span class="st">"criticidad"</span>].iloc[<span class="dv">0</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(valor_suelto), valor_suelto)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"baja &lt; alta como texto suelto:"</span>, ordenes[<span class="st">"criticidad"</span>].iloc[<span class="dv">0</span>] <span class="op">&lt;</span> ordenes[<span class="st">"criticidad"</span>].iloc[<span class="dv">1</span>])</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"baja &lt; alta con los codigos internos:"</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>      ordenes[<span class="st">"criticidad"</span>].cat.codes.iloc[<span class="dv">0</span>] <span class="op">&lt;</span> ordenes[<span class="st">"criticidad"</span>].cat.codes.iloc[<span class="dv">1</span>])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>valor_suelto <span class="op">=</span> ordenes[<span class="st">"criticidad"</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(valor_suelto), valor_suelto)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"baja &lt; alta como texto suelto:"</span>, ordenes[<span class="st">"criticidad"</span>].iloc[<span class="dv">0</span>] <span class="op">&lt;</span> ordenes[<span class="st">"criticidad"</span>].iloc[<span class="dv">1</span>])</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"baja &lt; alta con los codigos internos:"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>      ordenes[<span class="st">"criticidad"</span>].cat.codes.iloc[<span class="dv">0</span>] <span class="op">&lt;</span> ordenes[<span class="st">"criticidad"</span>].cat.codes.iloc[<span class="dv">1</span>])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>&lt;class 'str'&gt; baja
 baja &lt; alta como texto suelto: False
 baja &lt; alta con los codigos internos: True</code></pre>
@@ -409,8 +432,8 @@ baja &lt; alta con los codigos internos: True</code></pre>
 </div>
 </section>
 </section>
-<section id="caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo"><span class="header-section-number">6</span> Caso de uso: diseñar las columnas de una orden de trabajo</h2>
+<section id="caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo"><span class="header-section-number">7</span> Caso de uso: diseñar las columnas de una orden de trabajo</h2>
 <p>Así se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir una sola línea de análisis.</p>
 <p>Un área de mantenimiento quiere registrar, además de lo que ya trae <code>ordenes.csv</code>, cuatro datos nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado, severo.</p>
 <table class="caption-top table">
@@ -457,19 +480,19 @@ baja &lt; alta con los codigos internos: True</code></pre>
 </table>
 <p>“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.</p>
 <p>Verifica la tabla con código, construyendo esas cuatro columnas nuevas para las 12 órdenes existentes:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2026</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"temperatura_c"</span>] <span class="op">=</span> rng.uniform(<span class="dv">38</span>, <span class="dv">92</span>, size<span class="op">=</span><span class="bu">len</span>(ordenes)).<span class="bu">round</span>(<span class="dv">1</span>)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"tecnico"</span>] <span class="op">=</span> rng.choice([<span class="st">"Diaz"</span>, <span class="st">"Moreno"</span>, <span class="st">"Restrepo"</span>], size<span class="op">=</span><span class="bu">len</span>(ordenes))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"aprobada"</span>] <span class="op">=</span> rng.choice([<span class="st">"si"</span>, <span class="st">"no"</span>], size<span class="op">=</span><span class="bu">len</span>(ordenes))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>orden_desgaste <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">"leve"</span>, <span class="st">"moderado"</span>, <span class="st">"severo"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"desgaste"</span>] <span class="op">=</span> rng.choice([<span class="st">"leve"</span>, <span class="st">"moderado"</span>, <span class="st">"severo"</span>], size<span class="op">=</span><span class="bu">len</span>(ordenes))</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"desgaste"</span>] <span class="op">=</span> ordenes[<span class="st">"desgaste"</span>].astype(orden_desgaste)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[[<span class="st">"orden"</span>, <span class="st">"temperatura_c"</span>, <span class="st">"tecnico"</span>, <span class="st">"aprobada"</span>, <span class="st">"desgaste"</span>]].dtypes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2026</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"temperatura_c"</span>] <span class="op">=</span> rng.uniform(<span class="dv">38</span>, <span class="dv">92</span>, size<span class="op">=</span><span class="bu">len</span>(ordenes)).<span class="bu">round</span>(<span class="dv">1</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"tecnico"</span>] <span class="op">=</span> rng.choice([<span class="st">"Diaz"</span>, <span class="st">"Moreno"</span>, <span class="st">"Restrepo"</span>], size<span class="op">=</span><span class="bu">len</span>(ordenes))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"aprobada"</span>] <span class="op">=</span> rng.choice([<span class="st">"si"</span>, <span class="st">"no"</span>], size<span class="op">=</span><span class="bu">len</span>(ordenes))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>orden_desgaste <span class="op">=</span> CategoricalDtype(categories<span class="op">=</span>[<span class="st">"leve"</span>, <span class="st">"moderado"</span>, <span class="st">"severo"</span>], ordered<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"desgaste"</span>] <span class="op">=</span> rng.choice([<span class="st">"leve"</span>, <span class="st">"moderado"</span>, <span class="st">"severo"</span>], size<span class="op">=</span><span class="bu">len</span>(ordenes))</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>ordenes[<span class="st">"desgaste"</span>] <span class="op">=</span> ordenes[<span class="st">"desgaste"</span>].astype(orden_desgaste)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ordenes[[<span class="st">"orden"</span>, <span class="st">"temperatura_c"</span>, <span class="st">"tecnico"</span>, <span class="st">"aprobada"</span>, <span class="st">"desgaste"</span>]].dtypes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <pre class="text"><code>orden               int64
 temperatura_c     float64
 tecnico            object
@@ -478,8 +501,8 @@ desgaste         category
 dtype: object</code></pre>
 <p><code>temperatura_c</code> quedó <code>float64</code> sin que lo pidieras: <code>np.random.default_rng().uniform</code> siempre produce decimales, coherente con que es una variable continua. <code>tecnico</code> y <code>aprobada</code> quedan <code>object</code>, coherente con que son nominales. <code>desgaste</code> es la única que declaraste como <code>category</code> ordenada, porque es la única con un orden real.</p>
 </section>
-<section id="errores-frecuentes" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">7</span> Errores frecuentes</h2>
+<section id="errores-frecuentes" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">8</span> Errores frecuentes</h2>
 <div class="error-caso">
 <p><span class="etiqueta">Error 1</span></p>
 <section id="tratar-un-código-numérico-como-si-fuera-una-cantidad" class="level3">
@@ -505,8 +528,8 @@ dtype: object</code></pre>
 </section>
 </div>
 </section>
-<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">8</span> Lista de chequeo de la semana</h2>
+<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">9</span> Lista de chequeo de la semana</h2>
 <div class="checklist">
 <p><strong>Antes de la próxima sesión</strong></p>
 <ul class="task-list">
@@ -516,16 +539,16 @@ dtype: object</code></pre>
 </ul>
 </div>
 </section>
-<section id="lo-que-viene" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">9</span> Lo que viene</h2>
+<section id="lo-que-viene" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">10</span> Lo que viene</h2>
 <ul>
 <li><strong>Semana 3.</strong> Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.</li>
 <li><strong>Semana 4.</strong> Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.</li>
 <li><strong>Semana 5.</strong> Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.</li>
 </ul>
 </section>
-<section id="recursos" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="recursos"><span class="header-section-number">10</span> Recursos</h2>
+<section id="recursos" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="recursos"><span class="header-section-number">11</span> Recursos</h2>
 <ul>
 <li>Clasificación de datos en escalas de medición: Stevens, S. S. (1946). <em>On the theory of scales of measurement.</em></li>
 <li>Variables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. <em>Applied Statistics and Probability for Engineers.</em> 7.ª edición, capítulo 1.</li>
