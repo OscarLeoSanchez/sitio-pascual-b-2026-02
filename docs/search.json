@@ -43,17 +43,6 @@
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/semana-02/index.html#antes-de-empezar-los-acentos-en-la-consola",
-    "href": "herramientas-programacion-1/semana-02/index.html#antes-de-empezar-los-acentos-en-la-consola",
-    "title": "Semana 2. Sintaxis, variables y consola",
-    "section": "2 Antes de empezar: los acentos en la consola",
-    "text": "2 Antes de empezar: los acentos en la consola\nEn la Semana 1 quedó pendiente el error de los acentos en la consola de Windows. La causa es que la consola usa una página de códigos distinta a la codificación UTF-8 del archivo fuente. Se resuelve con una sola línea al inicio del programa:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nPruébalo en HolaPascual o en un proyecto nuevo:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\n\nConsole.WriteLine(\"Programación en C#: tildes, eñes y signos como el guion.\");\nConsole.WriteLine(\"Cantidad: 12, Precio: $4599.90 (número con punto decimal)\");\nProgramación en C#: tildes, eñes y signos como el guion.\nCantidad: 12, Precio: $4599.90 (número con punto decimal)\nAgrega esa línea al principio de cada proyecto nuevo de este curso, antes de la primera instrucción que escriba texto.",
-    "crumbs": [
-      "Unidad 1. Aplicaciones de consola con un IDE",
-      "Semana 2. Sintaxis, variables y consola"
-    ]
-  },
-  {
     "objectID": "herramientas-programacion-1/semana-02/index.html#anatomía-de-un-programa-con-sentencias-de-nivel-superior",
     "href": "herramientas-programacion-1/semana-02/index.html#anatomía-de-un-programa-con-sentencias-de-nivel-superior",
     "title": "Semana 2. Sintaxis, variables y consola",
@@ -252,179 +241,470 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
-    "title": "Estadística para Analítica",
-    "section": "Ruta de la sesión",
-    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nCargar el dataset y ver los tipos que asignó pandas\nLa pregunta sobre criticidad\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\n\n\nSegunda parte\n\nCategóricas: nominal y ordinal\nCategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva"
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "",
+    "text": "Guía de referencia con la sintaxis básica de C#, desde crear el proyecto hasta los ciclos. No sigue el orden semanal: reúne en un solo lugar lo que las Semanas 1 a 5 distribuyen, con más profundidad y ejemplos del sistema de gestión de biblioteca que vamos a construir entre todos. Úsala como consulta y practica los retos de cada sección. Se probó con el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-quedó-pendiente",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-quedó-pendiente",
-    "title": "Estadística para Analítica",
-    "section": "Lo que quedó pendiente",
-    "text": "Lo que quedó pendiente\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#crear-el-proyecto",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#crear-el-proyecto",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "1 Crear el proyecto",
+    "text": "1 Crear el proyecto\nDesde la terminal, en la carpeta donde guardas tus trabajos:\ndotnet new console -o CSharpDesdeCero\ncd CSharpDesdeCero\ndotnet run\nHello, World!\ndotnet new console genera un proyecto con un archivo Program.cs y un archivo CSharpDesdeCero.csproj que describe el proyecto. Todo el código de esta guía va dentro de Program.cs. Reemplaza su contenido en cada sección y ejecuta dotnet run para ver el resultado.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
-    "title": "Estadística para Analítica",
-    "section": "criticidad quedó como object",
-    "text": "criticidad quedó como object\n\nPandas no sabe que baja, media y alta tienen un orden.\n\nEsa palabra genérica, object, esconde información: hay un orden real y el software no lo ve hasta que se lo declaras."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#comentarios",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#comentarios",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "2 Comentarios",
+    "text": "2 Comentarios\n// Comentario de una linea.\n\n/* Comentario\n   de varias lineas. */\n\nConsole.WriteLine(\"El codigo sigue aqui.\");\nEl codigo sigue aqui.\nEl compilador ignora todo lo que va después de // en esa línea, y todo lo que queda entre /* y */, sin importar cuántas líneas ocupe.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
-    "title": "Estadística para Analítica",
-    "section": "Dos preguntas clasifican cualquier variable",
-    "text": "Dos preguntas clasifican cualquier variable"
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#variables-y-tipos-de-datos",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#variables-y-tipos-de-datos",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "3 Variables y tipos de datos",
+    "text": "3 Variables y tipos de datos\nCada variable tiene un tipo fijo: int para enteros, double para reales, string para texto, char para un solo carácter y bool para verdadero o falso. Este primer ejemplo representa un libro del catálogo de la biblioteca.\nstring codigo = \"B001\";\nstring titulo = \"Cien anios de soledad\";\nstring autor = \"Gabriel Garcia Marquez\";\nint ejemplares = 3;\nbool disponible = true;\n\nConsole.WriteLine($\"Codigo    : {codigo}\");\nConsole.WriteLine($\"Titulo    : {titulo}\");\nConsole.WriteLine($\"Autor     : {autor}\");\nConsole.WriteLine($\"Ejemplares: {ejemplares}\");\nConsole.WriteLine($\"Disponible: {disponible}\");\nCodigo    : B001\nTitulo    : Cien anios de soledad\nAutor     : Gabriel Garcia Marquez\nEjemplares: 3\nDisponible: True\nEl signo $ antes de las comillas activa la interpolación: todo lo que va entre { } dentro del texto se reemplaza por el valor de esa variable. Es más corto que concatenar con +.\n\n\n\n\n\n\nTipReto: agrega el año de publicación\n\n\n\n\n\nAgrega una variable anioPublicacion de tipo int y muestra el título junto al año, con el formato Titulo (Anio).\nSolución\nstring codigo = \"B001\";\nstring titulo = \"Cien anios de soledad\";\nstring autor = \"Gabriel Garcia Marquez\";\nint ejemplares = 3;\nint anioPublicacion = 1967;\nbool disponible = true;\n\nConsole.WriteLine($\"Codigo    : {codigo}\");\nConsole.WriteLine($\"Titulo    : {titulo} ({anioPublicacion})\");\nConsole.WriteLine($\"Autor     : {autor}\");\nConsole.WriteLine($\"Ejemplares: {ejemplares}\");\nConsole.WriteLine($\"Disponible: {disponible}\");\nCodigo    : B001\nTitulo    : Cien anios de soledad (1967)\nAutor     : Gabriel Garcia Marquez\nEjemplares: 3\nDisponible: True",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
-    "title": "Estadística para Analítica",
-    "section": "Primera pregunta",
-    "text": "Primera pregunta\n¿El valor se cuenta o se mide?\n\nSe cuenta, en unidades completas: numérica discreta.\nSe mide, en una escala donde caben decimales: numérica continua."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#entrada-y-salida-por-consola",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#entrada-y-salida-por-consola",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "4 Entrada y salida por consola",
+    "text": "4 Entrada y salida por consola\nConsole.Write no salta de línea, para pedir un dato en la misma línea. Console.ReadLine siempre devuelve string, así que hay que convertirlo si necesitas un número.\nConsole.Write(\"Titulo del libro: \");\nstring titulo = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Ejemplares disponibles: \");\nstring? textoEjemplares = Console.ReadLine();\nint.TryParse(textoEjemplares, out int ejemplares);\n\nConsole.WriteLine($\"Registraste \\\"{titulo}\\\" con {ejemplares} ejemplar(es).\");\nTitulo del libro: Cien anios de soledad\nEjemplares disponibles: 3\nRegistraste \"Cien anios de soledad\" con 3 ejemplar(es).\nTres símbolos nuevos en este ejemplo:\n\nstring?. El ? marca que la variable puede llegar a valer null (ningún dato, porque Console.ReadLine no siempre recibe algo). Un string sin ? promete al compilador que nunca va a ser null.\n??. Es el operador de coalescencia nula: Console.ReadLine() ?? \"\" usa la cadena vacía si el resultado fue null, así titulo queda siempre como un string normal.\nout int ejemplares. TryParse necesita un lugar donde dejar el número convertido; out declara esa variable ahí mismo, en el momento de llamarlo. Dentro del método, TryParse intenta convertir el texto y devuelve true o false según si lo logró.\n\n\n\n\n\n\n\nTipReto: agrega autor y año\n\n\n\n\n\nPide también el autor y el año de publicación por teclado, y arma el resumen \"Titulo\" de Autor, publicado en Anio..\nSolución\nConsole.Write(\"Titulo del libro: \");\nstring titulo = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Autor: \");\nstring autor = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Anio de publicacion: \");\nstring? textoAnio = Console.ReadLine();\nint.TryParse(textoAnio, out int anioPublicacion);\n\nConsole.WriteLine($\"\\\"{titulo}\\\" de {autor}, publicado en {anioPublicacion}.\");\nTitulo del libro: Cien anios de soledad\nAutor: Gabriel Garcia Marquez\nAnio de publicacion: 1967\n\"Cien anios de soledad\" de Gabriel Garcia Marquez, publicado en 1967.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
-    "title": "Estadística para Analítica",
-    "section": "Segunda pregunta",
-    "text": "Segunda pregunta\nSi no es un número: ¿las categorías tienen un orden natural?\n\nSí lo tienen, sin inventar el criterio: categórica ordinal.\nNo lo tienen, o hay varios criterios igual de válidos: categórica nominal."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#operadores",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#operadores",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "5 Operadores",
+    "text": "5 Operadores\nAritméticos (+ - * / %), relacionales (&gt; &lt; &gt;= &lt;= == !=) y lógicos (&& || !). El siguiente ejemplo calcula si un libro está disponible y si un préstamo está atrasado.\nint totalEjemplares = 5;\nint prestados = 2;\n\nint disponibles = totalEjemplares - prestados;\nConsole.WriteLine($\"Disponibles: {disponibles}\");\n\nbool hayDisponibilidad = disponibles &gt; 0;\nConsole.WriteLine($\"Se puede prestar: {hayDisponibilidad}\");\n\nint diasPrestamo = 8;\nint diasTranscurridos = 10;\nbool estaAtrasado = diasTranscurridos &gt; diasPrestamo;\nint diasDeAtraso = diasTranscurridos - diasPrestamo;\nConsole.WriteLine($\"Atrasado: {estaAtrasado}, dias de atraso: {diasDeAtraso}\");\nDisponibles: 3\nSe puede prestar: True\nAtrasado: True, dias de atraso: 2\ndisponibles / prestados entre dos int descarta la parte decimal (división entera); % da el residuo de esa división. Cuidado con confundir = y ==: = asigna un valor, == compara dos valores. disponibles = 0 dentro de un if es un error de sintaxis que el compilador rechaza porque una asignación no produce un bool.\n\n\n\n\n\n\nTipReto: calcula la multa por atraso\n\n\n\n\n\nSi estaAtrasado es true, calcula una multa de 500 pesos por cada día de atraso (diasDeAtraso * 500) e imprímela.\nSolución\nint diasPrestamo = 8;\nint diasTranscurridos = 10;\nbool estaAtrasado = diasTranscurridos &gt; diasPrestamo;\nint diasDeAtraso = diasTranscurridos - diasPrestamo;\n\nint multa = 0;\nif (estaAtrasado)\n{\n    multa = diasDeAtraso * 500;\n}\n\nConsole.WriteLine($\"Atrasado: {estaAtrasado}, dias de atraso: {diasDeAtraso}, multa: {multa}\");\nAtrasado: True, dias de atraso: 2, multa: 1000",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
-    "title": "Estadística para Analítica",
-    "section": "Numérica discreta: se cuenta",
-    "text": "Numérica discreta: se cuenta\nRepuestos usados, paradas no programadas en el mes, operarios asignados a una orden.\nNo hay un valor intermedio entre dos consecutivos: no existen 2.5 repuestos."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#condicionales",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#condicionales",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "6 Condicionales",
+    "text": "6 Condicionales\nint disponibles = 2;\n\nif (disponibles &gt; 0)\n{\n    Console.WriteLine(\"Se puede prestar el libro.\");\n}\nelse\n{\n    Console.WriteLine(\"No hay ejemplares disponibles.\");\n}\n\nstring tipoUsuario = \"estudiante\";\nint diasPrestamo;\n\nswitch (tipoUsuario)\n{\n    case \"estudiante\":\n        diasPrestamo = 8;\n        break;\n    case \"docente\":\n        diasPrestamo = 15;\n        break;\n    default:\n        diasPrestamo = 5;\n        break;\n}\n\nConsole.WriteLine($\"Dias de prestamo: {diasPrestamo}\");\nSe puede prestar el libro.\nDias de prestamo: 8\nswitch compara una sola variable contra varios valores posibles. Cada case necesita un break para no seguir evaluando el siguiente; default cubre cualquier valor que no coincida con un case declarado.\n\n\n\n\n\n\nTipReto: agrega un tercer tipo de usuario\n\n\n\n\n\nAgrega el caso \"invitado\" con 3 días de préstamo.\nSolución\nstring tipoUsuario = \"invitado\";\nint diasPrestamo;\n\nswitch (tipoUsuario)\n{\n    case \"estudiante\":\n        diasPrestamo = 8;\n        break;\n    case \"docente\":\n        diasPrestamo = 15;\n        break;\n    case \"invitado\":\n        diasPrestamo = 3;\n        break;\n    default:\n        diasPrestamo = 5;\n        break;\n}\n\nConsole.WriteLine($\"Dias de prestamo: {diasPrestamo}\");\nDias de prestamo: 3",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
-    "title": "Estadística para Analítica",
-    "section": "Numérica continua: se mide",
-    "text": "Numérica continua: se mide\nDuración de la intervención, temperatura del rodamiento, vibración en milímetros por segundo.\nEntre dos valores cualesquiera siempre cabe otro."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#ciclos",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#ciclos",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "7 Ciclos",
+    "text": "7 Ciclos\n\nfor: cuando sabes cuántas vueltas necesitas\nfor (int i = 1; i &lt;= 5; i++)\n{\n    Console.WriteLine($\"Ejemplar numero {i} registrado\");\n}\nEjemplar numero 1 registrado\nEjemplar numero 2 registrado\nEjemplar numero 3 registrado\nEjemplar numero 4 registrado\nEjemplar numero 5 registrado\nfor (inicio; condicion; paso): int i = 1 inicializa, i &lt;= 5 se revisa antes de cada vuelta, y i++ corre después de cada vuelta. i++ es azúcar sintáctico de i = i + 1; su opuesto es i-- (i = i - 1). El paso también puede ir hacia atrás:\nfor (int diasRestantes = 3; diasRestantes &gt;= 1; diasRestantes--)\n{\n    Console.WriteLine($\"Quedan {diasRestantes} dia(s) para la fecha de devolucion\");\n}\nQuedan 3 dia(s) para la fecha de devolucion\nQuedan 2 dia(s) para la fecha de devolucion\nQuedan 1 dia(s) para la fecha de devolucion\n\n\nwhile: cuando repites hasta que se cumpla una condición\nint intentos = 0;\nint diasSolicitados = -1;\n\nwhile (diasSolicitados &lt;= 0)\n{\n    Console.Write(\"Cuantos dias necesitas el libro: \");\n    string? texto = Console.ReadLine();\n    int.TryParse(texto, out diasSolicitados);\n    intentos++;\n}\n\nConsole.WriteLine($\"Prestamo registrado por {diasSolicitados} dia(s), en {intentos} intento(s).\");\nCuantos dias necesitas el libro: -3\nCuantos dias necesitas el libro: 8\nPrestamo registrado por 8 dia(s), en 2 intento(s).\nwhile (condicion) repite mientras la condición sea true, y la revisa antes de cada vuelta: si nunca se cumple, el ciclo no se ejecuta ni una vez. Úsalo cuando no sabes de antemano cuántas vueltas vas a necesitar, como aquí, donde depende de que el usuario escriba un número válido.\n\n\nAcumuladores, contadores y banderas\nUn acumulador suma valores en cada vuelta (totalDias += dias), un contador cuenta vueltas válidas (prestamosValidos++) y una bandera guarda si algo pasó durante el ciclo (bool huboError). Este ejemplo registra tres préstamos del día.\nint totalDias = 0;\nint prestamosValidos = 0;\nbool huboError = false;\n\nfor (int i = 1; i &lt;= 3; i++)\n{\n    Console.Write($\"Dias del prestamo {i}: \");\n    string? texto = Console.ReadLine();\n\n    if (int.TryParse(texto, out int dias) && dias &gt; 0)\n    {\n        totalDias += dias;\n        prestamosValidos++;\n    }\n    else\n    {\n        huboError = true;\n    }\n}\n\nConsole.WriteLine($\"Prestamos validos: {prestamosValidos}\");\nConsole.WriteLine($\"Total de dias prestados: {totalDias}\");\nConsole.WriteLine($\"Hubo algun error: {huboError}\");\nDias del prestamo 1: 10\nDias del prestamo 2: -5\nDias del prestamo 3: 5\nPrestamos validos: 2\nTotal de dias prestados: 15\nHubo algun error: True\ntotalDias += dias es azúcar sintáctico de totalDias = totalDias + dias; existen igual -=, *= y /=. El && en el if exige que las dos condiciones sean verdaderas: que el texto se haya podido convertir y que el número de días sea mayor que cero. -5 pasa la conversión pero falla esa segunda condición, así que cuenta como error.\n\n\n\n\n\n\nTipReto: separa los préstamos inválidos y registra cinco\n\n\n\n\n\nCambia el ciclo para que registre 5 préstamos en vez de 3, y reemplaza la bandera huboError por un contador prestamosInvalidos que sume uno por cada dato que falle.\nSolución\nint totalDias = 0;\nint prestamosValidos = 0;\nint prestamosInvalidos = 0;\n\nfor (int i = 1; i &lt;= 5; i++)\n{\n    Console.Write($\"Dias del prestamo {i}: \");\n    string? texto = Console.ReadLine();\n\n    if (int.TryParse(texto, out int dias) && dias &gt; 0)\n    {\n        totalDias += dias;\n        prestamosValidos++;\n    }\n    else\n    {\n        prestamosInvalidos++;\n    }\n}\n\nConsole.WriteLine($\"Prestamos validos: {prestamosValidos}\");\nConsole.WriteLine($\"Prestamos invalidos: {prestamosInvalidos}\");\nConsole.WriteLine($\"Total de dias prestados: {totalDias}\");\nDias del prestamo 1: 5\nDias del prestamo 2: 10\nDias del prestamo 3: abc\nDias del prestamo 4: -2\nDias del prestamo 5: 7\nPrestamos validos: 3\nPrestamos invalidos: 2\nTotal de dias prestados: 22",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
-    "title": "Estadística para Analítica",
-    "section": "Verificación con datos reales",
-    "text": "Verificación con datos reales\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56"
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#proyecto-del-curso-sistema-de-gestión-de-biblioteca",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#proyecto-del-curso-sistema-de-gestión-de-biblioteca",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "8 Proyecto del curso: Sistema de Gestión de Biblioteca",
+    "text": "8 Proyecto del curso: Sistema de Gestión de Biblioteca\nTodo lo que aprendes en esta guía se aplica sobre un solo proyecto que construimos entre todos a lo largo del semestre: un sistema de gestión de una biblioteca, con su catálogo de libros, sus usuarios y los préstamos entre ambos.\n\n\n\n\n\n\n\nSemanas\nEl proyecto suma\n\n\n\n\n01 a 05\nConsola: registro de libros, disponibilidad, préstamos, ciclos con acumuladores y contadores\n\n\n06 a 10\nArreglos, funciones y un menú completo sobre el catálogo\n\n\n11 a 16\nClases (Libro, Usuario, Prestamo), persistencia en archivo e interfaz gráfica\n\n\n\nLa idea es simple: primero vemos la teoría, después la aplicamos al proyecto. Así cada concepto nuevo tiene un lugar real donde usarse, en vez de quedarse en un ejercicio suelto y sin contexto.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
-    "title": "Estadística para Analítica",
-    "section": "Discreta vs continua, en el mismo eje",
-    "text": "Discreta vs continua, en el mismo eje\n\nSeis barras separadas, en valores exactos, contra una nube de puntos donde cualquier posición entre el mínimo y el máximo es posible."
+    "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html#programa-de-consola-con-variables-entrada-salida-y-operadores",
+    "href": "herramientas-programacion-1/csharp-desde-cero/index.html#programa-de-consola-con-variables-entrada-salida-y-operadores",
+    "title": "C# desde cero: guía de sintaxis básica",
+    "section": "9 Programa de consola con variables, entrada, salida y operadores",
+    "text": "9 Programa de consola con variables, entrada, salida y operadores\nCon lo que cubre esta guía ya puedes armar un programa completo y publicarlo en tu propio repositorio. Practica todo el flujo de punta a punta.\nConsigna: programa de consola con variables, entrada, salida y operadores. Tema libre. El programa debe:\n\nDeclarar al menos 3 variables con tipos distintos (int, double, string, bool, etc.).\nPedir al menos 2 datos por teclado con Console.ReadLine, convertidos con TryParse.\nAplicar al menos 2 operadores (uno aritmético y uno relacional o lógico) sobre esos datos.\nMostrar un resultado por consola con interpolación ($\"...\").\n\nPasos:\n\ndotnet new console -o &lt;NombreDelProyecto&gt; y verifica que corre con dotnet run.\nEscribe el programa que cumple la consigna de arriba.\ngit init, con un .gitignore de .NET (bin/, obj/, .vs/).\nAl menos 2 commits con mensajes que digan qué cambió.\nCrea un repositorio vacío en GitHub.\ngit remote add origin &lt;url&gt; y git push -u origin main.\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 1. Aplicaciones de consola con un IDE",
+      "C# desde cero (guía de sintaxis)"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
-    "title": "Estadística para Analítica",
-    "section": "Categórica nominal: sin orden",
-    "text": "Categórica nominal: sin orden\nmaquina: los códigos de torno y fresadora no tienen un antes y un después.\ntipo de intervención: preventivo, correctivo y predictivo no forman una escala."
+    "objectID": "estadistica-para-analitica/semana-02/index.html",
+    "href": "estadistica-para-analitica/semana-02/index.html",
+    "title": "Semana 2. Tipos de variables",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
-    "title": "Estadística para Analítica",
-    "section": "Categórica ordinal: con orden",
-    "text": "Categórica ordinal: con orden\ncriticidad: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir la distancia entre una y otra."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nVas a cargar un dataset con pandas y a observar algo que pasa siempre: la herramienta adivina el tipo de cada columna, y a veces adivina mal. Acierta con las columnas numéricas, pero le pone object a una columna que sí tiene un orden real (criticidad: baja, media, alta), porque object es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde el orden, y el orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.\nAl terminar deberías poder:\n\nCargar un dataset con pandas y leer los tipos que asigna automáticamente a cada columna.\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-de-la-semana-1-explicado",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-de-la-semana-1-explicado",
-    "title": "Estadística para Analítica",
-    "section": "El error de la Semana 1, explicado",
-    "text": "El error de la Semana 1, explicado\nprint(ordenes.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
+    "href": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
+    "title": "Semana 2. Tipos de variables",
+    "section": "2 Cargar el dataset y ver qué tipos asignó pandas",
+    "text": "2 Cargar el dataset y ver qué tipos asignó pandas\nVas a trabajar con un registro de 120 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga ordenes.csv y ábrelo con pandas:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\npd.read_csv adivina el tipo de cada columna a partir de lo que encuentra en el archivo. Pídele la lista completa con .dtypes:\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nAcertó con orden y repuestos (int64) y con duracion_min (float64). Pero criticidad quedó en object, la etiqueta genérica que pandas usa para “texto y no sé nada más”. Ese detalle no es un error de pandas: es la pregunta que resuelve el resto de esta guía.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
-    "title": "Estadística para Analítica",
-    "section": "Nominal vs ordinal, en el mismo eje",
-    "text": "Nominal vs ordinal, en el mismo eje\n\nLa izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único orden que tiene sentido."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
+    "href": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
+    "title": "Semana 2. Tipos de variables",
+    "section": "3 Por qué clasificar una variable no es un trámite",
+    "text": "3 Por qué clasificar una variable no es un trámite\nAntes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y cuáles son un error disfrazado de número.\nSumar repuestos (1, 4, 2, 0…) tiene sentido: el total de repuestos usados en el mes es una cantidad real. Sumar un código de máquina no lo tiene, aunque pandas lo deje intentar si lo codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si antes no declaraste que ese orden existe: el promedio de “baja” y “alta” no es “media” por casualidad aritmética, es media porque tú fijaste ese orden.\nLa consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#laboratorio-declarar-el-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#laboratorio-declarar-el-orden",
-    "title": "Estadística para Analítica",
-    "section": "Laboratorio: declarar el orden",
-    "text": "Laboratorio: declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
+    "objectID": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
+    "href": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
+    "title": "Semana 2. Tipos de variables",
+    "section": "4 Dos preguntas clasifican cualquier variable",
+    "text": "4 Dos preguntas clasifican cualquier variable\nNo hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable en una de las cuatro categorías.\nPrimera pregunta: ¿el valor se cuenta o se mide?\nSi la respuesta es un número entero que sale de contar unidades completas, la variable es numérica discreta. Si sale de medir en una escala donde caben decimales, sin importar cuántos apliques, la variable es numérica continua.\nSegunda pregunta, solo si la variable no es un número: ¿las categorías tienen un orden natural?\nSi puedes ordenar las categorías de menor a mayor sin inventar el criterio, la variable es categórica ordinal. Si no existe ese orden, o existen varios criterios igual de válidos para ordenarla, la variable es categórica nominal.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
-    "title": "Estadística para Analítica",
-    "section": "El mismo sort_values, sin cambiar nada más",
-    "text": "El mismo sort_values, sin cambiar nada más\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   ...\n   102       alta\n\nLa diferencia no está en el método. Está en lo que le dijiste al dato sobre sí mismo."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
+    "href": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
+    "title": "Semana 2. Tipos de variables",
+    "section": "5 Numéricas: discretas y continuas",
+    "text": "5 Numéricas: discretas y continuas\nUna variable numérica discreta se cuenta. Sus valores posibles son un conjunto que puedes enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención, número de paradas no programadas en un mes, número de operarios asignados a una orden.\nUna variable numérica continua se mide. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.\nVerifícalo con el mismo ordenes que ya cargaste:\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56\nrepuestos solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. En 120 órdenes, duracion_min no repite ni un solo valor: trae decimales y no hay un conjunto finito de valores esperables, cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.\n\n\n\n\n\n\nNotaUn caso que confunde: cuando lo continuo se registra redondeado\n\n\n\nSi un instrumento solo reporta minutos enteros, duracion_min seguiría siendo continua: la variable en sí admite cualquier valor real, aunque el instrumento con el que la mides tenga una resolución limitada. La naturaleza de la variable no cambia porque el aparato que la registra sea más o menos preciso.\n\n\n\n\n\nEl gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y 2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
-    "title": "Estadística para Analítica",
-    "section": "Ahora el orden sirve para filtrar",
-    "text": "Ahora el orden sirve para filtrar\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta"
+    "objectID": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
+    "href": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
+    "title": "Semana 2. Tipos de variables",
+    "section": "6 Categóricas: nominales y ordinales",
+    "text": "6 Categóricas: nominales y ordinales\nUna variable categórica nominal describe una cualidad sin orden natural. Puedes reordenar sus categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque ninguna ordenación es más correcta que otra. En el dataset: maquina (los códigos de torno y fresadora no tienen un “antes” y un “después”) y tipo de intervención (preventivo, correctivo y predictivo no forman una escala).\nUna variable categórica ordinal describe una cualidad con un orden natural, aunque no puedas medir la distancia entre categorías consecutivas. criticidad es el ejemplo del dataset: baja, media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave es “alta” que “media” en un número, como sí puedes hacerlo con dos duraciones.\nprint(ordenes[\"maquina\"].dtype)\nprint(sorted(ordenes[\"maquina\"].unique().tolist()))\nobject\n['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']\nOrdenar maquina alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con criticidad pasa lo contrario, y ahí está el problema que viste al cargar el dataset.\nEl dataset completo tiene 120 filas: para que la tabla quepa completa en la página, trabaja con una muestra de las primeras 12 órdenes.\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\nPandas ordenó por texto, alfabéticamente: alta, baja, media. Es un orden válido para una cadena de texto y un orden equivocado para la criticidad de una intervención. El software no cometió un error: hizo exactamente lo que el tipo object le permite hacer. El error es no haberle dicho que criticidad es ordinal.\n\n\n\n\nDeclarar el orden en pandas\nPandas tiene un tipo de dato para esto: category, con el argumento ordered=True. Declaras la lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra respetando ese orden.\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(categories=[\"baja\", \"media\", \"alta\"], ordered=True)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\ncategory\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\n   102       alta\n   105       alta\n   107       alta\n   110       alta\nEl mismo sort_values, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.\nCon el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto. Sigue el filtro sobre la misma muestra de 12, y el máximo y el mínimo sobre el dataset completo:\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n\nprint(\"maximo:\", ordenes[\"criticidad\"].max())\nprint(\"minimo:\", ordenes[\"criticidad\"].min())\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta\nmaximo: alta\nminimo: baja\n\n\n\n\n\n\nAdvertenciaLa trampa: un valor suelto pierde el orden\n\n\n\nEl orden vive en el tipo de la columna completa, no en cada valor por separado. Si sacas un solo dato con .iloc y lo guardas en una variable, pandas te lo entrega convertido a texto normal, y una comparación entre esos dos valores vuelve a ser alfabética.\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(\"baja &lt; alta como texto suelto:\", ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\nprint(\"baja &lt; alta con los codigos internos:\",\n      ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\n&lt;class 'str'&gt; baja\nbaja &lt; alta como texto suelto: False\nbaja &lt; alta con los codigos internos: True\nbaja &lt; alta da False porque, como texto suelto, compara alfabéticamente (“b” va después de “a”). Compara filas dentro de una operación de pandas (sort_values, un filtro con [], .max(), .min()) y el orden se respeta. Si necesitas comparar dos valores sueltos, usa .cat.codes, que son los números internos que pandas asigna según el orden que declaraste.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
-    "title": "Estadística para Analítica",
-    "section": "La trampa: un valor suelto pierde el orden",
-    "text": "La trampa: un valor suelto pierde el orden\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\n&lt;class 'str'&gt; baja\nFalse\n\n.iloc entrega texto normal. La comparación vuelve a ser alfabética, sin avisar."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
+    "href": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
+    "title": "Semana 2. Tipos de variables",
+    "section": "7 Caso de uso: diseñar las columnas de una orden de trabajo",
+    "text": "7 Caso de uso: diseñar las columnas de una orden de trabajo\nAsí se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir una sola línea de análisis.\nUn área de mantenimiento quiere registrar, además de lo que ya trae ordenes.csv, cuatro datos nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado, severo.\n\n\n\n\n\n\n\n\n\nVariable nueva\nPregunta 1: ¿se cuenta o se mide?\nPregunta 2: ¿tiene orden?\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide, con decimales\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es un número\nSin orden natural\nCategórica nominal\n\n\nAprobada por el supervisor\nNo es un número\nSolo dos valores, sin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es un número\nLeve, moderado y severo sí ordenan\nCategórica ordinal\n\n\n\n“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.\nVerifica la tabla con código, construyendo esas cuatro columnas nuevas para las 120 órdenes existentes:\nimport numpy as np\n\nrng = np.random.default_rng(2026)\n\nordenes[\"temperatura_c\"] = rng.uniform(38, 92, size=len(ordenes)).round(1)\nordenes[\"tecnico\"] = rng.choice([\"Diaz\", \"Moreno\", \"Restrepo\"], size=len(ordenes))\nordenes[\"aprobada\"] = rng.choice([\"si\", \"no\"], size=len(ordenes))\n\norden_desgaste = CategoricalDtype(categories=[\"leve\", \"moderado\", \"severo\"], ordered=True)\nordenes[\"desgaste\"] = rng.choice([\"leve\", \"moderado\", \"severo\"], size=len(ordenes))\nordenes[\"desgaste\"] = ordenes[\"desgaste\"].astype(orden_desgaste)\n\nprint(ordenes[[\"orden\", \"temperatura_c\", \"tecnico\", \"aprobada\", \"desgaste\"]].dtypes)\norden               int64\ntemperatura_c     float64\ntecnico            object\naprobada           object\ndesgaste         category\ndtype: object\ntemperatura_c quedó float64 sin que lo pidieras: np.random.default_rng().uniform siempre produce decimales, coherente con que es una variable continua. tecnico y aprobada quedan object, coherente con que son nominales. desgaste es la única que declaraste como category ordenada, porque es la única con un orden real.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
-    "title": "Estadística para Analítica",
-    "section": "La solución: .cat.codes",
-    "text": "La solución: .cat.codes\nprint(ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\nTrue\nEl orden vive en la columna completa. Si necesitas comparar dos valores sueltos, usa los códigos internos."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
+    "title": "Semana 2. Tipos de variables",
+    "section": "8 Errores frecuentes",
+    "text": "8 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
-    "title": "Estadística para Analítica",
-    "section": "Caso de uso: una orden de trabajo nueva",
-    "text": "Caso de uso: una orden de trabajo nueva\nCuatro columnas nuevas, sin escribir todavía una línea de análisis:\n\n\n\n\n\n\n\n\n\nVariable nueva\nSe cuenta o se mide\nTiene orden\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es número\nSin orden\nCategórica nominal\n\n\nAprobada por supervisor\nNo es número\nSin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es número\nLeve &lt; moderado &lt; severo\nCategórica ordinal"
+    "objectID": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "9 Lista de chequeo de la semana",
+    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
-    "title": "Estadística para Analítica",
-    "section": "¿Y el sí/no de “aprobada”?",
-    "text": "¿Y el sí/no de “aprobada”?\n\nParece que pudiera codificarse como 1/0 y tratarse como número. No lo es: sumar o promediar esos ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es contar cuántas órdenes caen en cada categoría, que es el tratamiento de una variable nominal."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
+    "title": "Semana 2. Tipos de variables",
+    "section": "10 Lo que viene",
+    "text": "10 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
-    "title": "Estadística para Analítica",
-    "section": "Qué análisis habilita cada tipo",
-    "text": "Qué análisis habilita cada tipo"
+    "objectID": "estadistica-para-analitica/semana-02/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-02/index.html#recursos",
+    "title": "Semana 2. Tipos de variables",
+    "section": "11 Recursos",
+    "text": "11 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-conjunto-de-datos-propio-arranca-hoy",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-conjunto-de-datos-propio-arranca-hoy",
-    "title": "Estadística para Analítica",
-    "section": "El conjunto de datos propio arranca hoy",
-    "text": "El conjunto de datos propio arranca hoy\n\nSe mide u observa un proceso real. No sirve un archivo descargado de internet.\n\n\nMínimo 40 registros.\nAl menos dos variables numéricas.\nAl menos dos variables categóricas, una de ellas ordinal.\nCada columna clasificada por escrito, antes de recoger el primer dato."
+    "objectID": "estadistica-para-analitica/semana-01/index.html",
+    "href": "estadistica-para-analitica/semana-01/index.html",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-entregas-esta-semana",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-entregas-esta-semana",
-    "title": "Estadística para Analítica",
-    "section": "Qué entregas esta semana",
-    "text": "Qué entregas esta semana\n\nUn .csv con las columnas diseñadas.\nLos primeros registros que ya tengas recogidos.\nUn párrafo que explique qué mide cada columna y por qué se clasificó así.\n\n\nLa recolección completa se verifica en la Semana 5, junto con el informe exploratorio."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nEsta semana no tiene entregable ni nota. Hace tres cosas: te muestra cómo está armado el módulo, deja el entorno de Python instalado y verificado, y pone sobre la mesa el problema que la estadística existe para resolver.\nAl cerrar la guía deberías poder:\n\nUbicar cada unidad del módulo dentro del ciclo de resolución de un problema con datos.\nEjecutar Python en un entorno virtual con las siete librerías del semestre.\nDecir qué aporta cada librería y por qué están todas.\nExplicar por qué una medición repetida no devuelve el mismo número, y qué consecuencia tiene eso para una decisión.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "objectID": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
+    "href": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "2 La estadística como proceso de decisión",
+    "text": "2 La estadística como proceso de decisión\nResolver un problema con datos toma cuatro pasos:\n\nFormular la pregunta. Qué se quiere saber, sobre qué proceso, y en qué términos medibles se deja plantear.\nRecoger los datos. Qué se mide, cada cuánto, con qué instrumento y quién responde por el registro.\nAnalizar. Con el método que admite la naturaleza de esas variables.\nInterpretar y decidir. Qué se hace con el resultado y con cuánta confianza.\n\n\n\n\nLos cuatro pasos pesan igual sobre el resultado. Un análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor, y esa decisión hay que defenderla después ante quien la firma.\nToma el caso que atraviesa el módulo: un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó qué variable representa el desgaste, cada cuánto se lee el instrumento y quién responde por el registro. Cambia una de esas decisiones y cambia la conclusión.\nEl módulo recorre los cuatro pasos y le da al diseño de la medición el mismo peso que al cálculo.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
+    "href": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "3 El mapa del módulo",
+    "text": "3 El mapa del módulo\nDieciséis semanas repartidas en tres unidades. Cada una responde una pregunta distinta sobre el mismo caso.\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnidad\nLa pregunta que responde\nLo que produce\nCierre\n\n\n\n\n1\nQué hay en estos datos\nUn informe exploratorio con gráficos y resúmenes numéricos\n30%\n\n\n2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno\n30%\n\n\n3\nQué puedo afirmar sobre lo que no medí\nConclusiones sobre la población, con su margen de error declarado\n40%\n\n\n\n\n\nQué hará cada unidad\nUnidad 1. Describir lo que hay. Construirás tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplots y gráficos de dispersión. El cierre será un informe exploratorio que muestre qué dicen los datos observados.\n\n\n\nUnidad 2. Modelar la incertidumbre. Ajustarás distribuciones de probabilidad y las usarás para calcular la posibilidad de eventos que todavía no ocurrieron. El cierre será un modelo que responda preguntas sobre el fenómeno.\n\n\n\nUnidad 3. Inferir sobre el proceso. Construirás intervalos de confianza, pruebas de hipótesis, comparaciones y modelos de regresión. El cierre presentará conclusiones sobre el proceso y declarará el margen de error.\n\n\n\nLas tres unidades trabajan sobre un mismo caso. Lo primero es definir el proceso: qué se observa, qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al final, la inferencia. El alcance del caso se acuerda en la Semana 02.\n\n\n\n\n\n\nTipEl método del módulo\n\n\n\nCada tema pasa por tres momentos:\n\nConcepto. Precisamos qué afirma el resultado y bajo qué supuestos se sostiene.\nImplementación. Escribimos el procedimiento en Python y lo ejecutamos sobre datos.\nSimulación. Repetimos el procedimiento muchas veces y contrastamos su comportamiento con lo que predice la teoría.\n\nEse contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto falla en la práctica un intervalo de confianza.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
+    "href": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "4 El entorno de trabajo",
+    "text": "4 El entorno de trabajo\nTodo el módulo se programa en Python. Un análisis que llega sin el código que lo produjo no se puede reproducir ni auditar, y la estadística que no se ejecuta se olvida.\nEstas son las piezas y lo que hace cada una.\n\n\n\n\n\n\n\n\n\n\n\nLibrería\nQué aporta\n\n\n\n\npandas\nCarga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy\nCálculo numérico y generación de números aleatorios para simular\n\n\nopenpyxl\nEs la que permite a pandas leer y escribir .xlsx\n\n\nmatplotlib\nMotor de los gráficos\n\n\nseaborn\nGráficos estadísticos sobre matplotlib, con menos código\n\n\nscipy\nDistribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels\nModelos de regresión y ANOVA con la salida que se reporta\n\n\n\n\n\nPor qué un entorno virtual\nUn entorno virtual es una carpeta con una copia aislada de Python y sus librerías. Lo que instalas adentro no toca el Python del sistema ni el de otros proyectos.\n\n\n\nSirve para dos cosas concretas. La primera, que actualizar una librería para otro proyecto no rompa el código de este. La segunda, que fijar las versiones haga que el mismo script produzca el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.\n\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Recrea el entorno con las versiones exactas de la tabla; el requirements.txt del paso 3 las fija con ==.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nPython\n3.13.4\n\n\npandas\n2.3.1\n\n\nnumpy\n2.3.2\n\n\nscipy\n1.17.0\n\n\nmatplotlib\n3.10.8\n\n\nseaborn\n0.13.2\n\n\nstatsmodels\n0.14.6\n\n\nopenpyxl\n3.1.5",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
+    "href": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "5 Instalación paso a paso",
+    "text": "5 Instalación paso a paso\n\n1 Python\nDescarga la versión 3.13 desde python.org/downloads.\nEn Windows, marca la casilla Add python.exe to PATH en la primera pantalla del instalador. Es fácil pasarla por alto, y sin ella el comando python no funciona en la terminal.\nEn macOS y Linux el sistema ya trae Python, pero suele ser una versión vieja que además usa el sistema operativo. Comprueba con python3 --version y, si es anterior a 3.11, instala la 3.13 aparte.\n\n\n2 La carpeta del módulo y el entorno virtual\nCrea una carpeta para todo el semestre y ubícate en ella:\nmkdir estadistica-analitica\ncd estadistica-analitica\nCrea el entorno virtual dentro de esa carpeta:\npython -m venv .venv\nActívalo. El comando cambia según el sistema:\n# Windows, PowerShell\n.venv\\Scripts\\Activate.ps1\n\n# Windows, Git Bash\nsource .venv/Scripts/activate\n\n# macOS y Linux\nsource .venv/bin/activate\nCuando queda activo, el nombre (.venv) aparece al comienzo de la línea de la terminal. Si no lo ves, no está activo, y todo lo que instales va a parar a otro lado.\n\n\n\n\n\n\nAdvertenciaEl entorno se activa en cada terminal nueva\n\n\n\nCerrar la terminal desactiva el entorno. Al día siguiente, cuando vuelvas a la carpeta, tienes que activarlo otra vez antes de trabajar. Es el tropiezo más común de las primeras semanas.\n\n\n\n\n3 Las librerías\nCon el entorno activo, crea un archivo requirements.txt con este contenido:\npandas==2.3.1\nnumpy==2.3.2\nscipy==1.17.0\nmatplotlib==3.10.8\nseaborn==0.13.2\nstatsmodels==0.14.6\nopenpyxl==3.1.5\nE instálalas de una vez:\npip install -r requirements.txt\nFijar las versiones con == es lo que hace reproducible el análisis. El archivo se versiona junto con el código: quien reciba tu informe puede recrear el entorno exacto con una sola orden.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#verificación",
+    "href": "estadistica-para-analitica/semana-01/index.html#verificación",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "6 Verificación",
+    "text": "6 Verificación\nCon el entorno activo, ejecuta:\npython -c \"import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')\"\nSi imprime todo listo, ya está. Cualquier otra cosa significa que falta una librería o que el entorno no está activo.\nPara ver las versiones instaladas:\npython -c \"import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)\"\n2.3.1 2.3.2 1.17.0",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
+    "href": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "7 Demostración: por qué se mide más de una vez",
+    "text": "7 Demostración: por qué se mide más de una vez\nEsta es la demostración principal de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.\nVamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15.8 milisegundos y la más lenta 38.6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero? Para responderla, separa cuatro ideas:\n\nLa población es el conjunto completo de resultados que podría producir el proceso. En este experimento incluye todos los tiempos que obtendrías al repetir la operación bajo condiciones comparables.\nLa muestra contiene los resultados que sí observaste: las 200 mediciones.\nUn parámetro resume una propiedad de la población, como su media. Permanece desconocido porque no puedes observar todos los resultados posibles.\nUn estadístico es un número calculado con la muestra. La media de 22.6 milisegundos es un estadístico y funciona como estimación del parámetro.\n\n\n\n\nEsa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.\n\n\n\n\n\n\nImportanteLa consecuencia práctica\n\n\n\nUn solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de este semestre nace ahí.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
+    "href": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "8 Los tres formatos de almacenamiento",
+    "text": "8 Los tres formatos de almacenamiento\nEl módulo organiza la información en tres formatos de almacenamiento. Cada uno tiene su lugar.\n\n\n\n\n\n\n\n\nFormato\nQué es\nCuándo lo vas a usar\n\n\n\n\n.csv\nTexto plano, valores separados por comas\nEl formato por omisión. Lo lee cualquier herramienta y ocupa poco\n\n\n.txt\nTexto plano con otro separador, casi siempre tabulación\nLo que exportan muchos equipos de medición y sistemas industriales\n\n\n.xlsx\nLibro de Excel\nCuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí\n\n\n\nDescarga el archivo de ejemplo, ordenes.csv, que tiene 120 órdenes de mantenimiento. Guárdalo en tu carpeta de trabajo.\nCrea formatos.py:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\n\nordenes.to_csv(\"ordenes_copia.csv\", index=False)\nordenes.to_csv(\"ordenes.txt\", sep=\"\\t\", index=False)\nordenes.to_excel(\"ordenes.xlsx\", index=False)\n\ndesde_csv = pd.read_csv(\"ordenes_copia.csv\")\ndesde_txt = pd.read_csv(\"ordenes.txt\", sep=\"\\t\")\ndesde_xlsx = pd.read_excel(\"ordenes.xlsx\")\n\nprint(\"csv  y txt :\", desde_csv.equals(desde_txt))\nprint(\"csv  y xlsx:\", desde_csv.equals(desde_xlsx))\nprint()\nprint(desde_csv.head())\nprint()\nprint(desde_csv.dtypes)\ncsv  y txt : True\ncsv  y xlsx: True\n\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nLos tres archivos guardan exactamente lo mismo. El index=False evita que pandas agregue una columna extra con la numeración de las filas, que no es un dato y ensucia el archivo.\n\nAnatomía de una tabla de datos\nEsa tabla tiene una estructura que se repite en todo el semestre:\n\n\n\n\nLa unidad de observación es lo que ocupa cada fila. Aquí, una orden de mantenimiento.\nCada variable es una columna: algo que se midió u observó de esa unidad.\nCada registro es una fila completa: todos los valores medidos de una misma unidad.\n\nMira la última salida. Pandas leyó duracion_min como float64 y repuestos como int64, y acertó en ambos. Pero puso object en maquina, turno, tipo y criticidad, que es como decir “texto y no sé nada más”. Ahí perdió información: criticidad tiene un orden natural, baja va antes que media y media antes que alta, y esa tabla no lo registra.\nQuédate con la idea, porque la semana 2 arranca justo ahí: la naturaleza de una variable la declaras tú, no la adivina la herramienta, y de esa declaración depende qué análisis puedes hacer después.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
+    "href": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "9 Trabajo independiente de la semana",
+    "text": "9 Trabajo independiente de la semana\nReproduce en tu equipo la instalación, el experimento de las 200 mediciones y la conversión entre los tres formatos.\n\nEntregable: ninguno. Esta semana no tiene peso evaluativo ni requiere subir archivos.\nFormato de trabajo: una carpeta local estadistica-analitica con .venv, requirements.txt, experimento.py, formatos.py y los archivos generados.\nCriterios de verificación: el entorno se activa, los imports funcionan, el experimento genera 200 registros y los archivos .csv, .txt y .xlsx conservan los mismos datos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "10 Lo que viene",
+    "text": "10 Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "11 Errores frecuentes",
+    "text": "11 Errores frecuentes\n\nError 1\n\nModuleNotFoundError: No module named ‘pandas’\nCausa. El entorno virtual no está activo, o instalaste las librerías sin activarlo.\nSolución. Mira el comienzo de la línea de la terminal. Si no dice (.venv), actívalo con el comando de tu sistema y vuelve a intentar. Si ya está activo, ejecuta pip install -r requirements.txt otra vez: la primera vez fue a parar al Python del sistema.\n\n\n\nError 2\n\nModuleNotFoundError: No module named ‘openpyxl’ al guardar el .xlsx\nCausa. Pandas no escribe Excel por su cuenta: necesita openpyxl y lo importa solo cuando lo usas. Por eso el error aparece en la línea del to_excel y no al comienzo.\nSolución. pip install openpyxl==3.1.5, con el entorno activo.\n\n\n\nError 3\n\nFileNotFoundError: ordenes.csv\nCausa. La terminal no está parada en la carpeta donde guardaste el archivo. Python busca los archivos desde el directorio actual, no desde donde está el script.\nSolución. Ejecuta pwd en macOS y Linux, o cd sin argumentos en PowerShell, para ver dónde estás. Muévete a la carpeta correcta con cd y vuelve a ejecutar.\n\n\n\nError 4\n\nAl abrir el .csv, Excel mete todo en una sola columna\nCausa. Excel en español espera punto y coma como separador, no coma.\nSolución. No abras el .csv con doble clic. Usa el .xlsx que generaste, que es justo para eso. Si necesitas el .csv en Excel, ábrelo desde Datos, Obtener datos, Desde un archivo de texto y elige la coma como separador.\nNo cambies el separador del archivo: la coma es el estándar y el resto del semestre asume que la tiene.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
+    "href": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "12 Lista de chequeo del entorno",
+    "text": "12 Lista de chequeo del entorno\n\nConfirma que tienes todo esto antes de la próxima sesión\n\npython --version responde con 3.13 o superior\nEl entorno virtual se activa y muestra (.venv) en la terminal\nEl import de las seis librerías imprime todo listo\nexperimento.py corrió y generó tiempos_ordenamiento.csv con 200 filas\nSabes explicar por qué las 200 mediciones dieron distinto\nEjecutaste formatos.py y los tres archivos coincidieron",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-01/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-01/index.html#recursos",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "13 Recursos",
+    "text": "13 Recursos\n\nDescarga de Python: python.org/downloads\nEntornos virtuales: docs.python.org/es/3/library/venv.html\nLectura y escritura de datos con pandas: pandas.pydata.org/docs/user_guide/io.html\nDataset de ejemplo de esta guía: ordenes.csv\nJames, G. et al. (2021). An Introduction to Statistical Learning. Capítulo 1.\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html",
+    "href": "estadistica-para-analitica/index.html",
     "title": "Estadística para Analítica",
-    "section": "Lo que viene",
-    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1."
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nNivel\nPosgrado\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
+    "href": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
+    "title": "Estadística para Analítica",
+    "section": "Prueba diagnóstica de entrada",
+    "text": "Prueba diagnóstica de entrada\nRespóndela antes del primer encuentro. Toma entre 30 y 45 minutos, no tiene nota y sus resultados me sirven para ajustar el ritmo y los apoyos del módulo a lo que el grupo ya sabe.\nResponder la prueba diagnóstica",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "title": "Estadística para Analítica",
+    "section": "De qué se trata el módulo",
+    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. La semana 1 presenta el módulo y deja el entorno instalado; la recolección arranca en la semana 2, con la clasificación de variables ya vista. Ese mismo conjunto vuelve en cada entrega: primero lo describes, después lo modelas y al final infieres sobre él.\n\n\n\n\n\n\nImportanteQué se espera en un posgrado\n\n\n\nEl módulo no evalúa que sepas ejecutar un procedimiento. Evalúa que decidas cuál corresponde, que justifiques por qué, y que reconozcas cuándo los supuestos del método no se cumplen.\nTres condiciones aplican a toda entrega:\n\nReproducible. El informe viene con el código que lo produce, y ese código corre en otra máquina sin retoques.\nTrazable. Cada conclusión se sostiene en una salida concreta del análisis.\nEjecutiva. Escribes para quien toma la decisión, no para el que revisa la fórmula.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#calendario",
+    "href": "estadistica-para-analitica/index.html#calendario",
+    "title": "Estadística para Analítica",
+    "section": "Calendario",
+    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación)\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas: uniforme, normal, gamma, exponencial\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "title": "Estadística para Analítica",
+    "section": "Distribución evaluativa",
+    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "title": "Estadística para Analítica",
+    "section": "Criterios de desempeño",
+    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "title": "Estadística para Analítica",
+    "section": "Cómo se evalúa cada entrega",
+    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#ruta-de-la-sesión",
@@ -595,360 +875,172 @@
     "text": "Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html",
-    "href": "estadistica-para-analitica/index.html",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
     "title": "Estadística para Analítica",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nNivel\nPosgrado\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Ruta de la sesión",
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nCargar el dataset y ver los tipos que asignó pandas\nLa pregunta sobre criticidad\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\n\n\nSegunda parte\n\nCategóricas: nominal y ordinal\nCategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva"
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
-    "href": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
     "title": "Estadística para Analítica",
-    "section": "Prueba diagnóstica de entrada",
-    "text": "Prueba diagnóstica de entrada\nRespóndela antes del primer encuentro. Toma entre 30 y 45 minutos, no tiene nota y sus resultados me sirven para ajustar el ritmo y los apoyos del módulo a lo que el grupo ya sabe.\nResponder la prueba diagnóstica",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Cargar el dataset",
+    "text": "Cargar el dataset\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n120 órdenes de mantenimiento, siete columnas."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
-    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
     "title": "Estadística para Analítica",
-    "section": "De qué se trata el módulo",
-    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. La semana 1 presenta el módulo y deja el entorno instalado; la recolección arranca en la semana 2, con la clasificación de variables ya vista. Ese mismo conjunto vuelve en cada entrega: primero lo describes, después lo modelas y al final infieres sobre él.\n\n\n\n\n\n\nImportanteQué se espera en un posgrado\n\n\n\nEl módulo no evalúa que sepas ejecutar un procedimiento. Evalúa que decidas cuál corresponde, que justifiques por qué, y que reconozcas cuándo los supuestos del método no se cumplen.\nTres condiciones aplican a toda entrega:\n\nReproducible. El informe viene con el código que lo produce, y ese código corre en otra máquina sin retoques.\nTrazable. Cada conclusión se sostiene en una salida concreta del análisis.\nEjecutiva. Escribes para quien toma la decisión, no para el que revisa la fórmula.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Los tipos que asignó pandas",
+    "text": "Los tipos que asignó pandas\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#calendario",
-    "href": "estadistica-para-analitica/index.html#calendario",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
     "title": "Estadística para Analítica",
-    "section": "Calendario",
-    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación)\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas: uniforme, normal, gamma, exponencial\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "criticidad quedó como object",
+    "text": "criticidad quedó como object\n\nPandas no sabe que baja, media y alta tienen un orden.\n\nEsa palabra genérica, object, esconde información: hay un orden real y el software no lo ve hasta que se lo declaras."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
-    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
     "title": "Estadística para Analítica",
-    "section": "Distribución evaluativa",
-    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Dos preguntas clasifican cualquier variable",
+    "text": "Dos preguntas clasifican cualquier variable"
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
-    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
     "title": "Estadística para Analítica",
-    "section": "Criterios de desempeño",
-    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Primera pregunta",
+    "text": "Primera pregunta\n¿El valor se cuenta o se mide?\n\nSe cuenta, en unidades completas: numérica discreta.\nSe mide, en una escala donde caben decimales: numérica continua."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
-    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
     "title": "Estadística para Analítica",
-    "section": "Cómo se evalúa cada entrega",
-    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Segunda pregunta",
+    "text": "Segunda pregunta\nSi no es un número: ¿las categorías tienen un orden natural?\n\nSí lo tienen, sin inventar el criterio: categórica ordinal.\nNo lo tienen, o hay varios criterios igual de válidos: categórica nominal."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html",
-    "href": "estadistica-para-analitica/semana-01/index.html",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
+    "title": "Estadística para Analítica",
+    "section": "Numérica discreta: se cuenta",
+    "text": "Numérica discreta: se cuenta\nRepuestos usados, paradas no programadas en el mes, operarios asignados a una orden.\nNo hay un valor intermedio entre dos consecutivos: no existen 2.5 repuestos."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
-    "href": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "1 De qué va esta semana",
-    "text": "1 De qué va esta semana\nEsta semana no tiene entregable ni nota. Hace tres cosas: te muestra cómo está armado el módulo, deja el entorno de Python instalado y verificado, y pone sobre la mesa el problema que la estadística existe para resolver.\nAl cerrar la guía deberías poder:\n\nUbicar cada unidad del módulo dentro del ciclo de resolución de un problema con datos.\nEjecutar Python en un entorno virtual con las siete librerías del semestre.\nDecir qué aporta cada librería y por qué están todas.\nExplicar por qué una medición repetida no devuelve el mismo número, y qué consecuencia tiene eso para una decisión.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
+    "title": "Estadística para Analítica",
+    "section": "Numérica continua: se mide",
+    "text": "Numérica continua: se mide\nDuración de la intervención, temperatura del rodamiento, vibración en milímetros por segundo.\nEntre dos valores cualesquiera siempre cabe otro."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
-    "href": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "2 La estadística como proceso de decisión",
-    "text": "2 La estadística como proceso de decisión\nResolver un problema con datos toma cuatro pasos:\n\nFormular la pregunta. Qué se quiere saber, sobre qué proceso, y en qué términos medibles se deja plantear.\nRecoger los datos. Qué se mide, cada cuánto, con qué instrumento y quién responde por el registro.\nAnalizar. Con el método que admite la naturaleza de esas variables.\nInterpretar y decidir. Qué se hace con el resultado y con cuánta confianza.\n\n\n\n\nLos cuatro pasos pesan igual sobre el resultado. Un análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor, y esa decisión hay que defenderla después ante quien la firma.\nToma el caso que atraviesa el módulo: un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó qué variable representa el desgaste, cada cuánto se lee el instrumento y quién responde por el registro. Cambia una de esas decisiones y cambia la conclusión.\nEl módulo recorre los cuatro pasos y le da al diseño de la medición el mismo peso que al cálculo.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
+    "title": "Estadística para Analítica",
+    "section": "Verificación con datos reales",
+    "text": "Verificación con datos reales\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
-    "href": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "3 El mapa del módulo",
-    "text": "3 El mapa del módulo\nDieciséis semanas repartidas en tres unidades. Cada una responde una pregunta distinta sobre el mismo caso.\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnidad\nLa pregunta que responde\nLo que produce\nCierre\n\n\n\n\n1\nQué hay en estos datos\nUn informe exploratorio con gráficos y resúmenes numéricos\n30%\n\n\n2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno\n30%\n\n\n3\nQué puedo afirmar sobre lo que no medí\nConclusiones sobre la población, con su margen de error declarado\n40%\n\n\n\n\n\nQué hará cada unidad\nUnidad 1. Describir lo que hay. Construirás tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplots y gráficos de dispersión. El cierre será un informe exploratorio que muestre qué dicen los datos observados.\n\n\n\nUnidad 2. Modelar la incertidumbre. Ajustarás distribuciones de probabilidad y las usarás para calcular la posibilidad de eventos que todavía no ocurrieron. El cierre será un modelo que responda preguntas sobre el fenómeno.\n\n\n\nUnidad 3. Inferir sobre el proceso. Construirás intervalos de confianza, pruebas de hipótesis, comparaciones y modelos de regresión. El cierre presentará conclusiones sobre el proceso y declarará el margen de error.\n\n\n\nLas tres unidades trabajan sobre un mismo caso. Lo primero es definir el proceso: qué se observa, qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al final, la inferencia. El alcance del caso se acuerda en la Semana 02.\n\n\n\n\n\n\nTipEl método del módulo\n\n\n\nCada tema pasa por tres momentos:\n\nConcepto. Precisamos qué afirma el resultado y bajo qué supuestos se sostiene.\nImplementación. Escribimos el procedimiento en Python y lo ejecutamos sobre datos.\nSimulación. Repetimos el procedimiento muchas veces y contrastamos su comportamiento con lo que predice la teoría.\n\nEse contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto falla en la práctica un intervalo de confianza.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
+    "title": "Estadística para Analítica",
+    "section": "Discreta vs continua, en el mismo eje",
+    "text": "Discreta vs continua, en el mismo eje\n\nSeis barras separadas, en valores exactos, contra una nube de puntos donde cualquier posición entre el mínimo y el máximo es posible."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
-    "href": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "4 El entorno de trabajo",
-    "text": "4 El entorno de trabajo\nTodo el módulo se programa en Python. Un análisis que llega sin el código que lo produjo no se puede reproducir ni auditar, y la estadística que no se ejecuta se olvida.\nEstas son las piezas y lo que hace cada una.\n\n\n\n\n\n\n\n\n\n\n\nLibrería\nQué aporta\n\n\n\n\npandas\nCarga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy\nCálculo numérico y generación de números aleatorios para simular\n\n\nopenpyxl\nEs la que permite a pandas leer y escribir .xlsx\n\n\nmatplotlib\nMotor de los gráficos\n\n\nseaborn\nGráficos estadísticos sobre matplotlib, con menos código\n\n\nscipy\nDistribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels\nModelos de regresión y ANOVA con la salida que se reporta\n\n\n\n\n\nPor qué un entorno virtual\nUn entorno virtual es una carpeta con una copia aislada de Python y sus librerías. Lo que instalas adentro no toca el Python del sistema ni el de otros proyectos.\n\n\n\nSirve para dos cosas concretas. La primera, que actualizar una librería para otro proyecto no rompa el código de este. La segunda, que fijar las versiones haga que el mismo script produzca el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.\n\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Recrea el entorno con las versiones exactas de la tabla; el requirements.txt del paso 3 las fija con ==.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nPython\n3.13.4\n\n\npandas\n2.3.1\n\n\nnumpy\n2.3.2\n\n\nscipy\n1.17.0\n\n\nmatplotlib\n3.10.8\n\n\nseaborn\n0.13.2\n\n\nstatsmodels\n0.14.6\n\n\nopenpyxl\n3.1.5",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
+    "title": "Estadística para Analítica",
+    "section": "Categórica nominal: sin orden",
+    "text": "Categórica nominal: sin orden\nmaquina: los códigos de torno y fresadora no tienen un antes y un después.\ntipo de intervención: preventivo, correctivo y predictivo no forman una escala."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
-    "href": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "5 Instalación paso a paso",
-    "text": "5 Instalación paso a paso\n\n1 Python\nDescarga la versión 3.13 desde python.org/downloads.\nEn Windows, marca la casilla Add python.exe to PATH en la primera pantalla del instalador. Es fácil pasarla por alto, y sin ella el comando python no funciona en la terminal.\nEn macOS y Linux el sistema ya trae Python, pero suele ser una versión vieja que además usa el sistema operativo. Comprueba con python3 --version y, si es anterior a 3.11, instala la 3.13 aparte.\n\n\n2 La carpeta del módulo y el entorno virtual\nCrea una carpeta para todo el semestre y ubícate en ella:\nmkdir estadistica-analitica\ncd estadistica-analitica\nCrea el entorno virtual dentro de esa carpeta:\npython -m venv .venv\nActívalo. El comando cambia según el sistema:\n# Windows, PowerShell\n.venv\\Scripts\\Activate.ps1\n\n# Windows, Git Bash\nsource .venv/Scripts/activate\n\n# macOS y Linux\nsource .venv/bin/activate\nCuando queda activo, el nombre (.venv) aparece al comienzo de la línea de la terminal. Si no lo ves, no está activo, y todo lo que instales va a parar a otro lado.\n\n\n\n\n\n\nAdvertenciaEl entorno se activa en cada terminal nueva\n\n\n\nCerrar la terminal desactiva el entorno. Al día siguiente, cuando vuelvas a la carpeta, tienes que activarlo otra vez antes de trabajar. Es el tropiezo más común de las primeras semanas.\n\n\n\n\n3 Las librerías\nCon el entorno activo, crea un archivo requirements.txt con este contenido:\npandas==2.3.1\nnumpy==2.3.2\nscipy==1.17.0\nmatplotlib==3.10.8\nseaborn==0.13.2\nstatsmodels==0.14.6\nopenpyxl==3.1.5\nE instálalas de una vez:\npip install -r requirements.txt\nFijar las versiones con == es lo que hace reproducible el análisis. El archivo se versiona junto con el código: quien reciba tu informe puede recrear el entorno exacto con una sola orden.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
+    "title": "Estadística para Analítica",
+    "section": "Categórica ordinal: con orden",
+    "text": "Categórica ordinal: con orden\ncriticidad: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir la distancia entre una y otra."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#verificación",
-    "href": "estadistica-para-analitica/semana-01/index.html#verificación",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "6 Verificación",
-    "text": "6 Verificación\nCon el entorno activo, ejecuta:\npython -c \"import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')\"\nSi imprime todo listo, ya está. Cualquier otra cosa significa que falta una librería o que el entorno no está activo.\nPara ver las versiones instaladas:\npython -c \"import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)\"\n2.3.1 2.3.2 1.17.0",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
+    "title": "Estadística para Analítica",
+    "section": "El error, explicado",
+    "text": "El error, explicado\nMuestra de las primeras 12 órdenes, para que quepa en pantalla:\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
-    "href": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "7 Demostración: por qué se mide más de una vez",
-    "text": "7 Demostración: por qué se mide más de una vez\nEsta es la demostración principal de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.\nVamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15.8 milisegundos y la más lenta 38.6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero? Para responderla, separa cuatro ideas:\n\nLa población es el conjunto completo de resultados que podría producir el proceso. En este experimento incluye todos los tiempos que obtendrías al repetir la operación bajo condiciones comparables.\nLa muestra contiene los resultados que sí observaste: las 200 mediciones.\nUn parámetro resume una propiedad de la población, como su media. Permanece desconocido porque no puedes observar todos los resultados posibles.\nUn estadístico es un número calculado con la muestra. La media de 22.6 milisegundos es un estadístico y funciona como estimación del parámetro.\n\n\n\n\nEsa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.\n\n\n\n\n\n\nImportanteLa consecuencia práctica\n\n\n\nUn solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de este semestre nace ahí.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
+    "title": "Estadística para Analítica",
+    "section": "Nominal vs ordinal, en el mismo eje",
+    "text": "Nominal vs ordinal, en el mismo eje\n\nLa izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único orden que tiene sentido."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
-    "href": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "8 Los tres formatos de almacenamiento",
-    "text": "8 Los tres formatos de almacenamiento\nEl módulo organiza la información en tres formatos de almacenamiento. Cada uno tiene su lugar.\n\n\n\n\n\n\n\n\nFormato\nQué es\nCuándo lo vas a usar\n\n\n\n\n.csv\nTexto plano, valores separados por comas\nEl formato por omisión. Lo lee cualquier herramienta y ocupa poco\n\n\n.txt\nTexto plano con otro separador, casi siempre tabulación\nLo que exportan muchos equipos de medición y sistemas industriales\n\n\n.xlsx\nLibro de Excel\nCuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí\n\n\n\nDescarga el archivo de ejemplo, ordenes.csv, que tiene 120 órdenes de mantenimiento. Guárdalo en tu carpeta de trabajo.\nCrea formatos.py:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\n\nordenes.to_csv(\"ordenes_copia.csv\", index=False)\nordenes.to_csv(\"ordenes.txt\", sep=\"\\t\", index=False)\nordenes.to_excel(\"ordenes.xlsx\", index=False)\n\ndesde_csv = pd.read_csv(\"ordenes_copia.csv\")\ndesde_txt = pd.read_csv(\"ordenes.txt\", sep=\"\\t\")\ndesde_xlsx = pd.read_excel(\"ordenes.xlsx\")\n\nprint(\"csv  y txt :\", desde_csv.equals(desde_txt))\nprint(\"csv  y xlsx:\", desde_csv.equals(desde_xlsx))\nprint()\nprint(desde_csv.head())\nprint()\nprint(desde_csv.dtypes)\ncsv  y txt : True\ncsv  y xlsx: True\n\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nLos tres archivos guardan exactamente lo mismo. El index=False evita que pandas agregue una columna extra con la numeración de las filas, que no es un dato y ensucia el archivo.\n\nAnatomía de una tabla de datos\nEsa tabla tiene una estructura que se repite en todo el semestre:\n\n\n\n\nLa unidad de observación es lo que ocupa cada fila. Aquí, una orden de mantenimiento.\nCada variable es una columna: algo que se midió u observó de esa unidad.\nCada registro es una fila completa: todos los valores medidos de una misma unidad.\n\nMira la última salida. Pandas leyó duracion_min como float64 y repuestos como int64, y acertó en ambos. Pero puso object en maquina, turno, tipo y criticidad, que es como decir “texto y no sé nada más”. Ahí perdió información: criticidad tiene un orden natural, baja va antes que media y media antes que alta, y esa tabla no lo registra.\nQuédate con la idea, porque la semana 2 arranca justo ahí: la naturaleza de una variable la declaras tú, no la adivina la herramienta, y de esa declaración depende qué análisis puedes hacer después.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "Declarar el orden",
+    "text": "Declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
-    "href": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "9 Trabajo independiente de la semana",
-    "text": "9 Trabajo independiente de la semana\nReproduce en tu equipo la instalación, el experimento de las 200 mediciones y la conversión entre los tres formatos.\n\nEntregable: ninguno. Esta semana no tiene peso evaluativo ni requiere subir archivos.\nFormato de trabajo: una carpeta local estadistica-analitica con .venv, requirements.txt, experimento.py, formatos.py y los archivos generados.\nCriterios de verificación: el entorno se activa, los imports funcionan, el experimento genera 200 registros y los archivos .csv, .txt y .xlsx conservan los mismos datos.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
+    "title": "Estadística para Analítica",
+    "section": "El mismo sort_values, sin cambiar nada más",
+    "text": "El mismo sort_values, sin cambiar nada más\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   ...\n   102       alta\n\nLa diferencia no está en el método. Está en lo que le dijiste al dato sobre sí mismo."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
-    "href": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "10 Lo que viene",
-    "text": "10 Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
+    "title": "Estadística para Analítica",
+    "section": "Ahora el orden sirve para filtrar",
+    "text": "Ahora el orden sirve para filtrar\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
-    "href": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "11 Errores frecuentes",
-    "text": "11 Errores frecuentes\n\nError 1\n\nModuleNotFoundError: No module named ‘pandas’\nCausa. El entorno virtual no está activo, o instalaste las librerías sin activarlo.\nSolución. Mira el comienzo de la línea de la terminal. Si no dice (.venv), actívalo con el comando de tu sistema y vuelve a intentar. Si ya está activo, ejecuta pip install -r requirements.txt otra vez: la primera vez fue a parar al Python del sistema.\n\n\n\nError 2\n\nModuleNotFoundError: No module named ‘openpyxl’ al guardar el .xlsx\nCausa. Pandas no escribe Excel por su cuenta: necesita openpyxl y lo importa solo cuando lo usas. Por eso el error aparece en la línea del to_excel y no al comienzo.\nSolución. pip install openpyxl==3.1.5, con el entorno activo.\n\n\n\nError 3\n\nFileNotFoundError: ordenes.csv\nCausa. La terminal no está parada en la carpeta donde guardaste el archivo. Python busca los archivos desde el directorio actual, no desde donde está el script.\nSolución. Ejecuta pwd en macOS y Linux, o cd sin argumentos en PowerShell, para ver dónde estás. Muévete a la carpeta correcta con cd y vuelve a ejecutar.\n\n\n\nError 4\n\nAl abrir el .csv, Excel mete todo en una sola columna\nCausa. Excel en español espera punto y coma como separador, no coma.\nSolución. No abras el .csv con doble clic. Usa el .xlsx que generaste, que es justo para eso. Si necesitas el .csv en Excel, ábrelo desde Datos, Obtener datos, Desde un archivo de texto y elige la coma como separador.\nNo cambies el separador del archivo: la coma es el estándar y el resto del semestre asume que la tiene.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "La trampa: un valor suelto pierde el orden",
+    "text": "La trampa: un valor suelto pierde el orden\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\n&lt;class 'str'&gt; baja\nFalse\n\n.iloc entrega texto normal. La comparación vuelve a ser alfabética, sin avisar."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
-    "href": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "12 Lista de chequeo del entorno",
-    "text": "12 Lista de chequeo del entorno\n\nConfirma que tienes todo esto antes de la próxima sesión\n\npython --version responde con 3.13 o superior\nEl entorno virtual se activa y muestra (.venv) en la terminal\nEl import de las seis librerías imprime todo listo\nexperimento.py corrió y generó tiempos_ordenamiento.csv con 200 filas\nSabes explicar por qué las 200 mediciones dieron distinto\nEjecutaste formatos.py y los tres archivos coincidieron",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
+    "title": "Estadística para Analítica",
+    "section": "La solución: .cat.codes",
+    "text": "La solución: .cat.codes\nprint(ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\nTrue\nEl orden vive en la columna completa. Si necesitas comparar dos valores sueltos, usa los códigos internos."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#recursos",
-    "href": "estadistica-para-analitica/semana-01/index.html#recursos",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "13 Recursos",
-    "text": "13 Recursos\n\nDescarga de Python: python.org/downloads\nEntornos virtuales: docs.python.org/es/3/library/venv.html\nLectura y escritura de datos con pandas: pandas.pydata.org/docs/user_guide/io.html\nDataset de ejemplo de esta guía: ordenes.csv\nJames, G. et al. (2021). An Introduction to Statistical Learning. Capítulo 1.\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
+    "title": "Estadística para Analítica",
+    "section": "Caso de uso: una orden de trabajo nueva",
+    "text": "Caso de uso: una orden de trabajo nueva\nCuatro columnas nuevas, sin escribir todavía una línea de análisis:\n\n\n\n\n\n\n\n\n\nVariable nueva\nSe cuenta o se mide\nTiene orden\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es número\nSin orden\nCategórica nominal\n\n\nAprobada por supervisor\nNo es número\nSin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es número\nLeve &lt; moderado &lt; severo\nCategórica ordinal"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/index.html",
-    "href": "estadistica-para-analitica/semana-02/index.html",
-    "title": "Semana 2. Tipos de variables",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
+    "title": "Estadística para Analítica",
+    "section": "¿Y el sí/no de “aprobada”?",
+    "text": "¿Y el sí/no de “aprobada”?\n\nParece que pudiera codificarse como 1/0 y tratarse como número. No lo es: sumar o promediar esos ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es contar cuántas órdenes caen en cada categoría, que es el tratamiento de una variable nominal."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
-    "href": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
-    "title": "Semana 2. Tipos de variables",
-    "section": "1 De qué va esta semana",
-    "text": "1 De qué va esta semana\nVas a cargar un dataset con pandas y a observar algo que pasa siempre: la herramienta adivina el tipo de cada columna, y a veces adivina mal. Acierta con las columnas numéricas, pero le pone object a una columna que sí tiene un orden real (criticidad: baja, media, alta), porque object es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde el orden, y el orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.\nAl terminar deberías poder:\n\nCargar un dataset con pandas y leer los tipos que asigna automáticamente a cada columna.\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
+    "title": "Estadística para Analítica",
+    "section": "Qué análisis habilita cada tipo",
+    "text": "Qué análisis habilita cada tipo"
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
-    "href": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
-    "title": "Semana 2. Tipos de variables",
-    "section": "3 Por qué clasificar una variable no es un trámite",
-    "text": "3 Por qué clasificar una variable no es un trámite\nAntes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y cuáles son un error disfrazado de número.\nSumar repuestos (1, 4, 2, 0…) tiene sentido: el total de repuestos usados en el mes es una cantidad real. Sumar un código de máquina no lo tiene, aunque pandas lo deje intentar si lo codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si antes no declaraste que ese orden existe: el promedio de “baja” y “alta” no es “media” por casualidad aritmética, es media porque tú fijaste ese orden.\nLa consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
-    "href": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
-    "title": "Semana 2. Tipos de variables",
-    "section": "4 Dos preguntas clasifican cualquier variable",
-    "text": "4 Dos preguntas clasifican cualquier variable\nNo hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable en una de las cuatro categorías.\nPrimera pregunta: ¿el valor se cuenta o se mide?\nSi la respuesta es un número entero que sale de contar unidades completas, la variable es numérica discreta. Si sale de medir en una escala donde caben decimales, sin importar cuántos apliques, la variable es numérica continua.\nSegunda pregunta, solo si la variable no es un número: ¿las categorías tienen un orden natural?\nSi puedes ordenar las categorías de menor a mayor sin inventar el criterio, la variable es categórica ordinal. Si no existe ese orden, o existen varios criterios igual de válidos para ordenarla, la variable es categórica nominal.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
-    "href": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
-    "title": "Semana 2. Tipos de variables",
-    "section": "5 Numéricas: discretas y continuas",
-    "text": "5 Numéricas: discretas y continuas\nUna variable numérica discreta se cuenta. Sus valores posibles son un conjunto que puedes enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención, número de paradas no programadas en un mes, número de operarios asignados a una orden.\nUna variable numérica continua se mide. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.\nVerifícalo con el mismo ordenes que ya cargaste:\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56\nrepuestos solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. En 120 órdenes, duracion_min no repite ni un solo valor: trae decimales y no hay un conjunto finito de valores esperables, cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.\n\n\n\n\n\n\nNotaUn caso que confunde: cuando lo continuo se registra redondeado\n\n\n\nSi un instrumento solo reporta minutos enteros, duracion_min seguiría siendo continua: la variable en sí admite cualquier valor real, aunque el instrumento con el que la mides tenga una resolución limitada. La naturaleza de la variable no cambia porque el aparato que la registra sea más o menos preciso.\n\n\n\n\n\nEl gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y 2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
-    "href": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
-    "title": "Semana 2. Tipos de variables",
-    "section": "6 Categóricas: nominales y ordinales",
-    "text": "6 Categóricas: nominales y ordinales\nUna variable categórica nominal describe una cualidad sin orden natural. Puedes reordenar sus categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque ninguna ordenación es más correcta que otra. En el dataset: maquina (los códigos de torno y fresadora no tienen un “antes” y un “después”) y tipo de intervención (preventivo, correctivo y predictivo no forman una escala).\nUna variable categórica ordinal describe una cualidad con un orden natural, aunque no puedas medir la distancia entre categorías consecutivas. criticidad es el ejemplo del dataset: baja, media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave es “alta” que “media” en un número, como sí puedes hacerlo con dos duraciones.\nprint(ordenes[\"maquina\"].dtype)\nprint(sorted(ordenes[\"maquina\"].unique().tolist()))\nobject\n['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']\nOrdenar maquina alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con criticidad pasa lo contrario, y ahí está el problema que viste al cargar el dataset.\nEl dataset completo tiene 120 filas: para que la tabla quepa completa en la página, trabaja con una muestra de las primeras 12 órdenes.\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\nPandas ordenó por texto, alfabéticamente: alta, baja, media. Es un orden válido para una cadena de texto y un orden equivocado para la criticidad de una intervención. El software no cometió un error: hizo exactamente lo que el tipo object le permite hacer. El error es no haberle dicho que criticidad es ordinal.\n\n\n\n\nDeclarar el orden en pandas\nPandas tiene un tipo de dato para esto: category, con el argumento ordered=True. Declaras la lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra respetando ese orden.\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(categories=[\"baja\", \"media\", \"alta\"], ordered=True)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\ncategory\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\n   102       alta\n   105       alta\n   107       alta\n   110       alta\nEl mismo sort_values, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.\nCon el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto. Sigue el filtro sobre la misma muestra de 12, y el máximo y el mínimo sobre el dataset completo:\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n\nprint(\"maximo:\", ordenes[\"criticidad\"].max())\nprint(\"minimo:\", ordenes[\"criticidad\"].min())\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta\nmaximo: alta\nminimo: baja\n\n\n\n\n\n\nAdvertenciaLa trampa: un valor suelto pierde el orden\n\n\n\nEl orden vive en el tipo de la columna completa, no en cada valor por separado. Si sacas un solo dato con .iloc y lo guardas en una variable, pandas te lo entrega convertido a texto normal, y una comparación entre esos dos valores vuelve a ser alfabética.\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(\"baja &lt; alta como texto suelto:\", ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\nprint(\"baja &lt; alta con los codigos internos:\",\n      ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\n&lt;class 'str'&gt; baja\nbaja &lt; alta como texto suelto: False\nbaja &lt; alta con los codigos internos: True\nbaja &lt; alta da False porque, como texto suelto, compara alfabéticamente (“b” va después de “a”). Compara filas dentro de una operación de pandas (sort_values, un filtro con [], .max(), .min()) y el orden se respeta. Si necesitas comparar dos valores sueltos, usa .cat.codes, que son los números internos que pandas asigna según el orden que declaraste.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
-    "href": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
-    "title": "Semana 2. Tipos de variables",
-    "section": "7 Caso de uso: diseñar las columnas de una orden de trabajo",
-    "text": "7 Caso de uso: diseñar las columnas de una orden de trabajo\nAsí se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir una sola línea de análisis.\nUn área de mantenimiento quiere registrar, además de lo que ya trae ordenes.csv, cuatro datos nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado, severo.\n\n\n\n\n\n\n\n\n\nVariable nueva\nPregunta 1: ¿se cuenta o se mide?\nPregunta 2: ¿tiene orden?\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide, con decimales\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es un número\nSin orden natural\nCategórica nominal\n\n\nAprobada por el supervisor\nNo es un número\nSolo dos valores, sin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es un número\nLeve, moderado y severo sí ordenan\nCategórica ordinal\n\n\n\n“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.\nVerifica la tabla con código, construyendo esas cuatro columnas nuevas para las 120 órdenes existentes:\nimport numpy as np\n\nrng = np.random.default_rng(2026)\n\nordenes[\"temperatura_c\"] = rng.uniform(38, 92, size=len(ordenes)).round(1)\nordenes[\"tecnico\"] = rng.choice([\"Diaz\", \"Moreno\", \"Restrepo\"], size=len(ordenes))\nordenes[\"aprobada\"] = rng.choice([\"si\", \"no\"], size=len(ordenes))\n\norden_desgaste = CategoricalDtype(categories=[\"leve\", \"moderado\", \"severo\"], ordered=True)\nordenes[\"desgaste\"] = rng.choice([\"leve\", \"moderado\", \"severo\"], size=len(ordenes))\nordenes[\"desgaste\"] = ordenes[\"desgaste\"].astype(orden_desgaste)\n\nprint(ordenes[[\"orden\", \"temperatura_c\", \"tecnico\", \"aprobada\", \"desgaste\"]].dtypes)\norden               int64\ntemperatura_c     float64\ntecnico            object\naprobada           object\ndesgaste         category\ndtype: object\ntemperatura_c quedó float64 sin que lo pidieras: np.random.default_rng().uniform siempre produce decimales, coherente con que es una variable continua. tecnico y aprobada quedan object, coherente con que son nominales. desgaste es la única que declaraste como category ordenada, porque es la única con un orden real.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#el-conjunto-de-datos-propio-arranca-esta-semana",
-    "href": "estadistica-para-analitica/semana-02/index.html#el-conjunto-de-datos-propio-arranca-esta-semana",
-    "title": "Semana 2. Tipos de variables",
-    "section": "7 El conjunto de datos propio: arranca esta semana",
-    "text": "7 El conjunto de datos propio: arranca esta semana\nDesde aquí en adelante trabajas con datos que tú mismo mides u observas. Es el proyecto que atraviesa el semestre: lo describes en la Semana 5, lo modelas con una distribución en la Semana 10 y al final infieres sobre él en la Semana 16.\n\n\n\n\n\n\nImportanteEntregable: diseño y arranque de la recolección\n\n\n\nQué entregas. Un archivo .csv con las columnas de tu conjunto de datos y los primeros registros que ya hayas recogido para el momento de la Semana 3. La recolección completa se verifica en la Semana 5, cuando entregas el informe exploratorio; esta semana entregas el diseño y el arranque.\nMínimos exigidos:\n\nAl menos 40 registros, medidos u observados de un proceso real. No sirve un archivo descargado de internet: el criterio de la carta pide mediciones propias, no un dataset ajeno.\nAl menos dos variables numéricas.\nAl menos dos variables categóricas, y una de ellas debe ser ordinal.\nCada columna clasificada con las dos preguntas de esta guía, en una tabla como la del caso de mantenimiento, antes de recoger el primer dato.\n\nQué puedes medir. Cualquier proceso al que tengas acceso repetido: tu propio trabajo (tiempos de una tarea que repites, calidad de un entregable), un proceso doméstico o de tu barrio (consumo de un servicio, tiempos de un trayecto), o si trabajas en una planta o taller, algo del proceso que ya conoces. La carta descriptiva ancla los ejemplos del módulo en mantenimiento industrial, pero el conjunto de datos propio no tiene que venir de ahí: tiene que venir de algo que puedas medir de verdad, varias veces, durante las próximas semanas.\nFormato de entrega. Un archivo .csv, separado por comas, con encabezados sin tildes ni espacios (duracion_min, no duración (min)). Sube también un párrafo corto que explique qué mide cada columna y por qué la clasificaste así.\nCriterios de verificación:\n\nEl archivo abre con pd.read_csv sin ajustes manuales.\nCada columna tiene la clasificación declarada por escrito y coincide con lo que un compañero concluiría aplicando las mismas dos preguntas.\nAl menos una columna categórica está declarada como category ordenada en el código que acompaña la entrega.\n\n\n\nEste entregable no tiene nota. Es la base de la Semana 5, que sí la tiene con el 30% del cierre de la Unidad 1. Diseñar mal las columnas ahora se paga con trabajo doble entonces.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
-    "href": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
-    "title": "Semana 2. Tipos de variables",
-    "section": "8 Errores frecuentes",
-    "text": "8 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
-    "href": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
-    "title": "Semana 2. Tipos de variables",
-    "section": "9 Lista de chequeo de la semana",
-    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
-    "href": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
-    "title": "Semana 2. Tipos de variables",
-    "section": "10 Lo que viene",
-    "text": "10 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#recursos",
-    "href": "estadistica-para-analitica/semana-02/index.html#recursos",
-    "title": "Semana 2. Tipos de variables",
-    "section": "11 Recursos",
-    "text": "11 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "title": "Estadística para Analítica",
+    "section": "Lo que viene",
+    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1."
   },
   {
     "objectID": "herramientas-programacion-1/index.html",
@@ -1186,11 +1278,11 @@
     "text": "De HolaPascual a hoy\n\nYa tienes el entorno, un programa que ejecuta y un repositorio en GitHub.\nHoy abres ese Program.cs y entiendes cada línea que ya escribiste.\nAl final de la sesión vas a leer datos del usuario sin que un error tumbe tu programa.\n\n\nTodo lo de hoy alimenta el sistema de gestión que vas a construir el resto del semestre."
   },
   {
-    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-arregla-los-acentos",
-    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-arregla-los-acentos",
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#opcional-los-acentos-en-la-consola",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#opcional-los-acentos-en-la-consola",
     "title": "Sintaxis, variables y consola",
-    "section": "Laboratorio: arregla los acentos",
-    "text": "Laboratorio: arregla los acentos\nPendiente de la Semana 1. Agrega esta línea antes de cualquier Console.WriteLine:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nProgramación en C#: tildes, eñes y signos como el guion.\nAgrégala al inicio de todo proyecto nuevo de este curso."
+    "section": "Opcional: los acentos en la consola",
+    "text": "Opcional: los acentos en la consola\nPendiente de la Semana 1. El curso usa la consola con su configuración por defecto y evita tildes en lo que imprime, así que no necesitas nada especial para seguir el material.\nSi quieres ver los acentos en tu propia consola, agrega esta línea antes del primer Console.WriteLine:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nProgramación en C#: tildes, eñes y signos como el guion."
   },
   {
     "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#sentencias-de-nivel-superior",
@@ -1291,6 +1383,13 @@
     "text": "Tres formas de convertir texto a número\n\n\n\n\n\n\n\nForma\nSi el texto no es válido\n\n\n\n\nConvert.ToInt32(texto)\nLanza una excepción\n\n\nint.Parse(texto)\nLanza FormatException\n\n\nint.TryParse(texto, out int valor)\nDevuelve false, sin excepción\n\n\n\nDesde hoy: TryParse para todo dato que venga del teclado."
   },
   {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#string-y-el-operador",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#string-y-el-operador",
+    "title": "Sintaxis, variables y consola",
+    "section": "string? y el operador !",
+    "text": "string? y el operador !\nConsole.ReadLine puede devolver null. C# lo marca con string?: “puede ser string o puede ser null”.\n\n\n\n\n\n\n\nOperador\nQué hace\n\n\n\n\n??\nSi el valor es null, usa el de la derecha: texto ?? \"\"\n\n\n!\nLe dice al compilador “confía en mí, aquí no es null”, sin comprobarlo\n\n\n\nUsa ! solo cuando estás seguro. Si te equivocas, el programa falla al ejecutarse, no al compilar."
+  },
+  {
     "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-parse-sin-proteger",
     "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#laboratorio-parse-sin-proteger",
     "title": "Sintaxis, variables y consola",
@@ -1312,11 +1411,18 @@
     "text": "Laboratorio: TryParse en acción\nConsole.Write(\"Cantidad en inventario: \");\nstring? texto = Console.ReadLine();\n\nif (int.TryParse(texto, out int cantidad))\n{\n    Console.WriteLine($\"Cantidad valida: {cantidad}\");\n}\nelse\n{\n    Console.WriteLine($\"'{texto}' no es un numero entero valido.\");\n}\nout int cantidad declara la variable de salida en el mismo lugar donde la usas."
   },
   {
-    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-registro-de-producto",
-    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-registro-de-producto",
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-leer-y-validar-los-datos",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-leer-y-validar-los-datos",
     "title": "Sintaxis, variables y consola",
-    "section": "Caso de uso: registro de producto",
-    "text": "Caso de uso: registro de producto\nConsole.Write(\"Nombre del producto: \");\nstring nombre = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Precio unitario: \");\nbool precioValido = double.TryParse(Console.ReadLine(), out double precio);\n\nConsole.Write(\"Cantidad en inventario: \");\nbool cantidadValida = int.TryParse(Console.ReadLine(), out int cantidad);\n\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}"
+    "section": "Caso de uso: leer y validar los datos",
+    "text": "Caso de uso: leer y validar los datos\nConsole.WriteLine(\"Sistema de gestion - Registro de producto\");\nConsole.WriteLine(\"==========================================\");\nConsole.WriteLine();\n\nConsole.Write(\"Nombre del producto: \");\nstring nombre = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Precio unitario: \");\nstring? textoPrecio = Console.ReadLine();\nbool precioValido = double.TryParse(textoPrecio, out double precio);\n\nConsole.Write(\"Cantidad en inventario: \");\nstring? textoCantidad = Console.ReadLine();\nbool cantidadValida = int.TryParse(textoCantidad, out int cantidad);"
+  },
+  {
+    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-construir-el-resumen",
+    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-construir-el-resumen",
+    "title": "Sintaxis, variables y consola",
+    "section": "Caso de uso: construir el resumen",
+    "text": "Caso de uso: construir el resumen\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto: revisa el precio y la cantidad.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n\n    Console.WriteLine(\"Resumen del producto\");\n    Console.WriteLine(\"---------------------\");\n    Console.WriteLine($\"Nombre     : {nombre}\");\n    Console.WriteLine($\"Precio     : {precio}\");\n    Console.WriteLine($\"Cantidad   : {cantidad}\");\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}"
   },
   {
     "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#corrida-con-datos-válidos",
@@ -1345,72 +1451,5 @@
     "title": "Sintaxis, variables y consola",
     "section": "Trabajo independiente",
     "text": "Trabajo independiente\n\nAgrega codigo (string) y stockMinimo (int, con TryParse).\nGuarda en una variable bool si cantidad es menor que stockMinimo.\nPrueba el programa con datos válidos y con al menos un dato inválido.\n\nRetomas este ejercicio como base para las decisiones y ciclos de la Semana 3 en adelante."
-  },
-  {
-    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#opcional-los-acentos-en-la-consola",
-    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#opcional-los-acentos-en-la-consola",
-    "title": "Sintaxis, variables y consola",
-    "section": "Opcional: los acentos en la consola",
-    "text": "Opcional: los acentos en la consola\nPendiente de la Semana 1. El curso usa la consola con su configuración por defecto y evita tildes en lo que imprime, así que no necesitas nada especial para seguir el material.\nSi quieres ver los acentos en tu propia consola, agrega esta línea antes del primer Console.WriteLine:\nConsole.OutputEncoding = System.Text.Encoding.UTF8;\nProgramación en C#: tildes, eñes y signos como el guion."
-  },
-  {
-    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#string-y-el-operador",
-    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#string-y-el-operador",
-    "title": "Sintaxis, variables y consola",
-    "section": "string? y el operador !",
-    "text": "string? y el operador !\nConsole.ReadLine puede devolver null. C# lo marca con string?: “puede ser string o puede ser null”.\n\n\n\n\n\n\n\nOperador\nQué hace\n\n\n\n\n??\nSi el valor es null, usa el de la derecha: texto ?? \"\"\n\n\n!\nLe dice al compilador “confía en mí, aquí no es null”, sin comprobarlo\n\n\n\nUsa ! solo cuando estás seguro. Si te equivocas, el programa falla al ejecutarse, no al compilar."
-  },
-  {
-    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-leer-y-validar-los-datos",
-    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-leer-y-validar-los-datos",
-    "title": "Sintaxis, variables y consola",
-    "section": "Caso de uso: leer y validar los datos",
-    "text": "Caso de uso: leer y validar los datos\nConsole.WriteLine(\"Sistema de gestion - Registro de producto\");\nConsole.WriteLine(\"==========================================\");\nConsole.WriteLine();\n\nConsole.Write(\"Nombre del producto: \");\nstring nombre = Console.ReadLine() ?? \"\";\n\nConsole.Write(\"Precio unitario: \");\nstring? textoPrecio = Console.ReadLine();\nbool precioValido = double.TryParse(textoPrecio, out double precio);\n\nConsole.Write(\"Cantidad en inventario: \");\nstring? textoCantidad = Console.ReadLine();\nbool cantidadValida = int.TryParse(textoCantidad, out int cantidad);"
-  },
-  {
-    "objectID": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-construir-el-resumen",
-    "href": "herramientas-programacion-1/semana-02/presentacion-sintaxis-variables.html#caso-de-uso-construir-el-resumen",
-    "title": "Sintaxis, variables y consola",
-    "section": "Caso de uso: construir el resumen",
-    "text": "Caso de uso: construir el resumen\nif (!precioValido || !cantidadValida)\n{\n    Console.WriteLine(\"No se pudo registrar el producto: revisa el precio y la cantidad.\");\n}\nelse\n{\n    double valorTotal = precio * cantidad;\n\n    Console.WriteLine(\"Resumen del producto\");\n    Console.WriteLine(\"---------------------\");\n    Console.WriteLine($\"Nombre     : {nombre}\");\n    Console.WriteLine($\"Precio     : {precio}\");\n    Console.WriteLine($\"Cantidad   : {cantidad}\");\n    Console.WriteLine($\"Valor total: {valorTotal}\");\n}"
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
-    "title": "Estadística para Analítica",
-    "section": "El error, explicado",
-    "text": "El error, explicado\nMuestra de las primeras 12 órdenes, para que quepa en pantalla:\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
-    "title": "Estadística para Analítica",
-    "section": "Declarar el orden",
-    "text": "Declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
-    "href": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
-    "title": "Semana 2. Tipos de variables",
-    "section": "2 Cargar el dataset y ver qué tipos asignó pandas",
-    "text": "2 Cargar el dataset y ver qué tipos asignó pandas\nVas a trabajar con un registro de 120 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga ordenes.csv y ábrelo con pandas:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\npd.read_csv adivina el tipo de cada columna a partir de lo que encuentra en el archivo. Pídele la lista completa con .dtypes:\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nAcertó con orden y repuestos (int64) y con duracion_min (float64). Pero criticidad quedó en object, la etiqueta genérica que pandas usa para “texto y no sé nada más”. Ese detalle no es un error de pandas: es la pregunta que resuelve el resto de esta guía.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
-    "title": "Estadística para Analítica",
-    "section": "Cargar el dataset",
-    "text": "Cargar el dataset\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n120 órdenes de mantenimiento, siete columnas."
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
-    "title": "Estadística para Analítica",
-    "section": "Los tipos que asignó pandas",
-    "text": "Los tipos que asignó pandas\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
   }
 ]

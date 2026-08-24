@@ -1,0 +1,513 @@
+---
+title: "C# desde cero: guía de sintaxis básica"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+Guía de referencia con la sintaxis básica de C#, desde crear el proyecto hasta los ciclos. No sigue
+el orden semanal: reúne en un solo lugar lo que las Semanas 1 a 5 distribuyen, con más profundidad
+y ejemplos del sistema de gestión de biblioteca que vamos a construir entre todos. Úsala como
+consulta y practica los retos de cada sección. Se probó con el SDK de .NET **10.0.302**.
+
+## Crear el proyecto
+
+Desde la terminal, en la carpeta donde guardas tus trabajos:
+
+```bash
+dotnet new console -o CSharpDesdeCero
+cd CSharpDesdeCero
+dotnet run
+```
+
+```text
+Hello, World!
+```
+
+`dotnet new console` genera un proyecto con un archivo `Program.cs` y un archivo
+`CSharpDesdeCero.csproj` que describe el proyecto. Todo el código de esta guía va dentro de
+`Program.cs`. Reemplaza su contenido en cada sección y ejecuta `dotnet run` para ver el resultado.
+
+## Comentarios
+
+```csharp
+// Comentario de una linea.
+
+/* Comentario
+   de varias lineas. */
+
+Console.WriteLine("El codigo sigue aqui.");
+```
+
+```text
+El codigo sigue aqui.
+```
+
+El compilador ignora todo lo que va después de `//` en esa línea, y todo lo que queda entre `/*` y
+`*/`, sin importar cuántas líneas ocupe.
+
+## Variables y tipos de datos
+
+Cada variable tiene un tipo fijo: `int` para enteros, `double` para reales, `string` para texto,
+`char` para un solo carácter y `bool` para verdadero o falso. Este primer ejemplo representa un
+libro del catálogo de la biblioteca.
+
+```csharp
+string codigo = "B001";
+string titulo = "Cien anios de soledad";
+string autor = "Gabriel Garcia Marquez";
+int ejemplares = 3;
+bool disponible = true;
+
+Console.WriteLine($"Codigo    : {codigo}");
+Console.WriteLine($"Titulo    : {titulo}");
+Console.WriteLine($"Autor     : {autor}");
+Console.WriteLine($"Ejemplares: {ejemplares}");
+Console.WriteLine($"Disponible: {disponible}");
+```
+
+```text
+Codigo    : B001
+Titulo    : Cien anios de soledad
+Autor     : Gabriel Garcia Marquez
+Ejemplares: 3
+Disponible: True
+```
+
+El signo `$` antes de las comillas activa la **interpolación**: todo lo que va entre `{ }` dentro
+del texto se reemplaza por el valor de esa variable. Es más corto que concatenar con `+`.
+
+::: {.callout-tip collapse="true"}
+## Reto: agrega el año de publicación
+
+Agrega una variable `anioPublicacion` de tipo `int` y muestra el título junto al año, con el
+formato `Titulo (Anio)`.
+
+**Solución**
+
+```csharp
+string codigo = "B001";
+string titulo = "Cien anios de soledad";
+string autor = "Gabriel Garcia Marquez";
+int ejemplares = 3;
+int anioPublicacion = 1967;
+bool disponible = true;
+
+Console.WriteLine($"Codigo    : {codigo}");
+Console.WriteLine($"Titulo    : {titulo} ({anioPublicacion})");
+Console.WriteLine($"Autor     : {autor}");
+Console.WriteLine($"Ejemplares: {ejemplares}");
+Console.WriteLine($"Disponible: {disponible}");
+```
+
+```text
+Codigo    : B001
+Titulo    : Cien anios de soledad (1967)
+Autor     : Gabriel Garcia Marquez
+Ejemplares: 3
+Disponible: True
+```
+:::
+
+## Entrada y salida por consola
+
+`Console.Write` no salta de línea, para pedir un dato en la misma línea. `Console.ReadLine` siempre
+devuelve `string`, así que hay que convertirlo si necesitas un número.
+
+```csharp
+Console.Write("Titulo del libro: ");
+string titulo = Console.ReadLine() ?? "";
+
+Console.Write("Ejemplares disponibles: ");
+string? textoEjemplares = Console.ReadLine();
+int.TryParse(textoEjemplares, out int ejemplares);
+
+Console.WriteLine($"Registraste \"{titulo}\" con {ejemplares} ejemplar(es).");
+```
+
+```text
+Titulo del libro: Cien anios de soledad
+Ejemplares disponibles: 3
+Registraste "Cien anios de soledad" con 3 ejemplar(es).
+```
+
+Tres símbolos nuevos en este ejemplo:
+
+- **`string?`**. El `?` marca que la variable puede llegar a valer `null` (ningún dato, porque
+  `Console.ReadLine` no siempre recibe algo). Un `string` sin `?` promete al compilador que nunca
+  va a ser `null`.
+- **`??`**. Es el operador de coalescencia nula: `Console.ReadLine() ?? ""` usa la cadena vacía si
+  el resultado fue `null`, así `titulo` queda siempre como un `string` normal.
+- **`out int ejemplares`**. `TryParse` necesita un lugar donde dejar el número convertido; `out`
+  declara esa variable ahí mismo, en el momento de llamarlo. Dentro del método, `TryParse` intenta
+  convertir el texto y devuelve `true` o `false` según si lo logró.
+
+::: {.callout-tip collapse="true"}
+## Reto: agrega autor y año
+
+Pide también el autor y el año de publicación por teclado, y arma el resumen `"Titulo" de Autor,
+publicado en Anio.`.
+
+**Solución**
+
+```csharp
+Console.Write("Titulo del libro: ");
+string titulo = Console.ReadLine() ?? "";
+
+Console.Write("Autor: ");
+string autor = Console.ReadLine() ?? "";
+
+Console.Write("Anio de publicacion: ");
+string? textoAnio = Console.ReadLine();
+int.TryParse(textoAnio, out int anioPublicacion);
+
+Console.WriteLine($"\"{titulo}\" de {autor}, publicado en {anioPublicacion}.");
+```
+
+```text
+Titulo del libro: Cien anios de soledad
+Autor: Gabriel Garcia Marquez
+Anio de publicacion: 1967
+"Cien anios de soledad" de Gabriel Garcia Marquez, publicado en 1967.
+```
+:::
+
+## Operadores
+
+Aritméticos (`+ - * / %`), relacionales (`> < >= <= == !=`) y lógicos (`&& || !`). El siguiente
+ejemplo calcula si un libro está disponible y si un préstamo está atrasado.
+
+```csharp
+int totalEjemplares = 5;
+int prestados = 2;
+
+int disponibles = totalEjemplares - prestados;
+Console.WriteLine($"Disponibles: {disponibles}");
+
+bool hayDisponibilidad = disponibles > 0;
+Console.WriteLine($"Se puede prestar: {hayDisponibilidad}");
+
+int diasPrestamo = 8;
+int diasTranscurridos = 10;
+bool estaAtrasado = diasTranscurridos > diasPrestamo;
+int diasDeAtraso = diasTranscurridos - diasPrestamo;
+Console.WriteLine($"Atrasado: {estaAtrasado}, dias de atraso: {diasDeAtraso}");
+```
+
+```text
+Disponibles: 3
+Se puede prestar: True
+Atrasado: True, dias de atraso: 2
+```
+
+`disponibles / prestados` entre dos `int` descarta la parte decimal (división entera); `%` da el
+residuo de esa división. Cuidado con confundir `=` y `==`: `=` asigna un valor, `==` compara dos
+valores. `disponibles = 0` dentro de un `if` es un error de sintaxis que el compilador rechaza
+porque una asignación no produce un `bool`.
+
+::: {.callout-tip collapse="true"}
+## Reto: calcula la multa por atraso
+
+Si `estaAtrasado` es `true`, calcula una multa de 500 pesos por cada día de atraso
+(`diasDeAtraso * 500`) e imprímela.
+
+**Solución**
+
+```csharp
+int diasPrestamo = 8;
+int diasTranscurridos = 10;
+bool estaAtrasado = diasTranscurridos > diasPrestamo;
+int diasDeAtraso = diasTranscurridos - diasPrestamo;
+
+int multa = 0;
+if (estaAtrasado)
+{
+    multa = diasDeAtraso * 500;
+}
+
+Console.WriteLine($"Atrasado: {estaAtrasado}, dias de atraso: {diasDeAtraso}, multa: {multa}");
+```
+
+```text
+Atrasado: True, dias de atraso: 2, multa: 1000
+```
+:::
+
+## Condicionales
+
+```csharp
+int disponibles = 2;
+
+if (disponibles > 0)
+{
+    Console.WriteLine("Se puede prestar el libro.");
+}
+else
+{
+    Console.WriteLine("No hay ejemplares disponibles.");
+}
+
+string tipoUsuario = "estudiante";
+int diasPrestamo;
+
+switch (tipoUsuario)
+{
+    case "estudiante":
+        diasPrestamo = 8;
+        break;
+    case "docente":
+        diasPrestamo = 15;
+        break;
+    default:
+        diasPrestamo = 5;
+        break;
+}
+
+Console.WriteLine($"Dias de prestamo: {diasPrestamo}");
+```
+
+```text
+Se puede prestar el libro.
+Dias de prestamo: 8
+```
+
+`switch` compara una sola variable contra varios valores posibles. Cada `case` necesita un `break`
+para no seguir evaluando el siguiente; `default` cubre cualquier valor que no coincida con un
+`case` declarado.
+
+::: {.callout-tip collapse="true"}
+## Reto: agrega un tercer tipo de usuario
+
+Agrega el caso `"invitado"` con 3 días de préstamo.
+
+**Solución**
+
+```csharp
+string tipoUsuario = "invitado";
+int diasPrestamo;
+
+switch (tipoUsuario)
+{
+    case "estudiante":
+        diasPrestamo = 8;
+        break;
+    case "docente":
+        diasPrestamo = 15;
+        break;
+    case "invitado":
+        diasPrestamo = 3;
+        break;
+    default:
+        diasPrestamo = 5;
+        break;
+}
+
+Console.WriteLine($"Dias de prestamo: {diasPrestamo}");
+```
+
+```text
+Dias de prestamo: 3
+```
+:::
+
+## Ciclos
+
+### `for`: cuando sabes cuántas vueltas necesitas
+
+```csharp
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine($"Ejemplar numero {i} registrado");
+}
+```
+
+```text
+Ejemplar numero 1 registrado
+Ejemplar numero 2 registrado
+Ejemplar numero 3 registrado
+Ejemplar numero 4 registrado
+Ejemplar numero 5 registrado
+```
+
+`for (inicio; condicion; paso)`: `int i = 1` inicializa, `i <= 5` se revisa antes de cada vuelta, y
+`i++` corre después de cada vuelta. `i++` es azúcar sintáctico de `i = i + 1`; su opuesto es `i--`
+(`i = i - 1`). El paso también puede ir hacia atrás:
+
+```csharp
+for (int diasRestantes = 3; diasRestantes >= 1; diasRestantes--)
+{
+    Console.WriteLine($"Quedan {diasRestantes} dia(s) para la fecha de devolucion");
+}
+```
+
+```text
+Quedan 3 dia(s) para la fecha de devolucion
+Quedan 2 dia(s) para la fecha de devolucion
+Quedan 1 dia(s) para la fecha de devolucion
+```
+
+### `while`: cuando repites hasta que se cumpla una condición
+
+```csharp
+int intentos = 0;
+int diasSolicitados = -1;
+
+while (diasSolicitados <= 0)
+{
+    Console.Write("Cuantos dias necesitas el libro: ");
+    string? texto = Console.ReadLine();
+    int.TryParse(texto, out diasSolicitados);
+    intentos++;
+}
+
+Console.WriteLine($"Prestamo registrado por {diasSolicitados} dia(s), en {intentos} intento(s).");
+```
+
+```text
+Cuantos dias necesitas el libro: -3
+Cuantos dias necesitas el libro: 8
+Prestamo registrado por 8 dia(s), en 2 intento(s).
+```
+
+`while (condicion)` repite mientras la condición sea `true`, y la revisa antes de cada vuelta: si
+nunca se cumple, el ciclo no se ejecuta ni una vez. Úsalo cuando no sabes de antemano cuántas
+vueltas vas a necesitar, como aquí, donde depende de que el usuario escriba un número válido.
+
+### Acumuladores, contadores y banderas
+
+Un acumulador suma valores en cada vuelta (`totalDias += dias`), un contador cuenta vueltas válidas
+(`prestamosValidos++`) y una bandera guarda si algo pasó durante el ciclo (`bool huboError`). Este
+ejemplo registra tres préstamos del día.
+
+```csharp
+int totalDias = 0;
+int prestamosValidos = 0;
+bool huboError = false;
+
+for (int i = 1; i <= 3; i++)
+{
+    Console.Write($"Dias del prestamo {i}: ");
+    string? texto = Console.ReadLine();
+
+    if (int.TryParse(texto, out int dias) && dias > 0)
+    {
+        totalDias += dias;
+        prestamosValidos++;
+    }
+    else
+    {
+        huboError = true;
+    }
+}
+
+Console.WriteLine($"Prestamos validos: {prestamosValidos}");
+Console.WriteLine($"Total de dias prestados: {totalDias}");
+Console.WriteLine($"Hubo algun error: {huboError}");
+```
+
+```text
+Dias del prestamo 1: 10
+Dias del prestamo 2: -5
+Dias del prestamo 3: 5
+Prestamos validos: 2
+Total de dias prestados: 15
+Hubo algun error: True
+```
+
+`totalDias += dias` es azúcar sintáctico de `totalDias = totalDias + dias`; existen igual `-=`,
+`*=` y `/=`. El `&&` en el `if` exige que las dos condiciones sean verdaderas: que el texto se haya
+podido convertir **y** que el número de días sea mayor que cero. `-5` pasa la conversión pero falla
+esa segunda condición, así que cuenta como error.
+
+::: {.callout-tip collapse="true"}
+## Reto: separa los préstamos inválidos y registra cinco
+
+Cambia el ciclo para que registre 5 préstamos en vez de 3, y reemplaza la bandera `huboError` por
+un contador `prestamosInvalidos` que sume uno por cada dato que falle.
+
+**Solución**
+
+```csharp
+int totalDias = 0;
+int prestamosValidos = 0;
+int prestamosInvalidos = 0;
+
+for (int i = 1; i <= 5; i++)
+{
+    Console.Write($"Dias del prestamo {i}: ");
+    string? texto = Console.ReadLine();
+
+    if (int.TryParse(texto, out int dias) && dias > 0)
+    {
+        totalDias += dias;
+        prestamosValidos++;
+    }
+    else
+    {
+        prestamosInvalidos++;
+    }
+}
+
+Console.WriteLine($"Prestamos validos: {prestamosValidos}");
+Console.WriteLine($"Prestamos invalidos: {prestamosInvalidos}");
+Console.WriteLine($"Total de dias prestados: {totalDias}");
+```
+
+```text
+Dias del prestamo 1: 5
+Dias del prestamo 2: 10
+Dias del prestamo 3: abc
+Dias del prestamo 4: -2
+Dias del prestamo 5: 7
+Prestamos validos: 3
+Prestamos invalidos: 2
+Total de dias prestados: 22
+```
+:::
+
+## Proyecto del curso: Sistema de Gestión de Biblioteca
+
+Todo lo que aprendes en esta guía se aplica sobre un solo proyecto que construimos **entre todos**
+a lo largo del semestre: un sistema de gestión de una biblioteca, con su catálogo de libros, sus
+usuarios y los préstamos entre ambos.
+
+| Semanas | El proyecto suma |
+|---|---|
+| 01 a 05 | Consola: registro de libros, disponibilidad, préstamos, ciclos con acumuladores y contadores |
+| 06 a 10 | Arreglos, funciones y un menú completo sobre el catálogo |
+| 11 a 16 | Clases (`Libro`, `Usuario`, `Prestamo`), persistencia en archivo e interfaz gráfica |
+
+La idea es simple: primero vemos la teoría, después la aplicamos al proyecto. Así cada concepto
+nuevo tiene un lugar real donde usarse, en vez de quedarse en un ejercicio suelto y sin contexto.
+
+## Programa de consola con variables, entrada, salida y operadores
+
+Con lo que cubre esta guía ya puedes armar un programa completo y publicarlo en tu propio
+repositorio. Practica todo el flujo de punta a punta.
+
+**Consigna:** programa de consola con variables, entrada, salida y operadores. Tema libre. El
+programa debe:
+
+1. Declarar al menos 3 variables con tipos distintos (`int`, `double`, `string`, `bool`, etc.).
+2. Pedir al menos 2 datos por teclado con `Console.ReadLine`, convertidos con `TryParse`.
+3. Aplicar al menos 2 operadores (uno aritmético y uno relacional o lógico) sobre esos datos.
+4. Mostrar un resultado por consola con interpolación (`$"..."`).
+
+**Pasos:**
+
+1. `dotnet new console -o <NombreDelProyecto>` y verifica que corre con `dotnet run`.
+2. Escribe el programa que cumple la consigna de arriba.
+3. `git init`, con un `.gitignore` de .NET (`bin/`, `obj/`, `.vs/`).
+4. Al menos 2 commits con mensajes que digan qué cambió.
+5. Crea un repositorio vacío en GitHub.
+6. `git remote add origin <url>` y `git push -u origin main`.
+
+::: {.pie-doc}
+Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo.
+Facultad de Ingeniería. Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las
+salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK
+de .NET 10.0.302.
+:::

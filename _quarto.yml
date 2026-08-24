@@ -34,6 +34,8 @@ website:
               href: herramientas-programacion-1/semana-01/index.qmd
             - text: "Semana 2. Sintaxis, variables y consola"
               href: herramientas-programacion-1/semana-02/index.qmd
+            - text: "C# desde cero (guía de sintaxis)"
+              href: herramientas-programacion-1/csharp-desde-cero/index.qmd
     - id: estadistica
       style: docked
       background: light
