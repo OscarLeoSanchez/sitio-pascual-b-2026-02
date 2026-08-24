@@ -351,360 +351,172 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/index.html",
-    "href": "estadistica-para-analitica/semana-02/index.html",
-    "title": "Semana 2. Tipos de variables",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
-    "href": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
-    "title": "Semana 2. Tipos de variables",
-    "section": "1 De qué va esta semana",
-    "text": "1 De qué va esta semana\nVas a cargar un dataset con pandas y a observar algo que pasa siempre: la herramienta adivina el tipo de cada columna, y a veces adivina mal. Acierta con las columnas numéricas, pero le pone object a una columna que sí tiene un orden real (criticidad: baja, media, alta), porque object es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde el orden, y el orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.\nAl terminar deberías poder:\n\nCargar un dataset con pandas y leer los tipos que asigna automáticamente a cada columna.\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
-    "href": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
-    "title": "Semana 2. Tipos de variables",
-    "section": "2 Cargar el dataset y ver qué tipos asignó pandas",
-    "text": "2 Cargar el dataset y ver qué tipos asignó pandas\nVas a trabajar con un registro de 120 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga ordenes.csv y ábrelo con pandas:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\npd.read_csv adivina el tipo de cada columna a partir de lo que encuentra en el archivo. Pídele la lista completa con .dtypes:\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nAcertó con orden y repuestos (int64) y con duracion_min (float64). Pero criticidad quedó en object, la etiqueta genérica que pandas usa para “texto y no sé nada más”. Ese detalle no es un error de pandas: es la pregunta que resuelve el resto de esta guía.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
-    "href": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
-    "title": "Semana 2. Tipos de variables",
-    "section": "3 Por qué clasificar una variable no es un trámite",
-    "text": "3 Por qué clasificar una variable no es un trámite\nAntes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y cuáles son un error disfrazado de número.\nSumar repuestos (1, 4, 2, 0…) tiene sentido: el total de repuestos usados en el mes es una cantidad real. Sumar un código de máquina no lo tiene, aunque pandas lo deje intentar si lo codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si antes no declaraste que ese orden existe: el promedio de “baja” y “alta” no es “media” por casualidad aritmética, es media porque tú fijaste ese orden.\nLa consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
-    "href": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
-    "title": "Semana 2. Tipos de variables",
-    "section": "4 Dos preguntas clasifican cualquier variable",
-    "text": "4 Dos preguntas clasifican cualquier variable\nNo hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable en una de las cuatro categorías.\nPrimera pregunta: ¿el valor se cuenta o se mide?\nSi la respuesta es un número entero que sale de contar unidades completas, la variable es numérica discreta. Si sale de medir en una escala donde caben decimales, sin importar cuántos apliques, la variable es numérica continua.\nSegunda pregunta, solo si la variable no es un número: ¿las categorías tienen un orden natural?\nSi puedes ordenar las categorías de menor a mayor sin inventar el criterio, la variable es categórica ordinal. Si no existe ese orden, o existen varios criterios igual de válidos para ordenarla, la variable es categórica nominal.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
-    "href": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
-    "title": "Semana 2. Tipos de variables",
-    "section": "5 Numéricas: discretas y continuas",
-    "text": "5 Numéricas: discretas y continuas\nUna variable numérica discreta se cuenta. Sus valores posibles son un conjunto que puedes enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención, número de paradas no programadas en un mes, número de operarios asignados a una orden.\nUna variable numérica continua se mide. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.\nVerifícalo con el mismo ordenes que ya cargaste:\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56\nrepuestos solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. En 120 órdenes, duracion_min no repite ni un solo valor: trae decimales y no hay un conjunto finito de valores esperables, cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.\n\n\n\n\n\n\nNotaUn caso que confunde: cuando lo continuo se registra redondeado\n\n\n\nSi un instrumento solo reporta minutos enteros, duracion_min seguiría siendo continua: la variable en sí admite cualquier valor real, aunque el instrumento con el que la mides tenga una resolución limitada. La naturaleza de la variable no cambia porque el aparato que la registra sea más o menos preciso.\n\n\n\n\n\nEl gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y 2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
-    "href": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
-    "title": "Semana 2. Tipos de variables",
-    "section": "6 Categóricas: nominales y ordinales",
-    "text": "6 Categóricas: nominales y ordinales\nUna variable categórica nominal describe una cualidad sin orden natural. Puedes reordenar sus categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque ninguna ordenación es más correcta que otra. En el dataset: maquina (los códigos de torno y fresadora no tienen un “antes” y un “después”) y tipo de intervención (preventivo, correctivo y predictivo no forman una escala).\nUna variable categórica ordinal describe una cualidad con un orden natural, aunque no puedas medir la distancia entre categorías consecutivas. criticidad es el ejemplo del dataset: baja, media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave es “alta” que “media” en un número, como sí puedes hacerlo con dos duraciones.\nprint(ordenes[\"maquina\"].dtype)\nprint(sorted(ordenes[\"maquina\"].unique().tolist()))\nobject\n['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']\nOrdenar maquina alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con criticidad pasa lo contrario, y ahí está el problema que viste al cargar el dataset.\nEl dataset completo tiene 120 filas: para que la tabla quepa completa en la página, trabaja con una muestra de las primeras 12 órdenes.\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\nPandas ordenó por texto, alfabéticamente: alta, baja, media. Es un orden válido para una cadena de texto y un orden equivocado para la criticidad de una intervención. El software no cometió un error: hizo exactamente lo que el tipo object le permite hacer. El error es no haberle dicho que criticidad es ordinal.\n\n\n\n\nDeclarar el orden en pandas\nPandas tiene un tipo de dato para esto: category, con el argumento ordered=True. Declaras la lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra respetando ese orden.\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(categories=[\"baja\", \"media\", \"alta\"], ordered=True)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\ncategory\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\n   102       alta\n   105       alta\n   107       alta\n   110       alta\nEl mismo sort_values, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.\nCon el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto. Sigue el filtro sobre la misma muestra de 12, y el máximo y el mínimo sobre el dataset completo:\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n\nprint(\"maximo:\", ordenes[\"criticidad\"].max())\nprint(\"minimo:\", ordenes[\"criticidad\"].min())\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta\nmaximo: alta\nminimo: baja\n\n\n\n\n\n\nAdvertenciaLa trampa: un valor suelto pierde el orden\n\n\n\nEl orden vive en el tipo de la columna completa, no en cada valor por separado. Si sacas un solo dato con .iloc y lo guardas en una variable, pandas te lo entrega convertido a texto normal, y una comparación entre esos dos valores vuelve a ser alfabética.\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(\"baja &lt; alta como texto suelto:\", ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\nprint(\"baja &lt; alta con los codigos internos:\",\n      ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\n&lt;class 'str'&gt; baja\nbaja &lt; alta como texto suelto: False\nbaja &lt; alta con los codigos internos: True\nbaja &lt; alta da False porque, como texto suelto, compara alfabéticamente (“b” va después de “a”). Compara filas dentro de una operación de pandas (sort_values, un filtro con [], .max(), .min()) y el orden se respeta. Si necesitas comparar dos valores sueltos, usa .cat.codes, que son los números internos que pandas asigna según el orden que declaraste.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
-    "href": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
-    "title": "Semana 2. Tipos de variables",
-    "section": "7 Caso de uso: diseñar las columnas de una orden de trabajo",
-    "text": "7 Caso de uso: diseñar las columnas de una orden de trabajo\nAsí se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir una sola línea de análisis.\nUn área de mantenimiento quiere registrar, además de lo que ya trae ordenes.csv, cuatro datos nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado, severo.\n\n\n\n\n\n\n\n\n\nVariable nueva\nPregunta 1: ¿se cuenta o se mide?\nPregunta 2: ¿tiene orden?\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide, con decimales\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es un número\nSin orden natural\nCategórica nominal\n\n\nAprobada por el supervisor\nNo es un número\nSolo dos valores, sin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es un número\nLeve, moderado y severo sí ordenan\nCategórica ordinal\n\n\n\n“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.\nVerifica la tabla con código, construyendo esas cuatro columnas nuevas para las 120 órdenes existentes:\nimport numpy as np\n\nrng = np.random.default_rng(2026)\n\nordenes[\"temperatura_c\"] = rng.uniform(38, 92, size=len(ordenes)).round(1)\nordenes[\"tecnico\"] = rng.choice([\"Diaz\", \"Moreno\", \"Restrepo\"], size=len(ordenes))\nordenes[\"aprobada\"] = rng.choice([\"si\", \"no\"], size=len(ordenes))\n\norden_desgaste = CategoricalDtype(categories=[\"leve\", \"moderado\", \"severo\"], ordered=True)\nordenes[\"desgaste\"] = rng.choice([\"leve\", \"moderado\", \"severo\"], size=len(ordenes))\nordenes[\"desgaste\"] = ordenes[\"desgaste\"].astype(orden_desgaste)\n\nprint(ordenes[[\"orden\", \"temperatura_c\", \"tecnico\", \"aprobada\", \"desgaste\"]].dtypes)\norden               int64\ntemperatura_c     float64\ntecnico            object\naprobada           object\ndesgaste         category\ndtype: object\ntemperatura_c quedó float64 sin que lo pidieras: np.random.default_rng().uniform siempre produce decimales, coherente con que es una variable continua. tecnico y aprobada quedan object, coherente con que son nominales. desgaste es la única que declaraste como category ordenada, porque es la única con un orden real.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
-    "href": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
-    "title": "Semana 2. Tipos de variables",
-    "section": "8 Errores frecuentes",
-    "text": "8 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
-    "href": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
-    "title": "Semana 2. Tipos de variables",
-    "section": "9 Lista de chequeo de la semana",
-    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
-    "href": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
-    "title": "Semana 2. Tipos de variables",
-    "section": "10 Lo que viene",
-    "text": "10 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-02/index.html#recursos",
-    "href": "estadistica-para-analitica/semana-02/index.html#recursos",
-    "title": "Semana 2. Tipos de variables",
-    "section": "11 Recursos",
-    "text": "11 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 2. Tipos de variables"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html",
-    "href": "estadistica-para-analitica/semana-01/index.html",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
-    "href": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "1 De qué va esta semana",
-    "text": "1 De qué va esta semana\nEsta semana no tiene entregable ni nota. Hace tres cosas: te muestra cómo está armado el módulo, deja el entorno de Python instalado y verificado, y pone sobre la mesa el problema que la estadística existe para resolver.\nAl cerrar la guía deberías poder:\n\nUbicar cada unidad del módulo dentro del ciclo de resolución de un problema con datos.\nEjecutar Python en un entorno virtual con las siete librerías del semestre.\nDecir qué aporta cada librería y por qué están todas.\nExplicar por qué una medición repetida no devuelve el mismo número, y qué consecuencia tiene eso para una decisión.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
-    "href": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "2 La estadística como proceso de decisión",
-    "text": "2 La estadística como proceso de decisión\nResolver un problema con datos toma cuatro pasos:\n\nFormular la pregunta. Qué se quiere saber, sobre qué proceso, y en qué términos medibles se deja plantear.\nRecoger los datos. Qué se mide, cada cuánto, con qué instrumento y quién responde por el registro.\nAnalizar. Con el método que admite la naturaleza de esas variables.\nInterpretar y decidir. Qué se hace con el resultado y con cuánta confianza.\n\n\n\n\nLos cuatro pasos pesan igual sobre el resultado. Un análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor, y esa decisión hay que defenderla después ante quien la firma.\nToma el caso que atraviesa el módulo: un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó qué variable representa el desgaste, cada cuánto se lee el instrumento y quién responde por el registro. Cambia una de esas decisiones y cambia la conclusión.\nEl módulo recorre los cuatro pasos y le da al diseño de la medición el mismo peso que al cálculo.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
-    "href": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "3 El mapa del módulo",
-    "text": "3 El mapa del módulo\nDieciséis semanas repartidas en tres unidades. Cada una responde una pregunta distinta sobre el mismo caso.\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnidad\nLa pregunta que responde\nLo que produce\nCierre\n\n\n\n\n1\nQué hay en estos datos\nUn informe exploratorio con gráficos y resúmenes numéricos\n30%\n\n\n2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno\n30%\n\n\n3\nQué puedo afirmar sobre lo que no medí\nConclusiones sobre la población, con su margen de error declarado\n40%\n\n\n\n\n\nQué hará cada unidad\nUnidad 1. Describir lo que hay. Construirás tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplots y gráficos de dispersión. El cierre será un informe exploratorio que muestre qué dicen los datos observados.\n\n\n\nUnidad 2. Modelar la incertidumbre. Ajustarás distribuciones de probabilidad y las usarás para calcular la posibilidad de eventos que todavía no ocurrieron. El cierre será un modelo que responda preguntas sobre el fenómeno.\n\n\n\nUnidad 3. Inferir sobre el proceso. Construirás intervalos de confianza, pruebas de hipótesis, comparaciones y modelos de regresión. El cierre presentará conclusiones sobre el proceso y declarará el margen de error.\n\n\n\nLas tres unidades trabajan sobre un mismo caso. Lo primero es definir el proceso: qué se observa, qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al final, la inferencia. El alcance del caso se acuerda en la Semana 02.\n\n\n\n\n\n\nTipEl método del módulo\n\n\n\nCada tema pasa por tres momentos:\n\nConcepto. Precisamos qué afirma el resultado y bajo qué supuestos se sostiene.\nImplementación. Escribimos el procedimiento en Python y lo ejecutamos sobre datos.\nSimulación. Repetimos el procedimiento muchas veces y contrastamos su comportamiento con lo que predice la teoría.\n\nEse contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto falla en la práctica un intervalo de confianza.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
-    "href": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "4 El entorno de trabajo",
-    "text": "4 El entorno de trabajo\nTodo el módulo se programa en Python. Un análisis que llega sin el código que lo produjo no se puede reproducir ni auditar, y la estadística que no se ejecuta se olvida.\nEstas son las piezas y lo que hace cada una.\n\n\n\n\n\n\n\n\n\n\n\nLibrería\nQué aporta\n\n\n\n\npandas\nCarga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy\nCálculo numérico y generación de números aleatorios para simular\n\n\nopenpyxl\nEs la que permite a pandas leer y escribir .xlsx\n\n\nmatplotlib\nMotor de los gráficos\n\n\nseaborn\nGráficos estadísticos sobre matplotlib, con menos código\n\n\nscipy\nDistribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels\nModelos de regresión y ANOVA con la salida que se reporta\n\n\n\n\n\nPor qué un entorno virtual\nUn entorno virtual es una carpeta con una copia aislada de Python y sus librerías. Lo que instalas adentro no toca el Python del sistema ni el de otros proyectos.\n\n\n\nSirve para dos cosas concretas. La primera, que actualizar una librería para otro proyecto no rompa el código de este. La segunda, que fijar las versiones haga que el mismo script produzca el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.\n\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Recrea el entorno con las versiones exactas de la tabla; el requirements.txt del paso 3 las fija con ==.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nPython\n3.13.4\n\n\npandas\n2.3.1\n\n\nnumpy\n2.3.2\n\n\nscipy\n1.17.0\n\n\nmatplotlib\n3.10.8\n\n\nseaborn\n0.13.2\n\n\nstatsmodels\n0.14.6\n\n\nopenpyxl\n3.1.5",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
-    "href": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "5 Instalación paso a paso",
-    "text": "5 Instalación paso a paso\n\n1 Python\nDescarga la versión 3.13 desde python.org/downloads.\nEn Windows, marca la casilla Add python.exe to PATH en la primera pantalla del instalador. Es fácil pasarla por alto, y sin ella el comando python no funciona en la terminal.\nEn macOS y Linux el sistema ya trae Python, pero suele ser una versión vieja que además usa el sistema operativo. Comprueba con python3 --version y, si es anterior a 3.11, instala la 3.13 aparte.\n\n\n2 La carpeta del módulo y el entorno virtual\nCrea una carpeta para todo el semestre y ubícate en ella:\nmkdir estadistica-analitica\ncd estadistica-analitica\nCrea el entorno virtual dentro de esa carpeta:\npython -m venv .venv\nActívalo. El comando cambia según el sistema:\n# Windows, PowerShell\n.venv\\Scripts\\Activate.ps1\n\n# Windows, Git Bash\nsource .venv/Scripts/activate\n\n# macOS y Linux\nsource .venv/bin/activate\nCuando queda activo, el nombre (.venv) aparece al comienzo de la línea de la terminal. Si no lo ves, no está activo, y todo lo que instales va a parar a otro lado.\n\n\n\n\n\n\nAdvertenciaEl entorno se activa en cada terminal nueva\n\n\n\nCerrar la terminal desactiva el entorno. Al día siguiente, cuando vuelvas a la carpeta, tienes que activarlo otra vez antes de trabajar. Es el tropiezo más común de las primeras semanas.\n\n\n\n\n3 Las librerías\nCon el entorno activo, crea un archivo requirements.txt con este contenido:\npandas==2.3.1\nnumpy==2.3.2\nscipy==1.17.0\nmatplotlib==3.10.8\nseaborn==0.13.2\nstatsmodels==0.14.6\nopenpyxl==3.1.5\nE instálalas de una vez:\npip install -r requirements.txt\nFijar las versiones con == es lo que hace reproducible el análisis. El archivo se versiona junto con el código: quien reciba tu informe puede recrear el entorno exacto con una sola orden.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#verificación",
-    "href": "estadistica-para-analitica/semana-01/index.html#verificación",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "6 Verificación",
-    "text": "6 Verificación\nCon el entorno activo, ejecuta:\npython -c \"import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')\"\nSi imprime todo listo, ya está. Cualquier otra cosa significa que falta una librería o que el entorno no está activo.\nPara ver las versiones instaladas:\npython -c \"import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)\"\n2.3.1 2.3.2 1.17.0",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
-    "href": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "7 Demostración: por qué se mide más de una vez",
-    "text": "7 Demostración: por qué se mide más de una vez\nEsta es la demostración principal de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.\nVamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15.8 milisegundos y la más lenta 38.6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero? Para responderla, separa cuatro ideas:\n\nLa población es el conjunto completo de resultados que podría producir el proceso. En este experimento incluye todos los tiempos que obtendrías al repetir la operación bajo condiciones comparables.\nLa muestra contiene los resultados que sí observaste: las 200 mediciones.\nUn parámetro resume una propiedad de la población, como su media. Permanece desconocido porque no puedes observar todos los resultados posibles.\nUn estadístico es un número calculado con la muestra. La media de 22.6 milisegundos es un estadístico y funciona como estimación del parámetro.\n\n\n\n\nEsa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.\n\n\n\n\n\n\nImportanteLa consecuencia práctica\n\n\n\nUn solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de este semestre nace ahí.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
-    "href": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "8 Los tres formatos de almacenamiento",
-    "text": "8 Los tres formatos de almacenamiento\nEl módulo organiza la información en tres formatos de almacenamiento. Cada uno tiene su lugar.\n\n\n\n\n\n\n\n\nFormato\nQué es\nCuándo lo vas a usar\n\n\n\n\n.csv\nTexto plano, valores separados por comas\nEl formato por omisión. Lo lee cualquier herramienta y ocupa poco\n\n\n.txt\nTexto plano con otro separador, casi siempre tabulación\nLo que exportan muchos equipos de medición y sistemas industriales\n\n\n.xlsx\nLibro de Excel\nCuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí\n\n\n\nDescarga el archivo de ejemplo, ordenes.csv, que tiene 120 órdenes de mantenimiento. Guárdalo en tu carpeta de trabajo.\nCrea formatos.py:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\n\nordenes.to_csv(\"ordenes_copia.csv\", index=False)\nordenes.to_csv(\"ordenes.txt\", sep=\"\\t\", index=False)\nordenes.to_excel(\"ordenes.xlsx\", index=False)\n\ndesde_csv = pd.read_csv(\"ordenes_copia.csv\")\ndesde_txt = pd.read_csv(\"ordenes.txt\", sep=\"\\t\")\ndesde_xlsx = pd.read_excel(\"ordenes.xlsx\")\n\nprint(\"csv  y txt :\", desde_csv.equals(desde_txt))\nprint(\"csv  y xlsx:\", desde_csv.equals(desde_xlsx))\nprint()\nprint(desde_csv.head())\nprint()\nprint(desde_csv.dtypes)\ncsv  y txt : True\ncsv  y xlsx: True\n\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nLos tres archivos guardan exactamente lo mismo. El index=False evita que pandas agregue una columna extra con la numeración de las filas, que no es un dato y ensucia el archivo.\n\nAnatomía de una tabla de datos\nEsa tabla tiene una estructura que se repite en todo el semestre:\n\n\n\n\nLa unidad de observación es lo que ocupa cada fila. Aquí, una orden de mantenimiento.\nCada variable es una columna: algo que se midió u observó de esa unidad.\nCada registro es una fila completa: todos los valores medidos de una misma unidad.\n\nMira la última salida. Pandas leyó duracion_min como float64 y repuestos como int64, y acertó en ambos. Pero puso object en maquina, turno, tipo y criticidad, que es como decir “texto y no sé nada más”. Ahí perdió información: criticidad tiene un orden natural, baja va antes que media y media antes que alta, y esa tabla no lo registra.\nQuédate con la idea, porque la semana 2 arranca justo ahí: la naturaleza de una variable la declaras tú, no la adivina la herramienta, y de esa declaración depende qué análisis puedes hacer después.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
-    "href": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "9 Trabajo independiente de la semana",
-    "text": "9 Trabajo independiente de la semana\nReproduce en tu equipo la instalación, el experimento de las 200 mediciones y la conversión entre los tres formatos.\n\nEntregable: ninguno. Esta semana no tiene peso evaluativo ni requiere subir archivos.\nFormato de trabajo: una carpeta local estadistica-analitica con .venv, requirements.txt, experimento.py, formatos.py y los archivos generados.\nCriterios de verificación: el entorno se activa, los imports funcionan, el experimento genera 200 registros y los archivos .csv, .txt y .xlsx conservan los mismos datos.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
-    "href": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "10 Lo que viene",
-    "text": "10 Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
-    "href": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "11 Errores frecuentes",
-    "text": "11 Errores frecuentes\n\nError 1\n\nModuleNotFoundError: No module named ‘pandas’\nCausa. El entorno virtual no está activo, o instalaste las librerías sin activarlo.\nSolución. Mira el comienzo de la línea de la terminal. Si no dice (.venv), actívalo con el comando de tu sistema y vuelve a intentar. Si ya está activo, ejecuta pip install -r requirements.txt otra vez: la primera vez fue a parar al Python del sistema.\n\n\n\nError 2\n\nModuleNotFoundError: No module named ‘openpyxl’ al guardar el .xlsx\nCausa. Pandas no escribe Excel por su cuenta: necesita openpyxl y lo importa solo cuando lo usas. Por eso el error aparece en la línea del to_excel y no al comienzo.\nSolución. pip install openpyxl==3.1.5, con el entorno activo.\n\n\n\nError 3\n\nFileNotFoundError: ordenes.csv\nCausa. La terminal no está parada en la carpeta donde guardaste el archivo. Python busca los archivos desde el directorio actual, no desde donde está el script.\nSolución. Ejecuta pwd en macOS y Linux, o cd sin argumentos en PowerShell, para ver dónde estás. Muévete a la carpeta correcta con cd y vuelve a ejecutar.\n\n\n\nError 4\n\nAl abrir el .csv, Excel mete todo en una sola columna\nCausa. Excel en español espera punto y coma como separador, no coma.\nSolución. No abras el .csv con doble clic. Usa el .xlsx que generaste, que es justo para eso. Si necesitas el .csv en Excel, ábrelo desde Datos, Obtener datos, Desde un archivo de texto y elige la coma como separador.\nNo cambies el separador del archivo: la coma es el estándar y el resto del semestre asume que la tiene.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
-    "href": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "12 Lista de chequeo del entorno",
-    "text": "12 Lista de chequeo del entorno\n\nConfirma que tienes todo esto antes de la próxima sesión\n\npython --version responde con 3.13 o superior\nEl entorno virtual se activa y muestra (.venv) en la terminal\nEl import de las seis librerías imprime todo listo\nexperimento.py corrió y generó tiempos_ordenamiento.csv con 200 filas\nSabes explicar por qué las 200 mediciones dieron distinto\nEjecutaste formatos.py y los tres archivos coincidieron",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-01/index.html#recursos",
-    "href": "estadistica-para-analitica/semana-01/index.html#recursos",
-    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
-    "section": "13 Recursos",
-    "text": "13 Recursos\n\nDescarga de Python: python.org/downloads\nEntornos virtuales: docs.python.org/es/3/library/venv.html\nLectura y escritura de datos con pandas: pandas.pydata.org/docs/user_guide/io.html\nDataset de ejemplo de esta guía: ordenes.csv\nJames, G. et al. (2021). An Introduction to Statistical Learning. Capítulo 1.\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
-    "crumbs": [
-      "Unidad 1. Análisis descriptivo y exploratorio",
-      "Semana 1. Presentación y entorno de trabajo"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/index.html",
-    "href": "estadistica-para-analitica/index.html",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
     "title": "Estadística para Analítica",
-    "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nNivel\nPosgrado\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Ruta de la sesión",
+    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nCargar el dataset y ver los tipos que asignó pandas\nLa pregunta sobre criticidad\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\n\n\nSegunda parte\n\nCategóricas: nominal y ordinal\nCategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva"
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
-    "href": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
     "title": "Estadística para Analítica",
-    "section": "Prueba diagnóstica de entrada",
-    "text": "Prueba diagnóstica de entrada\nRespóndela antes del primer encuentro. Toma entre 30 y 45 minutos, no tiene nota y sus resultados me sirven para ajustar el ritmo y los apoyos del módulo a lo que el grupo ya sabe.\nResponder la prueba diagnóstica",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Cargar el dataset",
+    "text": "Cargar el dataset\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n120 órdenes de mantenimiento, siete columnas."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
-    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
     "title": "Estadística para Analítica",
-    "section": "De qué se trata el módulo",
-    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. La semana 1 presenta el módulo y deja el entorno instalado; la recolección arranca en la semana 2, con la clasificación de variables ya vista. Ese mismo conjunto vuelve en cada entrega: primero lo describes, después lo modelas y al final infieres sobre él.\n\n\n\n\n\n\nImportanteQué se espera en un posgrado\n\n\n\nEl módulo no evalúa que sepas ejecutar un procedimiento. Evalúa que decidas cuál corresponde, que justifiques por qué, y que reconozcas cuándo los supuestos del método no se cumplen.\nTres condiciones aplican a toda entrega:\n\nReproducible. El informe viene con el código que lo produce, y ese código corre en otra máquina sin retoques.\nTrazable. Cada conclusión se sostiene en una salida concreta del análisis.\nEjecutiva. Escribes para quien toma la decisión, no para el que revisa la fórmula.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Los tipos que asignó pandas",
+    "text": "Los tipos que asignó pandas\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#calendario",
-    "href": "estadistica-para-analitica/index.html#calendario",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
     "title": "Estadística para Analítica",
-    "section": "Calendario",
-    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación)\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas: uniforme, normal, gamma, exponencial\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "criticidad quedó como object",
+    "text": "criticidad quedó como object\n\nPandas no sabe que baja, media y alta tienen un orden.\n\nEsa palabra genérica, object, esconde información: hay un orden real y el software no lo ve hasta que se lo declaras."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
-    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
     "title": "Estadística para Analítica",
-    "section": "Distribución evaluativa",
-    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Dos preguntas clasifican cualquier variable",
+    "text": "Dos preguntas clasifican cualquier variable"
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
-    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
     "title": "Estadística para Analítica",
-    "section": "Criterios de desempeño",
-    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Primera pregunta",
+    "text": "Primera pregunta\n¿El valor se cuenta o se mide?\n\nSe cuenta, en unidades completas: numérica discreta.\nSe mide, en una escala donde caben decimales: numérica continua."
   },
   {
-    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
-    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
     "title": "Estadística para Analítica",
-    "section": "Cómo se evalúa cada entrega",
-    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
-    "crumbs": [
-      "Presentación del módulo"
-    ]
+    "section": "Segunda pregunta",
+    "text": "Segunda pregunta\nSi no es un número: ¿las categorías tienen un orden natural?\n\nSí lo tienen, sin inventar el criterio: categórica ordinal.\nNo lo tienen, o hay varios criterios igual de válidos: categórica nominal."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
+    "title": "Estadística para Analítica",
+    "section": "Numérica discreta: se cuenta",
+    "text": "Numérica discreta: se cuenta\nRepuestos usados, paradas no programadas en el mes, operarios asignados a una orden.\nNo hay un valor intermedio entre dos consecutivos: no existen 2.5 repuestos."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
+    "title": "Estadística para Analítica",
+    "section": "Numérica continua: se mide",
+    "text": "Numérica continua: se mide\nDuración de la intervención, temperatura del rodamiento, vibración en milímetros por segundo.\nEntre dos valores cualesquiera siempre cabe otro."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
+    "title": "Estadística para Analítica",
+    "section": "Verificación con datos reales",
+    "text": "Verificación con datos reales\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
+    "title": "Estadística para Analítica",
+    "section": "Discreta vs continua, en el mismo eje",
+    "text": "Discreta vs continua, en el mismo eje\n\nSeis barras separadas, en valores exactos, contra una nube de puntos donde cualquier posición entre el mínimo y el máximo es posible."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
+    "title": "Estadística para Analítica",
+    "section": "Categórica nominal: sin orden",
+    "text": "Categórica nominal: sin orden\nmaquina: los códigos de torno y fresadora no tienen un antes y un después.\ntipo de intervención: preventivo, correctivo y predictivo no forman una escala."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
+    "title": "Estadística para Analítica",
+    "section": "Categórica ordinal: con orden",
+    "text": "Categórica ordinal: con orden\ncriticidad: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir la distancia entre una y otra."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
+    "title": "Estadística para Analítica",
+    "section": "El error, explicado",
+    "text": "El error, explicado\nMuestra de las primeras 12 órdenes, para que quepa en pantalla:\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
+    "title": "Estadística para Analítica",
+    "section": "Nominal vs ordinal, en el mismo eje",
+    "text": "Nominal vs ordinal, en el mismo eje\n\nLa izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único orden que tiene sentido."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "Declarar el orden",
+    "text": "Declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
+    "title": "Estadística para Analítica",
+    "section": "El mismo sort_values, sin cambiar nada más",
+    "text": "El mismo sort_values, sin cambiar nada más\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   ...\n   102       alta\n\nLa diferencia no está en el método. Está en lo que le dijiste al dato sobre sí mismo."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
+    "title": "Estadística para Analítica",
+    "section": "Ahora el orden sirve para filtrar",
+    "text": "Ahora el orden sirve para filtrar\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
+    "title": "Estadística para Analítica",
+    "section": "La trampa: un valor suelto pierde el orden",
+    "text": "La trampa: un valor suelto pierde el orden\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\n&lt;class 'str'&gt; baja\nFalse\n\n.iloc entrega texto normal. La comparación vuelve a ser alfabética, sin avisar."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
+    "title": "Estadística para Analítica",
+    "section": "La solución: .cat.codes",
+    "text": "La solución: .cat.codes\nprint(ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\nTrue\nEl orden vive en la columna completa. Si necesitas comparar dos valores sueltos, usa los códigos internos."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
+    "title": "Estadística para Analítica",
+    "section": "Caso de uso: una orden de trabajo nueva",
+    "text": "Caso de uso: una orden de trabajo nueva\nCuatro columnas nuevas, sin escribir todavía una línea de análisis:\n\n\n\n\n\n\n\n\n\nVariable nueva\nSe cuenta o se mide\nTiene orden\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es número\nSin orden\nCategórica nominal\n\n\nAprobada por supervisor\nNo es número\nSin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es número\nLeve &lt; moderado &lt; severo\nCategórica ordinal"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
+    "title": "Estadística para Analítica",
+    "section": "¿Y el sí/no de “aprobada”?",
+    "text": "¿Y el sí/no de “aprobada”?\n\nParece que pudiera codificarse como 1/0 y tratarse como número. No lo es: sumar o promediar esos ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es contar cuántas órdenes caen en cada categoría, que es el tratamiento de una variable nominal."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
+    "title": "Estadística para Analítica",
+    "section": "Qué análisis habilita cada tipo",
+    "text": "Qué análisis habilita cada tipo"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
+    "title": "Estadística para Analítica",
+    "section": "Lo que viene",
+    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1."
   },
   {
     "objectID": "estadistica-para-analitica/semana-01/presentacion-introduccion.html#ruta-de-la-sesión",
@@ -875,172 +687,492 @@
     "text": "Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1."
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ruta-de-la-sesión",
+    "objectID": "estadistica-para-analitica/index.html",
+    "href": "estadistica-para-analitica/index.html",
     "title": "Estadística para Analítica",
-    "section": "Ruta de la sesión",
-    "text": "Ruta de la sesión\n\n\nPrimera parte\n\nCargar el dataset y ver los tipos que asignó pandas\nLa pregunta sobre criticidad\nDos preguntas para clasificar cualquier variable\nNuméricas: discreta y continua\n\n\nSegunda parte\n\nCategóricas: nominal y ordinal\nCategoricalDtype y el orden en pandas\nLa trampa del valor suelto\nCaso de uso: una orden de trabajo nueva"
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nNivel\nPosgrado\n\n\nDocente\nOscar Leonel Sánchez Conde\n\n\nModalidad\nPresencial. 192 horas\n\n\nDedicación\n3 horas de acompañamiento directo y 9 de trabajo independiente por semana\n\n\nPrerrequisitos\nNinguno",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#cargar-el-dataset",
+    "objectID": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
+    "href": "estadistica-para-analitica/index.html#prueba-diagnóstica-de-entrada",
     "title": "Estadística para Analítica",
-    "section": "Cargar el dataset",
-    "text": "Cargar el dataset\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n120 órdenes de mantenimiento, siete columnas."
+    "section": "Prueba diagnóstica de entrada",
+    "text": "Prueba diagnóstica de entrada\nRespóndela antes del primer encuentro. Toma entre 30 y 45 minutos, no tiene nota y sus resultados me sirven para ajustar el ritmo y los apoyos del módulo a lo que el grupo ya sabe.\nResponder la prueba diagnóstica",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#los-tipos-que-asignó-pandas",
+    "objectID": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
+    "href": "estadistica-para-analitica/index.html#de-qué-se-trata-el-módulo",
     "title": "Estadística para Analítica",
-    "section": "Los tipos que asignó pandas",
-    "text": "Los tipos que asignó pandas\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\n\nLa naturaleza de una variable la declaras tú, no la adivina la herramienta."
+    "section": "De qué se trata el módulo",
+    "text": "De qué se trata el módulo\nEste módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.\nEl semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.\n\n\n\n\n\n\nNotaEste módulo se programa\n\n\n\nCada tema se implementa en Python. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.\nEl enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.\n\n\nTodo se articula alrededor de un conjunto de datos propio que trabajas durante el semestre. La semana 1 presenta el módulo y deja el entorno instalado; la recolección arranca en la semana 2, con la clasificación de variables ya vista. Ese mismo conjunto vuelve en cada entrega: primero lo describes, después lo modelas y al final infieres sobre él.\n\n\n\n\n\n\nImportanteQué se espera en un posgrado\n\n\n\nEl módulo no evalúa que sepas ejecutar un procedimiento. Evalúa que decidas cuál corresponde, que justifiques por qué, y que reconozcas cuándo los supuestos del método no se cumplen.\nTres condiciones aplican a toda entrega:\n\nReproducible. El informe viene con el código que lo produce, y ese código corre en otra máquina sin retoques.\nTrazable. Cada conclusión se sostiene en una salida concreta del análisis.\nEjecutiva. Escribes para quien toma la decisión, no para el que revisa la fórmula.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#criticidad-quedó-como-object",
+    "objectID": "estadistica-para-analitica/index.html#calendario",
+    "href": "estadistica-para-analitica/index.html#calendario",
     "title": "Estadística para Analítica",
-    "section": "criticidad quedó como object",
-    "text": "criticidad quedó como object\n\nPandas no sabe que baja, media y alta tienen un orden.\n\nEsa palabra genérica, object, esconde información: hay un orden real y el software no lo ve hasta que se lo declaras."
+    "section": "Calendario",
+    "text": "Calendario\nLas semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.\n\nUnidad 1. Análisis descriptivo y exploratorio de datos\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n01\nPresentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento\nMediciones reales\n-\n\n\n02\nTipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales\nTipos de variables\n-\n\n\n03\nTablas de frecuencia, histogramas y medidas de localización y dispersión\nTablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación)\n-\n\n\n04\nBoxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia\nGráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia\n-\n\n\n05\nGráficos de dispersión y gráficos condicionales. Informe exploratorio. Cierre de la Unidad 1\nGráficos de dispersión y gráficos condicionales\n30%\n\n\n\n\n\n\nUnidad 2. Modelos de probabilidad\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n06\nVariables aleatorias, espacio muestral y función de distribución\nVariables aleatorias, espacio muestral y función de distribución\n-\n\n\n07\nProbabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes\nCálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística\n-\n\n\n08\nValor esperado y varianza de variables aleatorias y de sus funciones\nValor esperado y varianza en variables aleatorias y funciones de variables aleatorias\n-\n\n\n09\nModelos discretos: uniforme, binomial, hipergeométrica y Poisson\nModelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson\n-\n\n\n10\nModelos continuos: uniforme, normal, gamma y exponencial. Cierre de la Unidad 2\nModelos para variables aleatorias continuas: uniforme, normal, gamma, exponencial\n30%\n\n\n\n\n\n\nUnidad 3. Inferencia estadística\n\n\n\n\nSem\nTemática\nSaberes de la carta descriptiva\n%\n\n\n\n\n11\nMuestreo y distribuciones muestrales. El teorema del límite central por simulación\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n12\nEstimación puntual e intervalos de confianza\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n13\nPruebas de hipótesis: valor p, inferencia sobre una media y una proporción\nHipótesis nula y alternativa, estadísticos de prueba y valor p\n-\n\n\n14\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nComparación de tratamientos\n-\n\n\n15\nModelos de regresión lineal\nModelos de regresión lineal\n-\n\n\n16\nEvaluación final. Informe ejecutivo sobre el conjunto de datos propio\nTodos los de la unidad\n40%",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#dos-preguntas-clasifican-cualquier-variable",
+    "objectID": "estadistica-para-analitica/index.html#distribución-evaluativa",
+    "href": "estadistica-para-analitica/index.html#distribución-evaluativa",
     "title": "Estadística para Analítica",
-    "section": "Dos preguntas clasifican cualquier variable",
-    "text": "Dos preguntas clasifican cualquier variable"
+    "section": "Distribución evaluativa",
+    "text": "Distribución evaluativa\n\n\n\n\nComponente\nSemana\nPeso\n\n\n\n\nCierre de la Unidad 1\n05\n30%\n\n\nCierre de la Unidad 2\n10\n30%\n\n\nEvaluación final de la Unidad 3\n16\n40%\n\n\n\n\nCada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#primera-pregunta",
+    "objectID": "estadistica-para-analitica/index.html#criterios-de-desempeño",
+    "href": "estadistica-para-analitica/index.html#criterios-de-desempeño",
     "title": "Estadística para Analítica",
-    "section": "Primera pregunta",
-    "text": "Primera pregunta\n¿El valor se cuenta o se mide?\n\nSe cuenta, en unidades completas: numérica discreta.\nSe mide, en una escala donde caben decimales: numérica continua."
+    "section": "Criterios de desempeño",
+    "text": "Criterios de desempeño\nToda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.\n\nUnidad 1\n\nRecolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.\nOrganizar la información en bases de datos en diferentes formatos de almacenamiento (.txt, .xlsx, .csv).\nClasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).\nAplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.\nAplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.\nAplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.\nPresentar de forma apropiada los análisis en formato de informe.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nTrabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.\n\n\n\nUnidad 2\n\nConocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.\nConocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.\nConocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.\nAplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.\nAplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\n\n\n\nUnidad 3\n\nIdentificar los mecanismos relacionados con procesos inferenciales.\nConstruir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.\nInferir sobre medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.\nRealizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.\nComunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.\nDesempeñar las funciones asignadas con responsabilidad y compromiso.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#segunda-pregunta",
+    "objectID": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
+    "href": "estadistica-para-analitica/index.html#cómo-se-evalúa-cada-entrega",
     "title": "Estadística para Analítica",
-    "section": "Segunda pregunta",
-    "text": "Segunda pregunta\nSi no es un número: ¿las categorías tienen un orden natural?\n\nSí lo tienen, sin inventar el criterio: categórica ordinal.\nNo lo tienen, o hay varios criterios igual de válidos: categórica nominal."
+    "section": "Cómo se evalúa cada entrega",
+    "text": "Cómo se evalúa cada entrega\nLa carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:\n\n\n\nEvidencia\nQué se valora\n\n\n\n\nConocimiento\nRespondes preguntas orales y escritas sobre los métodos de la unidad\n\n\nDesempeño\nSe observa cómo construyes el análisis, no solo el resultado\n\n\nProducto\nSe valora el informe entregado, con el código que lo produce y las conclusiones\n\n\n\nEl contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.",
+    "crumbs": [
+      "Presentación del módulo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-discreta-se-cuenta",
-    "title": "Estadística para Analítica",
-    "section": "Numérica discreta: se cuenta",
-    "text": "Numérica discreta: se cuenta\nRepuestos usados, paradas no programadas en el mes, operarios asignados a una orden.\nNo hay un valor intermedio entre dos consecutivos: no existen 2.5 repuestos."
+    "objectID": "estadistica-para-analitica/semana-01/index.html",
+    "href": "estadistica-para-analitica/semana-01/index.html",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#numérica-continua-se-mide",
-    "title": "Estadística para Analítica",
-    "section": "Numérica continua: se mide",
-    "text": "Numérica continua: se mide\nDuración de la intervención, temperatura del rodamiento, vibración en milímetros por segundo.\nEntre dos valores cualesquiera siempre cabe otro."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-01/index.html#de-qué-va-esta-semana",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nEsta semana no tiene entregable ni nota. Hace tres cosas: te muestra cómo está armado el módulo, deja el entorno de Python instalado y verificado, y pone sobre la mesa el problema que la estadística existe para resolver.\nAl cerrar la guía deberías poder:\n\nUbicar cada unidad del módulo dentro del ciclo de resolución de un problema con datos.\nEjecutar Python en un entorno virtual con las siete librerías del semestre.\nDecir qué aporta cada librería y por qué están todas.\nExplicar por qué una medición repetida no devuelve el mismo número, y qué consecuencia tiene eso para una decisión.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#verificación-con-datos-reales",
-    "title": "Estadística para Analítica",
-    "section": "Verificación con datos reales",
-    "text": "Verificación con datos reales\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56"
+    "objectID": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
+    "href": "estadistica-para-analitica/semana-01/index.html#la-estadística-como-proceso-de-decisión",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "2 La estadística como proceso de decisión",
+    "text": "2 La estadística como proceso de decisión\nResolver un problema con datos toma cuatro pasos:\n\nFormular la pregunta. Qué se quiere saber, sobre qué proceso, y en qué términos medibles se deja plantear.\nRecoger los datos. Qué se mide, cada cuánto, con qué instrumento y quién responde por el registro.\nAnalizar. Con el método que admite la naturaleza de esas variables.\nInterpretar y decidir. Qué se hace con el resultado y con cuánta confianza.\n\n\n\n\nLos cuatro pasos pesan igual sobre el resultado. Un análisis impecable montado sobre datos mal recogidos produce una decisión equivocada con apariencia de rigor, y esa decisión hay que defenderla después ante quien la firma.\nToma el caso que atraviesa el módulo: un área de mantenimiento decide cuándo intervenir una máquina. Antes de que exista una tabla, alguien fijó qué variable representa el desgaste, cada cuánto se lee el instrumento y quién responde por el registro. Cambia una de esas decisiones y cambia la conclusión.\nEl módulo recorre los cuatro pasos y le da al diseño de la medición el mismo peso que al cálculo.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#discreta-vs-continua-en-el-mismo-eje",
-    "title": "Estadística para Analítica",
-    "section": "Discreta vs continua, en el mismo eje",
-    "text": "Discreta vs continua, en el mismo eje\n\nSeis barras separadas, en valores exactos, contra una nube de puntos donde cualquier posición entre el mínimo y el máximo es posible."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
+    "href": "estadistica-para-analitica/semana-01/index.html#el-mapa-del-módulo",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "3 El mapa del módulo",
+    "text": "3 El mapa del módulo\nDieciséis semanas repartidas en tres unidades. Cada una responde una pregunta distinta sobre el mismo caso.\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnidad\nLa pregunta que responde\nLo que produce\nCierre\n\n\n\n\n1\nQué hay en estos datos\nUn informe exploratorio con gráficos y resúmenes numéricos\n30%\n\n\n2\nQué tan probable es lo que observo\nUn modelo de probabilidad ajustado al fenómeno\n30%\n\n\n3\nQué puedo afirmar sobre lo que no medí\nConclusiones sobre la población, con su margen de error declarado\n40%\n\n\n\n\n\nQué hará cada unidad\nUnidad 1. Describir lo que hay. Construirás tablas de frecuencia, histogramas, medidas de localización y dispersión, boxplots y gráficos de dispersión. El cierre será un informe exploratorio que muestre qué dicen los datos observados.\n\n\n\nUnidad 2. Modelar la incertidumbre. Ajustarás distribuciones de probabilidad y las usarás para calcular la posibilidad de eventos que todavía no ocurrieron. El cierre será un modelo que responda preguntas sobre el fenómeno.\n\n\n\nUnidad 3. Inferir sobre el proceso. Construirás intervalos de confianza, pruebas de hipótesis, comparaciones y modelos de regresión. El cierre presentará conclusiones sobre el proceso y declarará el margen de error.\n\n\n\nLas tres unidades trabajan sobre un mismo caso. Lo primero es definir el proceso: qué se observa, qué variables lo describen y cómo se registra. Sobre esa definición se monta después el modelo y, al final, la inferencia. El alcance del caso se acuerda en la Semana 02.\n\n\n\n\n\n\nTipEl método del módulo\n\n\n\nCada tema pasa por tres momentos:\n\nConcepto. Precisamos qué afirma el resultado y bajo qué supuestos se sostiene.\nImplementación. Escribimos el procedimiento en Python y lo ejecutamos sobre datos.\nSimulación. Repetimos el procedimiento muchas veces y contrastamos su comportamiento con lo que predice la teoría.\n\nEse contraste construye criterio. Ves de dónde sale una distribución muestral y mides cada cuánto falla en la práctica un intervalo de confianza.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-nominal-sin-orden",
-    "title": "Estadística para Analítica",
-    "section": "Categórica nominal: sin orden",
-    "text": "Categórica nominal: sin orden\nmaquina: los códigos de torno y fresadora no tienen un antes y un después.\ntipo de intervención: preventivo, correctivo y predictivo no forman una escala."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
+    "href": "estadistica-para-analitica/semana-01/index.html#el-entorno-de-trabajo",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "4 El entorno de trabajo",
+    "text": "4 El entorno de trabajo\nTodo el módulo se programa en Python. Un análisis que llega sin el código que lo produjo no se puede reproducir ni auditar, y la estadística que no se ejecuta se olvida.\nEstas son las piezas y lo que hace cada una.\n\n\n\n\n\n\n\n\n\n\n\nLibrería\nQué aporta\n\n\n\n\npandas\nCarga los datos y los deja como tabla con columnas con nombre\n\n\nnumpy\nCálculo numérico y generación de números aleatorios para simular\n\n\nopenpyxl\nEs la que permite a pandas leer y escribir .xlsx\n\n\nmatplotlib\nMotor de los gráficos\n\n\nseaborn\nGráficos estadísticos sobre matplotlib, con menos código\n\n\nscipy\nDistribuciones de probabilidad y pruebas de hipótesis\n\n\nstatsmodels\nModelos de regresión y ANOVA con la salida que se reporta\n\n\n\n\n\nPor qué un entorno virtual\nUn entorno virtual es una carpeta con una copia aislada de Python y sus librerías. Lo que instalas adentro no toca el Python del sistema ni el de otros proyectos.\n\n\n\nSirve para dos cosas concretas. La primera, que actualizar una librería para otro proyecto no rompa el código de este. La segunda, que fijar las versiones haga que el mismo script produzca el mismo resultado en tu máquina, en la mía y en la de quien revise tu informe dentro de un año.\n\n\nVersiones de referencia\nEsta guía se probó con estas versiones. Recrea el entorno con las versiones exactas de la tabla; el requirements.txt del paso 3 las fija con ==.\n\n\n\nHerramienta\nVersión probada\n\n\n\n\nPython\n3.13.4\n\n\npandas\n2.3.1\n\n\nnumpy\n2.3.2\n\n\nscipy\n1.17.0\n\n\nmatplotlib\n3.10.8\n\n\nseaborn\n0.13.2\n\n\nstatsmodels\n0.14.6\n\n\nopenpyxl\n3.1.5",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#categórica-ordinal-con-orden",
-    "title": "Estadística para Analítica",
-    "section": "Categórica ordinal: con orden",
-    "text": "Categórica ordinal: con orden\ncriticidad: baja, media y alta tienen un orden que cualquiera reconoce, aunque no puedas medir la distancia entre una y otra."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
+    "href": "estadistica-para-analitica/semana-01/index.html#instalación-paso-a-paso",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "5 Instalación paso a paso",
+    "text": "5 Instalación paso a paso\n\n1 Python\nDescarga la versión 3.13 desde python.org/downloads.\nEn Windows, marca la casilla Add python.exe to PATH en la primera pantalla del instalador. Es fácil pasarla por alto, y sin ella el comando python no funciona en la terminal.\nEn macOS y Linux el sistema ya trae Python, pero suele ser una versión vieja que además usa el sistema operativo. Comprueba con python3 --version y, si es anterior a 3.11, instala la 3.13 aparte.\n\n\n2 La carpeta del módulo y el entorno virtual\nCrea una carpeta para todo el semestre y ubícate en ella:\nmkdir estadistica-analitica\ncd estadistica-analitica\nCrea el entorno virtual dentro de esa carpeta:\npython -m venv .venv\nActívalo. El comando cambia según el sistema:\n# Windows, PowerShell\n.venv\\Scripts\\Activate.ps1\n\n# Windows, Git Bash\nsource .venv/Scripts/activate\n\n# macOS y Linux\nsource .venv/bin/activate\nCuando queda activo, el nombre (.venv) aparece al comienzo de la línea de la terminal. Si no lo ves, no está activo, y todo lo que instales va a parar a otro lado.\n\n\n\n\n\n\nAdvertenciaEl entorno se activa en cada terminal nueva\n\n\n\nCerrar la terminal desactiva el entorno. Al día siguiente, cuando vuelvas a la carpeta, tienes que activarlo otra vez antes de trabajar. Es el tropiezo más común de las primeras semanas.\n\n\n\n\n3 Las librerías\nCon el entorno activo, crea un archivo requirements.txt con este contenido:\npandas==2.3.1\nnumpy==2.3.2\nscipy==1.17.0\nmatplotlib==3.10.8\nseaborn==0.13.2\nstatsmodels==0.14.6\nopenpyxl==3.1.5\nE instálalas de una vez:\npip install -r requirements.txt\nFijar las versiones con == es lo que hace reproducible el análisis. El archivo se versiona junto con el código: quien reciba tu informe puede recrear el entorno exacto con una sola orden.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-error-explicado",
-    "title": "Estadística para Analítica",
-    "section": "El error, explicado",
-    "text": "El error, explicado\nMuestra de las primeras 12 órdenes, para que quepa en pantalla:\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   ...\n\nPandas ordenó por texto. Alfabéticamente. El software no se equivocó: hizo lo que object permite."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#verificación",
+    "href": "estadistica-para-analitica/semana-01/index.html#verificación",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "6 Verificación",
+    "text": "6 Verificación\nCon el entorno activo, ejecuta:\npython -c \"import pandas, numpy, scipy, matplotlib, seaborn, statsmodels; print('todo listo')\"\nSi imprime todo listo, ya está. Cualquier otra cosa significa que falta una librería o que el entorno no está activo.\nPara ver las versiones instaladas:\npython -c \"import pandas, numpy, scipy; print(pandas.__version__, numpy.__version__, scipy.__version__)\"\n2.3.1 2.3.2 1.17.0",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#nominal-vs-ordinal-en-el-mismo-eje",
-    "title": "Estadística para Analítica",
-    "section": "Nominal vs ordinal, en el mismo eje",
-    "text": "Nominal vs ordinal, en el mismo eje\n\nLa izquierda se puede reordenar sin perder nada. La derecha no: baja, media, alta es el único orden que tiene sentido."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
+    "href": "estadistica-para-analitica/semana-01/index.html#demostración-por-qué-se-mide-más-de-una-vez",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "7 Demostración: por qué se mide más de una vez",
+    "text": "7 Demostración: por qué se mide más de una vez\nEsta es la demostración principal de la semana y no hay que entregar nada con ella. La corremos en la sesión y la repites en tu equipo para comprobar que el entorno funciona.\nVamos a medir algo real: cuánto tarda tu computador en ordenar una lista de cien mil números. La operación es idéntica en cada repetición, el tamaño no cambia y la máquina es la misma.\nCrea un archivo experimento.py:\nimport time\nimport random\nimport pandas as pd\n\nrandom.seed(2026)\n\nfilas = []\nfor i in range(1, 201):\n    datos = [random.random() for _ in range(100_000)]\n    inicio = time.perf_counter()\n    datos.sort()\n    fin = time.perf_counter()\n    filas.append({\n        \"medicion\": i,\n        \"tiempo_ms\": round((fin - inicio) * 1000, 3),\n        \"tamano\": 100_000,\n    })\n\nmediciones = pd.DataFrame(filas)\nmediciones.to_csv(\"tiempos_ordenamiento.csv\", index=False)\n\nprint(mediciones.head())\nprint()\nprint(mediciones[\"tiempo_ms\"].describe())\nEjecútalo con python experimento.py. Tarda alrededor de un minuto.\nEsta es la salida en la máquina donde preparé la guía:\n   medicion  tiempo_ms  tamano\n0         1     23.650  100000\n1         2     22.488  100000\n2         3     25.532  100000\n3         4     25.649  100000\n4         5     25.361  100000\n\ncount    200.000000\nmean      22.645985\nstd        4.305880\nmin       15.767000\n25%       18.478000\n50%       23.849500\n75%       25.551000\nmax       38.598000\nName: tiempo_ms, dtype: float64\n\nQué acaba de pasar\nDoscientas repeticiones de la misma operación, y ni una sola coincide con otra. La más rápida tardó 15.8 milisegundos y la más lenta 38.6: la más lenta se demoró más del doble que la más rápida.\nTus números van a ser distintos a estos, y eso también es parte del punto.\nLa causa no es el azar puro. El sistema operativo reparte el procesador entre muchos procesos, la memoria caché a veces tiene los datos a la mano y a veces no, y otros programas compiten por el equipo. Ninguno de esos factores se puede controlar por completo desde el programa.\nFíjate en el random.seed(2026) de la tercera línea. Fija la secuencia de números aleatorios que se generan, así que la lista que se ordena es siempre la misma. Aun controlando eso, los tiempos varían. La variabilidad no viene de los datos: viene de la medición.\nDe ahí sale la pregunta que ordena el módulo entero: si cada medición da distinto, ¿cuál es el valor verdadero? Para responderla, separa cuatro ideas:\n\nLa población es el conjunto completo de resultados que podría producir el proceso. En este experimento incluye todos los tiempos que obtendrías al repetir la operación bajo condiciones comparables.\nLa muestra contiene los resultados que sí observaste: las 200 mediciones.\nUn parámetro resume una propiedad de la población, como su media. Permanece desconocido porque no puedes observar todos los resultados posibles.\nUn estadístico es un número calculado con la muestra. La media de 22.6 milisegundos es un estadístico y funciona como estimación del parámetro.\n\n\n\n\nEsa flecha punteada es la Unidad 3. Las unidades 1 y 2 construyen lo que hace falta para poder trazarla con honestidad: describir la muestra y modelar la variabilidad.\n\n\n\n\n\n\nImportanteLa consecuencia práctica\n\n\n\nUn solo dato no es evidencia. Si alguien reporta que una máquina se demoró 38 minutos en una intervención, no sabes si es la máquina o es el ruido de una sola medición. Toda la discusión de este semestre nace ahí.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#declarar-el-orden",
-    "title": "Estadística para Analítica",
-    "section": "Declarar el orden",
-    "text": "Declarar el orden\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(\n    categories=[\"baja\", \"media\", \"alta\"], ordered=True\n)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\ncategory"
+    "objectID": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
+    "href": "estadistica-para-analitica/semana-01/index.html#los-tres-formatos-de-almacenamiento",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "8 Los tres formatos de almacenamiento",
+    "text": "8 Los tres formatos de almacenamiento\nEl módulo organiza la información en tres formatos de almacenamiento. Cada uno tiene su lugar.\n\n\n\n\n\n\n\n\nFormato\nQué es\nCuándo lo vas a usar\n\n\n\n\n.csv\nTexto plano, valores separados por comas\nEl formato por omisión. Lo lee cualquier herramienta y ocupa poco\n\n\n.txt\nTexto plano con otro separador, casi siempre tabulación\nLo que exportan muchos equipos de medición y sistemas industriales\n\n\n.xlsx\nLibro de Excel\nCuando el dato llega de un área que trabaja en Excel, o cuando el informe se entrega ahí\n\n\n\nDescarga el archivo de ejemplo, ordenes.csv, que tiene 120 órdenes de mantenimiento. Guárdalo en tu carpeta de trabajo.\nCrea formatos.py:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\n\nordenes.to_csv(\"ordenes_copia.csv\", index=False)\nordenes.to_csv(\"ordenes.txt\", sep=\"\\t\", index=False)\nordenes.to_excel(\"ordenes.xlsx\", index=False)\n\ndesde_csv = pd.read_csv(\"ordenes_copia.csv\")\ndesde_txt = pd.read_csv(\"ordenes.txt\", sep=\"\\t\")\ndesde_xlsx = pd.read_excel(\"ordenes.xlsx\")\n\nprint(\"csv  y txt :\", desde_csv.equals(desde_txt))\nprint(\"csv  y xlsx:\", desde_csv.equals(desde_xlsx))\nprint()\nprint(desde_csv.head())\nprint()\nprint(desde_csv.dtypes)\ncsv  y txt : True\ncsv  y xlsx: True\n\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\n\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nLos tres archivos guardan exactamente lo mismo. El index=False evita que pandas agregue una columna extra con la numeración de las filas, que no es un dato y ensucia el archivo.\n\nAnatomía de una tabla de datos\nEsa tabla tiene una estructura que se repite en todo el semestre:\n\n\n\n\nLa unidad de observación es lo que ocupa cada fila. Aquí, una orden de mantenimiento.\nCada variable es una columna: algo que se midió u observó de esa unidad.\nCada registro es una fila completa: todos los valores medidos de una misma unidad.\n\nMira la última salida. Pandas leyó duracion_min como float64 y repuestos como int64, y acertó en ambos. Pero puso object en maquina, turno, tipo y criticidad, que es como decir “texto y no sé nada más”. Ahí perdió información: criticidad tiene un orden natural, baja va antes que media y media antes que alta, y esa tabla no lo registra.\nQuédate con la idea, porque la semana 2 arranca justo ahí: la naturaleza de una variable la declaras tú, no la adivina la herramienta, y de esa declaración depende qué análisis puedes hacer después.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#el-mismo-sort_values-sin-cambiar-nada-más",
-    "title": "Estadística para Analítica",
-    "section": "El mismo sort_values, sin cambiar nada más",
-    "text": "El mismo sort_values, sin cambiar nada más\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   ...\n   102       alta\n\nLa diferencia no está en el método. Está en lo que le dijiste al dato sobre sí mismo."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
+    "href": "estadistica-para-analitica/semana-01/index.html#trabajo-independiente-de-la-semana",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "9 Trabajo independiente de la semana",
+    "text": "9 Trabajo independiente de la semana\nReproduce en tu equipo la instalación, el experimento de las 200 mediciones y la conversión entre los tres formatos.\n\nEntregable: ninguno. Esta semana no tiene peso evaluativo ni requiere subir archivos.\nFormato de trabajo: una carpeta local estadistica-analitica con .venv, requirements.txt, experimento.py, formatos.py y los archivos generados.\nCriterios de verificación: el entorno se activa, los imports funcionan, el experimento genera 200 registros y los archivos .csv, .txt y .xlsx conservan los mismos datos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#ahora-el-orden-sirve-para-filtrar",
-    "title": "Estadística para Analítica",
-    "section": "Ahora el orden sirve para filtrar",
-    "text": "Ahora el orden sirve para filtrar\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta"
+    "objectID": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-01/index.html#lo-que-viene",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "10 Lo que viene",
+    "text": "10 Lo que viene\n\nSemana 2. Clasificarás variables numéricas discretas y continuas, y variables categóricas nominales y ordinales.\nSemana 3. Construirás tablas de frecuencia e histogramas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles, y analizarás variables categóricas con gráficos de barras y tablas de contingencia.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás un informe exploratorio para cerrar la Unidad 1.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-trampa-un-valor-suelto-pierde-el-orden",
-    "title": "Estadística para Analítica",
-    "section": "La trampa: un valor suelto pierde el orden",
-    "text": "La trampa: un valor suelto pierde el orden\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\n&lt;class 'str'&gt; baja\nFalse\n\n.iloc entrega texto normal. La comparación vuelve a ser alfabética, sin avisar."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-01/index.html#errores-frecuentes",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "11 Errores frecuentes",
+    "text": "11 Errores frecuentes\n\nError 1\n\nModuleNotFoundError: No module named ‘pandas’\nCausa. El entorno virtual no está activo, o instalaste las librerías sin activarlo.\nSolución. Mira el comienzo de la línea de la terminal. Si no dice (.venv), actívalo con el comando de tu sistema y vuelve a intentar. Si ya está activo, ejecuta pip install -r requirements.txt otra vez: la primera vez fue a parar al Python del sistema.\n\n\n\nError 2\n\nModuleNotFoundError: No module named ‘openpyxl’ al guardar el .xlsx\nCausa. Pandas no escribe Excel por su cuenta: necesita openpyxl y lo importa solo cuando lo usas. Por eso el error aparece en la línea del to_excel y no al comienzo.\nSolución. pip install openpyxl==3.1.5, con el entorno activo.\n\n\n\nError 3\n\nFileNotFoundError: ordenes.csv\nCausa. La terminal no está parada en la carpeta donde guardaste el archivo. Python busca los archivos desde el directorio actual, no desde donde está el script.\nSolución. Ejecuta pwd en macOS y Linux, o cd sin argumentos en PowerShell, para ver dónde estás. Muévete a la carpeta correcta con cd y vuelve a ejecutar.\n\n\n\nError 4\n\nAl abrir el .csv, Excel mete todo en una sola columna\nCausa. Excel en español espera punto y coma como separador, no coma.\nSolución. No abras el .csv con doble clic. Usa el .xlsx que generaste, que es justo para eso. Si necesitas el .csv en Excel, ábrelo desde Datos, Obtener datos, Desde un archivo de texto y elige la coma como separador.\nNo cambies el separador del archivo: la coma es el estándar y el resto del semestre asume que la tiene.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#la-solución-.cat.codes",
-    "title": "Estadística para Analítica",
-    "section": "La solución: .cat.codes",
-    "text": "La solución: .cat.codes\nprint(ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\nTrue\nEl orden vive en la columna completa. Si necesitas comparar dos valores sueltos, usa los códigos internos."
+    "objectID": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
+    "href": "estadistica-para-analitica/semana-01/index.html#lista-de-chequeo-del-entorno",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "12 Lista de chequeo del entorno",
+    "text": "12 Lista de chequeo del entorno\n\nConfirma que tienes todo esto antes de la próxima sesión\n\npython --version responde con 3.13 o superior\nEl entorno virtual se activa y muestra (.venv) en la terminal\nEl import de las seis librerías imprime todo listo\nexperimento.py corrió y generó tiempos_ordenamiento.csv con 200 filas\nSabes explicar por qué las 200 mediciones dieron distinto\nEjecutaste formatos.py y los tres archivos coincidieron",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#caso-de-uso-una-orden-de-trabajo-nueva",
-    "title": "Estadística para Analítica",
-    "section": "Caso de uso: una orden de trabajo nueva",
-    "text": "Caso de uso: una orden de trabajo nueva\nCuatro columnas nuevas, sin escribir todavía una línea de análisis:\n\n\n\n\n\n\n\n\n\nVariable nueva\nSe cuenta o se mide\nTiene orden\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es número\nSin orden\nCategórica nominal\n\n\nAprobada por supervisor\nNo es número\nSin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es número\nLeve &lt; moderado &lt; severo\nCategórica ordinal"
+    "objectID": "estadistica-para-analitica/semana-01/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-01/index.html#recursos",
+    "title": "Semana 1. Presentación del módulo y entorno de trabajo",
+    "section": "13 Recursos",
+    "text": "13 Recursos\n\nDescarga de Python: python.org/downloads\nEntornos virtuales: docs.python.org/es/3/library/venv.html\nLectura y escritura de datos con pandas: pandas.pydata.org/docs/user_guide/io.html\nDataset de ejemplo de esta guía: ordenes.csv\nJames, G. et al. (2021). An Introduction to Statistical Learning. Capítulo 1.\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 1. Presentación y entorno de trabajo"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#y-el-síno-de-aprobada",
-    "title": "Estadística para Analítica",
-    "section": "¿Y el sí/no de “aprobada”?",
-    "text": "¿Y el sí/no de “aprobada”?\n\nParece que pudiera codificarse como 1/0 y tratarse como número. No lo es: sumar o promediar esos ceros y unos no produce una cantidad con sentido propio. Lo que tiene sentido es contar cuántas órdenes caen en cada categoría, que es el tratamiento de una variable nominal."
+    "objectID": "estadistica-para-analitica/semana-02/index.html",
+    "href": "estadistica-para-analitica/semana-02/index.html",
+    "title": "Semana 2. Tipos de variables",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#qué-análisis-habilita-cada-tipo",
-    "title": "Estadística para Analítica",
-    "section": "Qué análisis habilita cada tipo",
-    "text": "Qué análisis habilita cada tipo"
+    "objectID": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#de-qué-va-esta-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nVas a cargar un dataset con pandas y a observar algo que pasa siempre: la herramienta adivina el tipo de cada columna, y a veces adivina mal. Acierta con las columnas numéricas, pero le pone object a una columna que sí tiene un orden real (criticidad: baja, media, alta), porque object es como decir “texto y no sé nada más”. Esa etiqueta genérica esconde el orden, y el orden se pierde si no lo declaras tú.\nEsta semana resuelve esa pregunta con método. Vas a aprender a clasificar cualquier variable en cuatro categorías y a declarar esa clasificación en pandas para que el software la respete.\nAl terminar deberías poder:\n\nCargar un dataset con pandas y leer los tipos que asigna automáticamente a cada columna.\nClasificar una variable como numérica discreta, numérica continua, categórica nominal o categórica ordinal, con dos preguntas.\nExplicar por qué esa clasificación decide qué análisis puedes aplicarle más adelante.\nDeclarar en pandas una columna categórica ordinal, con su orden explícito, y usar ese orden para ordenar y filtrar.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
   },
   {
-    "objectID": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
-    "href": "estadistica-para-analitica/semana-02/presentacion-tipos-de-variables.html#lo-que-viene",
-    "title": "Estadística para Analítica",
-    "section": "Lo que viene",
-    "text": "Lo que viene\n\nSemana 3. Con las variables ya clasificadas, tablas de frecuencia e histogramas para las numéricas, y medidas de localización y dispersión.\nSemana 4. Boxplots y cuantiles para las numéricas, tablas de contingencia y gráficos de barras para las categóricas, en su orden correcto cuando aplique.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1."
+    "objectID": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
+    "href": "estadistica-para-analitica/semana-02/index.html#cargar-el-dataset-y-ver-qué-tipos-asignó-pandas",
+    "title": "Semana 2. Tipos de variables",
+    "section": "2 Cargar el dataset y ver qué tipos asignó pandas",
+    "text": "2 Cargar el dataset y ver qué tipos asignó pandas\nVas a trabajar con un registro de 120 órdenes de mantenimiento y siete columnas: el número de orden, la máquina, el turno, el tipo de intervención, la criticidad, la duración en minutos y los repuestos usados. Descarga ordenes.csv y ábrelo con pandas:\nimport pandas as pd\n\nordenes = pd.read_csv(\"ordenes.csv\")\nprint(ordenes.head())\n   orden maquina   turno        tipo criticidad  duracion_min  repuestos\n0    101  TOR-01  manana  preventivo       baja         45.50          1\n1    102  TOR-02   tarde  correctivo       alta        182.00          4\n2    103  FRE-01   noche  preventivo      media         60.25          2\n3    104  TOR-01  manana  predictivo       baja         30.00          0\n4    105  FRE-02   tarde  correctivo       alta        210.50          5\npd.read_csv adivina el tipo de cada columna a partir de lo que encuentra en el archivo. Pídele la lista completa con .dtypes:\nprint(ordenes.dtypes)\norden             int64\nmaquina          object\nturno            object\ntipo             object\ncriticidad       object\nduracion_min    float64\nrepuestos         int64\ndtype: object\nAcertó con orden y repuestos (int64) y con duracion_min (float64). Pero criticidad quedó en object, la etiqueta genérica que pandas usa para “texto y no sé nada más”. Ese detalle no es un error de pandas: es la pregunta que resuelve el resto de esta guía.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
+    "href": "estadistica-para-analitica/semana-02/index.html#por-qué-clasificar-una-variable-no-es-un-trámite",
+    "title": "Semana 2. Tipos de variables",
+    "section": "3 Por qué clasificar una variable no es un trámite",
+    "text": "3 Por qué clasificar una variable no es un trámite\nAntes de calcular cualquier cosa, alguien decide qué tipo de dato representa una columna. Esa decisión no es un formalismo de la carta descriptiva: determina qué operaciones tienen sentido y cuáles son un error disfrazado de número.\nSumar repuestos (1, 4, 2, 0…) tiene sentido: el total de repuestos usados en el mes es una cantidad real. Sumar un código de máquina no lo tiene, aunque pandas lo deje intentar si lo codificas como número. Promediar la criticidad tampoco tiene sentido con los números 1, 2 y 3 si antes no declaraste que ese orden existe: el promedio de “baja” y “alta” no es “media” por casualidad aritmética, es media porque tú fijaste ese orden.\nLa consecuencia concreta: cada uno de los cuatro tipos habilita un conjunto distinto de análisis, y las tres semanas que siguen (03, 04 y 05) están organizadas alrededor de esa clasificación.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
+    "href": "estadistica-para-analitica/semana-02/index.html#dos-preguntas-clasifican-cualquier-variable",
+    "title": "Semana 2. Tipos de variables",
+    "section": "4 Dos preguntas clasifican cualquier variable",
+    "text": "4 Dos preguntas clasifican cualquier variable\nNo hace falta memorizar una lista de ejemplos. Dos preguntas, en orden, ubican cualquier variable en una de las cuatro categorías.\nPrimera pregunta: ¿el valor se cuenta o se mide?\nSi la respuesta es un número entero que sale de contar unidades completas, la variable es numérica discreta. Si sale de medir en una escala donde caben decimales, sin importar cuántos apliques, la variable es numérica continua.\nSegunda pregunta, solo si la variable no es un número: ¿las categorías tienen un orden natural?\nSi puedes ordenar las categorías de menor a mayor sin inventar el criterio, la variable es categórica ordinal. Si no existe ese orden, o existen varios criterios igual de válidos para ordenarla, la variable es categórica nominal.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
+    "href": "estadistica-para-analitica/semana-02/index.html#numéricas-discretas-y-continuas",
+    "title": "Semana 2. Tipos de variables",
+    "section": "5 Numéricas: discretas y continuas",
+    "text": "5 Numéricas: discretas y continuas\nUna variable numérica discreta se cuenta. Sus valores posibles son un conjunto que puedes enumerar, casi siempre números enteros, y no existe un valor intermedio entre dos consecutivos: no hay 2.5 repuestos usados. En el contexto de mantenimiento: repuestos usados en una intervención, número de paradas no programadas en un mes, número de operarios asignados a una orden.\nUna variable numérica continua se mide. Entre dos valores cualesquiera siempre cabe otro, y el número de decimales que reportes depende de la precisión del instrumento, no de la naturaleza de la variable. En el mismo contexto: duración de la intervención en minutos, temperatura del rodamiento en grados, vibración medida en milímetros por segundo.\nVerifícalo con el mismo ordenes que ya cargaste:\nprint(sorted(ordenes[\"repuestos\"].unique().tolist()))\nprint(ordenes[\"duracion_min\"].nunique(), \"valores distintos, entre\",\n      ordenes[\"duracion_min\"].min(), \"y\", ordenes[\"duracion_min\"].max())\n[0, 1, 2, 3, 4, 5]\n120 valores distintos, entre 26.03 y 217.56\nrepuestos solo toma seis valores posibles, todos enteros: los puedes contar con los dedos. En 120 órdenes, duracion_min no repite ni un solo valor: trae decimales y no hay un conjunto finito de valores esperables, cualquier número positivo es una duración posible. Esa diferencia es la que separa discreta de continua, no la cantidad de valores distintos que aparezcan en tu muestra.\n\n\n\n\n\n\nNotaUn caso que confunde: cuando lo continuo se registra redondeado\n\n\n\nSi un instrumento solo reporta minutos enteros, duracion_min seguiría siendo continua: la variable en sí admite cualquier valor real, aunque el instrumento con el que la mides tenga una resolución limitada. La naturaleza de la variable no cambia porque el aparato que la registra sea más o menos preciso.\n\n\n\n\n\nEl gráfico de la izquierda tiene barras separadas en valores exactos: no existe una barra entre 1 y 2 repuestos porque ese valor no puede ocurrir. El de la derecha es una nube de puntos sobre una recta: cualquier posición entre el mínimo y el máximo es una duración que pudo haberse dado.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
+    "href": "estadistica-para-analitica/semana-02/index.html#categóricas-nominales-y-ordinales",
+    "title": "Semana 2. Tipos de variables",
+    "section": "6 Categóricas: nominales y ordinales",
+    "text": "6 Categóricas: nominales y ordinales\nUna variable categórica nominal describe una cualidad sin orden natural. Puedes reordenar sus categorías de cualquier forma (alfabética, por frecuencia, al azar) sin perder información, porque ninguna ordenación es más correcta que otra. En el dataset: maquina (los códigos de torno y fresadora no tienen un “antes” y un “después”) y tipo de intervención (preventivo, correctivo y predictivo no forman una escala).\nUna variable categórica ordinal describe una cualidad con un orden natural, aunque no puedas medir la distancia entre categorías consecutivas. criticidad es el ejemplo del dataset: baja, media y alta tienen un orden que cualquiera reconoce, pero no hay forma de decir cuánto más grave es “alta” que “media” en un número, como sí puedes hacerlo con dos duraciones.\nprint(ordenes[\"maquina\"].dtype)\nprint(sorted(ordenes[\"maquina\"].unique().tolist()))\nobject\n['FRE-01', 'FRE-02', 'TOR-01', 'TOR-02']\nOrdenar maquina alfabéticamente no le agrega ni le quita información: es una lista, no una escala. Con criticidad pasa lo contrario, y ahí está el problema que viste al cargar el dataset.\nEl dataset completo tiene 120 filas: para que la tabla quepa completa en la página, trabaja con una muestra de las primeras 12 órdenes.\nmuestra = ordenes.head(12)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\n orden criticidad\n   102       alta\n   105       alta\n   107       alta\n   110       alta\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\nPandas ordenó por texto, alfabéticamente: alta, baja, media. Es un orden válido para una cadena de texto y un orden equivocado para la criticidad de una intervención. El software no cometió un error: hizo exactamente lo que el tipo object le permite hacer. El error es no haberle dicho que criticidad es ordinal.\n\n\n\n\nDeclarar el orden en pandas\nPandas tiene un tipo de dato para esto: category, con el argumento ordered=True. Declaras la lista de categorías en el orden que corresponde, y a partir de ahí pandas ordena, compara y filtra respetando ese orden.\nfrom pandas.api.types import CategoricalDtype\n\norden_criticidad = CategoricalDtype(categories=[\"baja\", \"media\", \"alta\"], ordered=True)\nordenes[\"criticidad\"] = ordenes[\"criticidad\"].astype(orden_criticidad)\nmuestra = ordenes.head(12)\n\nprint(ordenes[\"criticidad\"].dtype)\nprint(muestra.sort_values(\"criticidad\")[[\"orden\", \"criticidad\"]].to_string(index=False))\ncategory\n orden criticidad\n   101       baja\n   104       baja\n   108       baja\n   111       baja\n   103      media\n   106      media\n   109      media\n   112      media\n   102       alta\n   105       alta\n   107       alta\n   110       alta\nEl mismo sort_values, sin ningún argumento adicional, ahora ordena correctamente. La diferencia no está en el método que llamaste: está en lo que le dijiste al dato sobre sí mismo.\nCon el orden declarado, filtrar por criticidad también gana sentido: puedes pedir “todo lo que sea más grave que media” con el operador de comparación normal, algo que no puedes hacer con un texto suelto. Sigue el filtro sobre la misma muestra de 12, y el máximo y el mínimo sobre el dataset completo:\nurgentes = muestra[muestra[\"criticidad\"] &gt; \"media\"]\nprint(urgentes[[\"orden\", \"maquina\", \"criticidad\"]].to_string(index=False))\n\nprint(\"maximo:\", ordenes[\"criticidad\"].max())\nprint(\"minimo:\", ordenes[\"criticidad\"].min())\n orden maquina criticidad\n   102  TOR-02       alta\n   105  FRE-02       alta\n   107  FRE-01       alta\n   110  TOR-02       alta\nmaximo: alta\nminimo: baja\n\n\n\n\n\n\nAdvertenciaLa trampa: un valor suelto pierde el orden\n\n\n\nEl orden vive en el tipo de la columna completa, no en cada valor por separado. Si sacas un solo dato con .iloc y lo guardas en una variable, pandas te lo entrega convertido a texto normal, y una comparación entre esos dos valores vuelve a ser alfabética.\nvalor_suelto = ordenes[\"criticidad\"].iloc[0]\nprint(type(valor_suelto), valor_suelto)\nprint(\"baja &lt; alta como texto suelto:\", ordenes[\"criticidad\"].iloc[0] &lt; ordenes[\"criticidad\"].iloc[1])\nprint(\"baja &lt; alta con los codigos internos:\",\n      ordenes[\"criticidad\"].cat.codes.iloc[0] &lt; ordenes[\"criticidad\"].cat.codes.iloc[1])\n&lt;class 'str'&gt; baja\nbaja &lt; alta como texto suelto: False\nbaja &lt; alta con los codigos internos: True\nbaja &lt; alta da False porque, como texto suelto, compara alfabéticamente (“b” va después de “a”). Compara filas dentro de una operación de pandas (sort_values, un filtro con [], .max(), .min()) y el orden se respeta. Si necesitas comparar dos valores sueltos, usa .cat.codes, que son los números internos que pandas asigna según el orden que declaraste.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
+    "href": "estadistica-para-analitica/semana-02/index.html#caso-de-uso-diseñar-las-columnas-de-una-orden-de-trabajo",
+    "title": "Semana 2. Tipos de variables",
+    "section": "7 Caso de uso: diseñar las columnas de una orden de trabajo",
+    "text": "7 Caso de uso: diseñar las columnas de una orden de trabajo\nAsí se aplica el criterio completo, columna por columna, sobre una tabla nueva antes de escribir una sola línea de análisis.\nUn área de mantenimiento quiere registrar, además de lo que ya trae ordenes.csv, cuatro datos nuevos por intervención: la temperatura del rodamiento al momento de la revisión, el nombre del técnico responsable, si la intervención quedó aprobada por el supervisor o no, y el nivel de desgaste de la pieza principal, en una escala de tres niveles que ya usa la planta: leve, moderado, severo.\n\n\n\n\n\n\n\n\n\nVariable nueva\nPregunta 1: ¿se cuenta o se mide?\nPregunta 2: ¿tiene orden?\nClasificación\n\n\n\n\nTemperatura en grados\nSe mide, con decimales\nNo aplica\nNumérica continua\n\n\nNombre del técnico\nNo es un número\nSin orden natural\nCategórica nominal\n\n\nAprobada por el supervisor\nNo es un número\nSolo dos valores, sin orden entre sí\nCategórica nominal\n\n\nNivel de desgaste\nNo es un número\nLeve, moderado y severo sí ordenan\nCategórica ordinal\n\n\n\n“Aprobada por el supervisor” tiene solo dos categorías (sí o no), y eso confunde: parece que un sí/no pudiera codificarse como 1/0 y tratarse como número. No lo es. Sumar o promediar esos ceros y unos no produce una cantidad con sentido propio; lo que sí tiene sentido es contar cuántas órdenes caen en cada categoría, que es exactamente el tratamiento de una variable nominal.\nVerifica la tabla con código, construyendo esas cuatro columnas nuevas para las 120 órdenes existentes:\nimport numpy as np\n\nrng = np.random.default_rng(2026)\n\nordenes[\"temperatura_c\"] = rng.uniform(38, 92, size=len(ordenes)).round(1)\nordenes[\"tecnico\"] = rng.choice([\"Diaz\", \"Moreno\", \"Restrepo\"], size=len(ordenes))\nordenes[\"aprobada\"] = rng.choice([\"si\", \"no\"], size=len(ordenes))\n\norden_desgaste = CategoricalDtype(categories=[\"leve\", \"moderado\", \"severo\"], ordered=True)\nordenes[\"desgaste\"] = rng.choice([\"leve\", \"moderado\", \"severo\"], size=len(ordenes))\nordenes[\"desgaste\"] = ordenes[\"desgaste\"].astype(orden_desgaste)\n\nprint(ordenes[[\"orden\", \"temperatura_c\", \"tecnico\", \"aprobada\", \"desgaste\"]].dtypes)\norden               int64\ntemperatura_c     float64\ntecnico            object\naprobada           object\ndesgaste         category\ndtype: object\ntemperatura_c quedó float64 sin que lo pidieras: np.random.default_rng().uniform siempre produce decimales, coherente con que es una variable continua. tecnico y aprobada quedan object, coherente con que son nominales. desgaste es la única que declaraste como category ordenada, porque es la única con un orden real.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-02/index.html#errores-frecuentes",
+    "title": "Semana 2. Tipos de variables",
+    "section": "8 Errores frecuentes",
+    "text": "8 Errores frecuentes\n\nError 1\n\nTratar un código numérico como si fuera una cantidad\nCausa. Un número de máquina, de orden o de empleado se ve como número, y pandas lo lee como int64 si el código solo tiene dígitos. Pero sumar dos números de orden no produce nada interpretable: es una etiqueta, no una cantidad.\nSolución. Pregúntate si tiene sentido sumar, promediar o restar esa columna. Si no lo tiene, es categórica nominal, aunque esté escrita con dígitos. Conviértela explícitamente con ordenes[\"codigo\"] = ordenes[\"codigo\"].astype(str) para que quede claro que no se opera aritméticamente sobre ella.\n\n\n\nError 2\n\nDeclarar una ordinal sin ordered=True\nCausa. ordenes[\"criticidad\"].astype(\"category\"), sin pasar por CategoricalDtype, sí crea una columna categórica, pero sin orden. sort_values la sigue ordenando de forma arbitraria (por el orden en que pandas encontró las categorías por primera vez), no por baja, media, alta.\nSolución. Para cualquier variable ordinal, usa siempre CategoricalDtype(categories=[...], ordered=True) y pasa la lista de categorías en el orden que corresponde. astype(\"category\") a secas sirve para nominales.\n\n\n\nError 3\n\nComparar dos valores sueltos y confiar en el resultado\nCausa. Como viste en el callout de esta guía, extraer un valor individual de una columna categórica con .iloc lo convierte en texto normal, y una comparación entre dos de esos valores vuelve a ser alfabética sin avisar.\nSolución. Compara dentro de operaciones de pandas (sort_values, un filtro con corchetes, .max(), .min()), o usa .cat.codes si de verdad necesitas dos valores sueltos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
+    "href": "estadistica-para-analitica/semana-02/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 2. Tipos de variables",
+    "section": "9 Lista de chequeo de la semana",
+    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nSabes clasificar cualquier variable con las dos preguntas de esta guía, sin consultar una lista de ejemplos\nEjecutaste el bloque de CategoricalDtype y el sort_values quedó en baja, media, alta\nEntiendes por qué un valor suelto extraído con .iloc pierde el orden",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-02/index.html#lo-que-viene",
+    "title": "Semana 2. Tipos de variables",
+    "section": "10 Lo que viene",
+    "text": "10 Lo que viene\n\nSemana 3. Con las variables ya clasificadas, construirás tablas de frecuencia e histogramas para las numéricas, y calcularás medidas de localización y dispersión.\nSemana 4. Interpretarás boxplots y cuantiles para las numéricas, y tablas de contingencia y gráficos de barras para las categóricas, ya en su orden correcto cuando aplique.\nSemana 5. Examinarás relaciones con gráficos de dispersión y condicionales, y presentarás el informe exploratorio para cerrar la Unidad 1.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-02/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-02/index.html#recursos",
+    "title": "Semana 2. Tipos de variables",
+    "section": "11 Recursos",
+    "text": "11 Recursos\n\nClasificación de datos en escalas de medición: Stevens, S. S. (1946). On the theory of scales of measurement.\nVariables numéricas discretas y continuas, con ejemplos aplicados a ingeniería: Montgomery, D. C. y Runger, G. C. Applied Statistics and Probability for Engineers. 7.ª edición, capítulo 1.\nDatos categóricos en pandas, con CategoricalDtype y orden explícito: pandas.pydata.org/docs/user_guide/categorical.html\nDataset de esta guía: ordenes.csv\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, producidas al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 2. Tipos de variables"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html",
+    "href": "estadistica-para-analitica/semana-03/index.html",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-03/index.html#de-qué-va-esta-semana",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nEsta guía sigue el capítulo 1 de Estadística práctica para ciencia de datos con R y Python (Bruce, Bruce y Gedeck, 2.ª edición), que es la fuente que seguimos esta semana. Vamos a repetir, con Python, los mismos cálculos que hace el libro, con la misma formalidad: cada medida trae su fórmula, un ejemplo resuelto, y un recuadro de interpretación en contexto que explica, en lenguaje llano y con el ejemplo concreto del dataset, qué significa ese número más allá de la definición matemática.\nEl dataset guía es state.csv, del propio repositorio del libro: población y tasa de homicidios de los 50 estados de EE. UU. según el censo de 2010. Es pequeño, real y ya publicado, lo que te deja verificar cada resultado contra un libro de referencia mientras aprendes el método. No vas a quedarte solo mirando cómo lo resuelvo yo: cada bloque conceptual trae un ejercicio para que lo resuelvas tú sobre una segunda columna del mismo dataset (Murder.Rate), con una solución que puedes revisar después de intentarlo. Después, aplicas todo el método completo, de principio a fin, sobre un dataset distinto y mucho más grande: 50 000 ingresos de solicitantes de crédito (loans_income.csv, también del libro). Y para cerrar, un ejercicio sin solución ni dataset dado: tú buscas los datos, formulas las preguntas y justificas cada respuesta.\nLa pregunta que resuelve esta semana es la que aparece cada vez que alguien te entrega una columna de números: ¿cuál es el valor típico de esta variable, y qué tan dispersos están los datos alrededor de ese valor? La media sola no basta. Vas a calcular varias formas de resumir la localización y la dispersión, ver cuándo cada una conviene y por qué, y terminar resumiendo una variable completa en una tabla de frecuencias y un histograma.\nAl terminar deberías poder:\n\nCalcular e interpretar media, mediana y media truncada a partir de su fórmula, y explicar por qué pueden diferir en un mismo conjunto de datos.\nCalcular media y mediana ponderadas cuando cada observación no debería pesar lo mismo.\nCalcular e interpretar varianza, desviación estándar, rango intercuartílico (IQR), desviación absoluta mediana (MAD) y coeficiente de variación, y decidir cuál reportar según si la variable tiene valores atípicos.\nConstruir una tabla de frecuencias con contenedores de igual ancho y su histograma correspondiente, e interpretar la forma de la distribución que resulta (simétrica o sesgada).\nAplicar el método completo a un conjunto de datos nuevo, formular tus propias preguntas sobre él, y justificar por escrito por qué cada medida que elegiste es la que corresponde.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#cargar-el-dataset-del-libro",
+    "href": "estadistica-para-analitica/semana-03/index.html#cargar-el-dataset-del-libro",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "2 Cargar el dataset del libro",
+    "text": "2 Cargar el dataset del libro\nstate.csv está publicado en el repositorio de datos del libro. No hace falta descargarlo: pandas puede leerlo directo desde la URL cruda de GitHub.\nimport pandas as pd\n\nurl = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/state.csv\"\nstate = pd.read_csv(url)\nprint(state.head(8))\n\nprint(state.dtypes)\n         State  Population  Murder.Rate Abbreviation\n0      Alabama     4779736          5.7           AL\n1       Alaska      710231          5.6           AK\n2      Arizona     6392017          4.7           AZ\n3     Arkansas     2915918          5.6           AR\n4   California    37253956          4.4           CA\n5     Colorado     5029196          2.8           CO\n6  Connecticut     3574097          2.4           CT\n7     Delaware      897934          5.8           DE\n\nState            object\nPopulation        int64\nMurder.Rate     float64\nAbbreviation     object\ndtype: object\nCuatro columnas: el nombre del estado y su abreviatura son categóricas nominales, sin orden natural (la clasificación de la semana 02). Population y Murder.Rate son numéricas: Population se cuenta (número de habitantes), y Murder.Rate se mide, en homicidios por cada 100 000 habitantes por año. El dataset completo tiene 50 filas, una por estado. Vas a trabajar Population conmigo, paso a paso, y vas a resolver los mismos pasos con Murder.Rate por tu cuenta.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#estimación-de-la-localización",
+    "href": "estadistica-para-analitica/semana-03/index.html#estimación-de-la-localización",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "3 Estimación de la localización",
+    "text": "3 Estimación de la localización\nLa localización responde una pregunta simple: si tuvieras que resumir toda la columna en un solo número, ¿cuál dirías? Hay más de una respuesta razonable, y esta sección construye tres, con su fórmula, antes de comparar cuál conviene según el caso.\n\nLa media\nLa media (o promedio) suma todos los valores y divide entre cuántos son:\n\\[\n\\bar{x} = \\frac{\\sum_{i=1}^{n} x_i}{n}\n\\]\ndonde \\(x_1, x_2, \\ldots, x_n\\) son los \\(n\\) valores de la variable. Es la estimación de localización más simple y la más usada, y por eso vale la pena entender exactamente cuándo falla.\n\n\nLa mediana\nLa mediana ordena los \\(n\\) valores de menor a mayor y toma el valor central. Si \\(n\\) es impar, es el valor en la posición \\(\\frac{n+1}{2}\\). Si \\(n\\) es par (como en state.csv, con 50 filas), es el promedio de los dos valores centrales, en las posiciones \\(\\frac{n}{2}\\) y \\(\\frac{n}{2}+1\\). A diferencia de la media, la mediana no usa el valor de cada dato, solo su posición en el orden.\n\n\nLa media truncada\nLa media truncada ordena los valores, descarta un número fijo \\(p\\) de observaciones en cada extremo, y promedia lo que queda:\n\\[\n\\bar{x}_{\\text{tr}} = \\frac{\\sum_{i=p+1}^{n-p} x_{(i)}}{n - 2p}\n\\]\ndonde \\(x_{(1)}, x_{(2)}, \\ldots, x_{(n)}\\) son los valores ordenados de menor a mayor. Con trim=0.1 (10%) sobre 50 estados, \\(p = 5\\): se descartan los 5 estados más pequeños y los 5 más grandes, y se promedian los 40 restantes.\n\n\nLas tres, calculadas sobre Population\nfrom scipy.stats import trim_mean\n\nmedia = state[\"Population\"].mean()\nmedia_truncada = trim_mean(state[\"Population\"], 0.1)\nmediana = state[\"Population\"].median()\n\nprint(\"media:\", media)\nprint(\"media truncada (10%):\", media_truncada)\nprint(\"mediana:\", mediana)\nmedia: 6162876.3\nmedia truncada (10%): 4783697.125\nmediana: 4436369.5\nLas tres estimaciones dan resultados distintos, y la diferencia no es ruido: tiene una causa concreta. La mediana ordena las 50 poblaciones y toma el valor central. No le importa si el estado más grande tiene 6 millones de habitantes o 40 millones: solo le importa su posición en el orden. La media, en cambio, suma los 50 valores, y California pesa en esa suma con sus 37 253 956 habitantes tanto como pesan juntos varios de los estados más pequeños. Ese único estado empuja la media muy por encima de la mediana: la diferencia entre las dos, 6 162 876 contra 4 436 370, es casi 1.73 millones de habitantes, más grande que la población de 12 de los 50 estados.\nLa media truncada, al descartar los 5 estados más grandes (entre ellos California) y los 5 más pequeños, queda mucho más cerca de la mediana (4.78 millones) que de la media (6.16 millones): es un punto intermedio, que elimina la influencia de los extremos sin llegar a ignorar por completo cuánto pesa cada estado, como sí hace la mediana.\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\n\nMedia (6.16 millones). Es la cifra que resultaría si repartieras la población total del país en partes exactamente iguales entre los 50 estados. Nadie tiene esa población: es un promedio matemático, no el tamaño de ningún estado real. Sirve para cálculos que necesitan el total (la población total del país es la media por 50), pero engaña si la usas para describir “cómo es un estado típico”.\nMediana (4.44 millones). Es la población del estado que queda justo en el medio si alinearas los 50 estados de menor a mayor. La mitad de los estados tiene menos población que eso, y la otra mitad tiene más. Es la mejor respuesta a “¿cómo es un estado típico?”, porque no le importa si California tiene 6 millones o 60 millones más que el resto: sigue estando igual de lejos, en la misma posición del orden.\nMedia truncada (4.78 millones). Es como el promedio de una competencia de clavados, donde se descartan la nota más alta y la más baja de los jueces antes de promediar, para que un juez sesgado no manipule el resultado: aquí se descartan los 5 estados más chicos y los 5 más grandes antes de promediar los 40 restantes.\n\n\n\n\n\n\nCuando una variable no tiene valores extremos, media y mediana casi coinciden. Cuando sí los tiene (y Population es un buen ejemplo: hay un salto grande entre la mayoría de los estados y los pocos muy poblados), la mediana y la media truncada quedan más cerca del valor que describiría mejor a un estado “típico”, y la media queda jalada hacia el valor atípico. Esa propiedad, no dejarse mover por unos pocos valores extremos, se llama robustez. La mediana y la media truncada son robustas; la media, no.\n\n\n\nEsta relación entre media y mediana no es exclusiva de Population: es una regla general que vas a usar en cada dataset nuevo que abras. Cuando la cola de la distribución se estira hacia valores altos (sesgo a la derecha, como la población o casi cualquier variable de dinero: ingresos, precios, ventas), la media queda por encima de la mediana. Cuando se estira hacia valores bajos (sesgo a la izquierda, menos común: edad de jubilación, calificaciones de un examen fácil donde casi todos sacan buena nota y pocos sacan mala), la media queda por debajo. Cuando no hay cola dominante, coinciden. Antes de reportar un solo número, mirar si media y mediana coinciden te dice, sin necesidad de graficar nada todavía, si la variable tiene sesgo.\n\n\n\n\n\n\nTipEjercicio: localización de Murder.Rate\n\n\n\n\n\nCalcula la media, la mediana y la media truncada al 10% de Murder.Rate, la tasa de homicidios por cada 100 000 habitantes. Antes de correr el código, escribe una hipótesis: ¿esperas que la media quede muy por encima de la mediana, como pasó con Population, o más cerca? Justifica tu respuesta pensando en si Murder.Rate tiene un valor tan extremo como California.\nDespués de calcular las tres, responde: ¿qué estado tiene la tasa más alta? ¿Cambia tu conclusión sobre el sesgo de la distribución?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\nmedia_mr = state[\"Murder.Rate\"].mean()\nmediana_mr = state[\"Murder.Rate\"].median()\ntruncada_mr = trim_mean(state[\"Murder.Rate\"], 0.1)\n\nprint(\"media:\", media_mr)\nprint(\"mediana:\", mediana_mr)\nprint(\"media truncada (10%):\", truncada_mr)\nmedia: 4.066\nmediana: 4.0\nmedia truncada (10%): 3.9450000000000003\nLas tres estimaciones quedan mucho más cerca entre sí que en Population (4.07, 4.0 y 3.95, contra 6.16, 4.44 y 4.78 millones). Murder.Rate sí tiene sesgo a la derecha (la media queda un poco por encima de la mediana), pero mucho más leve: no hay un estado tan extremo, en proporción al resto, como California lo es para la población. El máximo de Murder.Rate es 10.3 (Louisiana), apenas 2.5 veces la media, mientras que la población de California es más de 6 veces la media de Population. Conclusión: una diferencia pequeña entre media y mediana es la señal de que ningún valor extremo domina el resultado, y en ese caso cualquiera de las tres estimaciones sirve para reportar el valor típico.\n\n\n\n\n\n\n\n\nMedia y mediana ponderadas\nMurder.Rate trae otra pregunta. Si promedias esa columna sin más, tratas la tasa de Wyoming (con menos de 600 000 habitantes) exactamente igual que la de California (con más de 37 millones), y sin embargo un homicidio en California pesa sobre una población muchísimo mayor. Cuando cada observación representa una masa distinta, conviene ponderar: multiplicar cada valor por su peso antes de promediar.\n\\[\n\\bar{x}_w = \\frac{\\sum_{i=1}^{n} w_i x_i}{\\sum_{i=1}^{n} w_i}\n\\]\ndonde \\(w_i\\) es el peso de la observación \\(i\\) (aquí, la población del estado \\(i\\)). La mediana ponderada sigue la misma idea pero sobre las posiciones: es el valor tal que la mitad de la suma de los pesos queda por encima y la otra mitad por debajo, en la lista ordenada.\nimport numpy as np\nimport wquantiles\n\nprint(\"media simple de Murder.Rate:\", state[\"Murder.Rate\"].mean())\nprint(\"mediana simple de Murder.Rate:\", state[\"Murder.Rate\"].median())\n\nmedia_ponderada = np.average(state[\"Murder.Rate\"], weights=state[\"Population\"])\nmediana_ponderada = wquantiles.median(state[\"Murder.Rate\"], weights=state[\"Population\"])\n\nprint(\"media ponderada por poblacion:\", media_ponderada)\nprint(\"mediana ponderada por poblacion:\", mediana_ponderada)\nmedia simple de Murder.Rate: 4.066\nmediana simple de Murder.Rate: 4.0\nmedia ponderada por poblacion: 4.445833981123393\nmediana ponderada por poblacion: 4.4\nnp.average con el argumento weights calcula la media ponderada directamente. Para la mediana ponderada no hay una función en la librería estándar de NumPy o pandas; el paquete wquantiles (se instala con pip install wquantiles) la resuelve. La tasa ponderada sube de 4.07 a 4.45: los estados más poblados de esta muestra tienden a tener una tasa de homicidios un poco más alta que el promedio simple, y ponderar por población lo refleja.\nCaso de uso. Si un analista de política pública preguntara “¿cuál es la tasa de homicidios promedio en el país?”, la respuesta correcta no es el promedio simple de las 50 tasas estatales: es la tasa ponderada, porque refleja cuántas personas viven realmente bajo cada tasa. El promedio simple le da a Wyoming (menos de 600 000 habitantes) el mismo peso que a California (más de 37 millones), y eso distorsiona cualquier conclusión sobre el país como conjunto.\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nPiensa en la diferencia entre estas dos preguntas: “¿cuál es la tasa de homicidios promedio entre los 50 estados?” (la respuesta es 4.07, el promedio simple, donde cada estado cuenta como una unidad) y “¿cuál es la tasa de homicidios que en promedio vive una persona del país?” (la respuesta es 4.45, el promedio ponderado, donde cada persona cuenta como una unidad). La primera pregunta trata a Wyoming como si tuviera el mismo peso que California; la segunda no. Cuál de las dos preguntar depende de si tu unidad de interés son los estados o las personas.\n\n\n\n\n\n\n\n\nNota¿Y la moda?\n\n\n\nLa carta descriptiva menciona la moda entre las medidas de localización, pero la moda casi no se usa con variables numéricas. Es el valor que más se repite, y eso solo es informativo cuando hay repeticiones reales.\nprint(state[\"Murder.Rate\"].value_counts().sort_values(ascending=False).head(5))\n\nprint(\"valores unicos de Population:\", state[\"Population\"].nunique(), \"de\", len(state))\nMurder.Rate\n5.7    3\n2.0    3\n1.6    3\n5.6    2\n5.8    2\nName: count, dtype: int64\n\nvalores unicos de Population: 50 de 50\nMurder.Rate sí tiene repeticiones (varios estados comparten la misma tasa), y hay un empate a tres vías en el valor más frecuente: 5.7, 2.0 y 1.6 homicidios por 100 000 habitantes aparecen cada uno en tres estados. Eso ya es una moda multimodal, sin un único valor dominante. Population, en cambio, tiene 50 valores distintos en 50 filas: ningún valor se repite, así que la moda no dice nada. Donde la moda sí es la medida correcta es en variables categóricas: la máquina que más se usó en el taller de mantenimiento de la semana 02, o el turno con más órdenes registradas. Ahí no hay alternativa: no puedes promediar maquina, pero sí puedes preguntar cuál es la más frecuente.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#estimación-de-la-variabilidad",
+    "href": "estadistica-para-analitica/semana-03/index.html#estimación-de-la-variabilidad",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "4 Estimación de la variabilidad",
+    "text": "4 Estimación de la variabilidad\nSaber el valor típico no basta: dos variables pueden tener la misma media y comportarse de forma completamente distinta si una está muy concentrada alrededor de ese valor y la otra muy dispersa. La variabilidad mide qué tan lejos, en promedio, están los datos de su valor central.\n\nVarianza y desviación estándar\nLa varianza promedia el cuadrado de las distancias de cada valor a la media:\n\\[\ns^2 = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}{n - 1}\n\\]\nSe divide entre \\(n - 1\\) y no entre \\(n\\) porque, al usar la media muestral \\(\\bar{x}\\) en vez de la media real de la población, se pierde un grado de libertad: si conoces \\(\\bar{x}\\) y \\(n - 1\\) de los valores, el último queda determinado. Dividir entre \\(n - 1\\) corrige ese sesgo. En la práctica, con muestras de tamaño moderado o grande, la diferencia entre dividir por \\(n\\) o por \\(n - 1\\) es mínima.\nLa varianza queda en unidades al cuadrado (habitantes al cuadrado, si hablamos de Population), lo que la hace casi imposible de interpretar directamente. La desviación estándar es su raíz cuadrada, y por eso es la que casi siempre se reporta: queda en la misma unidad que los datos originales.\n\\[\ns = \\sqrt{s^2}\n\\]\nvarianza = state[\"Population\"].var()\ndesviacion = state[\"Population\"].std()\n\nprint(\"varianza:\", varianza)\nprint(\"desviacion estandar:\", desviacion)\nvarianza: 46898327373394.445\ndesviacion estandar: 6848235.347401142\nVerifica la relación con la fórmula: \\(\\sqrt{46\\,898\\,327\\,373\\,394.445} \\approx 6\\,848\\,235.35\\), que coincide con lo que calculó .std().\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nLa varianza, por sí sola, casi no se interpreta: “46.9 billones de habitantes al cuadrado” no significa nada intuitivo para nadie. Existe como paso matemático hacia la desviación estándar, no como un número para reportar. La desviación estándar sí se lee directamente: en promedio, la población de un estado se aleja unos 6.85 millones de habitantes de la media del país. Es la regla de bolsillo que usarías para decir “esta población es normal” o “esta población es rarísima”: si un estado se aleja mucho más que una desviación estándar de la media, llama la atención.\n\n\n\n\nRango intercuartílico (IQR) y MAD\nEl IQR y la MAD son las versiones robustas de la desviación estándar, del mismo modo que la mediana es la versión robusta de la media.\nEl IQR es la diferencia entre el percentil 75 (\\(Q_3\\)) y el percentil 25 (\\(Q_1\\)): el ancho del 50% central de los datos, ignorando el 25% más bajo y el 25% más alto.\n\\[\n\\text{IQR} = Q_3 - Q_1\n\\]\nLa MAD (desviación absoluta mediana) es la mediana de las distancias absolutas de cada valor a la mediana:\n\\[\n\\text{MAD} = \\text{mediana} \\left( |x_1 - m|, |x_2 - m|, \\ldots, |x_n - m| \\right)\n\\]\ndonde \\(m\\) es la mediana de la variable. En Python, statsmodels multiplica la MAD por la constante 1.4826 antes de devolverla, para que quede en la misma escala que la desviación estándar cuando los datos siguen una distribución normal.\nfrom statsmodels import robust\n\niqr = state[\"Population\"].quantile(0.75) - state[\"Population\"].quantile(0.25)\nmad = robust.scale.mad(state[\"Population\"])\n\nprint(\"rango intercuartilico (IQR):\", iqr)\nprint(\"MAD:\", mad)\nrango intercuartilico (IQR): 4847308.0\nMAD: 3849876.1459979336\n\n\n\nMedida\nValor sobre Population\n¿Robusta a atípicos?\n\n\n\n\nDesviación estándar\n6 848 235\nNo\n\n\nIQR\n4 847 308\nSí\n\n\nMAD\n3 849 876\nSí\n\n\n\nLa varianza y la desviación estándar elevan las distancias al cuadrado, así que un solo valor muy alejado (otra vez, California) pesa desproporcionadamente en el resultado: la desviación estándar es casi el doble de la MAD (6 848 235 contra 3 849 876) precisamente porque no es robusta a ese valor extremo. El IQR y la MAD, como la mediana, no se mueven si cambias el valor de California por cualquier otro número igual de grande: solo les importa la posición de los datos, no su magnitud exacta.\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nEl IQR (4.85 millones) responde: si te quedas solo con la mitad de los estados que están justo en el centro de la distribución (descartando el 25% más chico y el 25% más grande), esos estados varían en un rango de 4.85 millones de habitantes entre el más chico y el más grande de ese grupo central. La MAD (3.85 millones) responde algo parecido, pero calculado distinto: en promedio, usando la mediana como referencia en vez de la media, un estado se aleja unos 3.85 millones de habitantes del estado típico. Las dos existen porque, a diferencia de la desviación estándar, no se dejan impresionar por California.\n\n\n\n\n\n\n\n\nTipEjercicio: variabilidad de Murder.Rate\n\n\n\n\n\nCalcula la varianza, la desviación estándar, el IQR y la MAD de Murder.Rate. Antes de calcular, piensa: como ya viste en el ejercicio anterior que Murder.Rate no tiene un atípico tan marcado como California, ¿esperas que la desviación estándar y la MAD queden mucho más cerca entre sí que en Population, o igual de lejos?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\nvarianza_mr = state[\"Murder.Rate\"].var()\ndesviacion_mr = state[\"Murder.Rate\"].std()\niqr_mr = state[\"Murder.Rate\"].quantile(0.75) - state[\"Murder.Rate\"].quantile(0.25)\nmad_mr = robust.scale.mad(state[\"Murder.Rate\"])\n\nprint(\"varianza:\", varianza_mr)\nprint(\"desviacion estandar:\", desviacion_mr)\nprint(\"IQR:\", iqr_mr)\nprint(\"MAD:\", mad_mr)\nvarianza: 3.6700448979591838\ndesviacion estandar: 1.9157361243029227\nIQR: 3.125\nMAD: 2.3721635496089624\nAl contrario de lo que podría esperarse, la desviación estándar (1.92) queda por debajo de la MAD (2.37), no por encima. Esto no contradice lo que aprendiste con Population: significa que Murder.Rate, con solo 50 observaciones y sin un atípico dominante, no se comporta exactamente como una distribución normal perfecta, que es el supuesto bajo el que la MAD se escala con el factor 1.4826 para igualar a la desviación estándar. La lección no cambia: sin un valor extremo que domine, las dos medidas quedan en el mismo orden de magnitud (1.92 y 2.37, una diferencia de 0.45), muy distinto de la brecha de casi 3 millones que separaba a la desviación estándar de la MAD en Population.\n\n\n\n\n\n\n\n\nCoeficiente de variación: comparar dispersión entre variables distintas\nLa desviación estándar de Population (6.85 millones) y la de Murder.Rate (una fracción de homicidio por 100 000 habitantes) no se pueden comparar directamente: están en unidades distintas y en escalas distintas. El coeficiente de variación (CV) resuelve eso dividiendo la desviación estándar entre la media, lo que lo convierte en un número sin unidades:\n\\[\nCV = \\frac{s}{\\bar{x}}\n\\]\ncv_poblacion = state[\"Population\"].std() / state[\"Population\"].mean()\ncv_homicidios = state[\"Murder.Rate\"].std() / state[\"Murder.Rate\"].mean()\n\nprint(\"CV poblacion:\", cv_poblacion)\nprint(\"CV tasa de homicidios:\", cv_homicidios)\nCV poblacion: 1.111207659222552\nCV tasa de homicidios: 0.4711598928438079\nPopulation tiene un CV de 1.11: su desviación estándar es mayor que su propia media, señal de una variable con una dispersión enorme en relación con su valor típico. Murder.Rate tiene un CV de 0.47, menos de la mitad: aunque las dos variables tienen desviaciones estándar en escalas completamente distintas, el CV permite decir, con un solo número comparable, que la tasa de homicidios es relativamente mucho menos dispersa que la población.\nCaso de uso. El CV se usa mucho para comparar el riesgo o la variabilidad de cosas que no comparten unidad. En finanzas, para comparar qué tan riesgosas son dos inversiones con rendimientos promedio distintos. En control de calidad industrial, para comparar la variabilidad de dos procesos que miden magnitudes distintas (temperatura contra presión, por ejemplo). La regla es siempre la misma: si vas a comparar la dispersión de dos variables que no están en la misma unidad o en la misma escala, compara sus coeficientes de variación, no sus desviaciones estándar.\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nUn CV de 1.11 en Population significa que la desviación estándar es mayor que la propia media: es una variable extremadamente “ancha” en relación con su valor típico. Un CV de 0.47 en Murder.Rate significa que la desviación estándar es menos de la mitad de la media: es una variable comparativamente mucho más “angosta” o concentrada. Ninguno de los dos números por separado (6.85 millones contra 1.92) te deja comparar esto directamente, porque están en unidades distintas; el CV sí, porque no tiene unidades.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#tablas-de-frecuencias-e-histogramas",
+    "href": "estadistica-para-analitica/semana-03/index.html#tablas-de-frecuencias-e-histogramas",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "5 Tablas de frecuencias e histogramas",
+    "text": "5 Tablas de frecuencias e histogramas\nLas medidas anteriores resumen una variable en un solo número. Una tabla de frecuencias y su histograma resumen la variable completa, mostrando cómo se reparten los datos a lo largo de todo su rango.\n\n\n\nUna tabla de frecuencias divide el rango completo de la variable en \\(k\\) segmentos de igual ancho (los contenedores) y cuenta cuántos valores caen en cada uno. El ancho de cada contenedor sale de dividir el rango total entre el número de contenedores que elijas:\n\\[\n\\text{ancho del contenedor} = \\frac{x_{\\max} - x_{\\min}}{k}\n\\]\ncontenedores = pd.cut(state[\"Population\"], 10)\ntabla_frecuencias = contenedores.value_counts(sort=False)\nprint(tabla_frecuencias)\n\nprint(\"suma de conteos:\", tabla_frecuencias.sum())\nPopulation\n(526935.67, 4232659.0]      24\n(4232659.0, 7901692.0]      14\n(7901692.0, 11570725.0]      6\n(11570725.0, 15239758.0]     2\n(15239758.0, 18908791.0]     1\n(18908791.0, 22577824.0]     1\n(22577824.0, 26246857.0]     1\n(26246857.0, 29915890.0]     0\n(29915890.0, 33584923.0]     0\n(33584923.0, 37253956.0]     1\nName: count, dtype: int64\n\nsuma de conteos: 50\npd.cut divide el rango de Population (de 563 626, la población de Wyoming, a 37 253 956, la de California) en 10 contenedores del mismo ancho: verifica con la fórmula, \\((37\\,253\\,956 - 563\\,626) / 10 \\approx 3\\,669\\,033\\) habitantes por contenedor. value_counts cuenta cuántos estados caen en cada uno. Los 50 conteos suman 50: cada estado cae en exactamente un contenedor.\nDos contenedores (el octavo y el noveno, entre 26.2 y 33.6 millones) no tienen ningún estado. Vale la pena incluirlos igual: un contenedor vacío es información, no un espacio para recortar. Si los quitaras, la tabla sugeriría que la población salta de un estado con 26 millones directo a uno con 37 millones, y esconderías el hueco real que hay entre Texas y California.\n\n\n\nEl histograma dibuja la misma tabla como barras: un eje con los contenedores y la altura de cada barra igual al conteo. Se ve de inmediato lo que la tabla de números cuesta más leer: la mayoría de los estados (38 de 50) caen en los dos primeros contenedores, con menos de 8 millones de habitantes, y después la barra baja rápido, con una cola larga y delgada hacia la derecha donde están Florida, Nueva York, Texas y, sola en el último contenedor, California. Esta forma es la misma que viste en el diagrama de sesgo: concentrada a la izquierda, con una cola larga a la derecha, y por eso la media de Population queda tan por encima de la mediana.\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nUn histograma sesgado a la derecha, como el de Population, te dice en una sola mirada algo que los números por separado esconden: la mayoría de los casos son chicos o medianos, y unos pocos casos extremos son responsables de que la media se vea inflada. Si alguien te reporta solo la media de una variable así, sin mostrar antes el histograma o compararla con la mediana, te está ocultando que ese número no representa bien al caso típico.\n\n\n\n\n\n\n\n\nTipEjercicio: tabla de frecuencias e histograma de Murder.Rate\n\n\n\n\n\nConstruye la tabla de frecuencias de Murder.Rate con 6 contenedores (no 10: el rango de esta variable es mucho más angosto que el de Population, y 10 contenedores dejarían casi todos con 1 o 2 estados). Antes de correr el código, calcula a mano el ancho de cada contenedor con la fórmula de esta sección, sabiendo que el mínimo es 0.9 y el máximo es 10.3. Después de obtener la tabla, responde: ¿la distribución se parece más al histograma simétrico o al sesgado a la derecha del diagrama de arriba? ¿Coincide con lo que ya concluiste sobre la diferencia entre media y mediana de esta variable?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\nAncho esperado: \\((10.3 - 0.9) / 6 \\approx 1.57\\).\ncontenedores_mr = pd.cut(state[\"Murder.Rate\"], 6)\ntabla_mr = contenedores_mr.value_counts(sort=False)\nprint(tabla_mr)\n\nprint(\"suma:\", tabla_mr.sum())\nMurder.Rate\n(0.891, 2.467]    13\n(2.467, 4.033]    13\n(4.033, 5.6]       13\n(5.6, 7.167]        9\n(7.167, 8.733]      1\n(8.733, 10.3]       1\nName: count, dtype: int64\n\nsuma: 50\nLos tres primeros contenedores están casi empatados (13, 13 y 13 estados), y de ahí la frecuencia baja de forma escalonada: 9, luego 1, luego 1. Hay una cola a la derecha, pero mucho menos marcada que en Population: 41 de los 50 estados (los primeros cuatro contenedores) están razonablemente concentrados entre 0.9 y 7.17, y solo 2 estados quedan en la cola larga. Esto confirma lo que ya habías visto: hay sesgo a la derecha, pero leve, consistente con que la media (4.07) queda apenas un poco por encima de la mediana (4.0) y no muy por encima, como sí pasaba con Population.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#caso-integrador-ingresos-de-solicitantes-de-crédito",
+    "href": "estadistica-para-analitica/semana-03/index.html#caso-integrador-ingresos-de-solicitantes-de-crédito",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "6 Caso integrador: ingresos de solicitantes de crédito",
+    "text": "6 Caso integrador: ingresos de solicitantes de crédito\nTodo lo que calculaste hasta aquí lo hiciste sobre un dataset de 50 filas. Para cerrar la semana, vas a aplicar el mismo método completo, sin ayuda, sobre un conjunto de datos de otra naturaleza y de una escala mucho más grande: los ingresos anuales declarados por 50 000 solicitantes de un crédito, otro dataset publicado en el repositorio del libro. Es el tipo de variable que un área de riesgo crediticio revisa todos los días para decidir a quién le presta y cuánto.\nurl_ingresos = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/loans_income.csv\"\nincome = pd.read_csv(url_ingresos)\nincome.columns = [\"ingreso\"]\n\nprint(income.head())\nprint(\"filas:\", len(income))\nprint(income.dtypes)\n   ingreso\n0    67000\n1    52000\n2   100000\n3    78762\n4    37041\nfilas: 50000\ningreso    int64\ndtype: object\nEl archivo original nombra la columna x; la primera línea la renombra a ingreso para que el resto del código sea legible. Una sola columna numérica, 50 000 observaciones: mil veces más datos que state.csv, y vas a ver que eso no cambia el método, solo la escala de los números.\nmedia_ing = income[\"ingreso\"].mean()\nmediana_ing = income[\"ingreso\"].median()\ntruncada_ing = trim_mean(income[\"ingreso\"], 0.1)\n\nprint(\"media:\", media_ing)\nprint(\"mediana:\", mediana_ing)\nprint(\"media truncada (10%):\", truncada_ing)\nmedia: 68760.51844\nmediana: 62000.0\nmedia truncada (10%): 65183.5528\nvarianza_ing = income[\"ingreso\"].var()\ndesviacion_ing = income[\"ingreso\"].std()\niqr_ing = income[\"ingreso\"].quantile(0.75) - income[\"ingreso\"].quantile(0.25)\nmad_ing = robust.scale.mad(income[\"ingreso\"])\ncv_ing = desviacion_ing / media_ing\n\nprint(\"varianza:\", varianza_ing)\nprint(\"desviacion estandar:\", desviacion_ing)\nprint(\"IQR:\", iqr_ing)\nprint(\"MAD:\", mad_ing)\nprint(\"CV:\", cv_ing)\nvarianza: 1080570709.356687\ndesviacion estandar: 32872.035369850266\nIQR: 40000.0\nMAD: 29652.04437011204\nCV: 0.47806555441454673\ncontenedores_ing = pd.cut(income[\"ingreso\"], 10)\ntabla_ing = contenedores_ing.value_counts(sort=False)\nprint(tabla_ing)\n\nprint(\"suma:\", tabla_ing.sum())\ningreso\n(3805.0, 23500.0]        1201\n(23500.0, 43000.0]      10388\n(43000.0, 62500.0]      13849\n(62500.0, 82000.0]      10719\n(82000.0, 101500.0]      6559\n(101500.0, 121000.0]     3557\n(121000.0, 140500.0]     1790\n(140500.0, 160000.0]     1108\n(160000.0, 179500.0]      477\n(179500.0, 199000.0]      352\nName: count, dtype: int64\n\nsuma: 50000\n\n\n\n\n\n\n\n\n\nTipEjercicio de cierre: redacta la conclusión\n\n\n\n\n\nCon los números de arriba, responde estas cuatro preguntas por escrito, en dos o tres oraciones cada una, como si se las estuvieras entregando a un gerente de riesgo crediticio que nunca ha visto estos datos:\n\n¿Cuál es el ingreso “típico” de un solicitante? Justifica cuál de las tres medidas de localización usarías para responder esto y por qué esa, y no las otras dos.\n¿Qué tan dispersos están los ingresos? Usa al menos una medida de dispersión concreta en tu respuesta, no solo la palabra “dispersos” o “variados”.\n¿La distribución de ingresos tiene sesgo? ¿Hacia dónde, y cómo lo sabes con los números que calculaste (sin necesidad de mirar el histograma)?\nSi tuvieras que fijar un límite de crédito distinto para el 25% de solicitantes con menor ingreso, ¿qué valor usarías como corte, y qué medida de las que calculaste te lo da directamente?\n\n\n\n\n\n\n\nTipUna posible respuesta\n\n\n\n\n\n\nEl ingreso típico ronda los 62 000 dólares (la mediana) o los 65 184 (la media truncada al 10%). La media simple, 68 761, sobreestima el caso típico porque un grupo de solicitantes con ingresos altos (hasta 199 000) la jala hacia arriba; con 50 000 observaciones y una diferencia clara entre media y mediana, conviene reportar la mediana.\nLa desviación estándar es de 32 872 dólares, casi la mitad del ingreso medio (eso es justo lo que mide el CV de 0.48): hay una dispersión considerable. El IQR de 40 000 dice que el 50% central de los solicitantes gana entre aproximadamente 43 000 y 83 000 dólares (los cuartiles 25 y 75).\nSí, sesgo a la derecha: la media (68 761) queda por encima de la mediana (62 000), y la tabla de frecuencias lo confirma, con el conteo más alto en el contenedor de 43 000 a 62 500 y una cola que se extiende, cada vez más delgada, hasta casi 200 000.\nEl percentil 25, que en este dataset corresponde al extremo inferior del IQR calculado arriba (income[\"ingreso\"].quantile(0.25)). Es exactamente la misma herramienta que ya usaste para calcular el IQR, aplicada a un solo corte en vez de a la diferencia entre dos.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#ejercicio-final-constrúyelo-tú-de-principio-a-fin",
+    "href": "estadistica-para-analitica/semana-03/index.html#ejercicio-final-constrúyelo-tú-de-principio-a-fin",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "7 Ejercicio final: constrúyelo tú, de principio a fin",
+    "text": "7 Ejercicio final: constrúyelo tú, de principio a fin\nTodo lo anterior te dio el dataset, las preguntas y hasta la solución. Este último ejercicio no trae nada de eso: te toca buscar los datos, decidir qué preguntar y justificar cada respuesta con lo que aprendiste esta semana. No tiene solución en esta guía y no se evalúa, pero tráelo resuelto (o avanzado) a la próxima sesión: vamos a comparar en clase las preguntas que cada quien formuló.\n\nPaso 1. Consigue un dataset más complejo\nElige uno de estos dos caminos.\nCamino A: un dataset del propio libro, ya conocido pero mucho más grande y más sucio. kc_tax.csv.gz, con el valor catastral de casi 500 000 viviendas del condado de King (Seattle, EE. UU.), su área construida en pies cuadrados y su código postal.\nkc_tax = pd.read_csv(\n    \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz\",\n    compression=\"gzip\",\n)\nprint(kc_tax.shape)\nprint(kc_tax.head())\nprint(kc_tax.isna().sum())\nEste dataset tiene casi 500 000 filas (diez veces más que loans_income.csv, diez mil veces más que state.csv) y trae algo que no viste esta semana: valores ausentes (NaN) en TaxAssessedValue y en ZipCode. Antes de calcular nada, tienes que decidir qué hacer con esas filas (¿las descartas con .dropna()? ¿por qué?) y justificarlo por escrito.\nCamino B: un dataset que tú busques, de un dominio que te interese, en una fuente pública real: datos.gov.co, el portal de datos abiertos del Banco Mundial, Kaggle o el UCI Machine Learning Repository. Debe tener al menos una variable numérica y al menos varios miles de registros: más grande y más real que cualquier cosa que hayas usado hasta ahora en el curso.\n\n\nPaso 2. Formula tus propias preguntas\nEscribe al menos tres preguntas sobre una variable numérica del dataset que elegiste, que se puedan responder con las herramientas de esta semana (localización, dispersión, tabla de frecuencias e histograma) y no con nada que todavía no hayas visto (correlación, regresión, probabilidad: eso viene después). Una pregunta como “¿los valores catastrales altos están en los mismos códigos postales que las casas grandes?” no sirve todavía; una como “¿cuál es el valor catastral típico de una vivienda, y qué tan dispersos están los valores alrededor de ese típico?” sí.\n\n\nPaso 3. Responde y justifica cada una\nPara cada pregunta:\n\nCalcula la medida o las medidas que la responden.\nJustifica por escrito por qué esa medida, y no otra, es la que corresponde. Por ejemplo: “uso la mediana y no la media porque…” o “uso el coeficiente de variación porque estoy comparando dos variables en unidades distintas”.\nRedacta la conclusión en dos o tres oraciones, en el mismo tono ejecutivo que usaste en el caso de los ingresos: qué significa el número para alguien que va a tomar una decisión con él, no solo el número en sí.\n\n\n\nPaso 4. Cierra con una tabla de frecuencias y un histograma\nElige una variable numérica del dataset (puede ser la misma de tus preguntas) y construye su tabla de frecuencias y su histograma. Decide tú el número de contenedores, justifica por qué elegiste ese número, e interpreta la forma que resulta: ¿simétrica, sesgada a la derecha, sesgada a la izquierda? ¿A qué se debe esa forma, según lo que sabes del fenómeno que mide la variable?\n\n\n\n\n\n\nAdvertenciaAntes de la próxima sesión\n\n\n\nRevisa que tu trabajo cumpla las tres condiciones que pide el módulo para cualquier entrega (ver la presentación del módulo): que sea reproducible (tu código corre en otra máquina sin retoques), trazable (cada conclusión se sostiene en una salida concreta) y ejecutiva (está escrito para quien decide, no para quien revisa la fórmula).",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-03/index.html#errores-frecuentes",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "8 Errores frecuentes",
+    "text": "8 Errores frecuentes\n\nError 1\n\nReportar la media sin revisar la forma de la distribución\nCausa. La media es el primer número que casi todo el mundo calcula, y en una distribución simétrica es una buena elección. El problema aparece cuando se reporta sin mirar antes un histograma o comparar contra la mediana, en una variable donde ambas pueden diferir mucho, como viste con Population y con ingreso.\nSolución. Antes de reportar un solo número, compara media y mediana. Si están cerca, cualquiera sirve. Si están lejos, hay sesgo, y conviene reportar la mediana o la media truncada, o las dos junto con la media para que quien lea entienda la diferencia.\n\n\n\nError 2\n\nDescartar los contenedores vacíos de una tabla de frecuencias\nCausa. Al construir una tabla de frecuencias a mano, o al filtrar programáticamente las filas con conteo cero, es tentador quitar los contenedores vacíos porque “no aportan nada”.\nSolución. Un contenedor vacío es información: dice que ningún dato cae ahí, lo cual puede ser tan importante como saber dónde sí caen. pd.cut seguido de value_counts(sort=False), como en esta guía, conserva el orden de los contenedores y sus conteos en cero. Ordenar por conteo descendente (value_counts() sin sort=False) es exactamente el error que hay que evitar aquí, porque reordena los contenedores y rompe la lectura de izquierda a derecha del rango completo.\n\n\n\nError 3\n\nComparar la desviación estándar de dos variables en escalas distintas\nCausa. Ver dos desviaciones estándar, una mucho más grande que la otra, y concluir directamente que esa variable es “más dispersa”. Eso solo es válido si las dos variables están en la misma unidad y en escalas parecidas. La desviación estándar de Population (6.85 millones) es enorme comparada con la de Murder.Rate (1.92), pero eso no significa que la población sea “más dispersa” en un sentido comparable: son unidades distintas.\nSolución. Para comparar la dispersión relativa de variables en unidades o escalas distintas, usa el coeficiente de variación (CV), no la desviación estándar directamente. Como viste en esta guía, el CV de Population (1.11) sí es mayor que el de Murder.Rate (0.47), y esa comparación sí es válida porque el CV no tiene unidades.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#lista-de-chequeo-de-la-semana",
+    "href": "estadistica-para-analitica/semana-03/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "9 Lista de chequeo de la semana",
+    "text": "9 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nPuedes escribir de memoria las fórmulas de la media, la media truncada, la varianza, la desviación estándar y el IQR\nPuedes explicar, con el ejemplo de Population, por qué la media, la mediana y la media truncada dan resultados distintos, y qué relación tiene eso con el sesgo de la distribución\nResolviste los tres ejercicios de Murder.Rate antes de revisar la solución, no después\nSabes cuándo usar una media o mediana ponderada en vez de la versión simple\nPuedes decir cuáles medidas de dispersión son robustas a valores atípicos y cuáles no\nSabes cuándo comparar dos desviaciones estándar directamente es un error, y qué medida usar en su lugar\nCompletaste el caso integrador de loans_income.csv con tu propia conclusión escrita, no solo el código\nAvanzaste el ejercicio final con tu propio dataset: al menos el Paso 1 (dataset cargado) y el Paso 2 (tus tres preguntas escritas) antes de la próxima sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-03/index.html#lo-que-viene",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "10 Lo que viene",
+    "text": "10 Lo que viene\n\nSemana 4. Vas a interpretar percentiles y diagramas de caja (boxplot) para las variables numéricas, y tablas de contingencia y gráficos de barras para las categóricas.\nSemana 5. Vas a explorar relaciones entre variables con gráficos de dispersión y gráficos condicionales, y a cerrar la Unidad 1 con un informe exploratorio.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-03/index.html#recursos",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "11 Recursos",
+    "text": "11 Recursos\n\nBruce, P., Bruce, A. y Gedeck, P. Estadística práctica para ciencia de datos con R y Python. 2.ª edición, MARCOMBO, 2022. Capítulo 1: “Análisis exploratorio de datos”. Fuente de esta guía.\nDatasets de esta guía, del repositorio de datos del libro: state.csv y loans_income.csv\nDocumentación de pandas.cut: pandas.pydata.org/docs/reference/api/pandas.cut.html\nPaquete wquantiles para percentiles ponderados: pypi.org/project/wquantiles\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal y los gráficos son reales, producidos al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
   },
   {
     "objectID": "herramientas-programacion-1/index.html",

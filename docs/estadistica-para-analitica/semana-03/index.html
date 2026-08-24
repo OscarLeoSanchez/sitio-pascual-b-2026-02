@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-01/index.html">Unidad 1. Análisis descriptivo y exploratorio</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-03/index.html">Semana 3. Localización, dispersión y tablas de frecuencia</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del módulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Análisis descriptivo y exploratorio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Presentación y entorno de trabajo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Tipos de variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-03/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Semana 3. Localización, dispersión y tablas de frecuencia</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#de-qué-va-esta-semana" id="toc-de-qué-va-esta-semana" class="nav-link active" data-scroll-target="#de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</a></li>
+  <li><a href="#cargar-el-dataset-del-libro" id="toc-cargar-el-dataset-del-libro" class="nav-link" data-scroll-target="#cargar-el-dataset-del-libro"><span class="header-section-number">2</span> Cargar el dataset del libro</a></li>
+  <li><a href="#estimación-de-la-localización" id="toc-estimación-de-la-localización" class="nav-link" data-scroll-target="#estimación-de-la-localización"><span class="header-section-number">3</span> Estimación de la localización</a>
+  <ul class="collapse">
+  <li><a href="#la-media" id="toc-la-media" class="nav-link" data-scroll-target="#la-media">La media</a></li>
+  <li><a href="#la-mediana" id="toc-la-mediana" class="nav-link" data-scroll-target="#la-mediana">La mediana</a></li>
+  <li><a href="#la-media-truncada" id="toc-la-media-truncada" class="nav-link" data-scroll-target="#la-media-truncada">La media truncada</a></li>
+  <li><a href="#las-tres-calculadas-sobre-population" id="toc-las-tres-calculadas-sobre-population" class="nav-link" data-scroll-target="#las-tres-calculadas-sobre-population">Las tres, calculadas sobre <code>Population</code></a></li>
+  <li><a href="#media-y-mediana-ponderadas" id="toc-media-y-mediana-ponderadas" class="nav-link" data-scroll-target="#media-y-mediana-ponderadas">Media y mediana ponderadas</a></li>
+  </ul></li>
+  <li><a href="#estimación-de-la-variabilidad" id="toc-estimación-de-la-variabilidad" class="nav-link" data-scroll-target="#estimación-de-la-variabilidad"><span class="header-section-number">4</span> Estimación de la variabilidad</a>
+  <ul class="collapse">
+  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar">Varianza y desviación estándar</a></li>
+  <li><a href="#rango-intercuartílico-iqr-y-mad" id="toc-rango-intercuartílico-iqr-y-mad" class="nav-link" data-scroll-target="#rango-intercuartílico-iqr-y-mad">Rango intercuartílico (IQR) y MAD</a></li>
+  <li><a href="#coeficiente-de-variación-comparar-dispersión-entre-variables-distintas" id="toc-coeficiente-de-variación-comparar-dispersión-entre-variables-distintas" class="nav-link" data-scroll-target="#coeficiente-de-variación-comparar-dispersión-entre-variables-distintas">Coeficiente de variación: comparar dispersión entre variables distintas</a></li>
+  </ul></li>
+  <li><a href="#tablas-de-frecuencias-e-histogramas" id="toc-tablas-de-frecuencias-e-histogramas" class="nav-link" data-scroll-target="#tablas-de-frecuencias-e-histogramas"><span class="header-section-number">5</span> Tablas de frecuencias e histogramas</a></li>
+  <li><a href="#caso-integrador-ingresos-de-solicitantes-de-crédito" id="toc-caso-integrador-ingresos-de-solicitantes-de-crédito" class="nav-link" data-scroll-target="#caso-integrador-ingresos-de-solicitantes-de-crédito"><span class="header-section-number">6</span> Caso integrador: ingresos de solicitantes de crédito</a></li>
+  <li><a href="#ejercicio-final-constrúyelo-tú-de-principio-a-fin" id="toc-ejercicio-final-constrúyelo-tú-de-principio-a-fin" class="nav-link" data-scroll-target="#ejercicio-final-constrúyelo-tú-de-principio-a-fin"><span class="header-section-number">7</span> Ejercicio final: constrúyelo tú, de principio a fin</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-consigue-un-dataset-más-complejo" id="toc-paso-1.-consigue-un-dataset-más-complejo" class="nav-link" data-scroll-target="#paso-1.-consigue-un-dataset-más-complejo">Paso 1. Consigue un dataset más complejo</a></li>
+  <li><a href="#paso-2.-formula-tus-propias-preguntas" id="toc-paso-2.-formula-tus-propias-preguntas" class="nav-link" data-scroll-target="#paso-2.-formula-tus-propias-preguntas">Paso 2. Formula tus propias preguntas</a></li>
+  <li><a href="#paso-3.-responde-y-justifica-cada-una" id="toc-paso-3.-responde-y-justifica-cada-una" class="nav-link" data-scroll-target="#paso-3.-responde-y-justifica-cada-una">Paso 3. Responde y justifica cada una</a></li>
+  <li><a href="#paso-4.-cierra-con-una-tabla-de-frecuencias-y-un-histograma" id="toc-paso-4.-cierra-con-una-tabla-de-frecuencias-y-un-histograma" class="nav-link" data-scroll-target="#paso-4.-cierra-con-una-tabla-de-frecuencias-y-un-histograma">Paso 4. Cierra con una tabla de frecuencias y un histograma</a></li>
+  </ul></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">8</span> Errores frecuentes</a></li>
+  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">9</span> Lista de chequeo de la semana</a></li>
+  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">10</span> Lo que viene</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">11</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-01/index.html">Unidad 1. Análisis descriptivo y exploratorio</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-03/index.html">Semana 3. Localización, dispersión y tablas de frecuencia</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24 de agosto de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Módulo</td>
+<td>Estadística para Analítica</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Especialización en Big Data</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 1. Análisis descriptivo y exploratorio de datos</td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="de-qué-va-esta-semana" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</h2>
+<p>Esta guía sigue el capítulo 1 de <em>Estadística práctica para ciencia de datos con R y Python</em> (Bruce, Bruce y Gedeck, 2.ª edición), que es la fuente que seguimos esta semana. Vamos a repetir, con Python, los mismos cálculos que hace el libro, con la misma formalidad: cada medida trae su fórmula, un ejemplo resuelto, y un recuadro de <strong>interpretación en contexto</strong> que explica, en lenguaje llano y con el ejemplo concreto del dataset, qué significa ese número más allá de la definición matemática.</p>
+<p>El dataset guía es <code>state.csv</code>, del propio repositorio del libro: población y tasa de homicidios de los 50 estados de EE. UU. según el censo de 2010. Es pequeño, real y ya publicado, lo que te deja verificar cada resultado contra un libro de referencia mientras aprendes el método. No vas a quedarte solo mirando cómo lo resuelvo yo: cada bloque conceptual trae un ejercicio para que lo resuelvas tú sobre una segunda columna del mismo dataset (<code>Murder.Rate</code>), con una solución que puedes revisar después de intentarlo. Después, aplicas todo el método completo, de principio a fin, sobre un dataset distinto y mucho más grande: 50 000 ingresos de solicitantes de crédito (<code>loans_income.csv</code>, también del libro). Y para cerrar, un ejercicio sin solución ni dataset dado: tú buscas los datos, formulas las preguntas y justificas cada respuesta.</p>
+<p>La pregunta que resuelve esta semana es la que aparece cada vez que alguien te entrega una columna de números: ¿cuál es el valor típico de esta variable, y qué tan dispersos están los datos alrededor de ese valor? La media sola no basta. Vas a calcular varias formas de resumir la localización y la dispersión, ver cuándo cada una conviene y por qué, y terminar resumiendo una variable completa en una tabla de frecuencias y un histograma.</p>
+<p>Al terminar deberías poder:</p>
+<ol type="1">
+<li>Calcular e interpretar media, mediana y media truncada a partir de su fórmula, y explicar por qué pueden diferir en un mismo conjunto de datos.</li>
+<li>Calcular media y mediana ponderadas cuando cada observación no debería pesar lo mismo.</li>
+<li>Calcular e interpretar varianza, desviación estándar, rango intercuartílico (IQR), desviación absoluta mediana (MAD) y coeficiente de variación, y decidir cuál reportar según si la variable tiene valores atípicos.</li>
+<li>Construir una tabla de frecuencias con contenedores de igual ancho y su histograma correspondiente, e interpretar la forma de la distribución que resulta (simétrica o sesgada).</li>
+<li>Aplicar el método completo a un conjunto de datos nuevo, formular tus propias preguntas sobre él, y justificar por escrito por qué cada medida que elegiste es la que corresponde.</li>
+</ol>
+</section>
+<section id="cargar-el-dataset-del-libro" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="cargar-el-dataset-del-libro"><span class="header-section-number">2</span> Cargar el dataset del libro</h2>
+<p><code>state.csv</code> está publicado en el repositorio de datos del libro. No hace falta descargarlo: pandas puede leerlo directo desde la URL cruda de GitHub.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/state.csv"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(state.head(<span class="dv">8</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(state.dtypes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>         State  Population  Murder.Rate Abbreviation
+0      Alabama     4779736          5.7           AL
+1       Alaska      710231          5.6           AK
+2      Arizona     6392017          4.7           AZ
+3     Arkansas     2915918          5.6           AR
+4   California    37253956          4.4           CA
+5     Colorado     5029196          2.8           CO
+6  Connecticut     3574097          2.4           CT
+7     Delaware      897934          5.8           DE
+
+State            object
+Population        int64
+Murder.Rate     float64
+Abbreviation     object
+dtype: object</code></pre>
+<p>Cuatro columnas: el nombre del estado y su abreviatura son categóricas nominales, sin orden natural (la clasificación de la semana 02). <code>Population</code> y <code>Murder.Rate</code> son numéricas: <code>Population</code> se cuenta (número de habitantes), y <code>Murder.Rate</code> se mide, en homicidios por cada 100 000 habitantes por año. El dataset completo tiene 50 filas, una por estado. Vas a trabajar <code>Population</code> conmigo, paso a paso, y vas a resolver los mismos pasos con <code>Murder.Rate</code> por tu cuenta.</p>
+</section>
+<section id="estimación-de-la-localización" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="estimación-de-la-localización"><span class="header-section-number">3</span> Estimación de la localización</h2>
+<p>La localización responde una pregunta simple: si tuvieras que resumir toda la columna en un solo número, ¿cuál dirías? Hay más de una respuesta razonable, y esta sección construye tres, con su fórmula, antes de comparar cuál conviene según el caso.</p>
+<section id="la-media" class="level3">
+<h3 class="anchored" data-anchor-id="la-media">La media</h3>
+<p>La media (o promedio) suma todos los valores y divide entre cuántos son:</p>
+<p><span class="math display">\[
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+\]</span></p>
+<p>donde <span class="math inline">\(x_1, x_2, \ldots, x_n\)</span> son los <span class="math inline">\(n\)</span> valores de la variable. Es la estimación de localización más simple y la más usada, y por eso vale la pena entender exactamente cuándo falla.</p>
+</section>
+<section id="la-mediana" class="level3">
+<h3 class="anchored" data-anchor-id="la-mediana">La mediana</h3>
+<p>La mediana ordena los <span class="math inline">\(n\)</span> valores de menor a mayor y toma el valor central. Si <span class="math inline">\(n\)</span> es impar, es el valor en la posición <span class="math inline">\(\frac{n+1}{2}\)</span>. Si <span class="math inline">\(n\)</span> es par (como en <code>state.csv</code>, con 50 filas), es el promedio de los dos valores centrales, en las posiciones <span class="math inline">\(\frac{n}{2}\)</span> y <span class="math inline">\(\frac{n}{2}+1\)</span>. A diferencia de la media, la mediana no usa el valor de cada dato, solo su posición en el orden.</p>
+</section>
+<section id="la-media-truncada" class="level3">
+<h3 class="anchored" data-anchor-id="la-media-truncada">La media truncada</h3>
+<p>La media truncada ordena los valores, descarta un número fijo <span class="math inline">\(p\)</span> de observaciones en cada extremo, y promedia lo que queda:</p>
+<p><span class="math display">\[
+\bar{x}_{\text{tr}} = \frac{\sum_{i=p+1}^{n-p} x_{(i)}}{n - 2p}
+\]</span></p>
+<p>donde <span class="math inline">\(x_{(1)}, x_{(2)}, \ldots, x_{(n)}\)</span> son los valores ordenados de menor a mayor. Con <code>trim=0.1</code> (10%) sobre 50 estados, <span class="math inline">\(p = 5\)</span>: se descartan los 5 estados más pequeños y los 5 más grandes, y se promedian los 40 restantes.</p>
+</section>
+<section id="las-tres-calculadas-sobre-population" class="level3">
+<h3 class="anchored" data-anchor-id="las-tres-calculadas-sobre-population">Las tres, calculadas sobre <code>Population</code></h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> trim_mean</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>media <span class="op">=</span> state[<span class="st">"Population"</span>].mean()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>media_truncada <span class="op">=</span> trim_mean(state[<span class="st">"Population"</span>], <span class="fl">0.1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>mediana <span class="op">=</span> state[<span class="st">"Population"</span>].median()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media:"</span>, media)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media truncada (10%):"</span>, media_truncada)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"mediana:"</span>, mediana)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>media: 6162876.3
+media truncada (10%): 4783697.125
+mediana: 4436369.5</code></pre>
+<p>Las tres estimaciones dan resultados distintos, y la diferencia no es ruido: tiene una causa concreta. La mediana ordena las 50 poblaciones y toma el valor central. No le importa si el estado más grande tiene 6 millones de habitantes o 40 millones: solo le importa su posición en el orden. La media, en cambio, suma los 50 valores, y California pesa en esa suma con sus 37 253 956 habitantes tanto como pesan juntos varios de los estados más pequeños. Ese único estado empuja la media muy por encima de la mediana: la diferencia entre las dos, 6 162 876 contra 4 436 370, es casi 1.73 millones de habitantes, más grande que la población de 12 de los 50 estados.</p>
+<p>La media truncada, al descartar los 5 estados más grandes (entre ellos California) y los 5 más pequeños, queda mucho más cerca de la mediana (4.78 millones) que de la media (6.16 millones): es un punto intermedio, que elimina la influencia de los extremos sin llegar a ignorar por completo cuánto pesa cada estado, como sí hace la mediana.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Media (6.16 millones).</strong> Es la cifra que resultaría si repartieras la población total del país en partes exactamente iguales entre los 50 estados. Nadie tiene esa población: es un promedio matemático, no el tamaño de ningún estado real. Sirve para cálculos que necesitan el total (la población total del país es la media por 50), pero engaña si la usas para describir “cómo es un estado típico”.</li>
+<li><strong>Mediana (4.44 millones).</strong> Es la población del estado que queda justo en el medio si alinearas los 50 estados de menor a mayor. La mitad de los estados tiene menos población que eso, y la otra mitad tiene más. Es la mejor respuesta a “¿cómo es un estado típico?”, porque no le importa si California tiene 6 millones o 60 millones más que el resto: sigue estando igual de lejos, en la misma posición del orden.</li>
+<li><strong>Media truncada (4.78 millones).</strong> Es como el promedio de una competencia de clavados, donde se descartan la nota más alta y la más baja de los jueces antes de promediar, para que un juez sesgado no manipule el resultado: aquí se descartan los 5 estados más chicos y los 5 más grandes antes de promediar los 40 restantes.</li>
+</ul>
+</div>
+</div>
+<div class="diagrama">
+<p><img src="imagenes/media-vs-mediana.svg" class="img-fluid" alt="Linea de poblacion por estado en millones de habitantes, con California marcada aparte como un punto alejado del resto. La mediana cae dentro del grupo denso de estados; la media queda desplazada hacia la derecha, mas cerca de California."></p>
+</div>
+<p>Cuando una variable no tiene valores extremos, media y mediana casi coinciden. Cuando sí los tiene (y <code>Population</code> es un buen ejemplo: hay un salto grande entre la mayoría de los estados y los pocos muy poblados), la mediana y la media truncada quedan más cerca del valor que describiría mejor a un estado “típico”, y la media queda <strong>jalada</strong> hacia el valor atípico. Esa propiedad, no dejarse mover por unos pocos valores extremos, se llama <strong>robustez</strong>. La mediana y la media truncada son robustas; la media, no.</p>
+<div class="diagrama">
+<p><img src="imagenes/forma-distribucion.svg" class="img-fluid" alt="Tres curvas de distribucion: simetrica con media igual a mediana, sesgada a la derecha con la media mayor que la mediana por la cola larga hacia valores altos, y sesgada a la izquierda con la media menor que la mediana."></p>
+</div>
+<p>Esta relación entre media y mediana no es exclusiva de <code>Population</code>: es una regla general que vas a usar en cada dataset nuevo que abras. Cuando la cola de la distribución se estira hacia valores altos (sesgo a la derecha, como la población o casi cualquier variable de dinero: ingresos, precios, ventas), la media queda por encima de la mediana. Cuando se estira hacia valores bajos (sesgo a la izquierda, menos común: edad de jubilación, calificaciones de un examen fácil donde casi todos sacan buena nota y pocos sacan mala), la media queda por debajo. Cuando no hay cola dominante, coinciden. Antes de reportar un solo número, mirar si media y mediana coinciden te dice, sin necesidad de graficar nada todavía, si la variable tiene sesgo.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejercicio: localización de <code>Murder.Rate</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Calcula la media, la mediana y la media truncada al 10% de <code>Murder.Rate</code>, la tasa de homicidios por cada 100 000 habitantes. Antes de correr el código, escribe una hipótesis: ¿esperas que la media quede muy por encima de la mediana, como pasó con <code>Population</code>, o más cerca? Justifica tu respuesta pensando en si <code>Murder.Rate</code> tiene un valor tan extremo como California.</p>
+<p>Después de calcular las tres, responde: ¿qué estado tiene la tasa más alta? ¿Cambia tu conclusión sobre el sesgo de la distribución?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>media_mr <span class="op">=</span> state[<span class="st">"Murder.Rate"</span>].mean()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mediana_mr <span class="op">=</span> state[<span class="st">"Murder.Rate"</span>].median()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>truncada_mr <span class="op">=</span> trim_mean(state[<span class="st">"Murder.Rate"</span>], <span class="fl">0.1</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media:"</span>, media_mr)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"mediana:"</span>, mediana_mr)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media truncada (10%):"</span>, truncada_mr)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>media: 4.066
+mediana: 4.0
+media truncada (10%): 3.9450000000000003</code></pre>
+<p>Las tres estimaciones quedan mucho más cerca entre sí que en <code>Population</code> (4.07, 4.0 y 3.95, contra 6.16, 4.44 y 4.78 millones). <code>Murder.Rate</code> sí tiene sesgo a la derecha (la media queda un poco por encima de la mediana), pero mucho más leve: no hay un estado tan extremo, en proporción al resto, como California lo es para la población. El máximo de <code>Murder.Rate</code> es 10.3 (Louisiana), apenas 2.5 veces la media, mientras que la población de California es más de 6 veces la media de <code>Population</code>. Conclusión: una diferencia pequeña entre media y mediana es la señal de que ningún valor extremo domina el resultado, y en ese caso cualquiera de las tres estimaciones sirve para reportar el valor típico.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="media-y-mediana-ponderadas" class="level3">
+<h3 class="anchored" data-anchor-id="media-y-mediana-ponderadas">Media y mediana ponderadas</h3>
+<p><code>Murder.Rate</code> trae otra pregunta. Si promedias esa columna sin más, tratas la tasa de Wyoming (con menos de 600 000 habitantes) exactamente igual que la de California (con más de 37 millones), y sin embargo un homicidio en California pesa sobre una población muchísimo mayor. Cuando cada observación representa una masa distinta, conviene ponderar: multiplicar cada valor por su peso antes de promediar.</p>
+<p><span class="math display">\[
+\bar{x}_w = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}
+\]</span></p>
+<p>donde <span class="math inline">\(w_i\)</span> es el peso de la observación <span class="math inline">\(i\)</span> (aquí, la población del estado <span class="math inline">\(i\)</span>). La mediana ponderada sigue la misma idea pero sobre las posiciones: es el valor tal que la mitad de la suma de los pesos queda por encima y la otra mitad por debajo, en la lista ordenada.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> wquantiles</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media simple de Murder.Rate:"</span>, state[<span class="st">"Murder.Rate"</span>].mean())</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"mediana simple de Murder.Rate:"</span>, state[<span class="st">"Murder.Rate"</span>].median())</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>media_ponderada <span class="op">=</span> np.average(state[<span class="st">"Murder.Rate"</span>], weights<span class="op">=</span>state[<span class="st">"Population"</span>])</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>mediana_ponderada <span class="op">=</span> wquantiles.median(state[<span class="st">"Murder.Rate"</span>], weights<span class="op">=</span>state[<span class="st">"Population"</span>])</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media ponderada por poblacion:"</span>, media_ponderada)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"mediana ponderada por poblacion:"</span>, mediana_ponderada)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>media simple de Murder.Rate: 4.066
+mediana simple de Murder.Rate: 4.0
+media ponderada por poblacion: 4.445833981123393
+mediana ponderada por poblacion: 4.4</code></pre>
+<p><code>np.average</code> con el argumento <code>weights</code> calcula la media ponderada directamente. Para la mediana ponderada no hay una función en la librería estándar de NumPy o pandas; el paquete <code>wquantiles</code> (se instala con <code>pip install wquantiles</code>) la resuelve. La tasa ponderada sube de 4.07 a 4.45: los estados más poblados de esta muestra tienden a tener una tasa de homicidios un poco más alta que el promedio simple, y ponderar por población lo refleja.</p>
+<p><strong>Caso de uso.</strong> Si un analista de política pública preguntara “¿cuál es la tasa de homicidios promedio en el país?”, la respuesta correcta no es el promedio simple de las 50 tasas estatales: es la tasa ponderada, porque refleja cuántas personas viven realmente bajo cada tasa. El promedio simple le da a Wyoming (menos de 600 000 habitantes) el mismo peso que a California (más de 37 millones), y eso distorsiona cualquier conclusión sobre el país como conjunto.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Piensa en la diferencia entre estas dos preguntas: “¿cuál es la tasa de homicidios promedio <em>entre</em> los 50 estados?” (la respuesta es 4.07, el promedio simple, donde cada estado cuenta como una unidad) y “¿cuál es la tasa de homicidios que en promedio vive <em>una persona</em> del país?” (la respuesta es 4.45, el promedio ponderado, donde cada persona cuenta como una unidad). La primera pregunta trata a Wyoming como si tuviera el mismo peso que California; la segunda no. Cuál de las dos preguntar depende de si tu unidad de interés son los estados o las personas.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>¿Y la moda?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La carta descriptiva menciona la moda entre las medidas de localización, pero la moda casi no se usa con variables numéricas. Es el valor que más se repite, y eso solo es informativo cuando hay repeticiones reales.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(state[<span class="st">"Murder.Rate"</span>].value_counts().sort_values(ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">5</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"valores unicos de Population:"</span>, state[<span class="st">"Population"</span>].nunique(), <span class="st">"de"</span>, <span class="bu">len</span>(state))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Murder.Rate
+5.7    3
+2.0    3
+1.6    3
+5.6    2
+5.8    2
+Name: count, dtype: int64
+
+valores unicos de Population: 50 de 50</code></pre>
+<p><code>Murder.Rate</code> sí tiene repeticiones (varios estados comparten la misma tasa), y hay un empate a tres vías en el valor más frecuente: 5.7, 2.0 y 1.6 homicidios por 100 000 habitantes aparecen cada uno en tres estados. Eso ya es una moda multimodal, sin un único valor dominante. <code>Population</code>, en cambio, tiene 50 valores distintos en 50 filas: ningún valor se repite, así que la moda no dice nada. Donde la moda sí es la medida correcta es en variables categóricas: la máquina que más se usó en el taller de mantenimiento de la semana 02, o el turno con más órdenes registradas. Ahí no hay alternativa: no puedes promediar <code>maquina</code>, pero sí puedes preguntar cuál es la más frecuente.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="estimación-de-la-variabilidad" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="estimación-de-la-variabilidad"><span class="header-section-number">4</span> Estimación de la variabilidad</h2>
+<p>Saber el valor típico no basta: dos variables pueden tener la misma media y comportarse de forma completamente distinta si una está muy concentrada alrededor de ese valor y la otra muy dispersa. La variabilidad mide qué tan lejos, en promedio, están los datos de su valor central.</p>
+<section id="varianza-y-desviación-estándar" class="level3">
+<h3 class="anchored" data-anchor-id="varianza-y-desviación-estándar">Varianza y desviación estándar</h3>
+<p>La varianza promedia el cuadrado de las distancias de cada valor a la media:</p>
+<p><span class="math display">\[
+s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n - 1}
+\]</span></p>
+<p>Se divide entre <span class="math inline">\(n - 1\)</span> y no entre <span class="math inline">\(n\)</span> porque, al usar la media muestral <span class="math inline">\(\bar{x}\)</span> en vez de la media real de la población, se pierde un grado de libertad: si conoces <span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(n - 1\)</span> de los valores, el último queda determinado. Dividir entre <span class="math inline">\(n - 1\)</span> corrige ese sesgo. En la práctica, con muestras de tamaño moderado o grande, la diferencia entre dividir por <span class="math inline">\(n\)</span> o por <span class="math inline">\(n - 1\)</span> es mínima.</p>
+<p>La varianza queda en unidades al cuadrado (habitantes al cuadrado, si hablamos de <code>Population</code>), lo que la hace casi imposible de interpretar directamente. La desviación estándar es su raíz cuadrada, y por eso es la que casi siempre se reporta: queda en la misma unidad que los datos originales.</p>
+<p><span class="math display">\[
+s = \sqrt{s^2}
+\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>varianza <span class="op">=</span> state[<span class="st">"Population"</span>].var()</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>desviacion <span class="op">=</span> state[<span class="st">"Population"</span>].std()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"varianza:"</span>, varianza)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"desviacion estandar:"</span>, desviacion)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>varianza: 46898327373394.445
+desviacion estandar: 6848235.347401142</code></pre>
+<p>Verifica la relación con la fórmula: <span class="math inline">\(\sqrt{46\,898\,327\,373\,394.445} \approx 6\,848\,235.35\)</span>, que coincide con lo que calculó <code>.std()</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La varianza, por sí sola, casi no se interpreta: “46.9 billones de habitantes al cuadrado” no significa nada intuitivo para nadie. Existe como paso matemático hacia la desviación estándar, no como un número para reportar. La desviación estándar sí se lee directamente: en promedio, la población de un estado se aleja unos 6.85 millones de habitantes de la media del país. Es la regla de bolsillo que usarías para decir “esta población es normal” o “esta población es rarísima”: si un estado se aleja mucho más que una desviación estándar de la media, llama la atención.</p>
+</div>
+</div>
+</section>
+<section id="rango-intercuartílico-iqr-y-mad" class="level3">
+<h3 class="anchored" data-anchor-id="rango-intercuartílico-iqr-y-mad">Rango intercuartílico (IQR) y MAD</h3>
+<p>El IQR y la MAD son las versiones robustas de la desviación estándar, del mismo modo que la mediana es la versión robusta de la media.</p>
+<p>El IQR es la diferencia entre el percentil 75 (<span class="math inline">\(Q_3\)</span>) y el percentil 25 (<span class="math inline">\(Q_1\)</span>): el ancho del 50% central de los datos, ignorando el 25% más bajo y el 25% más alto.</p>
+<p><span class="math display">\[
+\text{IQR} = Q_3 - Q_1
+\]</span></p>
+<p>La MAD (desviación absoluta mediana) es la mediana de las distancias absolutas de cada valor a la mediana:</p>
+<p><span class="math display">\[
+\text{MAD} = \text{mediana} \left( |x_1 - m|, |x_2 - m|, \ldots, |x_n - m| \right)
+\]</span></p>
+<p>donde <span class="math inline">\(m\)</span> es la mediana de la variable. En Python, <code>statsmodels</code> multiplica la MAD por la constante 1.4826 antes de devolverla, para que quede en la misma escala que la desviación estándar cuando los datos siguen una distribución normal.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels <span class="im">import</span> robust</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>iqr <span class="op">=</span> state[<span class="st">"Population"</span>].quantile(<span class="fl">0.75</span>) <span class="op">-</span> state[<span class="st">"Population"</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>mad <span class="op">=</span> robust.scale.mad(state[<span class="st">"Population"</span>])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"rango intercuartilico (IQR):"</span>, iqr)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAD:"</span>, mad)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>rango intercuartilico (IQR): 4847308.0
+MAD: 3849876.1459979336</code></pre>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Medida</th>
+<th style="text-align: right;">Valor sobre <code>Population</code></th>
+<th style="text-align: center;">¿Robusta a atípicos?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Desviación estándar</td>
+<td style="text-align: right;">6 848 235</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td>IQR</td>
+<td style="text-align: right;">4 847 308</td>
+<td style="text-align: center;">Sí</td>
+</tr>
+<tr class="odd">
+<td>MAD</td>
+<td style="text-align: right;">3 849 876</td>
+<td style="text-align: center;">Sí</td>
+</tr>
+</tbody>
+</table>
+<p>La varianza y la desviación estándar elevan las distancias al cuadrado, así que un solo valor muy alejado (otra vez, California) pesa desproporcionadamente en el resultado: la desviación estándar es casi el doble de la MAD (6 848 235 contra 3 849 876) precisamente porque no es robusta a ese valor extremo. El IQR y la MAD, como la mediana, no se mueven si cambias el valor de California por cualquier otro número igual de grande: solo les importa la posición de los datos, no su magnitud exacta.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El IQR (4.85 millones) responde: si te quedas solo con la mitad de los estados que están justo en el centro de la distribución (descartando el 25% más chico y el 25% más grande), esos estados varían en un rango de 4.85 millones de habitantes entre el más chico y el más grande de ese grupo central. La MAD (3.85 millones) responde algo parecido, pero calculado distinto: en promedio, usando la mediana como referencia en vez de la media, un estado se aleja unos 3.85 millones de habitantes del estado típico. Las dos existen porque, a diferencia de la desviación estándar, no se dejan impresionar por California.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejercicio: variabilidad de <code>Murder.Rate</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Calcula la varianza, la desviación estándar, el IQR y la MAD de <code>Murder.Rate</code>. Antes de calcular, piensa: como ya viste en el ejercicio anterior que <code>Murder.Rate</code> no tiene un atípico tan marcado como California, ¿esperas que la desviación estándar y la MAD queden mucho más cerca entre sí que en <code>Population</code>, o igual de lejos?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>varianza_mr <span class="op">=</span> state[<span class="st">"Murder.Rate"</span>].var()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>desviacion_mr <span class="op">=</span> state[<span class="st">"Murder.Rate"</span>].std()</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>iqr_mr <span class="op">=</span> state[<span class="st">"Murder.Rate"</span>].quantile(<span class="fl">0.75</span>) <span class="op">-</span> state[<span class="st">"Murder.Rate"</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mad_mr <span class="op">=</span> robust.scale.mad(state[<span class="st">"Murder.Rate"</span>])</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"varianza:"</span>, varianza_mr)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"desviacion estandar:"</span>, desviacion_mr)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"IQR:"</span>, iqr_mr)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAD:"</span>, mad_mr)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>varianza: 3.6700448979591838
+desviacion estandar: 1.9157361243029227
+IQR: 3.125
+MAD: 2.3721635496089624</code></pre>
+<p>Al contrario de lo que podría esperarse, la desviación estándar (1.92) queda <strong>por debajo</strong> de la MAD (2.37), no por encima. Esto no contradice lo que aprendiste con <code>Population</code>: significa que <code>Murder.Rate</code>, con solo 50 observaciones y sin un atípico dominante, no se comporta exactamente como una distribución normal perfecta, que es el supuesto bajo el que la MAD se escala con el factor 1.4826 para igualar a la desviación estándar. La lección no cambia: sin un valor extremo que domine, las dos medidas quedan en el mismo orden de magnitud (1.92 y 2.37, una diferencia de 0.45), muy distinto de la brecha de casi 3 millones que separaba a la desviación estándar de la MAD en <code>Population</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="coeficiente-de-variación-comparar-dispersión-entre-variables-distintas" class="level3">
+<h3 class="anchored" data-anchor-id="coeficiente-de-variación-comparar-dispersión-entre-variables-distintas">Coeficiente de variación: comparar dispersión entre variables distintas</h3>
+<p>La desviación estándar de <code>Population</code> (6.85 millones) y la de <code>Murder.Rate</code> (una fracción de homicidio por 100 000 habitantes) no se pueden comparar directamente: están en unidades distintas y en escalas distintas. El <strong>coeficiente de variación</strong> (CV) resuelve eso dividiendo la desviación estándar entre la media, lo que lo convierte en un número sin unidades:</p>
+<p><span class="math display">\[
+CV = \frac{s}{\bar{x}}
+\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cv_poblacion <span class="op">=</span> state[<span class="st">"Population"</span>].std() <span class="op">/</span> state[<span class="st">"Population"</span>].mean()</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cv_homicidios <span class="op">=</span> state[<span class="st">"Murder.Rate"</span>].std() <span class="op">/</span> state[<span class="st">"Murder.Rate"</span>].mean()</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"CV poblacion:"</span>, cv_poblacion)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"CV tasa de homicidios:"</span>, cv_homicidios)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>CV poblacion: 1.111207659222552
+CV tasa de homicidios: 0.4711598928438079</code></pre>
+<p><code>Population</code> tiene un CV de 1.11: su desviación estándar es mayor que su propia media, señal de una variable con una dispersión enorme en relación con su valor típico. <code>Murder.Rate</code> tiene un CV de 0.47, menos de la mitad: aunque las dos variables tienen desviaciones estándar en escalas completamente distintas, el CV permite decir, con un solo número comparable, que la tasa de homicidios es relativamente mucho menos dispersa que la población.</p>
+<p><strong>Caso de uso.</strong> El CV se usa mucho para comparar el riesgo o la variabilidad de cosas que no comparten unidad. En finanzas, para comparar qué tan riesgosas son dos inversiones con rendimientos promedio distintos. En control de calidad industrial, para comparar la variabilidad de dos procesos que miden magnitudes distintas (temperatura contra presión, por ejemplo). La regla es siempre la misma: si vas a comparar la dispersión de dos variables que no están en la misma unidad o en la misma escala, compara sus coeficientes de variación, no sus desviaciones estándar.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un CV de 1.11 en <code>Population</code> significa que la desviación estándar es <em>mayor</em> que la propia media: es una variable extremadamente “ancha” en relación con su valor típico. Un CV de 0.47 en <code>Murder.Rate</code> significa que la desviación estándar es menos de la mitad de la media: es una variable comparativamente mucho más “angosta” o concentrada. Ninguno de los dos números por separado (6.85 millones contra 1.92) te deja comparar esto directamente, porque están en unidades distintas; el CV sí, porque no tiene unidades.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="tablas-de-frecuencias-e-histogramas" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="tablas-de-frecuencias-e-histogramas"><span class="header-section-number">5</span> Tablas de frecuencias e histogramas</h2>
+<p>Las medidas anteriores resumen una variable en un solo número. Una tabla de frecuencias y su histograma resumen la variable completa, mostrando cómo se reparten los datos a lo largo de todo su rango.</p>
+<div class="diagrama">
+<p><img src="imagenes/tabla-a-histograma.svg" class="img-fluid" alt="Los datos ordenados se dividen en contenedores de igual ancho, cada uno con su conteo. El histograma dibuja esos mismos conteos como la altura de una barra por contenedor."></p>
+</div>
+<p>Una tabla de frecuencias divide el rango completo de la variable en <span class="math inline">\(k\)</span> segmentos de <strong>igual ancho</strong> (los contenedores) y cuenta cuántos valores caen en cada uno. El ancho de cada contenedor sale de dividir el rango total entre el número de contenedores que elijas:</p>
+<p><span class="math display">\[
+\text{ancho del contenedor} = \frac{x_{\max} - x_{\min}}{k}
+\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>contenedores <span class="op">=</span> pd.cut(state[<span class="st">"Population"</span>], <span class="dv">10</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>tabla_frecuencias <span class="op">=</span> contenedores.value_counts(sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tabla_frecuencias)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"suma de conteos:"</span>, tabla_frecuencias.<span class="bu">sum</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Population
+(526935.67, 4232659.0]      24
+(4232659.0, 7901692.0]      14
+(7901692.0, 11570725.0]      6
+(11570725.0, 15239758.0]     2
+(15239758.0, 18908791.0]     1
+(18908791.0, 22577824.0]     1
+(22577824.0, 26246857.0]     1
+(26246857.0, 29915890.0]     0
+(29915890.0, 33584923.0]     0
+(33584923.0, 37253956.0]     1
+Name: count, dtype: int64
+
+suma de conteos: 50</code></pre>
+<p><code>pd.cut</code> divide el rango de <code>Population</code> (de 563 626, la población de Wyoming, a 37 253 956, la de California) en 10 contenedores del mismo ancho: verifica con la fórmula, <span class="math inline">\((37\,253\,956 - 563\,626) / 10 \approx 3\,669\,033\)</span> habitantes por contenedor. <code>value_counts</code> cuenta cuántos estados caen en cada uno. Los 50 conteos suman 50: cada estado cae en exactamente un contenedor.</p>
+<p>Dos contenedores (el octavo y el noveno, entre 26.2 y 33.6 millones) no tienen ningún estado. Vale la pena incluirlos igual: un contenedor vacío es información, no un espacio para recortar. Si los quitaras, la tabla sugeriría que la población salta de un estado con 26 millones directo a uno con 37 millones, y esconderías el hueco real que hay entre Texas y California.</p>
+<div class="diagrama">
+<p><img src="imagenes/histograma-poblacion.svg" class="img-fluid" alt="Histograma de la poblacion por estado en 10 contenedores de igual ancho, con la mayoria de los estados concentrados en los primeros dos contenedores y una cola larga hacia la derecha con pocos estados muy poblados."></p>
+</div>
+<p>El histograma dibuja la misma tabla como barras: un eje con los contenedores y la altura de cada barra igual al conteo. Se ve de inmediato lo que la tabla de números cuesta más leer: la mayoría de los estados (38 de 50) caen en los dos primeros contenedores, con menos de 8 millones de habitantes, y después la barra baja rápido, con una cola larga y delgada hacia la derecha donde están Florida, Nueva York, Texas y, sola en el último contenedor, California. Esta forma es la misma que viste en el diagrama de sesgo: concentrada a la izquierda, con una cola larga a la derecha, y por eso la media de <code>Population</code> queda tan por encima de la mediana.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un histograma sesgado a la derecha, como el de <code>Population</code>, te dice en una sola mirada algo que los números por separado esconden: la mayoría de los casos son chicos o medianos, y unos pocos casos extremos son responsables de que la media se vea inflada. Si alguien te reporta solo la media de una variable así, sin mostrar antes el histograma o compararla con la mediana, te está ocultando que ese número no representa bien al caso típico.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejercicio: tabla de frecuencias e histograma de <code>Murder.Rate</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Construye la tabla de frecuencias de <code>Murder.Rate</code> con 6 contenedores (no 10: el rango de esta variable es mucho más angosto que el de <code>Population</code>, y 10 contenedores dejarían casi todos con 1 o 2 estados). Antes de correr el código, calcula a mano el ancho de cada contenedor con la fórmula de esta sección, sabiendo que el mínimo es 0.9 y el máximo es 10.3. Después de obtener la tabla, responde: ¿la distribución se parece más al histograma simétrico o al sesgado a la derecha del diagrama de arriba? ¿Coincide con lo que ya concluiste sobre la diferencia entre media y mediana de esta variable?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ancho esperado: <span class="math inline">\((10.3 - 0.9) / 6 \approx 1.57\)</span>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>contenedores_mr <span class="op">=</span> pd.cut(state[<span class="st">"Murder.Rate"</span>], <span class="dv">6</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tabla_mr <span class="op">=</span> contenedores_mr.value_counts(sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tabla_mr)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"suma:"</span>, tabla_mr.<span class="bu">sum</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Murder.Rate
+(0.891, 2.467]    13
+(2.467, 4.033]    13
+(4.033, 5.6]       13
+(5.6, 7.167]        9
+(7.167, 8.733]      1
+(8.733, 10.3]       1
+Name: count, dtype: int64
+
+suma: 50</code></pre>
+<p>Los tres primeros contenedores están casi empatados (13, 13 y 13 estados), y de ahí la frecuencia baja de forma escalonada: 9, luego 1, luego 1. Hay una cola a la derecha, pero mucho menos marcada que en <code>Population</code>: 41 de los 50 estados (los primeros cuatro contenedores) están razonablemente concentrados entre 0.9 y 7.17, y solo 2 estados quedan en la cola larga. Esto confirma lo que ya habías visto: hay sesgo a la derecha, pero leve, consistente con que la media (4.07) queda apenas un poco por encima de la mediana (4.0) y no muy por encima, como sí pasaba con <code>Population</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="caso-integrador-ingresos-de-solicitantes-de-crédito" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="caso-integrador-ingresos-de-solicitantes-de-crédito"><span class="header-section-number">6</span> Caso integrador: ingresos de solicitantes de crédito</h2>
+<p>Todo lo que calculaste hasta aquí lo hiciste sobre un dataset de 50 filas. Para cerrar la semana, vas a aplicar el mismo método completo, sin ayuda, sobre un conjunto de datos de otra naturaleza y de una escala mucho más grande: los ingresos anuales declarados por 50 000 solicitantes de un crédito, otro dataset publicado en el repositorio del libro. Es el tipo de variable que un área de riesgo crediticio revisa todos los días para decidir a quién le presta y cuánto.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>url_ingresos <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/loans_income.csv"</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>income <span class="op">=</span> pd.read_csv(url_ingresos)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>income.columns <span class="op">=</span> [<span class="st">"ingreso"</span>]</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income.head())</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"filas:"</span>, <span class="bu">len</span>(income))</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(income.dtypes)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>   ingreso
+0    67000
+1    52000
+2   100000
+3    78762
+4    37041
+filas: 50000
+ingreso    int64
+dtype: object</code></pre>
+<p>El archivo original nombra la columna <code>x</code>; la primera línea la renombra a <code>ingreso</code> para que el resto del código sea legible. Una sola columna numérica, 50 000 observaciones: mil veces más datos que <code>state.csv</code>, y vas a ver que eso no cambia el método, solo la escala de los números.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>media_ing <span class="op">=</span> income[<span class="st">"ingreso"</span>].mean()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>mediana_ing <span class="op">=</span> income[<span class="st">"ingreso"</span>].median()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>truncada_ing <span class="op">=</span> trim_mean(income[<span class="st">"ingreso"</span>], <span class="fl">0.1</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media:"</span>, media_ing)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"mediana:"</span>, mediana_ing)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"media truncada (10%):"</span>, truncada_ing)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>media: 68760.51844
+mediana: 62000.0
+media truncada (10%): 65183.5528</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>varianza_ing <span class="op">=</span> income[<span class="st">"ingreso"</span>].var()</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>desviacion_ing <span class="op">=</span> income[<span class="st">"ingreso"</span>].std()</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>iqr_ing <span class="op">=</span> income[<span class="st">"ingreso"</span>].quantile(<span class="fl">0.75</span>) <span class="op">-</span> income[<span class="st">"ingreso"</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>mad_ing <span class="op">=</span> robust.scale.mad(income[<span class="st">"ingreso"</span>])</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>cv_ing <span class="op">=</span> desviacion_ing <span class="op">/</span> media_ing</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"varianza:"</span>, varianza_ing)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"desviacion estandar:"</span>, desviacion_ing)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"IQR:"</span>, iqr_ing)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"MAD:"</span>, mad_ing)</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"CV:"</span>, cv_ing)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>varianza: 1080570709.356687
+desviacion estandar: 32872.035369850266
+IQR: 40000.0
+MAD: 29652.04437011204
+CV: 0.47806555441454673</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>contenedores_ing <span class="op">=</span> pd.cut(income[<span class="st">"ingreso"</span>], <span class="dv">10</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>tabla_ing <span class="op">=</span> contenedores_ing.value_counts(sort<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tabla_ing)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"suma:"</span>, tabla_ing.<span class="bu">sum</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>ingreso
+(3805.0, 23500.0]        1201
+(23500.0, 43000.0]      10388
+(43000.0, 62500.0]      13849
+(62500.0, 82000.0]      10719
+(82000.0, 101500.0]      6559
+(101500.0, 121000.0]     3557
+(121000.0, 140500.0]     1790
+(140500.0, 160000.0]     1108
+(160000.0, 179500.0]      477
+(179500.0, 199000.0]      352
+Name: count, dtype: int64
+
+suma: 50000</code></pre>
+<div class="diagrama">
+<p><img src="imagenes/histograma-ingresos.svg" class="img-fluid" alt="Histograma del ingreso anual de 50000 solicitantes de credito en 10 contenedores, concentrado entre 43000 y 82000 dolares, con una cola larga hacia la derecha hasta cerca de 200000 dolares."></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejercicio de cierre: redacta la conclusión
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Con los números de arriba, responde estas cuatro preguntas por escrito, en dos o tres oraciones cada una, como si se las estuvieras entregando a un gerente de riesgo crediticio que nunca ha visto estos datos:</p>
+<ol type="1">
+<li>¿Cuál es el ingreso “típico” de un solicitante? Justifica cuál de las tres medidas de localización usarías para responder esto y por qué esa, y no las otras dos.</li>
+<li>¿Qué tan dispersos están los ingresos? Usa al menos una medida de dispersión concreta en tu respuesta, no solo la palabra “dispersos” o “variados”.</li>
+<li>¿La distribución de ingresos tiene sesgo? ¿Hacia dónde, y cómo lo sabes con los números que calculaste (sin necesidad de mirar el histograma)?</li>
+<li>Si tuvieras que fijar un límite de crédito distinto para el 25% de solicitantes con menor ingreso, ¿qué valor usarías como corte, y qué medida de las que calculaste te lo da directamente?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Una posible respuesta
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>El ingreso típico ronda los 62 000 dólares (la mediana) o los 65 184 (la media truncada al 10%). La media simple, 68 761, sobreestima el caso típico porque un grupo de solicitantes con ingresos altos (hasta 199 000) la jala hacia arriba; con 50 000 observaciones y una diferencia clara entre media y mediana, conviene reportar la mediana.</li>
+<li>La desviación estándar es de 32 872 dólares, casi la mitad del ingreso medio (eso es justo lo que mide el CV de 0.48): hay una dispersión considerable. El IQR de 40 000 dice que el 50% central de los solicitantes gana entre aproximadamente 43 000 y 83 000 dólares (los cuartiles 25 y 75).</li>
+<li>Sí, sesgo a la derecha: la media (68 761) queda por encima de la mediana (62 000), y la tabla de frecuencias lo confirma, con el conteo más alto en el contenedor de 43 000 a 62 500 y una cola que se extiende, cada vez más delgada, hasta casi 200 000.</li>
+<li>El percentil 25, que en este dataset corresponde al extremo inferior del IQR calculado arriba (<code>income["ingreso"].quantile(0.25)</code>). Es exactamente la misma herramienta que ya usaste para calcular el IQR, aplicada a un solo corte en vez de a la diferencia entre dos.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejercicio-final-constrúyelo-tú-de-principio-a-fin" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="ejercicio-final-constrúyelo-tú-de-principio-a-fin"><span class="header-section-number">7</span> Ejercicio final: constrúyelo tú, de principio a fin</h2>
+<p>Todo lo anterior te dio el dataset, las preguntas y hasta la solución. Este último ejercicio no trae nada de eso: te toca buscar los datos, decidir qué preguntar y justificar cada respuesta con lo que aprendiste esta semana. No tiene solución en esta guía y no se evalúa, pero tráelo resuelto (o avanzado) a la próxima sesión: vamos a comparar en clase las preguntas que cada quien formuló.</p>
+<section id="paso-1.-consigue-un-dataset-más-complejo" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1.-consigue-un-dataset-más-complejo">Paso 1. Consigue un dataset más complejo</h3>
+<p>Elige uno de estos dos caminos.</p>
+<p><strong>Camino A: un dataset del propio libro, ya conocido pero mucho más grande y más sucio.</strong> <code>kc_tax.csv.gz</code>, con el valor catastral de casi 500 000 viviendas del condado de King (Seattle, EE. UU.), su área construida en pies cuadrados y su código postal.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>kc_tax <span class="op">=</span> pd.read_csv(</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz"</span>,</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    compression<span class="op">=</span><span class="st">"gzip"</span>,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kc_tax.shape)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kc_tax.head())</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kc_tax.isna().<span class="bu">sum</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Este dataset tiene casi 500 000 filas (diez veces más que <code>loans_income.csv</code>, diez mil veces más que <code>state.csv</code>) y trae algo que no viste esta semana: valores ausentes (<code>NaN</code>) en <code>TaxAssessedValue</code> y en <code>ZipCode</code>. Antes de calcular nada, tienes que decidir qué hacer con esas filas (¿las descartas con <code>.dropna()</code>? ¿por qué?) y justificarlo por escrito.</p>
+<p><strong>Camino B: un dataset que tú busques</strong>, de un dominio que te interese, en una fuente pública real: <a href="https://www.datos.gov.co/">datos.gov.co</a>, el <a href="https://datos.bancomundial.org/">portal de datos abiertos del Banco Mundial</a>, <a href="https://www.kaggle.com/datasets">Kaggle</a> o el <a href="https://archive.ics.uci.edu/">UCI Machine Learning Repository</a>. Debe tener al menos una variable numérica y al menos varios miles de registros: más grande y más real que cualquier cosa que hayas usado hasta ahora en el curso.</p>
+</section>
+<section id="paso-2.-formula-tus-propias-preguntas" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2.-formula-tus-propias-preguntas">Paso 2. Formula tus propias preguntas</h3>
+<p>Escribe al menos tres preguntas sobre una variable numérica del dataset que elegiste, que se puedan responder con las herramientas de esta semana (localización, dispersión, tabla de frecuencias e histograma) y no con nada que todavía no hayas visto (correlación, regresión, probabilidad: eso viene después). Una pregunta como “¿los valores catastrales altos están en los mismos códigos postales que las casas grandes?” no sirve todavía; una como “¿cuál es el valor catastral típico de una vivienda, y qué tan dispersos están los valores alrededor de ese típico?” sí.</p>
+</section>
+<section id="paso-3.-responde-y-justifica-cada-una" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3.-responde-y-justifica-cada-una">Paso 3. Responde y justifica cada una</h3>
+<p>Para cada pregunta:</p>
+<ol type="1">
+<li>Calcula la medida o las medidas que la responden.</li>
+<li>Justifica por escrito por qué esa medida, y no otra, es la que corresponde. Por ejemplo: “uso la mediana y no la media porque…” o “uso el coeficiente de variación porque estoy comparando dos variables en unidades distintas”.</li>
+<li>Redacta la conclusión en dos o tres oraciones, en el mismo tono ejecutivo que usaste en el caso de los ingresos: qué significa el número para alguien que va a tomar una decisión con él, no solo el número en sí.</li>
+</ol>
+</section>
+<section id="paso-4.-cierra-con-una-tabla-de-frecuencias-y-un-histograma" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4.-cierra-con-una-tabla-de-frecuencias-y-un-histograma">Paso 4. Cierra con una tabla de frecuencias y un histograma</h3>
+<p>Elige una variable numérica del dataset (puede ser la misma de tus preguntas) y construye su tabla de frecuencias y su histograma. Decide tú el número de contenedores, justifica por qué elegiste ese número, e interpreta la forma que resulta: ¿simétrica, sesgada a la derecha, sesgada a la izquierda? ¿A qué se debe esa forma, según lo que sabes del fenómeno que mide la variable?</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Antes de la próxima sesión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Revisa que tu trabajo cumpla las tres condiciones que pide el módulo para cualquier entrega (ver la presentación del módulo): que sea <strong>reproducible</strong> (tu código corre en otra máquina sin retoques), <strong>trazable</strong> (cada conclusión se sostiene en una salida concreta) y <strong>ejecutiva</strong> (está escrito para quien decide, no para quien revisa la fórmula).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="errores-frecuentes" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">8</span> Errores frecuentes</h2>
+<div class="error-caso">
+<p><span class="etiqueta">Error 1</span></p>
+<section id="reportar-la-media-sin-revisar-la-forma-de-la-distribución" class="level3">
+<h3 class="anchored" data-anchor-id="reportar-la-media-sin-revisar-la-forma-de-la-distribución">Reportar la media sin revisar la forma de la distribución</h3>
+<p><strong>Causa.</strong> La media es el primer número que casi todo el mundo calcula, y en una distribución simétrica es una buena elección. El problema aparece cuando se reporta sin mirar antes un histograma o comparar contra la mediana, en una variable donde ambas pueden diferir mucho, como viste con <code>Population</code> y con <code>ingreso</code>.</p>
+<p><strong>Solución.</strong> Antes de reportar un solo número, compara media y mediana. Si están cerca, cualquiera sirve. Si están lejos, hay sesgo, y conviene reportar la mediana o la media truncada, o las dos junto con la media para que quien lea entienda la diferencia.</p>
+</section>
+</div>
+<div class="error-caso">
+<p><span class="etiqueta">Error 2</span></p>
+<section id="descartar-los-contenedores-vacíos-de-una-tabla-de-frecuencias" class="level3">
+<h3 class="anchored" data-anchor-id="descartar-los-contenedores-vacíos-de-una-tabla-de-frecuencias">Descartar los contenedores vacíos de una tabla de frecuencias</h3>
+<p><strong>Causa.</strong> Al construir una tabla de frecuencias a mano, o al filtrar programáticamente las filas con conteo cero, es tentador quitar los contenedores vacíos porque “no aportan nada”.</p>
+<p><strong>Solución.</strong> Un contenedor vacío es información: dice que ningún dato cae ahí, lo cual puede ser tan importante como saber dónde sí caen. <code>pd.cut</code> seguido de <code>value_counts(sort=False)</code>, como en esta guía, conserva el orden de los contenedores y sus conteos en cero. Ordenar por conteo descendente (<code>value_counts()</code> sin <code>sort=False</code>) es exactamente el error que hay que evitar aquí, porque reordena los contenedores y rompe la lectura de izquierda a derecha del rango completo.</p>
+</section>
+</div>
+<div class="error-caso">
+<p><span class="etiqueta">Error 3</span></p>
+<section id="comparar-la-desviación-estándar-de-dos-variables-en-escalas-distintas" class="level3">
+<h3 class="anchored" data-anchor-id="comparar-la-desviación-estándar-de-dos-variables-en-escalas-distintas">Comparar la desviación estándar de dos variables en escalas distintas</h3>
+<p><strong>Causa.</strong> Ver dos desviaciones estándar, una mucho más grande que la otra, y concluir directamente que esa variable es “más dispersa”. Eso solo es válido si las dos variables están en la misma unidad y en escalas parecidas. La desviación estándar de <code>Population</code> (6.85 millones) es enorme comparada con la de <code>Murder.Rate</code> (1.92), pero eso no significa que la población sea “más dispersa” en un sentido comparable: son unidades distintas.</p>
+<p><strong>Solución.</strong> Para comparar la dispersión relativa de variables en unidades o escalas distintas, usa el coeficiente de variación (CV), no la desviación estándar directamente. Como viste en esta guía, el CV de <code>Population</code> (1.11) sí es mayor que el de <code>Murder.Rate</code> (0.47), y esa comparación sí es válida porque el CV no tiene unidades.</p>
+</section>
+</div>
+</section>
+<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">9</span> Lista de chequeo de la semana</h2>
+<div class="checklist">
+<p><strong>Antes de la próxima sesión</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Puedes escribir de memoria las fórmulas de la media, la media truncada, la varianza, la desviación estándar y el IQR</label></li>
+<li><label><input type="checkbox">Puedes explicar, con el ejemplo de <code>Population</code>, por qué la media, la mediana y la media truncada dan resultados distintos, y qué relación tiene eso con el sesgo de la distribución</label></li>
+<li><label><input type="checkbox">Resolviste los tres ejercicios de <code>Murder.Rate</code> antes de revisar la solución, no después</label></li>
+<li><label><input type="checkbox">Sabes cuándo usar una media o mediana ponderada en vez de la versión simple</label></li>
+<li><label><input type="checkbox">Puedes decir cuáles medidas de dispersión son robustas a valores atípicos y cuáles no</label></li>
+<li><label><input type="checkbox">Sabes cuándo comparar dos desviaciones estándar directamente es un error, y qué medida usar en su lugar</label></li>
+<li><label><input type="checkbox">Completaste el caso integrador de <code>loans_income.csv</code> con tu propia conclusión escrita, no solo el código</label></li>
+<li><label><input type="checkbox">Avanzaste el ejercicio final con tu propio dataset: al menos el Paso 1 (dataset cargado) y el Paso 2 (tus tres preguntas escritas) antes de la próxima sesión</label></li>
+</ul>
+</div>
+</section>
+<section id="lo-que-viene" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">10</span> Lo que viene</h2>
+<ul>
+<li><strong>Semana 4.</strong> Vas a interpretar percentiles y diagramas de caja (boxplot) para las variables numéricas, y tablas de contingencia y gráficos de barras para las categóricas.</li>
+<li><strong>Semana 5.</strong> Vas a explorar relaciones entre variables con gráficos de dispersión y gráficos condicionales, y a cerrar la Unidad 1 con un informe exploratorio.</li>
+</ul>
+</section>
+<section id="recursos" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="recursos"><span class="header-section-number">11</span> Recursos</h2>
+<ul>
+<li>Bruce, P., Bruce, A. y Gedeck, P. <em>Estadística práctica para ciencia de datos con R y Python.</em> 2.ª edición, MARCOMBO, 2022. Capítulo 1: “Análisis exploratorio de datos”. Fuente de esta guía.</li>
+<li>Datasets de esta guía, del repositorio de datos del libro: <a href="https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/state.csv"><code>state.csv</code></a> y <a href="https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/loans_income.csv"><code>loans_income.csv</code></a></li>
+<li>Documentación de <code>pandas.cut</code>: <a href="https://pandas.pydata.org/docs/reference/api/pandas.cut.html">pandas.pydata.org/docs/reference/api/pandas.cut.html</a></li>
+<li>Paquete <code>wquantiles</code> para percentiles ponderados: <a href="https://pypi.org/project/wquantiles/">pypi.org/project/wquantiles</a></li>
+</ul>
+<div class="pie-doc">
+<p>Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal y los gráficos son reales, producidos al ejecutar estos mismos programas durante la preparación del material.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

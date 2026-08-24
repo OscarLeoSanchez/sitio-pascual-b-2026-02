@@ -49,6 +49,8 @@ website:
               href: estadistica-para-analitica/semana-01/index.qmd
             - text: "Semana 2. Tipos de variables"
               href: estadistica-para-analitica/semana-02/index.qmd
+            - text: "Semana 3. Localización, dispersión y tablas de frecuencia"
+              href: estadistica-para-analitica/semana-03/index.qmd
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

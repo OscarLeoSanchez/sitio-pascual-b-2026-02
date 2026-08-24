@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" width="880" height="320" role="img" aria-labelledby="t">
+<title id="t">De los datos ordenados a la tabla de frecuencias y al histograma: el mismo resumen en tres formas</title>
+<defs>
+<marker id="arrowhead3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876" />
+</marker>
+</defs>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.box-destacada { fill: #f6f8fa; stroke: #2f7bb8; stroke-width: 1.75; }
+.box-acento { fill: #e9f6f5; stroke: #0e8f8f; stroke-width: 1.75; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.arrow { stroke: #5b6876; stroke-width: 2; fill: none; }
+.marca { fill: #cfd8e3; }
+.barra { fill: #2f7bb8; }
+</style>
+
+<path class="arrow" d="M292,150 L338,150" marker-end="url(#arrowhead3)" />
+<path class="arrow" d="M592,150 L638,150" marker-end="url(#arrowhead3)" />
+
+<rect class="box-destacada" x="30" y="90" width="260" height="120" rx="9" />
+<text class="titulo" x="160" y="118">Datos ordenados</text>
+<text class="subtitulo" x="160" y="138">poblacion, de menor a mayor</text>
+<line x1="55" y1="165" x2="265" y2="165" stroke="#cfd8e3" stroke-width="2" />
+<circle cx="60" cy="165" r="4" fill="#2f7bb8" />
+<circle cx="95" cy="165" r="4" fill="#2f7bb8" />
+<circle cx="130" cy="165" r="4" fill="#2f7bb8" />
+<circle cx="170" cy="165" r="4" fill="#2f7bb8" />
+<circle cx="210" cy="165" r="4" fill="#2f7bb8" />
+<circle cx="260" cy="165" r="4" fill="#c4682c" />
+<text class="subtitulo" x="160" y="192">Wyoming (menor) a California (mayor)</text>
+
+<rect class="box" x="340" y="90" width="250" height="120" rx="9" />
+<text class="titulo" x="465" y="118">Contenedores de</text>
+<text class="titulo" x="465" y="136">igual ancho</text>
+<rect x="365" y="155" width="42" height="30" fill="none" stroke="#cfd8e3" stroke-width="1.5" />
+<rect x="407" y="155" width="42" height="30" fill="none" stroke="#cfd8e3" stroke-width="1.5" />
+<rect x="449" y="155" width="42" height="30" fill="none" stroke="#cfd8e3" stroke-width="1.5" />
+<rect x="491" y="155" width="42" height="30" fill="none" stroke="#cfd8e3" stroke-width="1.5" />
+<rect x="533" y="155" width="42" height="30" fill="none" stroke="#cfd8e3" stroke-width="1.5" />
+<text class="subtitulo" x="465" y="200">el mismo ancho, contenedores vacios incluidos</text>
+
+<rect class="box-acento" x="640" y="90" width="210" height="120" rx="9" />
+<text class="titulo" x="745" y="118">Histograma</text>
+<rect class="barra" x="662" y="150" width="18" height="40" />
+<rect class="barra" x="684" y="130" width="18" height="60" />
+<rect class="barra" x="706" y="165" width="18" height="25" />
+<rect class="barra" x="728" y="178" width="18" height="12" />
+<rect class="barra" x="750" y="184" width="18" height="6" />
+<rect class="barra" x="772" y="188" width="18" height="2" />
+<rect class="barra" x="794" y="188" width="18" height="2" />
+<rect class="barra" x="816" y="184" width="18" height="6" />
+<text class="subtitulo" x="745" y="200">altura = conteo por contenedor</text>
+
+<text class="subtitulo" x="440" y="260">La tabla de frecuencias cuenta cuantos datos caen en cada contenedor.</text>
+<text class="subtitulo" x="440" y="280">El histograma dibuja ese mismo conteo como la altura de una barra.</text>
+</svg>
