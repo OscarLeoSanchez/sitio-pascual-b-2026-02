@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-labelledby="t">
+<title id="t">Comparación de baja y alta dispersión: los mismos once puntos alrededor de la misma media, una vez muy juntos y otra vez muy separados</title>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.linea { stroke: #cfd8e3; stroke-width: 2; }
+.punto { fill: #2f7bb8; }
+.media-linea { stroke: #c4682c; stroke-width: 2; stroke-dasharray: 6,4; }
+.etiqueta-media { fill: #c4682c; font-size: 12px; text-anchor: middle; }
+</style>
+
+<text class="titulo" x="230" y="24">Baja dispersión</text>
+<rect class="box" x="30" y="36" width="400" height="190" rx="9" />
+<line class="linea" x1="60" y1="150" x2="400" y2="150" />
+<line class="media-linea" x1="230" y1="90" x2="230" y2="185" />
+<text class="etiqueta-media" x="230" y="82">media</text>
+<circle class="punto" cx="205" cy="150" r="6" />
+<circle class="punto" cx="215" cy="150" r="6" />
+<circle class="punto" cx="222" cy="150" r="6" />
+<circle class="punto" cx="228" cy="150" r="6" />
+<circle class="punto" cx="233" cy="150" r="6" />
+<circle class="punto" cx="238" cy="150" r="6" />
+<circle class="punto" cx="243" cy="150" r="6" />
+<circle class="punto" cx="248" cy="150" r="6" />
+<circle class="punto" cx="254" cy="150" r="6" />
+<circle class="punto" cx="245" cy="150" r="6" />
+<circle class="punto" cx="260" cy="150" r="6" />
+<text class="subtitulo" x="230" y="205">Los puntos casi no se alejan de la media</text>
+
+<text class="titulo" x="650" y="24">Alta dispersión</text>
+<rect class="box" x="450" y="36" width="400" height="190" rx="9" />
+<line class="linea" x1="480" y1="150" x2="820" y2="150" />
+<line class="media-linea" x1="650" y1="90" x2="650" y2="185" />
+<text class="etiqueta-media" x="650" y="82">media</text>
+<circle class="punto" cx="490" cy="150" r="6" />
+<circle class="punto" cx="520" cy="150" r="6" />
+<circle class="punto" cx="555" cy="150" r="6" />
+<circle class="punto" cx="590" cy="150" r="6" />
+<circle class="punto" cx="615" cy="150" r="6" />
+<circle class="punto" cx="650" cy="150" r="6" />
+<circle class="punto" cx="685" cy="150" r="6" />
+<circle class="punto" cx="715" cy="150" r="6" />
+<circle class="punto" cx="750" cy="150" r="6" />
+<circle class="punto" cx="785" cy="150" r="6" />
+<circle class="punto" cx="810" cy="150" r="6" />
+<text class="subtitulo" x="650" y="205">Los puntos se alejan mucho de la media</text>
+
+<text class="subtitulo" x="440" y="270">Once valores en los dos casos, con exactamente la misma media. La diferencia está en</text>
+<text class="subtitulo" x="440" y="288">qué tan lejos, en promedio, cae cada valor de esa media: eso es lo que mide la desviación estándar.</text>
+</svg>

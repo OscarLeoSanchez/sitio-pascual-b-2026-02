@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 260" width="880" height="260" role="img" aria-labelledby="t">
+<title id="t">Recta con los datos ordenados, marcando el percentil 25, la mediana y el percentil 75, con el rango intercuartílico resaltado como el 50 por ciento central</title>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.linea { stroke: #cfd8e3; stroke-width: 3; }
+.iqr-banda { fill: #e9f6f5; stroke: #0e8f8f; stroke-width: 1.75; }
+.marca { stroke: #16202b; stroke-width: 2; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.etiqueta { fill: #16202b; font-size: 13px; font-weight: 700; text-anchor: middle; }
+.subetiqueta { fill: #5b6876; font-size: 12px; text-anchor: middle; }
+.pie { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+</style>
+
+<text class="titulo" x="440" y="30">Datos ordenados de menor a mayor</text>
+
+<rect class="iqr-banda" x="280" y="110" width="320" height="50" rx="6" />
+<line class="linea" x1="60" y1="135" x2="820" y2="135" />
+
+<line class="marca" x1="60" y1="118" x2="60" y2="152" />
+<line class="marca" x1="280" y1="100" x2="280" y2="170" />
+<line class="marca" x1="440" y1="100" x2="440" y2="170" />
+<line class="marca" x1="600" y1="100" x2="600" y2="170" />
+<line class="marca" x1="820" y1="118" x2="820" y2="152" />
+
+<text class="subetiqueta" x="60" y="195">mínimo</text>
+<text class="etiqueta" x="280" y="90">Q1 (percentil 25)</text>
+<text class="etiqueta" x="440" y="195">mediana</text>
+<text class="etiqueta" x="600" y="90">Q3 (percentil 75)</text>
+<text class="subetiqueta" x="820" y="195">máximo</text>
+
+<text class="subetiqueta" x="170" y="230">25% de los datos</text>
+<text class="etiqueta" x="440" y="230" fill="#0e8f8f">50% central de los datos</text>
+<text class="subetiqueta" x="710" y="230">25% de los datos</text>
+</svg>

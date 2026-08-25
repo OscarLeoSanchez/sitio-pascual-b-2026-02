@@ -1,18 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" width="880" height="330" role="img" aria-labelledby="t">
-<title id="t">Tres formas de distribucion y como se ordenan media y mediana en cada una: simetrica con media igual a mediana, sesgada a la derecha con media mayor que mediana, sesgada a la izquierda con media menor que mediana</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="880" height="340" role="img" aria-labelledby="t">
+<title id="t">Tres formas de distribución y cómo se ordenan media y mediana en cada una: simétrica con media igual a mediana, sesgada a la derecha con media mayor que mediana, sesgada a la izquierda con media menor que mediana</title>
 <style>
 text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
 .box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
 .curva { fill: #e9f1f8; stroke: #2f7bb8; stroke-width: 1.75; stroke-linejoin: round; }
 .titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
-.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 12.5px; text-anchor: middle; }
 .linea-media { stroke: #c4682c; stroke-width: 2; }
 .linea-mediana { stroke: #7a3f9d; stroke-width: 2; stroke-dasharray: 6,4; }
 .etiqueta-media { fill: #c4682c; font-size: 12px; text-anchor: middle; }
 .etiqueta-mediana { fill: #7a3f9d; font-size: 12px; text-anchor: middle; }
 </style>
 
-<text class="titulo" x="160" y="24">Simetrica</text>
+<text class="titulo" x="160" y="24">Simétrica</text>
 <rect class="box" x="30" y="36" width="260" height="190" rx="9" />
 <path class="curva" d="M50,206 C80,206 95,66 160,66 C225,66 240,206 270,206 Z" />
 <line class="linea-media" x1="160" y1="206" x2="160" y2="66" />
@@ -22,20 +22,22 @@ text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
 <text class="titulo" x="440" y="24">Sesgada a la derecha</text>
 <rect class="box" x="310" y="36" width="260" height="190" rx="9" />
 <path class="curva" d="M330,206 C345,206 355,66 390,66 C440,66 470,120 550,206 Z" />
-<line class="linea-mediana" x1="400" y1="206" x2="400" y2="90" />
-<line class="linea-media" x1="450" y1="206" x2="450" y2="90" />
-<text class="etiqueta-mediana" x="400" y="82">mediana</text>
-<text class="etiqueta-media" x="470" y="82">media</text>
-<text class="subtitulo" x="440" y="248">Cola larga a la derecha: la media &gt; mediana</text>
-<text class="subtitulo" x="440" y="266">Ejemplo: poblacion por estado, ingresos</text>
+<line class="linea-mediana" x1="390" y1="206" x2="390" y2="90" />
+<line class="linea-media" x1="465" y1="206" x2="465" y2="90" />
+<text class="etiqueta-mediana" x="390" y="82">mediana</text>
+<text class="etiqueta-media" x="465" y="82">media</text>
+<text class="subtitulo" x="440" y="248">Cola larga a la derecha:</text>
+<text class="subtitulo" x="440" y="264">la media &gt; mediana</text>
+<text class="subtitulo" x="440" y="286">Ejemplo: población, ingresos</text>
 
 <text class="titulo" x="720" y="24">Sesgada a la izquierda</text>
 <rect class="box" x="590" y="36" width="260" height="190" rx="9" />
 <path class="curva" d="M610,206 C690,120 720,66 770,66 C805,66 815,206 830,206 Z" />
-<line class="linea-media" x1="730" y1="206" x2="730" y2="90" />
-<line class="linea-mediana" x1="780" y1="206" x2="780" y2="90" />
-<text class="etiqueta-media" x="710" y="82">media</text>
-<text class="etiqueta-mediana" x="780" y="82">mediana</text>
-<text class="subtitulo" x="720" y="248">Cola larga a la izquierda: la media &lt; mediana</text>
-<text class="subtitulo" x="720" y="266">Ejemplo: edad de jubilacion, calificaciones de un examen facil</text>
+<line class="linea-media" x1="690" y1="206" x2="690" y2="90" />
+<line class="linea-mediana" x1="800" y1="206" x2="800" y2="90" />
+<text class="etiqueta-media" x="690" y="82">media</text>
+<text class="etiqueta-mediana" x="800" y="82">mediana</text>
+<text class="subtitulo" x="720" y="248">Cola larga a la izquierda:</text>
+<text class="subtitulo" x="720" y="264">la media &lt; mediana</text>
+<text class="subtitulo" x="720" y="286">Ejemplo: edad de jubilación</text>
 </svg>

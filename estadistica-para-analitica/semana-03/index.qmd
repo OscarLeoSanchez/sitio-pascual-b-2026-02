@@ -13,6 +13,9 @@ date-format: "D [de] MMMM [de] YYYY"
 | Unidad     | Unidad 1. Análisis descriptivo y exploratorio de datos   |
 :::
 
+[Abrir la presentación de la sesión](presentacion-calculo-manual.html){.btn .btn-primary
+role="button"}
+
 ## De qué va esta semana
 
 Esta guía sigue el capítulo 1 de *Estadística práctica para ciencia de datos con R y Python* (Bruce,
@@ -180,7 +183,7 @@ pesa cada estado, como sí hace la mediana.
 :::
 
 ::: {.diagrama}
-![](imagenes/media-vs-mediana.svg){fig-alt="Linea de poblacion por estado en millones de habitantes, con California marcada aparte como un punto alejado del resto. La mediana cae dentro del grupo denso de estados; la media queda desplazada hacia la derecha, mas cerca de California."}
+![](imagenes/media-vs-mediana.svg){fig-alt="Línea de población por estado en millones de habitantes, con California marcada aparte como un punto alejado del resto. La mediana cae dentro del grupo denso de estados; la media queda desplazada hacia la derecha, más cerca de California."}
 :::
 
 Cuando una variable no tiene valores extremos, media y mediana casi coinciden. Cuando sí los tiene
@@ -191,7 +194,7 @@ por unos pocos valores extremos, se llama **robustez**. La mediana y la media tr
 la media, no.
 
 ::: {.diagrama}
-![](imagenes/forma-distribucion.svg){fig-alt="Tres curvas de distribucion: simetrica con media igual a mediana, sesgada a la derecha con la media mayor que la mediana por la cola larga hacia valores altos, y sesgada a la izquierda con la media menor que la mediana."}
+![](imagenes/forma-distribucion.svg){fig-alt="Tres curvas de distribución: simétrica con media igual a mediana, sesgada a la derecha con la media mayor que la mediana por la cola larga hacia valores altos, y sesgada a la izquierda con la media menor que la mediana."}
 :::
 
 Esta relación entre media y mediana no es exclusiva de `Population`: es una regla general que vas a
@@ -599,7 +602,7 @@ quitaras, la tabla sugeriría que la población salta de un estado con 26 millon
 37 millones, y esconderías el hueco real que hay entre Texas y California.
 
 ::: {.diagrama}
-![](imagenes/histograma-poblacion.svg){fig-alt="Histograma de la poblacion por estado en 10 contenedores de igual ancho, con la mayoria de los estados concentrados en los primeros dos contenedores y una cola larga hacia la derecha con pocos estados muy poblados."}
+![](imagenes/histograma-poblacion.svg){fig-alt="Histograma de la población por estado en 10 contenedores de igual ancho, con la mayoría de los estados concentrados en los primeros dos contenedores y una cola larga hacia la derecha con pocos estados muy poblados."}
 :::
 
 El histograma dibuja la misma tabla como barras: un eje con los contenedores y la altura de cada
@@ -764,7 +767,7 @@ suma: 50000
 ```
 
 ::: {.diagrama}
-![](imagenes/histograma-ingresos.svg){fig-alt="Histograma del ingreso anual de 50000 solicitantes de credito en 10 contenedores, concentrado entre 43000 y 82000 dolares, con una cola larga hacia la derecha hasta cerca de 200000 dolares."}
+![](imagenes/histograma-ingresos.svg){fig-alt="Histograma del ingreso anual de 50000 solicitantes de crédito en 10 contenedores, concentrado entre 43000 y 82000 dólares, con una cola larga hacia la derecha hasta cerca de 200000 dólares."}
 :::
 
 ::: {.callout-tip collapse="true"}

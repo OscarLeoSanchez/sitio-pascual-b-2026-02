@@ -307,6 +307,7 @@ window.Quarto = {
 </tbody>
 </table>
 </div>
+<p><a href="presentacion-calculo-manual.html" class="btn btn-primary" role="button">Abrir la presentación de la sesión</a></p>
 <section id="de-qué-va-esta-semana" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</h2>
 <p>Esta guía sigue el capítulo 1 de <em>Estadística práctica para ciencia de datos con R y Python</em> (Bruce, Bruce y Gedeck, 2.ª edición), que es la fuente que seguimos esta semana. Vamos a repetir, con Python, los mismos cálculos que hace el libro, con la misma formalidad: cada medida trae su fórmula, un ejemplo resuelto, y un recuadro de <strong>interpretación en contexto</strong> que explica, en lenguaje llano y con el ejemplo concreto del dataset, qué significa ese número más allá de la definición matemática.</p>
@@ -405,11 +406,11 @@ mediana: 4436369.5</code></pre>
 </div>
 </div>
 <div class="diagrama">
-<p><img src="imagenes/media-vs-mediana.svg" class="img-fluid" alt="Linea de poblacion por estado en millones de habitantes, con California marcada aparte como un punto alejado del resto. La mediana cae dentro del grupo denso de estados; la media queda desplazada hacia la derecha, mas cerca de California."></p>
+<p><img src="imagenes/media-vs-mediana.svg" class="img-fluid" alt="Línea de población por estado en millones de habitantes, con California marcada aparte como un punto alejado del resto. La mediana cae dentro del grupo denso de estados; la media queda desplazada hacia la derecha, más cerca de California."></p>
 </div>
 <p>Cuando una variable no tiene valores extremos, media y mediana casi coinciden. Cuando sí los tiene (y <code>Population</code> es un buen ejemplo: hay un salto grande entre la mayoría de los estados y los pocos muy poblados), la mediana y la media truncada quedan más cerca del valor que describiría mejor a un estado “típico”, y la media queda <strong>jalada</strong> hacia el valor atípico. Esa propiedad, no dejarse mover por unos pocos valores extremos, se llama <strong>robustez</strong>. La mediana y la media truncada son robustas; la media, no.</p>
 <div class="diagrama">
-<p><img src="imagenes/forma-distribucion.svg" class="img-fluid" alt="Tres curvas de distribucion: simetrica con media igual a mediana, sesgada a la derecha con la media mayor que la mediana por la cola larga hacia valores altos, y sesgada a la izquierda con la media menor que la mediana."></p>
+<p><img src="imagenes/forma-distribucion.svg" class="img-fluid" alt="Tres curvas de distribución: simétrica con media igual a mediana, sesgada a la derecha con la media mayor que la mediana por la cola larga hacia valores altos, y sesgada a la izquierda con la media menor que la mediana."></p>
 </div>
 <p>Esta relación entre media y mediana no es exclusiva de <code>Population</code>: es una regla general que vas a usar en cada dataset nuevo que abras. Cuando la cola de la distribución se estira hacia valores altos (sesgo a la derecha, como la población o casi cualquier variable de dinero: ingresos, precios, ventas), la media queda por encima de la mediana. Cuando se estira hacia valores bajos (sesgo a la izquierda, menos común: edad de jubilación, calificaciones de un examen fácil donde casi todos sacan buena nota y pocos sacan mala), la media queda por debajo. Cuando no hay cola dominante, coinciden. Antes de reportar un solo número, mirar si media y mediana coinciden te dice, sin necesidad de graficar nada todavía, si la variable tiene sesgo.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -726,7 +727,7 @@ suma de conteos: 50</code></pre>
 <p><code>pd.cut</code> divide el rango de <code>Population</code> (de 563 626, la población de Wyoming, a 37 253 956, la de California) en 10 contenedores del mismo ancho: verifica con la fórmula, <span class="math inline">\((37\,253\,956 - 563\,626) / 10 \approx 3\,669\,033\)</span> habitantes por contenedor. <code>value_counts</code> cuenta cuántos estados caen en cada uno. Los 50 conteos suman 50: cada estado cae en exactamente un contenedor.</p>
 <p>Dos contenedores (el octavo y el noveno, entre 26.2 y 33.6 millones) no tienen ningún estado. Vale la pena incluirlos igual: un contenedor vacío es información, no un espacio para recortar. Si los quitaras, la tabla sugeriría que la población salta de un estado con 26 millones directo a uno con 37 millones, y esconderías el hueco real que hay entre Texas y California.</p>
 <div class="diagrama">
-<p><img src="imagenes/histograma-poblacion.svg" class="img-fluid" alt="Histograma de la poblacion por estado en 10 contenedores de igual ancho, con la mayoria de los estados concentrados en los primeros dos contenedores y una cola larga hacia la derecha con pocos estados muy poblados."></p>
+<p><img src="imagenes/histograma-poblacion.svg" class="img-fluid" alt="Histograma de la población por estado en 10 contenedores de igual ancho, con la mayoría de los estados concentrados en los primeros dos contenedores y una cola larga hacia la derecha con pocos estados muy poblados."></p>
 </div>
 <p>El histograma dibuja la misma tabla como barras: un eje con los contenedores y la altura de cada barra igual al conteo. Se ve de inmediato lo que la tabla de números cuesta más leer: la mayoría de los estados (38 de 50) caen en los dos primeros contenedores, con menos de 8 millones de habitantes, y después la barra baja rápido, con una cola larga y delgada hacia la derecha donde están Florida, Nueva York, Texas y, sola en el último contenedor, California. Esta forma es la misma que viste en el diagrama de sesgo: concentrada a la izquierda, con una cola larga a la derecha, y por eso la media de <code>Population</code> queda tan por encima de la mediana.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -857,7 +858,7 @@ Name: count, dtype: int64
 
 suma: 50000</code></pre>
 <div class="diagrama">
-<p><img src="imagenes/histograma-ingresos.svg" class="img-fluid" alt="Histograma del ingreso anual de 50000 solicitantes de credito en 10 contenedores, concentrado entre 43000 y 82000 dolares, con una cola larga hacia la derecha hasta cerca de 200000 dolares."></p>
+<p><img src="imagenes/histograma-ingresos.svg" class="img-fluid" alt="Histograma del ingreso anual de 50000 solicitantes de crédito en 10 contenedores, concentrado entre 43000 y 82000 dólares, con una cola larga hacia la derecha hasta cerca de 200000 dólares."></p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">

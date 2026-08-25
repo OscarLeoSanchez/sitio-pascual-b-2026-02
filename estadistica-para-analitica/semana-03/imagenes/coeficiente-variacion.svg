@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-labelledby="t">
+<title id="t">Dos variables en escalas muy distintas: comparar sus desviaciones estándar directamente no dice mucho, pero el coeficiente de variación revela cuál es relativamente más dispersa</title>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.box-acento { fill: #e9f6f5; stroke: #0e8f8f; stroke-width: 1.75; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.dato { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.barra { fill: #2f7bb8; }
+.resultado { fill: #16202b; font-size: 16px; font-weight: 700; text-anchor: middle; }
+</style>
+
+<text class="titulo" x="220" y="24">Variable A: ingreso mensual (miles de pesos)</text>
+<rect class="box" x="80" y="40" width="280" height="70" rx="9" />
+<text class="dato" x="220" y="65">media = 1000</text>
+<text class="dato" x="220" y="88">desviación estándar = 200</text>
+
+<text class="titulo" x="660" y="24">Variable B: edad del equipo (años)</text>
+<rect class="box" x="520" y="40" width="280" height="70" rx="9" />
+<text class="dato" x="660" y="65">media = 10</text>
+<text class="dato" x="660" y="88">desviación estándar = 4</text>
+
+<text class="dato" x="440" y="140" font-weight="700">200 contra 4: no se pueden comparar directamente, son unidades distintas</text>
+
+<rect class="box-acento" x="120" y="165" width="220" height="90" rx="9" />
+<text class="titulo" x="230" y="192">CV de A</text>
+<text class="resultado" x="230" y="228">200 / 1000 = 0.20</text>
+
+<rect class="box-acento" x="540" y="165" width="220" height="90" rx="9" />
+<text class="titulo" x="650" y="192">CV de B</text>
+<text class="resultado" x="650" y="228">4 / 10 = 0.40</text>
+
+<text class="dato" x="440" y="285" font-weight="700" fill="#0e8f8f">La variable B es, en proporción a su tamaño, el doble de dispersa que la A.</text>
+</svg>

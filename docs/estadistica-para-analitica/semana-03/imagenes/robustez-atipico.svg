@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="880" height="340" role="img" aria-labelledby="t">
+<title id="t">Comparación de la desviación estándar y la MAD con y sin un valor atípico: al agregar un valor lejano, la barra de la desviación estándar crece mucho mientras la barra de la MAD casi no cambia</title>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.linea { stroke: #cfd8e3; stroke-width: 2; }
+.punto { fill: #2f7bb8; }
+.punto-atipico { fill: #c4682c; }
+.barra-std { fill: #c4682c; }
+.barra-mad { fill: #0e8f8f; }
+.etiqueta-barra { fill: #5b6876; font-size: 12px; text-anchor: start; }
+</style>
+
+<text class="titulo" x="230" y="24">Sin valor atípico</text>
+<rect class="box" x="30" y="36" width="400" height="145" rx="9" />
+<line class="linea" x1="60" y1="90" x2="400" y2="90" />
+<circle class="punto" cx="180" cy="90" r="6" />
+<circle class="punto" cx="200" cy="90" r="6" />
+<circle class="punto" cx="215" cy="90" r="6" />
+<circle class="punto" cx="228" cy="90" r="6" />
+<circle class="punto" cx="240" cy="90" r="6" />
+<circle class="punto" cx="252" cy="90" r="6" />
+<circle class="punto" cx="265" cy="90" r="6" />
+<circle class="punto" cx="280" cy="90" r="6" />
+
+<text class="etiqueta-barra" x="70" y="120">desviación estándar</text>
+<rect class="barra-std" x="70" y="126" width="90" height="10" rx="3" />
+<text class="etiqueta-barra" x="70" y="152">MAD</text>
+<rect class="barra-mad" x="70" y="158" width="70" height="10" rx="3" />
+
+<text class="titulo" x="650" y="24">Con un valor atípico</text>
+<rect class="box" x="450" y="36" width="400" height="145" rx="9" />
+<line class="linea" x1="480" y1="90" x2="820" y2="90" />
+<circle class="punto" cx="600" cy="90" r="6" />
+<circle class="punto" cx="620" cy="90" r="6" />
+<circle class="punto" cx="635" cy="90" r="6" />
+<circle class="punto" cx="648" cy="90" r="6" />
+<circle class="punto" cx="660" cy="90" r="6" />
+<circle class="punto" cx="672" cy="90" r="6" />
+<circle class="punto" cx="685" cy="90" r="6" />
+<circle class="punto" cx="700" cy="90" r="6" />
+<circle class="punto-atipico" cx="805" cy="90" r="7" />
+
+<text class="etiqueta-barra" x="490" y="120">desviación estándar (mucho más larga)</text>
+<rect class="barra-std" x="490" y="126" width="300" height="10" rx="3" />
+<text class="etiqueta-barra" x="490" y="152">MAD (casi igual)</text>
+<rect class="barra-mad" x="490" y="158" width="75" height="10" rx="3" />
+
+<text class="subtitulo" x="440" y="210">Los mismos ocho valores, más un único dato lejano (en naranja). La desviación</text>
+<text class="subtitulo" x="440" y="228">estándar reacciona fuertemente a ese valor; la MAD casi no se mueve.</text>
+</svg>
