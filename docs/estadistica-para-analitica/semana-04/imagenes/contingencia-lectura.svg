@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300" role="img" aria-labelledby="t">
+<title id="t">Cómo leer una tabla de contingencia: dos variables categóricas cruzadas, con el conteo de cada combinación y el porcentaje calculado sobre la suma de cada fila</title>
+<defs>
+<marker id="arrowhead5" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876" />
+</marker>
+</defs>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.box { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+.box-cab { fill: #f6f8fa; stroke: #cfd8e3; stroke-width: 1.5; }
+.box-fila { fill: #e9f6f5; stroke: #0e8f8f; stroke-width: 1.75; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.celda { fill: #16202b; font-size: 13px; text-anchor: middle; }
+.celda-cab { fill: #5b6876; font-size: 12.5px; font-weight: 700; text-anchor: middle; }
+.arrow { stroke: #0e8f8f; stroke-width: 2; fill: none; }
+</style>
+
+<text class="titulo" x="440" y="28">Grado del crédito (fila) contra estado del préstamo (columna)</text>
+
+<rect class="box-cab" x="60" y="55" width="120" height="34" />
+<rect class="box-cab" x="180" y="55" width="140" height="34" />
+<rect class="box-cab" x="320" y="55" width="140" height="34" />
+<rect class="box-cab" x="460" y="55" width="140" height="34" />
+<rect class="box-cab" x="600" y="55" width="140" height="34" />
+
+<text class="celda-cab" x="120" y="76">grado</text>
+<text class="celda-cab" x="250" y="76">Fully Paid</text>
+<text class="celda-cab" x="390" y="76">Current</text>
+<text class="celda-cab" x="530" y="76">Late</text>
+<text class="celda-cab" x="670" y="76">Charged Off</text>
+
+<rect class="box-fila" x="60" y="89" width="120" height="34" />
+<rect class="box" x="180" y="89" width="140" height="34" />
+<rect class="box" x="320" y="89" width="140" height="34" />
+<rect class="box" x="460" y="89" width="140" height="34" />
+<rect class="box" x="600" y="89" width="140" height="34" />
+
+<text class="celda-cab" x="120" y="110">A</text>
+<text class="celda" x="250" y="110">20 408</text>
+<text class="celda" x="390" y="110">50 051</text>
+<text class="celda" x="530" y="110">469</text>
+<text class="celda" x="670" y="110">1 562</text>
+
+<rect class="box" x="60" y="123" width="120" height="34" />
+<rect class="box" x="180" y="123" width="140" height="34" />
+<rect class="box" x="320" y="123" width="140" height="34" />
+<rect class="box" x="460" y="123" width="140" height="34" />
+<rect class="box" x="600" y="123" width="140" height="34" />
+
+<text class="celda-cab" x="120" y="144">G</text>
+<text class="celda" x="250" y="144">643</text>
+<text class="celda" x="390" y="144">1 990</text>
+<text class="celda" x="530" y="144">199</text>
+<text class="celda" x="670" y="144">409</text>
+
+<path class="arrow" d="M120,157 L120,200" marker-end="url(#arrowhead5)" />
+
+<rect class="box-fila" x="60" y="205" width="680" height="55" rx="9" />
+<text class="celda" x="400" y="228">Cada fila se divide entre su propia suma para leerla en porcentaje</text>
+<text class="celda" x="400" y="248">grado A: 0.6% Late   grado G: 6.1% Late</text>
+
+<text class="subtitulo" x="440" y="286">El total de una fila (todos los préstamos de un grado) no es el mismo que el total de una columna</text>
+<text class="subtitulo" x="440" y="300">(todos los préstamos con un mismo estado). Confundirlos cambia lo que dice el porcentaje.</text>
+</svg>

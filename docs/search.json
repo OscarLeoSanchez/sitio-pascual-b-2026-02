@@ -351,6 +351,149 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/semana-04/index.html",
+    "href": "estadistica-para-analitica/semana-04/index.html",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos\nAbrir la presentación de la sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#de-qué-va-esta-semana",
+    "href": "estadistica-para-analitica/semana-04/index.html#de-qué-va-esta-semana",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "1 De qué va esta semana",
+    "text": "1 De qué va esta semana\nSeguimos con el capítulo 1 de Estadística práctica para ciencia de datos con R y Python (Bruce, Bruce y Gedeck, 2.ª edición), la misma fuente de la semana pasada. Esta semana cierra la caja de herramientas para variables numéricas con los percentiles y el diagrama de caja (boxplot), y abre la caja de herramientas para variables categóricas: gráficos de barras y tablas de contingencia.\nLa media, la mediana y la desviación estándar que calculaste la semana pasada resumen una variable en un solo número. El boxplot va un paso más allá: resume la distribución completa en cinco puntos de referencia (el mínimo dentro de rango, el percentil 25, la mediana, el percentil 75 y el máximo dentro de rango) y señala aparte los valores atípicos. Es la herramienta que vas a usar todas las semanas de aquí en adelante para comparar la distribución de una variable numérica entre varios grupos de un vistazo, algo que un histograma por grupo hace mucho más difícil de leer.\nLas variables categóricas no tienen media ni mediana: no puedes promediar “preventiva” y “correctiva”. Lo que sí puedes hacer es contar cuántas veces aparece cada categoría, y esa cuenta es la base de un gráfico de barras cuando hay una sola variable categórica, y de una tabla de contingencia cuando quieres cruzar dos.\nEl dataset guía sigue siendo state.csv, ya cargado la semana pasada. Para gráficos de barras y tablas de contingencia usas dos datasets nuevos del mismo repositorio del libro: los minutos de retraso acumulados por causa en el aeropuerto de Dallas-Fort Worth, y el historial de 450 961 préstamos de Lending Club con su calificación de riesgo y su estado de pago. Cierras con un caso integrador sobre los retrasos de seis aerolíneas, comparando boxplots agrupados por categoría.\nAl terminar deberías poder:\n\nCalcular percentiles con pandas e interpretar qué fracción de los datos queda por debajo y por encima de cada uno.\nConstruir un diagrama de caja a partir de percentiles y el IQR, explicar la regla que fija dónde termina cada bigote, e identificar valores atípicos con esa misma regla.\nConstruir un gráfico de barras para una variable categórica, distinguirlo de un histograma, y explicar por qué un gráfico circular casi nunca es la mejor opción.\nConstruir una tabla de contingencia entre dos variables categóricas con pd.crosstab, calcular porcentajes por fila, e interpretar el hallazgo que resulta.\nComparar la distribución de una variable numérica entre varias categorías con un boxplot agrupado, e identificar cuándo dos grupos no se superponen.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#recapitulación-breve",
+    "href": "estadistica-para-analitica/semana-04/index.html#recapitulación-breve",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "2 Recapitulación breve",
+    "text": "2 Recapitulación breve\nstate ya está en memoria desde la semana pasada. Si arrancas una sesión nueva, esta línea la recupera:\nimport pandas as pd\n\nurl = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/state.csv\"\nstate = pd.read_csv(url)\nRecuerda las dos columnas numéricas: Population (población de cada uno de los 50 estados, censo 2010) y Murder.Rate (tasa de homicidios por cada 100 000 habitantes). Vas a trabajar Population conmigo y Murder.Rate por tu cuenta, igual que la semana pasada.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#percentiles",
+    "href": "estadistica-para-analitica/semana-04/index.html#percentiles",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "3 Percentiles",
+    "text": "3 Percentiles\nEl percentil \\(P\\) de una variable es el valor tal que aproximadamente el \\(P\\)% de los datos queda por debajo de él. Los cuartiles son los percentiles 25, 50 y 75; el percentil 50 es la mediana que ya conoces.\nPara calcularlo por interpolación lineal sobre la lista ordenada \\(x_{(1)}, x_{(2)}, \\ldots,\nx_{(n)}\\), se ubica primero una posición continua \\(pos = P \\times (n - 1)\\), y se interpola entre los dos datos reales que rodean esa posición:\n\\[\n\\text{percentil}(P) = x_{(\\lfloor pos \\rfloor)} + \\left(pos - \\lfloor pos \\rfloor\\right) \\times\n\\left(x_{(\\lfloor pos \\rfloor + 1)} - x_{(\\lfloor pos \\rfloor)}\\right)\n\\]\nCuando \\(pos\\) cae exactamente sobre un dato (por ejemplo, si \\(P \\times (n-1)\\) da un entero), el percentil es ese dato tal cual: la parte fraccionaria de la interpolación es cero.\npercentiles = state[\"Population\"].quantile([0.25, 0.5, 0.75])\nprint(percentiles)\n0.25    1833004.25\n0.50    4436369.50\n0.75    6680312.25\nName: Population, dtype: float64\n.quantile() acepta un valor entre 0 y 1 (no entre 0 y 100) y usa exactamente esta interpolación por defecto. El percentil 0.5 coincide con la mediana que calculaste la semana pasada (4 436 369.5): son la misma medida, calculada con dos funciones distintas.\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nEl percentil 25 (1 833 004) dice que una cuarta parte de los 50 estados tiene menos de 1.83 millones de habitantes. El percentil 75 (6 680 312) dice que tres cuartas partes de los estados tienen menos de 6.68 millones, o, dicho al revés, que solo una cuarta parte supera esa cifra. Entre esos dos valores queda el 50% central de los estados: ni los más chicos ni los más grandes, el grupo de en medio.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#el-diagrama-de-caja-boxplot",
+    "href": "estadistica-para-analitica/semana-04/index.html#el-diagrama-de-caja-boxplot",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "4 El diagrama de caja (boxplot)",
+    "text": "4 El diagrama de caja (boxplot)\nEl diagrama de caja, propuesto por el estadístico John Tukey en 1977, resume una variable numérica completa en cinco puntos de referencia, calculados a partir de los percentiles que acabas de ver.\n\n\n\nLa caja va del percentil 25 (Q1) al percentil 75 (Q3), con una línea marcando la mediana adentro. El ancho de la caja es exactamente el IQR que calculaste la semana pasada:\n\\[\n\\text{IQR} = Q_3 - Q_1\n\\]\nLos bigotes son la parte que más se presta a confusión. No se extienden una distancia fija de 1.5 veces el IQR: se extienden hasta el dato real más alejado que sigue dentro de ese límite. El límite se calcula así:\n\\[\n\\text{límite inferior} = Q_1 - 1.5 \\times \\text{IQR} \\qquad\\qquad\n\\text{límite superior} = Q_3 + 1.5 \\times \\text{IQR}\n\\]\nCualquier dato entre esos dos límites queda cubierto por un bigote, hasta el más extremo de ellos. Cualquier dato fuera de ese rango se dibuja aparte, como un punto individual: es un valor atípico según esta regla. Matplotlib construye sus boxplots con esta misma convención.\nq1 = state[\"Population\"].quantile(0.25)\nq3 = state[\"Population\"].quantile(0.75)\niqr = q3 - q1\nlimite_inferior = q1 - 1.5 * iqr\nlimite_superior = q3 + 1.5 * iqr\n\nprint(\"Q1:\", q1)\nprint(\"Q3:\", q3)\nprint(\"IQR:\", iqr)\nprint(\"limite inferior:\", limite_inferior)\nprint(\"limite superior:\", limite_superior)\n\natipicos = state[(state[\"Population\"] &lt; limite_inferior) | (state[\"Population\"] &gt; limite_superior)]\nprint(atipicos[[\"State\", \"Population\"]].sort_values(\"Population\", ascending=False))\nQ1: 1833004.25\nQ3: 6680312.25\nIQR: 4847308.0\nlimite inferior: -5437957.75\nlimite superior: 13951274.25\n         State  Population\n4   California    37253956\n42       Texas    25145561\n31    New York    19378102\n8      Florida    18801310\nEl IQR de Population es 4 847 308: exactamente el mismo número que calculaste la semana pasada con .quantile(0.75) - .quantile(0.25). El límite inferior sale negativo, así que ningún estado puede quedar fuera por abajo (la población no puede ser negativa); el bigote inferior llega hasta Wyoming, el estado con menos habitantes. Por arriba, cuatro estados superan el límite de 13 951 274 y quedan marcados como atípicos: California, Texas, Nueva York y Florida. Son los mismos cuatro estados que más alejaban la media de la mediana la semana pasada.\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(11, 4.2))\nax.boxplot(state[\"Population\"] / 1_000_000, vert=False)\nax.set_xlabel(\"población por estado (millones de habitantes)\")\nplt.show()\n\n\n\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nLa caja, angosta y pegada a la izquierda del gráfico, dice que la mayoría de los estados tiene una población relativamente baja y parecida entre sí. Los cuatro puntos sueltos a la derecha no son ruido ni un error de los datos: son estados reales, mucho más poblados que el resto, y el boxplot los separa visualmente en vez de dejar que estiren la escala del gráfico entero, como pasaría con un histograma de pocos contenedores.\n\n\n\n\n\n\n\n\nTipEjercicio: boxplot de Murder.Rate\n\n\n\n\n\nCalcula los percentiles 25, 50 y 75 de Murder.Rate, el IQR, los límites del boxplot y los valores atípicos que resulten. Antes de correr el código, piensa: la semana pasada viste que Murder.Rate no tenía un atípico tan marcado como California. ¿Esperas cero atípicos, uno, o varios?\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\npercentiles_mr = state[\"Murder.Rate\"].quantile([0.25, 0.5, 0.75])\nprint(percentiles_mr)\n\nq1_mr = state[\"Murder.Rate\"].quantile(0.25)\nq3_mr = state[\"Murder.Rate\"].quantile(0.75)\niqr_mr = q3_mr - q1_mr\nlimite_inf_mr = q1_mr - 1.5 * iqr_mr\nlimite_sup_mr = q3_mr + 1.5 * iqr_mr\n\nprint(\"IQR:\", iqr_mr)\nprint(\"limite inferior:\", limite_inf_mr)\nprint(\"limite superior:\", limite_sup_mr)\n\natipicos_mr = state[(state[\"Murder.Rate\"] &lt; limite_inf_mr) | (state[\"Murder.Rate\"] &gt; limite_sup_mr)]\nprint(atipicos_mr[[\"State\", \"Murder.Rate\"]])\n0.25    2.425\n0.50    4.000\n0.75    5.550\nName: Murder.Rate, dtype: float64\nIQR: 3.125\nlimite inferior: -2.2625\nlimite superior: 10.2375\n        State  Murder.Rate\n17  Louisiana         10.3\nUn único atípico: Louisiana, con una tasa de 10.3, apenas por encima del límite superior de 10.24. Es coherente con lo que ya sabías: Murder.Rate tiene sesgo a la derecha, pero mucho más leve que Population, así que el boxplot marca un solo estado en el límite en vez de un grupo de cuatro muy por encima del resto.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#variables-categóricas-moda-y-gráficos-de-barras",
+    "href": "estadistica-para-analitica/semana-04/index.html#variables-categóricas-moda-y-gráficos-de-barras",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "5 Variables categóricas: moda y gráficos de barras",
+    "text": "5 Variables categóricas: moda y gráficos de barras\nUna variable categórica no tiene percentiles ni boxplot: no hay un orden numérico entre “tormenta” y “falla mecánica” como causas de un retraso. Lo único que se puede hacer es contar cuántas veces aparece cada categoría. El valor con el conteo más alto es la moda, y esa cuenta, graficada, es un gráfico de barras.\nEl dataset de esta sección resume los minutos de retraso acumulados en el aeropuerto de Dallas-Fort Worth, agrupados por causa: problema del transportista (Carrier), control de tráfico aéreo (ATC), clima (Weather), seguridad (Security) y vuelo entrante retrasado (Inbound). Es una sola fila con una columna por causa; para tratarla como una variable categórica hay que transponerla.\nurl_dfw = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/dfw_airline.csv\"\ndfw = pd.read_csv(url_dfw)\nprint(dfw)\n\ncausas = dfw.transpose()\ncausas.columns = [\"minutos\"]\ncausas[\"porcentaje\"] = (causas[\"minutos\"] / causas[\"minutos\"].sum() * 100).round(1)\nprint(causas.sort_values(\"minutos\", ascending=False))\n    Carrier      ATC   Weather  Security    Inbound\n0  64263.16  84856.5  11235.42    343.15  118427.82\n            minutos  porcentaje\nInbound   118427.82        42.4\nATC        84856.50        30.4\nCarrier    64263.16        23.0\nWeather    11235.42         4.0\nSecurity     343.15         0.1\nfig, ax = plt.subplots(figsize=(11, 4.2))\nax.bar(causas.index, causas[\"minutos\"])\nax.set_xlabel(\"causa del retraso\")\nax.set_ylabel(\"minutos de retraso acumulados\")\nplt.show()\n\n\n\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nLa categoría más frecuente (la moda) es “Inbound”: el 42.4% de los minutos de retraso vienen de vuelos que ya llegaban tarde desde otro aeropuerto, no de un problema en Dallas-Fort Worth mismo. Junto con el control de tráfico aéreo (30.4%), estas dos causas explican más del 70% del retraso total. La seguridad, en cambio, es prácticamente irrelevante (0.1%): en un análisis real, ahí no vale la pena invertir esfuerzo de mejora.\n\n\nGráfico de barras contra histograma. Los dos se parecen (barras verticales sobre un eje), y por eso se confunden. La diferencia está en el eje horizontal: en un histograma, el eje es numérico y continuo, y las barras van pegadas unas a otras porque representan contenedores que cubren todo el rango sin huecos. En un gráfico de barras, el eje muestra categorías sin orden numérico, y las barras van separadas porque no hay continuidad entre “clima” y “seguridad”: podrías reordenarlas sin que el gráfico pierda sentido, algo que no puedes hacer con los contenedores de un histograma.\nPor qué no un gráfico circular (de pastel). Es una alternativa común para mostrar proporciones entre categorías, pero el ojo humano compara longitudes y posiciones mucho mejor de lo que compara ángulos y áreas. Con más de dos o tres categorías, un gráfico circular hace difícil saber cuál porción es más grande sin leer las etiquetas de porcentaje una por una; un gráfico de barras ordenado de mayor a menor responde esa pregunta con una mirada.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#tablas-de-contingencia",
+    "href": "estadistica-para-analitica/semana-04/index.html#tablas-de-contingencia",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "6 Tablas de contingencia",
+    "text": "6 Tablas de contingencia\nCuando quieres cruzar dos variables categóricas (no resumir una sola), la herramienta es la tabla de contingencia: un recuento de cuántas observaciones caen en cada combinación posible de las dos variables.\nEl dataset de esta sección trae 450 961 préstamos de Lending Club, cada uno con su calificación de riesgo (grade, de A a G, siendo A la más segura) y su estado (status: pagado por completo, vigente, atrasado o cancelado por incumplimiento).\nurl_lc = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/lc_loans.csv\"\nlc = pd.read_csv(url_lc)\nprint(lc.shape)\nprint(lc.head())\n(450961, 2)\n        status grade\n0   Fully Paid     B\n1  Charged Off     C\n2   Fully Paid     C\n3   Fully Paid     C\n4      Current     B\npd.crosstab construye la tabla de contingencia: una fila por cada valor de grade, una columna por cada valor de status, y en cada celda el conteo de préstamos con esa combinación exacta.\ntabla = pd.crosstab(lc[\"grade\"], lc[\"status\"])\nprint(tabla)\nstatus  Charged Off  Current  Fully Paid  Late\ngrade\nA              1562    50051       20408   469\nB              5302    93852       31160  2056\nC              6023    88928       23147  2777\nD              5007    53281       13681  2308\nE              2842    24639        5949  1374\nF              1526     8444        2328   606\nG               409     1990         643   199\nCon margins=True se agregan la suma de cada fila y de cada columna, para verificar que los conteos cuadran con el total del dataset:\ntabla_con_margen = pd.crosstab(lc[\"grade\"], lc[\"status\"], margins=True)\nprint(tabla_con_margen)\nstatus  Charged Off  Current  Fully Paid  Late     All\ngrade\nA              1562    50051       20408   469   72490\nB              5302    93852       31160  2056  132370\nC              6023    88928       23147  2777  120875\nD              5007    53281       13681  2308   74277\nE              2842    24639        5949  1374   34804\nF              1526     8444        2328   606   12904\nG               409     1990         643   199    3241\nAll           22671   321185       97316  9789  450961\nLos conteos por sí solos no responden la pregunta que más importa: ¿la calificación de riesgo predice el resultado del préstamo? Para verlo hay que convertir cada fila a porcentaje, dividiendo entre el total de esa fila (no entre el total de la tabla).\nporcentaje_fila = (tabla.div(tabla.sum(axis=1), axis=0) * 100).round(1)\nprint(porcentaje_fila)\nstatus  Charged Off  Current  Fully Paid  Late\ngrade\nA               2.2     69.0        28.2   0.6\nB               4.0     70.9        23.5   1.6\nC               5.0     73.6        19.1   2.3\nD               6.7     71.7        18.4   3.1\nE               8.2     70.8        17.1   3.9\nF              11.8     65.4        18.0   4.7\nG              12.6     61.4        19.8   6.1\n\n\n\n\n\n\n\n\n\nNotaInterpretación en contexto\n\n\n\nEl patrón es consistente en las cuatro columnas: a medida que la calificación baja de A a G, el porcentaje de préstamos atrasados (Late) sube de 0.6% a 6.1%, y el porcentaje cancelado por incumplimiento (Charged Off) sube de 2.2% a 12.6%. Al mismo tiempo, el porcentaje pagado por completo baja de 28.2% a 19.8%. La calificación de riesgo, calculada antes de que el préstamo se otorgue, sí anticipa cómo termina: es la evidencia de que el sistema de calificación está haciendo su trabajo, no un adorno del reporte.\n\n\n\n\n\n\n\n\nTipEjercicio: la calificación más baja\n\n\n\n\n\nCalcula, solo para los préstamos con la calificación más baja que aparece en los datos, qué porcentaje tiene estado Late. Verifica que coincide con la fila correspondiente de la tabla de porcentajes que ya calculaste.\n\n\n\n\n\n\nTipSolución\n\n\n\n\n\ngrado_mas_bajo = lc[lc[\"grade\"] == \"G\"]\nprint(len(grado_mas_bajo))\n\nporcentaje_late = (grado_mas_bajo[\"status\"] == \"Late\").mean() * 100\nprint(round(porcentaje_late, 1))\n3241\n6.1\n3241 préstamos tienen calificación G, la más baja del dataset. De esos, 6.1% están en Late, exactamente el mismo número que aparece en la última fila de porcentaje_fila. Calcularlo de las dos formas (filtrando y promediando una condición booleana, o leyendo la tabla ya armada) sirve para confirmar que entiendes de dónde sale cada celda de la tabla de contingencia, no solo para leerla.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#caso-integrador-retrasos-por-aerolínea",
+    "href": "estadistica-para-analitica/semana-04/index.html#caso-integrador-retrasos-por-aerolínea",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "7 Caso integrador: retrasos por aerolínea",
+    "text": "7 Caso integrador: retrasos por aerolínea\nPara cerrar, comparas la distribución de una variable numérica entre varias categorías: el porcentaje de minutos de retraso atribuible directamente a la aerolínea (pct_carrier_delay), para 33 468 vuelos de seis aerolíneas distintas. Un boxplot agrupado pone un boxplot por categoría, uno al lado del otro, sobre el mismo eje.\nurl_air = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/airline_stats.csv\"\nair = pd.read_csv(url_air)\nprint(air.shape)\nprint(air[\"airline\"].unique())\n\nresumen = air.groupby(\"airline\")[\"pct_carrier_delay\"].agg(\n    [\"median\", lambda s: s.quantile(0.25), lambda s: s.quantile(0.75)]\n)\nresumen.columns = [\"mediana\", \"Q1\", \"Q3\"]\nprint(resumen.sort_values(\"mediana\").round(2))\n(33468, 4)\n['American' 'Alaska' 'Jet Blue' 'Delta' 'United' 'Southwest']\n           mediana    Q1     Q3\nairline\nAlaska        3.23  1.94   4.69\nDelta         5.55  3.81   7.82\nUnited        6.45  4.03   9.63\nSouthwest     6.96  5.07   9.35\nJet Blue      7.66  5.34  10.28\nAmerican      8.43  6.34  10.99\nair.boxplot(column=\"pct_carrier_delay\", by=\"airline\", figsize=(11, 4.6))\nplt.show()\n\n\n\n\n\n\n\n\n\nTipEjercicio de cierre: redacta la conclusión\n\n\n\n\n\nCompara el cuartil 75 (Q3) de Alaska con el cuartil 25 (Q1) de American en la tabla de arriba. ¿Qué significa, en términos del boxplot, que uno sea menor que el otro? Redacta la conclusión en dos o tres oraciones, como si se la entregaras a un gerente de operaciones que decide con qué aerolíneas mantener un acuerdo de nivel de servicio.\n\n\n\n\n\n\nTipUna posible respuesta\n\n\n\n\n\nEl Q3 de Alaska es 4.69 y el Q1 de American es 6.34: el 75% de los vuelos de Alaska con más retraso atribuible a la aerolínea todavía queda por debajo del 25% de los vuelos de American con menos retraso. Dicho con el boxplot: la caja completa de Alaska queda por debajo de la caja completa de American, sin superposición entre ellas. No es un caso aislado ni una diferencia de un par de vuelos: es una diferencia sistemática entre las dos aerolíneas en la variable medida, visible de un vistazo en el gráfico sin necesidad de leer una sola tabla de números.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#ejercicio-final-constrúyelo-tú-de-principio-a-fin",
+    "href": "estadistica-para-analitica/semana-04/index.html#ejercicio-final-constrúyelo-tú-de-principio-a-fin",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "8 Ejercicio final: constrúyelo tú, de principio a fin",
+    "text": "8 Ejercicio final: constrúyelo tú, de principio a fin\nTodo lo anterior te dio el dataset, las preguntas y hasta la solución. Este último ejercicio no trae nada de eso: te toca buscar los datos, decidir qué preguntar y justificar cada respuesta con lo que aprendiste esta semana. No tiene solución en esta guía y no se evalúa, pero tráelo resuelto (o avanzado) a la próxima sesión.\n\nPaso 1. Consigue un dataset con al menos una variable numérica y una categórica\nElige uno de estos dos caminos.\nCamino A: el dataset de respaldo del libro, ya usado la semana pasada: kc_tax.csv.gz, con el valor catastral, el área construida y el código postal de casi 500 000 viviendas del condado de King. ZipCode es la variable categórica (aunque se vea como número, no tiene sentido promediarlo); TaxAssessedValue o SqFtTotLiving son las numéricas.\nkc_tax = pd.read_csv(\n    \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz\",\n    compression=\"gzip\",\n)\nprint(kc_tax.shape)\nprint(kc_tax.head())\nCamino B: un dataset que tú busques, en datos.gov.co, el portal de datos abiertos del Banco Mundial, Kaggle o el UCI Machine Learning Repository. Debe tener al menos una variable numérica y una categórica con pocas categorías (menos de 10, para que el boxplot agrupado o el gráfico de barras sean legibles).\n\n\nPaso 2. Formula tus propias preguntas\nEscribe al menos dos preguntas: una que se responda con un boxplot o percentiles de una variable numérica (¿hay atípicos? ¿cuál es el rango del 50% central?), y otra que se responda con un gráfico de barras o una tabla de contingencia de una o dos variables categóricas (¿qué categoría es más frecuente? ¿la distribución de la variable numérica cambia según la categoría?).\n\n\nPaso 3. Responde y justifica cada una\nPara cada pregunta, calcula la medida o el gráfico que la responde, y redacta la conclusión en dos o tres oraciones, en el mismo tono ejecutivo del caso de las aerolíneas: qué significa para alguien que va a decidir con ese resultado, no solo el número o el gráfico en sí.\n\n\nPaso 4. Si tienes una variable numérica y una categórica juntas, crúzalas\nConstruye un boxplot agrupado (como el de las aerolíneas) o, si tus dos variables son ambas categóricas, una tabla de contingencia con porcentajes por fila. Interpreta si hay una diferencia sistemática entre los grupos o si se superponen sin un patrón claro.\n\n\n\n\n\n\nAdvertenciaAntes de la próxima sesión\n\n\n\nRevisa que tu trabajo cumpla las tres condiciones que pide el módulo para cualquier entrega: reproducible, trazable y ejecutiva (ver la presentación del módulo).",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#errores-frecuentes",
+    "href": "estadistica-para-analitica/semana-04/index.html#errores-frecuentes",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "9 Errores frecuentes",
+    "text": "9 Errores frecuentes\n\nError 1\n\nConfundir un gráfico de barras con un histograma\nCausa. Los dos son barras verticales sobre un eje, y con pocas categorías o pocos contenedores se ven parecidos a simple vista.\nSolución. Pregúntate qué representa el eje horizontal. Si son categorías sin orden numérico (causas de retraso, tipos de intervención), es un gráfico de barras, y las barras van separadas. Si es un rango numérico dividido en contenedores contiguos, es un histograma, y las barras van pegadas.\n\n\n\nError 2\n\nAsumir que el bigote del boxplot está siempre a 1.5 veces el IQR\nCausa. La fórmula del límite (\\(Q_3 + 1.5 \\times \\text{IQR}\\)) es fácil de recordar mal como “el bigote llega hasta ahí”, cuando en realidad ese número es solo un límite, no la posición real del bigote.\nSolución. El bigote termina en el dato real más extremo que sigue dentro de ese límite, no en el límite mismo. Con Population, el límite superior es 13 951 274, pero el bigote real llega solo hasta Illinois, con 12 830 632 habitantes: el siguiente dato (California) ya está fuera del límite, así que se dibuja aparte como atípico, y el bigote se queda en el último dato real que sí calificó.\n\n\n\nError 3\n\nLeer un porcentaje de una tabla de contingencia sin saber sobre qué se calculó\nCausa. Una tabla de contingencia admite porcentajes por fila, por columna o sobre el total, y dan números distintos. Leer “12.6%” sin saber cuál de los tres es la tabla lleva a una conclusión equivocada.\nSolución. Antes de interpretar un porcentaje, identifica el denominador. En esta guía, “12.6% de Charged Off en el grado G” significa 12.6% de los préstamos del grado G (porcentaje por fila), no 12.6% de todos los préstamos cancelados del dataset ni 12.6% de todo el dataset completo. Cambiar el eje de la división cambia lo que dice el número.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#lista-de-chequeo-de-la-semana",
+    "href": "estadistica-para-analitica/semana-04/index.html#lista-de-chequeo-de-la-semana",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "10 Lista de chequeo de la semana",
+    "text": "10 Lista de chequeo de la semana\n\nAntes de la próxima sesión\n\nPuedes calcular un percentil con .quantile() y explicar qué fracción de los datos queda por debajo de ese valor\nPuedes explicar de memoria la regla que fija dónde termina cada bigote de un boxplot, y por qué no es una distancia fija\nResolviste los dos ejercicios intermedios (boxplot de Murder.Rate, calificación más baja de lc_loans) antes de revisar la solución, no después\nPuedes explicar la diferencia entre un gráfico de barras y un histograma con tus propias palabras\nSabes construir una tabla de contingencia con pd.crosstab y calcular porcentajes por fila\nCompletaste el caso integrador de airline_stats.csv con tu propia conclusión escrita\nAvanzaste el ejercicio final: al menos el Paso 1 (dataset elegido) y el Paso 2 (tus preguntas escritas) antes de la próxima sesión",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-04/index.html#lo-que-viene",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "11 Lo que viene",
+    "text": "11 Lo que viene\n\nSemana 5. Vas a explorar relaciones entre dos variables numéricas con gráficos de dispersión, y relaciones condicionadas a una tercera variable con gráficos condicionales. Cierras la Unidad 1 con un informe exploratorio completo (30% de la nota).\nSemana 6. Empieza la Unidad 2: variables aleatorias, espacio muestral y función de distribución.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/index.html#recursos",
+    "href": "estadistica-para-analitica/semana-04/index.html#recursos",
+    "title": "Semana 4. Boxplot, cuantiles y variables categóricas",
+    "section": "12 Recursos",
+    "text": "12 Recursos\n\nBruce, P., Bruce, A. y Gedeck, P. Estadística práctica para ciencia de datos con R y Python. 2.ª edición, MARCOMBO, 2022. Capítulo 1: “Análisis exploratorio de datos”. Fuente de esta guía.\nDatasets de esta guía, del repositorio de datos del libro: state.csv, dfw_airline.csv, lc_loans.csv y airline_stats.csv\nDocumentación de pandas.DataFrame.quantile: pandas.pydata.org/docs/reference/api/pandas.DataFrame.quantile.html\nDocumentación de pandas.crosstab: pandas.pydata.org/docs/reference/api/pandas.crosstab.html\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal y los gráficos son reales, producidos al ejecutar estos mismos programas durante la preparación del material.",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 4. Boxplot, cuantiles y variables categóricas"
+    ]
+  },
+  {
     "objectID": "estadistica-para-analitica/semana-03/index.html",
     "href": "estadistica-para-analitica/semana-03/index.html",
     "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
@@ -1516,6 +1659,160 @@
     "title": "Estadística para Analítica",
     "section": "Lo que viene",
     "text": "Lo que viene\n\nSemana 4. Percentiles y diagramas de caja (boxplot) para variables numéricas, tablas de contingencia y gráficos de barras para categóricas.\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#ruta-de-la-sesión",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#ruta-de-la-sesión",
+    "title": "Estadística para Analítica",
+    "section": "Ruta de la sesión",
+    "text": "Ruta de la sesión\n\n\nBloque 1\nPercentiles y boxplot\n\nPercentil\nIQR\nBigotes y atípicos\n\n\nBloque 2\nVariables categóricas\n\nConteo\nModa\nGráfico de barras\n\n\nBloque 3\nCruce de categorías\n\nTabla de contingencia\nPorcentaje por fila"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#los-datos-de-hoy",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#los-datos-de-hoy",
+    "title": "Estadística para Analítica",
+    "section": "Los datos de hoy",
+    "text": "Los datos de hoy\nLos mismos doce tiempos de intervención de mantenimiento de la semana pasada, en minutos, más el tipo de cada intervención y el turno en que ocurrió.\ntiempos = [42, 45, 47, 48, 48, 50, 51, 53, 55, 58, 60, 145]\n\ntipos = [\"preventiva\", \"preventiva\", \"correctiva\", \"preventiva\", \"predictiva\", \"preventiva\",\n         \"correctiva\", \"preventiva\", \"predictiva\", \"correctiva\", \"preventiva\", \"correctiva\"]\n\nturnos = [\"mañana\", \"mañana\", \"mañana\", \"tarde\", \"tarde\", \"tarde\",\n          \"tarde\", \"noche\", \"noche\", \"mañana\", \"tarde\", \"noche\"]"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#la-regla-del-juego",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#la-regla-del-juego",
+    "title": "Estadística para Analítica",
+    "section": "La regla del juego",
+    "text": "La regla del juego\n\nNada de .quantile(), .boxplot(), value_counts(), Counter ni pd.crosstab.\n\nVan a reutilizar las funciones percentil() e iqr() que ya escribieron la semana pasada, y a construir desde cero las que faltan: clasificar atípicos, contar categorías y cruzar dos variables."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#bloque-1",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#bloque-1",
+    "title": "Estadística para Analítica",
+    "section": "Bloque 1",
+    "text": "Bloque 1\nPercentiles y boxplot"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#percentiles-lo-que-ya-escribieron",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#percentiles-lo-que-ya-escribieron",
+    "title": "Estadística para Analítica",
+    "section": "Percentiles: lo que ya escribieron",
+    "text": "Percentiles: lo que ya escribieron\nLa semana pasada implementaron esto para el IQR. Hoy lo usan para algo más: decidir dónde termina cada bigote del boxplot.\ndef percentil(datos, p):\n    ordenados = sorted(datos)\n    n = len(ordenados)\n    posicion = p * (n - 1)\n    piso = int(posicion)\n    techo = min(piso + 1, n - 1)\n    fraccion = posicion - piso\n    return ordenados[piso] + fraccion * (ordenados[techo] - ordenados[piso])\n\ndef iqr(datos):\n    return percentil(datos, 0.75) - percentil(datos, 0.25)\n\nprint(percentil(tiempos, 0.25), percentil(tiempos, 0.75))\nprint(iqr(tiempos))\n47.75 55.75\n8.0"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#qué-significa-el-boxplot",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#qué-significa-el-boxplot",
+    "title": "Estadística para Analítica",
+    "section": "¿Qué significa el boxplot?",
+    "text": "¿Qué significa el boxplot?\nToma esos dos percentiles como los bordes de una caja, con la mediana marcada adentro. La caja sola ya te dice dónde está el 50% central de las intervenciones: entre 47.75 y 55.75 minutos.\n\nLos bigotes se extienden desde la caja, pero no una distancia fija: llegan hasta el dato real más lejano que sigue dentro de \\(1.5 \\times \\text{IQR}\\) desde el borde correspondiente. Cualquier dato más allá de ese límite se marca aparte, como atípico."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#de-los-percentiles-al-boxplot",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#de-los-percentiles-al-boxplot",
+    "title": "Estadística para Analítica",
+    "section": "De los percentiles al boxplot",
+    "text": "De los percentiles al boxplot\n\nLa caja mide el IQR. El bigote no mide una distancia fija: mide hasta dónde llega un dato real dentro del límite."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#implementen-la-clasificación-de-atípicos",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#implementen-la-clasificación-de-atípicos",
+    "title": "Estadística para Analítica",
+    "section": "Implementen la clasificación de atípicos",
+    "text": "Implementen la clasificación de atípicos\nCon percentil() e iqr() ya escritas, calculen los dos límites y devuelvan la lista de valores que quedan fuera de ellos.\ndef clasificar_atipicos(datos):\n    ...\nPista: el límite superior es percentil(datos, 0.75) + 1.5 * iqr(datos)."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#una-implementación-posible",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#una-implementación-posible",
+    "title": "Estadística para Analítica",
+    "section": "Una implementación posible",
+    "text": "Una implementación posible\ndef clasificar_atipicos(datos):\n    q1 = percentil(datos, 0.25)\n    q3 = percentil(datos, 0.75)\n    ancho = iqr(datos)\n    limite_inferior = q1 - 1.5 * ancho\n    limite_superior = q3 + 1.5 * ancho\n    return [x for x in datos if x &lt; limite_inferior or x &gt; limite_superior]\n\nprint(clasificar_atipicos(tiempos))\n[145]\n\nUn solo atípico, la intervención de 145 minutos. El bigote superior no llega hasta ahí: se queda en 60, el dato real más alto que sigue dentro del límite."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#el-boxplot-completo",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#el-boxplot-completo",
+    "title": "Estadística para Analítica",
+    "section": "El boxplot completo",
+    "text": "El boxplot completo\n\nDiez de las doce intervenciones caben entre la caja y los bigotes. La de 145 minutos queda sola, lejos de todo lo demás."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#bloque-2",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#bloque-2",
+    "title": "Estadística para Analítica",
+    "section": "Bloque 2",
+    "text": "Bloque 2\nVariables categóricas"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#por-qué-no-hay-media-de-tipos",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#por-qué-no-hay-media-de-tipos",
+    "title": "Estadística para Analítica",
+    "section": "¿Por qué no hay media de tipos?",
+    "text": "¿Por qué no hay media de tipos?\ntipos no es numérica: no existe un “promedio” entre “preventiva” y “correctiva”. Lo único que se puede hacer con una variable categórica es contar cuántas veces aparece cada valor.\n\nEsa cuenta es la moda (el valor más frecuente) y, graficada, es un gráfico de barras."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#implementen-el-conteo",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#implementen-el-conteo",
+    "title": "Estadística para Analítica",
+    "section": "Implementen el conteo",
+    "text": "Implementen el conteo\nEscriban contar(datos), que recorra la lista y devuelva un diccionario con el conteo de cada categoría. Es la misma idea que usaron para la moda de tiempos la semana pasada, aplicada a texto en vez de a números.\ndef contar(datos):\n    ..."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#una-implementación-posible-1",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#una-implementación-posible-1",
+    "title": "Estadística para Analítica",
+    "section": "Una implementación posible",
+    "text": "Una implementación posible\ndef contar(datos):\n    conteos = {}\n    for x in datos:\n        conteos[x] = conteos.get(x, 0) + 1\n    return conteos\n\nprint(contar(tipos))\n{'preventiva': 6, 'correctiva': 4, 'predictiva': 2}\n\nLa moda es “preventiva”, con 6 de las 12 intervenciones. En pandas, esta misma cuenta se obtiene con serie.value_counts()."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#gráfico-de-barras-contra-histograma",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#gráfico-de-barras-contra-histograma",
+    "title": "Estadística para Analítica",
+    "section": "Gráfico de barras contra histograma",
+    "text": "Gráfico de barras contra histograma\nUn histograma agrupa un rango numérico continuo en contenedores contiguos: las barras van pegadas. Un gráfico de barras muestra categorías sin orden numérico: las barras van separadas, porque no hay continuidad entre “preventiva” y “correctiva”.\n\n\nEvita el gráfico circular (de pastel) con más de dos o tres categorías: el ojo compara longitudes mucho mejor que ángulos. Un gráfico de barras ordenado de mayor a menor se lee de un vistazo; un gráfico circular obliga a leer las etiquetas una por una."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#bloque-3",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#bloque-3",
+    "title": "Estadística para Analítica",
+    "section": "Bloque 3",
+    "text": "Bloque 3\nCruce de categorías"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#tabla-de-contingencia",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#tabla-de-contingencia",
+    "title": "Estadística para Analítica",
+    "section": "Tabla de contingencia",
+    "text": "Tabla de contingencia\nCuando quieres cruzar dos variables categóricas (turno y tipo), no basta con contar cada una por separado: necesitas el conteo de cada combinación de las dos.\nprint(contar(turnos))\n{'mañana': 4, 'tarde': 5, 'noche': 3}"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#implementen-el-cruce",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#implementen-el-cruce",
+    "title": "Estadística para Analítica",
+    "section": "Implementen el cruce",
+    "text": "Implementen el cruce\nEscriban tabla_cruzada(a, b), que reciba dos listas paralelas (misma posición = mismo caso) y devuelva un diccionario con el conteo de cada combinación (a[i], b[i]).\ndef tabla_cruzada(a, b):\n    ...\nPista: usen una tupla (a[i], b[i]) como llave del diccionario."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#una-implementación-posible-2",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#una-implementación-posible-2",
+    "title": "Estadística para Analítica",
+    "section": "Una implementación posible",
+    "text": "Una implementación posible\ndef tabla_cruzada(a, b):\n    conteos = {}\n    for x, y in zip(a, b):\n        clave = (x, y)\n        conteos[clave] = conteos.get(clave, 0) + 1\n    return conteos\n\nfor clave, conteo in sorted(tabla_cruzada(turnos, tipos).items()):\n    print(clave, conteo)\n('mañana', 'correctiva') 2\n('mañana', 'preventiva') 2\n('noche', 'correctiva') 1\n('noche', 'predictiva') 1\n('noche', 'preventiva') 1\n('tarde', 'correctiva') 1\n('tarde', 'predictiva') 1\n('tarde', 'preventiva') 3"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#contra-pd.crosstab",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#contra-pd.crosstab",
+    "title": "Estadística para Analítica",
+    "section": "Contra pd.crosstab",
+    "text": "Contra pd.crosstab\nimport pandas as pd\n\ndf = pd.DataFrame({\"turno\": turnos, \"tipo\": tipos})\ntabla = pd.crosstab(df[\"turno\"], df[\"tipo\"])\nprint(tabla)\ntipo    correctiva  predictiva  preventiva\nturno\nmañana           2           0           2\nnoche            1           1           1\ntarde            1           1           3\n\nCoincide con lo que ya construyeron a mano, solo que en forma de tabla en vez de diccionario. En la guía, van a leer esta misma tabla por porcentaje de fila, no solo por conteo."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#lo-que-acabamos-de-construir",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#lo-que-acabamos-de-construir",
+    "title": "Estadística para Analítica",
+    "section": "Lo que acabamos de construir",
+    "text": "Lo que acabamos de construir\n\nClasificaron atípicos con la misma regla que usa matplotlib, a partir de los percentiles que ya sabían calcular.\n\n\nContaron categorías y cruzaron dos variables categóricas sin value_counts() ni pd.crosstab(), antes de usarlos.\n\n\nLa próxima vez que vean un boxplot o una tabla de contingencia, van a saber exactamente qué cuenta y qué regla hay detrás de cada número."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#lo-que-viene",
+    "href": "estadistica-para-analitica/semana-04/presentacion-boxplot-categoricas.html#lo-que-viene",
+    "title": "Estadística para Analítica",
+    "section": "Lo que viene",
+    "text": "Lo que viene\n\nSemana 5. Gráficos de dispersión y condicionales, e informe exploratorio para cerrar la Unidad 1.\nSemana 6. Empieza la Unidad 2: variables aleatorias, espacio muestral y función de distribución."
   },
   {
     "objectID": "herramientas-programacion-1/index.html",

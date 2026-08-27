@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="960" height="280" role="img" aria-labelledby="t">
+<title id="t">Anatomia de un diagrama de caja: la caja va del percentil 25 al percentil 75, la linea central es la mediana, los bigotes llegan hasta el dato real mas alejado dentro de 1.5 veces el IQR, y lo que queda mas alla es atipico</title>
+<defs>
+<marker id="arrowhead4" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto" markerUnits="userSpaceOnUse">
+<path d="M0,0 L9,3.5 L0,7 Z" fill="#5b6876" />
+</marker>
+</defs>
+<style>
+text { font-family: "Segoe UI", Inter, system-ui, -apple-system, sans-serif; }
+.titulo { fill: #16202b; font-size: 15px; font-weight: 700; text-anchor: middle; }
+.subtitulo { fill: #5b6876; font-size: 13px; text-anchor: middle; }
+.etiqueta { fill: #16202b; font-size: 13px; text-anchor: middle; }
+.etiqueta-sec { fill: #5b6876; font-size: 12.5px; text-anchor: middle; }
+.linea { stroke: #5b6876; stroke-width: 1.5; }
+</style>
+
+<text class="titulo" x="480" y="30">De los percentiles al diagrama de caja</text>
+
+<line class="linea" x1="60" y1="150" x2="900" y2="150" stroke="#cfd8e3" stroke-width="2" />
+
+<line class="linea" x1="120" y1="120" x2="120" y2="180" stroke="#2f7bb8" stroke-width="1.75" />
+<rect x="260" y="110" width="280" height="80" rx="9" fill="#eaf2f8" stroke="#2f7bb8" stroke-width="1.75" />
+<line x1="400" y1="110" x2="400" y2="190" stroke="#7a3f9d" stroke-width="2.25" />
+<line class="linea" x1="700" y1="120" x2="700" y2="180" stroke="#2f7bb8" stroke-width="1.75" />
+
+<line class="linea" x1="120" y1="150" x2="260" y2="150" />
+<line class="linea" x1="540" y1="150" x2="700" y2="150" />
+
+<circle cx="850" cy="150" r="5" fill="#c4682c" />
+<circle cx="868" cy="150" r="5" fill="#c4682c" />
+
+<text class="etiqueta" x="120" y="205">bigote inferior</text>
+<text class="etiqueta-sec" x="120" y="222">dato real más cercano</text>
+<text class="etiqueta-sec" x="120" y="238">al límite Q1 - 1.5xIQR</text>
+
+<text class="etiqueta" x="260" y="95">Q1 (percentil 25)</text>
+<text class="etiqueta" x="400" y="95">mediana</text>
+<text class="etiqueta" x="540" y="95">Q3 (percentil 75)</text>
+
+<text class="etiqueta" x="700" y="205">bigote superior</text>
+<text class="etiqueta-sec" x="700" y="222">dato real más cercano</text>
+<text class="etiqueta-sec" x="700" y="238">al límite Q3 + 1.5xIQR</text>
+
+<text class="etiqueta" x="859" y="205">atípicos</text>
+<text class="etiqueta-sec" x="859" y="222">más allá del límite,</text>
+<text class="etiqueta-sec" x="859" y="238">se dibujan aparte</text>
+
+<text class="subtitulo" x="480" y="265">La caja mide el IQR (Q3 - Q1). Cada bigote no llega a una distancia fija: se detiene en el dato</text>
+<text class="subtitulo" x="480" y="280">real más extremo que sigue dentro de 1.5 veces el IQR desde el borde de la caja.</text>
+</svg>
