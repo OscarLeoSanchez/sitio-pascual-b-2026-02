@@ -1,0 +1,105 @@
+---
+title: "Datos para la actividad de la semana: control de calidad de un vino"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Unidad     | Unidad 1. Análisis descriptivo y exploratorio de datos   |
+:::
+
+## Contexto
+
+En una planta de producción de vino, cada lote embotellado pasa por un análisis fisicoquímico de
+laboratorio antes de salir a distribución. Ese laboratorio mide, para cada lote, un conjunto de
+indicadores: acidez, azúcar residual, dióxido de azufre, densidad, pH, alcohol, entre otros. El
+equipo de control de calidad usa esas mediciones para saber qué tan estable es el proceso y qué
+lotes se alejan de lo esperado.
+
+Esta página trae el dataset con esas mediciones, listo para cargar en Python, y la descripción de
+cada columna, para que apliques las herramientas de la semana (tabla de frecuencias, histograma,
+media, mediana, moda, rango, varianza y desviación estándar) sobre datos reales de laboratorio.
+
+## Fuente de datos
+
+**Wine Quality Dataset (vino tinto)**, Cortez, Cerdeira, Almeida, Matos y Reis (2009), publicado en
+el UCI Machine Learning Repository. 1599 muestras de vino tinto, cada una con 11 variables
+fisicoquímicas continuas medidas en laboratorio más una calificación sensorial.
+
+Página oficial del dataset: [archive.ics.uci.edu/dataset/186/wine+quality](https://archive.ics.uci.edu/dataset/186/wine+quality).
+También está disponible en Kaggle como `uciml/red-wine-quality-cortez-et-al-2009` (requiere cuenta).
+
+## Cargar el dataset
+
+```python
+import pandas as pd
+
+url = "https://raw.githubusercontent.com/aniruddhachoudhury/Red-Wine-Quality/master/winequality-red.csv"
+vino = pd.read_csv(url)
+
+print(vino.shape)
+print(vino.head())
+print(vino.dtypes)
+```
+
+```text
+(1599, 12)
+   fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  free sulfur dioxide  total sulfur dioxide  density    pH  sulphates  alcohol  quality
+0            7.4              0.70         0.00             1.9      0.076                 11.0                  34.0   0.9978  3.51       0.56      9.4        5
+1            7.8              0.88         0.00             2.6      0.098                 25.0                  67.0   0.9968  3.20       0.68      9.8        5
+2            7.8              0.76         0.04             2.3      0.092                 15.0                  54.0   0.9970  3.26       0.65      9.8        5
+3           11.2              0.28         0.56             1.9      0.075                 17.0                  60.0   0.9980  3.16       0.58      9.8        6
+4            7.4              0.70         0.00             1.9      0.076                 11.0                  34.0   0.9978  3.51       0.56      9.4        5
+
+fixed acidity           float64
+volatile acidity        float64
+citric acid             float64
+residual sugar          float64
+chlorides               float64
+free sulfur dioxide     float64
+total sulfur dioxide    float64
+density                 float64
+pH                      float64
+sulphates               float64
+alcohol                 float64
+quality                   int64
+dtype: object
+```
+
+1599 filas, 12 columnas, sin valores ausentes. Once columnas son continuas; `quality` es una
+calificación sensorial entera de 0 a 10, otorgada por catadores, y no una medición de laboratorio,
+así que no se trabaja con las herramientas de esta semana.
+
+## Descripción completa de las variables
+
+El rango es el mínimo y el máximo reales observados en estas 1599 muestras. El ejemplo corresponde
+al primer lote de la tabla de arriba.
+
+| Columna | Qué mide | Unidad | Rango en estos datos | Ejemplo (lote 1) |
+|---|---|---|---|---|
+| `fixed acidity` | Acidez fija del vino, principalmente ácido tartárico | g/dm3 | 4.6 a 15.9 | 7.4 |
+| `volatile acidity` | Acidez volátil, principalmente ácido acético; niveles altos producen sabor a vinagre | g/dm3 | 0.12 a 1.58 | 0.70 |
+| `citric acid` | Ácido cítrico, aporta frescura al sabor | g/dm3 | 0.0 a 1.0 | 0.00 |
+| `residual sugar` | Azúcar que queda sin fermentar | g/dm3 | 0.9 a 15.5 | 1.9 |
+| `chlorides` | Cloruro de sodio disuelto | g/dm3 | 0.012 a 0.611 | 0.076 |
+| `free sulfur dioxide` | SO2 libre, protege el vino de oxidación y microorganismos | mg/dm3 | 1.0 a 72.0 | 11.0 |
+| `total sulfur dioxide` | SO2 total (libre más ligado) | mg/dm3 | 6.0 a 289.0 | 34.0 |
+| `density` | Densidad del vino, depende del azúcar y el alcohol presentes | g/cm3 | 0.99007 a 1.00369 | 0.9978 |
+| `pH` | Nivel de acidez o alcalinidad, escala de 0 a 14 | sin unidad | 2.74 a 4.01 | 3.51 |
+| `sulphates` | Sulfato de potasio, aditivo que actúa como antimicrobiano | g/dm3 | 0.33 a 2.00 | 0.56 |
+| `alcohol` | Porcentaje de alcohol por volumen | % vol | 8.4 a 14.9 | 9.4 |
+| `quality` | Calificación sensorial otorgada por catadores (no se usa esta semana) | entero, 0 a 10 | 3 a 8 | 5 |
+
+::: {.pie-doc}
+Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería.
+Semestre 2026-02.
+
+**Transparencia.** La redacción de esta página contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. La salida
+de terminal es real, producida al ejecutar este mismo código durante la preparación del material.
+:::

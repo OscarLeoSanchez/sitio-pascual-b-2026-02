@@ -607,8 +607,8 @@
     "objectID": "estadistica-para-analitica/semana-03/index.html#lo-que-viene",
     "href": "estadistica-para-analitica/semana-03/index.html#lo-que-viene",
     "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
-    "section": "10 Lo que viene",
-    "text": "10 Lo que viene\n\nSemana 4. Vas a interpretar percentiles y diagramas de caja (boxplot) para las variables numéricas, y tablas de contingencia y gráficos de barras para las categóricas.\nSemana 5. Vas a explorar relaciones entre variables con gráficos de dispersión y gráficos condicionales, y a cerrar la Unidad 1 con un informe exploratorio.",
+    "section": "11 Lo que viene",
+    "text": "11 Lo que viene\n\nSemana 4. Vas a interpretar percentiles y diagramas de caja (boxplot) para las variables numéricas, y tablas de contingencia y gráficos de barras para las categóricas.\nSemana 5. Vas a explorar relaciones entre variables con gráficos de dispersión y gráficos condicionales, y a cerrar la Unidad 1 con un informe exploratorio.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 3. Localización, dispersión y tablas de frecuencia"
@@ -618,8 +618,8 @@
     "objectID": "estadistica-para-analitica/semana-03/index.html#recursos",
     "href": "estadistica-para-analitica/semana-03/index.html#recursos",
     "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
-    "section": "11 Recursos",
-    "text": "11 Recursos\n\nBruce, P., Bruce, A. y Gedeck, P. Estadística práctica para ciencia de datos con R y Python. 2.ª edición, MARCOMBO, 2022. Capítulo 1: “Análisis exploratorio de datos”. Fuente de esta guía.\nDatasets de esta guía, del repositorio de datos del libro: state.csv y loans_income.csv\nDocumentación de pandas.cut: pandas.pydata.org/docs/reference/api/pandas.cut.html\nPaquete wquantiles para percentiles ponderados: pypi.org/project/wquantiles\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal y los gráficos son reales, producidos al ejecutar estos mismos programas durante la preparación del material.",
+    "section": "12 Recursos",
+    "text": "12 Recursos\n\nBruce, P., Bruce, A. y Gedeck, P. Estadística práctica para ciencia de datos con R y Python. 2.ª edición, MARCOMBO, 2022. Capítulo 1: “Análisis exploratorio de datos”. Fuente de esta guía.\nDatasets de esta guía, del repositorio de datos del libro: state.csv y loans_income.csv\nDocumentación de pandas.cut: pandas.pydata.org/docs/reference/api/pandas.cut.html\nPaquete wquantiles para percentiles ponderados: pypi.org/project/wquantiles\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal y los gráficos son reales, producidos al ejecutar estos mismos programas durante la preparación del material.",
     "crumbs": [
       "Unidad 1. Análisis descriptivo y exploratorio",
       "Semana 3. Localización, dispersión y tablas de frecuencia"
@@ -2223,5 +2223,51 @@
     "title": "Sintaxis, variables y consola",
     "section": "Trabajo independiente",
     "text": "Trabajo independiente\n\nAgrega codigo (string) y stockMinimo (int, con TryParse).\nGuarda en una variable bool si cantidad es menor que stockMinimo.\nPrueba el programa con datos válidos y con al menos un dato inválido.\n\nRetomas este ejercicio como base para las decisiones y ciclos de la Semana 3 en adelante."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/index.html#actividad-de-la-semana-calidad-de-un-vino",
+    "href": "estadistica-para-analitica/semana-03/index.html#actividad-de-la-semana-calidad-de-un-vino",
+    "title": "Semana 3. Tablas de frecuencia, histogramas y medidas de localización y dispersión",
+    "section": "10 Actividad de la semana: calidad de un vino",
+    "text": "10 Actividad de la semana: calidad de un vino\nVas a aplicar las herramientas de esta guía (tabla de frecuencias, histograma, y medidas de localización y dispersión) sobre datos reales de control de calidad de un vino, con el mismo método que usaste sobre state.csv.\nAbrir los datos y el código de carga",
+    "crumbs": [
+      "Unidad 1. Análisis descriptivo y exploratorio",
+      "Semana 3. Localización, dispersión y tablas de frecuencia"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/datos-calidad-vino.html",
+    "href": "estadistica-para-analitica/semana-03/datos-calidad-vino.html",
+    "title": "Datos para la actividad de la semana: control de calidad de un vino",
+    "section": "",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 1. Análisis descriptivo y exploratorio de datos"
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#contexto",
+    "href": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#contexto",
+    "title": "Datos para la actividad de la semana: control de calidad de un vino",
+    "section": "1 Contexto",
+    "text": "1 Contexto\nEn una planta de producción de vino, cada lote embotellado pasa por un análisis fisicoquímico de laboratorio antes de salir a distribución. Ese laboratorio mide, para cada lote, un conjunto de indicadores: acidez, azúcar residual, dióxido de azufre, densidad, pH, alcohol, entre otros. El equipo de control de calidad usa esas mediciones para saber qué tan estable es el proceso y qué lotes se alejan de lo esperado.\nEsta página trae el dataset con esas mediciones, listo para cargar en Python, y la descripción de cada columna, para que apliques las herramientas de la semana (tabla de frecuencias, histograma, media, mediana, moda, rango, varianza y desviación estándar) sobre datos reales de laboratorio."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#fuente-de-datos",
+    "href": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#fuente-de-datos",
+    "title": "Datos para la actividad de la semana: control de calidad de un vino",
+    "section": "2 Fuente de datos",
+    "text": "2 Fuente de datos\nWine Quality Dataset (vino tinto), Cortez, Cerdeira, Almeida, Matos y Reis (2009), publicado en el UCI Machine Learning Repository. 1599 muestras de vino tinto, cada una con 11 variables fisicoquímicas continuas medidas en laboratorio más una calificación sensorial.\nPágina oficial del dataset: archive.ics.uci.edu/dataset/186/wine+quality. También está disponible en Kaggle como uciml/red-wine-quality-cortez-et-al-2009 (requiere cuenta)."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#cargar-el-dataset",
+    "href": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#cargar-el-dataset",
+    "title": "Datos para la actividad de la semana: control de calidad de un vino",
+    "section": "3 Cargar el dataset",
+    "text": "3 Cargar el dataset\nimport pandas as pd\n\nurl = \"https://raw.githubusercontent.com/aniruddhachoudhury/Red-Wine-Quality/master/winequality-red.csv\"\nvino = pd.read_csv(url)\n\nprint(vino.shape)\nprint(vino.head())\nprint(vino.dtypes)\n(1599, 12)\n   fixed acidity  volatile acidity  citric acid  residual sugar  chlorides  free sulfur dioxide  total sulfur dioxide  density    pH  sulphates  alcohol  quality\n0            7.4              0.70         0.00             1.9      0.076                 11.0                  34.0   0.9978  3.51       0.56      9.4        5\n1            7.8              0.88         0.00             2.6      0.098                 25.0                  67.0   0.9968  3.20       0.68      9.8        5\n2            7.8              0.76         0.04             2.3      0.092                 15.0                  54.0   0.9970  3.26       0.65      9.8        5\n3           11.2              0.28         0.56             1.9      0.075                 17.0                  60.0   0.9980  3.16       0.58      9.8        6\n4            7.4              0.70         0.00             1.9      0.076                 11.0                  34.0   0.9978  3.51       0.56      9.4        5\n\nfixed acidity           float64\nvolatile acidity        float64\ncitric acid             float64\nresidual sugar          float64\nchlorides               float64\nfree sulfur dioxide     float64\ntotal sulfur dioxide    float64\ndensity                 float64\npH                      float64\nsulphates               float64\nalcohol                 float64\nquality                   int64\ndtype: object\n1599 filas, 12 columnas, sin valores ausentes. Once columnas son continuas; quality es una calificación sensorial entera de 0 a 10, otorgada por catadores, y no una medición de laboratorio, así que no se trabaja con las herramientas de esta semana."
+  },
+  {
+    "objectID": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#descripción-completa-de-las-variables",
+    "href": "estadistica-para-analitica/semana-03/datos-calidad-vino.html#descripción-completa-de-las-variables",
+    "title": "Datos para la actividad de la semana: control de calidad de un vino",
+    "section": "4 Descripción completa de las variables",
+    "text": "4 Descripción completa de las variables\nEl rango es el mínimo y el máximo reales observados en estas 1599 muestras. El ejemplo corresponde al primer lote de la tabla de arriba.\n\n\n\n\n\n\n\n\n\n\nColumna\nQué mide\nUnidad\nRango en estos datos\nEjemplo (lote 1)\n\n\n\n\nfixed acidity\nAcidez fija del vino, principalmente ácido tartárico\ng/dm3\n4.6 a 15.9\n7.4\n\n\nvolatile acidity\nAcidez volátil, principalmente ácido acético; niveles altos producen sabor a vinagre\ng/dm3\n0.12 a 1.58\n0.70\n\n\ncitric acid\nÁcido cítrico, aporta frescura al sabor\ng/dm3\n0.0 a 1.0\n0.00\n\n\nresidual sugar\nAzúcar que queda sin fermentar\ng/dm3\n0.9 a 15.5\n1.9\n\n\nchlorides\nCloruro de sodio disuelto\ng/dm3\n0.012 a 0.611\n0.076\n\n\nfree sulfur dioxide\nSO2 libre, protege el vino de oxidación y microorganismos\nmg/dm3\n1.0 a 72.0\n11.0\n\n\ntotal sulfur dioxide\nSO2 total (libre más ligado)\nmg/dm3\n6.0 a 289.0\n34.0\n\n\ndensity\nDensidad del vino, depende del azúcar y el alcohol presentes\ng/cm3\n0.99007 a 1.00369\n0.9978\n\n\npH\nNivel de acidez o alcalinidad, escala de 0 a 14\nsin unidad\n2.74 a 4.01\n3.51\n\n\nsulphates\nSulfato de potasio, aditivo que actúa como antimicrobiano\ng/dm3\n0.33 a 2.00\n0.56\n\n\nalcohol\nPorcentaje de alcohol por volumen\n% vol\n8.4 a 14.9\n9.4\n\n\nquality\nCalificación sensorial otorgada por catadores (no se usa esta semana)\nentero, 0 a 10\n3 a 8\n5\n\n\n\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta página contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. La salida de terminal es real, producida al ejecutar este mismo código durante la preparación del material."
   }
 ]

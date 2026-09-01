@@ -948,6 +948,14 @@ válida porque el CV no tiene unidades.
       Paso 2 (tus tres preguntas escritas) antes de la próxima sesión
 :::
 
+## Actividad de la semana: calidad de un vino
+
+Vas a aplicar las herramientas de esta guía (tabla de frecuencias, histograma, y medidas de
+localización y dispersión) sobre datos reales de control de calidad de un vino, con el mismo método
+que usaste sobre `state.csv`.
+
+[Abrir los datos y el código de carga](datos-calidad-vino.html){.btn .btn-primary role="button"}
+
 ## Lo que viene
 
 - **Semana 4.** Vas a interpretar percentiles y diagramas de caja (boxplot) para las variables
