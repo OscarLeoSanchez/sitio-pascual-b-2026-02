@@ -2203,32 +2203,39 @@
     "text": "De la lista pequeña al dataset grande\n\nCon 12 datos, un gráfico de dispersión se lee de un vistazo. Con 400 000, no.\n\nkc_tax.csv.gz trae 409 456 viviendas del condado de King, con su valor catastral y su área construida. La correlación es 0.536: moderada, mucho más débil que la de tiempos y costo, y con demasiados puntos para dibujarlos todos como puntos individuales."
   },
   {
+    "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#cargar-y-preparar-los-datos",
+    "href": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#cargar-y-preparar-los-datos",
+    "title": "Estadística para Analítica",
+    "section": "Cargar y preparar los datos",
+    "text": "Cargar y preparar los datos\nimport pandas as pd\n\nurl = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz\"\nkc_tax = pd.read_csv(url, compression=\"gzip\")\n\nkc_tax0 = kc_tax[\n    (kc_tax.TaxAssessedValue &lt; 750000) & (kc_tax.SqFtTotLiving &gt; 100) & (kc_tax.SqFtTotLiving &lt; 3500)\n].dropna()\nFiltramos errores de captura y viviendas atípicas. Quedan 409 456 filas limpias para graficar."
+  },
+  {
     "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#el-sobregraficado",
     "href": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#el-sobregraficado",
     "title": "Estadística para Analítica",
     "section": "El sobregraficado",
-    "text": "El sobregraficado\n\n\n\nCon solo una muestra de 5000 viviendas, el centro ya es una mancha densa."
+    "text": "El sobregraficado\nimport matplotlib.pyplot as plt\n\nmuestra = kc_tax0.sample(n=5000, random_state=1)\nplt.scatter(muestra[\"SqFtTotLiving\"], muestra[\"TaxAssessedValue\"], s=8, alpha=0.5)\nplt.xlabel(\"área construida (pies2)\")\nplt.ylabel(\"valor catastral ($)\")\nplt.show()\n\n\n\nCon solo una muestra de 5000 viviendas, el centro ya es una mancha densa."
   },
   {
     "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#la-solución-hexbin",
     "href": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#la-solución-hexbin",
     "title": "Estadística para Analítica",
     "section": "La solución: hexbin",
-    "text": "La solución: hexbin\n\n\n\nCada celda cuenta cuántas viviendas caen ahí. La densidad reemplaza al punto individual."
+    "text": "La solución: hexbin\nplt.hexbin(kc_tax0[\"SqFtTotLiving\"], kc_tax0[\"TaxAssessedValue\"], gridsize=40, cmap=\"Blues\", mincnt=1)\nplt.colorbar(label=\"viviendas por celda\")\nplt.show()\n\n\n\nCada celda cuenta cuántas viviendas caen ahí. La densidad reemplaza al punto individual."
   },
   {
     "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#gráficos-condicionales-cambia-la-relación-por-zona",
     "href": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#gráficos-condicionales-cambia-la-relación-por-zona",
     "title": "Estadística para Analítica",
     "section": "Gráficos condicionales: ¿cambia la relación por zona?",
-    "text": "Gráficos condicionales: ¿cambia la relación por zona?\n\n\n\nCorrelación general: 0.536. Por código postal: entre 0.648 y 0.737."
+    "text": "Gráficos condicionales: ¿cambia la relación por zona?\nzips = [98188, 98105, 98108]\ncolores = [\"#2f7bb8\", \"#c4682c\", \"#7a3f9d\"]\n\nfor z, color in zip(zips, colores):\n    d = kc_tax0[kc_tax0.ZipCode == z]\n    plt.scatter(d[\"SqFtTotLiving\"], d[\"TaxAssessedValue\"], s=8, alpha=0.5, color=color, label=z)\nplt.legend(title=\"código postal\")\nplt.show()\n\n\n\nCorrelación general: 0.536. Por código postal: entre 0.65 y 0.70 en estas tres zonas."
   },
   {
     "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#siempre-sube-al-condicionar",
     "href": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#siempre-sube-al-condicionar",
     "title": "Estadística para Analítica",
     "section": "¿Siempre sube al condicionar?",
-    "text": "¿Siempre sube al condicionar?\n\n\n\nNo. Con airline_stats.csv, la correlación general (0.144) y las seis correlaciones por aerolínea (0.067 a 0.210) siguen siendo débiles. Condicionar confirma, no siempre revela."
+    "text": "¿Siempre sube al condicionar?\nurl_air = \"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/airline_stats.csv\"\nair = pd.read_csv(url_air)\n\naerolineas = [\"Alaska\", \"American\", \"Southwest\"]\n\nfor a, color in zip(aerolineas, colores):\n    d = air[air.airline == a]\n    plt.scatter(d[\"pct_carrier_delay\"], d[\"pct_atc_delay\"], s=8, alpha=0.4, color=color, label=a)\nplt.legend(title=\"aerolínea\")\nplt.show()\n\n\n\nNo. Con airline_stats.csv, la correlación general (0.144) y las tres correlaciones por aerolínea mostradas aquí (0.067 a 0.21) siguen siendo débiles. Condicionar confirma, no siempre revela."
   },
   {
     "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#correlación-no-es-causalidad",
@@ -2243,13 +2250,6 @@
     "title": "Estadística para Analítica",
     "section": "Cierre de la Unidad 1: toda la caja de herramientas",
     "text": "Cierre de la Unidad 1: toda la caja de herramientas"
-  },
-  {
-    "objectID": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#lo-que-sigue",
-    "href": "estadistica-para-analitica/semana-05/presentacion-dispersion-condicionales.html#lo-que-sigue",
-    "title": "Estadística para Analítica",
-    "section": "Lo que sigue",
-    "text": "Lo que sigue\n\nEntregable de la semana: informe exploratorio de cierre de la Unidad 1 (10%, dentro del 30% del cierre). El docente entrega el detalle aparte.\nLa guía trae un ejemplo completo de cómo se arma ese informe, combinando herramientas de las tres semanas de la unidad.\nSemana 6: empieza la Unidad 2, variables aleatorias y probabilidad."
   },
   {
     "objectID": "herramientas-programacion-1/index.html",

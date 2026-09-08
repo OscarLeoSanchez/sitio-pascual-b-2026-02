@@ -303,8 +303,27 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sq
 </div>
 <p><code>kc_tax.csv.gz</code> trae 409 456 viviendas del condado de King, con su valor catastral y su área construida. La correlación es 0.536: moderada, mucho más débil que la de <code>tiempos</code> y <code>costo</code>, y con demasiados puntos para dibujarlos todos como puntos individuales.</p>
 </section>
+<section id="cargar-y-preparar-los-datos" class="slide level2 center">
+<h2>Cargar y preparar los datos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz"</span></span>
+<span id="cb8-4"><a></a>kc_tax <span class="op">=</span> pd.read_csv(url, compression<span class="op">=</span><span class="st">"gzip"</span>)</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a>kc_tax0 <span class="op">=</span> kc_tax[</span>
+<span id="cb8-7"><a></a>    (kc_tax.TaxAssessedValue <span class="op">&lt;</span> <span class="dv">750000</span>) <span class="op">&amp;</span> (kc_tax.SqFtTotLiving <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (kc_tax.SqFtTotLiving <span class="op">&lt;</span> <span class="dv">3500</span>)</span>
+<span id="cb8-8"><a></a>].dropna()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Filtramos errores de captura y viviendas atípicas. Quedan 409 456 filas limpias para graficar.</p>
+</section>
 <section id="el-sobregraficado" class="slide level2 center">
 <h2>El sobregraficado</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>muestra <span class="op">=</span> kc_tax0.sample(n<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-4"><a></a>plt.scatter(muestra[<span class="st">"SqFtTotLiving"</span>], muestra[<span class="st">"TaxAssessedValue"</span>], s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb9-5"><a></a>plt.xlabel(<span class="st">"área construida (pies2)"</span>)</span>
+<span id="cb9-6"><a></a>plt.ylabel(<span class="st">"valor catastral ($)"</span>)</span>
+<span id="cb9-7"><a></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="diagrama">
 <p><img data-src="imagenes/dispersion-simple-sobregraficado.svg" alt="Grafico de dispersion de 5000 viviendas, muy denso en el centro, dificil de distinguir puntos individuales."></p>
 </div>
@@ -312,6 +331,9 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sq
 </section>
 <section id="la-solución-hexbin" class="slide level2 center">
 <h2>La solución: hexbin</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>plt.hexbin(kc_tax0[<span class="st">"SqFtTotLiving"</span>], kc_tax0[<span class="st">"TaxAssessedValue"</span>], gridsize<span class="op">=</span><span class="dv">40</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>, mincnt<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-2"><a></a>plt.colorbar(label<span class="op">=</span><span class="st">"viviendas por celda"</span>)</span>
+<span id="cb10-3"><a></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="diagrama">
 <p><img data-src="imagenes/dispersion-hexbin.svg" alt="Grafico hexagonal de las 409456 viviendas, con celdas coloreadas segun la cantidad de viviendas que caen en cada una."></p>
 </div>
@@ -319,17 +341,35 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sq
 </section>
 <section id="gráficos-condicionales-cambia-la-relación-por-zona" class="slide level2 center">
 <h2>Gráficos condicionales: ¿cambia la relación por zona?</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>zips <span class="op">=</span> [<span class="dv">98188</span>, <span class="dv">98105</span>, <span class="dv">98108</span>]</span>
+<span id="cb11-2"><a></a>colores <span class="op">=</span> [<span class="st">"#2f7bb8"</span>, <span class="st">"#c4682c"</span>, <span class="st">"#7a3f9d"</span>]</span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a><span class="cf">for</span> z, color <span class="kw">in</span> <span class="bu">zip</span>(zips, colores):</span>
+<span id="cb11-5"><a></a>    d <span class="op">=</span> kc_tax0[kc_tax0.ZipCode <span class="op">==</span> z]</span>
+<span id="cb11-6"><a></a>    plt.scatter(d[<span class="st">"SqFtTotLiving"</span>], d[<span class="st">"TaxAssessedValue"</span>], s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span>color, label<span class="op">=</span>z)</span>
+<span id="cb11-7"><a></a>plt.legend(title<span class="op">=</span><span class="st">"código postal"</span>)</span>
+<span id="cb11-8"><a></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="diagrama">
-<p><img data-src="imagenes/dispersion-condicional-zipcode.svg" alt="Cuatro graficos de dispersion, uno por codigo postal, cada uno con una relacion mas clara entre area y valor catastral que el grafico general."></p>
+<p><img data-src="imagenes/dispersion-condicional-zipcode-simple.svg" alt="Grafico de dispersion con tres codigos postales superpuestos en colores distintos, cada grupo con una relacion mas clara entre area y valor catastral que el grafico general sin dividir por zona."></p>
 </div>
-<p>Correlación general: 0.536. Por código postal: entre 0.648 y 0.737.</p>
+<p>Correlación general: 0.536. Por código postal: entre 0.65 y 0.70 en estas tres zonas.</p>
 </section>
 <section id="siempre-sube-al-condicionar" class="slide level2 center">
 <h2>¿Siempre sube al condicionar?</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>url_air <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/airline_stats.csv"</span></span>
+<span id="cb12-2"><a></a>air <span class="op">=</span> pd.read_csv(url_air)</span>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a>aerolineas <span class="op">=</span> [<span class="st">"Alaska"</span>, <span class="st">"American"</span>, <span class="st">"Southwest"</span>]</span>
+<span id="cb12-5"><a></a></span>
+<span id="cb12-6"><a></a><span class="cf">for</span> a, color <span class="kw">in</span> <span class="bu">zip</span>(aerolineas, colores):</span>
+<span id="cb12-7"><a></a>    d <span class="op">=</span> air[air.airline <span class="op">==</span> a]</span>
+<span id="cb12-8"><a></a>    plt.scatter(d[<span class="st">"pct_carrier_delay"</span>], d[<span class="st">"pct_atc_delay"</span>], s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.4</span>, color<span class="op">=</span>color, label<span class="op">=</span>a)</span>
+<span id="cb12-9"><a></a>plt.legend(title<span class="op">=</span><span class="st">"aerolínea"</span>)</span>
+<span id="cb12-10"><a></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="diagrama">
-<p><img data-src="imagenes/dispersion-condicional-aerolinea.svg" alt="Seis graficos de dispersion, uno por aerolinea, todos con una nube de puntos dispersa sin relacion clara."></p>
+<p><img data-src="imagenes/dispersion-condicional-aerolinea-simple.svg" alt="Grafico de dispersion con tres aerolineas superpuestas en colores distintos, todas con una nube de puntos dispersa sin relacion clara entre el retraso atribuible a la aerolinea y al control de trafico aereo."></p>
 </div>
-<p>No.&nbsp;Con <code>airline_stats.csv</code>, la correlación general (0.144) y las seis correlaciones por aerolínea (0.067 a 0.210) siguen siendo débiles. Condicionar confirma, no siempre revela.</p>
+<p>No.&nbsp;Con <code>airline_stats.csv</code>, la correlación general (0.144) y las tres correlaciones por aerolínea mostradas aquí (0.067 a 0.21) siguen siendo débiles. Condicionar confirma, no siempre revela.</p>
 </section>
 <section id="correlación-no-es-causalidad" class="slide level2 center">
 <h2>Correlación no es causalidad</h2>
@@ -343,14 +383,6 @@ r = \frac{\sum (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum (x_i - \bar{x})^2} \sq
 <div class="diagrama">
 <p><img data-src="imagenes/caja-herramientas-unidad-1.svg" alt="Diagrama con seis tarjetas que resumen la caja de herramientas de la Unidad 1 segun el numero y tipo de variables involucradas, con la semana en que se vio cada una."></p>
 </div>
-</section>
-<section id="lo-que-sigue" class="slide level2 center">
-<h2>Lo que sigue</h2>
-<ul>
-<li>Entregable de la semana: informe exploratorio de cierre de la Unidad 1 (10%, dentro del 30% del cierre). El docente entrega el detalle aparte.</li>
-<li>La guía trae un ejemplo completo de cómo se arma ese informe, combinando herramientas de las tres semanas de la unidad.</li>
-<li>Semana 6: empieza la Unidad 2, variables aleatorias y probabilidad.</li>
-</ul>
 
 
 </section>

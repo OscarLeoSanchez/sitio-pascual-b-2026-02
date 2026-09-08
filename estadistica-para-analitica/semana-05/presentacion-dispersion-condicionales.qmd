@@ -150,7 +150,32 @@ Con 12 datos, un gráfico de dispersión se lee de un vistazo. Con 400 000, no.
 construida. La correlación es 0.536: moderada, mucho más débil que la de `tiempos` y `costo`, y con
 demasiados puntos para dibujarlos todos como puntos individuales.
 
+## Cargar y preparar los datos
+
+```python
+import pandas as pd
+
+url = "https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz"
+kc_tax = pd.read_csv(url, compression="gzip")
+
+kc_tax0 = kc_tax[
+    (kc_tax.TaxAssessedValue < 750000) & (kc_tax.SqFtTotLiving > 100) & (kc_tax.SqFtTotLiving < 3500)
+].dropna()
+```
+
+Filtramos errores de captura y viviendas atípicas. Quedan 409 456 filas limpias para graficar.
+
 ## El sobregraficado
+
+```python
+import matplotlib.pyplot as plt
+
+muestra = kc_tax0.sample(n=5000, random_state=1)
+plt.scatter(muestra["SqFtTotLiving"], muestra["TaxAssessedValue"], s=8, alpha=0.5)
+plt.xlabel("área construida (pies2)")
+plt.ylabel("valor catastral ($)")
+plt.show()
+```
 
 ::: {.diagrama}
 ![](imagenes/dispersion-simple-sobregraficado.svg){fig-alt="Grafico de dispersion de 5000 viviendas, muy denso en el centro, dificil de distinguir puntos individuales."}
@@ -160,6 +185,12 @@ Con solo una muestra de 5000 viviendas, el centro ya es una mancha densa.
 
 ## La solución: hexbin
 
+```python
+plt.hexbin(kc_tax0["SqFtTotLiving"], kc_tax0["TaxAssessedValue"], gridsize=40, cmap="Blues", mincnt=1)
+plt.colorbar(label="viviendas por celda")
+plt.show()
+```
+
 ::: {.diagrama}
 ![](imagenes/dispersion-hexbin.svg){fig-alt="Grafico hexagonal de las 409456 viviendas, con celdas coloreadas segun la cantidad de viviendas que caen en cada una."}
 :::
@@ -168,20 +199,44 @@ Cada celda cuenta cuántas viviendas caen ahí. La densidad reemplaza al punto i
 
 ## Gráficos condicionales: ¿cambia la relación por zona?
 
+```python
+zips = [98188, 98105, 98108]
+colores = ["#2f7bb8", "#c4682c", "#7a3f9d"]
+
+for z, color in zip(zips, colores):
+    d = kc_tax0[kc_tax0.ZipCode == z]
+    plt.scatter(d["SqFtTotLiving"], d["TaxAssessedValue"], s=8, alpha=0.5, color=color, label=z)
+plt.legend(title="código postal")
+plt.show()
+```
+
 ::: {.diagrama}
-![](imagenes/dispersion-condicional-zipcode.svg){fig-alt="Cuatro graficos de dispersion, uno por codigo postal, cada uno con una relacion mas clara entre area y valor catastral que el grafico general."}
+![](imagenes/dispersion-condicional-zipcode-simple.svg){fig-alt="Grafico de dispersion con tres codigos postales superpuestos en colores distintos, cada grupo con una relacion mas clara entre area y valor catastral que el grafico general sin dividir por zona."}
 :::
 
-Correlación general: 0.536. Por código postal: entre 0.648 y 0.737.
+Correlación general: 0.536. Por código postal: entre 0.65 y 0.70 en estas tres zonas.
 
 ## ¿Siempre sube al condicionar?
 
+```python
+url_air = "https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/airline_stats.csv"
+air = pd.read_csv(url_air)
+
+aerolineas = ["Alaska", "American", "Southwest"]
+
+for a, color in zip(aerolineas, colores):
+    d = air[air.airline == a]
+    plt.scatter(d["pct_carrier_delay"], d["pct_atc_delay"], s=8, alpha=0.4, color=color, label=a)
+plt.legend(title="aerolínea")
+plt.show()
+```
+
 ::: {.diagrama}
-![](imagenes/dispersion-condicional-aerolinea.svg){fig-alt="Seis graficos de dispersion, uno por aerolinea, todos con una nube de puntos dispersa sin relacion clara."}
+![](imagenes/dispersion-condicional-aerolinea-simple.svg){fig-alt="Grafico de dispersion con tres aerolineas superpuestas en colores distintos, todas con una nube de puntos dispersa sin relacion clara entre el retraso atribuible a la aerolinea y al control de trafico aereo."}
 :::
 
-No. Con `airline_stats.csv`, la correlación general (0.144) y las seis correlaciones por aerolínea
-(0.067 a 0.210) siguen siendo débiles. Condicionar confirma, no siempre revela.
+No. Con `airline_stats.csv`, la correlación general (0.144) y las tres correlaciones por aerolínea
+mostradas aquí (0.067 a 0.21) siguen siendo débiles. Condicionar confirma, no siempre revela.
 
 ## Correlación no es causalidad
 
@@ -197,11 +252,3 @@ las dos a la vez. Antes de hablar de causa, pregunta si hay una tercera variable
 ::: {.diagrama}
 ![](imagenes/caja-herramientas-unidad-1.svg){fig-alt="Diagrama con seis tarjetas que resumen la caja de herramientas de la Unidad 1 segun el numero y tipo de variables involucradas, con la semana en que se vio cada una."}
 :::
-
-## Lo que sigue
-
-- Entregable de la semana: informe exploratorio de cierre de la Unidad 1 (10%, dentro del 30% del
-  cierre). El docente entrega el detalle aparte.
-- La guía trae un ejemplo completo de cómo se arma ese informe, combinando herramientas de las tres
-  semanas de la unidad.
-- Semana 6: empieza la Unidad 2, variables aleatorias y probabilidad.
