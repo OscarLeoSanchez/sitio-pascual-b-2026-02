@@ -53,6 +53,10 @@ website:
               href: estadistica-para-analitica/semana-03/index.qmd
             - text: "Semana 4. Boxplot, cuantiles y variables categóricas"
               href: estadistica-para-analitica/semana-04/index.qmd
+            - text: "Semana 5. Dispersión, condicionales y cierre de la Unidad 1"
+              href: estadistica-para-analitica/semana-05/index.qmd
+            - text: "Laboratorio: análisis exploratorio con pandas"
+              href: estadistica-para-analitica/laboratorio-pandas-eda/index.qmd
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

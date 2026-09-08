@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Semana 5. Gráficos de dispersión y condicionales. Cierre de la Unidad 1 – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-01/index.html">Unidad 1. Análisis descriptivo y exploratorio</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-05/index.html">Semana 5. Dispersión, condicionales y cierre de la Unidad 1</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del módulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Análisis descriptivo y exploratorio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Presentación y entorno de trabajo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Tipos de variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 3. Localización, dispersión y tablas de frecuencia</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 4. Boxplot, cuantiles y variables categóricas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-05/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Semana 5. Dispersión, condicionales y cierre de la Unidad 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/laboratorio-pandas-eda/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorio: análisis exploratorio con pandas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#de-qué-va-esta-semana" id="toc-de-qué-va-esta-semana" class="nav-link active" data-scroll-target="#de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</a></li>
+  <li><a href="#recapitulación-breve-la-correlación-con-datos-que-ya-conoces" id="toc-recapitulación-breve-la-correlación-con-datos-que-ya-conoces" class="nav-link" data-scroll-target="#recapitulación-breve-la-correlación-con-datos-que-ya-conoces"><span class="header-section-number">2</span> Recapitulación breve: la correlación con datos que ya conoces</a></li>
+  <li><a href="#el-coeficiente-de-correlación" id="toc-el-coeficiente-de-correlación" class="nav-link" data-scroll-target="#el-coeficiente-de-correlación"><span class="header-section-number">3</span> El coeficiente de correlación</a></li>
+  <li><a href="#el-gráfico-de-dispersión" id="toc-el-gráfico-de-dispersión" class="nav-link" data-scroll-target="#el-gráfico-de-dispersión"><span class="header-section-number">4</span> El gráfico de dispersión</a></li>
+  <li><a href="#el-problema-del-sobregraficado" id="toc-el-problema-del-sobregraficado" class="nav-link" data-scroll-target="#el-problema-del-sobregraficado"><span class="header-section-number">5</span> El problema del sobregraficado</a></li>
+  <li><a href="#gráficos-condicionales" id="toc-gráficos-condicionales" class="nav-link" data-scroll-target="#gráficos-condicionales"><span class="header-section-number">6</span> Gráficos condicionales</a></li>
+  <li><a href="#correlación-no-es-causalidad" id="toc-correlación-no-es-causalidad" class="nav-link" data-scroll-target="#correlación-no-es-causalidad"><span class="header-section-number">7</span> Correlación no es causalidad</a></li>
+  <li><a href="#cierre-de-la-unidad-1-la-caja-de-herramientas-completa" id="toc-cierre-de-la-unidad-1-la-caja-de-herramientas-completa" class="nav-link" data-scroll-target="#cierre-de-la-unidad-1-la-caja-de-herramientas-completa"><span class="header-section-number">8</span> Cierre de la Unidad 1: la caja de herramientas completa</a></li>
+  <li><a href="#ejercicio-final-constrúyelo-tú-de-principio-a-fin" id="toc-ejercicio-final-constrúyelo-tú-de-principio-a-fin" class="nav-link" data-scroll-target="#ejercicio-final-constrúyelo-tú-de-principio-a-fin"><span class="header-section-number">9</span> Ejercicio final: constrúyelo tú, de principio a fin</a>
+  <ul class="collapse">
+  <li><a href="#paso-1.-retoma-tu-dataset" id="toc-paso-1.-retoma-tu-dataset" class="nav-link" data-scroll-target="#paso-1.-retoma-tu-dataset">Paso 1. Retoma tu dataset</a></li>
+  <li><a href="#paso-2.-encuentra-una-relación-entre-dos-variables-numéricas" id="toc-paso-2.-encuentra-una-relación-entre-dos-variables-numéricas" class="nav-link" data-scroll-target="#paso-2.-encuentra-una-relación-entre-dos-variables-numéricas">Paso 2. Encuentra una relación entre dos variables numéricas</a></li>
+  <li><a href="#paso-3.-condiciona-por-una-tercera-variable" id="toc-paso-3.-condiciona-por-una-tercera-variable" class="nav-link" data-scroll-target="#paso-3.-condiciona-por-una-tercera-variable">Paso 3. Condiciona por una tercera variable</a></li>
+  <li><a href="#paso-4.-arma-tu-informe-exploratorio" id="toc-paso-4.-arma-tu-informe-exploratorio" class="nav-link" data-scroll-target="#paso-4.-arma-tu-informe-exploratorio">Paso 4. Arma tu informe exploratorio</a></li>
+  </ul></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">10</span> Errores frecuentes</a></li>
+  <li><a href="#lista-de-chequeo-de-la-semana" id="toc-lista-de-chequeo-de-la-semana" class="nav-link" data-scroll-target="#lista-de-chequeo-de-la-semana"><span class="header-section-number">11</span> Lista de chequeo de la semana</a></li>
+  <li><a href="#lo-que-viene" id="toc-lo-que-viene" class="nav-link" data-scroll-target="#lo-que-viene"><span class="header-section-number">12</span> Lo que viene</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">13</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-01/index.html">Unidad 1. Análisis descriptivo y exploratorio</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/semana-05/index.html">Semana 5. Dispersión, condicionales y cierre de la Unidad 1</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Semana 5. Gráficos de dispersión y condicionales. Cierre de la Unidad 1</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Módulo</td>
+<td>Estadística para Analítica</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Especialización en Big Data</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 1. Análisis descriptivo y exploratorio de datos</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="presentacion-dispersion-condicionales.html" class="btn btn-primary" role="button">Abrir la presentación de la sesión</a></p>
+<section id="de-qué-va-esta-semana" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="de-qué-va-esta-semana"><span class="header-section-number">1</span> De qué va esta semana</h2>
+<p>Cerramos el capítulo 1 de <em>Estadística práctica para ciencia de datos con R y Python</em> (Bruce, Bruce y Gedeck, 2.ª edición), la misma fuente de las dos semanas anteriores. Hasta ahora resumiste una variable a la vez: un histograma, un boxplot, un gráfico de barras. Esta semana respondes una pregunta distinta: ¿dos variables numéricas se mueven juntas, y esa relación cambia según una tercera variable?</p>
+<p>El dataset guía es <code>kc_tax.csv.gz</code>, del repositorio del libro: casi 500 000 viviendas del condado de King (Seattle, EE. UU.), con su valor catastral, su área construida y su código postal. Ya lo conocías como dataset de respaldo del ejercicio final de las Semanas 03 y 04; esta semana pasa a ser el dataset principal. Vas a ver un problema práctico que no te había tocado todavía: con cientos de miles de puntos, un gráfico de dispersión común se vuelve ilegible, y necesitas otra herramienta para leerlo. Después, reutilizas <code>airline_stats.csv</code> (ya conocido de la Semana 04) para un ejercicio con un resultado bien distinto: ni la relación general ni la relación por grupo son fuertes.</p>
+<p>Esta semana cierra la Unidad 1 y trae un entregable: un informe exploratorio (10% de la nota, dentro del 30% del cierre de unidad). El detalle del entregable lo recibes aparte del docente; esta guía te enseña las herramientas y, al final, un ejemplo completo de cómo se arma un informe así.</p>
+<p>Al terminar deberías poder:</p>
+<ol type="1">
+<li>Calcular la correlación entre dos variables numéricas con <code>.corr()</code> e interpretar su signo y su magnitud.</li>
+<li>Reconocer el sobregraficado en un gráfico de dispersión con muchos puntos, y resolverlo con un gráfico hexagonal (hexbin).</li>
+<li>Construir un gráfico condicional (el mismo gráfico repetido por cada categoría de una tercera variable) y decidir si la relación entre las dos variables numéricas cambia según la categoría.</li>
+<li>Explicar por qué una correlación, alta o baja, nunca prueba una relación de causa y efecto por sí sola.</li>
+<li>Reunir en un solo informe las herramientas de toda la Unidad 1: tabla de frecuencias, histograma, medidas de localización y dispersión, boxplot, gráfico de barras, tabla de contingencia y, ahora, dispersión y gráficos condicionales.</li>
+</ol>
+</section>
+<section id="recapitulación-breve-la-correlación-con-datos-que-ya-conoces" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="recapitulación-breve-la-correlación-con-datos-que-ya-conoces"><span class="header-section-number">2</span> Recapitulación breve: la correlación con datos que ya conoces</h2>
+<p>Antes de un dataset nuevo, calculemos la correlación entre las dos columnas numéricas de <code>state.csv</code>, ya cargado en las dos semanas anteriores.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/state.csv"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> pd.read_csv(url)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>correlacion <span class="op">=</span> state[<span class="st">"Population"</span>].corr(state[<span class="st">"Murder.Rate"</span>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"correlacion Population vs Murder.Rate:"</span>, <span class="bu">round</span>(correlacion, <span class="dv">3</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>correlacion Population vs Murder.Rate: 0.182</code></pre>
+</section>
+<section id="el-coeficiente-de-correlación" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="el-coeficiente-de-correlación"><span class="header-section-number">3</span> El coeficiente de correlación</h2>
+<p>El coeficiente de correlación de Pearson mide qué tan fuerte es la relación lineal entre dos variables numéricas, en una escala de -1 a 1:</p>
+<p><span class="math display">\[
+r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}
+{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
+\]</span></p>
+<p>Un valor cercano a 1 dice que, cuando una variable sube, la otra tiende a subir también, de forma casi proporcional. Cercano a -1 dice lo contrario: cuando una sube, la otra tiende a bajar. Cercano a 0 dice que no hay una relación lineal clara entre las dos.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>0.182 es una correlación débil: saber cuánta población tiene un estado casi no te dice nada sobre su tasa de homicidios. No es cero (hay una tendencia leve a que estados más poblados tengan una tasa un poco más alta), pero está lejos de una relación fuerte. Vas a ver en un momento un ejemplo con una correlación mucho más marcada.</p>
+</div>
+</div>
+</section>
+<section id="el-gráfico-de-dispersión" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="el-gráfico-de-dispersión"><span class="header-section-number">4</span> El gráfico de dispersión</h2>
+<p>Un gráfico de dispersión pone una variable en cada eje y dibuja un punto por observación. Es la herramienta que responde visualmente la misma pregunta que el coeficiente de correlación responde con un número.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>url_kc <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/kc_tax.csv.gz"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kc_tax <span class="op">=</span> pd.read_csv(url_kc, compression<span class="op">=</span><span class="st">"gzip"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kc_tax.shape)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(kc_tax.head())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>(498249, 3)
+   TaxAssessedValue  SqFtTotLiving  ZipCode
+0               NaN           1730  98117.0
+1          206000.0           1870  98002.0
+2          303000.0           1530  98166.0
+3          361000.0           2000  98108.0
+4          459000.0           3150  98108.0</code></pre>
+<p>Antes de graficar, filtramos: descartamos filas sin valor catastral, y nos quedamos con viviendas de menos de 750 000 dólares y entre 100 y 3500 pies cuadrados, para dejar fuera errores de captura y propiedades atípicas que estirarían los ejes sin aportar nada a la lectura.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>kc_tax0 <span class="op">=</span> kc_tax.loc[</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    (kc_tax.TaxAssessedValue <span class="op">&lt;</span> <span class="dv">750000</span>) <span class="op">&amp;</span> (kc_tax.SqFtTotLiving <span class="op">&gt;</span> <span class="dv">100</span>) <span class="op">&amp;</span> (kc_tax.SqFtTotLiving <span class="op">&lt;</span> <span class="dv">3500</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    :,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>].dropna()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"filas tras filtrar:"</span>, <span class="bu">len</span>(kc_tax0))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>correlacion_kc <span class="op">=</span> kc_tax0[<span class="st">"TaxAssessedValue"</span>].corr(kc_tax0[<span class="st">"SqFtTotLiving"</span>])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"correlacion TaxAssessedValue vs SqFtTotLiving:"</span>, <span class="bu">round</span>(correlacion_kc, <span class="dv">3</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>filas tras filtrar: 409456
+correlacion TaxAssessedValue vs SqFtTotLiving: 0.536</code></pre>
+<p>0.536 ya es una correlación moderada: a más área construida, tiende a haber un valor catastral más alto, aunque la relación está lejos de ser perfecta (hay casas grandes baratas y casas chicas caras). Grafiquemos una muestra de 5000 viviendas para verla:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>muestra <span class="op">=</span> kc_tax0.sample(n<span class="op">=</span><span class="dv">5000</span>, random_state<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax.scatter(muestra[<span class="st">"SqFtTotLiving"</span>], muestra[<span class="st">"TaxAssessedValue"</span>], s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"área construida (pies cuadrados)"</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"valor catastral (dólares)"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<p><img src="imagenes/dispersion-simple-sobregraficado.svg" class="img-fluid" alt="Grafico de dispersion de 5000 viviendas, area construida contra valor catastral, con una nube de puntos que sube de izquierda a derecha pero muy densa en el centro, dificil de leer donde se concentran la mayoria de los puntos."></p>
+</div>
+</section>
+<section id="el-problema-del-sobregraficado" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="el-problema-del-sobregraficado"><span class="header-section-number">5</span> El problema del sobregraficado</h2>
+<p>Con 5000 puntos, el centro del gráfico ya es una mancha densa: no puedes distinguir si ahí hay 50 viviendas superpuestas o 500. El problema empeora si graficas las 409 456 filas completas: la mayoría de los puntos quedan unos encima de otros, y el gráfico deja de decir nada sobre dónde se concentran realmente los datos. A este problema se le llama <strong>sobregraficado</strong> (<em>overplotting</em>), y aparece cada vez que el número de puntos es grande en relación con el espacio disponible para dibujarlos.</p>
+<p>La solución no es graficar menos datos: es cambiar de herramienta. Un gráfico <strong>hexagonal</strong> (hexbin) divide el plano en celdas de forma hexagonal, cuenta cuántos puntos caen en cada una, y colorea cada celda según ese conteo. En vez de puntos individuales, ves una densidad, exactamente como un histograma en dos dimensiones.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>hb <span class="op">=</span> ax.hexbin(kc_tax0[<span class="st">"SqFtTotLiving"</span>], kc_tax0[<span class="st">"TaxAssessedValue"</span>], gridsize<span class="op">=</span><span class="dv">40</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>, mincnt<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig.colorbar(hb, ax<span class="op">=</span>ax, label<span class="op">=</span><span class="st">"viviendas por celda"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"área construida (pies cuadrados)"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"valor catastral (dólares)"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<p><img src="imagenes/dispersion-hexbin.svg" class="img-fluid" alt="Grafico hexagonal de las 409456 viviendas filtradas, con celdas mas oscuras concentradas entre 1000 y 2500 pies cuadrados y entre 200000 y 500000 dolares, mostrando con claridad donde se acumula la mayoria de los datos, algo que el grafico de puntos no dejaba ver."></p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El hexbin muestra algo que la nube de puntos escondía: la inmensa mayoría de las 409 456 viviendas caen en una zona concentrada, entre 1000 y 2500 pies cuadrados y entre 200 000 y 500 000 dólares. Los puntos sueltos en los extremos del gráfico de dispersión, que parecían ocupar buena parte del área visual, en realidad son una fracción pequeña del dataset.</p>
+</div>
+</div>
+</section>
+<section id="gráficos-condicionales" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="gráficos-condicionales"><span class="header-section-number">6</span> Gráficos condicionales</h2>
+<p>Hasta aquí tratamos las 409 456 viviendas como un solo grupo. Pero el dataset trae una tercera variable, <code>ZipCode</code>, que separa las viviendas por zona. Un gráfico condicional repite el mismo gráfico de dispersión una vez por cada valor de esa tercera variable, en paneles uno al lado del otro, para ver si la relación entre las dos variables numéricas se sostiene igual en cada grupo o cambia.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>zips <span class="op">=</span> [<span class="dv">98188</span>, <span class="dv">98105</span>, <span class="dv">98108</span>, <span class="dv">98126</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sub <span class="op">=</span> kc_tax0.loc[kc_tax0.ZipCode.isin(zips)].copy()</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sub[<span class="st">"ZipCode"</span>] <span class="op">=</span> sub[<span class="st">"ZipCode"</span>].astype(<span class="bu">int</span>).astype(<span class="bu">str</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>resumen_zip <span class="op">=</span> sub.groupby(<span class="st">"ZipCode"</span>)[[<span class="st">"TaxAssessedValue"</span>, <span class="st">"SqFtTotLiving"</span>]].median()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resumen_zip)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>correlacion_por_zip <span class="op">=</span> sub.groupby(<span class="st">"ZipCode"</span>).<span class="bu">apply</span>(</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> d: d[<span class="st">"TaxAssessedValue"</span>].corr(d[<span class="st">"SqFtTotLiving"</span>]), include_groups<span class="op">=</span><span class="va">False</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(correlacion_por_zip.<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>         TaxAssessedValue  SqFtTotLiving
+ZipCode
+98105            537000.0         1690.0
+98108            271000.0         1530.0
+98126            328000.0         1370.0
+98188            210000.0         1560.0
+ZipCode
+98105    0.702
+98108    0.667
+98126    0.737
+98188    0.648
+dtype: float64</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">4</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">3.0</span>), sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, z <span class="kw">in</span> <span class="bu">zip</span>(axes, [<span class="bu">str</span>(z) <span class="cf">for</span> z <span class="kw">in</span> zips]):</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> sub.loc[sub.ZipCode <span class="op">==</span> z]</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    ax.scatter(d[<span class="st">"SqFtTotLiving"</span>], d[<span class="st">"TaxAssessedValue"</span>], s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f"código postal </span><span class="sc">{</span>z<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"área (pies2)"</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylabel(<span class="st">"valor catastral ($)"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<p><img src="imagenes/dispersion-condicional-zipcode.svg" class="img-fluid" alt="Cuatro graficos de dispersion, uno por codigo postal (98188, 98105, 98108, 98126), cada uno con una relacion mas clara y menos dispersa entre area construida y valor catastral que el grafico general sin dividir por zona."></p>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esta es la parte más importante de la semana: la correlación general, sin condicionar, era 0.536. Condicionada por código postal, sube a un rango de 0.648 a 0.737 en las cuatro zonas. Dentro de cada zona, el área construida predice el valor catastral mucho mejor que en el dataset completo. Tiene sentido: parte de la variación del precio que el gráfico general no explicaba se debía a la zona misma (algunas zonas son más caras por ubicación, no solo por tamaño de la vivienda), y condicionar por zona elimina esa fuente de variación, dejando ver la relación real entre área y precio dentro de un mismo mercado local.</p>
+</div>
+</div>
+<p><strong>Por qué esto importa más allá de este dataset.</strong> Un gráfico condicional no es solo “el mismo gráfico repetido varias veces”: es una herramienta para descubrir si una tercera variable está mezclando grupos que en realidad se comportan distinto. Antes de concluir que dos variables tienen una relación débil (o fuerte) a partir del gráfico general, vale la pena preguntar: ¿hay una tercera variable categórica razonable para condicionar, y cambia la conclusión si la uso?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejercicio: retrasos por aerolínea
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Con <code>airline_stats.csv</code> (ya conocido de la Semana 04), calcula la correlación entre <code>pct_carrier_delay</code> (retraso atribuible a la aerolínea) y <code>pct_atc_delay</code> (retraso atribuible al control de tráfico aéreo) para las 33 468 filas completas. Después, calcula esa misma correlación condicionada por <code>airline</code>. Antes de correr el código: ¿esperas que condicionar por aerolínea suba la correlación, como pasó con los códigos postales, o que se quede igual de débil en cada grupo?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Solución
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>url_air <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/gedeck/practical-statistics-for-data-scientists/master/data/airline_stats.csv"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>air <span class="op">=</span> pd.read_csv(url_air)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(air.shape)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(air[<span class="st">"airline"</span>].unique())</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>correlacion_air <span class="op">=</span> air[<span class="st">"pct_carrier_delay"</span>].corr(air[<span class="st">"pct_atc_delay"</span>])</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"correlacion general:"</span>, <span class="bu">round</span>(correlacion_air, <span class="dv">3</span>))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>correlacion_por_aerolinea <span class="op">=</span> air.groupby(<span class="st">"airline"</span>).<span class="bu">apply</span>(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">lambda</span> d: d[<span class="st">"pct_carrier_delay"</span>].corr(d[<span class="st">"pct_atc_delay"</span>]), include_groups<span class="op">=</span><span class="va">False</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(correlacion_por_aerolinea.<span class="bu">round</span>(<span class="dv">3</span>).sort_values())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>(33468, 4)
+['American' 'Alaska' 'Jet Blue' 'Delta' 'United' 'Southwest']
+correlacion general: 0.144
+airline
+Alaska       0.067
+American     0.105
+United       0.145
+Jet Blue     0.153
+Delta        0.170
+Southwest    0.210
+dtype: float64</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>aerolineas <span class="op">=</span> <span class="bu">sorted</span>(air[<span class="st">"airline"</span>].unique())</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">6.0</span>), sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, a <span class="kw">in</span> <span class="bu">zip</span>(axes.flat, aerolineas):</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> air.loc[air.airline <span class="op">==</span> a]</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    ax.scatter(d[<span class="st">"pct_carrier_delay"</span>], d[<span class="st">"pct_atc_delay"</span>], s<span class="op">=</span><span class="dv">8</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    ax.set_title(a)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes[<span class="op">-</span><span class="dv">1</span>, :]:</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"retraso por aerolínea (%)"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> axes[:, <span class="dv">0</span>]:</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"retraso por ATC (%)"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<p><img src="imagenes/dispersion-condicional-aerolinea.svg" class="img-fluid" alt="Seis graficos de dispersion, uno por aerolinea, mostrando en todos una nube de puntos dispersa sin una relacion clara entre el porcentaje de retraso atribuible a la aerolinea y al control de trafico aereo."></p>
+</div>
+<p>Al contrario del ejemplo de las viviendas, aquí condicionar por aerolínea <strong>no</strong> revela una relación más fuerte: la correlación general (0.144) y las seis correlaciones por aerolínea (entre 0.067 y 0.210) son todas débiles. La lección no es que condicionar siempre suba la correlación: es que condicionar te deja verificar si una relación débil sigue siendo débil dentro de cada grupo, o si estaba escondiendo algo. Aquí confirma que sigue siendo débil en las seis aerolíneas por igual.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlación-no-es-causalidad" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="correlación-no-es-causalidad"><span class="header-section-number">7</span> Correlación no es causalidad</h2>
+<p>Antes de cerrar la unidad, una advertencia que aplica a todo lo que calculaste hoy: un coeficiente de correlación alto, o un gráfico de dispersión con una tendencia clara, nunca prueban por sí solos que una variable <em>causa</em> el cambio en la otra. El área construida y el valor catastral están correlacionados en parte porque construir más área cuesta más, pero ninguna medida de correlación descarta otras explicaciones (una tercera variable, como la zona, que afecta a las dos a la vez; o simple coincidencia en una muestra pequeña). La correlación es evidencia de que dos variables se mueven juntas, no una prueba de por qué.</p>
+</section>
+<section id="cierre-de-la-unidad-1-la-caja-de-herramientas-completa" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="cierre-de-la-unidad-1-la-caja-de-herramientas-completa"><span class="header-section-number">8</span> Cierre de la Unidad 1: la caja de herramientas completa</h2>
+<div class="diagrama">
+<p><img src="imagenes/caja-herramientas-unidad-1.svg" class="img-fluid" alt="Diagrama con seis tarjetas que resumen toda la caja de herramientas de la Unidad 1 segun el numero y tipo de variables: una numerica usa histograma y tabla de frecuencias de la semana 3, una categorica usa grafico de barras de la semana 4, dos categoricas usan tabla de contingencia de la semana 4, una numerica mas una categorica usa boxplot agrupado de la semana 4, dos numericas usan dispersion de la semana 5, y dos numericas mas una categorica usan dispersion condicional de la semana 5."></p>
+</div>
+<p>Un informe exploratorio no usa una sola herramienta: combina varias, según la pregunta. Para cerrar, armamos un mini informe sobre las cuatro zonas de <code>kc_tax0</code> que ya trabajamos, mezclando herramientas de las tres semanas de la unidad.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>resumen_cierre <span class="op">=</span> sub.groupby(<span class="st">"ZipCode"</span>)[<span class="st">"TaxAssessedValue"</span>].agg([<span class="st">"count"</span>, <span class="st">"median"</span>, <span class="st">"std"</span>]).<span class="bu">round</span>(<span class="dv">0</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resumen_cierre)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>         count    median       std
+ZipCode
+98105     4481  537000.0  102713.0
+98108     5535  271000.0   71323.0
+98126     5631  328000.0  112092.0
+98188     4043  210000.0   74077.0</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ax.hist(sub[<span class="st">"TaxAssessedValue"</span>], bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"valor catastral (dólares)"</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"cantidad de viviendas"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<p><img src="imagenes/histograma-valor-catastral.svg" class="img-fluid" alt="Histograma del valor catastral de las viviendas de las cuatro zonas seleccionadas, concentrado entre 150000 y 450000 dolares con una cola mas corta hacia valores altos."></p>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>orden <span class="op">=</span> sub.groupby(<span class="st">"ZipCode"</span>)[<span class="st">"TaxAssessedValue"</span>].median().sort_values().index</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax.boxplot([sub.loc[sub.ZipCode <span class="op">==</span> z, <span class="st">"TaxAssessedValue"</span>] <span class="cf">for</span> z <span class="kw">in</span> orden], tick_labels<span class="op">=</span>orden)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"código postal"</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"valor catastral (dólares)"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<p><img src="imagenes/boxplot-valor-catastral-zipcode.svg" class="img-fluid" alt="Boxplot del valor catastral agrupado por codigo postal, ordenado de menor a mayor mediana: 98188 con la caja mas baja, seguido de 98108, 98126 y 98105 con la caja mas alta."></p>
+</div>
+<p><strong>Ejemplo de conclusión ejecutiva</strong>, del tipo que se espera en el informe de esta semana: “Las cuatro zonas analizadas tienen valores catastrales muy distintos: la mediana va de 210 000 dólares en el código postal 98188 a 537 000 en el 98105, sin superposición entre las cajas de esas dos zonas. Con 5000 viviendas de muestra, el área construida predice el valor catastral con una correlación de 0.536, pero esa cifra sube a entre 0.648 y 0.737 cuando se calcula dentro de cada zona por separado: buena parte de la variación de precio que parecía”ruido” en el análisis general en realidad se explica por la zona, no por el tamaño de la vivienda.”</p>
+</section>
+<section id="ejercicio-final-constrúyelo-tú-de-principio-a-fin" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="ejercicio-final-constrúyelo-tú-de-principio-a-fin"><span class="header-section-number">9</span> Ejercicio final: constrúyelo tú, de principio a fin</h2>
+<p>Igual que en las dos semanas anteriores, este ejercicio no trae solución. A diferencia de las anteriores, esta vez el resultado es justo lo que necesitas para el entregable de la semana.</p>
+<section id="paso-1.-retoma-tu-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1.-retoma-tu-dataset">Paso 1. Retoma tu dataset</h3>
+<p>Usa el mismo dataset que trabajaste en el ejercicio final de la Semana 03 o 04 (<code>kc_tax.csv.gz</code> o el que hayas elegido), o continúa con uno nuevo si el anterior no tenía al menos dos variables numéricas.</p>
+</section>
+<section id="paso-2.-encuentra-una-relación-entre-dos-variables-numéricas" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2.-encuentra-una-relación-entre-dos-variables-numéricas">Paso 2. Encuentra una relación entre dos variables numéricas</h3>
+<p>Calcula la correlación entre dos variables numéricas de tu dataset y grafica la dispersión. Si tienes más de unos pocos miles de puntos, revisa si necesitas un hexbin en vez de un gráfico de puntos.</p>
+</section>
+<section id="paso-3.-condiciona-por-una-tercera-variable" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3.-condiciona-por-una-tercera-variable">Paso 3. Condiciona por una tercera variable</h3>
+<p>Si tu dataset tiene una variable categórica con pocas categorías, repite el gráfico de dispersión condicionado por ella. Compara la correlación general contra la correlación dentro de cada grupo: ¿sube, baja o se queda igual?</p>
+</section>
+<section id="paso-4.-arma-tu-informe-exploratorio" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4.-arma-tu-informe-exploratorio">Paso 4. Arma tu informe exploratorio</h3>
+<p>Reúne en un solo documento las herramientas de toda la unidad que apliquen a tu dataset: tabla de frecuencias e histograma, medidas de localización y dispersión, boxplot, gráfico de barras o tabla de contingencia si tienes variables categóricas, y el gráfico de dispersión (condicional si corresponde) de esta semana. Cierra con una conclusión ejecutiva, en el mismo tono del ejemplo de arriba.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Antes de la próxima sesión
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Revisa que tu informe cumpla las tres condiciones del módulo: <strong>reproducible</strong>, <strong>trazable</strong> y <strong>ejecutivo</strong> (ver la presentación del módulo). Con esto llegas listo al entregable de cierre de la Unidad 1.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="errores-frecuentes" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">10</span> Errores frecuentes</h2>
+<div class="error-caso">
+<p><span class="etiqueta">Error 1</span></p>
+<section id="confundir-correlación-con-causalidad" class="level3">
+<h3 class="anchored" data-anchor-id="confundir-correlación-con-causalidad">Confundir correlación con causalidad</h3>
+<p><strong>Causa.</strong> Una correlación alta, o un gráfico de dispersión con una tendencia clara, se siente como prueba suficiente de que una variable causa el cambio en la otra.</p>
+<p><strong>Solución.</strong> Antes de afirmar causalidad, pregunta si existe una tercera variable que podría explicar las dos a la vez. En el ejemplo de esta guía, la zona (código postal) afecta tanto el tamaño típico de las viviendas como su precio; parte de la correlación entre área y valor catastral podría venir de ahí, no de que el área “cause” el precio de forma directa y aislada.</p>
+</section>
+</div>
+<div class="error-caso">
+<p><span class="etiqueta">Error 2</span></p>
+<section id="graficar-un-dataset-grande-sin-revisar-el-sobregraficado" class="level3">
+<h3 class="anchored" data-anchor-id="graficar-un-dataset-grande-sin-revisar-el-sobregraficado">Graficar un dataset grande sin revisar el sobregraficado</h3>
+<p><strong>Causa.</strong> Un gráfico de dispersión se ve razonable con unos cientos de puntos, y es tentador usar el mismo código sin cambios sobre un dataset de cientos de miles de filas.</p>
+<p><strong>Solución.</strong> Antes de interpretar un gráfico de dispersión, pregúntate cuántos puntos estás dibujando. Si el centro del gráfico se ve como una mancha sólida en vez de puntos distinguibles, cambia a un hexbin o toma una muestra representativa, como se hizo en esta guía.</p>
+</section>
+</div>
+<div class="error-caso">
+<p><span class="etiqueta">Error 3</span></p>
+<section id="reportar-una-correlación-general-sin-revisar-si-cambia-por-grupo" class="level3">
+<h3 class="anchored" data-anchor-id="reportar-una-correlación-general-sin-revisar-si-cambia-por-grupo">Reportar una correlación general sin revisar si cambia por grupo</h3>
+<p><strong>Causa.</strong> Calcular <code>.corr()</code> sobre el dataset completo y reportar ese único número, sin preguntarse si una variable categórica disponible podría estar mezclando grupos con comportamientos distintos.</p>
+<p><strong>Solución.</strong> Si tienes una variable categórica razonable, calcula también la correlación condicionada por esa variable, como se hizo con los códigos postales de esta guía. A veces sube (como en las viviendas), a veces se mantiene igual de débil (como en las aerolíneas): las dos son conclusiones válidas, pero solo las conoces si haces la comparación.</p>
+</section>
+</div>
+</section>
+<section id="lista-de-chequeo-de-la-semana" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="lista-de-chequeo-de-la-semana"><span class="header-section-number">11</span> Lista de chequeo de la semana</h2>
+<div class="checklist">
+<p><strong>Antes de la próxima sesión</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Puedes calcular una correlación con <code>.corr()</code> e interpretar si es débil, moderada o fuerte</label></li>
+<li><label><input type="checkbox">Puedes explicar qué es el sobregraficado y por qué un hexbin lo resuelve</label></li>
+<li><label><input type="checkbox">Resolviste el ejercicio intermedio de <code>airline_stats.csv</code> antes de revisar la solución, no después</label></li>
+<li><label><input type="checkbox">Puedes explicar con tus propias palabras por qué correlación no es causalidad</label></li>
+<li><label><input type="checkbox">Sabes construir un gráfico condicional y comparar la correlación general contra la correlación por grupo</label></li>
+<li><label><input type="checkbox">Completaste el mini informe de cierre de <code>kc_tax0</code> y entendiste cómo se conecta con el entregable de la semana</label></li>
+<li><label><input type="checkbox">Avanzaste tu propio informe exploratorio con tu dataset del ejercicio final</label></li>
+</ul>
+</div>
+</section>
+<section id="lo-que-viene" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="lo-que-viene"><span class="header-section-number">12</span> Lo que viene</h2>
+<ul>
+<li><strong>Entregable de esta semana.</strong> Informe exploratorio de cierre de la Unidad 1 (10%, dentro del 30% del cierre). El docente entrega el detalle completo aparte.</li>
+<li><strong>Semana 6.</strong> Empieza la Unidad 2: variables aleatorias, espacio muestral y función de distribución.</li>
+</ul>
+</section>
+<section id="recursos" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="recursos"><span class="header-section-number">13</span> Recursos</h2>
+<ul>
+<li>Bruce, P., Bruce, A. y Gedeck, P. <em>Estadística práctica para ciencia de datos con R y Python.</em> 2.ª edición, MARCOMBO, 2022. Capítulo 1: “Análisis exploratorio de datos”. Fuente de esta guía.</li>
+<li>Datasets de esta guía, del repositorio de datos del libro: <a href="https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/state.csv"><code>state.csv</code></a>, <a href="https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/kc_tax.csv.gz"><code>kc_tax.csv.gz</code></a> y <a href="https://github.com/gedeck/practical-statistics-for-data-scientists/blob/master/data/airline_stats.csv"><code>airline_stats.csv</code></a></li>
+<li>Documentación de <code>pandas.Series.corr</code>: <a href="https://pandas.pydata.org/docs/reference/api/pandas.Series.corr.html">pandas.pydata.org/docs/reference/api/pandas.Series.corr.html</a></li>
+<li>Documentación de <code>matplotlib.pyplot.hexbin</code>: <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hexbin.html">matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hexbin.html</a></li>
+</ul>
+<div class="pie-doc">
+<p>Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Opus 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal y los gráficos son reales, producidos al ejecutar estos mismos programas durante la preparación del material.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

@@ -86,7 +86,7 @@ semestre.
 | **[02](semana-02/index.qmd)** | Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales | Tipos de variables | - |
 | **[03](semana-03/index.qmd)** | Tablas de frecuencia, histogramas y medidas de localización y dispersión | Tablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación) | - |
 | **[04](semana-04/index.qmd)** | Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia | Gráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia | - |
-| 05 | Gráficos de dispersión y gráficos condicionales. Informe exploratorio. **Cierre de la Unidad 1** | Gráficos de dispersión y gráficos condicionales | **30%** |
+| **[05](semana-05/index.qmd)** | Gráficos de dispersión y gráficos condicionales. Informe exploratorio. **Cierre de la Unidad 1** | Gráficos de dispersión y gráficos condicionales | **30%** |
 :::
 
 ### Unidad 2. Modelos de probabilidad

@@ -1,0 +1,47 @@
+<svg viewBox="0 0 880 420" width="880" height="420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif">
+  <style>
+    .titulo { font-size: 16px; fill: #16202b; font-weight: 600; }
+    .cabecera { font-size: 13px; fill: #5b6876; }
+    .tecnica { font-size: 15px; fill: #16202b; font-weight: 600; }
+    .nota { font-size: 12.5px; fill: #5b6876; }
+    .semana { font-size: 12.5px; fill: #2f7bb8; font-weight: 600; }
+    .semana-acento { font-size: 12.5px; fill: #0e8f8f; font-weight: 600; }
+  </style>
+
+  <text x="440" y="26" text-anchor="middle" class="titulo">Unidad 1 completa: que grafico o tabla uso segun la pregunta</text>
+
+  <!-- Fila 1 -->
+  <rect x="25" y="50" width="260" height="150" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="155" y="75" text-anchor="middle" class="cabecera">1 variable numerica</text>
+  <text x="155" y="108" text-anchor="middle" class="tecnica">Histograma y tabla</text>
+  <text x="155" y="128" text-anchor="middle" class="tecnica">de frecuencias</text>
+  <text x="255" y="188" text-anchor="end" class="semana">Semana 03</text>
+
+  <rect x="310" y="50" width="260" height="150" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="440" y="75" text-anchor="middle" class="cabecera">1 variable categorica</text>
+  <text x="440" y="118" text-anchor="middle" class="tecnica">Grafico de barras</text>
+  <text x="540" y="188" text-anchor="end" class="semana">Semana 04</text>
+
+  <rect x="595" y="50" width="260" height="150" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="725" y="75" text-anchor="middle" class="cabecera">2 variables categoricas</text>
+  <text x="725" y="118" text-anchor="middle" class="tecnica">Tabla de contingencia</text>
+  <text x="825" y="188" text-anchor="end" class="semana">Semana 04</text>
+
+  <!-- Fila 2 -->
+  <rect x="25" y="230" width="260" height="150" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="155" y="255" text-anchor="middle" class="cabecera">1 numerica + 1 categorica</text>
+  <text x="155" y="298" text-anchor="middle" class="tecnica">Boxplot agrupado</text>
+  <text x="255" y="368" text-anchor="end" class="semana">Semana 04</text>
+
+  <rect x="310" y="230" width="260" height="150" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="440" y="255" text-anchor="middle" class="cabecera">2 variables numericas</text>
+  <text x="440" y="298" text-anchor="middle" class="tecnica">Grafico de dispersion</text>
+  <text x="440" y="320" text-anchor="middle" class="nota">muchos puntos: hexbin</text>
+  <text x="540" y="368" text-anchor="end" class="semana-acento">Semana 05</text>
+
+  <rect x="595" y="230" width="260" height="150" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="725" y="255" text-anchor="middle" class="cabecera">2 numericas + 1 categorica</text>
+  <text x="725" y="298" text-anchor="middle" class="tecnica">Dispersion condicional</text>
+  <text x="725" y="318" text-anchor="middle" class="tecnica">(facetada)</text>
+  <text x="825" y="368" text-anchor="end" class="semana-acento">Semana 05</text>
+</svg>
