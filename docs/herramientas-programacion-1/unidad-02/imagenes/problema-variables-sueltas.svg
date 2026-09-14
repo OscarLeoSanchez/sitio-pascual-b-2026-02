@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="360" viewBox="0 0 880 360" role="img" aria-label="Comparacion entre declarar variables sueltas precio1, precio2 y precio3, sin relacion entre ellas, y declarar un vector precios que agrupa los mismos valores en un solo bloque recorrible con un indice" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="pv-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="pv-punta-t" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 700; fill: #16202b; }
+    .etq-t { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #0e8f8f; }
+    .etq-r { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #a32d22; }
+  </style>
+
+  <text x="225" y="30" text-anchor="middle" class="tit">Tres variables sueltas</text>
+  <text x="655" y="30" text-anchor="middle" class="tit">Un vector</text>
+
+  <line x1="440" y1="45" x2="440" y2="315" stroke="#cfd8e3" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="440" y="185" text-anchor="middle" class="sec" font-weight="700">vs</text>
+
+  <rect x="40" y="55" width="160" height="60" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="120" y="80" text-anchor="middle" class="codigo">precio1</text>
+  <text x="120" y="98" text-anchor="middle" class="codigo">4599.90</text>
+
+  <rect x="215" y="55" width="160" height="60" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="295" y="80" text-anchor="middle" class="codigo">precio2</text>
+  <text x="295" y="98" text-anchor="middle" class="codigo">12999.00</text>
+
+  <rect x="127" y="135" width="160" height="60" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="207" y="160" text-anchor="middle" class="codigo">precio3</text>
+  <text x="207" y="178" text-anchor="middle" class="codigo">8500.50</text>
+
+  <text x="207" y="230" text-anchor="middle" class="sec">Cada nombre es independiente. No existe un indice</text>
+  <text x="207" y="248" text-anchor="middle" class="sec">que las una, asi que ningun ciclo puede recorrerlas.</text>
+  <text x="207" y="278" text-anchor="middle" class="etq-r">Y si llegan 50 productos, hacen falta 50 nombres.</text>
+
+  <text x="655" y="55" text-anchor="middle" class="codigo">double[] precios</text>
+
+  <rect x="510" y="65" width="290" height="70" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <g stroke="#0e8f8f" stroke-width="1.5" fill="none">
+    <rect x="518" y="73" width="54" height="54" rx="4" fill="#ffffff"/>
+    <rect x="576" y="73" width="54" height="54" rx="4" fill="#ffffff"/>
+    <rect x="634" y="73" width="54" height="54" rx="4" fill="#ffffff"/>
+    <rect x="692" y="73" width="54" height="54" rx="4" fill="#ffffff"/>
+    <rect x="750" y="73" width="54" height="54" rx="4" fill="#ffffff"/>
+  </g>
+  <text x="545" y="105" text-anchor="middle" class="codigo" font-size="11">4599.9</text>
+  <text x="603" y="105" text-anchor="middle" class="codigo" font-size="11">12999</text>
+  <text x="661" y="105" text-anchor="middle" class="codigo" font-size="11">8500.5</text>
+  <text x="719" y="105" text-anchor="middle" class="codigo" font-size="11">2300</text>
+  <text x="777" y="105" text-anchor="middle" class="codigo" font-size="11">15750.8</text>
+
+  <text x="545" y="150" text-anchor="middle" class="etq-t">0</text>
+  <text x="603" y="150" text-anchor="middle" class="etq-t">1</text>
+  <text x="661" y="150" text-anchor="middle" class="etq-t">2</text>
+  <text x="719" y="150" text-anchor="middle" class="etq-t">3</text>
+  <text x="777" y="150" text-anchor="middle" class="etq-t">4</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 655,150 L 655,180" marker-end="url(#pv-punta)"/>
+  </g>
+  <text x="655" y="200" text-anchor="middle" class="sec">indice: un solo nombre, 5 posiciones</text>
+
+  <text x="655" y="235" text-anchor="middle" class="sec">Un ciclo recorre precios[0] a precios[4]</text>
+  <text x="655" y="253" text-anchor="middle" class="sec">sin importar si son 5 productos o 500:</text>
+  <text x="655" y="278" text-anchor="middle" class="etq-t">precios.Length siempre da el total exacto.</text>
+</svg>

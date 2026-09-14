@@ -72,10 +72,14 @@ semestre.
 
 ### Unidad 2. Arreglos y funciones
 
+Esta unidad se publica **por tema, no por semana**: los cinco temas de abajo viven juntos en
+**[la portada de la Unidad 2](unidad-02/index.qmd)**, en vez de repartidos en cinco carpetas de
+semana. El ritmo semanal y el porcentaje de cierre no cambian.
+
 ::: {.calendario}
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
-| 06 | Estructuras de datos tipo arreglo: vectores | Estructura de datos tipo vectores y matrices | - |
+| **[06](unidad-02/vectores.qmd)** | Estructuras de datos tipo arreglo: vectores | Estructura de datos tipo vectores y matrices | - |
 | 07 | Matrices | Estructura de datos tipo vectores y matrices | - |
 | 08 | Funciones: parámetros de entrada y valor de retorno | Funciones, parámetros de entrada y retorno | - |
 | 09 | Paso de parámetros por valor y por referencia | Paso de parámetros a funciones por valor y por referencia | - |

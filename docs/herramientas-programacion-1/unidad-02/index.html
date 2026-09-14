@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Oscar Leonel Sánchez Conde">
 
-<title>Herramientas de Programación I – Clases Pascual Bravo 2026-02</title>
+<title>Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones – Clases Pascual Bravo 2026-02</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,24 +27,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../estilos/favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../herramientas-programacion-1/index.html">Presentación del curso</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Presentación de la unidad</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -99,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Clases Pascual Bravo 2026-02</a> 
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentación del curso</span></a>
   </div>
 </li>
@@ -126,19 +127,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 1. Entorno, Git y GitHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/semana-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../herramientas-programacion-1/semana-02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 2. Sintaxis, variables y consola</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/csharp-desde-cero/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../herramientas-programacion-1/csharp-desde-cero/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">C# desde cero (guía de sintaxis)</span></a>
   </div>
 </li>
@@ -155,13 +156,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../herramientas-programacion-1/unidad-02/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Presentación de la unidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../herramientas-programacion-1/unidad-02/vectores.html" class="sidebar-item-text sidebar-link">
+  <a href="../../herramientas-programacion-1/unidad-02/vectores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Vectores</span></a>
   </div>
 </li>
@@ -177,38 +178,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta guía</h2>
    
   <ul>
-  <li><a href="#de-qué-se-trata-el-curso" id="toc-de-qué-se-trata-el-curso" class="nav-link active" data-scroll-target="#de-qué-se-trata-el-curso">De qué se trata el curso</a></li>
-  <li><a href="#calendario" id="toc-calendario" class="nav-link" data-scroll-target="#calendario">Calendario</a>
-  <ul class="collapse">
-  <li><a href="#unidad-1.-aplicaciones-de-consola-con-un-ide" id="toc-unidad-1.-aplicaciones-de-consola-con-un-ide" class="nav-link" data-scroll-target="#unidad-1.-aplicaciones-de-consola-con-un-ide">Unidad 1. Aplicaciones de consola con un IDE</a></li>
-  <li><a href="#unidad-2.-arreglos-y-funciones" id="toc-unidad-2.-arreglos-y-funciones" class="nav-link" data-scroll-target="#unidad-2.-arreglos-y-funciones">Unidad 2. Arreglos y funciones</a></li>
-  <li><a href="#unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas" id="toc-unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas" class="nav-link" data-scroll-target="#unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas">Unidad 3. Programación orientada a objetos y aplicaciones gráficas</a></li>
-  </ul></li>
-  <li><a href="#distribución-evaluativa" id="toc-distribución-evaluativa" class="nav-link" data-scroll-target="#distribución-evaluativa">Distribución evaluativa</a></li>
-  <li><a href="#criterios-de-desempeño" id="toc-criterios-de-desempeño" class="nav-link" data-scroll-target="#criterios-de-desempeño">Criterios de desempeño</a>
-  <ul class="collapse">
-  <li><a href="#unidad-1" id="toc-unidad-1" class="nav-link" data-scroll-target="#unidad-1">Unidad 1</a></li>
-  <li><a href="#unidad-2" id="toc-unidad-2" class="nav-link" data-scroll-target="#unidad-2">Unidad 2</a></li>
-  <li><a href="#unidad-3" id="toc-unidad-3" class="nav-link" data-scroll-target="#unidad-3">Unidad 3</a></li>
-  </ul></li>
-  <li><a href="#cómo-se-evalúa-cada-entrega" id="toc-cómo-se-evalúa-cada-entrega" class="nav-link" data-scroll-target="#cómo-se-evalúa-cada-entrega">Cómo se evalúa cada entrega</a></li>
+  <li><a href="#de-qué-se-trata-esta-unidad" id="toc-de-qué-se-trata-esta-unidad" class="nav-link active" data-scroll-target="#de-qué-se-trata-esta-unidad">De qué se trata esta unidad</a></li>
+  <li><a href="#cómo-está-organizada" id="toc-cómo-está-organizada" class="nav-link" data-scroll-target="#cómo-está-organizada">Cómo está organizada</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Presentación de la unidad</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Herramientas de Programación I</h1>
-<p class="subtitle lead">ET0047. Tecnología en Desarrollo de Software</p>
+<h1 class="title">Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -220,6 +219,10 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="ficha">
 <table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
 <tbody>
 <tr class="odd">
 <td>Asignatura</td>
@@ -230,302 +233,61 @@ ul.task-list li input[type="checkbox"] {
 <td>Tecnología en Desarrollo de Software</td>
 </tr>
 <tr class="odd">
-<td>Docente</td>
-<td>Oscar Leonel Sánchez Conde</td>
-</tr>
-<tr class="even">
-<td>Modalidad</td>
-<td>Virtual. 4 créditos, 192 horas</td>
-</tr>
-<tr class="odd">
 <td>Dedicación</td>
 <td>4 horas de encuentro sincrónico y 8 de trabajo independiente por semana</td>
 </tr>
 <tr class="even">
-<td>Prerrequisito</td>
-<td>ET0045 Fundamentos de Programación</td>
+<td>Cierre</td>
+<td>30% de la nota, con arreglos, funciones y menú de consola</td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="de-qué-se-trata-el-curso" class="level2">
-<h2 class="anchored" data-anchor-id="de-qué-se-trata-el-curso">De qué se trata el curso</h2>
-<p>En Fundamentos de Programación escribiste algoritmos. Aquí los conviertes en programas que funcionan. El lenguaje es <strong>C#</strong> y la plataforma es <strong>.NET 10</strong>.</p>
-<p>El semestre avanza en tres tramos. Primero programas de consola: sintaxis, variables, decisiones y ciclos. Después arreglos y funciones, para manejar conjuntos de datos y partir el código en piezas reutilizables. Al final, programación orientada a objetos con interfaz gráfica y guardado de información en archivos.</p>
-<p>Todo se articula alrededor de <strong>un mismo proyecto que crece durante el semestre</strong>. Lo que entregas en la semana 5 es la base de lo que entregas en la 10, y eso a su vez es la base de la aplicación final.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Prueba diagnóstica
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>La actividad toma entre 30 y 45 minutos y no tiene nota. Tus respuestas me permitirán ajustar el ritmo y los apoyos del curso.</p>
-<p><a href="https://forms.gle/3BtRJ6ayyygoZxPk9" class="btn btn-primary" role="button" target="_blank" rel="noopener">Responder la prueba diagnóstica de entrada</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Si trabajas en macOS o Linux, léelo ahora
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Las unidades 1 y 2 son de consola y corren igual en Windows, macOS y Linux. La <strong>unidad 3 usa Windows Forms, que solo funciona en Windows</strong>. Desde la semana 11 vas a necesitar Windows: una máquina virtual, arranque dual o una sala de cómputo de la institución.</p>
-<p>Resuélvelo durante las primeras semanas. Enterarte en la semana 11 te deja sin tiempo.</p>
-</div>
-</div>
+<section id="de-qué-se-trata-esta-unidad" class="level2">
+<h2 class="anchored" data-anchor-id="de-qué-se-trata-esta-unidad">De qué se trata esta unidad</h2>
+<p>La Unidad 1 dejó un programa de consola que decide y repite. Esta unidad le suma dos herramientas que trabajan juntas: <strong>arreglos</strong>, para guardar y organizar varios datos del mismo tipo bajo un solo nombre, y <strong>funciones</strong>, para partir el código en piezas reutilizables con entrada y salida propias.</p>
+<p>Las dos herramientas convergen en el proyecto del semestre. La versión de consola que construiste en la Semana 5 solo manejaba un registro a la vez. Al cierre de esta unidad, el sistema de gestión guarda varios productos en un vector, ofrece un menú de opciones y reparte su lógica en funciones, en vez de un único bloque de código de principio a fin.</p>
 </section>
-<section id="calendario" class="level2">
-<h2 class="anchored" data-anchor-id="calendario">Calendario</h2>
-<p>Las semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.</p>
-<section id="unidad-1.-aplicaciones-de-consola-con-un-ide" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-1.-aplicaciones-de-consola-con-un-ide">Unidad 1. Aplicaciones de consola con un IDE</h3>
+<section id="cómo-está-organizada" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-está-organizada">Cómo está organizada</h2>
+<p>A diferencia de la Unidad 1, el material de esta unidad se publica <strong>por tema</strong>, no por semana. La razón es que los cinco temas de la unidad se acoplan de a pares (vectores con matrices, funciones con su paso de parámetros) y conviene poder consultarlos como una sola referencia, en vez de partidos en cinco páginas de calendario. El ritmo semanal sigue siendo el que fija el calendario del curso: lo que cambia es dónde vive el contenido.</p>
 <div class="calendario">
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;">Sem</th>
-<th>Temática</th>
-<th>Saberes de la carta descriptiva</th>
-<th style="text-align: center;">%</th>
+<th>Tema</th>
+<th>Saber de la carta descriptiva</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><strong><a href="../herramientas-programacion-1/semana-01/index.html">01</a></strong></td>
-<td>Presentación del módulo. El IDE: definición, estructura y función. Instalación del entorno y primer programa</td>
-<td>Definición de IDE, estructura y función. Manejo de una herramienta de programación</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong><a href="../herramientas-programacion-1/semana-02/index.html">02</a></strong></td>
-<td>Estructura básica de un programa. Sintaxis del lenguaje. Tipos de variables, entrada y salida por consola</td>
-<td>Manejo de una herramienta de programación. Tipos de variables</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">03</td>
-<td>Operadores aritméticos, lógicos y de comparación. Precedencia</td>
-<td>Tipos y precedencia de operadores aritméticos, lógicos y de comparación</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">04</td>
-<td>Sentencias de control condicionales: <code>if</code>, <code>else</code>, <code>else if</code>, <code>switch</code></td>
-<td>Sentencias de control condicionales</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">05</td>
-<td>Ciclos <code>for</code> y <code>while</code>. Acumuladores, contadores y banderas. <strong>Cierre de la Unidad 1</strong></td>
-<td>Sentencias <code>for</code> y <code>while</code>. Acumuladores, contadores y banderas</td>
-<td style="text-align: center;"><strong>30%</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="unidad-2.-arreglos-y-funciones" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-2.-arreglos-y-funciones">Unidad 2. Arreglos y funciones</h3>
-<p>Esta unidad se publica <strong>por tema, no por semana</strong>: los cinco temas de abajo viven juntos en <strong><a href="../herramientas-programacion-1/unidad-02/index.html">la portada de la Unidad 2</a></strong>, en vez de repartidos en cinco carpetas de semana. El ritmo semanal y el porcentaje de cierre no cambian.</p>
-<div class="calendario">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Sem</th>
-<th>Temática</th>
-<th>Saberes de la carta descriptiva</th>
-<th style="text-align: center;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong><a href="../herramientas-programacion-1/unidad-02/vectores.html">06</a></strong></td>
-<td>Estructuras de datos tipo arreglo: vectores</td>
+<td><strong><a href="../../herramientas-programacion-1/unidad-02/vectores.html">1. Estructuras de datos tipo arreglo: vectores</a></strong></td>
 <td>Estructura de datos tipo vectores y matrices</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">07</td>
-<td>Matrices</td>
+<td>2. Matrices <em>(en preparación)</em></td>
 <td>Estructura de datos tipo vectores y matrices</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">08</td>
-<td>Funciones: parámetros de entrada y valor de retorno</td>
+<td>3. Funciones: parámetros de entrada y valor de retorno <em>(en preparación)</em></td>
 <td>Funciones, parámetros de entrada y retorno</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">09</td>
-<td>Paso de parámetros por valor y por referencia</td>
+<td>4. Paso de parámetros por valor y por referencia <em>(en preparación)</em></td>
 <td>Paso de parámetros a funciones por valor y por referencia</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">10</td>
-<td>Creación de menús con aplicación de funciones. <strong>Cierre de la Unidad 2</strong></td>
+<td>5. Creación de menús con aplicación de funciones <em>(en preparación)</em></td>
 <td>Creación de menús con aplicación de funciones</td>
-<td style="text-align: center;"><strong>30%</strong></td>
 </tr>
 </tbody>
 </table>
 </div>
-</section>
-<section id="unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-3.-programación-orientada-a-objetos-y-aplicaciones-gráficas">Unidad 3. Programación orientada a objetos y aplicaciones gráficas</h3>
-<div class="calendario">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Sem</th>
-<th>Temática</th>
-<th>Saberes de la carta descriptiva</th>
-<th style="text-align: center;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">11</td>
-<td>Paradigma de la POO: clases y objetos. Atributos, métodos y constructores</td>
-<td>Definición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">12</td>
-<td>Instanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML</td>
-<td>Instanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">13</td>
-<td>Estándares de documentación para escritura de código</td>
-<td>Estándares de documentación para escritura de códigos de programación</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">14</td>
-<td>Manejo de archivos de texto para persistencia</td>
-<td>Manejo de archivos de texto</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">15</td>
-<td>Elementos GUI con Windows Forms: propiedades y eventos de control</td>
-<td>Elementos GUI, propiedades y eventos de control</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">16</td>
-<td><strong>Evaluación final.</strong> Aplicación con interfaz gráfica, POO y persistencia en archivo</td>
-<td>Todos los de la unidad</td>
-<td style="text-align: center;"><strong>40%</strong></td>
-</tr>
-</tbody>
-</table>
+<p>El tema 5 cierra la unidad con la entrega evaluada del 30%.</p>
+<div class="pie-doc">
+<p>Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.</p>
 </div>
-</section>
-</section>
-<section id="distribución-evaluativa" class="level2">
-<h2 class="anchored" data-anchor-id="distribución-evaluativa">Distribución evaluativa</h2>
-<div class="calendario">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Componente</th>
-<th style="text-align: center;">Semana</th>
-<th style="text-align: center;">Peso</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Cierre de la Unidad 1</td>
-<td style="text-align: center;">05</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="even">
-<td>Cierre de la Unidad 2</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td>Evaluación final de la Unidad 3</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">40%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Cada corte evalúa un incremento del proyecto del semestre. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.</p>
-</section>
-<section id="criterios-de-desempeño" class="level2">
-<h2 class="anchored" data-anchor-id="criterios-de-desempeño">Criterios de desempeño</h2>
-<p>Toda rúbrica del curso se traza a los criterios de la carta descriptiva. Estos son, por unidad.</p>
-<section id="unidad-1" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-1">Unidad 1</h3>
-<ul>
-<li>Identifica las características y funciones de un IDE.</li>
-<li>Reconoce la estructura básica de un programa.</li>
-<li>Aplica la sintaxis a un lenguaje de programación de estudio.</li>
-<li>Analiza los tipos de variables y operadores.</li>
-<li>Propone las sentencias aplicadas en una programación estructurada.</li>
-<li>Participa en las actividades propuestas durante la jornada académica y las horas de trabajo independiente.</li>
-</ul>
-</section>
-<section id="unidad-2" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-2">Unidad 2</h3>
-<ul>
-<li>Identifica sentencias de programación en la solución de problemas básicos.</li>
-<li>Reconoce las estructuras de datos tipo arreglo.</li>
-<li>Manipula el uso de funciones para el diseño de aplicaciones.</li>
-<li>Administra sentencias de programación, estructura de datos y funciones en el diseño de aplicaciones de software.</li>
-<li>Participa en las actividades planteadas actuando de acuerdo con los principios éticos y morales de la misión y visión institucional.</li>
-</ul>
-</section>
-<section id="unidad-3" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-3">Unidad 3</h3>
-<ul>
-<li>Implementa los elementos de la programación orientada a objetos.</li>
-<li>Emplea archivos de texto para la persistencia de información.</li>
-<li>Construye con diferentes elementos gráficos aplicaciones con interfaz de usuario.</li>
-<li>Documenta los programas según los estándares de programación.</li>
-<li>Asume los valores de orden, organización, responsabilidad y puntualidad, a través del desarrollo de las tareas asignadas.</li>
-</ul>
-</section>
-</section>
-<section id="cómo-se-evalúa-cada-entrega" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-se-evalúa-cada-entrega">Cómo se evalúa cada entrega</h2>
-<p>La carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Evidencia</th>
-<th>Qué se valora</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Conocimiento</td>
-<td>Respondes preguntas y resuelves problemas sobre los temas de la unidad</td>
-</tr>
-<tr class="even">
-<td>Desempeño</td>
-<td>Se observa cómo desarrollas la aplicación, no solo el resultado</td>
-</tr>
-<tr class="odd">
-<td>Producto</td>
-<td>Se valora el software entregado: que compile, que funcione y que resuelva lo pedido</td>
-</tr>
-</tbody>
-</table>
 
 
 </section>
@@ -954,5 +716,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

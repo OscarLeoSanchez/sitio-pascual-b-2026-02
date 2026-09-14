@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Unidad 2. Estructuras de datos tipo arreglo: vectores – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/vectores.html">1. Vectores</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Aplicaciones de consola con un IDE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Entorno, Git y GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Sintaxis, variables y consola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/csharp-desde-cero/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# desde cero (guía de sintaxis)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 2. Arreglos y funciones</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación de la unidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/vectores.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Vectores</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#el-problema-que-resuelve-un-arreglo" id="toc-el-problema-que-resuelve-un-arreglo" class="nav-link active" data-scroll-target="#el-problema-que-resuelve-un-arreglo"><span class="header-section-number">1</span> El problema que resuelve un arreglo</a>
+  <ul class="collapse">
+  <li><a href="#las-notas-de-un-grupo-de-estudiantes" id="toc-las-notas-de-un-grupo-de-estudiantes" class="nav-link" data-scroll-target="#las-notas-de-un-grupo-de-estudiantes">Las notas de un grupo de estudiantes</a></li>
+  <li><a href="#el-mismo-problema-en-el-proyecto-del-semestre" id="toc-el-mismo-problema-en-el-proyecto-del-semestre" class="nav-link" data-scroll-target="#el-mismo-problema-en-el-proyecto-del-semestre">El mismo problema en el proyecto del semestre</a></li>
+  </ul></li>
+  <li><a href="#qué-es-un-vector" id="toc-qué-es-un-vector" class="nav-link" data-scroll-target="#qué-es-un-vector"><span class="header-section-number">2</span> Qué es un vector</a></li>
+  <li><a href="#índices-base-0" id="toc-índices-base-0" class="nav-link" data-scroll-target="#índices-base-0"><span class="header-section-number">3</span> Índices base 0</a></li>
+  <li><a href="#declaración-creación-e-inicialización" id="toc-declaración-creación-e-inicialización" class="nav-link" data-scroll-target="#declaración-creación-e-inicialización"><span class="header-section-number">4</span> Declaración, creación e inicialización</a>
+  <ul class="collapse">
+  <li><a href="#tamaño-fijo-valores-por-defecto" id="toc-tamaño-fijo-valores-por-defecto" class="nav-link" data-scroll-target="#tamaño-fijo-valores-por-defecto">1. Tamaño fijo, valores por defecto</a></li>
+  <li><a href="#inicializador-de-colección-la-forma-más-común" id="toc-inicializador-de-colección-la-forma-más-común" class="nav-link" data-scroll-target="#inicializador-de-colección-la-forma-más-común">2. Inicializador de colección: la forma más común</a></li>
+  <li><a href="#new-explícito-con-inicializador" id="toc-new-explícito-con-inicializador" class="nav-link" data-scroll-target="#new-explícito-con-inicializador">3. <code>new</code> explícito con inicializador</a></li>
+  <li><a href="#tamaño-y-valores-juntos" id="toc-tamaño-y-valores-juntos" class="nav-link" data-scroll-target="#tamaño-y-valores-juntos">4. Tamaño y valores juntos</a></li>
+  </ul></li>
+  <li><a href="#recorrer-un-vector" id="toc-recorrer-un-vector" class="nav-link" data-scroll-target="#recorrer-un-vector"><span class="header-section-number">5</span> Recorrer un vector</a>
+  <ul class="collapse">
+  <li><a href="#for-indexado" id="toc-for-indexado" class="nav-link" data-scroll-target="#for-indexado"><code>for</code> indexado</a></li>
+  <li><a href="#foreach" id="toc-foreach" class="nav-link" data-scroll-target="#foreach"><code>foreach</code></a></li>
+  </ul></li>
+  <li><a href="#modificar-y-leer-elementos-por-índice" id="toc-modificar-y-leer-elementos-por-índice" class="nav-link" data-scroll-target="#modificar-y-leer-elementos-por-índice"><span class="header-section-number">6</span> Modificar y leer elementos por índice</a></li>
+  <li><a href="#lo-que-sigue-matrices" id="toc-lo-que-sigue-matrices" class="nav-link" data-scroll-target="#lo-que-sigue-matrices"><span class="header-section-number">7</span> Lo que sigue: matrices</a></li>
+  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">8</span> Lista de verificación</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">9</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/vectores.html">1. Vectores</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Unidad 2. Estructuras de datos tipo arreglo: vectores</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Asignatura</td>
+<td>Herramientas de Programación I (ET0047)</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Tecnología en Desarrollo de Software</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones</td>
+</tr>
+<tr class="even">
+<td>Saber</td>
+<td>Estructura de datos tipo vectores y matrices</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esta guía se probó con el SDK de .NET <strong>10.0.302</strong>.</p>
+<section id="el-problema-que-resuelve-un-arreglo" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="el-problema-que-resuelve-un-arreglo"><span class="header-section-number">1</span> El problema que resuelve un arreglo</h2>
+<section id="las-notas-de-un-grupo-de-estudiantes" class="level3">
+<h3 class="anchored" data-anchor-id="las-notas-de-un-grupo-de-estudiantes">Las notas de un grupo de estudiantes</h3>
+<p>Te piden un programa que guarde las notas de un grupo de <strong>5 estudiantes</strong>, calcule el promedio del grupo y muestre cuáles estudiantes quedaron por encima de ese promedio.</p>
+<p>Antes de seguir leyendo, resuélvelo con lo que ya sabes: variables, tipos de datos, entrada y salida por consola, condicionales y ciclos (Semanas 2 a 5). ¿Cómo lo harías?</p>
+<p>La respuesta más probable, con lo visto hasta ahora, es declarar una variable por estudiante:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> nota1 <span class="op">=</span> <span class="fl">4.2</span><span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> nota2 <span class="op">=</span> <span class="fl">3.8</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> nota3 <span class="op">=</span> <span class="fl">4.7</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> nota4 <span class="op">=</span> <span class="fl">2.9</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> nota5 <span class="op">=</span> <span class="fl">3.5</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> promedio <span class="op">=</span> <span class="op">(</span>nota1 <span class="op">+</span> nota2 <span class="op">+</span> nota3 <span class="op">+</span> nota4 <span class="op">+</span> nota5<span class="op">)</span> <span class="op">/</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Promedio del grupo: {promedio:F2}"</span><span class="op">);</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>nota1 <span class="op">&gt;</span> promedio<span class="op">)</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Estudiante 1 esta por encima del promedio"</span><span class="op">);</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>nota2 <span class="op">&gt;</span> promedio<span class="op">)</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Estudiante 2 esta por encima del promedio"</span><span class="op">);</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>nota3 <span class="op">&gt;</span> promedio<span class="op">)</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Estudiante 3 esta por encima del promedio"</span><span class="op">);</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>nota4 <span class="op">&gt;</span> promedio<span class="op">)</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Estudiante 4 esta por encima del promedio"</span><span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>nota5 <span class="op">&gt;</span> promedio<span class="op">)</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Estudiante 5 esta por encima del promedio"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Promedio del grupo: 3,82
+Estudiante 1 esta por encima del promedio
+Estudiante 3 esta por encima del promedio</code></pre>
+<p>Funciona, con 5 estudiantes. Pero míralo con cuidado: la suma del promedio repite cinco nombres de variable, y la comparación contra el promedio repite la misma línea de <code>if</code> cinco veces, cambiando solo el número. Nada en el programa dice “estas cinco variables son el mismo tipo de dato, recórrelas juntas”: son cinco nombres sueltos, sin ninguna relación entre sí para el compilador.</p>
+<p>Ahora la pregunta que rompe esta idea: <strong>¿y si el grupo fuera de 100 estudiantes?</strong> Habría que escribir 100 variables, 100 sumandos en el promedio y 100 condicionales, uno por uno, a mano. Ningún <code>for</code> puede recorrerlas, porque un ciclo necesita un índice para saber a cuál variable ir a buscar en cada vuelta, y <code>nota1</code>, <code>nota2</code>, …, <code>nota100</code> no comparten ningún índice. El programa crece exactamente al mismo ritmo que el problema, en vez de crecer una sola vez y quedarse fijo.</p>
+</section>
+<section id="el-mismo-problema-en-el-proyecto-del-semestre" class="level3">
+<h3 class="anchored" data-anchor-id="el-mismo-problema-en-el-proyecto-del-semestre">El mismo problema en el proyecto del semestre</h3>
+<p>Esto no es exclusivo de las notas. En la Semana 2 registraste <strong>un</strong> producto: nombre, precio y cantidad, cada uno en su propia variable. Ese enfoque funciona mientras el sistema de gestión maneje un producto a la vez. El proyecto del semestre ya no se conforma con eso: necesita guardar el precio de <strong>varios</strong> productos para poder sumarlos, ordenarlos o buscarlos. La misma idea de variables sueltas aparece otra vez, y falla por la misma razón:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> precio1 <span class="op">=</span> <span class="fl">4599.90</span><span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> precio2 <span class="op">=</span> <span class="fl">12999.00</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> precio3 <span class="op">=</span> <span class="fl">8500.50</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> total <span class="op">=</span> precio1 <span class="op">+</span> precio2 <span class="op">+</span> precio3<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total con variables sueltas: {total}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Total con variables sueltas: 26099,4</code></pre>
+<p>El programa funciona, pero rompe apenas el inventario deja de ser fijo. Si mañana llegan 4 productos en vez de 3, hay que escribir <code>precio4</code> y reescribir la suma. Si llegan 50, hacen falta 50 nombres de variable, y ningún <code>for</code> puede recorrerlos: un ciclo necesita un índice para saber a cuál variable ir a buscar en cada vuelta, y <code>precio1</code>, <code>precio2</code> y <code>precio3</code> no comparten ningún índice entre sí. Son tres nombres sueltos que el compilador trata como si no tuvieran ninguna relación.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/problema-variables-sueltas.svg" class="img-fluid figure-img" alt="Comparacion entre declarar variables precio1, precio2 y precio3 sueltas, y declarar un vector precios que agrupa los mismos valores en un solo bloque recorrible con un indice"></p>
+<figcaption>A la izquierda, tres variables sueltas sin relacion entre ellas ni indice que las una. A la derecha, un vector agrupa los mismos valores en un solo bloque que un indice recorre.</figcaption>
+</figure>
+</div>
+</div>
+<p>Lo que falta es una estructura que agrupe varios valores del mismo tipo bajo <strong>un solo nombre</strong>, y que numere cada valor para poder ir a buscarlo. Esa estructura es el <strong>vector</strong>.</p>
+</section>
+</section>
+<section id="qué-es-un-vector" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="qué-es-un-vector"><span class="header-section-number">2</span> Qué es un vector</h2>
+<p>Un vector (<code>array</code> de una dimensión en C#) es una estructura de datos que guarda una colección de elementos del mismo tipo en un bloque contiguo de memoria, donde cada elemento se identifica por un número entero llamado <strong>índice</strong>.</p>
+<p>Tres ideas quedan fijas en esa definición:</p>
+<ul>
+<li><strong>Mismo tipo.</strong> Un vector de <code>double</code> solo guarda <code>double</code>. No mezcla tipos como sí puede hacerlo una lista genérica que verás más adelante en el programa.</li>
+<li><strong>Bloque contiguo.</strong> Las posiciones están una junto a la otra en memoria. Por eso el tamaño de un vector se fija al crearlo: no hay espacio libre “al lado” reservado para crecer.</li>
+<li><strong>Acceso por índice.</strong> Cada posición tiene un número. Ir al valor en la posición 3 no exige recorrer las posiciones 0, 1 y 2 primero: el índice calcula la dirección exacta de una vez.</li>
+</ul>
+</section>
+<section id="índices-base-0" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="índices-base-0"><span class="header-section-number">3</span> Índices base 0</h2>
+<p>El índice del primer elemento es <strong>0</strong>, no 1. La razón no es una convención arbitraria: el índice es un <strong>desplazamiento</strong> desde el inicio del bloque de memoria. La primera casilla está a desplazamiento cero de sí misma. La segunda está una casilla más allá, desplazamiento 1. Por eso un vector de 5 elementos tiene índices válidos de 0 a 4, y su último índice válido es siempre <code>Length - 1</code>, no <code>Length</code>.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/anatomia-vector-memoria.svg" class="img-fluid figure-img" alt="Anatomia de un vector en memoria: cinco casillas contiguas con indices de 0 a 4, cada una con su valor, y Length igual a 5"></p>
+<figcaption>Un vector en memoria es un bloque contiguo de casillas. El indice de cada casilla es su desplazamiento desde el inicio del bloque, por eso el primero es 0 y el ultimo es Length menos 1.</figcaption>
+</figure>
+</div>
+</div>
+<p>Confundir el índice con el conteo de elementos es el error de <strong>desbordamiento por uno</strong> (<em>off-by-one</em>). Pedir la posición que coincide con <code>Length</code> no existe, y C# lo detecta en tiempo de ejecución:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span><span class="op">[]</span> precios <span class="op">=</span> <span class="op">{</span> <span class="fl">4599.90</span><span class="op">,</span> <span class="fl">12999.00</span><span class="op">,</span> <span class="fl">8500.50</span><span class="op">,</span> <span class="fl">2300.00</span><span class="op">,</span> <span class="fl">15750.75</span> <span class="op">};</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Longitud del vector: {precios.Length}"</span><span class="op">);</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>precios<span class="op">[</span><span class="dv">5</span><span class="op">]);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Longitud del vector: 5
+Unhandled exception. System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Program.&lt;Main&gt;$(String[] args) in ...\Program.cs:line 3</code></pre>
+<p><code>precios.Length</code> vale 5 porque hay 5 casillas, pero la última casilla es la 4. Pedir la posición 5 sale del bloque de memoria reservado, y el programa se detiene con <code>IndexOutOfRangeException</code> si nadie lo maneja. No hay <code>TryParse</code> para esto: la única defensa es comparar el índice contra <code>Length</code> antes de usarlo, algo que vas a practicar con los ciclos de la próxima sección.</p>
+</section>
+<section id="declaración-creación-e-inicialización" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="declaración-creación-e-inicialización"><span class="header-section-number">4</span> Declaración, creación e inicialización</h2>
+<p>Declarar un vector en C# tiene cuatro formas escritas distintas. Las cuatro terminan creando el mismo tipo de objeto (<code>double[]</code>, un <code>array</code> de <code>double</code>), y la que conviene depende de si ya conoces los valores en el momento de escribir el código o si los vas a obtener después, por ejemplo leyéndolos por consola.</p>
+<section id="tamaño-fijo-valores-por-defecto" class="level3">
+<h3 class="anchored" data-anchor-id="tamaño-fijo-valores-por-defecto">1. Tamaño fijo, valores por defecto</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> cantidades <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Longitud del vector cantidades: {cantidades.Length}"</span><span class="op">);</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Valor por defecto en la posicion 0: {cantidades[0]}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Longitud del vector cantidades: 5
+Valor por defecto en la posicion 0: 0</code></pre>
+<p><code>new int[5]</code> reserva espacio para 5 enteros y los llena con el valor por defecto del tipo (<code>0</code> para los numéricos, igual que viste con <code>default</code> en la Semana 2). Usa esta forma cuando conoces <strong>cuántos</strong> elementos necesitas pero todavía no sus <strong>valores</strong>: por ejemplo, antes de leerlos uno por uno por consola dentro de un <code>for</code>, como harías con las 5 notas del problema de apertura.</p>
+</section>
+<section id="inicializador-de-colección-la-forma-más-común" class="level3">
+<h3 class="anchored" data-anchor-id="inicializador-de-colección-la-forma-más-común">2. Inicializador de colección: la forma más común</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span><span class="op">[]</span> precios <span class="op">=</span> <span class="op">{</span> <span class="fl">4599.90</span><span class="op">,</span> <span class="fl">12999.00</span><span class="op">,</span> <span class="fl">8500.50</span><span class="op">,</span> <span class="fl">2300.00</span><span class="op">,</span> <span class="fl">15750.75</span> <span class="op">};</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Longitud del vector precios: {precios.Length}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Longitud del vector precios: 5</code></pre>
+<p>Cuando ya conoces los valores al momento de escribir el código, esta es la forma que vas a usar casi siempre: es la más corta, y el tamaño del vector queda fijado por la cantidad de valores entre llaves, sin que lo escribas aparte. <code>precios.Length</code> siempre devuelve el número real de casillas, lo hayas contado tú o no. C# permite omitir la palabra <code>new</code> aquí porque el tipo del vector ya está declarado a la izquierda (<code>double[]</code>): no hay ambigüedad sobre qué se está creando.</p>
+</section>
+<section id="new-explícito-con-inicializador" class="level3">
+<h3 class="anchored" data-anchor-id="new-explícito-con-inicializador">3. <code>new</code> explícito con inicializador</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span><span class="op">[]</span> precios2 <span class="op">=</span> <span class="kw">new</span> <span class="dt">double</span><span class="op">[]</span> <span class="op">{</span> <span class="fl">4599.90</span><span class="op">,</span> <span class="fl">12999.00</span><span class="op">,</span> <span class="fl">8500.50</span><span class="op">,</span> <span class="fl">2300.00</span><span class="op">,</span> <span class="fl">15750.75</span> <span class="op">};</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Longitud del vector precios2: {precios2.Length}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Longitud del vector precios2: 5</code></pre>
+<p>Es la misma idea que la forma 2, escrita completa con <code>new double[]</code>. Casi nunca hace falta al declarar una variable, pero es obligatoria en un lugar concreto: cuando pasas un vector directamente como argumento a un método, sin declararlo antes en una variable propia. Ahí no hay un <code>double[]</code> a la izquierda del que C# pueda deducir el tipo, así que <code>new double[]</code> es indispensable.</p>
+</section>
+<section id="tamaño-y-valores-juntos" class="level3">
+<h3 class="anchored" data-anchor-id="tamaño-y-valores-juntos">4. Tamaño y valores juntos</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span><span class="op">[]</span> precios3 <span class="op">=</span> <span class="kw">new</span> <span class="dt">double</span><span class="op">[</span><span class="dv">5</span><span class="op">]</span> <span class="op">{</span> <span class="fl">4599.90</span><span class="op">,</span> <span class="fl">12999.00</span><span class="op">,</span> <span class="fl">8500.50</span><span class="op">,</span> <span class="fl">2300.00</span><span class="op">,</span> <span class="fl">15750.75</span> <span class="op">};</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Longitud del vector precios3: {precios3.Length}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Longitud del vector precios3: 5</code></pre>
+<p>Combina el tamaño explícito con los valores. El compilador exige que el número entre corchetes coincida exactamente con la cantidad de valores entre llaves; si no coincide, no compila. Por esa redundancia (el tamaño ya se puede contar en los valores) es la forma que menos vas a usar: aparece sobre todo cuando el tamaño viene de una constante con nombre y quieres dejarlo explícito para que quien lea el código no tenga que contar los valores.</p>
+<p><strong>En la práctica</strong>, en este curso vas a alternar entre la forma 1 (tamaño fijo, para llenar con un <code>for</code> a partir de datos leídos) y la forma 2 (inicializador corto, para datos que ya conoces al escribir el programa). Las formas 3 y 4 quedan para los casos puntuales que acabas de leer.</p>
+</section>
+</section>
+<section id="recorrer-un-vector" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="recorrer-un-vector"><span class="header-section-number">5</span> Recorrer un vector</h2>
+<p>Recorrer un vector significa visitar cada una de sus posiciones, una vez cada una. C# ofrece dos formas, y la diferencia entre ellas es si necesitas o no el índice de cada elemento.</p>
+<section id="for-indexado" class="level3">
+<h3 class="anchored" data-anchor-id="for-indexado"><code>for</code> indexado</h3>
+<p>El ciclo <code>for</code> que ya usaste en la Semana 5 controla el índice de forma explícita: arranca en 0, sigue mientras el índice sea menor que <code>Length</code>, y avanza de uno en uno. Esa condición (<code>i &lt; precios.Length</code>, con <code>&lt;</code> y no <code>&lt;=</code>) es justo lo que evita el desbordamiento por uno de la sección anterior.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> precios<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"  Posicion {i}: {precios[i]}"</span><span class="op">);</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>  Posicion 0: 4599,9
+  Posicion 1: 12999
+  Posicion 2: 8500,5
+  Posicion 3: 2300
+  Posicion 4: 15750,75</code></pre>
+<p>Usa <code>for</code> cuando necesitas el índice dentro del ciclo: para imprimirlo, para comparar posiciones vecinas, o para modificar el vector mientras lo recorres.</p>
+</section>
+<section id="foreach" class="level3">
+<h3 class="anchored" data-anchor-id="foreach"><code>foreach</code></h3>
+<p><code>foreach</code> recorre cada elemento sin exponer el índice. Es más corto cuando solo necesitas el valor de cada posición, por ejemplo para acumular un total.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span><span class="dt">double</span> precio <span class="kw">in</span> precios<span class="op">)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"  Precio: {precio}"</span><span class="op">);</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> precio<span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total del vector: {total}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>  Precio: 4599,9
+  Precio: 12999
+  Precio: 8500,5
+  Precio: 2300
+  Precio: 15750,75
+Total del vector: 44150,15</code></pre>
+<p><code>precio</code> dentro del <code>foreach</code> es una copia de solo lectura de cada valor: no puedes asignarle un valor nuevo y esperar que cambie el vector. Si necesitas modificar el vector mientras lo recorres, usa <code>for</code>.</p>
+</section>
+</section>
+<section id="modificar-y-leer-elementos-por-índice" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="modificar-y-leer-elementos-por-índice"><span class="header-section-number">6</span> Modificar y leer elementos por índice</h2>
+<p>Leer o escribir una posición concreta usa la misma notación en ambos casos: el nombre del vector seguido del índice entre corchetes.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Precio original en la posicion 2: {precios[2]}"</span><span class="op">);</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>precios<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="fl">7990.00</span><span class="op">;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Precio actualizado en la posicion 2: {precios[2]}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Precio original en la posicion 2: 8500,5
+Precio actualizado en la posicion 2: 7990</code></pre>
+<p><code>precios[2]</code> a la izquierda de un <code>=</code> asigna un valor nuevo a esa posición. <code>precios[2]</code> a la derecha lee el valor que hay ahí. Es la misma sintaxis que ya usas con cualquier variable: la única diferencia es que aquí el nombre no basta, hace falta también el índice.</p>
+</section>
+<section id="lo-que-sigue-matrices" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="lo-que-sigue-matrices"><span class="header-section-number">7</span> Lo que sigue: matrices</h2>
+<p>Un vector organiza datos en una sola fila. El próximo tema extiende la misma idea a dos dimensiones: filas y columnas, útil para representar por ejemplo un tablero o una tabla de inventario cruzada por bodega y producto. Una matriz sigue siendo, por dentro, la misma noción de bloque contiguo con acceso por índice, ahora con dos índices en vez de uno.</p>
+</section>
+<section id="lista-de-verificación" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">8</span> Lista de verificación</h2>
+<div class="checklist">
+<ul class="task-list">
+<li><label><input type="checkbox">Explicas por qué las variables sueltas no escalan cuando no sabes cuántos datos vas a guardar.</label></li>
+<li><label><input type="checkbox">Defines un vector como una colección de elementos del mismo tipo, en un bloque contiguo de memoria, con acceso por índice.</label></li>
+<li><label><input type="checkbox">Sabes por qué el primer índice es 0 y el último es <code>Length - 1</code>, no <code>Length</code>.</label></li>
+<li><label><input type="checkbox">Declaras un vector con tamaño fijo y con valores literales.</label></li>
+<li><label><input type="checkbox">Recorres un vector con <code>for</code> cuando necesitas el índice, y con <code>foreach</code> cuando solo necesitas el valor.</label></li>
+<li><label><input type="checkbox">Lees y modificas un elemento por índice sin confundir la posición con el valor.</label></li>
+</ul>
+</div>
+</section>
+<section id="recursos" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="recursos"><span class="header-section-number">9</span> Recursos</h2>
+<ul>
+<li>Arreglos: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/programming-guide/arrays/">learn.microsoft.com/dotnet/csharp/programming-guide/arrays</a></li>
+<li>Sentencia <code>foreach</code>: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/statements/iteration-statements#the-foreach-statement">learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements</a></li>
+<li><code>IndexOutOfRangeException</code>: <a href="https://learn.microsoft.com/es-es/dotnet/api/system.indexoutofrangeexception">learn.microsoft.com/dotnet/api/system.indexoutofrangeexception</a></li>
+</ul>
+<div class="pie-doc">
+<p>Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

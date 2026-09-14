@@ -36,6 +36,12 @@ website:
               href: herramientas-programacion-1/semana-02/index.qmd
             - text: "C# desde cero (guía de sintaxis)"
               href: herramientas-programacion-1/csharp-desde-cero/index.qmd
+        - section: "Unidad 2. Arreglos y funciones"
+          contents:
+            - text: "Presentación de la unidad"
+              href: herramientas-programacion-1/unidad-02/index.qmd
+            - text: "1. Vectores"
+              href: herramientas-programacion-1/unidad-02/vectores.qmd
     - id: estadistica
       style: docked
       background: light

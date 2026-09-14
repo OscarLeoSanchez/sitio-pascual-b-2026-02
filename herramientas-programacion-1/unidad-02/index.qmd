@@ -1,0 +1,56 @@
+---
+title: "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+number-sections: false
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Asignatura | Herramientas de Programación I (ET0047)                  |
+| Programa   | Tecnología en Desarrollo de Software                     |
+| Dedicación | 4 horas de encuentro sincrónico y 8 de trabajo independiente por semana |
+| Cierre     | 30% de la nota, con arreglos, funciones y menú de consola |
+:::
+
+## De qué se trata esta unidad
+
+La Unidad 1 dejó un programa de consola que decide y repite. Esta unidad le suma dos herramientas
+que trabajan juntas: **arreglos**, para guardar y organizar varios datos del mismo tipo bajo un
+solo nombre, y **funciones**, para partir el código en piezas reutilizables con entrada y salida
+propias.
+
+Las dos herramientas convergen en el proyecto del semestre. La versión de consola que construiste
+en la Semana 5 solo manejaba un registro a la vez. Al cierre de esta unidad, el sistema de gestión
+guarda varios productos en un vector, ofrece un menú de opciones y reparte su lógica en funciones,
+en vez de un único bloque de código de principio a fin.
+
+## Cómo está organizada
+
+A diferencia de la Unidad 1, el material de esta unidad se publica **por tema**, no por semana. La
+razón es que los cinco temas de la unidad se acoplan de a pares (vectores con matrices, funciones
+con su paso de parámetros) y conviene poder consultarlos como una sola referencia, en vez de
+partidos en cinco páginas de calendario. El ritmo semanal sigue siendo el que fija el calendario
+del curso: lo que cambia es dónde vive el contenido.
+
+::: {.calendario}
+| Tema | Saber de la carta descriptiva |
+|---|---|
+| **[1. Estructuras de datos tipo arreglo: vectores](vectores.qmd)** | Estructura de datos tipo vectores y matrices |
+| 2. Matrices *(en preparación)* | Estructura de datos tipo vectores y matrices |
+| 3. Funciones: parámetros de entrada y valor de retorno *(en preparación)* | Funciones, parámetros de entrada y retorno |
+| 4. Paso de parámetros por valor y por referencia *(en preparación)* | Paso de parámetros a funciones por valor y por referencia |
+| 5. Creación de menús con aplicación de funciones *(en preparación)* | Creación de menús con aplicación de funciones |
+:::
+
+El tema 5 cierra la unidad con la entrega evaluada del 30%.
+
+::: {.pie-doc}
+Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo.
+Facultad de Ingeniería. Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.
+:::
