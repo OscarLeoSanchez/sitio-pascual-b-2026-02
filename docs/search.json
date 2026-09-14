@@ -21,36 +21,322 @@
     "text": "Sobre el material\nEscribí las guías para quien ya vio Fundamentos de Programación pero nunca ha escrito código en C#. Probé cada procedimiento y cada programa en una máquina real antes de publicarlo, y las salidas de terminal son auténticas de esa preparación.\nSi encuentras un error, un enlace roto o un paso que falla en tu equipo, dímelo en el encuentro o por el canal del curso. Lo corrijo y queda arreglado para todos.\n\nOscar Leonel Sánchez Conde. Institución Universitaria Pascual Bravo, Facultad de Ingeniería. Semestre 2026-02."
   },
   {
-    "objectID": "herramientas-programacion-1/unidad-02/index.html",
-    "href": "herramientas-programacion-1/unidad-02/index.html",
-    "title": "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones",
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
     "section": "",
-    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente por semana\n\n\nCierre\n30% de la nota, con arreglos, funciones y menú de consola",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones\n\n\nSaber\nPaso de parámetros a funciones por valor y por referencia\nEsta guía se probó con el SDK de .NET 10.0.302.",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
-      "Presentación de la unidad"
+      "4. Paso de parámetros"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/unidad-02/index.html#de-qué-se-trata-esta-unidad",
-    "href": "herramientas-programacion-1/unidad-02/index.html#de-qué-se-trata-esta-unidad",
-    "title": "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones",
-    "section": "De qué se trata esta unidad",
-    "text": "De qué se trata esta unidad\nLa Unidad 1 dejó un programa de consola que decide y repite. Esta unidad le suma dos herramientas que trabajan juntas: arreglos, para guardar y organizar varios datos del mismo tipo bajo un solo nombre, y funciones, para partir el código en piezas reutilizables con entrada y salida propias.\nLas dos herramientas convergen en el proyecto del semestre. La versión de consola que construiste en la Semana 5 solo manejaba un registro a la vez. Al cierre de esta unidad, el sistema de gestión guarda varios productos en un vector, ofrece un menú de opciones y reparte su lógica en funciones, en vez de un único bloque de código de principio a fin.",
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-pregunta-que-dejó-abierta-el-tema-anterior",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-pregunta-que-dejó-abierta-el-tema-anterior",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "1 La pregunta que dejó abierta el tema anterior",
+    "text": "1 La pregunta que dejó abierta el tema anterior\nEl tema de funciones cerró con una pregunta sin responder: si una función recibe un vector como parámetro y lo modifica adentro, ¿el cambio se queda encerrado ahí, o se nota también afuera, en el Main que la llamó? La respuesta no es la misma para un tipo simple que para un vector, y esa diferencia es justo lo que enseña este tema.\nEmpecemos por el caso más simple: un int.\nstatic void SumarDiez(int numero)\n{\n    numero += 10;\n    Console.WriteLine($\"  Adentro de la funcion: {numero}\");\n}\nint cantidad = 5;\nConsole.WriteLine($\"Antes de llamar: {cantidad}\");\nSumarDiez(cantidad);\nConsole.WriteLine($\"Despues de llamar: {cantidad}\");\nAntes de llamar: 5\n  Adentro de la funcion: 15\nDespues de llamar: 5\ncantidad sigue en 5 después de llamar la función, aunque numero haya llegado a 15 adentro. La función nunca tocó cantidad: trabajó sobre otra cosa.",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
-      "Presentación de la unidad"
+      "4. Paso de parámetros"
     ]
   },
   {
-    "objectID": "herramientas-programacion-1/unidad-02/index.html#cómo-está-organizada",
-    "href": "herramientas-programacion-1/unidad-02/index.html#cómo-está-organizada",
-    "title": "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones",
-    "section": "Cómo está organizada",
-    "text": "Cómo está organizada\nA diferencia de la Unidad 1, el material de esta unidad se publica por tema, no por semana. La razón es que los cinco temas de la unidad se acoplan de a pares (vectores con matrices, funciones con su paso de parámetros) y conviene poder consultarlos como una sola referencia, en vez de partidos en cinco páginas de calendario. El ritmo semanal sigue siendo el que fija el calendario del curso: lo que cambia es dónde vive el contenido.\n\n\n\n\nTema\nSaber de la carta descriptiva\n\n\n\n\n1. Estructuras de datos tipo arreglo: vectores\nEstructura de datos tipo vectores y matrices\n\n\n2. Matrices (en preparación)\nEstructura de datos tipo vectores y matrices\n\n\n3. Funciones: parámetros de entrada y valor de retorno (en preparación)\nFunciones, parámetros de entrada y retorno\n\n\n4. Paso de parámetros por valor y por referencia (en preparación)\nPaso de parámetros a funciones por valor y por referencia\n\n\n5. Creación de menús con aplicación de funciones (en preparación)\nCreación de menús con aplicación de funciones\n\n\n\n\nEl tema 5 cierra la unidad con la entrega evaluada del 30%.\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.",
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#por-valor-con-un-tipo-simple-la-función-recibe-una-copia",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#por-valor-con-un-tipo-simple-la-función-recibe-una-copia",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "2 Por valor con un tipo simple: la función recibe una copia",
+    "text": "2 Por valor con un tipo simple: la función recibe una copia\nCon un tipo simple (int, double, bool, char…), pasar un argumento “por valor” significa que C# copia el valor y se lo entrega al parámetro. El parámetro es una variable nueva, propia de la función, que empieza con el mismo valor que el argumento pero no tiene ninguna conexión con él después de esa copia inicial.\n\n\n\n\nLa funcion SumarDiez recibe una copia del valor de cantidad. Modificar la copia (numero) adentro de la funcion no cambia la variable original (cantidad) en Main.\n\n\n\nEsto es consistente con todo lo que ya sabes de variables desde la Semana 2: asignar un valor nuevo a numero es una asignación normal, como cualquier otra, y una asignación nunca “viaja hacia atrás” para modificar de dónde vino el valor original.",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
-      "Presentación de la unidad"
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-trampa-con-arreglos",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-trampa-con-arreglos",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "3 La trampa con arreglos",
+    "text": "3 La trampa con arreglos\nAhora el mismo experimento, pero con un vector. Antes de leer la salida, para y piensa: ¿un vector también se pasa “por valor”? La respuesta técnica es sí. Pero mira lo que pasa:\nstatic void AplicarDescuento(double[] precios, double porcentaje)\n{\n    for (int i = 0; i &lt; precios.Length; i++)\n    {\n        precios[i] = precios[i] * (1 - porcentaje);\n    }\n}\ndouble[] precios = { 4599.90, 12999.00, 8500.50, 2300.00, 15750.75 };\nConsole.WriteLine($\"Antes: {precios[0]}\");\nAplicarDescuento(precios, 0.10);\nConsole.WriteLine($\"Despues: {precios[0]}\");\nAntes: 4599,9\nDespues: 4139,91\nprecios[0] cambió afuera de la función, aunque el vector también se pasó “por valor” como numero en el ejemplo anterior. No es una excepción a la regla: es la misma regla, aplicada a un tipo distinto.\nUn vector es un tipo por referencia. La variable precios nunca guarda el vector completo: guarda la dirección de memoria donde vive el bloque de casillas (la misma idea de la anatomía de un vector que ya conoces, del tema 1). Cuando pasas precios “por valor”, lo que se copia es esa dirección, no el bloque completo. El parámetro de la función recibe su propia copia de la dirección, pero las dos direcciones apuntan al mismo bloque de memoria. Escribir en una posición desde adentro de la función escribe en el único bloque que existe.\n\n\n\n\nLa variable precios en Main y el parametro precios de la funcion son dos copias de la misma direccion de memoria: las dos apuntan al mismo bloque del vector. Modificar una posicion desde la funcion si se nota afuera.\n\n\n\nCompara los dos diagramas: en el primero, cantidad y numero son dos casillas separadas sin ninguna conexión. En este, precios (en Main) y precios (en la función) son dos nombres para el mismo bloque. La regla “se pasa una copia” nunca cambió; lo que cambió es qué se copia: un int copia su valor completo, un vector copia solo la dirección de un bloque que ambos comparten.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-modificadora-ref",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-modificadora-ref",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "4 La modificadora ref",
+    "text": "4 La modificadora ref\n¿Y si sí necesitas que una función modifique una variable de tipo simple, y que el cambio se note afuera, igual que pasó con el vector? Para eso existe ref. Se escribe en dos lugares: en el parámetro de la función y en el argumento al llamarla. Olvidar uno de los dos lados es un error de compilación, no un error silencioso.\nstatic void AplicarDescuentoUnitario(ref double precio, double porcentaje)\n{\n    precio = precio * (1 - porcentaje);\n}\ndouble precioProducto = 4599.90;\nConsole.WriteLine($\"Antes: {precioProducto}\");\nAplicarDescuentoUnitario(ref precioProducto, 0.10);\nConsole.WriteLine($\"Despues: {precioProducto}\");\nAntes: 4599,9\nDespues: 4139,91\nEsta vez precioProducto sí cambió afuera, aunque es un double, el mismo tipo simple del primer ejemplo de esta guía. La diferencia no es el tipo de dato: es la palabra ref.\n\n\n\n\nCon ref, precioProducto en Main y precio en la funcion nombran la misma casilla de memoria: no hay copia, hay una sola casilla con dos nombres. Por eso el cambio si se nota afuera.\n\n\n\nref elimina la copia: en vez de crear una casilla nueva para el parámetro, hace que el parámetro sea otro nombre para la misma casilla del argumento. Por eso el primer ejemplo de esta guía (SumarDiez, sin ref) no modificó cantidad, y este sí modifica precioProducto: la diferencia entera está en esa palabra.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-modificadora-out",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#la-modificadora-out",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "5 La modificadora out",
+    "text": "5 La modificadora out\nref sirve cuando la función necesita leer y modificar un valor que ya existe. out sirve para el caso distinto en el que la función necesita entregar un resultado nuevo, y ese resultado no tenía ningún valor antes de la llamada. La diferencia clave: con ref, el argumento debe tener un valor asignado antes de llamar la función (la función puede leerlo). Con out, no hace falta: la función tiene la obligación de asignarle uno antes de terminar.\nout resuelve además un problema que return no puede: una función solo devuelve un valor con return, pero puede tener varios parámetros out para entregar varios resultados en una sola llamada.\nstatic void AnalizarPrecios(double[] precios, out double total, out double maximo)\n{\n    total = 0;\n    maximo = precios[0];\n    for (int i = 0; i &lt; precios.Length; i++)\n    {\n        total += precios[i];\n        if (precios[i] &gt; maximo)\n        {\n            maximo = precios[i];\n        }\n    }\n}\ndouble[] precios2 = { 4599.90, 12999.00, 8500.50, 2300.00, 15750.75 };\nAnalizarPrecios(precios2, out double totalPrecios, out double precioMaximo);\nConsole.WriteLine($\"Total: {totalPrecios:F2}\");\nConsole.WriteLine($\"Maximo: {precioMaximo}\");\nTotal: 44150,15\nMaximo: 15750,75\ntotalPrecios y precioMaximo se declaran directamente dentro de la llamada (out double totalPrecios), sin necesidad de una línea aparte antes: no tenían valor todavía, y no lo necesitaban, porque AnalizarPrecios se los asigna a los dos antes de terminar.\n\n\n\n\nAnalizarPrecios recibe el vector de precios como entrada y entrega dos resultados nuevos con out, total y maximo, sin que esas variables existieran con un valor antes de la llamada.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#resumen-cuándo-el-cambio-se-nota-afuera",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#resumen-cuándo-el-cambio-se-nota-afuera",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "6 Resumen: cuándo el cambio se nota afuera",
+    "text": "6 Resumen: cuándo el cambio se nota afuera\n\n\n\n\n\n\n\nCaso\n¿El cambio adentro de la función se nota afuera?\n\n\n\n\nTipo simple, sin modificador\nNo. La función recibe una copia del valor.\n\n\nTipo simple, con ref\nSí. La función recibe el mismo dato, no una copia.\n\n\nTipo simple, con out\nSí, pero la variable no necesita valor antes de llamar la función.\n\n\nVector (u otro arreglo), sin modificador\nSí. Un arreglo es un tipo por referencia: se copia la dirección, no el bloque.\n\n\nVector, con ref\nSí, y además la función puede reasignar el vector completo a uno nuevo, algo que sin ref no puede hacer.\n\n\n\nLa fila que más se presta a confusión es la cuarta: parece “por valor” (no lleva ref ni out) y sin embargo el cambio sí se nota afuera. No es una excepción: es que lo que viaja por valor en un arreglo es su dirección, no su contenido.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#lo-que-sigue-menús-con-funciones",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#lo-que-sigue-menús-con-funciones",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "7 Lo que sigue: menús con funciones",
+    "text": "7 Lo que sigue: menús con funciones\nYa tienes las tres piezas del proyecto del semestre: vectores y matrices para guardar los datos, funciones para organizar la lógica, y ahora sabes exactamente cuándo una función puede modificar lo que recibe y cuándo no. El siguiente tema arma todo esto dentro de un menú de consola: el estudiante elige una opción, el programa llama a la función correspondiente, y el ciclo vuelve a mostrar el menú hasta que decida salir.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#lista-de-verificación",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#lista-de-verificación",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "8 Lista de verificación",
+    "text": "8 Lista de verificación\n\n\nExplicas por qué modificar un parámetro de tipo simple, sin ref, no cambia la variable original.\nExplicas por qué modificar una posición de un vector recibido como parámetro sí se nota afuera, aunque no lleve ref.\nDistingues qué se copia en cada caso: el valor completo en un tipo simple, la dirección del bloque en un vector.\nUsas ref en el parámetro y en el argumento, en los dos lados, para modificar un tipo simple desde una función.\nUsas out para que una función entregue más de un resultado en una sola llamada.\nSabes cuándo usar ref (la variable ya tiene un valor que la función va a leer y modificar) y cuándo usar out (la variable es un resultado nuevo que la función va a producir).",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#recursos",
+    "href": "herramientas-programacion-1/unidad-02/paso-de-parametros.html#recursos",
+    "title": "Unidad 2. Paso de parámetros por valor y por referencia",
+    "section": "9 Recursos",
+    "text": "9 Recursos\n\nPaso de parámetros: learn.microsoft.com/dotnet/csharp/language-reference/keywords/method-parameters\nPalabra clave ref: learn.microsoft.com/dotnet/csharp/language-reference/keywords/ref\nPalabra clave out: learn.microsoft.com/dotnet/csharp/language-reference/keywords/out-parameter-modifier\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "4. Paso de parámetros"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html",
+    "title": "Unidad 2. Matrices",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones\n\n\nSaber\nEstructura de datos tipo vectores y matrices\nEsta guía se probó con el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#el-problema-que-resuelve-una-matriz",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#el-problema-que-resuelve-una-matriz",
+    "title": "Unidad 2. Matrices",
+    "section": "1 El problema que resuelve una matriz",
+    "text": "1 El problema que resuelve una matriz\nEl tema anterior dejó al vector precios guardando los precios de varios productos, todos en la misma bodega. El proyecto del semestre ahora necesita algo más: el sistema de gestión debe llevar la cantidad de cada producto, pero repartida en varias bodegas. Con 4 productos y 3 bodegas, eso son 12 números que registrar, y cada uno tiene que quedar ligado a dos cosas a la vez: a qué producto pertenece y en qué bodega está.\nCon lo que ya sabes de vectores, la primera idea es declarar un vector por bodega:\nint[] bodegaNorte = { 10, 5, 0, 8 };\nint[] bodegaSur = { 3, 12, 7, 1 };\nint[] bodegaCentro = { 0, 9, 4, 6 };\n\nConsole.WriteLine($\"Cantidad del producto 2 en Bodega Sur: {bodegaSur[2]}\");\nCantidad del producto 2 en Bodega Sur: 7\nEl programa funciona: bodegaSur[2] sí devuelve la cantidad del producto correcto. El problema no es un error de ejecución, es un error de diseño que se paga después. Cada bodega vive en su propio vector, del mismo tamaño por pura disciplina del programador, no porque el lenguaje lo exija. Ningún vínculo declarado le dice a C# “la posición 2 de estos tres vectores es el mismo producto”: si mañana llega un cuarto producto, hay que recordar agregarlo en las tres variables, en el mismo orden, y nada avisa si te olvidas de una. Tres vectores paralelos son tres oportunidades de desincronizarlos.\n\n\n\n\nTres vectores paralelos, uno por bodega, con la misma cantidad de posiciones pero sin ninguna relacion declarada entre ellos en el codigo.\n\n\n\nLo que hace falta es una sola estructura que agrupe las 12 cantidades bajo un nombre, donde cada valor se identifique con dos coordenadas a la vez: la bodega y el producto. Esa estructura es la matriz.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#qué-es-una-matriz",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#qué-es-una-matriz",
+    "title": "Unidad 2. Matrices",
+    "section": "2 Qué es una matriz",
+    "text": "2 Qué es una matriz\nUna matriz (array de dos dimensiones en C#) es una estructura de datos que guarda una colección de elementos del mismo tipo organizados en filas y columnas, donde cada elemento se identifica con dos índices: matriz[fila, columna].\nTodo lo que ya sabes de un vector se mantiene igual, solo que ahora con dos coordenadas en vez de una:\n\nMismo tipo. Una matriz de int solo guarda int, igual que un vector.\nBloque contiguo. Por dentro, C# sigue guardando la matriz en un único bloque continuo de memoria. El tamaño se fija al crearla, igual que con un vector.\nAcceso por índice, ahora doble. El primer índice ubica la fila (en el proyecto, la bodega). El segundo ubica la columna (el producto). Los dos juntos, separados por una coma dentro de los mismos corchetes, ubican una celda exacta.\n\n\n\n\n\nAnatomia de una matriz como cuadricula de filas y columnas: el indice de fila a la izquierda, el indice de columna arriba, y cada celda identificada por los dos indices juntos.\n\n\n\nEste es el mismo bloque de memoria contiguo que viste con los vectores. La diferencia está en cómo se calcula la posición: con un índice, C# calcula un desplazamiento; con dos, calcula el desplazamiento combinando fila y columna. Esa cuenta la hace el lenguaje por ti; lo único que necesitas manejar es la notación [fila, columna].\n\n\n\n\n\n\nNota\n\n\n\nEsta guía usa matrices rectangulares (int[,]), donde todas las filas tienen el mismo número de columnas, como una cuadrícula real. C# también tiene arreglos “irregulares” (int[][], un vector de vectores donde cada fila puede tener un tamaño distinto), pero eso no forma parte del saber de esta unidad y no lo vas a necesitar en el proyecto del semestre.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#declaración-creación-e-inicialización",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#declaración-creación-e-inicialización",
+    "title": "Unidad 2. Matrices",
+    "section": "3 Declaración, creación e inicialización",
+    "text": "3 Declaración, creación e inicialización\nLa sintaxis de una matriz rectangular se distingue de la de un vector por una sola coma dentro de los corchetes: int[,] en vez de int[]. Esa coma es la que le dice al compilador “esto tiene dos dimensiones”.\n\nTamaño fijo, valores por defecto\nint[,] vacia = new int[3, 4];\nConsole.WriteLine($\"Filas: {vacia.GetLength(0)}, columnas: {vacia.GetLength(1)}\");\nConsole.WriteLine($\"Valor por defecto en [0,0]: {vacia[0, 0]}\");\nFilas: 3, columnas: 4\nValor por defecto en [0,0]: 0\nnew int[3, 4] reserva una cuadrícula de 3 filas por 4 columnas (12 celdas en total) y las llena con el valor por defecto del tipo, igual que hacía new int[5] con un vector. Úsala cuando conoces las dimensiones pero vas a llenar los valores después, por ejemplo leyéndolos por consola dentro de un for anidado.\n\n\nValores literales, fila por fila\nint[,] cantidades = {\n    { 10, 5, 0, 8 },\n    { 3, 12, 7, 1 },\n    { 0, 9, 4, 6 }\n};\nConsole.WriteLine($\"Filas (bodegas): {cantidades.GetLength(0)}\");\nConsole.WriteLine($\"Columnas (productos): {cantidades.GetLength(1)}\");\nFilas (bodegas): 3\nColumnas (productos): 4\nCada par de llaves internas es una fila. El compilador exige que todas las filas traigan la misma cantidad de valores: si una fila trae 3 números y otra trae 4, no compila, porque una matriz rectangular no admite filas de tamaño distinto. Esta es la forma que vas a usar más seguido cuando ya conoces los datos al escribir el programa, por la misma razón que el inicializador corto de vectores: es la más legible y el tamaño se deduce solo.\n\n\nGetLength contra Length: el error que hay que anticipar\nConsole.WriteLine($\"cantidades.Length (total de celdas): {cantidades.Length}\");\ncantidades.Length (total de celdas): 12\nEsta es la trampa más común al pasar de vectores a matrices. En un vector, .Length es exactamente lo que necesitas para recorrerlo: el número de posiciones. En una matriz, .Length no distingue filas de columnas: devuelve el total de celdas (3 por 4 = 12), un número que no sirve para controlar un for de filas ni uno de columnas por separado. Para eso existen GetLength(0) (número de filas) y GetLength(1) (número de columnas), que ya usaste arriba. Si escribes for (int i = 0; i &lt; cantidades.Length; i++) esperando recorrer las filas, el ciclo va a dar 12 vueltas en vez de 3, y cantidades[i, 0] va a lanzar IndexOutOfRangeException en cuanto i pase de 2.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#recorrer-una-matriz",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#recorrer-una-matriz",
+    "title": "Unidad 2. Matrices",
+    "section": "4 Recorrer una matriz",
+    "text": "4 Recorrer una matriz\nRecorrer una matriz completa exige dos ciclos for anidados: uno para las filas, otro para las columnas dentro de cada fila. El ciclo externo controla la fila; el ciclo interno, anidado dentro del externo, recorre todas las columnas de esa fila antes de que el externo avance a la siguiente.\nfor (int fila = 0; fila &lt; cantidades.GetLength(0); fila++)\n{\n    for (int columna = 0; columna &lt; cantidades.GetLength(1); columna++)\n    {\n        Console.Write($\"{cantidades[fila, columna],4}\");\n    }\n    Console.WriteLine();\n}\n  10   5   0   8\n   3  12   7   1\n   0   9   4   6\n\n\n\n\nOrden de recorrido de una matriz con for anidado: el ciclo externo fija la fila y el ciclo interno recorre todas las columnas de esa fila antes de pasar a la siguiente, numerado del 1 al 12.\n\n\n\n{cantidades[fila, columna],4} es un formato de alineación de string interpolado: reserva 4 espacios para el número, para que la cuadrícula quede alineada en la consola sin importar si el valor tiene uno o dos dígitos. Console.WriteLine() sin argumentos, al cerrar el ciclo interno, solo imprime el salto de línea que separa una fila de la siguiente.\n\nSumar una columna: el total de un producto en todas las bodegas\nCuando necesitas solo una columna, fijas ese índice y dejas que el for recorra únicamente las filas:\nint columnaProducto = 2;\nint totalProducto = 0;\nfor (int fila = 0; fila &lt; cantidades.GetLength(0); fila++)\n{\n    totalProducto += cantidades[fila, columnaProducto];\n}\nConsole.WriteLine($\"Total del producto {columnaProducto} en todas las bodegas: {totalProducto}\");\nTotal del producto 2 en todas las bodegas: 11\nAquí columnaProducto queda fijo en 2 durante todo el ciclo: lo único que cambia es fila. Es la misma idea de “una columna vertical de la cuadrícula”, leída de arriba hacia abajo.\n\n\nSumar el total general\nPara sumar las 12 celdas hace falta volver a los dos ciclos anidados, acumulando en cada vuelta del ciclo interno:\nint totalGeneral = 0;\nfor (int fila = 0; fila &lt; cantidades.GetLength(0); fila++)\n{\n    for (int columna = 0; columna &lt; cantidades.GetLength(1); columna++)\n    {\n        totalGeneral += cantidades[fila, columna];\n    }\n}\nConsole.WriteLine($\"Total general del inventario: {totalGeneral}\");\nTotal general del inventario: 65",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#acceder-y-modificar-una-celda",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#acceder-y-modificar-una-celda",
+    "title": "Unidad 2. Matrices",
+    "section": "5 Acceder y modificar una celda",
+    "text": "5 Acceder y modificar una celda\nLeer o escribir una celda concreta usa la misma notación de dos índices, a la izquierda o a la derecha de un =, igual que ya viste con un solo índice en un vector:\nConsole.WriteLine($\"Cantidad original en [1,2]: {cantidades[1, 2]}\");\ncantidades[1, 2] = 20;\nConsole.WriteLine($\"Cantidad actualizada en [1,2]: {cantidades[1, 2]}\");\nCantidad original en [1,2]: 7\nCantidad actualizada en [1,2]: 20\ncantidades[1, 2] = 20 reemplaza, no suma: la celda queda en 20, no en 7 + 20. Es el mismo comportamiento que precios[2] = 7990.00 en el tema anterior, con un índice más.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#lo-que-sigue-funciones",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#lo-que-sigue-funciones",
+    "title": "Unidad 2. Matrices",
+    "section": "6 Lo que sigue: funciones",
+    "text": "6 Lo que sigue: funciones\nEl código de esta guía ya se repitió varias veces: el for anidado para recorrer la matriz completa aparece igual en la sección de recorrido y en la del total general, y volvería a aparecer si el proyecto necesitara imprimir el inventario en otro punto del programa. El siguiente tema enseña a empacar ese bloque de código en una función, para escribirlo una sola vez y llamarlo cada vez que haga falta, con los datos de entrada y el resultado que necesite cada llamada.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#lista-de-verificación",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#lista-de-verificación",
+    "title": "Unidad 2. Matrices",
+    "section": "7 Lista de verificación",
+    "text": "7 Lista de verificación\n\n\nExplicas por qué varios vectores paralelos no garantizan que la misma posición represente el mismo producto en todos.\nDefines una matriz como una colección del mismo tipo organizada en filas y columnas, con acceso por dos índices.\nDeclaras una matriz con tamaño fijo y con valores literales por filas.\nDistingues GetLength(0) y GetLength(1) de .Length, y sabes qué devuelve cada uno.\nRecorres una matriz completa con dos for anidados, entendiendo cuál ciclo es la fila y cuál la columna.\nLees y modificas una celda por sus dos índices sin confundir fila con columna.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#recursos",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#recursos",
+    "title": "Unidad 2. Matrices",
+    "section": "8 Recursos",
+    "text": "8 Recursos\n\nArreglos multidimensionales: learn.microsoft.com/dotnet/csharp/programming-guide/arrays/multidimensional-arrays\nArray.GetLength: learn.microsoft.com/dotnet/api/system.array.getlength\nFormato de alineación en cadenas interpoladas: learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones\n\n\nSaber\nFunciones: parámetros de entrada y valor de retorno\nEsta guía se probó con el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#el-problema-que-resuelve-una-función",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#el-problema-que-resuelve-una-función",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "1 El problema que resuelve una función",
+    "text": "1 El problema que resuelve una función\nEn el tema anterior calculaste el total de un vector de precios con un for que suma sobre precios.Length. Ese cálculo no aparece una sola vez en un sistema de gestión real: aparece cada vez que hace falta un total. Por ejemplo, una vez para mostrar el total antes de aplicar un descuento, y otra vez para mostrar el total después:\ndouble[] precios = { 4599.90, 12999.00, 8500.50, 2300.00, 15750.75 };\n\ndouble totalOriginal = 0;\nfor (int i = 0; i &lt; precios.Length; i++)\n{\n    totalOriginal += precios[i];\n}\nConsole.WriteLine($\"Total antes del descuento: {totalOriginal}\");\n\ndouble descuento = 0.10;\ndouble totalConDescuento = 0;\nfor (int i = 0; i &lt; precios.Length; i++)\n{\n    totalConDescuento += precios[i] * (1 - descuento);\n}\nConsole.WriteLine($\"Total con descuento: {totalConDescuento:F2}\");\nTotal antes del descuento: 44150,15\nTotal con descuento: 39735,14\nMira el segundo for: es casi idéntico al primero, solo cambia una línea. Copiarlo y pegarlo funciona hoy, pero deja dos copias del mismo cálculo sueltas en el programa. Si mañana encuentras un error en la forma de sumar, o cambias el tipo de dato, tienes que acordarte de corregirlo en los dos lugares. Y esto no se queda en dos copias: cada vez que el sistema de gestión necesite un total en otro punto (un reporte, una validación, un resumen), aparece una tercera, una cuarta copia del mismo bloque.\n\n\n\n\nA la izquierda, el mismo bloque de codigo pegado dos veces. A la derecha, el bloque escrito una sola vez en una funcion, llamada desde los dos lugares que lo necesitan.\n\n\n\nLo que falta es una forma de escribir un bloque de código una sola vez, ponerle un nombre, y poder invocarlo cuantas veces haga falta desde cualquier parte del programa. Eso es una función.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#qué-es-una-función-en-c",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#qué-es-una-función-en-c",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "2 Qué es una función en C",
+    "text": "2 Qué es una función en C\nUna función (en C# también se le llama método) es un bloque de código con nombre que se puede invocar las veces que haga falta, desde distintos lugares del programa, opcionalmente recibiendo datos de entrada y opcionalmente devolviendo un resultado.\nDos acciones quedan separadas, y conviene no confundirlas:\n\nDeclarar (o definir) la función. Escribir su código una sola vez, con su nombre, en algún lugar del programa. Esto no ejecuta nada todavía: solo deja el bloque disponible.\nLlamar (o invocar) la función. Escribir el nombre de la función seguido de paréntesis en el punto del programa donde quieres que se ejecute. Cada llamada ejecuta el mismo código declarado una sola vez, tantas veces como lo llames.\n\nEs la misma relación que ya conoces entre un vector y sus posiciones: declaras precios una vez, y accedes a precios[2] tantas veces como necesites. Con una función, declaras CalcularTotal una vez, y la llamas tantas veces como necesites un total.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#anatomía-de-una-función",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#anatomía-de-una-función",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "3 Anatomía de una función",
+    "text": "3 Anatomía de una función\nToda función en C# se escribe con la misma forma: una firma (la línea que la declara) seguida de un cuerpo entre llaves. La firma tiene cuatro partes fijas, en este orden:\n\n\n\n\nLa firma de una funcion tiene cuatro partes: el modificador static, el tipo de retorno, el nombre, y la lista de parametros entre parentesis. El cuerpo entre llaves hace el trabajo y el return entrega el resultado.\n\n\n\n\nModificador de acceso. En este curso vas a escribir siempre static. Significa que la función no pertenece a un objeto particular (todavía no viste programación orientada a objetos, eso llega en la Unidad 3): es una función suelta, disponible en todo el programa.\nTipo de retorno. El tipo de dato que la función va a entregar como resultado. Puede ser cualquier tipo que ya conoces (double, int, string, bool, un vector) o void, que significa “esta función no entrega ningún resultado”.\nNombre. Cómo se va a invocar la función. En C# se escribe en PascalCase (cada palabra con mayúscula inicial), a diferencia de las variables, que van en camelCase.\nParámetros. La lista de datos que la función necesita recibir para hacer su trabajo, entre paréntesis, cada uno con su tipo. Puede estar vacía.\n\nCon esa anatomía, el cálculo del total del principio de la guía se convierte en una función:\nstatic double CalcularTotal(double[] precios)\n{\n    double total = 0;\n    for (int i = 0; i &lt; precios.Length; i++)\n    {\n        total += precios[i];\n    }\n    return total;\n}\nstatic double CalcularTotal(double[] precios) es la firma: una función llamada CalcularTotal, sin pertenecer a un objeto (static), que recibe un vector de double llamado precios y devuelve un double. El cuerpo es exactamente el mismo for que ya conocías, ahora encerrado en un solo lugar.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#parámetros-de-entrada",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#parámetros-de-entrada",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "4 Parámetros de entrada",
+    "text": "4 Parámetros de entrada\nUn parámetro es una variable local que la función recibe con un valor en el momento en que es llamada. Se declara en la firma, con su tipo y su nombre, igual que cualquier variable. En CalcularTotal(double[] precios), precios es el único parámetro: un vector de double.\nCuando llamas la función, el valor real que le pasas se llama argumento. La distinción importa para hablar con precisión: precios en la firma es el parámetro; el vector que efectivamente le pasas al llamarla es el argumento.\ndouble[] precios = { 4599.90, 12999.00, 8500.50, 2300.00, 15750.75 };\ndouble total = CalcularTotal(precios);\nConsole.WriteLine($\"Total del vector: {total}\");\nTotal del vector: 44150,15\nAquí precios (la variable del programa) es el argumento que se pasa; dentro de CalcularTotal, ese mismo valor se recibe con el nombre del parámetro, también precios (el nombre puede coincidir o no, C# no exige que sean iguales).\nUna función puede tener cero, uno o varios parámetros, separados por comas en la firma. Por ejemplo, una versión que además reciba el porcentaje de descuento a aplicar:\nstatic double CalcularTotalConDescuento(double[] precios, double porcentajeDescuento)\n{\n    double total = CalcularTotal(precios);\n    return total * (1 - porcentajeDescuento);\n}\nEsta función recibe dos parámetros: el vector precios y el double porcentajeDescuento. Por dentro, reutiliza CalcularTotal en vez de repetir el for: una función puede llamar a otra función, igual que cualquier otro código puede hacerlo.\ndouble totalConDescuento = CalcularTotalConDescuento(precios, 0.10);\nConsole.WriteLine($\"Total con 10% de descuento: {totalConDescuento:F2}\");\nTotal con 10% de descuento: 39735,14\nLos argumentos se pasan en el mismo orden en que están declarados los parámetros: el primer argumento (precios) llena el primer parámetro, el segundo argumento (0.10) llena el segundo parámetro (porcentajeDescuento). Invertir el orden al llamar la función, cuando los tipos no coinciden, es un error que el compilador detecta antes de ejecutar el programa.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#valor-de-retorno",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#valor-de-retorno",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "5 Valor de retorno",
+    "text": "5 Valor de retorno\nreturn es la palabra clave que entrega el resultado de la función y termina su ejecución en ese punto exacto, aunque queden líneas de código después. El tipo del valor que sigue a return debe coincidir con el tipo de retorno declarado en la firma: CalcularTotal declara double, así que return total; solo es válido porque total es double.\nNo toda función necesita devolver algo. Cuando el tipo de retorno es void, la función no entrega ningún resultado: hace su trabajo (por ejemplo, imprimir algo en pantalla) y termina sola, sin return, o con un return; sin valor si necesitas cortarla antes de tiempo.\nstatic void MostrarVector(double[] vector, string etiqueta)\n{\n    Console.WriteLine(etiqueta);\n    foreach (double valor in vector)\n    {\n        Console.WriteLine($\"  {valor}\");\n    }\n}\nMostrarVector(precios, \"Precios del inventario:\");\nPrecios del inventario:\n  4599,9\n  12999\n  8500,5\n  2300\n  15750,75\nMostrarVector no tiene return: imprime y termina. Compárala con CalcularTotal: una calcula y entrega un valor para que quien la llamó lo use; la otra hace algo (imprimir) y no entrega nada de vuelta.\nreturn también sirve para cortar una función antes de llegar al final, típicamente dentro de un if. Una función que revisa si todos los precios de un vector son válidos (ninguno negativo) puede salir apenas encuentra uno que no lo es, sin revisar el resto:\nstatic bool TienePreciosValidos(double[] precios)\n{\n    foreach (double precio in precios)\n    {\n        if (precio &lt; 0)\n        {\n            return false;\n        }\n    }\n    return true;\n}\ndouble[] preciosValidos = { 4599.90, 12999.00, 8500.50 };\ndouble[] preciosConError = { 4599.90, -50.0, 8500.50 };\nConsole.WriteLine($\"preciosValidos: {TienePreciosValidos(preciosValidos)}\");\nConsole.WriteLine($\"preciosConError: {TienePreciosValidos(preciosConError)}\");\npreciosValidos: True\npreciosConError: False\nEl return false; de adentro del if corta la función de inmediato, apenas encuentra el primer precio negativo: no sigue revisando el resto del vector. Si el foreach termina sin encontrar ninguno negativo, se llega al return true; final. Una función puede tener más de un return, pero solo se ejecuta uno por cada llamada: el primero que se alcanza.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#llamar-una-función-desde-main",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#llamar-una-función-desde-main",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "6 Llamar una función desde Main",
+    "text": "6 Llamar una función desde Main\nInvocar una función con retorno y una función void se ve distinto en el punto de llamada. Con retorno, normalmente asignas el resultado a una variable (double total = CalcularTotal(precios);) o lo usas directo dentro de otra expresión. Una función void se llama como una sentencia suelta, sin asignarla a nada, porque no hay ningún valor que recibir.\nLo que pasa por dentro, en cualquiera de los dos casos, sigue siempre el mismo flujo:\n\n\n\n\nEl programa llega a la linea de la llamada, salta al cuerpo de la funcion, la ejecuta linea por linea, y regresa exactamente al punto donde se quedo, con el valor de retorno si la funcion lo entrega.\n\n\n\nEl programa nunca ejecuta las dos cosas a la vez: se detiene en la línea de la llamada, salta al cuerpo de la función, ejecuta ese cuerpo de principio a fin (o hasta el primer return que encuentre), y regresa exactamente a la línea siguiente a la llamada, llevando el valor de retorno si lo hay. El resto del programa continúa como si el cuerpo de la función se hubiera escrito ahí mismo, sin la repetición.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#lo-que-sigue-paso-de-parámetros-por-valor-y-por-referencia",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#lo-que-sigue-paso-de-parámetros-por-valor-y-por-referencia",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "7 Lo que sigue: paso de parámetros por valor y por referencia",
+    "text": "7 Lo que sigue: paso de parámetros por valor y por referencia\nTodos los parámetros de esta guía fueron datos que la función lee: calcula un total, revisa si son válidos, los imprime. Pero MostrarVector recibe el vector completo como parámetro. Eso abre una pregunta que todavía no respondiste: ¿qué pasa si una función modifica el vector que recibió como parámetro? ¿El cambio se queda solo adentro de la función, o se nota también afuera, en el Main que la llamó? Esa es la pregunta que abre el siguiente tema.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#lista-de-verificación",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#lista-de-verificación",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "8 Lista de verificación",
+    "text": "8 Lista de verificación\n\n\nExplicas por qué repetir el mismo bloque de código en varios lugares es un problema, y cómo una función lo resuelve.\nDistingues declarar una función de llamarla.\nNombras las cuatro partes de la firma de una función: modificador, tipo de retorno, nombre y parámetros.\nDistingues un parámetro (en la definición) de un argumento (en la llamada).\nEscribes una función con más de un parámetro, respetando el orden al llamarla.\nExplicas la diferencia entre una función que devuelve un valor y una función void.\nSabes que return corta la ejecución de la función en el punto exacto donde aparece.\nDescribes el flujo de llamada y retorno: salto al cuerpo, ejecución, regreso al punto de llamada.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/funciones.html#recursos",
+    "href": "herramientas-programacion-1/unidad-02/funciones.html#recursos",
+    "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
+    "section": "9 Recursos",
+    "text": "9 Recursos\n\nMétodos en C#: learn.microsoft.com/dotnet/csharp/methods\nParámetros de método: learn.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/method-parameters\nSentencia return: learn.microsoft.com/dotnet/csharp/language-reference/statements/jump-statements\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "3. Funciones"
     ]
   },
   {
@@ -2693,6 +2979,138 @@
     "title": "Sintaxis, variables y consola",
     "section": "Trabajo independiente",
     "text": "Trabajo independiente\n\nAgrega codigo (string) y stockMinimo (int, con TryParse).\nGuarda en una variable bool si cantidad es menor que stockMinimo.\nPrueba el programa con datos válidos y con al menos un dato inválido.\n\nRetomas este ejercicio como base para las decisiones y ciclos de la Semana 3 en adelante."
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/index.html",
+    "href": "herramientas-programacion-1/unidad-02/index.html",
+    "title": "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nDedicación\n4 horas de encuentro sincrónico y 8 de trabajo independiente por semana\n\n\nCierre\n30% de la nota, con arreglos, funciones y menú de consola",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "Presentación de la unidad"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/index.html#de-qué-se-trata-esta-unidad",
+    "href": "herramientas-programacion-1/unidad-02/index.html#de-qué-se-trata-esta-unidad",
+    "title": "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones",
+    "section": "De qué se trata esta unidad",
+    "text": "De qué se trata esta unidad\nLa Unidad 1 dejó un programa de consola que decide y repite. Esta unidad le suma dos herramientas que trabajan juntas: arreglos, para guardar y organizar varios datos del mismo tipo bajo un solo nombre, y funciones, para partir el código en piezas reutilizables con entrada y salida propias.\nLas dos herramientas convergen en el proyecto del semestre. La versión de consola que construiste en la Semana 5 solo manejaba un registro a la vez. Al cierre de esta unidad, el sistema de gestión guarda varios productos en un vector, ofrece un menú de opciones y reparte su lógica en funciones, en vez de un único bloque de código de principio a fin.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "Presentación de la unidad"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/index.html#cómo-está-organizada",
+    "href": "herramientas-programacion-1/unidad-02/index.html#cómo-está-organizada",
+    "title": "Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones",
+    "section": "Cómo está organizada",
+    "text": "Cómo está organizada\nA diferencia de la Unidad 1, el material de esta unidad se publica por tema, no por semana. La razón es que los cinco temas de la unidad se acoplan de a pares (vectores con matrices, funciones con su paso de parámetros) y conviene poder consultarlos como una sola referencia, en vez de partidos en cinco páginas de calendario. El ritmo semanal sigue siendo el que fija el calendario del curso: lo que cambia es dónde vive el contenido.\n\n\n\n\nTema\nSaber de la carta descriptiva\n\n\n\n\n1. Estructuras de datos tipo arreglo: vectores\nEstructura de datos tipo vectores y matrices\n\n\n2. Matrices\nEstructura de datos tipo vectores y matrices\n\n\n3. Funciones: parámetros de entrada y valor de retorno\nFunciones, parámetros de entrada y retorno\n\n\n4. Paso de parámetros por valor y por referencia\nPaso de parámetros a funciones por valor y por referencia\n\n\n5. Creación de menús con aplicación de funciones\nCreación de menús con aplicación de funciones\n\n\n\n\nEl tema 5 cierra la unidad con la entrega evaluada del 30%.\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "Presentación de la unidad"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html",
+    "href": "herramientas-programacion-1/unidad-02/menus.html",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones\n\n\nSaber\nCreación de menús con aplicación de funciones\nEsta guía se probó con el SDK de .NET 10.0.302. Es el último tema de la unidad: reúne vectores, funciones y paso de parámetros en un solo programa.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#el-problema-que-resuelve-un-menú",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#el-problema-que-resuelve-un-menú",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "1 El problema que resuelve un menú",
+    "text": "1 El problema que resuelve un menú\nCada programa de las guías anteriores hace una cosa y termina: calcula un total, aplica un descuento, analiza un vector. Corres el programa, ves el resultado, y se cierra. El sistema de gestión real no funciona así: el usuario necesita mostrar los precios, calcular el total, aplicar un descuento y analizar los datos, todo en la misma ejecución, eligiendo qué hacer cada vez, hasta que decide terminar.\nUn programa lineal, de arriba a abajo, no alcanza para eso. Si escribes las cuatro operaciones una después de otra, las cuatro se ejecutan siempre, en ese orden fijo, una sola vez. Lo que hace falta es una estructura que pregunte, repita y elija: un menú.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#el-patrón-ciclo-selección-funciones",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#el-patrón-ciclo-selección-funciones",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "2 El patrón: ciclo + selección + funciones",
+    "text": "2 El patrón: ciclo + selección + funciones\nUn menú de consola combina tres cosas que ya conoces, cada una haciendo su parte:\n\nUn ciclo que se repite mientras el usuario no elija salir.\nUna selección (switch) que decide qué hacer según la opción elegida.\nFunciones, cada una encargada de una operación concreta, que el switch invoca.\n\n\n\n\n\nFlujo del patron: mostrar el menu, leer la opcion, validarla con TryParse, ejecutar la funcion correspondiente con un switch, revisar si la opcion fue salir, y si no repetir desde el inicio.\n\n\n\n¿Por qué do-while y no while? Un menú tiene que mostrarse al menos una vez antes de que tenga sentido preguntar si el usuario quiere seguir. Con while, la condición se revisa antes del primer paso por el ciclo, así que necesitarías mostrar el menú una vez afuera del ciclo y otra vez adentro, duplicando código. Con do-while, el cuerpo del ciclo se ejecuta primero y la condición se revisa al final, exactamente lo que un menú necesita: muéstralo, atiende una opción, y solo entonces pregunta si hay que repetir.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#construyendo-el-menú-paso-a-paso",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#construyendo-el-menú-paso-a-paso",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "3 Construyendo el menú paso a paso",
+    "text": "3 Construyendo el menú paso a paso\n\n1. El vector y las funciones que ya tienes\nEl programa parte del mismo vector de precios de todo el semestre, y de las funciones que ya construiste en los temas 3 y 4: MostrarVector, CalcularTotal, AplicarDescuento y AnalizarPrecios. Ninguna cambia aquí; el menú solo las llama.\ndouble[] precios = { 4599.90, 12999.00, 8500.50, 2300.00, 15750.75 };\n\n\n2. El esqueleto del ciclo\nEl cuerpo del do-while muestra las opciones y lee lo que el usuario escribió. Hasta aquí, todavía no hace nada con la opción: solo la pide.\nbool continuarMenu = true;\ndo\n{\n    Console.WriteLine();\n    Console.WriteLine(\"=== Sistema de gestion: menu ===\");\n    Console.WriteLine(\"1. Mostrar precios\");\n    Console.WriteLine(\"2. Calcular total\");\n    Console.WriteLine(\"3. Aplicar descuento general\");\n    Console.WriteLine(\"4. Analizar precios (total y maximo)\");\n    Console.WriteLine(\"0. Salir\");\n    Console.Write(\"Elige una opcion: \");\n    string? entrada = Console.ReadLine();\n\n    // aqui falta leer \"entrada\" como numero y decidir que hacer\n\n} while (continuarMenu);\ncontinuarMenu es la variable que controla el ciclo. Empieza en true, y solo la opción de salir la va a cambiar a false más adelante: por eso el ciclo se repite indefinidamente hasta que el usuario elige esa opción, y por eso la variable no puede llamarse igual que la opción numérica que el usuario escribe (eso sería mezclar “qué escribió” con “si hay que seguir”, dos preguntas distintas).\n\n\n3. Validar la opción con TryParse\nConsole.ReadLine siempre devuelve texto (Semana 2), y el usuario puede escribir cualquier cosa, no solo un número. int.TryParse convierte el texto y devuelve true o false según si lo logró, sin lanzar una excepción si falla.\n\n\n\n\nTryParse intenta convertir el texto escrito. Si falla, el programa muestra un error y el ciclo vuelve a mostrar el menu sin cerrarse. Si tiene exito, la opcion numerica pasa al switch.\n\n\n\nif (!int.TryParse(entrada, out int opcion))\n{\n    Console.WriteLine(\"Esa no es una opcion valida. Escribe un numero del menu.\");\n    continue;\n}\ncontinue salta directo a la condición del do-while sin ejecutar el resto del cuerpo: el programa vuelve a mostrar el menú, sin cerrarse por una entrada inválida.\nUna trampa real que vale la pena señalar. La primera versión de este programa comparaba opcion != 0 en la condición del do-while, en vez de usar una variable continuarMenu aparte. Con eso, escribir cualquier texto inválido (donde TryParse deja opcion en 0 por defecto) cerraba el menú de inmediato, como si el usuario hubiera elegido salir, sin haber elegido nada. Por eso esta guía usa una variable booleana independiente para controlar el ciclo: la decisión de seguir o parar no puede depender del mismo valor que ya se usa para saber si el texto era válido.\n\n\n4. El switch que llama a las funciones\nCon la opción ya convertida a número, el switch decide cuál función ejecutar. Cada case es una operación del sistema de gestión, ya construida en temas anteriores:\nswitch (opcion)\n{\n    case 1:\n        MostrarVector(precios, \"Precios actuales:\");\n        break;\n    case 2:\n        {\n            double total = CalcularTotal(precios);\n            Console.WriteLine($\"Total: {total:F2}\");\n            break;\n        }\n    case 3:\n        {\n            Console.Write(\"Porcentaje de descuento, como numero entero (por ejemplo 10 para 10%): \");\n            if (!int.TryParse(Console.ReadLine(), out int porcentajeEntero))\n            {\n                Console.WriteLine(\"Ese no es un numero valido. Vuelve a intentar desde el menu.\");\n                break;\n            }\n            double porcentaje = porcentajeEntero / 100.0;\n            AplicarDescuento(precios, porcentaje);\n            Console.WriteLine(\"Descuento aplicado.\");\n            break;\n        }\n    case 4:\n        {\n            AnalizarPrecios(precios, out double totalAnalizado, out double maximo);\n            Console.WriteLine($\"Total: {totalAnalizado:F2}\");\n            Console.WriteLine($\"Maximo: {maximo:F2}\");\n            break;\n        }\n    case 0:\n        Console.WriteLine(\"Hasta pronto.\");\n        continuarMenu = false;\n        break;\n    default:\n        Console.WriteLine(\"Esa opcion no existe. Elige una del menu.\");\n        break;\n}\nFíjate en el case 3: pide un segundo dato (el porcentaje) dentro del mismo case, con su propia validación. Nada impide que un case lea más datos si la operación los necesita; lo único que cambia es que ese case hace más de un paso antes de su break.\nPor qué el porcentaje se pide como número entero. Al verificar este ejemplo apareció un error real: pedirlo como double (por ejemplo escribiendo 0.10) y convertirlo con double.Parse dio un resultado absurdo, porque la configuración regional de la consola interpreta el punto decimal de forma distinta a como lo escribimos en el código fuente. Pedirlo como entero (10 en vez de 0.10) y dividirlo entre 100.0 dentro del programa evita el problema por completo, y de paso reutiliza int.TryParse, que ya conoces.\nLos bloques { } alrededor de los case que declaran una variable nueva (total, porcentajeEntero, totalAnalizado) no son decorativos: delimitan en qué parte del switch esa variable existe, para que dos case distintos puedan declarar variables con nombres parecidos sin chocar entre sí.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#cómo-conviven-las-piezas-de-toda-la-unidad",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#cómo-conviven-las-piezas-de-toda-la-unidad",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "4 Cómo conviven las piezas de toda la unidad",
+    "text": "4 Cómo conviven las piezas de toda la unidad\n\n\n\n\nEl vector de precios en el centro, con las cuatro funciones de los temas 3 y 4 alrededor: algunas lo leen, una lo modifica. El switch del menu decide, en cada vuelta del ciclo, cual de ellas se ejecuta.\n\n\n\nEl vector es el único dato que vive fuera del ciclo del menú: se declara una vez, antes del do-while, y cada función lo recibe como parámetro cuando el switch la llama. MostrarVector, CalcularTotal y AnalizarPrecios solo lo leen. AplicarDescuento lo modifica: por eso, después de elegir la opción 3, si vuelves a elegir la opción 1 o la 2, vas a ver los precios ya descontados, no los originales. El vector conserva sus cambios entre una vuelta del ciclo y la siguiente, porque sigue siendo la misma variable durante toda la ejecución del programa.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#el-programa-completo",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#el-programa-completo",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "5 El programa completo",
+    "text": "5 El programa completo\nCon las cuatro piezas ya explicadas, así queda el programa entero:\ndouble[] precios = { 4599.90, 12999.00, 8500.50, 2300.00, 15750.75 };\n\nbool continuarMenu = true;\ndo\n{\n    Console.WriteLine();\n    Console.WriteLine(\"=== Sistema de gestion: menu ===\");\n    Console.WriteLine(\"1. Mostrar precios\");\n    Console.WriteLine(\"2. Calcular total\");\n    Console.WriteLine(\"3. Aplicar descuento general\");\n    Console.WriteLine(\"4. Analizar precios (total y maximo)\");\n    Console.WriteLine(\"0. Salir\");\n    Console.Write(\"Elige una opcion: \");\n    string? entrada = Console.ReadLine();\n\n    if (!int.TryParse(entrada, out int opcion))\n    {\n        Console.WriteLine(\"Esa no es una opcion valida. Escribe un numero del menu.\");\n        continue;\n    }\n\n    switch (opcion)\n    {\n        case 1:\n            MostrarVector(precios, \"Precios actuales:\");\n            break;\n        case 2:\n            {\n                double total = CalcularTotal(precios);\n                Console.WriteLine($\"Total: {total:F2}\");\n                break;\n            }\n        case 3:\n            {\n                Console.Write(\"Porcentaje de descuento, como numero entero (por ejemplo 10 para 10%): \");\n                if (!int.TryParse(Console.ReadLine(), out int porcentajeEntero))\n                {\n                    Console.WriteLine(\"Ese no es un numero valido. Vuelve a intentar desde el menu.\");\n                    break;\n                }\n                double porcentaje = porcentajeEntero / 100.0;\n                AplicarDescuento(precios, porcentaje);\n                Console.WriteLine(\"Descuento aplicado.\");\n                break;\n            }\n        case 4:\n            {\n                AnalizarPrecios(precios, out double totalAnalizado, out double maximo);\n                Console.WriteLine($\"Total: {totalAnalizado:F2}\");\n                Console.WriteLine($\"Maximo: {maximo:F2}\");\n                break;\n            }\n        case 0:\n            Console.WriteLine(\"Hasta pronto.\");\n            continuarMenu = false;\n            break;\n        default:\n            Console.WriteLine(\"Esa opcion no existe. Elige una del menu.\");\n            break;\n    }\n} while (continuarMenu);\n\nstatic void MostrarVector(double[] vector, string etiqueta)\n{\n    Console.WriteLine(etiqueta);\n    foreach (double valor in vector)\n    {\n        Console.WriteLine($\"  {valor}\");\n    }\n}\n\nstatic double CalcularTotal(double[] precios)\n{\n    double total = 0;\n    for (int i = 0; i &lt; precios.Length; i++)\n    {\n        total += precios[i];\n    }\n    return total;\n}\n\nstatic void AplicarDescuento(double[] precios, double porcentaje)\n{\n    for (int i = 0; i &lt; precios.Length; i++)\n    {\n        precios[i] = precios[i] * (1 - porcentaje);\n    }\n}\n\nstatic void AnalizarPrecios(double[] precios, out double total, out double maximo)\n{\n    total = 0;\n    maximo = precios[0];\n    for (int i = 0; i &lt; precios.Length; i++)\n    {\n        total += precios[i];\n        if (precios[i] &gt; maximo)\n        {\n            maximo = precios[i];\n        }\n    }\n}\nUna sesión real, eligiendo primero una opción inválida, luego las cuatro operaciones en orden, y por último saliendo:\n=== Sistema de gestion: menu ===\n1. Mostrar precios\n2. Calcular total\n3. Aplicar descuento general\n4. Analizar precios (total y maximo)\n0. Salir\nElige una opcion: abc\nEsa no es una opcion valida. Escribe un numero del menu.\n\n=== Sistema de gestion: menu ===\n1. Mostrar precios\n2. Calcular total\n3. Aplicar descuento general\n4. Analizar precios (total y maximo)\n0. Salir\nElige una opcion: 1\nPrecios actuales:\n  4599,9\n  12999\n  8500,5\n  2300\n  15750,75\n\n=== Sistema de gestion: menu ===\n1. Mostrar precios\n2. Calcular total\n3. Aplicar descuento general\n4. Analizar precios (total y maximo)\n0. Salir\nElige una opcion: 2\nTotal: 44150,15\n\n=== Sistema de gestion: menu ===\n1. Mostrar precios\n2. Calcular total\n3. Aplicar descuento general\n4. Analizar precios (total y maximo)\n0. Salir\nElige una opcion: 3\nPorcentaje de descuento, como numero entero (por ejemplo 10 para 10%): 10\nDescuento aplicado.\n\n=== Sistema de gestion: menu ===\n1. Mostrar precios\n2. Calcular total\n3. Aplicar descuento general\n4. Analizar precios (total y maximo)\n0. Salir\nElige una opcion: 4\nTotal: 39735,14\nMaximo: 14175,68\n\n=== Sistema de gestion: menu ===\n1. Mostrar precios\n2. Calcular total\n3. Aplicar descuento general\n4. Analizar precios (total y maximo)\n0. Salir\nElige una opcion: 0\nHasta pronto.\nEl total de la opción 2 (44150,15) coincide con el que calculaste en el tema de funciones antes de cualquier descuento. Después de aplicar el 10% en la opción 3, el total de la opción 4 (39735,14) coincide con el CalcularTotalConDescuento del mismo tema: son la misma operación, llegando al mismo resultado por dos caminos distintos, lo que confirma que el programa quedó bien armado.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#lo-que-deja-lista-esta-unidad",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#lo-que-deja-lista-esta-unidad",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "6 Lo que deja lista esta unidad",
+    "text": "6 Lo que deja lista esta unidad\nCon los cinco temas de esta unidad, el sistema de gestión pasó de manejar un solo registro con variables sueltas (Semana 2) a guardar varios datos organizados en un vector, calcular sobre ellos con matrices cuando hace falta cruzar dos dimensiones, repartir la lógica en funciones con entrada y salida propias, entender con precisión cuándo esas funciones pueden modificar lo que reciben, y ofrecerle al usuario todo eso a través de un menú que se repite hasta que decide salir. La Unidad 3 retoma este mismo programa y lo reorganiza alrededor de clases y objetos, en vez de un vector y un grupo de funciones sueltas.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#lista-de-verificación",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#lista-de-verificación",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "7 Lista de verificación",
+    "text": "7 Lista de verificación\n\n\nExplicas por qué un programa lineal no alcanza para ofrecer varias operaciones repetibles.\nJustificas por qué do-while encaja mejor que while para mostrar un menú.\nUsas int.TryParse para validar la opción leída, sin cerrar el programa ante una entrada inválida.\nEscribes un switch que llama a una función distinta según la opción elegida.\nExplicas por qué una opción puede leer datos adicionales dentro de su propio case.\nDescribes cómo el vector conserva sus cambios entre una vuelta del ciclo y la siguiente.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
+  },
+  {
+    "objectID": "herramientas-programacion-1/unidad-02/menus.html#recursos",
+    "href": "herramientas-programacion-1/unidad-02/menus.html#recursos",
+    "title": "Unidad 2. Creación de menús con aplicación de funciones",
+    "section": "8 Recursos",
+    "text": "8 Recursos\n\nSentencia switch: learn.microsoft.com/dotnet/csharp/language-reference/statements/selection-statements\nSentencia do: learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements\nint.TryParse: learn.microsoft.com/dotnet/api/system.int32.tryparse\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302, con la entrada del usuario simulada por redireccion de consola.",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "5. Menús"
+    ]
   },
   {
     "objectID": "herramientas-programacion-1/unidad-02/vectores.html",

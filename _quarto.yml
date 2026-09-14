@@ -42,6 +42,14 @@ website:
               href: herramientas-programacion-1/unidad-02/index.qmd
             - text: "1. Vectores"
               href: herramientas-programacion-1/unidad-02/vectores.qmd
+            - text: "2. Matrices"
+              href: herramientas-programacion-1/unidad-02/matrices.qmd
+            - text: "3. Funciones"
+              href: herramientas-programacion-1/unidad-02/funciones.qmd
+            - text: "4. Paso de parámetros"
+              href: herramientas-programacion-1/unidad-02/paso-de-parametros.qmd
+            - text: "5. Menús"
+              href: herramientas-programacion-1/unidad-02/menus.qmd
     - id: estadistica
       style: docked
       background: light

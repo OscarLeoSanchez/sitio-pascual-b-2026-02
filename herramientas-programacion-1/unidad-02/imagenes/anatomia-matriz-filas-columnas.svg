@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="440" viewBox="0 0 880 440" role="img" aria-label="Anatomia de una matriz como cuadricula de filas y columnas: el indice de fila a la izquierda, el indice de columna arriba, y cada celda identificada por los dos indices juntos" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="am2-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13.5px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2f7bb8; }
+    .etq-t { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #0e8f8f; }
+  </style>
+
+  <text x="440" y="26" text-anchor="middle" class="txt" font-weight="700">int[,] cantidades = matriz de bodegas por producto</text>
+
+  <text x="440" y="52" text-anchor="middle" class="etq">columna: segundo indice</text>
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 300,58 L 660,58" marker-end="url(#am2-punta)"/>
+  </g>
+
+  <text x="300" y="84" text-anchor="middle" class="etq-t">0</text>
+  <text x="450" y="84" text-anchor="middle" class="etq-t">1</text>
+  <text x="600" y="84" text-anchor="middle" class="etq-t">2</text>
+  <text x="750" y="84" text-anchor="middle" class="etq-t">3</text>
+
+  <g transform="translate(0,0)">
+    <text x="120" y="45" text-anchor="middle" class="etq">fila: primer</text>
+    <text x="120" y="60" text-anchor="middle" class="etq">indice</text>
+  </g>
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 150,75 L 150,290" marker-end="url(#am2-punta)"/>
+  </g>
+
+  <text x="150" y="130" text-anchor="middle" class="etq-t">0</text>
+  <text x="150" y="210" text-anchor="middle" class="etq-t">1</text>
+  <text x="150" y="290" text-anchor="middle" class="etq-t">2</text>
+
+  <rect x="230" y="95"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="380" y="95"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="530" y="95"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="680" y="95"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+
+  <rect x="230" y="175" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="380" y="175" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="530" y="175" width="140" height="70" rx="4" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <rect x="680" y="175" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+
+  <rect x="230" y="255" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="380" y="255" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="530" y="255" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="680" y="255" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+
+  <text x="300" y="136" text-anchor="middle" class="codigo">10</text>
+  <text x="450" y="136" text-anchor="middle" class="codigo">5</text>
+  <text x="600" y="136" text-anchor="middle" class="codigo">0</text>
+  <text x="750" y="136" text-anchor="middle" class="codigo">8</text>
+
+  <text x="300" y="216" text-anchor="middle" class="codigo">3</text>
+  <text x="450" y="216" text-anchor="middle" class="codigo">12</text>
+  <text x="600" y="216" text-anchor="middle" class="codigo" font-weight="700">7</text>
+  <text x="750" y="216" text-anchor="middle" class="codigo">1</text>
+
+  <text x="300" y="296" text-anchor="middle" class="codigo">0</text>
+  <text x="450" y="296" text-anchor="middle" class="codigo">9</text>
+  <text x="600" y="296" text-anchor="middle" class="codigo">4</text>
+  <text x="750" y="296" text-anchor="middle" class="codigo">6</text>
+
+  <g stroke="#0e8f8f" stroke-width="1.5" fill="none">
+    <path d="M 600,245 L 600,340" marker-end="url(#am2-punta)"/>
+  </g>
+  <text x="600" y="360" text-anchor="middle" class="etq-t">cantidades[1, 2] = 7</text>
+
+  <text x="440" y="400" text-anchor="middle" class="sec">Por dentro sigue siendo un bloque contiguo de memoria, igual que un vector.</text>
+  <text x="440" y="420" text-anchor="middle" class="sec">La diferencia es que ahora hacen falta dos indices para calcular la posicion exacta de una celda.</text>
+</svg>

@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Unidad 2. Matrices – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/matrices.html">2. Matrices</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Aplicaciones de consola con un IDE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Entorno, Git y GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Sintaxis, variables y consola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/csharp-desde-cero/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# desde cero (guía de sintaxis)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 2. Arreglos y funciones</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación de la unidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/vectores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Vectores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/matrices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2. Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/funciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/paso-de-parametros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Paso de parámetros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/menus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Menús</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#el-problema-que-resuelve-una-matriz" id="toc-el-problema-que-resuelve-una-matriz" class="nav-link active" data-scroll-target="#el-problema-que-resuelve-una-matriz"><span class="header-section-number">1</span> El problema que resuelve una matriz</a></li>
+  <li><a href="#qué-es-una-matriz" id="toc-qué-es-una-matriz" class="nav-link" data-scroll-target="#qué-es-una-matriz"><span class="header-section-number">2</span> Qué es una matriz</a></li>
+  <li><a href="#declaración-creación-e-inicialización" id="toc-declaración-creación-e-inicialización" class="nav-link" data-scroll-target="#declaración-creación-e-inicialización"><span class="header-section-number">3</span> Declaración, creación e inicialización</a>
+  <ul class="collapse">
+  <li><a href="#tamaño-fijo-valores-por-defecto" id="toc-tamaño-fijo-valores-por-defecto" class="nav-link" data-scroll-target="#tamaño-fijo-valores-por-defecto">Tamaño fijo, valores por defecto</a></li>
+  <li><a href="#valores-literales-fila-por-fila" id="toc-valores-literales-fila-por-fila" class="nav-link" data-scroll-target="#valores-literales-fila-por-fila">Valores literales, fila por fila</a></li>
+  <li><a href="#getlength-contra-length-el-error-que-hay-que-anticipar" id="toc-getlength-contra-length-el-error-que-hay-que-anticipar" class="nav-link" data-scroll-target="#getlength-contra-length-el-error-que-hay-que-anticipar"><code>GetLength</code> contra <code>Length</code>: el error que hay que anticipar</a></li>
+  </ul></li>
+  <li><a href="#recorrer-una-matriz" id="toc-recorrer-una-matriz" class="nav-link" data-scroll-target="#recorrer-una-matriz"><span class="header-section-number">4</span> Recorrer una matriz</a>
+  <ul class="collapse">
+  <li><a href="#sumar-una-columna-el-total-de-un-producto-en-todas-las-bodegas" id="toc-sumar-una-columna-el-total-de-un-producto-en-todas-las-bodegas" class="nav-link" data-scroll-target="#sumar-una-columna-el-total-de-un-producto-en-todas-las-bodegas">Sumar una columna: el total de un producto en todas las bodegas</a></li>
+  <li><a href="#sumar-el-total-general" id="toc-sumar-el-total-general" class="nav-link" data-scroll-target="#sumar-el-total-general">Sumar el total general</a></li>
+  </ul></li>
+  <li><a href="#acceder-y-modificar-una-celda" id="toc-acceder-y-modificar-una-celda" class="nav-link" data-scroll-target="#acceder-y-modificar-una-celda"><span class="header-section-number">5</span> Acceder y modificar una celda</a></li>
+  <li><a href="#lo-que-sigue-funciones" id="toc-lo-que-sigue-funciones" class="nav-link" data-scroll-target="#lo-que-sigue-funciones"><span class="header-section-number">6</span> Lo que sigue: funciones</a></li>
+  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">7</span> Lista de verificación</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">8</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/matrices.html">2. Matrices</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Unidad 2. Matrices</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Asignatura</td>
+<td>Herramientas de Programación I (ET0047)</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Tecnología en Desarrollo de Software</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones</td>
+</tr>
+<tr class="even">
+<td>Saber</td>
+<td>Estructura de datos tipo vectores y matrices</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esta guía se probó con el SDK de .NET <strong>10.0.302</strong>.</p>
+<section id="el-problema-que-resuelve-una-matriz" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="el-problema-que-resuelve-una-matriz"><span class="header-section-number">1</span> El problema que resuelve una matriz</h2>
+<p>El tema anterior dejó al vector <code>precios</code> guardando los precios de varios productos, todos en la misma bodega. El proyecto del semestre ahora necesita algo más: el sistema de gestión debe llevar la <strong>cantidad</strong> de cada producto, pero repartida en <strong>varias bodegas</strong>. Con 4 productos y 3 bodegas, eso son 12 números que registrar, y cada uno tiene que quedar ligado a dos cosas a la vez: a qué producto pertenece y en qué bodega está.</p>
+<p>Con lo que ya sabes de vectores, la primera idea es declarar un vector por bodega:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> bodegaNorte <span class="op">=</span> <span class="op">{</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">8</span> <span class="op">};</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> bodegaSur <span class="op">=</span> <span class="op">{</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">1</span> <span class="op">};</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[]</span> bodegaCentro <span class="op">=</span> <span class="op">{</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span> <span class="op">};</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Cantidad del producto 2 en Bodega Sur: {bodegaSur[2]}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Cantidad del producto 2 en Bodega Sur: 7</code></pre>
+<p>El programa funciona: <code>bodegaSur[2]</code> sí devuelve la cantidad del producto correcto. El problema no es un error de ejecución, es un error de diseño que se paga después. Cada bodega vive en su propio vector, del mismo tamaño por pura disciplina del programador, no porque el lenguaje lo exija. Ningún vínculo declarado le dice a C# “la posición 2 de estos tres vectores es el mismo producto”: si mañana llega un cuarto producto, hay que recordar agregarlo en las <strong>tres</strong> variables, en el mismo orden, y nada avisa si te olvidas de una. Tres vectores paralelos son tres oportunidades de desincronizarlos.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/vectores-paralelos-confusos.svg" class="img-fluid figure-img" alt="Tres vectores bodegaNorte, bodegaSur y bodegaCentro, cada uno con 4 posiciones, con la posicion 2 resaltada en los tres para mostrar que coinciden por casualidad y no por una relacion declarada en el codigo"></p>
+<figcaption>Tres vectores paralelos, uno por bodega, con la misma cantidad de posiciones pero sin ninguna relacion declarada entre ellos en el codigo.</figcaption>
+</figure>
+</div>
+</div>
+<p>Lo que hace falta es una sola estructura que agrupe las 12 cantidades bajo un nombre, donde cada valor se identifique con dos coordenadas a la vez: la bodega y el producto. Esa estructura es la <strong>matriz</strong>.</p>
+</section>
+<section id="qué-es-una-matriz" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="qué-es-una-matriz"><span class="header-section-number">2</span> Qué es una matriz</h2>
+<p>Una matriz (<code>array</code> de dos dimensiones en C#) es una estructura de datos que guarda una colección de elementos del mismo tipo organizados en <strong>filas</strong> y <strong>columnas</strong>, donde cada elemento se identifica con <strong>dos</strong> índices: <code>matriz[fila, columna]</code>.</p>
+<p>Todo lo que ya sabes de un vector se mantiene igual, solo que ahora con dos coordenadas en vez de una:</p>
+<ul>
+<li><strong>Mismo tipo.</strong> Una matriz de <code>int</code> solo guarda <code>int</code>, igual que un vector.</li>
+<li><strong>Bloque contiguo.</strong> Por dentro, C# sigue guardando la matriz en un único bloque continuo de memoria. El tamaño se fija al crearla, igual que con un vector.</li>
+<li><strong>Acceso por índice, ahora doble.</strong> El primer índice ubica la <strong>fila</strong> (en el proyecto, la bodega). El segundo ubica la <strong>columna</strong> (el producto). Los dos juntos, separados por una coma dentro de los mismos corchetes, ubican una celda exacta.</li>
+</ul>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/anatomia-matriz-filas-columnas.svg" class="img-fluid figure-img" alt="Matriz de 3 filas por 4 columnas con los indices de fila 0 a 2 a la izquierda y los indices de columna 0 a 3 arriba, la celda fila 1 columna 2 resaltada con el valor 7 y la notacion cantidades entre corchetes 1 coma 2"></p>
+<figcaption>Anatomia de una matriz como cuadricula de filas y columnas: el indice de fila a la izquierda, el indice de columna arriba, y cada celda identificada por los dos indices juntos.</figcaption>
+</figure>
+</div>
+</div>
+<p>Este es el mismo bloque de memoria contiguo que viste con los vectores. La diferencia está en cómo se calcula la posición: con un índice, C# calcula un desplazamiento; con dos, calcula el desplazamiento combinando fila y columna. Esa cuenta la hace el lenguaje por ti; lo único que necesitas manejar es la notación <code>[fila, columna]</code>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esta guía usa <strong>matrices rectangulares</strong> (<code>int[,]</code>), donde todas las filas tienen el mismo número de columnas, como una cuadrícula real. C# también tiene arreglos “irregulares” (<code>int[][]</code>, un vector de vectores donde cada fila puede tener un tamaño distinto), pero eso no forma parte del saber de esta unidad y no lo vas a necesitar en el proyecto del semestre.</p>
+</div>
+</div>
+</section>
+<section id="declaración-creación-e-inicialización" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="declaración-creación-e-inicialización"><span class="header-section-number">3</span> Declaración, creación e inicialización</h2>
+<p>La sintaxis de una matriz rectangular se distingue de la de un vector por una sola coma dentro de los corchetes: <code>int[,]</code> en vez de <code>int[]</code>. Esa coma es la que le dice al compilador “esto tiene dos dimensiones”.</p>
+<section id="tamaño-fijo-valores-por-defecto" class="level3">
+<h3 class="anchored" data-anchor-id="tamaño-fijo-valores-por-defecto">Tamaño fijo, valores por defecto</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[,]</span> vacia <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">];</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Filas: {vacia.GetLength(0)}, columnas: {vacia.GetLength(1)}"</span><span class="op">);</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Valor por defecto en [0,0]: {vacia[0, 0]}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Filas: 3, columnas: 4
+Valor por defecto en [0,0]: 0</code></pre>
+<p><code>new int[3, 4]</code> reserva una cuadrícula de 3 filas por 4 columnas (12 celdas en total) y las llena con el valor por defecto del tipo, igual que hacía <code>new int[5]</code> con un vector. Úsala cuando conoces las dimensiones pero vas a llenar los valores después, por ejemplo leyéndolos por consola dentro de un <code>for</code> anidado.</p>
+</section>
+<section id="valores-literales-fila-por-fila" class="level3">
+<h3 class="anchored" data-anchor-id="valores-literales-fila-por-fila">Valores literales, fila por fila</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">[,]</span> cantidades <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span> <span class="dv">10</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">8</span> <span class="op">},</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">12</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">1</span> <span class="op">},</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">6</span> <span class="op">}</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Filas (bodegas): {cantidades.GetLength(0)}"</span><span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Columnas (productos): {cantidades.GetLength(1)}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Filas (bodegas): 3
+Columnas (productos): 4</code></pre>
+<p>Cada par de llaves internas es una fila. El compilador exige que todas las filas traigan la misma cantidad de valores: si una fila trae 3 números y otra trae 4, no compila, porque una matriz rectangular no admite filas de tamaño distinto. Esta es la forma que vas a usar más seguido cuando ya conoces los datos al escribir el programa, por la misma razón que el inicializador corto de vectores: es la más legible y el tamaño se deduce solo.</p>
+</section>
+<section id="getlength-contra-length-el-error-que-hay-que-anticipar" class="level3">
+<h3 class="anchored" data-anchor-id="getlength-contra-length-el-error-que-hay-que-anticipar"><code>GetLength</code> contra <code>Length</code>: el error que hay que anticipar</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"cantidades.Length (total de celdas): {cantidades.Length}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>cantidades.Length (total de celdas): 12</code></pre>
+<p>Esta es la trampa más común al pasar de vectores a matrices. En un vector, <code>.Length</code> es exactamente lo que necesitas para recorrerlo: el número de posiciones. En una matriz, <code>.Length</code> no distingue filas de columnas: devuelve el <strong>total de celdas</strong> (3 por 4 = 12), un número que no sirve para controlar un <code>for</code> de filas ni uno de columnas por separado. Para eso existen <code>GetLength(0)</code> (número de filas) y <code>GetLength(1)</code> (número de columnas), que ya usaste arriba. Si escribes <code>for (int i = 0; i &lt; cantidades.Length; i++)</code> esperando recorrer las filas, el ciclo va a dar 12 vueltas en vez de 3, y <code>cantidades[i, 0]</code> va a lanzar <code>IndexOutOfRangeException</code> en cuanto <code>i</code> pase de 2.</p>
+</section>
+</section>
+<section id="recorrer-una-matriz" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="recorrer-una-matriz"><span class="header-section-number">4</span> Recorrer una matriz</h2>
+<p>Recorrer una matriz completa exige dos ciclos <code>for</code> anidados: uno para las filas, otro para las columnas dentro de cada fila. El ciclo <strong>externo</strong> controla la fila; el ciclo <strong>interno</strong>, anidado dentro del externo, recorre todas las columnas de esa fila antes de que el externo avance a la siguiente.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> fila <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> fila <span class="op">&lt;</span> cantidades<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> fila<span class="op">++)</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> columna <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> columna <span class="op">&lt;</span> cantidades<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span> columna<span class="op">++)</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span>$<span class="st">"{cantidades[fila, columna],4}"</span><span class="op">);</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>  10   5   0   8
+   3  12   7   1
+   0   9   4   6</code></pre>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/recorrido-matriz-for-anidado.svg" class="img-fluid figure-img" alt="La misma matriz de 3 por 4, con cada celda numerada del 1 al 12 en el orden en que la visita un for anidado: las cuatro columnas de la fila 0, luego las cuatro de la fila 1, luego las cuatro de la fila 2"></p>
+<figcaption>Orden de recorrido de una matriz con for anidado: el ciclo externo fija la fila y el ciclo interno recorre todas las columnas de esa fila antes de pasar a la siguiente, numerado del 1 al 12.</figcaption>
+</figure>
+</div>
+</div>
+<p><code>{cantidades[fila, columna],4}</code> es un formato de alineación de <code>string</code> interpolado: reserva 4 espacios para el número, para que la cuadrícula quede alineada en la consola sin importar si el valor tiene uno o dos dígitos. <code>Console.WriteLine()</code> sin argumentos, al cerrar el ciclo interno, solo imprime el salto de línea que separa una fila de la siguiente.</p>
+<section id="sumar-una-columna-el-total-de-un-producto-en-todas-las-bodegas" class="level3">
+<h3 class="anchored" data-anchor-id="sumar-una-columna-el-total-de-un-producto-en-todas-las-bodegas">Sumar una columna: el total de un producto en todas las bodegas</h3>
+<p>Cuando necesitas solo una columna, fijas ese índice y dejas que el <code>for</code> recorra únicamente las filas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> columnaProducto <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> totalProducto <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> fila <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> fila <span class="op">&lt;</span> cantidades<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> fila<span class="op">++)</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    totalProducto <span class="op">+=</span> cantidades<span class="op">[</span>fila<span class="op">,</span> columnaProducto<span class="op">];</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total del producto {columnaProducto} en todas las bodegas: {totalProducto}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Total del producto 2 en todas las bodegas: 11</code></pre>
+<p>Aquí <code>columnaProducto</code> queda fijo en 2 durante todo el ciclo: lo único que cambia es <code>fila</code>. Es la misma idea de “una columna vertical de la cuadrícula”, leída de arriba hacia abajo.</p>
+</section>
+<section id="sumar-el-total-general" class="level3">
+<h3 class="anchored" data-anchor-id="sumar-el-total-general">Sumar el total general</h3>
+<p>Para sumar las 12 celdas hace falta volver a los dos ciclos anidados, acumulando en cada vuelta del ciclo interno:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> totalGeneral <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> fila <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> fila <span class="op">&lt;</span> cantidades<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> fila<span class="op">++)</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> columna <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> columna <span class="op">&lt;</span> cantidades<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span> columna<span class="op">++)</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        totalGeneral <span class="op">+=</span> cantidades<span class="op">[</span>fila<span class="op">,</span> columna<span class="op">];</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total general del inventario: {totalGeneral}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Total general del inventario: 65</code></pre>
+</section>
+</section>
+<section id="acceder-y-modificar-una-celda" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="acceder-y-modificar-una-celda"><span class="header-section-number">5</span> Acceder y modificar una celda</h2>
+<p>Leer o escribir una celda concreta usa la misma notación de dos índices, a la izquierda o a la derecha de un <code>=</code>, igual que ya viste con un solo índice en un vector:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Cantidad original en [1,2]: {cantidades[1, 2]}"</span><span class="op">);</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>cantidades<span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="dv">20</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Cantidad actualizada en [1,2]: {cantidades[1, 2]}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Cantidad original en [1,2]: 7
+Cantidad actualizada en [1,2]: 20</code></pre>
+<p><code>cantidades[1, 2] = 20</code> reemplaza, no suma: la celda queda en 20, no en 7 + 20. Es el mismo comportamiento que <code>precios[2] = 7990.00</code> en el tema anterior, con un índice más.</p>
+</section>
+<section id="lo-que-sigue-funciones" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="lo-que-sigue-funciones"><span class="header-section-number">6</span> Lo que sigue: funciones</h2>
+<p>El código de esta guía ya se repitió varias veces: el <code>for</code> anidado para recorrer la matriz completa aparece igual en la sección de recorrido y en la del total general, y volvería a aparecer si el proyecto necesitara imprimir el inventario en otro punto del programa. El siguiente tema enseña a empacar ese bloque de código en una <strong>función</strong>, para escribirlo una sola vez y llamarlo cada vez que haga falta, con los datos de entrada y el resultado que necesite cada llamada.</p>
+</section>
+<section id="lista-de-verificación" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">7</span> Lista de verificación</h2>
+<div class="checklist">
+<ul class="task-list">
+<li><label><input type="checkbox">Explicas por qué varios vectores paralelos no garantizan que la misma posición represente el mismo producto en todos.</label></li>
+<li><label><input type="checkbox">Defines una matriz como una colección del mismo tipo organizada en filas y columnas, con acceso por dos índices.</label></li>
+<li><label><input type="checkbox">Declaras una matriz con tamaño fijo y con valores literales por filas.</label></li>
+<li><label><input type="checkbox">Distingues <code>GetLength(0)</code> y <code>GetLength(1)</code> de <code>.Length</code>, y sabes qué devuelve cada uno.</label></li>
+<li><label><input type="checkbox">Recorres una matriz completa con dos <code>for</code> anidados, entendiendo cuál ciclo es la fila y cuál la columna.</label></li>
+<li><label><input type="checkbox">Lees y modificas una celda por sus dos índices sin confundir fila con columna.</label></li>
+</ul>
+</div>
+</section>
+<section id="recursos" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="recursos"><span class="header-section-number">8</span> Recursos</h2>
+<ul>
+<li>Arreglos multidimensionales: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/programming-guide/arrays/multidimensional-arrays">learn.microsoft.com/dotnet/csharp/programming-guide/arrays/multidimensional-arrays</a></li>
+<li><code>Array.GetLength</code>: <a href="https://learn.microsoft.com/es-es/dotnet/api/system.array.getlength">learn.microsoft.com/dotnet/api/system.array.getlength</a></li>
+<li>Formato de alineación en cadenas interpoladas: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/tokens/interpolated#alignment-component">learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated</a></li>
+</ul>
+<div class="pie-doc">
+<p>Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

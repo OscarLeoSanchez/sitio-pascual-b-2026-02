@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="300" viewBox="0 0 880 300" role="img" aria-label="Al llamar SumarDiez(cantidad), la funcion recibe una copia del valor. Modificar la copia adentro no cambia la variable original afuera" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="cv-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13.5px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2f7bb8; }
+  </style>
+
+  <text x="440" y="28" text-anchor="middle" class="txt" font-weight="700">SumarDiez(cantidad);</text>
+
+  <rect x="90" y="60" width="280" height="120" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="230" y="86" text-anchor="middle" class="sec">variable en Main</text>
+  <text x="230" y="118" text-anchor="middle" class="codigo" font-weight="700">cantidad</text>
+  <text x="230" y="150" text-anchor="middle" class="txt">5</text>
+  <text x="230" y="170" text-anchor="middle" class="sec">no cambia</text>
+
+  <rect x="510" y="60" width="280" height="120" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="650" y="86" text-anchor="middle" class="sec">parametro de la funcion</text>
+  <text x="650" y="118" text-anchor="middle" class="codigo" font-weight="700">numero</text>
+  <text x="650" y="150" text-anchor="middle" class="txt">5 &#8594; 15</text>
+  <text x="650" y="170" text-anchor="middle" class="sec">cambia solo aqui</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 372,110 L 508,110" marker-end="url(#cv-punta)"/>
+  </g>
+  <text x="440" y="98" text-anchor="middle" class="etq">se copia el valor</text>
+
+  <g stroke="#5b6876" stroke-width="1.5" fill="none" stroke-dasharray="6 5">
+    <path d="M 508,200 L 372,200"/>
+  </g>
+  <text x="440" y="220" text-anchor="middle" class="sec">no hay camino de regreso: la copia vive aparte</text>
+
+  <text x="440" y="270" text-anchor="middle" class="txt">Con un tipo simple, la funcion trabaja sobre su propia copia. Modificarla</text>
+  <text x="440" y="290" text-anchor="middle" class="txt">no toca la variable original de quien la llamo.</text>
+</svg>

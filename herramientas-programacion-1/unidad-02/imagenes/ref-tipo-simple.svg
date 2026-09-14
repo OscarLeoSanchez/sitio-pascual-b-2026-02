@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="300" viewBox="0 0 880 300" role="img" aria-label="Al llamar AplicarDescuentoUnitario con ref, la variable precioProducto en Main y el parametro precio de la funcion nombran la misma casilla de memoria. Modificarla adentro si cambia el valor afuera" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="rt-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13.5px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #0e8f8f; }
+  </style>
+
+  <text x="440" y="28" text-anchor="middle" class="txt" font-weight="700">AplicarDescuentoUnitario(ref precioProducto, 0.10);</text>
+
+  <text x="220" y="70" text-anchor="middle" class="sec">variable en Main</text>
+  <text x="220" y="92" text-anchor="middle" class="codigo" font-weight="700">precioProducto</text>
+
+  <text x="660" y="70" text-anchor="middle" class="sec">parametro de la funcion (ref)</text>
+  <text x="660" y="92" text-anchor="middle" class="codigo" font-weight="700">precio</text>
+
+  <g stroke="#0e8f8f" stroke-width="2" fill="none">
+    <path d="M 220,100 L 220,140 L 400,160" marker-end="url(#rt-punta)"/>
+    <path d="M 660,100 L 660,140 L 480,160" marker-end="url(#rt-punta)"/>
+  </g>
+  <text x="440" y="130" text-anchor="middle" class="etq">los dos nombran la misma casilla</text>
+
+  <rect x="340" y="165" width="200" height="90" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="440" y="195" text-anchor="middle" class="sec">una sola casilla en memoria</text>
+  <text x="440" y="225" text-anchor="middle" class="codigo" font-weight="700">4599.9 &#8594; 4139.91</text>
+
+  <text x="440" y="275" text-anchor="middle" class="txt">Sin ref, este ejemplo se comportaria como el diagrama anterior: precioProducto</text>
+  <text x="440" y="295" text-anchor="middle" class="txt">seguiria en 4599.9 afuera. Con ref, la casilla es literalmente una sola.</text>
+</svg>

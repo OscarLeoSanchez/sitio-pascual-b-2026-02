@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="420" viewBox="0 0 880 420" role="img" aria-label="Orden de recorrido de una matriz con for anidado: el ciclo externo fija la fila y el ciclo interno recorre todas las columnas de esa fila antes de pasar a la siguiente, numerado del 1 al 12" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="rm-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13.5px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2f7bb8; }
+    .num { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12px; font-weight: 700; fill: #ffffff; }
+  </style>
+
+  <text x="480" y="26" text-anchor="middle" class="txt" font-weight="700">Orden en que el for anidado visita cada celda</text>
+
+  <text x="560" y="50" text-anchor="middle" class="etq">columna avanza de 0 a 3 (ciclo interno)</text>
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 300,58 L 810,58" marker-end="url(#rm-punta)"/>
+  </g>
+
+  <g transform="translate(0,0)">
+    <text x="120" y="130" text-anchor="middle" class="etq">fila</text>
+    <text x="120" y="146" text-anchor="middle" class="etq">avanza</text>
+    <text x="120" y="162" text-anchor="middle" class="etq">de 0 a 2</text>
+    <text x="120" y="178" text-anchor="middle" class="etq">(ciclo</text>
+    <text x="120" y="194" text-anchor="middle" class="etq">externo)</text>
+  </g>
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 190,95 L 190,320" marker-end="url(#rm-punta)"/>
+  </g>
+
+  <rect x="230" y="75"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="380" y="75"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="530" y="75"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="680" y="75"  width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+
+  <rect x="230" y="155" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="380" y="155" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="530" y="155" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="680" y="155" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+
+  <rect x="230" y="235" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="380" y="235" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="530" y="235" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="680" y="235" width="140" height="70" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+
+  <text x="300" y="116" text-anchor="middle" class="codigo">10</text>
+  <text x="450" y="116" text-anchor="middle" class="codigo">5</text>
+  <text x="600" y="116" text-anchor="middle" class="codigo">0</text>
+  <text x="750" y="116" text-anchor="middle" class="codigo">8</text>
+
+  <text x="300" y="196" text-anchor="middle" class="codigo">3</text>
+  <text x="450" y="196" text-anchor="middle" class="codigo">12</text>
+  <text x="600" y="196" text-anchor="middle" class="codigo">7</text>
+  <text x="750" y="196" text-anchor="middle" class="codigo">1</text>
+
+  <text x="300" y="276" text-anchor="middle" class="codigo">0</text>
+  <text x="450" y="276" text-anchor="middle" class="codigo">9</text>
+  <text x="600" y="276" text-anchor="middle" class="codigo">4</text>
+  <text x="750" y="276" text-anchor="middle" class="codigo">6</text>
+
+  <g fill="#0e8f8f">
+    <circle cx="245" cy="90"  r="11"/>
+    <circle cx="395" cy="90"  r="11"/>
+    <circle cx="545" cy="90"  r="11"/>
+    <circle cx="695" cy="90"  r="11"/>
+    <circle cx="245" cy="170" r="11"/>
+    <circle cx="395" cy="170" r="11"/>
+    <circle cx="545" cy="170" r="11"/>
+    <circle cx="695" cy="170" r="11"/>
+    <circle cx="245" cy="250" r="11"/>
+    <circle cx="395" cy="250" r="11"/>
+    <circle cx="545" cy="250" r="11"/>
+    <circle cx="695" cy="250" r="11"/>
+  </g>
+  <g text-anchor="middle" class="num">
+    <text x="245" y="94">1</text>
+    <text x="395" y="94">2</text>
+    <text x="545" y="94">3</text>
+    <text x="695" y="94">4</text>
+    <text x="245" y="174">5</text>
+    <text x="395" y="174">6</text>
+    <text x="545" y="174">7</text>
+    <text x="695" y="174">8</text>
+    <text x="245" y="254">9</text>
+    <text x="395" y="254">10</text>
+    <text x="545" y="254">11</text>
+    <text x="695" y="254">12</text>
+  </g>
+
+  <text x="480" y="345" text-anchor="middle" class="sec">El for externo fija una fila (0, luego 1, luego 2). Para cada fila, el for interno recorre</text>
+  <text x="480" y="365" text-anchor="middle" class="sec">las cuatro columnas de esa fila (0 a 3) antes de que el externo avance a la fila siguiente.</text>
+  <text x="480" y="393" text-anchor="middle" class="sec">Por eso las 12 celdas se visitan en el orden 1 a 12, fila por fila, nunca en zigzag ni por columnas.</text>
+</svg>

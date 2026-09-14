@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Unidad 2. Creación de menús con aplicación de funciones – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/menus.html">5. Menús</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Aplicaciones de consola con un IDE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Entorno, Git y GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Sintaxis, variables y consola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/csharp-desde-cero/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# desde cero (guía de sintaxis)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 2. Arreglos y funciones</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación de la unidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/vectores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Vectores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/funciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/paso-de-parametros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Paso de parámetros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/menus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5. Menús</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#el-problema-que-resuelve-un-menú" id="toc-el-problema-que-resuelve-un-menú" class="nav-link active" data-scroll-target="#el-problema-que-resuelve-un-menú"><span class="header-section-number">1</span> El problema que resuelve un menú</a></li>
+  <li><a href="#el-patrón-ciclo-selección-funciones" id="toc-el-patrón-ciclo-selección-funciones" class="nav-link" data-scroll-target="#el-patrón-ciclo-selección-funciones"><span class="header-section-number">2</span> El patrón: ciclo + selección + funciones</a></li>
+  <li><a href="#construyendo-el-menú-paso-a-paso" id="toc-construyendo-el-menú-paso-a-paso" class="nav-link" data-scroll-target="#construyendo-el-menú-paso-a-paso"><span class="header-section-number">3</span> Construyendo el menú paso a paso</a>
+  <ul class="collapse">
+  <li><a href="#el-vector-y-las-funciones-que-ya-tienes" id="toc-el-vector-y-las-funciones-que-ya-tienes" class="nav-link" data-scroll-target="#el-vector-y-las-funciones-que-ya-tienes">1. El vector y las funciones que ya tienes</a></li>
+  <li><a href="#el-esqueleto-del-ciclo" id="toc-el-esqueleto-del-ciclo" class="nav-link" data-scroll-target="#el-esqueleto-del-ciclo">2. El esqueleto del ciclo</a></li>
+  <li><a href="#validar-la-opción-con-tryparse" id="toc-validar-la-opción-con-tryparse" class="nav-link" data-scroll-target="#validar-la-opción-con-tryparse">3. Validar la opción con <code>TryParse</code></a></li>
+  <li><a href="#el-switch-que-llama-a-las-funciones" id="toc-el-switch-que-llama-a-las-funciones" class="nav-link" data-scroll-target="#el-switch-que-llama-a-las-funciones">4. El <code>switch</code> que llama a las funciones</a></li>
+  </ul></li>
+  <li><a href="#cómo-conviven-las-piezas-de-toda-la-unidad" id="toc-cómo-conviven-las-piezas-de-toda-la-unidad" class="nav-link" data-scroll-target="#cómo-conviven-las-piezas-de-toda-la-unidad"><span class="header-section-number">4</span> Cómo conviven las piezas de toda la unidad</a></li>
+  <li><a href="#el-programa-completo" id="toc-el-programa-completo" class="nav-link" data-scroll-target="#el-programa-completo"><span class="header-section-number">5</span> El programa completo</a></li>
+  <li><a href="#lo-que-deja-lista-esta-unidad" id="toc-lo-que-deja-lista-esta-unidad" class="nav-link" data-scroll-target="#lo-que-deja-lista-esta-unidad"><span class="header-section-number">6</span> Lo que deja lista esta unidad</a></li>
+  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">7</span> Lista de verificación</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">8</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/index.html">Unidad 2. Arreglos y funciones</a></li><li class="breadcrumb-item"><a href="../../herramientas-programacion-1/unidad-02/menus.html">5. Menús</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Unidad 2. Creación de menús con aplicación de funciones</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Asignatura</td>
+<td>Herramientas de Programación I (ET0047)</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Tecnología en Desarrollo de Software</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones</td>
+</tr>
+<tr class="even">
+<td>Saber</td>
+<td>Creación de menús con aplicación de funciones</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esta guía se probó con el SDK de .NET <strong>10.0.302</strong>. Es el último tema de la unidad: reúne vectores, funciones y paso de parámetros en un solo programa.</p>
+<section id="el-problema-que-resuelve-un-menú" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="el-problema-que-resuelve-un-menú"><span class="header-section-number">1</span> El problema que resuelve un menú</h2>
+<p>Cada programa de las guías anteriores hace <strong>una</strong> cosa y termina: calcula un total, aplica un descuento, analiza un vector. Corres el programa, ves el resultado, y se cierra. El sistema de gestión real no funciona así: el usuario necesita mostrar los precios, calcular el total, aplicar un descuento y analizar los datos, todo en la misma ejecución, eligiendo qué hacer cada vez, hasta que decide terminar.</p>
+<p>Un programa lineal, de arriba a abajo, no alcanza para eso. Si escribes las cuatro operaciones una después de otra, las cuatro se ejecutan siempre, en ese orden fijo, una sola vez. Lo que hace falta es una estructura que <strong>pregunte, repita y elija</strong>: un menú.</p>
+</section>
+<section id="el-patrón-ciclo-selección-funciones" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="el-patrón-ciclo-selección-funciones"><span class="header-section-number">2</span> El patrón: ciclo + selección + funciones</h2>
+<p>Un menú de consola combina tres cosas que ya conoces, cada una haciendo su parte:</p>
+<ul>
+<li>Un <strong>ciclo</strong> que se repite mientras el usuario no elija salir.</li>
+<li>Una <strong>selección</strong> (<code>switch</code>) que decide qué hacer según la opción elegida.</li>
+<li><strong>Funciones</strong>, cada una encargada de una operación concreta, que el <code>switch</code> invoca.</li>
+</ul>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/patron-menu-flujo.svg" class="img-fluid figure-img" alt="Diagrama de flujo del patron de menu: mostrar menu, leer opcion, TryParse, switch que llama a una funcion, verificar si la opcion es 0, y volver al inicio si no lo es"></p>
+<figcaption>Flujo del patron: mostrar el menu, leer la opcion, validarla con TryParse, ejecutar la funcion correspondiente con un switch, revisar si la opcion fue salir, y si no repetir desde el inicio.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>¿Por qué <code>do-while</code> y no <code>while</code>?</strong> Un menú tiene que mostrarse <strong>al menos una vez</strong> antes de que tenga sentido preguntar si el usuario quiere seguir. Con <code>while</code>, la condición se revisa <strong>antes</strong> del primer paso por el ciclo, así que necesitarías mostrar el menú una vez afuera del ciclo y otra vez adentro, duplicando código. Con <code>do-while</code>, el cuerpo del ciclo se ejecuta primero y la condición se revisa al final, exactamente lo que un menú necesita: muéstralo, atiende una opción, y solo entonces pregunta si hay que repetir.</p>
+</section>
+<section id="construyendo-el-menú-paso-a-paso" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="construyendo-el-menú-paso-a-paso"><span class="header-section-number">3</span> Construyendo el menú paso a paso</h2>
+<section id="el-vector-y-las-funciones-que-ya-tienes" class="level3">
+<h3 class="anchored" data-anchor-id="el-vector-y-las-funciones-que-ya-tienes">1. El vector y las funciones que ya tienes</h3>
+<p>El programa parte del mismo vector de precios de todo el semestre, y de las funciones que ya construiste en los temas 3 y 4: <code>MostrarVector</code>, <code>CalcularTotal</code>, <code>AplicarDescuento</code> y <code>AnalizarPrecios</code>. Ninguna cambia aquí; el menú solo las llama.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span><span class="op">[]</span> precios <span class="op">=</span> <span class="op">{</span> <span class="fl">4599.90</span><span class="op">,</span> <span class="fl">12999.00</span><span class="op">,</span> <span class="fl">8500.50</span><span class="op">,</span> <span class="fl">2300.00</span><span class="op">,</span> <span class="fl">15750.75</span> <span class="op">};</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="el-esqueleto-del-ciclo" class="level3">
+<h3 class="anchored" data-anchor-id="el-esqueleto-del-ciclo">2. El esqueleto del ciclo</h3>
+<p>El cuerpo del <code>do-while</code> muestra las opciones y lee lo que el usuario escribió. Hasta aquí, todavía no hace nada con la opción: solo la pide.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> continuarMenu <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">do</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"=== Sistema de gestion: menu ==="</span><span class="op">);</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"1. Mostrar precios"</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"2. Calcular total"</span><span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"3. Aplicar descuento general"</span><span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"4. Analizar precios (total y maximo)"</span><span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"0. Salir"</span><span class="op">);</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span><span class="st">"Elige una opcion: "</span><span class="op">);</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">string</span><span class="op">?</span> entrada <span class="op">=</span> Console<span class="op">.</span><span class="fu">ReadLine</span><span class="op">();</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// aqui falta leer "entrada" como numero y decidir que hacer</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="kw">while</span> <span class="op">(</span>continuarMenu<span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>continuarMenu</code> es la variable que controla el ciclo. Empieza en <code>true</code>, y solo la opción de salir la va a cambiar a <code>false</code> más adelante: por eso el ciclo se repite indefinidamente hasta que el usuario elige esa opción, y por eso la variable no puede llamarse igual que la opción numérica que el usuario escribe (eso sería mezclar “qué escribió” con “si hay que seguir”, dos preguntas distintas).</p>
+</section>
+<section id="validar-la-opción-con-tryparse" class="level3">
+<h3 class="anchored" data-anchor-id="validar-la-opción-con-tryparse">3. Validar la opción con <code>TryParse</code></h3>
+<p><code>Console.ReadLine</code> siempre devuelve texto (Semana 2), y el usuario puede escribir cualquier cosa, no solo un número. <code>int.TryParse</code> convierte el texto y devuelve <code>true</code> o <code>false</code> según si lo logró, sin lanzar una excepción si falla.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/validacion-opcion-leida.svg" class="img-fluid figure-img" alt="Diagrama de la validacion con TryParse: el texto entrada pasa por TryParse, si devuelve false se muestra un mensaje de error y se continua el ciclo, si devuelve true la opcion sigue hacia el switch"></p>
+<figcaption>TryParse intenta convertir el texto escrito. Si falla, el programa muestra un error y el ciclo vuelve a mostrar el menu sin cerrarse. Si tiene exito, la opcion numerica pasa al switch.</figcaption>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>entrada<span class="op">,</span> <span class="kw">out</span> <span class="dt">int</span> opcion<span class="op">))</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Esa no es una opcion valida. Escribe un numero del menu."</span><span class="op">);</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">continue</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>continue</code> salta directo a la condición del <code>do-while</code> sin ejecutar el resto del cuerpo: el programa vuelve a mostrar el menú, sin cerrarse por una entrada inválida.</p>
+<p><strong>Una trampa real que vale la pena señalar.</strong> La primera versión de este programa comparaba <code>opcion != 0</code> en la condición del <code>do-while</code>, en vez de usar una variable <code>continuarMenu</code> aparte. Con eso, escribir cualquier texto inválido (donde <code>TryParse</code> deja <code>opcion</code> en <code>0</code> por defecto) cerraba el menú de inmediato, como si el usuario hubiera elegido salir, sin haber elegido nada. Por eso esta guía usa una variable booleana independiente para controlar el ciclo: la decisión de seguir o parar no puede depender del mismo valor que ya se usa para saber si el texto era válido.</p>
+</section>
+<section id="el-switch-que-llama-a-las-funciones" class="level3">
+<h3 class="anchored" data-anchor-id="el-switch-que-llama-a-las-funciones">4. El <code>switch</code> que llama a las funciones</h3>
+<p>Con la opción ya convertida a número, el <code>switch</code> decide cuál función ejecutar. Cada <code>case</code> es una operación del sistema de gestión, ya construida en temas anteriores:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">switch</span> <span class="op">(</span>opcion<span class="op">)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">1</span><span class="op">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">MostrarVector</span><span class="op">(</span>precios<span class="op">,</span> <span class="st">"Precios actuales:"</span><span class="op">);</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">2</span><span class="op">:</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>            <span class="dt">double</span> total <span class="op">=</span> <span class="fu">CalcularTotal</span><span class="op">(</span>precios<span class="op">);</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total: {total:F2}"</span><span class="op">);</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">3</span><span class="op">:</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span><span class="st">"Porcentaje de descuento, como numero entero (por ejemplo 10 para 10%): "</span><span class="op">);</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>Console<span class="op">.</span><span class="fu">ReadLine</span><span class="op">(),</span> <span class="kw">out</span> <span class="dt">int</span> porcentajeEntero<span class="op">))</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Ese no es un numero valido. Vuelve a intentar desde el menu."</span><span class="op">);</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            <span class="dt">double</span> porcentaje <span class="op">=</span> porcentajeEntero <span class="op">/</span> <span class="fl">100.0</span><span class="op">;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            <span class="fu">AplicarDescuento</span><span class="op">(</span>precios<span class="op">,</span> porcentaje<span class="op">);</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Descuento aplicado."</span><span class="op">);</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">4</span><span class="op">:</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            <span class="fu">AnalizarPrecios</span><span class="op">(</span>precios<span class="op">,</span> <span class="kw">out</span> <span class="dt">double</span> totalAnalizado<span class="op">,</span> <span class="kw">out</span> <span class="dt">double</span> maximo<span class="op">);</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total: {totalAnalizado:F2}"</span><span class="op">);</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Maximo: {maximo:F2}"</span><span class="op">);</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">case</span> <span class="dv">0</span><span class="op">:</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Hasta pronto."</span><span class="op">);</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        continuarMenu <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">default</span><span class="op">:</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Esa opcion no existe. Elige una del menu."</span><span class="op">);</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Fíjate en el <code>case 3</code>: pide un segundo dato (el porcentaje) <strong>dentro</strong> del mismo <code>case</code>, con su propia validación. Nada impide que un <code>case</code> lea más datos si la operación los necesita; lo único que cambia es que ese <code>case</code> hace más de un paso antes de su <code>break</code>.</p>
+<p><strong>Por qué el porcentaje se pide como número entero.</strong> Al verificar este ejemplo apareció un error real: pedirlo como <code>double</code> (por ejemplo escribiendo <code>0.10</code>) y convertirlo con <code>double.Parse</code> dio un resultado absurdo, porque la configuración regional de la consola interpreta el punto decimal de forma distinta a como lo escribimos en el código fuente. Pedirlo como entero (<code>10</code> en vez de <code>0.10</code>) y dividirlo entre <code>100.0</code> dentro del programa evita el problema por completo, y de paso reutiliza <code>int.TryParse</code>, que ya conoces.</p>
+<p>Los bloques <code>{ }</code> alrededor de los <code>case</code> que declaran una variable nueva (<code>total</code>, <code>porcentajeEntero</code>, <code>totalAnalizado</code>) no son decorativos: delimitan en qué parte del <code>switch</code> esa variable existe, para que dos <code>case</code> distintos puedan declarar variables con nombres parecidos sin chocar entre sí.</p>
+</section>
+</section>
+<section id="cómo-conviven-las-piezas-de-toda-la-unidad" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="cómo-conviven-las-piezas-de-toda-la-unidad"><span class="header-section-number">4</span> Cómo conviven las piezas de toda la unidad</h2>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/integracion-piezas-unidad.svg" class="img-fluid figure-img" alt="Diagrama de integracion: el vector precios en el centro, con flechas hacia y desde MostrarVector, CalcularTotal, AplicarDescuento y AnalizarPrecios, todo dentro de un recuadro punteado que representa el switch del menu"></p>
+<figcaption>El vector de precios en el centro, con las cuatro funciones de los temas 3 y 4 alrededor: algunas lo leen, una lo modifica. El switch del menu decide, en cada vuelta del ciclo, cual de ellas se ejecuta.</figcaption>
+</figure>
+</div>
+</div>
+<p>El vector es el único dato que vive fuera del ciclo del menú: se declara una vez, antes del <code>do-while</code>, y cada función lo recibe como parámetro cuando el <code>switch</code> la llama. <code>MostrarVector</code>, <code>CalcularTotal</code> y <code>AnalizarPrecios</code> solo lo <strong>leen</strong>. <code>AplicarDescuento</code> lo <strong>modifica</strong>: por eso, después de elegir la opción 3, si vuelves a elegir la opción 1 o la 2, vas a ver los precios ya descontados, no los originales. El vector conserva sus cambios entre una vuelta del ciclo y la siguiente, porque sigue siendo la misma variable durante toda la ejecución del programa.</p>
+</section>
+<section id="el-programa-completo" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="el-programa-completo"><span class="header-section-number">5</span> El programa completo</h2>
+<p>Con las cuatro piezas ya explicadas, así queda el programa entero:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span><span class="op">[]</span> precios <span class="op">=</span> <span class="op">{</span> <span class="fl">4599.90</span><span class="op">,</span> <span class="fl">12999.00</span><span class="op">,</span> <span class="fl">8500.50</span><span class="op">,</span> <span class="fl">2300.00</span><span class="op">,</span> <span class="fl">15750.75</span> <span class="op">};</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> continuarMenu <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">do</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"=== Sistema de gestion: menu ==="</span><span class="op">);</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"1. Mostrar precios"</span><span class="op">);</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"2. Calcular total"</span><span class="op">);</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"3. Aplicar descuento general"</span><span class="op">);</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"4. Analizar precios (total y maximo)"</span><span class="op">);</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"0. Salir"</span><span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span><span class="st">"Elige una opcion: "</span><span class="op">);</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">string</span><span class="op">?</span> entrada <span class="op">=</span> Console<span class="op">.</span><span class="fu">ReadLine</span><span class="op">();</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>entrada<span class="op">,</span> <span class="kw">out</span> <span class="dt">int</span> opcion<span class="op">))</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Esa no es una opcion valida. Escribe un numero del menu."</span><span class="op">);</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">continue</span><span class="op">;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">switch</span> <span class="op">(</span>opcion<span class="op">)</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="dv">1</span><span class="op">:</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            <span class="fu">MostrarVector</span><span class="op">(</span>precios<span class="op">,</span> <span class="st">"Precios actuales:"</span><span class="op">);</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="dv">2</span><span class="op">:</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>                <span class="dt">double</span> total <span class="op">=</span> <span class="fu">CalcularTotal</span><span class="op">(</span>precios<span class="op">);</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total: {total:F2}"</span><span class="op">);</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="dv">3</span><span class="op">:</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span><span class="st">"Porcentaje de descuento, como numero entero (por ejemplo 10 para 10%): "</span><span class="op">);</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>                <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>Console<span class="op">.</span><span class="fu">ReadLine</span><span class="op">(),</span> <span class="kw">out</span> <span class="dt">int</span> porcentajeEntero<span class="op">))</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>                <span class="op">{</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>                    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Ese no es un numero valido. Vuelve a intentar desde el menu."</span><span class="op">);</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>                    <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>                <span class="dt">double</span> porcentaje <span class="op">=</span> porcentajeEntero <span class="op">/</span> <span class="fl">100.0</span><span class="op">;</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>                <span class="fu">AplicarDescuento</span><span class="op">(</span>precios<span class="op">,</span> porcentaje<span class="op">);</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Descuento aplicado."</span><span class="op">);</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>                <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="dv">4</span><span class="op">:</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>                <span class="fu">AnalizarPrecios</span><span class="op">(</span>precios<span class="op">,</span> <span class="kw">out</span> <span class="dt">double</span> totalAnalizado<span class="op">,</span> <span class="kw">out</span> <span class="dt">double</span> maximo<span class="op">);</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Total: {totalAnalizado:F2}"</span><span class="op">);</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Maximo: {maximo:F2}"</span><span class="op">);</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>                <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>        <span class="kw">case</span> <span class="dv">0</span><span class="op">:</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Hasta pronto."</span><span class="op">);</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>            continuarMenu <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>            <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>        <span class="kw">default</span><span class="op">:</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Esa opcion no existe. Elige una del menu."</span><span class="op">);</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>            <span class="kw">break</span><span class="op">;</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="kw">while</span> <span class="op">(</span>continuarMenu<span class="op">);</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="fu">MostrarVector</span><span class="op">(</span><span class="dt">double</span><span class="op">[]</span> vector<span class="op">,</span> <span class="dt">string</span> etiqueta<span class="op">)</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>etiqueta<span class="op">);</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>    <span class="kw">foreach</span> <span class="op">(</span><span class="dt">double</span> valor <span class="kw">in</span> vector<span class="op">)</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"  {valor}"</span><span class="op">);</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">double</span> <span class="fu">CalcularTotal</span><span class="op">(</span><span class="dt">double</span><span class="op">[]</span> precios<span class="op">)</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> precios<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> precios<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> total<span class="op">;</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="fu">AplicarDescuento</span><span class="op">(</span><span class="dt">double</span><span class="op">[]</span> precios<span class="op">,</span> <span class="dt">double</span> porcentaje<span class="op">)</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> precios<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>        precios<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> precios<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> <span class="op">(</span><span class="dv">1</span> <span class="op">-</span> porcentaje<span class="op">);</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="fu">AnalizarPrecios</span><span class="op">(</span><span class="dt">double</span><span class="op">[]</span> precios<span class="op">,</span> <span class="kw">out</span> <span class="dt">double</span> total<span class="op">,</span> <span class="kw">out</span> <span class="dt">double</span> maximo<span class="op">)</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>    maximo <span class="op">=</span> precios<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>    <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> precios<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> precios<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>precios<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;</span> maximo<span class="op">)</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>            maximo <span class="op">=</span> precios<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Una sesión real, eligiendo primero una opción inválida, luego las cuatro operaciones en orden, y por último saliendo:</p>
+<pre class="text"><code>=== Sistema de gestion: menu ===
+1. Mostrar precios
+2. Calcular total
+3. Aplicar descuento general
+4. Analizar precios (total y maximo)
+0. Salir
+Elige una opcion: abc
+Esa no es una opcion valida. Escribe un numero del menu.
+
+=== Sistema de gestion: menu ===
+1. Mostrar precios
+2. Calcular total
+3. Aplicar descuento general
+4. Analizar precios (total y maximo)
+0. Salir
+Elige una opcion: 1
+Precios actuales:
+  4599,9
+  12999
+  8500,5
+  2300
+  15750,75
+
+=== Sistema de gestion: menu ===
+1. Mostrar precios
+2. Calcular total
+3. Aplicar descuento general
+4. Analizar precios (total y maximo)
+0. Salir
+Elige una opcion: 2
+Total: 44150,15
+
+=== Sistema de gestion: menu ===
+1. Mostrar precios
+2. Calcular total
+3. Aplicar descuento general
+4. Analizar precios (total y maximo)
+0. Salir
+Elige una opcion: 3
+Porcentaje de descuento, como numero entero (por ejemplo 10 para 10%): 10
+Descuento aplicado.
+
+=== Sistema de gestion: menu ===
+1. Mostrar precios
+2. Calcular total
+3. Aplicar descuento general
+4. Analizar precios (total y maximo)
+0. Salir
+Elige una opcion: 4
+Total: 39735,14
+Maximo: 14175,68
+
+=== Sistema de gestion: menu ===
+1. Mostrar precios
+2. Calcular total
+3. Aplicar descuento general
+4. Analizar precios (total y maximo)
+0. Salir
+Elige una opcion: 0
+Hasta pronto.</code></pre>
+<p>El total de la opción 2 (<code>44150,15</code>) coincide con el que calculaste en el tema de funciones antes de cualquier descuento. Después de aplicar el 10% en la opción 3, el total de la opción 4 (<code>39735,14</code>) coincide con el <code>CalcularTotalConDescuento</code> del mismo tema: son la misma operación, llegando al mismo resultado por dos caminos distintos, lo que confirma que el programa quedó bien armado.</p>
+</section>
+<section id="lo-que-deja-lista-esta-unidad" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="lo-que-deja-lista-esta-unidad"><span class="header-section-number">6</span> Lo que deja lista esta unidad</h2>
+<p>Con los cinco temas de esta unidad, el sistema de gestión pasó de manejar un solo registro con variables sueltas (Semana 2) a guardar varios datos organizados en un vector, calcular sobre ellos con matrices cuando hace falta cruzar dos dimensiones, repartir la lógica en funciones con entrada y salida propias, entender con precisión cuándo esas funciones pueden modificar lo que reciben, y ofrecerle al usuario todo eso a través de un menú que se repite hasta que decide salir. La Unidad 3 retoma este mismo programa y lo reorganiza alrededor de clases y objetos, en vez de un vector y un grupo de funciones sueltas.</p>
+</section>
+<section id="lista-de-verificación" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">7</span> Lista de verificación</h2>
+<div class="checklist">
+<ul class="task-list">
+<li><label><input type="checkbox">Explicas por qué un programa lineal no alcanza para ofrecer varias operaciones repetibles.</label></li>
+<li><label><input type="checkbox">Justificas por qué <code>do-while</code> encaja mejor que <code>while</code> para mostrar un menú.</label></li>
+<li><label><input type="checkbox">Usas <code>int.TryParse</code> para validar la opción leída, sin cerrar el programa ante una entrada inválida.</label></li>
+<li><label><input type="checkbox">Escribes un <code>switch</code> que llama a una función distinta según la opción elegida.</label></li>
+<li><label><input type="checkbox">Explicas por qué una opción puede leer datos adicionales dentro de su propio <code>case</code>.</label></li>
+<li><label><input type="checkbox">Describes cómo el vector conserva sus cambios entre una vuelta del ciclo y la siguiente.</label></li>
+</ul>
+</div>
+</section>
+<section id="recursos" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="recursos"><span class="header-section-number">8</span> Recursos</h2>
+<ul>
+<li>Sentencia <code>switch</code>: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement">learn.microsoft.com/dotnet/csharp/language-reference/statements/selection-statements</a></li>
+<li>Sentencia <code>do</code>: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/statements/iteration-statements#the-do-statement">learn.microsoft.com/dotnet/csharp/language-reference/statements/iteration-statements</a></li>
+<li><code>int.TryParse</code>: <a href="https://learn.microsoft.com/es-es/dotnet/api/system.int32.tryparse">learn.microsoft.com/dotnet/api/system.int32.tryparse</a></li>
+</ul>
+<div class="pie-doc">
+<p>Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302, con la entrada del usuario simulada por redireccion de consola.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

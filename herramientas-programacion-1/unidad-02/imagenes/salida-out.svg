@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="290" viewBox="0 0 880 290" role="img" aria-label="AnalizarPrecios recibe el vector de precios y entrega dos resultados nuevos con out: total y maximo, sin que esas variables tuvieran un valor antes de la llamada" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="so-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2f7bb8; }
+  </style>
+
+  <text x="440" y="28" text-anchor="middle" class="txt" font-weight="700">AnalizarPrecios(precios2, out totalPrecios, out precioMaximo);</text>
+
+  <rect x="90" y="55" width="220" height="70" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="200" y="82" text-anchor="middle" class="sec">entrada</text>
+  <text x="200" y="106" text-anchor="middle" class="codigo" font-weight="700">precios2</text>
+
+  <rect x="340" y="55" width="200" height="70" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="440" y="82" text-anchor="middle" class="sec">funcion</text>
+  <text x="440" y="106" text-anchor="middle" class="codigo" font-weight="700">AnalizarPrecios</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 312,90 L 338,90" marker-end="url(#so-punta)"/>
+  </g>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 480,127 L 300,190" marker-end="url(#so-punta)"/>
+    <path d="M 480,127 L 660,190" marker-end="url(#so-punta)"/>
+  </g>
+
+  <rect x="130" y="195" width="230" height="70" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="245" y="222" text-anchor="middle" class="sec">out totalPrecios</text>
+  <text x="245" y="246" text-anchor="middle" class="codigo" font-weight="700">44150.15</text>
+
+  <rect x="530" y="195" width="230" height="70" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="645" y="222" text-anchor="middle" class="sec">out precioMaximo</text>
+  <text x="645" y="246" text-anchor="middle" class="codigo" font-weight="700">15750.75</text>
+
+  <text x="440" y="285" text-anchor="middle" class="sec">A diferencia de ref, las variables de salida no necesitan un valor antes de la llamada.</text>
+</svg>

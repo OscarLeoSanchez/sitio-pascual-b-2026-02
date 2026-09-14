@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="300" viewBox="0 0 880 300" role="img" aria-label="Validacion de la opcion leida: TryParse intenta convertir el texto escrito, si falla se muestra un error y el ciclo vuelve a empezar sin cerrar el programa, si tiene exito el numero pasa al switch" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="vo-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14.5px; fill: #16202b; }
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2f7bb8; }
+  </style>
+
+  <rect x="20" y="90" width="200" height="60" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="120" y="115" text-anchor="middle" class="codigo">entrada = "abc"</text>
+  <text x="120" y="135" text-anchor="middle" class="sec">texto escrito por el usuario</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 220,120 L 268,120" marker-end="url(#vo-punta)"/>
+  </g>
+
+  <rect x="270" y="90" width="260" height="60" rx="9" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <text x="400" y="115" text-anchor="middle" class="codigo">int.TryParse(entrada, out opcion)</text>
+  <text x="400" y="135" text-anchor="middle" class="sec">intenta convertir el texto</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 400,60 L 400,30 L 660,30 L 660,88" marker-end="url(#vo-punta)"/>
+  </g>
+  <text x="530" y="24" text-anchor="middle" class="etq">devuelve true</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 400,152 L 400,182 L 660,182 L 660,208" marker-end="url(#vo-punta)"/>
+  </g>
+  <text x="530" y="176" text-anchor="middle" class="etq">devuelve false</text>
+
+  <rect x="560" y="90" width="240" height="56" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.75"/>
+  <text x="680" y="115" text-anchor="middle" class="txt">opcion tiene un numero</text>
+  <text x="680" y="133" text-anchor="middle" class="sec">continua hacia el switch</text>
+
+  <rect x="560" y="210" width="240" height="66" rx="9" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="680" y="234" text-anchor="middle" class="txt">muestra un mensaje</text>
+  <text x="680" y="252" text-anchor="middle" class="txt">de error</text>
+  <text x="680" y="270" text-anchor="middle" class="sec">continue: vuelve a mostrar el menu</text>
+
+  <text x="440" y="290" text-anchor="middle" class="sec">El programa nunca se cierra por escribir algo invalido: solo vuelve a preguntar.</text>
+</svg>

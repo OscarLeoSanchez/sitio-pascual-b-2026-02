@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="400" viewBox="0 0 880 400" role="img" aria-label="Tres vectores paralelos, uno por bodega, con la misma cantidad de posiciones pero sin ninguna relacion declarada entre ellos en el codigo" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="vp-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 13.5px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 12.5px; font-weight: 700; fill: #2f7bb8; }
+    .lbl { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; font-weight: 700; fill: #16202b; }
+    .adv { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 700; fill: #c4682c; }
+  </style>
+
+  <text x="440" y="26" text-anchor="middle" class="txt" font-weight="700">Un vector separado por bodega: mismo tamano, sin relacion declarada</text>
+
+  <text x="120" y="70" text-anchor="middle" class="etq">0</text>
+  <text x="270" y="70" text-anchor="middle" class="etq">1</text>
+  <text x="420" y="70" text-anchor="middle" class="etq">2</text>
+  <text x="570" y="70" text-anchor="middle" class="etq">3</text>
+
+  <text x="40" y="120" class="lbl">bodegaNorte</text>
+  <rect x="185" y="82" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="335" y="82" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="485" y="82" width="120" height="60" rx="4" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <rect x="635" y="82" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="245" y="118" text-anchor="middle" class="codigo">10</text>
+  <text x="395" y="118" text-anchor="middle" class="codigo">5</text>
+  <text x="545" y="118" text-anchor="middle" class="codigo">0</text>
+  <text x="695" y="118" text-anchor="middle" class="codigo">8</text>
+
+  <text x="40" y="200" class="lbl">bodegaSur</text>
+  <rect x="185" y="162" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="335" y="162" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="485" y="162" width="120" height="60" rx="4" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <rect x="635" y="162" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="245" y="198" text-anchor="middle" class="codigo">3</text>
+  <text x="395" y="198" text-anchor="middle" class="codigo">12</text>
+  <text x="545" y="198" text-anchor="middle" class="codigo">7</text>
+  <text x="695" y="198" text-anchor="middle" class="codigo">1</text>
+
+  <text x="40" y="280" class="lbl">bodegaCentro</text>
+  <rect x="185" y="242" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="335" y="242" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <rect x="485" y="242" width="120" height="60" rx="4" fill="#f6f8fa" stroke="#2f7bb8" stroke-width="1.75"/>
+  <rect x="635" y="242" width="120" height="60" rx="4" fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5"/>
+  <text x="245" y="278" text-anchor="middle" class="codigo">0</text>
+  <text x="395" y="278" text-anchor="middle" class="codigo">9</text>
+  <text x="545" y="278" text-anchor="middle" class="codigo">4</text>
+  <text x="695" y="278" text-anchor="middle" class="codigo">6</text>
+
+  <g stroke="#c4682c" stroke-width="1.75" fill="none" stroke-dasharray="5 4">
+    <path d="M 545,142 L 545,162"/>
+    <path d="M 545,222 L 545,242"/>
+  </g>
+
+  <text x="440" y="330" text-anchor="middle" class="adv">Las tres celdas resaltadas comparten la posicion 2, pero solo por casualidad:</text>
+  <text x="440" y="350" text-anchor="middle" class="sec">ningun indice comun las declara como "el mismo producto en tres bodegas distintas".</text>
+  <text x="440" y="378" text-anchor="middle" class="sec">Si se agrega un producto hay que recordar insertarlo en las tres variables, en el mismo orden.</text>
+</svg>

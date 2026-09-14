@@ -39,10 +39,10 @@ del curso: lo que cambia es dónde vive el contenido.
 | Tema | Saber de la carta descriptiva |
 |---|---|
 | **[1. Estructuras de datos tipo arreglo: vectores](vectores.qmd)** | Estructura de datos tipo vectores y matrices |
-| 2. Matrices *(en preparación)* | Estructura de datos tipo vectores y matrices |
-| 3. Funciones: parámetros de entrada y valor de retorno *(en preparación)* | Funciones, parámetros de entrada y retorno |
-| 4. Paso de parámetros por valor y por referencia *(en preparación)* | Paso de parámetros a funciones por valor y por referencia |
-| 5. Creación de menús con aplicación de funciones *(en preparación)* | Creación de menús con aplicación de funciones |
+| **[2. Matrices](matrices.qmd)** | Estructura de datos tipo vectores y matrices |
+| **[3. Funciones: parámetros de entrada y valor de retorno](funciones.qmd)** | Funciones, parámetros de entrada y retorno |
+| **[4. Paso de parámetros por valor y por referencia](paso-de-parametros.qmd)** | Paso de parámetros a funciones por valor y por referencia |
+| **[5. Creación de menús con aplicación de funciones](menus.qmd)** | Creación de menús con aplicación de funciones |
 :::
 
 El tema 5 cierra la unidad con la entrega evaluada del 30%.
