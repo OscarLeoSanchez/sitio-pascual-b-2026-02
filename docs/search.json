@@ -692,6 +692,28 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación",
+    "title": "Estadística para Analítica",
+    "section": "Convención de notación",
+    "text": "Convención de notación\nAntes de empezar, un mapa de los símbolos que se van a usar durante toda la sesión. Cada uno se explica de nuevo la primera vez que aparece en contexto.\n\n\n\n\n\n\n\n\nSímbolo\nNombre\nSignificado\n\n\n\n\n\\(\\Omega\\)\nEspacio muestral\nConjunto de todos los resultados posibles de un experimento aleatorio\n\n\n\\(\\omega\\)\nResultado elemental\nUn resultado individual dentro de \\(\\Omega\\)\n\n\n\\(A\\), \\(B\\)\nEvento\nUn subconjunto de \\(\\Omega\\), una condición sobre el resultado\n\n\n\\(P(\\cdot)\\)\nMedida de probabilidad\nAsigna a cada evento un número entre 0 y 1",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación-continuación",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación-continuación",
+    "title": "Estadística para Analítica",
+    "section": "Convención de notación (continuación)",
+    "text": "Convención de notación (continuación)\n\n\n\n\n\n\n\n\nSímbolo\nNombre\nSignificado\n\n\n\n\n\\(X\\)\nVariable aleatoria\nFunción que traduce cada resultado de \\(\\Omega\\) a un número real\n\n\n\\(x\\)\nValor observado\nUn número concreto que \\(X\\) puede tomar\n\n\n\\(p_X(x)\\)\nFunción de masa de probabilidad (PMF)\n\\(P(X = x)\\), caso discreto\n\n\n\\(f_X(x)\\)\nFunción de densidad (PDF)\nDensidad de probabilidad alrededor de \\(x\\), caso continuo\n\n\n\\(F_X(x)\\)\nFunción de distribución acumulada (CDF)\n\\(P(X \\leq x)\\), discreta o continua",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
     "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#bloque-1",
     "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#bloque-1",
     "title": "Estadística para Analítica",
@@ -769,6 +791,28 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nClasifiquen este proceso: lanzar un dado de seis caras y anotar el número que queda hacia arriba.\n¿Es un experimento determinístico o aleatorio? Justifiquen con los tres rasgos.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-1",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-1",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\nEs aleatorio:\n\nSe puede repetir: se puede volver a lanzar el dado cuantas veces se quiera.\nSe pueden listar los resultados posibles de antemano: 1, 2, 3, 4, 5 o 6.\nNo se puede anticipar con certeza cuál de los seis va a salir en un lanzamiento concreto.\n\n\nEl dado se suma como cuarto ejemplo guía junto a las monedas, el bus y los artículos defectuosos.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
     "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#bloque-2",
     "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#bloque-2",
     "title": "Estadística para Analítica",
@@ -835,11 +879,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-1",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-1",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-2",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-2",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\nEs aleatorio:\n\nSe puede repetir: se puede volver a lanzar el dado cuantas veces se quiera.\nSe pueden listar los resultados posibles de antemano: 1, 2, 3, 4, 5 o 6.\nNo se puede anticipar con certeza cuál de los seis va a salir en un lanzamiento concreto.\n\n\nEl dado se suma como cuarto ejemplo guía junto a las monedas, el bus y los artículos defectuosos.",
+    "text": "Respuesta\n\\[\\Omega = \\{1, 2, 3, \\ldots\\}\\]\nEl número de lanzamientos hasta la primera cara.\n\nEs infinito discreto: se puede enumerar uno por uno (1, 2, 3 y así sucesivamente) pero la lista nunca termina, porque en principio la primera cara podría tardar cualquier cantidad de lanzamientos.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-1",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-1",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nLanzan un dado de seis caras una sola vez y anotan el número que sale.\n¿Cuál es \\(\\Omega\\) para este experimento? ¿Es finito, infinito discreto o continuo?",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-3",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-3",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\]\n\nEs finito: hay exactamente seis resultados posibles, todos listables de antemano.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -912,11 +978,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-2",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-2",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-4",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-4",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\[\\Omega = \\{1, 2, 3, \\ldots\\}\\]\nEl número de lanzamientos hasta la primera cara.\n\nEs infinito discreto: se puede enumerar uno por uno (1, 2, 3 y así sucesivamente) pero la lista nunca termina, porque en principio la primera cara podría tardar cualquier cantidad de lanzamientos.",
+    "text": "Respuesta\n\\(C = \\{CC, SS\\}\\), \\(D = \\{SC, SS\\}\\).\n\\[C \\cap D = \\{SS\\}\\]\n\nNo es el conjunto vacío: C y D no son mutuamente excluyentes, porque comparten el resultado SS.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-2",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-2",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nLanzan un dado de seis caras. Sea \\(A\\) el evento “sale un número par”.\n¿Qué resultados de \\(\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\) pertenecen a \\(A\\)? ¿Cuál es su complemento \\(A^c\\)?",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-5",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-5",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\nA = {2, 4, 6}. El complemento \\(A^c\\) = {1, 3, 5}, los resultados impares, que quedan fuera del ovalo.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -989,11 +1077,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-3",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-3",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-6",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-6",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\[\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\]\n\nEs finito: hay exactamente seis resultados posibles, todos listables de antemano.",
+    "text": "Respuesta\n\\[P(C) = \\frac{1}{4} = 0{,}25 \\qquad P(D) = \\frac{1}{4} = 0{,}25\\]\n\nComo \\(C \\cap D = \\emptyset\\), el axioma 3 aplica directo:\n\\[P(C \\cup D) = 0{,}25 + 0{,}25 = 0{,}5\\]",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-3",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-3",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nCon el dado del bloque anterior, sea \\(A\\) = “sale un número par” y \\(B\\) = “sale un número mayor que 4” (es decir, 5 o 6).\nCalculen P(A), P(B) y P(A unión B) con la regla de la unión.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-7",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-7",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[P(A) = \\frac{|\\{2,4,6\\}|}{6} = 0{,}5 \\qquad P(B) = \\frac{|\\{5,6\\}|}{6} \\approx 0{,}3333\\]\n\\[P(A \\cap B) = \\frac{|\\{6\\}|}{6} \\approx 0{,}1667\\]\n\n\\[P(A \\cup B) = 0{,}5 + 0{,}3333 - 0{,}1667 = 0{,}6667\\]\nEl 6 pertenece a los dos eventos a la vez, por eso hay que restar su probabilidad para no contarlo dos veces.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1066,11 +1176,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-4",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-4",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-8",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-8",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\(C = \\{CC, SS\\}\\), \\(D = \\{SC, SS\\}\\).\n\\[C \\cap D = \\{SS\\}\\]\n\nNo es el conjunto vacío: C y D no son mutuamente excluyentes, porque comparten el resultado SS.",
+    "text": "Respuesta\n\\[X(CC) = 2 \\qquad Y(CC) = 1\\]\nLas dos monedas de CC caen cara: dos caras en total, y la primera también cae cara.\n\nEl soporte de X en este experimento es {0, 1, 2}: no hay forma de obtener otro valor con dos lanzamientos.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-4",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-4",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nSobre el dado, definan \\(W\\) = 1 si sale un número par, 0 si sale impar.\n¿Cuánto vale W(4) y cuánto vale W(5)?",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-9",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-9",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[W(4) = 1 \\qquad W(5) = 0\\]\n\n4 es par, así que W lo traduce a 1. 5 es impar, así que W lo traduce a 0. El soporte de W es {0, 1}.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1143,11 +1275,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-5",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-5",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-10",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-10",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\nA = {2, 4, 6}. El complemento \\(A^c\\) = {1, 3, 5}, los resultados impares, que quedan fuera del ovalo.",
+    "text": "Respuesta\n(a) Litros de gasolina consumidos: continua. Se mide, y puede tomar cualquier valor no negativo, con cualquier grado de precisión decimal.\n\n(b) Número de artículos defectuosos en una caja de 20: discreta. Se cuenta, y su rango es el conjunto finito \\(\\{0, 1, \\ldots, 20\\}\\).",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-5",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-5",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nClasifiquen estas dos variables:\n\nLa suma de los puntos al lanzar dos dados.\nLa temperatura corporal de una persona, medida con un termómetro digital.\n\n¿Cuál es discreta y cuál es continua? Justifiquen con la definición.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-11",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-11",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n(a) Suma de dos dados: discreta. Se obtiene contando puntos, y su rango es el conjunto finito \\(\\{2, 3, \\ldots, 12\\}\\).\n\n(b) Temperatura corporal: continua. Se mide, y en principio puede tomar cualquier valor real dentro de un rango fisiológico, con cualquier grado de precisión decimal.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1220,11 +1374,44 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-6",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-6",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-12",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-12",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\[P(C) = \\frac{1}{4} = 0{,}25 \\qquad P(D) = \\frac{1}{4} = 0{,}25\\]\n\nComo \\(C \\cap D = \\emptyset\\), el axioma 3 aplica directo:\n\\[P(C \\cup D) = 0{,}25 + 0{,}25 = 0{,}5\\]",
+    "text": "Respuesta\nMenor. \\(P(X = 0)\\) requiere que las dos monedas caigan sello.\n\nCon monedas cargadas hacia cara, caer sello es menos probable (0,3 cada una), así que la combinación de dos sellos es todavía menos probable que con las dos monedas del bloque anterior.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#por-qué-se-multiplican-las-dos-probabilidades",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#por-qué-se-multiplican-las-dos-probabilidades",
+    "title": "Estadística para Analítica",
+    "section": "Por qué se multiplican las dos probabilidades",
+    "text": "Por qué se multiplican las dos probabilidades\n\nEl resultado del primer lanzamiento no cambia la probabilidad del segundo: los dos lanzamientos son independientes. Cuando dos resultados son independientes, la probabilidad de que ocurran los dos a la vez es el producto de sus probabilidades individuales: P(sello y sello) = P(sello) por P(sello) = 0,3 por 0,3 = 0,09. El Tema 2 de esta unidad retoma esta idea de forma completa, con independencia y probabilidad condicional.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-6",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-6",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nLancen dos dados de seis caras, uno independiente del otro.\nUsando la misma idea de independencia del ejemplo anterior, ¿cuál es la probabilidad de que ambos salgan 6?",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-13",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-13",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[P(\\text{dado 1} = 6) = \\frac{1}{6} \\qquad P(\\text{dado 2} = 6) = \\frac{1}{6}\\]\n\nComo los dos lanzamientos son independientes, sus probabilidades se multiplican:\n\\[P(\\text{ambos} = 6) = \\frac{1}{6} \\times \\frac{1}{6} = \\frac{1}{36} \\approx 0{,}0278\\]",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1297,11 +1484,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-7",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-7",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-14",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-14",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\[P(A) = \\frac{|\\{2,4,6\\}|}{6} = 0{,}5 \\qquad P(B) = \\frac{|\\{5,6\\}|}{6} \\approx 0{,}3333\\]\n\\[P(A \\cap B) = \\frac{|\\{6\\}|}{6} \\approx 0{,}1667\\]\n\n\\[P(A \\cup B) = 0{,}5 + 0{,}3333 - 0{,}1667 = 0{,}6667\\]\nEl 6 pertenece a los dos eventos a la vez, por eso hay que restar su probabilidad para no contarlo dos veces.",
+    "text": "Respuesta\n\\[p_X(8) = \\frac{5}{36} \\approx 0{,}1389\\]\n\nEs menor que p(7) = 6/36. La PMF decrece a ambos lados de 7, que es el pico único porque tiene más combinaciones que cualquier otro valor.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-comparar-dos-pmf",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-comparar-dos-pmf",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: comparar dos PMF",
+    "text": "Ejercicio 2: comparar dos PMF\nRetomen las monedas del bloque 7: \\(X\\) = número de caras con las dos monedas (misma chance de cara y sello), y \\(X'\\) = número de caras con las dos monedas cargadas (P(cara) = 0,7). Ya calcularon \\(p_{X'}(0) = 0{,}09\\).\nCon \\(p_{X'}(1) = 0{,}42\\) y \\(p_{X'}(2) = 0{,}49\\), verifiquen que la PMF de \\(X'\\) cumple sus dos propiedades. ¿En qué se diferencia su forma de la de \\(X\\)?",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-15",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-15",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\n0,09 + 0,42 + 0,49 = 1: cumple la segunda propiedad, y los tres valores son no negativos. A diferencia de la PMF simetrica de X, la de \\(X'\\) esta corrida hacia 2, porque cara es mas probable que sello en cada moneda.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1374,11 +1583,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-8",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-8",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-16",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-16",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\[X(CC) = 2 \\qquad Y(CC) = 1\\]\nLas dos monedas de CC caen cara: dos caras en total, y la primera también cae cara.\n\nEl soporte de X en este experimento es {0, 1, 2}: no hay forma de obtener otro valor con dos lanzamientos.",
+    "text": "Respuesta\n\\[P(X = 5) = 0\\]\n\nHay infinitos valores posibles alrededor de 5, como 5,001 o 5,0001, y ninguno concentra una porción positiva del área total.\nNo significa que esperar 5 minutos sea imposible: significa que un punto exacto sobre una variable continua siempre tiene probabilidad cero.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otra-forma-de-densidad",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otra-forma-de-densidad",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otra forma de densidad",
+    "text": "Ejercicio 2: otra forma de densidad\nEl tiempo de viaje de ese mismo bus entre dos paraderos es uniforme entre 20 y 40 minutos: la densidad es constante, \\(f(x) = 1/20\\) para \\(20 \\leq x \\leq 40\\), y cero fuera de ese intervalo.\n¿Cuánto vale P(25 &lt; X &lt;= 30)? Recuerden que el área bajo una densidad constante es un rectángulo.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-17",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-17",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[P(25 &lt; X \\leq 30) = \\int_{25}^{30} \\frac{1}{20}\\,dx = \\frac{1}{20} \\times (30 - 25) = \\frac{5}{20} = 0{,}25\\]\n\nCon densidad constante, el área es simplemente el ancho del intervalo por la altura de la densidad: no hace falta una integral más elaborada.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1451,11 +1682,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-9",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-9",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-18",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-18",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n\\[W(4) = 1 \\qquad W(5) = 0\\]\n\n4 es par, así que W lo traduce a 1. 5 es impar, así que W lo traduce a 0. El soporte de W es {0, 1}.",
+    "text": "Respuesta\n\\[0{,}5833 - 0{,}4167 = 0{,}1667\\]\n\nCoincide exactamente con p(7), la PMF de la suma de dos dados en 7: los saltos de la CDF discreta siempre miden la PMF en ese punto.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cdf-de-las-monedas-cargadas",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cdf-de-las-monedas-cargadas",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: la CDF de las monedas cargadas",
+    "text": "Ejercicio 2: la CDF de las monedas cargadas\nCon las monedas cargadas del bloque 7, \\(X'\\) = número de caras, con \\(p_{X'}(0) = 0{,}09\\), \\(p_{X'}(1) = 0{,}42\\) y \\(p_{X'}(2) = 0{,}49\\).\nCalculen \\(F_{X'}(1) = P(X' \\leq 1)\\).",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-19",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-19",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[F_{X'}(1) = p_{X'}(0) + p_{X'}(1) = 0{,}09 + 0{,}42 = 0{,}51\\]\n\nSe suman las probabilidades de todos los valores del rango que son menores o iguales a 1: solo 0 y 1 cumplen esa condición.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1528,11 +1781,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-10",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-10",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-20",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-20",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n(a) Litros de gasolina consumidos: continua. Se mide, y puede tomar cualquier valor no negativo, con cualquier grado de precisión decimal.\n\n(b) Número de artículos defectuosos en una caja de 20: discreta. Se cuenta, y su rango es el conjunto finito \\(\\{0, 1, \\ldots, 20\\}\\).",
+    "text": "Respuesta\n\\[P(5 &lt; X \\leq 9) = F_X(9) - F_X(5) = 0{,}8333 - 0{,}2778 = 0{,}5555\\]\n\nEs la probabilidad acumulada entre los valores 6, 7, 8 y 9 de la suma, sin sumar sus cuatro probabilidades una por una.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cola-derecha-de-los-dados",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cola-derecha-de-los-dados",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: la cola derecha de los dados",
+    "text": "Ejercicio 2: la cola derecha de los dados\nCon la misma tabla de la CDF de la suma de dos dados, \\(F_X(9) = 0{,}8333\\).\nCalculen P(suma &gt; 9) usando la fórmula del complemento, sin sumar las probabilidades de 10, 11 y 12 una por una.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-21",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-21",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\n\\[P(X &gt; 9) = 1 - F_X(9) = 1 - 0{,}8333 = 0{,}1667\\]\n\nCoincide con sumar p(10) + p(11) + p(12) = 0,0833 + 0,0556 + 0,0278, pero la resta con la CDF llega al mismo resultado en un solo paso.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1605,11 +1880,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-11",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-11",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-22",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-22",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\n(a) Suma de dos dados: discreta. Se obtiene contando puntos, y su rango es el conjunto finito \\(\\{2, 3, \\ldots, 12\\}\\).\n\n(b) Temperatura corporal: continua. Se mide, y en principio puede tomar cualquier valor real dentro de un rango fisiológico, con cualquier grado de precisión decimal.",
+    "text": "Respuesta\nDisminuiría. Con más repeticiones, la proporción observada se acerca más a la probabilidad teórica que la generó.\n\nEs la misma razón por la que un dado lanzado 2000 veces reparte sus caras más parejo, en proporción, que uno lanzado solo 6 veces.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-7",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-7",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: otro contexto, un dado",
+    "text": "Ejercicio 2: otro contexto, un dado\nLanzan un dado 6 veces y anotan cuántas veces sale cada cara. Después lo lanzan 600 veces y vuelven a contar.\n¿En cuál de los dos casos esperarían que la proporción observada de cada cara esté más cerca de 1/6, la probabilidad teórica? Justifiquen con la idea de la distribución empírica.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-23",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-23",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\nEn el de 600 lanzamientos.\n\nLa función de distribución empírica se acerca a la teórica a medida que crece el número de repeticiones. Con solo 6 lanzamientos, una sola cara de más o de menos cambia mucho la proporción observada; con 600, esas diferencias pesan mucho menos.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -1682,11 +1979,33 @@
     ]
   },
   {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-12",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-12",
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-24",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-24",
     "title": "Estadística para Analítica",
     "section": "Respuesta",
-    "text": "Respuesta\nMenor. \\(P(X = 0)\\) requiere que las dos monedas caigan sello.\n\nCon monedas cargadas hacia cara, caer sello es menos probable (0,3 cada una), así que la combinación de dos sellos es todavía menos probable que con las dos monedas del bloque anterior.",
+    "text": "Respuesta\nSube. Con una media de espera más corta, esperar 5 minutos o menos se vuelve más probable, porque el bus tiende a llegar más rápido en general.\n\n\\[P(X \\leq 5) = 1 - e^{-5/3} \\approx 0{,}8111\\]\nMuy por encima del 0,5654 del escenario de media 6.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-cambiar-el-tamaño-de-la-muestra",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-cambiar-el-tamaño-de-la-muestra",
+    "title": "Estadística para Analítica",
+    "section": "Ejercicio 2: cambiar el tamaño de la muestra",
+    "text": "Ejercicio 2: cambiar el tamaño de la muestra\nAhora, en vez de cambiar la media de espera, imaginen que la simulación se repite con solo 10 esperas en lugar de 500, manteniendo la media en 6 minutos.\n¿La proporción observada de esperas de 5 minutos o menos se acercaría más o menos a la probabilidad teórica de 0,5654? Justifiquen sin ejecutar el código.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "1. Presentación: variables aleatorias"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-25",
+    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-25",
+    "title": "Estadística para Analítica",
+    "section": "Respuesta",
+    "text": "Respuesta\nSe acercaría menos.\n\nEs la misma idea del bloque 12: con menos repeticiones, la proporción observada depende mucho de qué esperas concretas salieron en esa muestra pequeña, y se aleja más fácilmente del valor teórico que con 500 esperas.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "1. Presentación: variables aleatorias"
@@ -4529,325 +4848,6 @@
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "1. Vectores"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación",
-    "title": "Estadística para Analítica",
-    "section": "Convención de notación",
-    "text": "Convención de notación\nAntes de empezar, un mapa de los símbolos que se van a usar durante toda la sesión. Cada uno se explica de nuevo la primera vez que aparece en contexto.\n\n\n\n\n\n\n\n\nSímbolo\nNombre\nSignificado\n\n\n\n\n\\(\\Omega\\)\nEspacio muestral\nConjunto de todos los resultados posibles de un experimento aleatorio\n\n\n\\(\\omega\\)\nResultado elemental\nUn resultado individual dentro de \\(\\Omega\\)\n\n\n\\(A\\), \\(B\\)\nEvento\nUn subconjunto de \\(\\Omega\\), una condición sobre el resultado\n\n\n\\(P(\\cdot)\\)\nMedida de probabilidad\nAsigna a cada evento un número entre 0 y 1",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación-continuación",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#convención-de-notación-continuación",
-    "title": "Estadística para Analítica",
-    "section": "Convención de notación (continuación)",
-    "text": "Convención de notación (continuación)\n\n\n\n\n\n\n\n\nSímbolo\nNombre\nSignificado\n\n\n\n\n\\(X\\)\nVariable aleatoria\nFunción que traduce cada resultado de \\(\\Omega\\) a un número real\n\n\n\\(x\\)\nValor observado\nUn número concreto que \\(X\\) puede tomar\n\n\n\\(p_X(x)\\)\nFunción de masa de probabilidad (PMF)\n\\(P(X = x)\\), caso discreto\n\n\n\\(f_X(x)\\)\nFunción de densidad (PDF)\nDensidad de probabilidad alrededor de \\(x\\), caso continuo\n\n\n\\(F_X(x)\\)\nFunción de distribución acumulada (CDF)\n\\(P(X \\leq x)\\), discreta o continua",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nClasifiquen este proceso: lanzar un dado de seis caras y anotar el número que queda hacia arriba.\n¿Es un experimento determinístico o aleatorio? Justifiquen con los tres rasgos.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-1",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-1",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nLanzan un dado de seis caras una sola vez y anotan el número que sale.\n¿Cuál es \\(\\Omega\\) para este experimento? ¿Es finito, infinito discreto o continuo?",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-2",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-2",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nLanzan un dado de seis caras. Sea \\(A\\) el evento “sale un número par”.\n¿Qué resultados de \\(\\Omega = \\{1, 2, 3, 4, 5, 6\\}\\) pertenecen a \\(A\\)? ¿Cuál es su complemento \\(A^c\\)?",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-3",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-3",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nCon el dado del bloque anterior, sea \\(A\\) = “sale un número par” y \\(B\\) = “sale un número mayor que 4” (es decir, 5 o 6).\nCalculen P(A), P(B) y P(A unión B) con la regla de la unión.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-4",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-4",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nSobre el dado, definan \\(W\\) = 1 si sale un número par, 0 si sale impar.\n¿Cuánto vale W(4) y cuánto vale W(5)?",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-5",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-5",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nClasifiquen estas dos variables:\n\nLa suma de los puntos al lanzar dos dados.\nLa temperatura corporal de una persona, medida con un termómetro digital.\n\n¿Cuál es discreta y cuál es continua? Justifiquen con la definición.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#por-qué-se-multiplican-las-dos-probabilidades",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#por-qué-se-multiplican-las-dos-probabilidades",
-    "title": "Estadística para Analítica",
-    "section": "Por qué se multiplican las dos probabilidades",
-    "text": "Por qué se multiplican las dos probabilidades\n\nEl resultado del primer lanzamiento no cambia la probabilidad del segundo: los dos lanzamientos son independientes. Cuando dos resultados son independientes, la probabilidad de que ocurran los dos a la vez es el producto de sus probabilidades individuales: P(sello y sello) = P(sello) por P(sello) = 0,3 por 0,3 = 0,09. El Tema 2 de esta unidad retoma esta idea de forma completa, con independencia y probabilidad condicional.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-6",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-6",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nLancen dos dados de seis caras, uno independiente del otro.\nUsando la misma idea de independencia del ejemplo anterior, ¿cuál es la probabilidad de que ambos salgan 6?",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-13",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-13",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[P(\\text{dado 1} = 6) = \\frac{1}{6} \\qquad P(\\text{dado 2} = 6) = \\frac{1}{6}\\]\n\nComo los dos lanzamientos son independientes, sus probabilidades se multiplican:\n\\[P(\\text{ambos} = 6) = \\frac{1}{6} \\times \\frac{1}{6} = \\frac{1}{36} \\approx 0{,}0278\\]",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-14",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-14",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[p_X(8) = \\frac{5}{36} \\approx 0{,}1389\\]\n\nEs menor que p(7) = 6/36. La PMF decrece a ambos lados de 7, que es el pico único porque tiene más combinaciones que cualquier otro valor.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-comparar-dos-pmf",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-comparar-dos-pmf",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: comparar dos PMF",
-    "text": "Ejercicio 2: comparar dos PMF\nRetomen las monedas del bloque 7: \\(X\\) = número de caras con las dos monedas (misma chance de cara y sello), y \\(X'\\) = número de caras con las dos monedas cargadas (P(cara) = 0,7). Ya calcularon \\(p_{X'}(0) = 0{,}09\\).\nCon \\(p_{X'}(1) = 0{,}42\\) y \\(p_{X'}(2) = 0{,}49\\), verifiquen que la PMF de \\(X'\\) cumple sus dos propiedades. ¿En qué se diferencia su forma de la de \\(X\\)?",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-15",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-15",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\n0,09 + 0,42 + 0,49 = 1: cumple la segunda propiedad, y los tres valores son no negativos. A diferencia de la PMF simetrica de X, la de \\(X'\\) esta corrida hacia 2, porque cara es mas probable que sello en cada moneda.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-16",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-16",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[P(X = 5) = 0\\]\n\nHay infinitos valores posibles alrededor de 5, como 5,001 o 5,0001, y ninguno concentra una porción positiva del área total.\nNo significa que esperar 5 minutos sea imposible: significa que un punto exacto sobre una variable continua siempre tiene probabilidad cero.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otra-forma-de-densidad",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otra-forma-de-densidad",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otra forma de densidad",
-    "text": "Ejercicio 2: otra forma de densidad\nEl tiempo de viaje de ese mismo bus entre dos paraderos es uniforme entre 20 y 40 minutos: la densidad es constante, \\(f(x) = 1/20\\) para \\(20 \\leq x \\leq 40\\), y cero fuera de ese intervalo.\n¿Cuánto vale P(25 &lt; X &lt;= 30)? Recuerden que el área bajo una densidad constante es un rectángulo.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-17",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-17",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[P(25 &lt; X \\leq 30) = \\int_{25}^{30} \\frac{1}{20}\\,dx = \\frac{1}{20} \\times (30 - 25) = \\frac{5}{20} = 0{,}25\\]\n\nCon densidad constante, el área es simplemente el ancho del intervalo por la altura de la densidad: no hace falta una integral más elaborada.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-18",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-18",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[0{,}5833 - 0{,}4167 = 0{,}1667\\]\n\nCoincide exactamente con p(7), la PMF de la suma de dos dados en 7: los saltos de la CDF discreta siempre miden la PMF en ese punto.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cdf-de-las-monedas-cargadas",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cdf-de-las-monedas-cargadas",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: la CDF de las monedas cargadas",
-    "text": "Ejercicio 2: la CDF de las monedas cargadas\nCon las monedas cargadas del bloque 7, \\(X'\\) = número de caras, con \\(p_{X'}(0) = 0{,}09\\), \\(p_{X'}(1) = 0{,}42\\) y \\(p_{X'}(2) = 0{,}49\\).\nCalculen \\(F_{X'}(1) = P(X' \\leq 1)\\).",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-19",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-19",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[F_{X'}(1) = p_{X'}(0) + p_{X'}(1) = 0{,}09 + 0{,}42 = 0{,}51\\]\n\nSe suman las probabilidades de todos los valores del rango que son menores o iguales a 1: solo 0 y 1 cumplen esa condición.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-20",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-20",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[P(5 &lt; X \\leq 9) = F_X(9) - F_X(5) = 0{,}8333 - 0{,}2778 = 0{,}5555\\]\n\nEs la probabilidad acumulada entre los valores 6, 7, 8 y 9 de la suma, sin sumar sus cuatro probabilidades una por una.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cola-derecha-de-los-dados",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-la-cola-derecha-de-los-dados",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: la cola derecha de los dados",
-    "text": "Ejercicio 2: la cola derecha de los dados\nCon la misma tabla de la CDF de la suma de dos dados, \\(F_X(9) = 0{,}8333\\).\nCalculen P(suma &gt; 9) usando la fórmula del complemento, sin sumar las probabilidades de 10, 11 y 12 una por una.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-21",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-21",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\n\\[P(X &gt; 9) = 1 - F_X(9) = 1 - 0{,}8333 = 0{,}1667\\]\n\nCoincide con sumar p(10) + p(11) + p(12) = 0,0833 + 0,0556 + 0,0278, pero la resta con la CDF llega al mismo resultado en un solo paso.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-22",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-22",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\nDisminuiría. Con más repeticiones, la proporción observada se acerca más a la probabilidad teórica que la generó.\n\nEs la misma razón por la que un dado lanzado 2000 veces reparte sus caras más parejo, en proporción, que uno lanzado solo 6 veces.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-7",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-otro-contexto-un-dado-7",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: otro contexto, un dado",
-    "text": "Ejercicio 2: otro contexto, un dado\nLanzan un dado 6 veces y anotan cuántas veces sale cada cara. Después lo lanzan 600 veces y vuelven a contar.\n¿En cuál de los dos casos esperarían que la proporción observada de cada cara esté más cerca de 1/6, la probabilidad teórica? Justifiquen con la idea de la distribución empírica.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-23",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-23",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\nEn el de 600 lanzamientos.\n\nLa función de distribución empírica se acerca a la teórica a medida que crece el número de repeticiones. Con solo 6 lanzamientos, una sola cara de más o de menos cambia mucho la proporción observada; con 600, esas diferencias pesan mucho menos.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-24",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-24",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\nSube. Con una media de espera más corta, esperar 5 minutos o menos se vuelve más probable, porque el bus tiende a llegar más rápido en general.\n\n\\[P(X \\leq 5) = 1 - e^{-5/3} \\approx 0{,}8111\\]\nMuy por encima del 0,5654 del escenario de media 6.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-cambiar-el-tamaño-de-la-muestra",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#ejercicio-2-cambiar-el-tamaño-de-la-muestra",
-    "title": "Estadística para Analítica",
-    "section": "Ejercicio 2: cambiar el tamaño de la muestra",
-    "text": "Ejercicio 2: cambiar el tamaño de la muestra\nAhora, en vez de cambiar la media de espera, imaginen que la simulación se repite con solo 10 esperas en lugar de 500, manteniendo la media en 6 minutos.\n¿La proporción observada de esperas de 5 minutos o menos se acercaría más o menos a la probabilidad teórica de 0,5654? Justifiquen sin ejecutar el código.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-25",
-    "href": "estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html#respuesta-25",
-    "title": "Estadística para Analítica",
-    "section": "Respuesta",
-    "text": "Respuesta\nSe acercaría menos.\n\nEs la misma idea del bloque 12: con menos repeticiones, la proporción observada depende mucho de qué esperas concretas salieron en esa muestra pequeña, y se aleja más fácilmente del valor teórico que con 500 esperas.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "1. Presentación: variables aleatorias"
     ]
   }
 ]
