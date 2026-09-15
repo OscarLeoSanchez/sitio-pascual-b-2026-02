@@ -1,0 +1,67 @@
+<svg viewBox="0 0 900 460" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif">
+  <style>
+    .caja { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+    .rama { stroke: #8a97a6; stroke-width: 1.75; fill: none; }
+    .rama-destacada { stroke: #c4682c; stroke-width: 2.5; fill: none; }
+    .nodo { fill: #16202b; }
+    .txt { fill: #16202b; font-size: 15px; }
+    .txt-prob { fill: #5b6876; font-size: 13px; }
+    .txt-hoja { fill: #16202b; font-size: 15px; font-weight: 600; }
+    .txt-hoja-destacada { fill: #c4682c; font-size: 15px; font-weight: 700; }
+    .titulo { fill: #16202b; font-size: 15px; font-weight: 600; }
+  </style>
+
+  <rect x="20" y="20" width="860" height="420" rx="9" class="caja" />
+  <text x="46" y="52" class="titulo">Arbol de probabilidad de dos lanzamientos con monedas cargadas, P(cara) = 0,7</text>
+
+  <!-- raiz -->
+  <circle cx="110" cy="230" r="6" class="nodo" />
+  <text x="60" y="255" class="txt-prob">lanzamiento 1</text>
+
+  <!-- nivel 1: C1 arriba, S1 abajo -->
+  <path d="M 110 230 L 330 110" class="rama" />
+  <path d="M 110 230 L 330 350" class="rama-destacada" />
+  <text x="200" y="150" class="txt-prob">0,7 (cara)</text>
+  <text x="200" y="320" class="txt-prob">0,3 (sello)</text>
+
+  <circle cx="330" cy="110" r="6" class="nodo" />
+  <circle cx="330" cy="350" r="6" class="nodo" />
+  <text x="345" y="90" class="txt">C1</text>
+  <text x="345" y="375" class="txt">S1</text>
+  <text x="270" y="235" class="txt-prob">lanzamiento 2</text>
+
+  <!-- nivel 2 desde C1 -->
+  <path d="M 330 110 L 560 60" class="rama" />
+  <path d="M 330 110 L 560 160" class="rama" />
+  <text x="420" y="70" class="txt-prob">0,7</text>
+  <text x="420" y="150" class="txt-prob">0,3</text>
+
+  <!-- nivel 2 desde S1 -->
+  <path d="M 330 350 L 560 300" class="rama" />
+  <path d="M 330 350 L 560 400" class="rama-destacada" />
+  <text x="420" y="310" class="txt-prob">0,7</text>
+  <text x="420" y="430" class="txt-prob">0,3 (sello)</text>
+
+  <circle cx="560" cy="60" r="6" class="nodo" />
+  <circle cx="560" cy="160" r="6" class="nodo" />
+  <circle cx="560" cy="300" r="6" class="nodo" />
+  <circle cx="560" cy="400" r="6" class="nodo" />
+
+  <!-- hojas: etiqueta y probabilidad conjunta -->
+  <text x="700" y="55" class="txt-hoja">CC</text>
+  <text x="700" y="75" class="txt-prob">0,7 x 0,7 = 0,49</text>
+
+  <text x="700" y="155" class="txt-hoja">CS</text>
+  <text x="700" y="175" class="txt-prob">0,7 x 0,3 = 0,21</text>
+
+  <text x="700" y="295" class="txt-hoja">SC</text>
+  <text x="700" y="315" class="txt-prob">0,3 x 0,7 = 0,21</text>
+
+  <text x="700" y="395" class="txt-hoja-destacada">SS</text>
+  <text x="700" y="415" class="txt-prob">0,3 x 0,3 = 0,09</text>
+
+  <path d="M 560 60 L 690 55" class="rama" />
+  <path d="M 560 160 L 690 155" class="rama" />
+  <path d="M 560 300 L 690 295" class="rama" />
+  <path d="M 560 400 L 690 395" class="rama-destacada" />
+</svg>

@@ -1,0 +1,54 @@
+---
+title: "Unidad 2. Modelos de probabilidad"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+number-sections: false
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Dedicación | 3 horas de acompañamiento directo y 9 de trabajo independiente por semana |
+| Cierre     | 30% de la nota, con modelos continuos de probabilidad     |
+:::
+
+## De qué se trata esta unidad
+
+La Unidad 1 describió lo que ya se midió: gráficos, tablas y medidas resumen de datos que ya
+existen. Esta unidad da el paso siguiente: modelar la **incertidumbre** antes de que el dato ocurra,
+con las herramientas de la probabilidad. De ahí sale la posibilidad de responder, por ejemplo, qué
+tan probable es que una máquina falle por sobreesfuerzo antes de que ocurra.
+
+Toda la unidad trabaja sobre un mismo conjunto de datos ancla: el **AI4I 2020 Predictive
+Maintenance Dataset** (UCI Machine Learning Repository), 10 000 registros de sensores de máquinas
+de una planta de manufactura, con sus banderas de falla. Encaja con el contexto de aplicación de la
+carta descriptiva: una planta de producción con mantenimiento preventivo y predictivo.
+
+## Cómo está organizada
+
+Igual que la Unidad 2 de Herramientas de Programación I, el material de esta unidad se publica
+**por tema**, no por semana. El ritmo semanal y el porcentaje de cierre siguen siendo los que fija
+el calendario del módulo: lo único que cambia es dónde vive el contenido.
+
+::: {.calendario}
+| Tema | Saber de la carta descriptiva |
+|---|---|
+| **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) | Variables aleatorias, espacio muestral y función de distribución |
+| **2. Probabilidad condicional, independencia y teorema de Bayes** (en preparación) | Probabilidad condicional y teorema de Bayes |
+| **3. Valor esperado y varianza** (en preparación) | Valor esperado y varianza |
+| **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** (en preparación) | Modelos para variables aleatorias discretas |
+| **5. Modelos continuos: uniforme, normal, gamma y exponencial** (en preparación) | Modelos para variables aleatorias continuas |
+:::
+
+El tema 5 cierra la unidad con la entrega evaluada del 30%.
+
+::: {.pie-doc}
+Estadística para Analítica. Institución Universitaria Pascual Bravo.
+Facultad de Ingeniería. Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial,
+usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.
+:::

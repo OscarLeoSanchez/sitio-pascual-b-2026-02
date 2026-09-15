@@ -71,6 +71,14 @@ website:
               href: estadistica-para-analitica/semana-05/index.qmd
             - text: "Laboratorio: análisis exploratorio con pandas"
               href: estadistica-para-analitica/laboratorio-pandas-eda/index.qmd
+        - section: "Unidad 2. Modelos de probabilidad"
+          contents:
+            - text: "Presentación de la unidad"
+              href: estadistica-para-analitica/unidad-02/index.qmd
+            - text: "1. Variables aleatorias y espacio muestral"
+              href: estadistica-para-analitica/unidad-02/variables-aleatorias.qmd
+            - text: "1. Presentación: variables aleatorias"
+              href: estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.qmd
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

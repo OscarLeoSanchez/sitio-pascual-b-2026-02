@@ -1,0 +1,39 @@
+<svg viewBox="0 0 880 420" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif">
+  <style>
+    .caja { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+    .circA { fill: #2f7bb8; fill-opacity: 0.18; stroke: #2f7bb8; stroke-width: 1.75; }
+    .circB { fill: #c4682c; fill-opacity: 0.18; stroke: #c4682c; stroke-width: 1.75; }
+    .punto { fill: #16202b; }
+    .txt { fill: #16202b; font-size: 15px; }
+    .txt-sec { fill: #5b6876; font-size: 13px; }
+    .titulo { fill: #16202b; font-size: 15px; font-weight: 600; }
+    .etiquetaA { fill: #2f7bb8; font-size: 15px; font-weight: 600; }
+    .etiquetaB { fill: #c4682c; font-size: 15px; font-weight: 600; }
+  </style>
+
+  <rect x="40" y="40" width="800" height="300" rx="9" class="caja" />
+  <text x="66" y="72" class="titulo">&#937; = espacio muestral de lanzar dos monedas</text>
+
+  <circle cx="360" cy="210" r="120" class="circA" />
+  <circle cx="520" cy="210" r="120" class="circB" />
+
+  <text x="240" y="120" class="etiquetaA">A: la primera cae cara</text>
+  <text x="640" y="120" class="etiquetaB" text-anchor="end">B: la segunda cae cara</text>
+
+  <circle cx="310" cy="210" r="7" class="punto" />
+  <text x="310" y="192" class="txt" text-anchor="middle">CS</text>
+
+  <circle cx="440" cy="210" r="7" class="punto" />
+  <text x="440" y="192" class="txt" text-anchor="middle">CC</text>
+
+  <circle cx="570" cy="210" r="7" class="punto" />
+  <text x="570" y="192" class="txt" text-anchor="middle">SC</text>
+
+  <circle cx="760" cy="90" r="7" class="punto" />
+  <text x="760" y="72" class="txt" text-anchor="middle">SS</text>
+  <text x="760" y="110" class="txt-sec" text-anchor="middle">fuera de A y B</text>
+
+  <text x="440" y="270" class="txt-sec" text-anchor="middle">interseccion A y B</text>
+
+  <text x="440" y="365" class="txt-sec" text-anchor="middle">A union B = { CC, CS, SC }. Complemento de (A union B) = { SS }. A interseccion B = { CC }.</text>
+</svg>

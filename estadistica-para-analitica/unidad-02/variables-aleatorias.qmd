@@ -1,0 +1,738 @@
+---
+title: "Unidad 2. Variables aleatorias, espacio muestral y función de distribución"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Unidad     | Unidad 2. Modelos de probabilidad                        |
+| Saber      | Variables aleatorias, espacio muestral y función de distribución |
+:::
+
+[Abrir la presentación de la sesión](presentacion-variables-aleatorias.html){.btn .btn-primary
+role="button"}
+
+## 1. El fenómeno aleatorio: de la incertidumbre al experimento aleatorio
+
+Antes de lanzar una moneda, nadie sabe si va a caer cara o sello. Antes de que llegue el próximo bus, nadie sabe si faltan dos minutos o quince. Esa falta de certeza sobre un resultado que todavía no ocurrió es la **incertidumbre**, y es el punto de partida de toda esta unidad.
+
+No toda incertidumbre es del mismo tipo. Calentar agua a nivel del mar y observar a qué temperatura hierve es un **experimento determinístico**: repetido en las mismas condiciones, siempre da 100 grados Celsius, porque el resultado queda fijado por las leyes físicas y no varía de una repetición a otra. Lanzar una moneda al aire y observar si cae cara o sello es distinto: aunque se repita el lanzamiento exactamente con la misma moneda y el mismo movimiento de muñeca, el resultado puede cambiar de una vez a otra. A un proceso así, cuyo resultado no se puede predecir con certeza antes de observarlo aunque se repita en condiciones parecidas, se le llama **experimento aleatorio**.
+
+Un experimento aleatorio tiene tres rasgos que lo distinguen de uno determinístico. Primero, se puede repetir, al menos en principio, tantas veces como se quiera: se puede volver a lanzar la moneda, volver a lanzar el dado, volver a cronometrar la espera de otro bus. Segundo, antes de ejecutarlo se puede listar de antemano el conjunto de resultados posibles, aunque no se sepa cuál de ellos va a ocurrir: antes de lanzar la moneda ya se sabe que solo puede caer cara o sello. Tercero, el resultado de una repetición concreta no se puede anticipar con certeza, aunque se conozcan todos los resultados posibles y hasta la frecuencia con la que suele ocurrir cada uno.
+
+Esta guía usa tres experimentos aleatorios como hilo conductor. El primero es lanzar dos monedas y anotar si cada una cae cara o sello: sirve para introducir el espacio muestral, los eventos, la probabilidad y la primera variable aleatoria. El segundo es lanzar dos dados y sumar los puntos de ambos: sirve para construir la función de masa de probabilidad con un ejemplo más rico que el de las monedas. El tercero es cronometrar cuántos minutos pasan hasta que llega el próximo bus a un paradero: sirve para introducir la función de densidad, porque el tiempo de espera no salta de un valor a otro sino que puede tomar cualquier número real no negativo.
+
+## 2. El espacio muestral
+
+### Desde el ejemplo: listar todo lo que puede pasar
+
+Antes de lanzar dos monedas, ¿qué resultados son posibles? Cada moneda puede caer cara (`C`) o sello (`S`), así que un lanzamiento de las dos monedas puede terminar en cuatro combinaciones distintas: las dos caen cara, la primera cae cara y la segunda sello, la primera sello y la segunda cara, o las dos caen sello. Ese listado completo de resultados posibles, sin repetir ninguno y sin dejar ninguno por fuera, es lo que la probabilidad llama **espacio muestral**.
+
+```python
+import itertools
+
+omega = ["".join(par) for par in itertools.product("CS", repeat=2)]
+print("Omega =", omega)
+print("Numero de resultados:", len(omega))
+```
+
+```text
+Omega = ['CC', 'CS', 'SC', 'SS']
+Numero de resultados: 4
+```
+
+### Definición formal
+
+El **espacio muestral** de un experimento aleatorio, que se denota $\Omega$ (la letra griega mayúscula omega), es el conjunto de todos sus resultados posibles. Cada resultado individual dentro de ese conjunto se llama **resultado elemental** y se denota $\omega$ (omega minúscula). Para el experimento de lanzar dos monedas, $\Omega = \{CC, CS, SC, SS\}$, y cada una de esas cuatro combinaciones es un $\omega$ distinto.
+
+::: {.diagrama}
+![Cuatro puntos dentro de un rectangulo que representa el espacio muestral de lanzar dos monedas, cada uno etiquetado con una de las combinaciones CC, CS, SC o SS.](imagenes/espacio-muestral-dos-monedas.svg){fig-alt="Espacio muestral Omega de lanzar dos monedas, con los cuatro resultados elementales CC, CS, SC y SS marcados como puntos dentro de un rectangulo"}
+:::
+
+Un espacio muestral no siempre tiene un número fijo y pequeño de resultados como el de las dos monedas. Se distinguen tres formas:
+
+- **Finito**: el número de resultados posibles es un número fijo y se puede contar completo, como los 4 resultados de lanzar dos monedas o los 6 resultados de lanzar un dado una vez.
+- **Infinito discreto**: los resultados se pueden enumerar uno por uno, pero la lista nunca termina. Si el experimento es "lanzar una moneda hasta que salga la primera cara" y se cuenta cuántos lanzamientos tomó, el resultado puede ser 1, 2, 3, y así indefinidamente: $\Omega = \{1, 2, 3, \ldots\}$. No hay un lanzamiento máximo garantizado, aunque en la práctica salir cara tarde muchas veces es cada vez menos probable.
+- **Continuo**: los resultados llenan un intervalo completo de números reales, sin que se puedan enumerar uno por uno. El tiempo que un pasajero espera el próximo bus, en minutos, puede ser cualquier número no negativo: 0, 3, 3.5, 3.52, y así con cualquier grado de precisión. Su espacio muestral es el intervalo $\Omega = [0, \infty)$.
+
+### Cómo construir correctamente un espacio muestral
+
+Un espacio muestral bien construido cumple dos condiciones a la vez. La primera es que cubra todos los resultados posibles: para el experimento de las dos monedas, olvidar el resultado `SC` porque se confunde con `CS` deja el espacio muestral incompleto. La segunda es que los resultados no se solapen entre sí: cada repetición del experimento debe caer en exactamente uno de los resultados listados, nunca en dos a la vez. Definir el espacio muestral de las dos monedas como $\{$"al menos una cara", "las dos sellos"$\}$ rompe esta segunda condición, porque el resultado `CC` cae en el primer elemento y el segundo describe lo mismo que una parte del primero de otra forma. La forma que evita ese problema es describir cada resultado por lo que pasó exactamente en cada moneda, como se hizo arriba con `CC`, `CS`, `SC` y `SS`.
+
+## 3. Eventos: subconjuntos del espacio muestral
+
+### Desde el ejemplo: agrupar resultados que comparten algo
+
+De los cuatro resultados de lanzar dos monedas, algunos comparten una característica. "La primera moneda cae cara" agrupa a `CC` y `CS`, sin importar qué hace la segunda. "Las dos monedas caen igual" agrupa a `CC` y `SS`. Cada una de esas agrupaciones es un **evento**: un subconjunto del espacio muestral que reúne los resultados que cumplen una condición.
+
+### Definición formal
+
+Un **evento** es cualquier subconjunto de $\Omega$, y se nombra con una letra mayúscula, como $A$ o $B$. Un evento es **simple** cuando contiene un solo resultado elemental, como $\{CC\}$, y **compuesto** cuando contiene más de uno, como $A = \{CC, CS\}$. Sobre los eventos se definen tres operaciones que vienen directamente de la teoría de conjuntos:
+
+- **Unión** ($A \cup B$): los resultados que están en $A$, en $B$, o en ambos.
+- **Intersección** ($A \cap B$): los resultados que están en $A$ y en $B$ al mismo tiempo.
+- **Complemento** ($A^c$): los resultados que no están en $A$, es decir, todo lo que queda de $\Omega$ fuera de $A$.
+
+Dos eventos son **mutuamente excluyentes** cuando no comparten ningún resultado, es decir, $A \cap B = \emptyset$ (el conjunto vacío): que ocurra uno hace imposible que ocurra el otro en la misma repetición del experimento.
+
+### Uso: construir eventos sobre el mismo experimento
+
+Sea $A$ el evento "la primera moneda cae cara" y $B$ el evento "la segunda moneda cae cara".
+
+```python
+A = [w for w in omega if w[0] == "C"]
+B = [w for w in omega if w[1] == "C"]
+
+print("A (la primera moneda cae cara):", A)
+print("B (la segunda moneda cae cara):", B)
+print("A interseccion B:", [w for w in A if w in B])
+print("A union B:", sorted(set(A) | set(B)))
+print("Complemento de (A union B):", sorted(set(omega) - (set(A) | set(B))))
+```
+
+```text
+A (la primera moneda cae cara): ['CC', 'CS']
+B (la segunda moneda cae cara): ['CC', 'SC']
+A interseccion B: ['CC']
+A union B: ['CC', 'CS', 'SC']
+Complemento de (A union B): ['SS']
+```
+
+::: {.diagrama}
+![Dos circulos superpuestos sobre el espacio muestral de las dos monedas: el evento A a la izquierda con los resultados CS y CC, el evento B a la derecha con los resultados CC y SC, la interseccion marcada en el centro con CC, y el resultado SS por fuera de los dos circulos.](imagenes/eventos-union-interseccion-complemento.svg){fig-alt="Diagrama de conjuntos con el espacio muestral de las dos monedas y dos eventos A y B superpuestos: A es que la primera moneda caiga cara, B que la segunda caiga cara, con la interseccion, la union y el complemento senalados"}
+:::
+
+El resultado `CC` pertenece a la vez a $A$ y a $B$, por eso aparece en la región de intersección del diagrama. El resultado `SS` no pertenece ni a $A$ ni a $B$: cae en el complemento de la unión, fuera de los dos círculos. Para ver un par de eventos mutuamente excluyentes en este mismo espacio muestral, basta tomar $C = \{CC\}$ ("las dos caen cara") y $D = \{SS\}$ ("las dos caen sello"): no comparten ningún resultado, así que $C \cap D = \emptyset$.
+
+::: {.callout-note}
+## Interpretación en contexto
+
+Un evento no es un número: es una condición sobre el resultado del experimento. "La primera moneda cae cara" no tiene, por sí sola, ninguna probabilidad asociada todavía; solo agrupa los resultados que la cumplen. La probabilidad, que llega en la siguiente sección, es lo que convierte esa agrupación en un número entre 0 y 1.
+:::
+
+## 4. La probabilidad sobre el espacio muestral
+
+### Desde el ejemplo: ¿qué tan seguido pasa cada cosa?
+
+Si las dos monedas son honestas, ninguno de los cuatro resultados de $\Omega$ es más probable que otro: cada uno tiene la misma chance de ocurrir. Con cuatro resultados igualmente probables que cubren todo $\Omega$, cada uno se lleva una cuarta parte de la probabilidad total. El evento $A$ = "la primera moneda cae cara" agrupa dos de esos cuatro resultados igualmente probables (`CC` y `CS`), así que su probabilidad es la mitad.
+
+### Definición formal
+
+Una **medida de probabilidad** $P$ asigna a cada evento un número entre 0 y 1, y cumple tres reglas básicas conocidas como los **axiomas de Kolmogorov**:
+
+1. $P(A) \geq 0$ para todo evento $A$: ninguna probabilidad es negativa.
+2. $P(\Omega) = 1$: el resultado de cualquier repetición siempre cae en el espacio muestral completo, así que la probabilidad total es 1.
+3. Si $A$ y $B$ son mutuamente excluyentes, entonces $P(A \cup B) = P(A) + P(B)$.
+
+Cuando los $n$ resultados de un espacio muestral finito son igualmente probables, como los cuatro de las dos monedas, la probabilidad de un evento $A$ se calcula contando: $P(A) = |A| / n$, donde $|A|$ es el número de resultados que contiene $A$. De los tres axiomas se derivan propiedades que se usan todo el tiempo: $P(\emptyset) = 0$ (el evento imposible tiene probabilidad cero), $P(A^c) = 1 - P(A)$, y la **regla de la unión** para dos eventos cualesquiera, se solapen o no:
+
+$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+
+La resta evita contar dos veces la región donde $A$ y $B$ ocurren a la vez. Cuando $A$ y $B$ son mutuamente excluyentes, $A \cap B = \emptyset$, $P(A \cap B) = 0$, y la fórmula se reduce al tercer axioma.
+
+### Uso: verificar la regla de la unión y el complemento
+
+```python
+p_A = len(A) / len(omega)
+p_B = len(B) / len(omega)
+p_AB = len([w for w in A if w in B]) / len(omega)
+print("P(A) =", p_A)
+print("P(B) =", p_B)
+print("P(A interseccion B) =", p_AB)
+print("Formula P(A union B):", round(p_A + p_B - p_AB, 4))
+print("Conteo directo P(A union B):", len(set(A) | set(B)) / len(omega))
+print("P((A union B) complemento) =", 1 - len(set(A) | set(B)) / len(omega))
+
+C = ["CC"]
+D = ["SS"]
+print("C (ambas caras) y D (ambas sellos) son mutuamente excluyentes:", set(C) & set(D) == set())
+print("P(C union D) por axioma 3:", len(C) / len(omega) + len(D) / len(omega))
+```
+
+```text
+P(A) = 0.5
+P(B) = 0.5
+P(A interseccion B) = 0.25
+Formula P(A union B): 0.75
+Conteo directo P(A union B): 0.75
+P((A union B) complemento) = 0.25
+C (ambas caras) y D (ambas sellos) son mutuamente excluyentes: True
+P(C union D) por axioma 3: 0.5
+```
+
+Sumar $P(A) + P(B) = 0{,}5 + 0{,}5 = 1{,}0$ sin restar la intersección daría una unión de probabilidad 1, pero el conteo directo muestra que es 0,75: la intersección $\{CC\}$, con probabilidad 0,25, se contó dos veces en la suma sin corregir. Para $C$ y $D$, en cambio, sumar directamente sí es correcto porque no comparten ningún resultado.
+
+Vale la pena distinguir tres ideas que se mezclan con facilidad al empezar: un **resultado** ($\omega$) es lo que pasó en una repetición concreta, como `CC` en un lanzamiento particular; un **evento** ($A$) es una condición que agrupa resultados, como "la primera cae cara"; y una **probabilidad** ($P(A)$) es el número entre 0 y 1 que mide qué tan creíble es que ocurra ese evento antes de lanzar las monedas. El resultado se observa después del experimento, el evento se define antes, y la probabilidad se calcula antes también, a partir del espacio muestral.
+
+## 5. Por qué hace falta una variable aleatoria
+
+Con las dos monedas, trabajar directamente con los resultados `CC`, `CS`, `SC` y `SS` es manejable porque solo hay cuatro. Pero muchas preguntas interesantes no distinguen entre `CS` y `SC`: si la pregunta es "¿cuántas caras salieron en total?", los dos resultados dan la misma respuesta, uno. Seguir arrastrando la etiqueta completa del resultado (`CS` frente a `SC`) para responder una pregunta que solo depende del número de caras es trabajo de más, y se vuelve insostenible en experimentos con más pasos: si en vez de dos monedas se lanzaran veinte, el espacio muestral tendría más de un millón de resultados posibles, mientras que el número de caras solo puede ser un entero entre 0 y 20.
+
+La solución es dejar de describir el resultado completo y quedarse solo con el número que interesa. En vez de decir "salió `CS`", se dice "salieron 1 cara". Esa traducción de un resultado del experimento a un número es la idea intuitiva detrás de una **variable aleatoria**: una regla que toma cualquier resultado posible del experimento y le asigna un número real, de forma que trabajar con esos números baste para responder la pregunta de interés sin tener que volver al resultado original cada vez.
+
+## 6. La variable aleatoria: una función, no un número
+
+### Desde el ejemplo: dos formas de convertir el mismo resultado en un número
+
+Sobre el mismo experimento de lanzar dos monedas se pueden definir varias reglas de conversión distintas, según qué se decida medir. Dos ejemplos: $X$ = número de caras obtenidas, y $Y$ = 1 si la primera moneda cae cara, 0 si cae sello.
+
+```python
+X = {w: w.count("C") for w in omega}
+Y = {w: 1 if w[0] == "C" else 0 for w in omega}
+
+for w in omega:
+    print(f"{w}: X={X[w]} (numero de caras), Y={Y[w]} (la primera es cara)")
+```
+
+```text
+CC: X=2 (numero de caras), Y=1 (la primera es cara)
+CS: X=1 (numero de caras), Y=1 (la primera es cara)
+SC: X=1 (numero de caras), Y=0 (la primera es cara)
+SS: X=0 (numero de caras), Y=0 (la primera es cara)
+```
+
+Para el resultado `SC`, $X$ vale 1 y $Y$ vale 0: la misma repetición del experimento, resumida de dos formas distintas según qué pregunta interese.
+
+### Definición formal
+
+Una **variable aleatoria** es una función $X: \Omega \to \mathbb{R}$ que asigna un número real a cada resultado del espacio muestral, donde $\mathbb{R}$ denota el conjunto de los números reales. Nótese la diferencia entre $X$, la función completa, y $x$, un valor concreto que $X$ puede tomar: $X$ es la regla de conversión ("contar las caras"), mientras que $x = 1$ es una de las posibles observaciones que resultan de aplicarla. El conjunto de todos los valores que $X$ puede tomar se llama su **rango**, **imagen** o **soporte**: para $X$ en el ejemplo de las dos monedas, el soporte es $\{0, 1, 2\}$, porque no hay forma de obtener 1,5 caras ni 3 caras con solo dos lanzamientos.
+
+::: {.diagrama}
+![A la izquierda, el resultado SC dentro del espacio muestral de las dos monedas. Una flecha etiquetada X, numero de caras, lo lleva al valor 1 marcado sobre una recta real.](imagenes/variable-aleatoria-flecha.svg){fig-alt="La variable aleatoria X como funcion que lleva el resultado SC del espacio muestral de las dos monedas al numero real 1 sobre la recta de los numeros reales, ilustrando que X es una funcion y no un numero"}
+:::
+
+Una misma repetición del experimento admite tantas variables aleatorias como preguntas numéricas se quieran hacer sobre ella. En el ejemplo, $X(SC) = 1$ y $Y(SC) = 0$: dos funciones distintas aplicadas al mismo resultado $\omega = SC$, cada una respondiendo una pregunta distinta sobre la misma repetición del experimento.
+
+## 7. Variables aleatorias discretas y continuas
+
+### Desde los ejemplos: contar caras frente a medir minutos
+
+$X$, el número de caras en dos lanzamientos, solo puede tomar los valores 0, 1 o 2: entre 0 y 1 no hay ningún valor intermedio posible, no existe "1,3 caras". El tiempo que un pasajero espera el próximo bus es distinto: puede ser 3 minutos, 3,2 minutos, 3,27 minutos, y así indefinidamente, sin que exista un salto mínimo entre un valor posible y el siguiente.
+
+### Definición formal
+
+Una variable aleatoria es **discreta** cuando su rango es finito o infinito pero contable (se puede poner en una lista, aunque la lista no termine, como $\{0, 1, 2, 3, \ldots\}$). Es **continua** cuando su rango es un intervalo completo de $\mathbb{R}$, con infinitos valores posibles entre cualquier par de ellos, sin importar cuán cercanos estén. Esta distinción retoma la de tipos de variable de la Unidad 1: una variable aleatoria discreta se comporta como una variable numérica discreta, y una continua como una numérica continua, pero ahora con una medida de probabilidad detrás de sus valores.
+
+### Interpretación: de conteo frente a de medición
+
+Las variables discretas suelen surgir de **contar**: número de caras en dos monedas, suma de dos dados, número de artículos defectuosos al revisar una caja de 10 unidades. Las variables continuas suelen surgir de **medir**: minutos de espera de un bus, litros de gasolina consumidos, gramos de peso de un paquete. Contar artículos defectuosos en una caja es un buen ejemplo de variable discreta que no es solo "sí o no": si la caja tiene 10 artículos, el número de defectuosos puede ser 0, 1, 2, y así hasta 10, un conjunto finito de valores enteros, igual de discreto que el número de caras aunque el experimento sea distinto.
+
+La clasificación puede confundir en un caso concreto: el tiempo de espera del bus, medido con un cronómetro que redondea a segundos enteros, se ve discreto en los datos (3 segundos, 4 segundos, nunca 3,5), pero la variable que describe el fenómeno real sigue siendo continua. El redondeo es una limitación del instrumento de medición, no una propiedad del tiempo de espera en sí: el bus no tarda un número entero de segundos por naturaleza, solo se registra así. Por eso la pregunta correcta no es "¿los datos observados tienen huecos entre un valor y otro?", sino "¿la cantidad que se está midiendo podría, en principio, tomar cualquier valor real dentro de su rango?".
+
+## 8. La distribución de una variable aleatoria
+
+### Desde el ejemplo: no basta con saber qué valores son posibles
+
+Saber que $X$, el número de caras en dos monedas, puede valer 0, 1 o 2 no dice qué tan probable es cada uno. Con monedas honestas, $X = 1$ ocurre el doble de seguido que $X = 0$ o que $X = 2$, porque hay dos resultados del espacio muestral (`CS` y `SC`) que producen una cara, contra uno solo (`CC` o `SS`) para los otros dos valores. Conocer esa correspondencia completa entre cada valor posible y su probabilidad es conocer la **distribución** de $X$.
+
+### Definición formal
+
+La **distribución de una variable aleatoria** $X$ es la descripción completa de cómo se reparte la probabilidad entre los valores que $X$ puede tomar. Dos variables aleatorias con el mismo rango pueden tener distribuciones distintas: dos monedas cargadas, donde salir cara es más probable que salir sello, tienen el mismo rango $\{0, 1, 2\}$ para el número de caras que un par de monedas honestas, pero la probabilidad ya no se reparte por igual entre los tres valores. Conocer la distribución de $X$ es tener toda la información probabilística disponible sobre $X$: cualquier probabilidad que involucre a $X$, como $P(X \leq 1)$ o $P(X > 0)$, se puede calcular a partir de su distribución.
+
+### Uso: la distribución de X para dos monedas honestas
+
+```python
+from collections import Counter
+
+conteo = Counter(X.values())
+n = len(omega)
+print("x | frecuencia | P(X = x)")
+for x in sorted(conteo):
+    print(x, conteo[x], conteo[x] / n)
+```
+
+```text
+x | frecuencia | P(X = x)
+0 1 0.25
+1 2 0.5
+2 1 0.25
+```
+
+Las secciones que siguen dan nombre formal a esta tabla, según si $X$ es discreta o continua, y muestran cómo representarla con una gráfica.
+
+## 9. Variable aleatoria discreta: la función de masa de probabilidad
+
+### Desde un ejemplo más rico: la suma de dos dados
+
+El experimento de las dos monedas alcanza para tres valores posibles. Para ver una distribución con más forma conviene un experimento con más valores: lanzar dos dados de seis caras y sumar los puntos obtenidos. El espacio muestral tiene 36 resultados igualmente probables (cada combinación de un dado del 1 al 6 con el otro del 1 al 6), y la suma $X$ puede valer cualquier entero entre 2 y 12, pero no todos con la misma probabilidad: solo hay una forma de sumar 2 (1 y 1), pero seis formas de sumar 7 (1-6, 2-5, 3-4, 4-3, 5-2, 6-1).
+
+```python
+import itertools
+
+caras = range(1, 7)
+espacio = list(itertools.product(caras, repeat=2))
+sumas = [a + b for a, b in espacio]
+
+valores = sorted(set(sumas))
+n = len(espacio)
+pmf = {s: sumas.count(s) / n for s in valores}
+
+print("s | P(X = s)")
+for s in valores:
+    print(s, round(pmf[s], 4))
+```
+
+```text
+s | P(X = s)
+2 0.0278
+3 0.0556
+4 0.0833
+5 0.1111
+6 0.1389
+7 0.1667
+8 0.1389
+9 0.1111
+10 0.0833
+11 0.0556
+12 0.0278
+```
+
+### Definición formal
+
+Para una variable aleatoria discreta $X$, la **función de masa de probabilidad** (PMF, por sus siglas en inglés) se denota $p_X(x)$ y se define como $p_X(x) = P(X = x)$: la probabilidad de que $X$ tome exactamente el valor $x$. Cumple dos propiedades que se verifican directamente en la tabla de arriba: $p_X(x) \geq 0$ para todo $x$, porque es una probabilidad, y $\sum_x p_X(x) = 1$, la suma sobre todos los valores posibles siempre da 1, porque el rango de $X$ cubre todo lo que puede pasar.
+
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(11, 4.2))
+ax.bar(valores, [pmf[s] for s in valores], color="#2f7bb8", width=0.6)
+ax.set_xlabel("s (suma de los dos dados)")
+ax.set_ylabel("P(X = s)")
+ax.set_xticks(valores)
+ax.grid(axis="y", color="#e4eaf1")
+ax.set_axisbelow(True)
+for spine in ["top", "right"]:
+    ax.spines[spine].set_visible(False)
+fig.tight_layout()
+fig.savefig("imagenes/pmf-suma-dos-dados.png", dpi=150)
+```
+
+::: {.diagrama}
+![Grafico de barras con la funcion de masa de probabilidad de la suma de dos dados, con un pico en 7 y valores simetricos que decrecen hacia los extremos 2 y 12.](imagenes/pmf-suma-dos-dados.png){fig-alt="Grafico de barras de la funcion de masa de probabilidad de la suma de dos dados de seis caras, con las probabilidades exactas para cada suma entre 2 y 12 y un pico en el valor 7"}
+:::
+
+::: {.callout-note}
+## Interpretación en contexto
+
+El pico en $s = 7$ no es casualidad: es la suma con más combinaciones posibles de las 36 igualmente probables. Sumar 2 o sumar 12 requiere una combinación exacta y única (dos unos, o dos seises), mientras que sumar 7 se logra de seis formas distintas. La forma de la gráfica, simétrica y con un pico en el centro, refleja directamente cuántas combinaciones del espacio muestral producen cada suma.
+:::
+
+## 10. Variable aleatoria continua: la función de densidad
+
+### Desde el ejemplo: el tiempo de espera de un bus
+
+Suponga que, en un paradero dado, el tiempo de espera hasta que llega el próximo bus promedia 6 minutos, y que la espera no tiene "memoria": haber esperado ya 5 minutos sin que llegue no hace más ni menos probable que llegue en el minuto siguiente. Esa situación se modela con una variable aleatoria continua $X$, el número de minutos de espera, que sigue una distribución **exponencial** con media 6.
+
+Con una variable continua no tiene sentido preguntar "¿cuál es la probabilidad de esperar exactamente 5,00000... minutos?": esa probabilidad es cero, porque hay infinitos valores posibles alrededor de 5 (5,001, 5,0001, 5,00001, y así indefinidamente) y ninguno concentra una porción positiva de la probabilidad total. Lo que sí tiene sentido, y lo que en la práctica interesa, es preguntar por la probabilidad de esperar **entre** dos valores, como entre 2 y 10 minutos.
+
+### Definición formal
+
+Para una variable aleatoria continua $X$, la **función de densidad de probabilidad** (PDF) se denota $f_X(x)$, y la probabilidad de que $X$ caiga en un intervalo $(a, b]$ es el área bajo la curva de $f_X$ entre $a$ y $b$:
+
+$$P(a < X \leq b) = \int_a^b f_X(x)\,dx$$
+
+$f_X(x)$ por sí sola no es una probabilidad: es una densidad, una medida de qué tan concentrada está la probabilidad alrededor de $x$, y solo se convierte en probabilidad al integrarla sobre un intervalo. Esta es la razón formal detrás de $P(X = x) = 0$ para cualquier variable continua: el "área" bajo la curva sobre un solo punto, un intervalo de ancho cero, es cero. $f_X$ cumple $f_X(x) \geq 0$ para todo $x$, y el área bajo toda la curva vale 1, igual que la suma de todas las probabilidades en el caso discreto.
+
+```python
+import numpy as np
+from scipy import stats
+
+media_espera = 6  # minutos, tiempo promedio de espera del bus
+x = np.linspace(0, 30, 400)
+densidad = stats.expon.pdf(x, scale=media_espera)
+
+a, b = 2, 10
+prob_intervalo = stats.expon.cdf(b, scale=media_espera) - stats.expon.cdf(a, scale=media_espera)
+print("P(2 < X <= 10) =", round(prob_intervalo, 4))
+```
+
+```text
+P(2 < X <= 10) = 0.5277
+```
+
+```python
+fig, ax = plt.subplots(figsize=(11, 4.2))
+ax.plot(x, densidad, color="#2f7bb8", linewidth=2)
+x_sombra = np.linspace(a, b, 200)
+ax.fill_between(x_sombra, stats.expon.pdf(x_sombra, scale=media_espera), color="#2f7bb8", alpha=0.25)
+ax.set_xlabel("x (minutos de espera)")
+ax.set_ylabel("f(x)")
+ax.grid(color="#e4eaf1")
+ax.set_axisbelow(True)
+for spine in ["top", "right"]:
+    ax.spines[spine].set_visible(False)
+fig.tight_layout()
+fig.savefig("imagenes/densidad-tiempo-espera-bus.png", dpi=150)
+```
+
+::: {.diagrama}
+![Curva de densidad exponencial decreciente del tiempo de espera del bus, con el area entre 2 y 10 minutos sombreada bajo la curva.](imagenes/densidad-tiempo-espera-bus.png){fig-alt="Funcion de densidad exponencial del tiempo de espera de un bus con media 6 minutos, con el area bajo la curva entre 2 y 10 minutos sombreada, que representa la probabilidad de esperar entre 2 y 10 minutos"}
+:::
+
+::: {.callout-note}
+## Interpretación en contexto
+
+El área sombreada, 0,5277, dice que hay 52,77% de probabilidad de que el pasajero espere entre 2 y 10 minutos por el próximo bus. La curva completa nunca toca el eje horizontal para $x \geq 0$ pero se acerca cada vez más a cero a medida que $x$ crece: esperas de más de 20 minutos son posibles pero cada vez menos probables, sin que exista un límite superior estricto.
+:::
+
+## 11. La función de distribución acumulada
+
+### Desde los ejemplos: ¿qué tan probable es no pasarse de un valor?
+
+Con la suma de dos dados, una pregunta distinta a "¿cuál es la probabilidad de sumar exactamente 7?" es "¿cuál es la probabilidad de sumar 7 o menos?". Esta segunda pregunta acumula la probabilidad de todos los valores desde el mínimo posible hasta el que interesa. Con el tiempo de espera del bus, la pregunta análoga es "¿cuál es la probabilidad de esperar 5 minutos o menos?".
+
+### Definición formal
+
+La **función de distribución acumulada** (CDF), o simplemente función de distribución, de una variable aleatoria $X$ se denota $F_X(x)$ y se define, para discretas y continuas por igual, como:
+
+$$F_X(x) = P(X \leq x)$$
+
+Para una variable aleatoria discreta, $F_X(x)$ se construye sumando la PMF de todos los valores del rango que sean menores o iguales a $x$. Para una continua, se construye integrando la PDF desde $-\infty$ hasta $x$; el punto 14 de esta guía retoma esa relación con más detalle.
+
+### Uso: la CDF de la suma de dos dados y la del tiempo de espera del bus
+
+```python
+cdf_dado = {}
+acumulado = 0
+for s in valores:
+    acumulado += pmf[s]
+    cdf_dado[s] = acumulado
+
+print("s | F(s)")
+for s in valores:
+    print(s, round(cdf_dado[s], 4))
+```
+
+```text
+s | F(s)
+2 0.0278
+3 0.0833
+4 0.1667
+5 0.2778
+6 0.4167
+7 0.5833
+8 0.7222
+9 0.8333
+10 0.9167
+11 0.9722
+12 1.0
+```
+
+```python
+x_bus = np.linspace(0, 30, 400)
+cdf_bus = stats.expon.cdf(x_bus, scale=media_espera)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11, 4.2))
+
+x_escalera = [0] + valores
+y_escalera = [0] + [cdf_dado[s] for s in valores]
+ax1.step(x_escalera, y_escalera, where="post", color="#2f7bb8", linewidth=2)
+ax1.set_xlabel("s (suma de los dos dados)")
+ax1.set_ylabel("F(s)")
+ax1.set_xticks(valores)
+ax1.grid(color="#e4eaf1")
+ax1.set_axisbelow(True)
+
+ax2.plot(x_bus, cdf_bus, color="#c4682c", linewidth=2)
+ax2.set_xlabel("x (minutos de espera)")
+ax2.set_ylabel("F(x)")
+ax2.grid(color="#e4eaf1")
+ax2.set_axisbelow(True)
+
+for ax in (ax1, ax2):
+    for spine in ["top", "right"]:
+        ax.spines[spine].set_visible(False)
+
+fig.tight_layout()
+fig.savefig("imagenes/cdf-discreta-y-continua.png", dpi=150)
+```
+
+::: {.diagrama}
+![A la izquierda, una escalera creciente que va de 0 a 1: la CDF de la suma de dos dados, con un salto en cada entero de 2 a 12. A la derecha, una curva suave y creciente que tambien va de 0 a 1: la CDF continua del tiempo de espera del bus.](imagenes/cdf-discreta-y-continua.png){fig-alt="Dos graficas de funcion de distribucion acumulada lado a lado: a la izquierda una escalera discreta para la suma de dos dados, a la derecha una curva continua para el tiempo de espera de un bus, ambas crecientes de 0 a 1"}
+:::
+
+La CDF discreta sube en saltos, uno por cada valor posible de la suma, y se mantiene plana entre un entero y el siguiente porque no hay valores intermedios que acumular. La CDF continua sube sin saltos, de forma suave, porque siempre hay valores intermedios entre cualquier par de minutos.
+
+## 12. Propiedades de la función de distribución
+
+Cualquier función de distribución acumulada, sin importar si la variable es discreta o continua, cumple cuatro propiedades, visibles en las dos gráficas de la sección anterior:
+
+1. **Toma valores entre 0 y 1**: $0 \leq F_X(x) \leq 1$ para todo $x$, porque es una probabilidad acumulada.
+2. **Es no decreciente**: si $x_1 < x_2$, entonces $F_X(x_1) \leq F_X(x_2)$. Acumular hasta un valor más alto nunca puede dar una probabilidad menor que acumular hasta uno más bajo, porque en el peor caso no se suma nada nuevo. Se ve en las dos curvas de la sección anterior: ninguna baja en ningún tramo.
+3. **Tiene límites en los extremos**: $\lim_{x \to -\infty} F_X(x) = 0$ (nada queda por debajo de menos infinito) y $\lim_{x \to +\infty} F_X(x) = 1$ (todo queda por debajo de más infinito). En la CDF de los dados, $F_X(2) = 0{,}0278$ ya casi arranca en 0 porque 2 es el mínimo posible, y $F_X(12) = 1$ exactamente, porque 12 es el máximo. En la CDF del bus, la curva se acerca a 1 sin tocarlo nunca del todo dentro de cualquier rango finito de minutos, porque en teoría la espera podría durar cualquier cantidad de tiempo.
+4. **Es continua por la derecha**: en cualquier punto de salto (que solo ocurre en variables discretas o con parte discreta), el valor de $F_X$ justo en el punto coincide con el valor inmediatamente después del salto, no con el de antes. En la escalera de los dados, $F_X(7) = 0{,}5833$ es el valor que incluye el salto que ocurre exactamente en 7, no el valor de $0{,}4167$ que tenía la función justo antes de llegar a 7.
+
+Los saltos de la CDF discreta ocurren exactamente en los valores del rango de $X$ donde $p_X(x) > 0$, y el tamaño de cada salto es igual a $p_X(x)$ en ese punto: el salto en $s = 7$ mide $0{,}5833 - 0{,}4167 = 0{,}1667$, que es justo $p_X(7)$ calculado en la sección 9. La CDF continua del bus no tiene saltos en ningún punto, consistente con que $P(X = x) = 0$ para toda variable continua.
+
+## 13. Calcular probabilidades con la función de distribución
+
+### Desde el ejemplo: tres preguntas sobre la espera del bus
+
+Con la CDF del tiempo de espera del bus ya construida, tres preguntas naturales de un pasajero se responden sin volver a integrar la densidad desde cero: ¿cuál es la probabilidad de esperar 5 minutos o menos?, ¿cuál es la probabilidad de esperar más de 5 minutos?, y ¿cuál es la probabilidad de esperar entre 2 y 10 minutos?
+
+### Definición formal
+
+A partir de $F_X$ se calculan probabilidades sin volver a la PMF o a la PDF:
+
+- $P(X \leq x) = F_X(x)$, por definición.
+- $P(X > x) = 1 - F_X(x)$, porque "más que $x$" es el complemento de "$x$ o menos".
+- $P(a < X \leq b) = F_X(b) - F_X(a)$: la probabilidad acumulada hasta $b$ menos la que ya estaba acumulada hasta $a$ deja exactamente la franja entre los dos.
+
+### Uso: las tres preguntas del pasajero
+
+```python
+p_menor_igual_5 = stats.expon.cdf(5, scale=media_espera)
+p_mayor_5 = 1 - p_menor_igual_5
+p_entre_2_y_10 = stats.expon.cdf(10, scale=media_espera) - stats.expon.cdf(2, scale=media_espera)
+
+print("P(X <= 5) =", round(p_menor_igual_5, 4))
+print("P(X > 5) =", round(p_mayor_5, 4))
+print("P(2 < X <= 10) =", round(p_entre_2_y_10, 4))
+```
+
+```text
+P(X <= 5) = 0.5654
+P(X > 5) = 0.4346
+P(2 < X <= 10) = 0.5277
+```
+
+::: {.callout-note}
+## Interpretación en contexto
+
+Un poco más de la mitad de las veces (56,54%) el pasajero espera 5 minutos o menos, y en un 43,46% de las veces espera más de 5. El valor $P(2 < X \leq 10) = 0{,}5277$ coincide con el área sombreada de la sección 10, calculada ahí integrando la densidad directamente: es la misma probabilidad, obtenida esta vez restando dos valores de la CDF en vez de integrar.
+:::
+
+## 14. Cómo se relacionan la PMF, la PDF y la CDF
+
+### Desde los ejemplos: ir y volver entre la tabla y la escalera, entre la curva y su pendiente
+
+En la suma de dos dados, la tabla de la PMF y la escalera de la CDF contienen la misma información escrita de dos formas: la PMF dice cuánto probabilidad tiene cada valor por separado, y la CDF dice cuánto se ha acumulado hasta cada valor. En el tiempo de espera del bus, la curva de densidad y la curva de la CDF también contienen la misma información: una es la razón de cambio instantánea de la otra.
+
+### Definición formal: de la PMF a la CDF y de vuelta, caso discreto
+
+Para una variable discreta, ir de la PMF a la CDF es sumar acumulando, como se hizo en la sección 11. Para volver de la CDF a la PMF en un valor $x$ del rango, se resta el valor de $F_X$ justo antes de $x$ (su límite por la izquierda, $F_X(x^-)$) del valor en $x$:
+
+$$p_X(x) = F_X(x) - F_X(x^-)$$
+
+```python
+x0 = 7
+p_manual = cdf_dado[x0] - cdf_dado[x0 - 1]
+print(f"p_X({x0}) via F({x0}) - F({x0 - 1}):", round(p_manual, 4))
+print(f"p_X({x0}) directo de la tabla:", round(pmf[x0], 4))
+```
+
+```text
+p_X(7) via F(7) - F(6): 0.1667
+p_X(7) directo de la tabla: 0.1667
+```
+
+Como los valores de la suma de dos dados son enteros consecutivos, $F_X(x^-)$ coincide con $F_X(x - 1)$, y las dos formas de calcular $p_X(7)$ dan exactamente el mismo número.
+
+### Definición formal: de la PDF a la CDF y de vuelta, caso continuo
+
+Para una variable continua, la CDF es la integral acumulada de la densidad desde $-\infty$:
+
+$$F_X(x) = \int_{-\infty}^{x} f_X(t)\,dt$$
+
+y, en la otra dirección, la densidad es la derivada de la CDF donde esa derivada existe:
+
+$$f_X(x) = F_X'(x)$$
+
+```python
+h = 1e-4
+x1 = 6
+f_numerico = (stats.expon.cdf(x1 + h, scale=media_espera) - stats.expon.cdf(x1 - h, scale=media_espera)) / (2 * h)
+f_teorico = stats.expon.pdf(x1, scale=media_espera)
+print(f"f({x1}) aproximada como F'({x1}):", round(f_numerico, 4))
+print(f"f({x1}) evaluada directo:", round(f_teorico, 4))
+```
+
+```text
+f(6) aproximada como F'(6): 0.0613
+f(6) evaluada directo: 0.0613
+```
+
+Aproximar la derivada de $F_X$ en $x = 6$ con una diferencia de cocientes muy pequeña ($h = 0{,}0001$) da el mismo valor, hasta el redondeo, que evaluar la densidad directamente en ese punto: confirma numéricamente que $f_X$ es, en efecto, la razón de cambio de $F_X$.
+
+En resumen: cuándo usar cada función depende de qué se pregunte. Si la pregunta es "¿cuál es la probabilidad de exactamente este valor?", en discretas se usa la PMF y en continuas esa pregunta vale cero, por lo que no aplica. Si la pregunta es "¿cuál es la probabilidad de este valor o menos?", se usa la CDF, sea discreta o continua. Si la pregunta es "¿qué tan concentrada está la probabilidad alrededor de este valor?" en una variable continua, se usa la densidad, aunque su valor no sea directamente una probabilidad.
+
+## 15. De la teoría a los datos: variables aleatorias y columnas reales
+
+### Desde el ejemplo: cronometrar varias esperas reales
+
+Todo lo anterior describió el tiempo de espera del bus como una variable aleatoria teórica, con una media fija de 6 minutos conocida de antemano. En la práctica, para saber si ese modelo es razonable, alguien tendría que pararse en el paradero, cronometrar la espera cada vez que llega un bus, y anotar cada tiempo en una lista. Esa lista de tiempos cronometrados es una **muestra**, y cada tiempo individual dentro de ella es una **realización** de la variable aleatoria.
+
+### Definición formal
+
+Cuando el mismo experimento aleatorio se repite $n$ veces de forma independiente, cada repetición produce una **realización** de la variable aleatoria $X$, denotada $X_1, X_2, \ldots, X_n$. Una vez que el experimento ya ocurrió y se registraron los valores, cada $X_i$ deja de ser incierta: se convierte en un número fijo, la **muestra observada**. La diferencia entre la **distribución teórica** de $X$ (lo que la sección 10 llamó $f_X$, definida de antemano por un modelo) y la **distribución observada** de una muestra es la diferencia entre lo que un modelo predice y lo que efectivamente se registró en un conjunto finito de repeticiones. Esa distinción es la misma que separaba, en la Unidad 1, describir datos ya existentes de modelar la incertidumbre antes de que el dato ocurra.
+
+### Uso: simular una muestra de 200 esperas
+
+Sin salir a cronometrar un bus real, es posible generar una muestra que se comporte como si viniera del modelo exponencial de media 6 minutos, usando un generador de números aleatorios. Esto no reemplaza cronometrar buses reales, pero permite estudiar cómo se comporta una muestra frente a la teoría que la generó, con control total sobre esa teoría.
+
+```python
+rng = np.random.default_rng(2026)
+n = 200
+muestra = rng.exponential(scale=media_espera, size=n)
+
+print("Primeras 5 realizaciones (minutos):", np.round(muestra[:5], 2))
+print("Promedio muestral:", round(muestra.mean(), 2))
+print("Promedio teorico (media_espera):", media_espera)
+```
+
+```text
+Primeras 5 realizaciones (minutos): [0.89 7.59 2.57 4.12 5.87]
+Promedio muestral: 6.99
+Promedio teorico (media_espera): 6
+```
+
+Cada uno de los 200 números en `muestra` es una realización $X_i$: la primera dice que, en esa repetición simulada, el pasajero esperó 0,89 minutos; la segunda, que esperó 7,59 minutos. El promedio de las 200 realizaciones, 6,99 minutos, se acerca al promedio teórico de 6 minutos sin coincidir exactamente, porque 200 repeticiones son finitas y están sujetas a variabilidad propia de la muestra.
+
+## 16. La distribución empírica
+
+### Desde el ejemplo: construir una CDF con los datos en mano
+
+Con las 200 esperas simuladas ya generadas, es posible preguntar, igual que en la sección 13 pero ahora usando los datos y no el modelo teórico: ¿qué proporción de esas 200 esperas fue de 5 minutos o menos? Contar directamente sobre la muestra, en vez de usar la fórmula teórica, construye una versión de la CDF basada enteramente en los datos observados.
+
+### Definición formal
+
+La **función de distribución empírica**, denotada $\hat{F}_n(x)$, se calcula sobre una muestra de tamaño $n$ como la proporción de realizaciones que no superan $x$:
+
+$$\hat{F}_n(x) = \frac{1}{n}\sum_{i=1}^{n} \mathbb{1}(X_i \leq x)$$
+
+donde $\mathbb{1}(X_i \leq x)$ vale 1 si esa realización cumple la condición y 0 si no, así que la suma cuenta cuántas de las $n$ realizaciones son menores o iguales que $x$, y dividir entre $n$ convierte ese conteo en una proporción. A diferencia de la CDF teórica $F_X$, que viene de un modelo fijado de antemano, $\hat{F}_n$ depende de la muestra concreta que se haya observado: dos muestras distintas del mismo experimento producen dos $\hat{F}_n$ ligeramente distintas, aunque ambas provengan de la misma $F_X$ teórica.
+
+### Uso: comparar la CDF empírica contra la teórica
+
+```python
+x_ecdf = np.sort(muestra)
+y_ecdf = np.arange(1, n + 1) / n
+
+x_teorica = np.linspace(0, x_ecdf.max(), 400)
+cdf_teorica = stats.expon.cdf(x_teorica, scale=media_espera)
+
+fig, ax = plt.subplots(figsize=(11, 4.2))
+ax.step(x_ecdf, y_ecdf, where="post", color="#2f7bb8", linewidth=1.8, label="CDF empirica (200 esperas simuladas)")
+ax.plot(x_teorica, cdf_teorica, color="#c4682c", linewidth=2, linestyle="--", label="CDF teorica, exponencial con media 6")
+ax.set_xlabel("x (minutos de espera)")
+ax.set_ylabel("F(x)")
+ax.grid(color="#e4eaf1")
+ax.set_axisbelow(True)
+ax.legend(frameon=False)
+for spine in ["top", "right"]:
+    ax.spines[spine].set_visible(False)
+fig.tight_layout()
+fig.savefig("imagenes/ecdf-vs-teorica-tiempo-espera.png", dpi=150)
+```
+
+::: {.diagrama}
+![Una escalera azul, la CDF empirica de las 200 esperas simuladas, muy pegada a una curva punteada naranja, la CDF teorica exponencial con media 6, desde 0 hasta que ambas se acercan a 1.](imagenes/ecdf-vs-teorica-tiempo-espera.png){fig-alt="Comparacion entre la funcion de distribucion acumulada empirica de 200 tiempos de espera de bus simulados y la funcion de distribucion acumulada teorica exponencial con media 6 minutos, mostrando que la empirica sigue de cerca a la teorica"}
+:::
+
+::: {.callout-note}
+## Interpretación en contexto
+
+La escalera empírica sube en 200 saltos diminutos, uno por cada realización de la muestra, y se mantiene muy cerca de la curva teórica en todo momento, sin coincidir exactamente en ningún tramo. Esa cercanía sin coincidencia exacta es la esperada: la muestra viene efectivamente del modelo exponencial de media 6, así que su distribución empírica debería parecerse a la teórica, y la distancia entre las dos disminuiría todavía más si la muestra fuera de 2000 esperas en vez de 200.
+:::
+
+## 17. Simulación y aplicación en analítica
+
+### Un ejercicio completo: ¿el modelo predice bien la proporción de esperas cortas?
+
+Esta sección cierra la guía con un ejercicio que reúne PMF, PDF, CDF y distribución empírica en un solo flujo, usando el mismo modelo del tiempo de espera del bus, pero con una muestra más grande para ver el efecto de aumentar el número de repeticiones.
+
+```python
+n = 500
+muestra = rng.exponential(scale=media_espera, size=n)
+
+p_simulada = (muestra <= 5).mean()
+p_teorica = stats.expon.cdf(5, scale=media_espera)
+print("P(X <= 5) simulada con 500 esperas:", round(p_simulada, 4))
+print("P(X <= 5) teorica:", round(p_teorica, 4))
+
+x = np.linspace(0, muestra.max(), 400)
+densidad_teorica = stats.expon.pdf(x, scale=media_espera)
+
+fig, ax = plt.subplots(figsize=(11, 4.2))
+ax.hist(muestra, bins=25, density=True, color="#2f7bb8", alpha=0.55, edgecolor="white", label="Histograma de 500 esperas simuladas")
+ax.plot(x, densidad_teorica, color="#c4682c", linewidth=2, label="Densidad teorica, exponencial con media 6")
+ax.set_xlabel("x (minutos de espera)")
+ax.set_ylabel("densidad")
+ax.grid(color="#e4eaf1")
+ax.set_axisbelow(True)
+ax.legend(frameon=False)
+for spine in ["top", "right"]:
+    ax.spines[spine].set_visible(False)
+fig.tight_layout()
+fig.savefig("imagenes/histograma-vs-densidad-simulacion-bus.png", dpi=150)
+```
+
+```text
+P(X <= 5) simulada con 500 esperas: 0.56
+P(X <= 5) teorica: 0.5654
+```
+
+::: {.diagrama}
+![Histograma azul de 500 tiempos de espera simulados, con la curva naranja de la densidad exponencial teorica superpuesta y ajustando de cerca a la forma del histograma.](imagenes/histograma-vs-densidad-simulacion-bus.png){fig-alt="Histograma de 500 tiempos de espera de bus simulados con la curva de densidad exponencial teorica de media 6 minutos superpuesta, mostrando que el histograma sigue de cerca la forma de la densidad teorica"}
+:::
+
+::: {.callout-tip collapse="true"}
+## Ejercicio propuesto: cambiar el escenario
+
+Repita la simulación cambiando `media_espera` a 3 minutos, manteniendo el mismo tamaño de muestra (500), y responda: ¿la probabilidad de esperar 5 minutos o menos sube o baja frente al escenario de media 6? Antes de correr el código, prediga la respuesta usando la fórmula $P(X \leq 5) = F_X(5) = 1 - e^{-5/\text{media}}$ de la distribución exponencial, y luego verifíquela ejecutando el ejercicio con el nuevo valor.
+:::
+
+### Interpretación en el problema cotidiano
+
+Con 500 repeticiones simuladas, la proporción observada de esperas de 5 minutos o menos (0,56) prácticamente coincide con la que predice el modelo teórico (0,5654), y el histograma sigue de cerca la forma de la curva de densidad. Esa coincidencia no es un accidente de esta simulación en particular: es la consecuencia esperada de que las 500 realizaciones efectivamente provienen del modelo exponencial que se está comparando contra ellas. En un caso real, con datos cronometrados de un paradero de verdad, encontrar ese mismo nivel de acuerdo entre lo observado y lo que predice un modelo exponencial sería evidencia a favor de usar ese modelo para responder preguntas futuras sobre la espera, como cuántos minutos hay que anunciar como espera máxima razonable, o qué proporción de pasajeros esperaría más de 15 minutos en un mal día.
+
+### El hilo completo de la guía
+
+1. **Experimento**: lanzar dos monedas, lanzar dos dados, o cronometrar la espera de un bus, procesos cuyo resultado no se puede predecir con certeza antes de observarlo.
+2. **Espacio muestral**: el conjunto de todos los resultados posibles de ese experimento, $\Omega$.
+3. **Evento**: un subconjunto de $\Omega$ que agrupa los resultados que cumplen una condición de interés.
+4. **Probabilidad**: un número entre 0 y 1 asignado a cada evento, que cumple los axiomas de Kolmogorov.
+5. **Variable aleatoria**: una función $X$ que traduce cada resultado del experimento a un número real.
+6. **Distribución**: la descripción completa de cómo se reparte la probabilidad entre los valores posibles de $X$.
+7. **PMF o PDF**: la forma concreta de esa distribución, como tabla de probabilidades si $X$ es discreta, o como curva de densidad si $X$ es continua.
+8. **CDF**: la probabilidad acumulada hasta cada valor, construida a partir de la PMF o de la PDF.
+9. **Datos observados**: una muestra de realizaciones del experimento repetido, cuya distribución empírica se puede comparar contra la distribución teórica para evaluar si el modelo elegido es razonable.
+
+## Lista de verificación
+
+::: {.checklist}
+- [ ] Distingues un experimento determinístico de uno aleatorio, y explicas por qué la moneda y el bus son aleatorios y hervir agua no lo es.
+- [ ] Construyes correctamente el espacio muestral de un experimento simple, sin omitir resultados ni solaparlos, y distingues un espacio finito de uno infinito discreto y de uno continuo.
+- [ ] Defines un evento como subconjunto de $\Omega$, y calculas su unión, intersección y complemento con otro evento.
+- [ ] Enuncias los tres axiomas de Kolmogorov y aplicas la regla de la unión a dos eventos que se solapan.
+- [ ] Explicas por qué hace falta una variable aleatoria y la defines formalmente como una función $X: \Omega \to \mathbb{R}$, distinguiendo $X$ de una observación $x$.
+- [ ] Distingues una variable aleatoria discreta de una continua, y reconoces casos donde la clasificación podría confundir.
+- [ ] Defines la función de masa de probabilidad de una variable discreta, verificas que sus valores suman 1, y la representas en una tabla y en un gráfico de barras.
+- [ ] Defines la función de densidad de una variable continua, interpretas el área bajo la curva como probabilidad, y explicas por qué $P(X = x) = 0$ para cualquier valor puntual.
+- [ ] Defines la función de distribución acumulada, la calculas para un caso discreto y uno continuo, y enuncias sus cuatro propiedades.
+- [ ] Calculas $P(X \leq x)$, $P(X > x)$ y $P(a < X \leq b)$ a partir de la CDF, sin volver a la PMF o a la PDF.
+- [ ] Explicas la relación entre PMF, PDF y CDF en ambos sentidos: acumular para construir la CDF, y diferenciar o restar para recuperar la PMF o la PDF.
+- [ ] Distingues una variable aleatoria teórica de una muestra observada, y defines qué es una realización $X_i$.
+- [ ] Construyes la distribución empírica de una muestra y la comparas visualmente contra la distribución teórica que la generó.
+- [ ] Corres una simulación completa en Python, interpretas sus resultados en el contexto del ejemplo cotidiano elegido, y explicas por qué el acuerdo entre lo simulado y lo teórico no es casualidad.
+:::
+
+## Recursos
+
+- Ross, S. M. (2014). *Introduction to Probability and Statistics for Engineers and Scientists* (quinta edición). Academic Press. Capítulos sobre espacio muestral, variables aleatorias y funciones de distribución.
+- Wasserman, L. (2004). *All of Statistics: A Concise Course in Statistical Inference*. Springer. Capítulo 2, sobre variables aleatorias y sus distribuciones.
+- Documentación de `scipy.stats`, en particular las distribuciones `scipy.stats.expon` usadas en esta guía: <https://docs.scipy.org/doc/scipy/reference/stats.html>.
+
+::: {.pie-doc}
+Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería.
+Semestre 2026-02.
+
+**Transparencia.** La redacción de esta guía contó con el apoyo de inteligencia artificial, usando
+el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de
+código y los gráficos de datos son reales, obtenidas ejecutando el código exacto de esta guía.
+:::

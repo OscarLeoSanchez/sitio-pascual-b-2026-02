@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Oscar Leonel Sánchez Conde">
 
-<title>Estadística para Analítica – Clases Pascual Bravo 2026-02</title>
+<title>Unidad 2. Modelos de probabilidad – Clases Pascual Bravo 2026-02</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,24 +27,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../estilos/favicon.svg" rel="icon" type="image/svg+xml">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../estadistica-para-analitica/index.html">Presentación del módulo</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/index.html">Unidad 2. Modelos de probabilidad</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/index.html">Presentación de la unidad</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -99,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Clases Pascual Bravo 2026-02</a> 
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -111,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../estadistica-para-analitica/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Presentación del módulo</span></a>
   </div>
 </li>
@@ -126,37 +127,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/semana-01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/semana-01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 1. Presentación y entorno de trabajo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/semana-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/semana-02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 2. Tipos de variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/semana-03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/semana-03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 3. Localización, dispersión y tablas de frecuencia</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/semana-04/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/semana-04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 4. Boxplot, cuantiles y variables categóricas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/semana-05/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/semana-05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Semana 5. Dispersión, condicionales y cierre de la Unidad 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/laboratorio-pandas-eda/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/laboratorio-pandas-eda/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Laboratorio: análisis exploratorio con pandas</span></a>
   </div>
 </li>
@@ -173,19 +174,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/unidad-02/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Presentación de la unidad</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/unidad-02/variables-aleatorias.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/unidad-02/variables-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Variables aleatorias y espacio muestral</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html" class="sidebar-item-text sidebar-link">
+  <a href="../../estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Presentación: variables aleatorias</span></a>
   </div>
 </li>
@@ -201,39 +202,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta guía</h2>
    
   <ul>
-  <li><a href="#prueba-diagnóstica-de-entrada" id="toc-prueba-diagnóstica-de-entrada" class="nav-link active" data-scroll-target="#prueba-diagnóstica-de-entrada">Prueba diagnóstica de entrada</a></li>
-  <li><a href="#de-qué-se-trata-el-módulo" id="toc-de-qué-se-trata-el-módulo" class="nav-link" data-scroll-target="#de-qué-se-trata-el-módulo">De qué se trata el módulo</a></li>
-  <li><a href="#calendario" id="toc-calendario" class="nav-link" data-scroll-target="#calendario">Calendario</a>
-  <ul class="collapse">
-  <li><a href="#unidad-1.-análisis-descriptivo-y-exploratorio-de-datos" id="toc-unidad-1.-análisis-descriptivo-y-exploratorio-de-datos" class="nav-link" data-scroll-target="#unidad-1.-análisis-descriptivo-y-exploratorio-de-datos">Unidad 1. Análisis descriptivo y exploratorio de datos</a></li>
-  <li><a href="#unidad-2.-modelos-de-probabilidad" id="toc-unidad-2.-modelos-de-probabilidad" class="nav-link" data-scroll-target="#unidad-2.-modelos-de-probabilidad">Unidad 2. Modelos de probabilidad</a></li>
-  <li><a href="#unidad-3.-inferencia-estadística" id="toc-unidad-3.-inferencia-estadística" class="nav-link" data-scroll-target="#unidad-3.-inferencia-estadística">Unidad 3. Inferencia estadística</a></li>
-  </ul></li>
-  <li><a href="#distribución-evaluativa" id="toc-distribución-evaluativa" class="nav-link" data-scroll-target="#distribución-evaluativa">Distribución evaluativa</a></li>
-  <li><a href="#criterios-de-desempeño" id="toc-criterios-de-desempeño" class="nav-link" data-scroll-target="#criterios-de-desempeño">Criterios de desempeño</a>
-  <ul class="collapse">
-  <li><a href="#unidad-1" id="toc-unidad-1" class="nav-link" data-scroll-target="#unidad-1">Unidad 1</a></li>
-  <li><a href="#unidad-2" id="toc-unidad-2" class="nav-link" data-scroll-target="#unidad-2">Unidad 2</a></li>
-  <li><a href="#unidad-3" id="toc-unidad-3" class="nav-link" data-scroll-target="#unidad-3">Unidad 3</a></li>
-  </ul></li>
-  <li><a href="#cómo-se-evalúa-cada-entrega" id="toc-cómo-se-evalúa-cada-entrega" class="nav-link" data-scroll-target="#cómo-se-evalúa-cada-entrega">Cómo se evalúa cada entrega</a></li>
+  <li><a href="#de-qué-se-trata-esta-unidad" id="toc-de-qué-se-trata-esta-unidad" class="nav-link active" data-scroll-target="#de-qué-se-trata-esta-unidad">De qué se trata esta unidad</a></li>
+  <li><a href="#cómo-está-organizada" id="toc-cómo-está-organizada" class="nav-link" data-scroll-target="#cómo-está-organizada">Cómo está organizada</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/index.html">Unidad 2. Modelos de probabilidad</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/index.html">Presentación de la unidad</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Estadística para Analítica</h1>
-<p class="subtitle lead">Especialización en Big Data</p>
+<h1 class="title">Unidad 2. Modelos de probabilidad</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -245,6 +243,10 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="ficha">
 <table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
 <tbody>
 <tr class="odd">
 <td>Módulo</td>
@@ -255,323 +257,61 @@ ul.task-list li input[type="checkbox"] {
 <td>Especialización en Big Data</td>
 </tr>
 <tr class="odd">
-<td>Nivel</td>
-<td>Posgrado</td>
-</tr>
-<tr class="even">
-<td>Docente</td>
-<td>Oscar Leonel Sánchez Conde</td>
-</tr>
-<tr class="odd">
-<td>Modalidad</td>
-<td>Presencial. 192 horas</td>
-</tr>
-<tr class="even">
 <td>Dedicación</td>
 <td>3 horas de acompañamiento directo y 9 de trabajo independiente por semana</td>
 </tr>
-<tr class="odd">
-<td>Prerrequisitos</td>
-<td>Ninguno</td>
+<tr class="even">
+<td>Cierre</td>
+<td>30% de la nota, con modelos continuos de probabilidad</td>
 </tr>
 </tbody>
 </table>
 </div>
-<section id="prueba-diagnóstica-de-entrada" class="level2 diagnostico">
-<h2 class="anchored" data-anchor-id="prueba-diagnóstica-de-entrada">Prueba diagnóstica de entrada</h2>
-<p>Respóndela antes del primer encuentro. Toma entre 30 y 45 minutos, no tiene nota y sus resultados me sirven para ajustar el ritmo y los apoyos del módulo a lo que el grupo ya sabe.</p>
-<p><a href="https://forms.gle/g9LcRj4464CYJqWp8" class="btn-diagnostico" role="button" target="_blank" rel="noopener">Responder la prueba diagnóstica</a></p>
+<section id="de-qué-se-trata-esta-unidad" class="level2">
+<h2 class="anchored" data-anchor-id="de-qué-se-trata-esta-unidad">De qué se trata esta unidad</h2>
+<p>La Unidad 1 describió lo que ya se midió: gráficos, tablas y medidas resumen de datos que ya existen. Esta unidad da el paso siguiente: modelar la <strong>incertidumbre</strong> antes de que el dato ocurra, con las herramientas de la probabilidad. De ahí sale la posibilidad de responder, por ejemplo, qué tan probable es que una máquina falle por sobreesfuerzo antes de que ocurra.</p>
+<p>Toda la unidad trabaja sobre un mismo conjunto de datos ancla: el <strong>AI4I 2020 Predictive Maintenance Dataset</strong> (UCI Machine Learning Repository), 10 000 registros de sensores de máquinas de una planta de manufactura, con sus banderas de falla. Encaja con el contexto de aplicación de la carta descriptiva: una planta de producción con mantenimiento preventivo y predictivo.</p>
 </section>
-<section id="de-qué-se-trata-el-módulo" class="level2">
-<h2 class="anchored" data-anchor-id="de-qué-se-trata-el-módulo">De qué se trata el módulo</h2>
-<p>Este módulo trata la estadística como un proceso de resolución de problemas: formular la pregunta, recoger los datos, analizarlos con el método que corresponde e interpretar el resultado para decidir.</p>
-<p>El semestre avanza en tres tramos. Primero describes lo que tienes: organizas mediciones reales, las clasificas y las resumes en gráficos y números. Después modelas la incertidumbre con probabilidad, para poder decir qué tan probable es lo que observas. Al final infieres: sacas conclusiones sobre una población entera a partir de una muestra, y cuantificas cuánto puedes equivocarte.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Nota</span>Este módulo se programa
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Cada tema se implementa en <strong>Python</strong>. Vas a escribir código en todas las sesiones: cargar datos, calcular, graficar y simular. La estadística que no se ejecuta se olvida.</p>
-<p>El enfoque es experimental. En vez de creerle a una fórmula, la comprobamos: generamos datos, repetimos el procedimiento miles de veces y miramos si el resultado coincide con lo que la teoría predice. Así vas a ver el teorema del límite central ocurrir en pantalla, y vas a medir con tus propios datos qué tan seguido un intervalo de confianza del 95 por ciento falla.</p>
-</div>
-</div>
-<p>Todo se articula alrededor de <strong>un conjunto de datos propio que trabajas durante el semestre</strong>. La semana 1 presenta el módulo y deja el entorno instalado; la recolección arranca en la semana 2, con la clasificación de variables ya vista. Ese mismo conjunto vuelve en cada entrega: primero lo describes, después lo modelas y al final infieres sobre él.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Importante</span>Qué se espera en un posgrado
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El módulo no evalúa que sepas ejecutar un procedimiento. Evalúa que decidas cuál corresponde, que justifiques por qué, y que reconozcas cuándo los supuestos del método no se cumplen.</p>
-<p>Tres condiciones aplican a toda entrega:</p>
-<ul>
-<li><strong>Reproducible.</strong> El informe viene con el código que lo produce, y ese código corre en otra máquina sin retoques.</li>
-<li><strong>Trazable.</strong> Cada conclusión se sostiene en una salida concreta del análisis.</li>
-<li><strong>Ejecutiva.</strong> Escribes para quien toma la decisión, no para el que revisa la fórmula.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="calendario" class="level2">
-<h2 class="anchored" data-anchor-id="calendario">Calendario</h2>
-<p>Las semanas con guía publicada aparecen enlazadas. Publico las demás a medida que avanza el semestre.</p>
-<section id="unidad-1.-análisis-descriptivo-y-exploratorio-de-datos" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-1.-análisis-descriptivo-y-exploratorio-de-datos">Unidad 1. Análisis descriptivo y exploratorio de datos</h3>
+<section id="cómo-está-organizada" class="level2">
+<h2 class="anchored" data-anchor-id="cómo-está-organizada">Cómo está organizada</h2>
+<p>Igual que la Unidad 2 de Herramientas de Programación I, el material de esta unidad se publica <strong>por tema</strong>, no por semana. El ritmo semanal y el porcentaje de cierre siguen siendo los que fija el calendario del módulo: lo único que cambia es dónde vive el contenido.</p>
 <div class="calendario">
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th style="text-align: center;">Sem</th>
-<th>Temática</th>
-<th>Saberes de la carta descriptiva</th>
-<th style="text-align: center;">%</th>
+<th>Tema</th>
+<th>Saber de la carta descriptiva</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/semana-01/index.html">01</a></strong></td>
-<td>Presentación del módulo. Entorno de trabajo. Mediciones reales y formatos de almacenamiento</td>
-<td>Mediciones reales</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/semana-02/index.html">02</a></strong></td>
-<td>Tipos de variables: numéricas discretas y continuas, categóricas nominales y ordinales</td>
-<td>Tipos de variables</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/semana-03/index.html">03</a></strong></td>
-<td>Tablas de frecuencia, histogramas y medidas de localización y dispersión</td>
-<td>Tablas de frecuencia, histogramas, medidas de localización (media, mediana, moda, cuantiles) y dispersión (varianza, desviación estándar, coeficiente de variación)</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/semana-04/index.html">04</a></strong></td>
-<td>Boxplot y cuantiles. Variables categóricas: gráficos de barras y tablas de contingencia</td>
-<td>Gráficos de cajas y bigotes (boxplot). Gráficos de barras, tablas de contingencia</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/semana-05/index.html">05</a></strong></td>
-<td>Gráficos de dispersión y gráficos condicionales. Informe exploratorio. <strong>Cierre de la Unidad 1</strong></td>
-<td>Gráficos de dispersión y gráficos condicionales</td>
-<td style="text-align: center;"><strong>30%</strong></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="unidad-2.-modelos-de-probabilidad" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-2.-modelos-de-probabilidad">Unidad 2. Modelos de probabilidad</h3>
-<p>Esta unidad se publica <strong>por tema, no por semana</strong>: los cinco temas de abajo viven juntos en <strong><a href="../estadistica-para-analitica/unidad-02/index.html">la portada de la Unidad 2</a></strong>, en vez de repartidos en cinco carpetas de semana. El ritmo semanal y el porcentaje de cierre no cambian.</p>
-<div class="calendario">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Sem</th>
-<th>Temática</th>
-<th>Saberes de la carta descriptiva</th>
-<th style="text-align: center;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong><a href="../estadistica-para-analitica/unidad-02/variables-aleatorias.html">06</a></strong></td>
+<td><strong><a href="../../estadistica-para-analitica/unidad-02/variables-aleatorias.html">1. Variables aleatorias, espacio muestral y función de distribución</a></strong> (<a href="presentacion-variables-aleatorias.html">presentación</a>)</td>
 <td>Variables aleatorias, espacio muestral y función de distribución</td>
-<td>Variables aleatorias, espacio muestral y función de distribución</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">07</td>
-<td>Probabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes</td>
-<td>Cálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística</td>
-<td style="text-align: center;">-</td>
+<td><strong>2. Probabilidad condicional, independencia y teorema de Bayes</strong> (en preparación)</td>
+<td>Probabilidad condicional y teorema de Bayes</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">08</td>
-<td>Valor esperado y varianza de variables aleatorias y de sus funciones</td>
-<td>Valor esperado y varianza en variables aleatorias y funciones de variables aleatorias</td>
-<td style="text-align: center;">-</td>
+<td><strong>3. Valor esperado y varianza</strong> (en preparación)</td>
+<td>Valor esperado y varianza</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">09</td>
-<td>Modelos discretos: uniforme, binomial, hipergeométrica y Poisson</td>
-<td>Modelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson</td>
-<td style="text-align: center;">-</td>
+<td><strong>4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson</strong> (en preparación)</td>
+<td>Modelos para variables aleatorias discretas</td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;">10</td>
-<td>Modelos continuos: uniforme, normal, gamma y exponencial. <strong>Cierre de la Unidad 2</strong></td>
-<td>Modelos para variables aleatorias continuas: uniforme, normal, gamma, exponencial</td>
-<td style="text-align: center;"><strong>30%</strong></td>
+<td><strong>5. Modelos continuos: uniforme, normal, gamma y exponencial</strong> (en preparación)</td>
+<td>Modelos para variables aleatorias continuas</td>
 </tr>
 </tbody>
 </table>
 </div>
-</section>
-<section id="unidad-3.-inferencia-estadística" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-3.-inferencia-estadística">Unidad 3. Inferencia estadística</h3>
-<div class="calendario">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Sem</th>
-<th>Temática</th>
-<th>Saberes de la carta descriptiva</th>
-<th style="text-align: center;">%</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">11</td>
-<td>Muestreo y distribuciones muestrales. El teorema del límite central por simulación</td>
-<td>Hipótesis nula y alternativa, estadísticos de prueba y valor p</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">12</td>
-<td>Estimación puntual e intervalos de confianza</td>
-<td>Hipótesis nula y alternativa, estadísticos de prueba y valor p</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">13</td>
-<td>Pruebas de hipótesis: valor p, inferencia sobre una media y una proporción</td>
-<td>Hipótesis nula y alternativa, estadísticos de prueba y valor p</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">14</td>
-<td>Comparación de dos poblaciones y de varios tratamientos con ANOVA de una vía</td>
-<td>Comparación de tratamientos</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">15</td>
-<td>Modelos de regresión lineal</td>
-<td>Modelos de regresión lineal</td>
-<td style="text-align: center;">-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">16</td>
-<td><strong>Evaluación final.</strong> Informe ejecutivo sobre el conjunto de datos propio</td>
-<td>Todos los de la unidad</td>
-<td style="text-align: center;"><strong>40%</strong></td>
-</tr>
-</tbody>
-</table>
+<p>El tema 5 cierra la unidad con la entrega evaluada del 30%.</p>
+<div class="pie-doc">
+<p>Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.</p>
 </div>
-</section>
-</section>
-<section id="distribución-evaluativa" class="level2">
-<h2 class="anchored" data-anchor-id="distribución-evaluativa">Distribución evaluativa</h2>
-<div class="calendario">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Componente</th>
-<th style="text-align: center;">Semana</th>
-<th style="text-align: center;">Peso</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Cierre de la Unidad 1</td>
-<td style="text-align: center;">05</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="even">
-<td>Cierre de la Unidad 2</td>
-<td style="text-align: center;">10</td>
-<td style="text-align: center;">30%</td>
-</tr>
-<tr class="odd">
-<td>Evaluación final de la Unidad 3</td>
-<td style="text-align: center;">16</td>
-<td style="text-align: center;">40%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Cada corte se entrega como informe con el código que lo produce. Publico el enunciado y la rúbrica al comenzar la unidad, no la semana de la entrega.</p>
-</section>
-<section id="criterios-de-desempeño" class="level2">
-<h2 class="anchored" data-anchor-id="criterios-de-desempeño">Criterios de desempeño</h2>
-<p>Toda rúbrica del módulo se traza a los criterios de la carta descriptiva. Estos son, por unidad.</p>
-<section id="unidad-1" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-1">Unidad 1</h3>
-<ul>
-<li>Recolectar datos derivados de experimentos controlados o mediciones obtenidas a partir del monitoreo de procesos.</li>
-<li>Organizar la información en bases de datos en diferentes formatos de almacenamiento (<code>.txt</code>, <code>.xlsx</code>, <code>.csv</code>).</li>
-<li>Clasificar las variables observadas, según su naturaleza, en numéricas (discretas o continuas) y categóricas (ordinales o nominales).</li>
-<li>Aplicar los análisis adecuados para cada variable o grupo de variables según la clasificación asignada.</li>
-<li>Aplicar análisis para variables numéricas como histogramas, medidas de localización y dispersión, boxplot y gráficos de dispersión.</li>
-<li>Aplicar análisis para variables categóricas como tablas de frecuencia, gráficos de barras, segmentar y cruzar variables por categorías.</li>
-<li>Presentar de forma apropiada los análisis en formato de informe.</li>
-<li>Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.</li>
-<li>Trabajar en equipo de manera responsable y comprometida para alcanzar los objetivos propuestos.</li>
-</ul>
-</section>
-<section id="unidad-2" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-2">Unidad 2</h3>
-<ul>
-<li>Conocer los conceptos de variable aleatoria, espacio muestral y medida de probabilidad, y su aplicación en el cálculo de probabilidades de eventos.</li>
-<li>Conocer los conceptos de probabilidad condicional y su aplicación en la construcción del teorema de Bayes.</li>
-<li>Conocer el concepto de función de distribución y su aplicación en el cálculo de probabilidades.</li>
-<li>Aplicar modelos probabilísticos modelando variables aleatorias discretas relacionadas con procesos industriales y estudios científicos.</li>
-<li>Aplicar modelos probabilísticos modelando variables aleatorias continuas relacionadas con procesos industriales y estudios científicos.</li>
-<li>Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.</li>
-</ul>
-</section>
-<section id="unidad-3" class="level3">
-<h3 class="anchored" data-anchor-id="unidad-3">Unidad 3</h3>
-<ul>
-<li>Identificar los mecanismos relacionados con procesos inferenciales.</li>
-<li>Construir hipótesis estadísticas e intervalos de confianza para aplicación en procedimientos de pruebas científicas.</li>
-<li>Inferir sobre medias y proporciones en aplicaciones de ingeniería.</li>
-<li>Realizar comparaciones estadísticas para medias y proporciones en aplicaciones de ingeniería.</li>
-<li>Realizar comparaciones estadísticas entre varios tratamientos (ANOVA de una vía) en un contexto de experimentos controlados.</li>
-<li>Comunicar de manera clara y oportuna, sin omitir ninguna información para la toma adecuada de decisiones.</li>
-<li>Desempeñar las funciones asignadas con responsabilidad y compromiso.</li>
-</ul>
-</section>
-</section>
-<section id="cómo-se-evalúa-cada-entrega" class="level2">
-<h2 class="anchored" data-anchor-id="cómo-se-evalúa-cada-entrega">Cómo se evalúa cada entrega</h2>
-<p>La carta descriptiva pide tres tipos de evidencia. Cada rúbrica los usa como ejes:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Evidencia</th>
-<th>Qué se valora</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Conocimiento</td>
-<td>Respondes preguntas orales y escritas sobre los métodos de la unidad</td>
-</tr>
-<tr class="even">
-<td>Desempeño</td>
-<td>Se observa cómo construyes el análisis, no solo el resultado</td>
-</tr>
-<tr class="odd">
-<td>Producto</td>
-<td>Se valora el informe entregado, con el código que lo produce y las conclusiones</td>
-</tr>
-</tbody>
-</table>
-<p>El contexto de aplicación que fija la carta es el de una planta de producción, en particular el área de mantenimiento donde se planean las intervenciones de las máquinas y los mantenimientos preventivos y predictivos. Los ejemplos del módulo salen de ahí.</p>
 
 
 </section>
@@ -1000,5 +740,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

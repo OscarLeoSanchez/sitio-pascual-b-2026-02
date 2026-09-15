@@ -91,10 +91,14 @@ semestre.
 
 ### Unidad 2. Modelos de probabilidad
 
+Esta unidad se publica **por tema, no por semana**: los cinco temas de abajo viven juntos en
+**[la portada de la Unidad 2](unidad-02/index.qmd)**, en vez de repartidos en cinco carpetas de
+semana. El ritmo semanal y el porcentaje de cierre no cambian.
+
 ::: {.calendario}
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
-| 06 | Variables aleatorias, espacio muestral y función de distribución | Variables aleatorias, espacio muestral y función de distribución | - |
+| **[06](unidad-02/variables-aleatorias.qmd)** | Variables aleatorias, espacio muestral y función de distribución | Variables aleatorias, espacio muestral y función de distribución | - |
 | 07 | Probabilidad de eventos, probabilidad condicional, independencia y teorema de Bayes | Cálculo de probabilidades de eventos simples y teorema de Bayes. Probabilidad condicional e independencia estadística | - |
 | 08 | Valor esperado y varianza de variables aleatorias y de sus funciones | Valor esperado y varianza en variables aleatorias y funciones de variables aleatorias | - |
 | 09 | Modelos discretos: uniforme, binomial, hipergeométrica y Poisson | Modelos para variables aleatorias discretas: uniforme, binomial, hipergeométrica, Poisson | - |

@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Unidad 2. Variables aleatorias, espacio muestral y función de distribución – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/index.html">Unidad 2. Modelos de probabilidad</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/variables-aleatorias.html">1. Variables aleatorias y espacio muestral</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del módulo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Análisis descriptivo y exploratorio</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Presentación y entorno de trabajo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Tipos de variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 3. Localización, dispersión y tablas de frecuencia</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-04/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 4. Boxplot, cuantiles y variables categóricas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/semana-05/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 5. Dispersión, condicionales y cierre de la Unidad 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/laboratorio-pandas-eda/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Laboratorio: análisis exploratorio con pandas</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 2. Modelos de probabilidad</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación de la unidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/unidad-02/variables-aleatorias.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1. Variables aleatorias y espacio muestral</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Presentación: variables aleatorias</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#el-fenómeno-aleatorio-de-la-incertidumbre-al-experimento-aleatorio" id="toc-el-fenómeno-aleatorio-de-la-incertidumbre-al-experimento-aleatorio" class="nav-link active" data-scroll-target="#el-fenómeno-aleatorio-de-la-incertidumbre-al-experimento-aleatorio"><span class="header-section-number">1</span> 1. El fenómeno aleatorio: de la incertidumbre al experimento aleatorio</a></li>
+  <li><a href="#el-espacio-muestral" id="toc-el-espacio-muestral" class="nav-link" data-scroll-target="#el-espacio-muestral"><span class="header-section-number">2</span> 2. El espacio muestral</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-listar-todo-lo-que-puede-pasar" id="toc-desde-el-ejemplo-listar-todo-lo-que-puede-pasar" class="nav-link" data-scroll-target="#desde-el-ejemplo-listar-todo-lo-que-puede-pasar">Desde el ejemplo: listar todo lo que puede pasar</a></li>
+  <li><a href="#definición-formal" id="toc-definición-formal" class="nav-link" data-scroll-target="#definición-formal">Definición formal</a></li>
+  <li><a href="#cómo-construir-correctamente-un-espacio-muestral" id="toc-cómo-construir-correctamente-un-espacio-muestral" class="nav-link" data-scroll-target="#cómo-construir-correctamente-un-espacio-muestral">Cómo construir correctamente un espacio muestral</a></li>
+  </ul></li>
+  <li><a href="#eventos-subconjuntos-del-espacio-muestral" id="toc-eventos-subconjuntos-del-espacio-muestral" class="nav-link" data-scroll-target="#eventos-subconjuntos-del-espacio-muestral"><span class="header-section-number">3</span> 3. Eventos: subconjuntos del espacio muestral</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-agrupar-resultados-que-comparten-algo" id="toc-desde-el-ejemplo-agrupar-resultados-que-comparten-algo" class="nav-link" data-scroll-target="#desde-el-ejemplo-agrupar-resultados-que-comparten-algo">Desde el ejemplo: agrupar resultados que comparten algo</a></li>
+  <li><a href="#definición-formal-1" id="toc-definición-formal-1" class="nav-link" data-scroll-target="#definición-formal-1">Definición formal</a></li>
+  <li><a href="#uso-construir-eventos-sobre-el-mismo-experimento" id="toc-uso-construir-eventos-sobre-el-mismo-experimento" class="nav-link" data-scroll-target="#uso-construir-eventos-sobre-el-mismo-experimento">Uso: construir eventos sobre el mismo experimento</a></li>
+  </ul></li>
+  <li><a href="#la-probabilidad-sobre-el-espacio-muestral" id="toc-la-probabilidad-sobre-el-espacio-muestral" class="nav-link" data-scroll-target="#la-probabilidad-sobre-el-espacio-muestral"><span class="header-section-number">4</span> 4. La probabilidad sobre el espacio muestral</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-qué-tan-seguido-pasa-cada-cosa" id="toc-desde-el-ejemplo-qué-tan-seguido-pasa-cada-cosa" class="nav-link" data-scroll-target="#desde-el-ejemplo-qué-tan-seguido-pasa-cada-cosa">Desde el ejemplo: ¿qué tan seguido pasa cada cosa?</a></li>
+  <li><a href="#definición-formal-2" id="toc-definición-formal-2" class="nav-link" data-scroll-target="#definición-formal-2">Definición formal</a></li>
+  <li><a href="#uso-verificar-la-regla-de-la-unión-y-el-complemento" id="toc-uso-verificar-la-regla-de-la-unión-y-el-complemento" class="nav-link" data-scroll-target="#uso-verificar-la-regla-de-la-unión-y-el-complemento">Uso: verificar la regla de la unión y el complemento</a></li>
+  </ul></li>
+  <li><a href="#por-qué-hace-falta-una-variable-aleatoria" id="toc-por-qué-hace-falta-una-variable-aleatoria" class="nav-link" data-scroll-target="#por-qué-hace-falta-una-variable-aleatoria"><span class="header-section-number">5</span> 5. Por qué hace falta una variable aleatoria</a></li>
+  <li><a href="#la-variable-aleatoria-una-función-no-un-número" id="toc-la-variable-aleatoria-una-función-no-un-número" class="nav-link" data-scroll-target="#la-variable-aleatoria-una-función-no-un-número"><span class="header-section-number">6</span> 6. La variable aleatoria: una función, no un número</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-dos-formas-de-convertir-el-mismo-resultado-en-un-número" id="toc-desde-el-ejemplo-dos-formas-de-convertir-el-mismo-resultado-en-un-número" class="nav-link" data-scroll-target="#desde-el-ejemplo-dos-formas-de-convertir-el-mismo-resultado-en-un-número">Desde el ejemplo: dos formas de convertir el mismo resultado en un número</a></li>
+  <li><a href="#definición-formal-3" id="toc-definición-formal-3" class="nav-link" data-scroll-target="#definición-formal-3">Definición formal</a></li>
+  </ul></li>
+  <li><a href="#variables-aleatorias-discretas-y-continuas" id="toc-variables-aleatorias-discretas-y-continuas" class="nav-link" data-scroll-target="#variables-aleatorias-discretas-y-continuas"><span class="header-section-number">7</span> 7. Variables aleatorias discretas y continuas</a>
+  <ul class="collapse">
+  <li><a href="#desde-los-ejemplos-contar-caras-frente-a-medir-minutos" id="toc-desde-los-ejemplos-contar-caras-frente-a-medir-minutos" class="nav-link" data-scroll-target="#desde-los-ejemplos-contar-caras-frente-a-medir-minutos">Desde los ejemplos: contar caras frente a medir minutos</a></li>
+  <li><a href="#definición-formal-4" id="toc-definición-formal-4" class="nav-link" data-scroll-target="#definición-formal-4">Definición formal</a></li>
+  <li><a href="#interpretación-de-conteo-frente-a-de-medición" id="toc-interpretación-de-conteo-frente-a-de-medición" class="nav-link" data-scroll-target="#interpretación-de-conteo-frente-a-de-medición">Interpretación: de conteo frente a de medición</a></li>
+  </ul></li>
+  <li><a href="#la-distribución-de-una-variable-aleatoria" id="toc-la-distribución-de-una-variable-aleatoria" class="nav-link" data-scroll-target="#la-distribución-de-una-variable-aleatoria"><span class="header-section-number">8</span> 8. La distribución de una variable aleatoria</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-no-basta-con-saber-qué-valores-son-posibles" id="toc-desde-el-ejemplo-no-basta-con-saber-qué-valores-son-posibles" class="nav-link" data-scroll-target="#desde-el-ejemplo-no-basta-con-saber-qué-valores-son-posibles">Desde el ejemplo: no basta con saber qué valores son posibles</a></li>
+  <li><a href="#definición-formal-5" id="toc-definición-formal-5" class="nav-link" data-scroll-target="#definición-formal-5">Definición formal</a></li>
+  <li><a href="#uso-la-distribución-de-x-para-dos-monedas-honestas" id="toc-uso-la-distribución-de-x-para-dos-monedas-honestas" class="nav-link" data-scroll-target="#uso-la-distribución-de-x-para-dos-monedas-honestas">Uso: la distribución de X para dos monedas honestas</a></li>
+  </ul></li>
+  <li><a href="#variable-aleatoria-discreta-la-función-de-masa-de-probabilidad" id="toc-variable-aleatoria-discreta-la-función-de-masa-de-probabilidad" class="nav-link" data-scroll-target="#variable-aleatoria-discreta-la-función-de-masa-de-probabilidad"><span class="header-section-number">9</span> 9. Variable aleatoria discreta: la función de masa de probabilidad</a>
+  <ul class="collapse">
+  <li><a href="#desde-un-ejemplo-más-rico-la-suma-de-dos-dados" id="toc-desde-un-ejemplo-más-rico-la-suma-de-dos-dados" class="nav-link" data-scroll-target="#desde-un-ejemplo-más-rico-la-suma-de-dos-dados">Desde un ejemplo más rico: la suma de dos dados</a></li>
+  <li><a href="#definición-formal-6" id="toc-definición-formal-6" class="nav-link" data-scroll-target="#definición-formal-6">Definición formal</a></li>
+  </ul></li>
+  <li><a href="#variable-aleatoria-continua-la-función-de-densidad" id="toc-variable-aleatoria-continua-la-función-de-densidad" class="nav-link" data-scroll-target="#variable-aleatoria-continua-la-función-de-densidad"><span class="header-section-number">10</span> 10. Variable aleatoria continua: la función de densidad</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-el-tiempo-de-espera-de-un-bus" id="toc-desde-el-ejemplo-el-tiempo-de-espera-de-un-bus" class="nav-link" data-scroll-target="#desde-el-ejemplo-el-tiempo-de-espera-de-un-bus">Desde el ejemplo: el tiempo de espera de un bus</a></li>
+  <li><a href="#definición-formal-7" id="toc-definición-formal-7" class="nav-link" data-scroll-target="#definición-formal-7">Definición formal</a></li>
+  </ul></li>
+  <li><a href="#la-función-de-distribución-acumulada" id="toc-la-función-de-distribución-acumulada" class="nav-link" data-scroll-target="#la-función-de-distribución-acumulada"><span class="header-section-number">11</span> 11. La función de distribución acumulada</a>
+  <ul class="collapse">
+  <li><a href="#desde-los-ejemplos-qué-tan-probable-es-no-pasarse-de-un-valor" id="toc-desde-los-ejemplos-qué-tan-probable-es-no-pasarse-de-un-valor" class="nav-link" data-scroll-target="#desde-los-ejemplos-qué-tan-probable-es-no-pasarse-de-un-valor">Desde los ejemplos: ¿qué tan probable es no pasarse de un valor?</a></li>
+  <li><a href="#definición-formal-8" id="toc-definición-formal-8" class="nav-link" data-scroll-target="#definición-formal-8">Definición formal</a></li>
+  <li><a href="#uso-la-cdf-de-la-suma-de-dos-dados-y-la-del-tiempo-de-espera-del-bus" id="toc-uso-la-cdf-de-la-suma-de-dos-dados-y-la-del-tiempo-de-espera-del-bus" class="nav-link" data-scroll-target="#uso-la-cdf-de-la-suma-de-dos-dados-y-la-del-tiempo-de-espera-del-bus">Uso: la CDF de la suma de dos dados y la del tiempo de espera del bus</a></li>
+  </ul></li>
+  <li><a href="#propiedades-de-la-función-de-distribución" id="toc-propiedades-de-la-función-de-distribución" class="nav-link" data-scroll-target="#propiedades-de-la-función-de-distribución"><span class="header-section-number">12</span> 12. Propiedades de la función de distribución</a></li>
+  <li><a href="#calcular-probabilidades-con-la-función-de-distribución" id="toc-calcular-probabilidades-con-la-función-de-distribución" class="nav-link" data-scroll-target="#calcular-probabilidades-con-la-función-de-distribución"><span class="header-section-number">13</span> 13. Calcular probabilidades con la función de distribución</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-tres-preguntas-sobre-la-espera-del-bus" id="toc-desde-el-ejemplo-tres-preguntas-sobre-la-espera-del-bus" class="nav-link" data-scroll-target="#desde-el-ejemplo-tres-preguntas-sobre-la-espera-del-bus">Desde el ejemplo: tres preguntas sobre la espera del bus</a></li>
+  <li><a href="#definición-formal-9" id="toc-definición-formal-9" class="nav-link" data-scroll-target="#definición-formal-9">Definición formal</a></li>
+  <li><a href="#uso-las-tres-preguntas-del-pasajero" id="toc-uso-las-tres-preguntas-del-pasajero" class="nav-link" data-scroll-target="#uso-las-tres-preguntas-del-pasajero">Uso: las tres preguntas del pasajero</a></li>
+  </ul></li>
+  <li><a href="#cómo-se-relacionan-la-pmf-la-pdf-y-la-cdf" id="toc-cómo-se-relacionan-la-pmf-la-pdf-y-la-cdf" class="nav-link" data-scroll-target="#cómo-se-relacionan-la-pmf-la-pdf-y-la-cdf"><span class="header-section-number">14</span> 14. Cómo se relacionan la PMF, la PDF y la CDF</a>
+  <ul class="collapse">
+  <li><a href="#desde-los-ejemplos-ir-y-volver-entre-la-tabla-y-la-escalera-entre-la-curva-y-su-pendiente" id="toc-desde-los-ejemplos-ir-y-volver-entre-la-tabla-y-la-escalera-entre-la-curva-y-su-pendiente" class="nav-link" data-scroll-target="#desde-los-ejemplos-ir-y-volver-entre-la-tabla-y-la-escalera-entre-la-curva-y-su-pendiente">Desde los ejemplos: ir y volver entre la tabla y la escalera, entre la curva y su pendiente</a></li>
+  <li><a href="#definición-formal-de-la-pmf-a-la-cdf-y-de-vuelta-caso-discreto" id="toc-definición-formal-de-la-pmf-a-la-cdf-y-de-vuelta-caso-discreto" class="nav-link" data-scroll-target="#definición-formal-de-la-pmf-a-la-cdf-y-de-vuelta-caso-discreto">Definición formal: de la PMF a la CDF y de vuelta, caso discreto</a></li>
+  <li><a href="#definición-formal-de-la-pdf-a-la-cdf-y-de-vuelta-caso-continuo" id="toc-definición-formal-de-la-pdf-a-la-cdf-y-de-vuelta-caso-continuo" class="nav-link" data-scroll-target="#definición-formal-de-la-pdf-a-la-cdf-y-de-vuelta-caso-continuo">Definición formal: de la PDF a la CDF y de vuelta, caso continuo</a></li>
+  </ul></li>
+  <li><a href="#de-la-teoría-a-los-datos-variables-aleatorias-y-columnas-reales" id="toc-de-la-teoría-a-los-datos-variables-aleatorias-y-columnas-reales" class="nav-link" data-scroll-target="#de-la-teoría-a-los-datos-variables-aleatorias-y-columnas-reales"><span class="header-section-number">15</span> 15. De la teoría a los datos: variables aleatorias y columnas reales</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-cronometrar-varias-esperas-reales" id="toc-desde-el-ejemplo-cronometrar-varias-esperas-reales" class="nav-link" data-scroll-target="#desde-el-ejemplo-cronometrar-varias-esperas-reales">Desde el ejemplo: cronometrar varias esperas reales</a></li>
+  <li><a href="#definición-formal-10" id="toc-definición-formal-10" class="nav-link" data-scroll-target="#definición-formal-10">Definición formal</a></li>
+  <li><a href="#uso-simular-una-muestra-de-200-esperas" id="toc-uso-simular-una-muestra-de-200-esperas" class="nav-link" data-scroll-target="#uso-simular-una-muestra-de-200-esperas">Uso: simular una muestra de 200 esperas</a></li>
+  </ul></li>
+  <li><a href="#la-distribución-empírica" id="toc-la-distribución-empírica" class="nav-link" data-scroll-target="#la-distribución-empírica"><span class="header-section-number">16</span> 16. La distribución empírica</a>
+  <ul class="collapse">
+  <li><a href="#desde-el-ejemplo-construir-una-cdf-con-los-datos-en-mano" id="toc-desde-el-ejemplo-construir-una-cdf-con-los-datos-en-mano" class="nav-link" data-scroll-target="#desde-el-ejemplo-construir-una-cdf-con-los-datos-en-mano">Desde el ejemplo: construir una CDF con los datos en mano</a></li>
+  <li><a href="#definición-formal-11" id="toc-definición-formal-11" class="nav-link" data-scroll-target="#definición-formal-11">Definición formal</a></li>
+  <li><a href="#uso-comparar-la-cdf-empírica-contra-la-teórica" id="toc-uso-comparar-la-cdf-empírica-contra-la-teórica" class="nav-link" data-scroll-target="#uso-comparar-la-cdf-empírica-contra-la-teórica">Uso: comparar la CDF empírica contra la teórica</a></li>
+  </ul></li>
+  <li><a href="#simulación-y-aplicación-en-analítica" id="toc-simulación-y-aplicación-en-analítica" class="nav-link" data-scroll-target="#simulación-y-aplicación-en-analítica"><span class="header-section-number">17</span> 17. Simulación y aplicación en analítica</a>
+  <ul class="collapse">
+  <li><a href="#un-ejercicio-completo-el-modelo-predice-bien-la-proporción-de-esperas-cortas" id="toc-un-ejercicio-completo-el-modelo-predice-bien-la-proporción-de-esperas-cortas" class="nav-link" data-scroll-target="#un-ejercicio-completo-el-modelo-predice-bien-la-proporción-de-esperas-cortas">Un ejercicio completo: ¿el modelo predice bien la proporción de esperas cortas?</a></li>
+  <li><a href="#interpretación-en-el-problema-cotidiano" id="toc-interpretación-en-el-problema-cotidiano" class="nav-link" data-scroll-target="#interpretación-en-el-problema-cotidiano">Interpretación en el problema cotidiano</a></li>
+  <li><a href="#el-hilo-completo-de-la-guía" id="toc-el-hilo-completo-de-la-guía" class="nav-link" data-scroll-target="#el-hilo-completo-de-la-guía">El hilo completo de la guía</a></li>
+  </ul></li>
+  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">18</span> Lista de verificación</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">19</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/index.html">Unidad 2. Modelos de probabilidad</a></li><li class="breadcrumb-item"><a href="../../estadistica-para-analitica/unidad-02/variables-aleatorias.html">1. Variables aleatorias y espacio muestral</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Unidad 2. Variables aleatorias, espacio muestral y función de distribución</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">14 de septiembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Módulo</td>
+<td>Estadística para Analítica</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Especialización en Big Data</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 2. Modelos de probabilidad</td>
+</tr>
+<tr class="even">
+<td>Saber</td>
+<td>Variables aleatorias, espacio muestral y función de distribución</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="presentacion-variables-aleatorias.html" class="btn btn-primary" role="button">Abrir la presentación de la sesión</a></p>
+<section id="el-fenómeno-aleatorio-de-la-incertidumbre-al-experimento-aleatorio" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="el-fenómeno-aleatorio-de-la-incertidumbre-al-experimento-aleatorio"><span class="header-section-number">1</span> 1. El fenómeno aleatorio: de la incertidumbre al experimento aleatorio</h2>
+<p>Antes de lanzar una moneda, nadie sabe si va a caer cara o sello. Antes de que llegue el próximo bus, nadie sabe si faltan dos minutos o quince. Esa falta de certeza sobre un resultado que todavía no ocurrió es la <strong>incertidumbre</strong>, y es el punto de partida de toda esta unidad.</p>
+<p>No toda incertidumbre es del mismo tipo. Calentar agua a nivel del mar y observar a qué temperatura hierve es un <strong>experimento determinístico</strong>: repetido en las mismas condiciones, siempre da 100 grados Celsius, porque el resultado queda fijado por las leyes físicas y no varía de una repetición a otra. Lanzar una moneda al aire y observar si cae cara o sello es distinto: aunque se repita el lanzamiento exactamente con la misma moneda y el mismo movimiento de muñeca, el resultado puede cambiar de una vez a otra. A un proceso así, cuyo resultado no se puede predecir con certeza antes de observarlo aunque se repita en condiciones parecidas, se le llama <strong>experimento aleatorio</strong>.</p>
+<p>Un experimento aleatorio tiene tres rasgos que lo distinguen de uno determinístico. Primero, se puede repetir, al menos en principio, tantas veces como se quiera: se puede volver a lanzar la moneda, volver a lanzar el dado, volver a cronometrar la espera de otro bus. Segundo, antes de ejecutarlo se puede listar de antemano el conjunto de resultados posibles, aunque no se sepa cuál de ellos va a ocurrir: antes de lanzar la moneda ya se sabe que solo puede caer cara o sello. Tercero, el resultado de una repetición concreta no se puede anticipar con certeza, aunque se conozcan todos los resultados posibles y hasta la frecuencia con la que suele ocurrir cada uno.</p>
+<p>Esta guía usa tres experimentos aleatorios como hilo conductor. El primero es lanzar dos monedas y anotar si cada una cae cara o sello: sirve para introducir el espacio muestral, los eventos, la probabilidad y la primera variable aleatoria. El segundo es lanzar dos dados y sumar los puntos de ambos: sirve para construir la función de masa de probabilidad con un ejemplo más rico que el de las monedas. El tercero es cronometrar cuántos minutos pasan hasta que llega el próximo bus a un paradero: sirve para introducir la función de densidad, porque el tiempo de espera no salta de un valor a otro sino que puede tomar cualquier número real no negativo.</p>
+</section>
+<section id="el-espacio-muestral" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="el-espacio-muestral"><span class="header-section-number">2</span> 2. El espacio muestral</h2>
+<section id="desde-el-ejemplo-listar-todo-lo-que-puede-pasar" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-listar-todo-lo-que-puede-pasar">Desde el ejemplo: listar todo lo que puede pasar</h3>
+<p>Antes de lanzar dos monedas, ¿qué resultados son posibles? Cada moneda puede caer cara (<code>C</code>) o sello (<code>S</code>), así que un lanzamiento de las dos monedas puede terminar en cuatro combinaciones distintas: las dos caen cara, la primera cae cara y la segunda sello, la primera sello y la segunda cara, o las dos caen sello. Ese listado completo de resultados posibles, sin repetir ninguno y sin dejar ninguno por fuera, es lo que la probabilidad llama <strong>espacio muestral</strong>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>omega <span class="op">=</span> [<span class="st">""</span>.join(par) <span class="cf">for</span> par <span class="kw">in</span> itertools.product(<span class="st">"CS"</span>, repeat<span class="op">=</span><span class="dv">2</span>)]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Omega ="</span>, omega)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Numero de resultados:"</span>, <span class="bu">len</span>(omega))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Omega = ['CC', 'CS', 'SC', 'SS']
+Numero de resultados: 4</code></pre>
+</section>
+<section id="definición-formal" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal">Definición formal</h3>
+<p>El <strong>espacio muestral</strong> de un experimento aleatorio, que se denota <span class="math inline">\(\Omega\)</span> (la letra griega mayúscula omega), es el conjunto de todos sus resultados posibles. Cada resultado individual dentro de ese conjunto se llama <strong>resultado elemental</strong> y se denota <span class="math inline">\(\omega\)</span> (omega minúscula). Para el experimento de lanzar dos monedas, <span class="math inline">\(\Omega = \{CC, CS, SC, SS\}\)</span>, y cada una de esas cuatro combinaciones es un <span class="math inline">\(\omega\)</span> distinto.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/espacio-muestral-dos-monedas.svg" class="img-fluid figure-img" alt="Espacio muestral Omega de lanzar dos monedas, con los cuatro resultados elementales CC, CS, SC y SS marcados como puntos dentro de un rectangulo"></p>
+<figcaption>Cuatro puntos dentro de un rectangulo que representa el espacio muestral de lanzar dos monedas, cada uno etiquetado con una de las combinaciones CC, CS, SC o SS.</figcaption>
+</figure>
+</div>
+</div>
+<p>Un espacio muestral no siempre tiene un número fijo y pequeño de resultados como el de las dos monedas. Se distinguen tres formas:</p>
+<ul>
+<li><strong>Finito</strong>: el número de resultados posibles es un número fijo y se puede contar completo, como los 4 resultados de lanzar dos monedas o los 6 resultados de lanzar un dado una vez.</li>
+<li><strong>Infinito discreto</strong>: los resultados se pueden enumerar uno por uno, pero la lista nunca termina. Si el experimento es “lanzar una moneda hasta que salga la primera cara” y se cuenta cuántos lanzamientos tomó, el resultado puede ser 1, 2, 3, y así indefinidamente: <span class="math inline">\(\Omega = \{1, 2, 3, \ldots\}\)</span>. No hay un lanzamiento máximo garantizado, aunque en la práctica salir cara tarde muchas veces es cada vez menos probable.</li>
+<li><strong>Continuo</strong>: los resultados llenan un intervalo completo de números reales, sin que se puedan enumerar uno por uno. El tiempo que un pasajero espera el próximo bus, en minutos, puede ser cualquier número no negativo: 0, 3, 3.5, 3.52, y así con cualquier grado de precisión. Su espacio muestral es el intervalo <span class="math inline">\(\Omega = [0, \infty)\)</span>.</li>
+</ul>
+</section>
+<section id="cómo-construir-correctamente-un-espacio-muestral" class="level3">
+<h3 class="anchored" data-anchor-id="cómo-construir-correctamente-un-espacio-muestral">Cómo construir correctamente un espacio muestral</h3>
+<p>Un espacio muestral bien construido cumple dos condiciones a la vez. La primera es que cubra todos los resultados posibles: para el experimento de las dos monedas, olvidar el resultado <code>SC</code> porque se confunde con <code>CS</code> deja el espacio muestral incompleto. La segunda es que los resultados no se solapen entre sí: cada repetición del experimento debe caer en exactamente uno de los resultados listados, nunca en dos a la vez. Definir el espacio muestral de las dos monedas como <span class="math inline">\(\{\)</span>“al menos una cara”, “las dos sellos”<span class="math inline">\(\}\)</span> rompe esta segunda condición, porque el resultado <code>CC</code> cae en el primer elemento y el segundo describe lo mismo que una parte del primero de otra forma. La forma que evita ese problema es describir cada resultado por lo que pasó exactamente en cada moneda, como se hizo arriba con <code>CC</code>, <code>CS</code>, <code>SC</code> y <code>SS</code>.</p>
+</section>
+</section>
+<section id="eventos-subconjuntos-del-espacio-muestral" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="eventos-subconjuntos-del-espacio-muestral"><span class="header-section-number">3</span> 3. Eventos: subconjuntos del espacio muestral</h2>
+<section id="desde-el-ejemplo-agrupar-resultados-que-comparten-algo" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-agrupar-resultados-que-comparten-algo">Desde el ejemplo: agrupar resultados que comparten algo</h3>
+<p>De los cuatro resultados de lanzar dos monedas, algunos comparten una característica. “La primera moneda cae cara” agrupa a <code>CC</code> y <code>CS</code>, sin importar qué hace la segunda. “Las dos monedas caen igual” agrupa a <code>CC</code> y <code>SS</code>. Cada una de esas agrupaciones es un <strong>evento</strong>: un subconjunto del espacio muestral que reúne los resultados que cumplen una condición.</p>
+</section>
+<section id="definición-formal-1" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-1">Definición formal</h3>
+<p>Un <strong>evento</strong> es cualquier subconjunto de <span class="math inline">\(\Omega\)</span>, y se nombra con una letra mayúscula, como <span class="math inline">\(A\)</span> o <span class="math inline">\(B\)</span>. Un evento es <strong>simple</strong> cuando contiene un solo resultado elemental, como <span class="math inline">\(\{CC\}\)</span>, y <strong>compuesto</strong> cuando contiene más de uno, como <span class="math inline">\(A = \{CC, CS\}\)</span>. Sobre los eventos se definen tres operaciones que vienen directamente de la teoría de conjuntos:</p>
+<ul>
+<li><strong>Unión</strong> (<span class="math inline">\(A \cup B\)</span>): los resultados que están en <span class="math inline">\(A\)</span>, en <span class="math inline">\(B\)</span>, o en ambos.</li>
+<li><strong>Intersección</strong> (<span class="math inline">\(A \cap B\)</span>): los resultados que están en <span class="math inline">\(A\)</span> y en <span class="math inline">\(B\)</span> al mismo tiempo.</li>
+<li><strong>Complemento</strong> (<span class="math inline">\(A^c\)</span>): los resultados que no están en <span class="math inline">\(A\)</span>, es decir, todo lo que queda de <span class="math inline">\(\Omega\)</span> fuera de <span class="math inline">\(A\)</span>.</li>
+</ul>
+<p>Dos eventos son <strong>mutuamente excluyentes</strong> cuando no comparten ningún resultado, es decir, <span class="math inline">\(A \cap B = \emptyset\)</span> (el conjunto vacío): que ocurra uno hace imposible que ocurra el otro en la misma repetición del experimento.</p>
+</section>
+<section id="uso-construir-eventos-sobre-el-mismo-experimento" class="level3">
+<h3 class="anchored" data-anchor-id="uso-construir-eventos-sobre-el-mismo-experimento">Uso: construir eventos sobre el mismo experimento</h3>
+<p>Sea <span class="math inline">\(A\)</span> el evento “la primera moneda cae cara” y <span class="math inline">\(B\)</span> el evento “la segunda moneda cae cara”.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> omega <span class="cf">if</span> w[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"C"</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> omega <span class="cf">if</span> w[<span class="dv">1</span>] <span class="op">==</span> <span class="st">"C"</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A (la primera moneda cae cara):"</span>, A)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"B (la segunda moneda cae cara):"</span>, B)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A interseccion B:"</span>, [w <span class="cf">for</span> w <span class="kw">in</span> A <span class="cf">if</span> w <span class="kw">in</span> B])</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"A union B:"</span>, <span class="bu">sorted</span>(<span class="bu">set</span>(A) <span class="op">|</span> <span class="bu">set</span>(B)))</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Complemento de (A union B):"</span>, <span class="bu">sorted</span>(<span class="bu">set</span>(omega) <span class="op">-</span> (<span class="bu">set</span>(A) <span class="op">|</span> <span class="bu">set</span>(B))))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>A (la primera moneda cae cara): ['CC', 'CS']
+B (la segunda moneda cae cara): ['CC', 'SC']
+A interseccion B: ['CC']
+A union B: ['CC', 'CS', 'SC']
+Complemento de (A union B): ['SS']</code></pre>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/eventos-union-interseccion-complemento.svg" class="img-fluid figure-img" alt="Diagrama de conjuntos con el espacio muestral de las dos monedas y dos eventos A y B superpuestos: A es que la primera moneda caiga cara, B que la segunda caiga cara, con la interseccion, la union y el complemento senalados"></p>
+<figcaption>Dos circulos superpuestos sobre el espacio muestral de las dos monedas: el evento A a la izquierda con los resultados CS y CC, el evento B a la derecha con los resultados CC y SC, la interseccion marcada en el centro con CC, y el resultado SS por fuera de los dos circulos.</figcaption>
+</figure>
+</div>
+</div>
+<p>El resultado <code>CC</code> pertenece a la vez a <span class="math inline">\(A\)</span> y a <span class="math inline">\(B\)</span>, por eso aparece en la región de intersección del diagrama. El resultado <code>SS</code> no pertenece ni a <span class="math inline">\(A\)</span> ni a <span class="math inline">\(B\)</span>: cae en el complemento de la unión, fuera de los dos círculos. Para ver un par de eventos mutuamente excluyentes en este mismo espacio muestral, basta tomar <span class="math inline">\(C = \{CC\}\)</span> (“las dos caen cara”) y <span class="math inline">\(D = \{SS\}\)</span> (“las dos caen sello”): no comparten ningún resultado, así que <span class="math inline">\(C \cap D = \emptyset\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un evento no es un número: es una condición sobre el resultado del experimento. “La primera moneda cae cara” no tiene, por sí sola, ninguna probabilidad asociada todavía; solo agrupa los resultados que la cumplen. La probabilidad, que llega en la siguiente sección, es lo que convierte esa agrupación en un número entre 0 y 1.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="la-probabilidad-sobre-el-espacio-muestral" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="la-probabilidad-sobre-el-espacio-muestral"><span class="header-section-number">4</span> 4. La probabilidad sobre el espacio muestral</h2>
+<section id="desde-el-ejemplo-qué-tan-seguido-pasa-cada-cosa" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-qué-tan-seguido-pasa-cada-cosa">Desde el ejemplo: ¿qué tan seguido pasa cada cosa?</h3>
+<p>Si las dos monedas son honestas, ninguno de los cuatro resultados de <span class="math inline">\(\Omega\)</span> es más probable que otro: cada uno tiene la misma chance de ocurrir. Con cuatro resultados igualmente probables que cubren todo <span class="math inline">\(\Omega\)</span>, cada uno se lleva una cuarta parte de la probabilidad total. El evento <span class="math inline">\(A\)</span> = “la primera moneda cae cara” agrupa dos de esos cuatro resultados igualmente probables (<code>CC</code> y <code>CS</code>), así que su probabilidad es la mitad.</p>
+</section>
+<section id="definición-formal-2" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-2">Definición formal</h3>
+<p>Una <strong>medida de probabilidad</strong> <span class="math inline">\(P\)</span> asigna a cada evento un número entre 0 y 1, y cumple tres reglas básicas conocidas como los <strong>axiomas de Kolmogorov</strong>:</p>
+<ol type="1">
+<li><span class="math inline">\(P(A) \geq 0\)</span> para todo evento <span class="math inline">\(A\)</span>: ninguna probabilidad es negativa.</li>
+<li><span class="math inline">\(P(\Omega) = 1\)</span>: el resultado de cualquier repetición siempre cae en el espacio muestral completo, así que la probabilidad total es 1.</li>
+<li>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son mutuamente excluyentes, entonces <span class="math inline">\(P(A \cup B) = P(A) + P(B)\)</span>.</li>
+</ol>
+<p>Cuando los <span class="math inline">\(n\)</span> resultados de un espacio muestral finito son igualmente probables, como los cuatro de las dos monedas, la probabilidad de un evento <span class="math inline">\(A\)</span> se calcula contando: <span class="math inline">\(P(A) = |A| / n\)</span>, donde <span class="math inline">\(|A|\)</span> es el número de resultados que contiene <span class="math inline">\(A\)</span>. De los tres axiomas se derivan propiedades que se usan todo el tiempo: <span class="math inline">\(P(\emptyset) = 0\)</span> (el evento imposible tiene probabilidad cero), <span class="math inline">\(P(A^c) = 1 - P(A)\)</span>, y la <strong>regla de la unión</strong> para dos eventos cualesquiera, se solapen o no:</p>
+<p><span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap B)\]</span></p>
+<p>La resta evita contar dos veces la región donde <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ocurren a la vez. Cuando <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son mutuamente excluyentes, <span class="math inline">\(A \cap B = \emptyset\)</span>, <span class="math inline">\(P(A \cap B) = 0\)</span>, y la fórmula se reduce al tercer axioma.</p>
+</section>
+<section id="uso-verificar-la-regla-de-la-unión-y-el-complemento" class="level3">
+<h3 class="anchored" data-anchor-id="uso-verificar-la-regla-de-la-unión-y-el-complemento">Uso: verificar la regla de la unión y el complemento</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>p_A <span class="op">=</span> <span class="bu">len</span>(A) <span class="op">/</span> <span class="bu">len</span>(omega)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>p_B <span class="op">=</span> <span class="bu">len</span>(B) <span class="op">/</span> <span class="bu">len</span>(omega)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>p_AB <span class="op">=</span> <span class="bu">len</span>([w <span class="cf">for</span> w <span class="kw">in</span> A <span class="cf">if</span> w <span class="kw">in</span> B]) <span class="op">/</span> <span class="bu">len</span>(omega)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(A) ="</span>, p_A)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(B) ="</span>, p_B)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(A interseccion B) ="</span>, p_AB)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Formula P(A union B):"</span>, <span class="bu">round</span>(p_A <span class="op">+</span> p_B <span class="op">-</span> p_AB, <span class="dv">4</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Conteo directo P(A union B):"</span>, <span class="bu">len</span>(<span class="bu">set</span>(A) <span class="op">|</span> <span class="bu">set</span>(B)) <span class="op">/</span> <span class="bu">len</span>(omega))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P((A union B) complemento) ="</span>, <span class="dv">1</span> <span class="op">-</span> <span class="bu">len</span>(<span class="bu">set</span>(A) <span class="op">|</span> <span class="bu">set</span>(B)) <span class="op">/</span> <span class="bu">len</span>(omega))</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> [<span class="st">"CC"</span>]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> [<span class="st">"SS"</span>]</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"C (ambas caras) y D (ambas sellos) son mutuamente excluyentes:"</span>, <span class="bu">set</span>(C) <span class="op">&amp;</span> <span class="bu">set</span>(D) <span class="op">==</span> <span class="bu">set</span>())</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(C union D) por axioma 3:"</span>, <span class="bu">len</span>(C) <span class="op">/</span> <span class="bu">len</span>(omega) <span class="op">+</span> <span class="bu">len</span>(D) <span class="op">/</span> <span class="bu">len</span>(omega))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>P(A) = 0.5
+P(B) = 0.5
+P(A interseccion B) = 0.25
+Formula P(A union B): 0.75
+Conteo directo P(A union B): 0.75
+P((A union B) complemento) = 0.25
+C (ambas caras) y D (ambas sellos) son mutuamente excluyentes: True
+P(C union D) por axioma 3: 0.5</code></pre>
+<p>Sumar <span class="math inline">\(P(A) + P(B) = 0{,}5 + 0{,}5 = 1{,}0\)</span> sin restar la intersección daría una unión de probabilidad 1, pero el conteo directo muestra que es 0,75: la intersección <span class="math inline">\(\{CC\}\)</span>, con probabilidad 0,25, se contó dos veces en la suma sin corregir. Para <span class="math inline">\(C\)</span> y <span class="math inline">\(D\)</span>, en cambio, sumar directamente sí es correcto porque no comparten ningún resultado.</p>
+<p>Vale la pena distinguir tres ideas que se mezclan con facilidad al empezar: un <strong>resultado</strong> (<span class="math inline">\(\omega\)</span>) es lo que pasó en una repetición concreta, como <code>CC</code> en un lanzamiento particular; un <strong>evento</strong> (<span class="math inline">\(A\)</span>) es una condición que agrupa resultados, como “la primera cae cara”; y una <strong>probabilidad</strong> (<span class="math inline">\(P(A)\)</span>) es el número entre 0 y 1 que mide qué tan creíble es que ocurra ese evento antes de lanzar las monedas. El resultado se observa después del experimento, el evento se define antes, y la probabilidad se calcula antes también, a partir del espacio muestral.</p>
+</section>
+</section>
+<section id="por-qué-hace-falta-una-variable-aleatoria" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="por-qué-hace-falta-una-variable-aleatoria"><span class="header-section-number">5</span> 5. Por qué hace falta una variable aleatoria</h2>
+<p>Con las dos monedas, trabajar directamente con los resultados <code>CC</code>, <code>CS</code>, <code>SC</code> y <code>SS</code> es manejable porque solo hay cuatro. Pero muchas preguntas interesantes no distinguen entre <code>CS</code> y <code>SC</code>: si la pregunta es “¿cuántas caras salieron en total?”, los dos resultados dan la misma respuesta, uno. Seguir arrastrando la etiqueta completa del resultado (<code>CS</code> frente a <code>SC</code>) para responder una pregunta que solo depende del número de caras es trabajo de más, y se vuelve insostenible en experimentos con más pasos: si en vez de dos monedas se lanzaran veinte, el espacio muestral tendría más de un millón de resultados posibles, mientras que el número de caras solo puede ser un entero entre 0 y 20.</p>
+<p>La solución es dejar de describir el resultado completo y quedarse solo con el número que interesa. En vez de decir “salió <code>CS</code>”, se dice “salieron 1 cara”. Esa traducción de un resultado del experimento a un número es la idea intuitiva detrás de una <strong>variable aleatoria</strong>: una regla que toma cualquier resultado posible del experimento y le asigna un número real, de forma que trabajar con esos números baste para responder la pregunta de interés sin tener que volver al resultado original cada vez.</p>
+</section>
+<section id="la-variable-aleatoria-una-función-no-un-número" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="la-variable-aleatoria-una-función-no-un-número"><span class="header-section-number">6</span> 6. La variable aleatoria: una función, no un número</h2>
+<section id="desde-el-ejemplo-dos-formas-de-convertir-el-mismo-resultado-en-un-número" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-dos-formas-de-convertir-el-mismo-resultado-en-un-número">Desde el ejemplo: dos formas de convertir el mismo resultado en un número</h3>
+<p>Sobre el mismo experimento de lanzar dos monedas se pueden definir varias reglas de conversión distintas, según qué se decida medir. Dos ejemplos: <span class="math inline">\(X\)</span> = número de caras obtenidas, y <span class="math inline">\(Y\)</span> = 1 si la primera moneda cae cara, 0 si cae sello.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> {w: w.count(<span class="st">"C"</span>) <span class="cf">for</span> w <span class="kw">in</span> omega}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> {w: <span class="dv">1</span> <span class="cf">if</span> w[<span class="dv">0</span>] <span class="op">==</span> <span class="st">"C"</span> <span class="cf">else</span> <span class="dv">0</span> <span class="cf">for</span> w <span class="kw">in</span> omega}</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> w <span class="kw">in</span> omega:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>w<span class="sc">}</span><span class="ss">: X=</span><span class="sc">{</span>X[w]<span class="sc">}</span><span class="ss"> (numero de caras), Y=</span><span class="sc">{</span>Y[w]<span class="sc">}</span><span class="ss"> (la primera es cara)"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>CC: X=2 (numero de caras), Y=1 (la primera es cara)
+CS: X=1 (numero de caras), Y=1 (la primera es cara)
+SC: X=1 (numero de caras), Y=0 (la primera es cara)
+SS: X=0 (numero de caras), Y=0 (la primera es cara)</code></pre>
+<p>Para el resultado <code>SC</code>, <span class="math inline">\(X\)</span> vale 1 y <span class="math inline">\(Y\)</span> vale 0: la misma repetición del experimento, resumida de dos formas distintas según qué pregunta interese.</p>
+</section>
+<section id="definición-formal-3" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-3">Definición formal</h3>
+<p>Una <strong>variable aleatoria</strong> es una función <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span> que asigna un número real a cada resultado del espacio muestral, donde <span class="math inline">\(\mathbb{R}\)</span> denota el conjunto de los números reales. Nótese la diferencia entre <span class="math inline">\(X\)</span>, la función completa, y <span class="math inline">\(x\)</span>, un valor concreto que <span class="math inline">\(X\)</span> puede tomar: <span class="math inline">\(X\)</span> es la regla de conversión (“contar las caras”), mientras que <span class="math inline">\(x = 1\)</span> es una de las posibles observaciones que resultan de aplicarla. El conjunto de todos los valores que <span class="math inline">\(X\)</span> puede tomar se llama su <strong>rango</strong>, <strong>imagen</strong> o <strong>soporte</strong>: para <span class="math inline">\(X\)</span> en el ejemplo de las dos monedas, el soporte es <span class="math inline">\(\{0, 1, 2\}\)</span>, porque no hay forma de obtener 1,5 caras ni 3 caras con solo dos lanzamientos.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/variable-aleatoria-flecha.svg" class="img-fluid figure-img" alt="La variable aleatoria X como funcion que lleva el resultado SC del espacio muestral de las dos monedas al numero real 1 sobre la recta de los numeros reales, ilustrando que X es una funcion y no un numero"></p>
+<figcaption>A la izquierda, el resultado SC dentro del espacio muestral de las dos monedas. Una flecha etiquetada X, numero de caras, lo lleva al valor 1 marcado sobre una recta real.</figcaption>
+</figure>
+</div>
+</div>
+<p>Una misma repetición del experimento admite tantas variables aleatorias como preguntas numéricas se quieran hacer sobre ella. En el ejemplo, <span class="math inline">\(X(SC) = 1\)</span> y <span class="math inline">\(Y(SC) = 0\)</span>: dos funciones distintas aplicadas al mismo resultado <span class="math inline">\(\omega = SC\)</span>, cada una respondiendo una pregunta distinta sobre la misma repetición del experimento.</p>
+</section>
+</section>
+<section id="variables-aleatorias-discretas-y-continuas" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="variables-aleatorias-discretas-y-continuas"><span class="header-section-number">7</span> 7. Variables aleatorias discretas y continuas</h2>
+<section id="desde-los-ejemplos-contar-caras-frente-a-medir-minutos" class="level3">
+<h3 class="anchored" data-anchor-id="desde-los-ejemplos-contar-caras-frente-a-medir-minutos">Desde los ejemplos: contar caras frente a medir minutos</h3>
+<p><span class="math inline">\(X\)</span>, el número de caras en dos lanzamientos, solo puede tomar los valores 0, 1 o 2: entre 0 y 1 no hay ningún valor intermedio posible, no existe “1,3 caras”. El tiempo que un pasajero espera el próximo bus es distinto: puede ser 3 minutos, 3,2 minutos, 3,27 minutos, y así indefinidamente, sin que exista un salto mínimo entre un valor posible y el siguiente.</p>
+</section>
+<section id="definición-formal-4" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-4">Definición formal</h3>
+<p>Una variable aleatoria es <strong>discreta</strong> cuando su rango es finito o infinito pero contable (se puede poner en una lista, aunque la lista no termine, como <span class="math inline">\(\{0, 1, 2, 3, \ldots\}\)</span>). Es <strong>continua</strong> cuando su rango es un intervalo completo de <span class="math inline">\(\mathbb{R}\)</span>, con infinitos valores posibles entre cualquier par de ellos, sin importar cuán cercanos estén. Esta distinción retoma la de tipos de variable de la Unidad 1: una variable aleatoria discreta se comporta como una variable numérica discreta, y una continua como una numérica continua, pero ahora con una medida de probabilidad detrás de sus valores.</p>
+</section>
+<section id="interpretación-de-conteo-frente-a-de-medición" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-de-conteo-frente-a-de-medición">Interpretación: de conteo frente a de medición</h3>
+<p>Las variables discretas suelen surgir de <strong>contar</strong>: número de caras en dos monedas, suma de dos dados, número de artículos defectuosos al revisar una caja de 10 unidades. Las variables continuas suelen surgir de <strong>medir</strong>: minutos de espera de un bus, litros de gasolina consumidos, gramos de peso de un paquete. Contar artículos defectuosos en una caja es un buen ejemplo de variable discreta que no es solo “sí o no”: si la caja tiene 10 artículos, el número de defectuosos puede ser 0, 1, 2, y así hasta 10, un conjunto finito de valores enteros, igual de discreto que el número de caras aunque el experimento sea distinto.</p>
+<p>La clasificación puede confundir en un caso concreto: el tiempo de espera del bus, medido con un cronómetro que redondea a segundos enteros, se ve discreto en los datos (3 segundos, 4 segundos, nunca 3,5), pero la variable que describe el fenómeno real sigue siendo continua. El redondeo es una limitación del instrumento de medición, no una propiedad del tiempo de espera en sí: el bus no tarda un número entero de segundos por naturaleza, solo se registra así. Por eso la pregunta correcta no es “¿los datos observados tienen huecos entre un valor y otro?”, sino “¿la cantidad que se está midiendo podría, en principio, tomar cualquier valor real dentro de su rango?”.</p>
+</section>
+</section>
+<section id="la-distribución-de-una-variable-aleatoria" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="la-distribución-de-una-variable-aleatoria"><span class="header-section-number">8</span> 8. La distribución de una variable aleatoria</h2>
+<section id="desde-el-ejemplo-no-basta-con-saber-qué-valores-son-posibles" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-no-basta-con-saber-qué-valores-son-posibles">Desde el ejemplo: no basta con saber qué valores son posibles</h3>
+<p>Saber que <span class="math inline">\(X\)</span>, el número de caras en dos monedas, puede valer 0, 1 o 2 no dice qué tan probable es cada uno. Con monedas honestas, <span class="math inline">\(X = 1\)</span> ocurre el doble de seguido que <span class="math inline">\(X = 0\)</span> o que <span class="math inline">\(X = 2\)</span>, porque hay dos resultados del espacio muestral (<code>CS</code> y <code>SC</code>) que producen una cara, contra uno solo (<code>CC</code> o <code>SS</code>) para los otros dos valores. Conocer esa correspondencia completa entre cada valor posible y su probabilidad es conocer la <strong>distribución</strong> de <span class="math inline">\(X\)</span>.</p>
+</section>
+<section id="definición-formal-5" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-5">Definición formal</h3>
+<p>La <strong>distribución de una variable aleatoria</strong> <span class="math inline">\(X\)</span> es la descripción completa de cómo se reparte la probabilidad entre los valores que <span class="math inline">\(X\)</span> puede tomar. Dos variables aleatorias con el mismo rango pueden tener distribuciones distintas: dos monedas cargadas, donde salir cara es más probable que salir sello, tienen el mismo rango <span class="math inline">\(\{0, 1, 2\}\)</span> para el número de caras que un par de monedas honestas, pero la probabilidad ya no se reparte por igual entre los tres valores. Conocer la distribución de <span class="math inline">\(X\)</span> es tener toda la información probabilística disponible sobre <span class="math inline">\(X\)</span>: cualquier probabilidad que involucre a <span class="math inline">\(X\)</span>, como <span class="math inline">\(P(X \leq 1)\)</span> o <span class="math inline">\(P(X &gt; 0)\)</span>, se puede calcular a partir de su distribución.</p>
+</section>
+<section id="uso-la-distribución-de-x-para-dos-monedas-honestas" class="level3">
+<h3 class="anchored" data-anchor-id="uso-la-distribución-de-x-para-dos-monedas-honestas">Uso: la distribución de X para dos monedas honestas</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>conteo <span class="op">=</span> Counter(X.values())</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(omega)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x | frecuencia | P(X = x)"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">sorted</span>(conteo):</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x, conteo[x], conteo[x] <span class="op">/</span> n)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>x | frecuencia | P(X = x)
+0 1 0.25
+1 2 0.5
+2 1 0.25</code></pre>
+<p>Las secciones que siguen dan nombre formal a esta tabla, según si <span class="math inline">\(X\)</span> es discreta o continua, y muestran cómo representarla con una gráfica.</p>
+</section>
+</section>
+<section id="variable-aleatoria-discreta-la-función-de-masa-de-probabilidad" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="variable-aleatoria-discreta-la-función-de-masa-de-probabilidad"><span class="header-section-number">9</span> 9. Variable aleatoria discreta: la función de masa de probabilidad</h2>
+<section id="desde-un-ejemplo-más-rico-la-suma-de-dos-dados" class="level3">
+<h3 class="anchored" data-anchor-id="desde-un-ejemplo-más-rico-la-suma-de-dos-dados">Desde un ejemplo más rico: la suma de dos dados</h3>
+<p>El experimento de las dos monedas alcanza para tres valores posibles. Para ver una distribución con más forma conviene un experimento con más valores: lanzar dos dados de seis caras y sumar los puntos obtenidos. El espacio muestral tiene 36 resultados igualmente probables (cada combinación de un dado del 1 al 6 con el otro del 1 al 6), y la suma <span class="math inline">\(X\)</span> puede valer cualquier entero entre 2 y 12, pero no todos con la misma probabilidad: solo hay una forma de sumar 2 (1 y 1), pero seis formas de sumar 7 (1-6, 2-5, 3-4, 4-3, 5-2, 6-1).</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> itertools</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>caras <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">7</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>espacio <span class="op">=</span> <span class="bu">list</span>(itertools.product(caras, repeat<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>sumas <span class="op">=</span> [a <span class="op">+</span> b <span class="cf">for</span> a, b <span class="kw">in</span> espacio]</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>valores <span class="op">=</span> <span class="bu">sorted</span>(<span class="bu">set</span>(sumas))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(espacio)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>pmf <span class="op">=</span> {s: sumas.count(s) <span class="op">/</span> n <span class="cf">for</span> s <span class="kw">in</span> valores}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"s | P(X = s)"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> valores:</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s, <span class="bu">round</span>(pmf[s], <span class="dv">4</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>s | P(X = s)
+2 0.0278
+3 0.0556
+4 0.0833
+5 0.1111
+6 0.1389
+7 0.1667
+8 0.1389
+9 0.1111
+10 0.0833
+11 0.0556
+12 0.0278</code></pre>
+</section>
+<section id="definición-formal-6" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-6">Definición formal</h3>
+<p>Para una variable aleatoria discreta <span class="math inline">\(X\)</span>, la <strong>función de masa de probabilidad</strong> (PMF, por sus siglas en inglés) se denota <span class="math inline">\(p_X(x)\)</span> y se define como <span class="math inline">\(p_X(x) = P(X = x)\)</span>: la probabilidad de que <span class="math inline">\(X\)</span> tome exactamente el valor <span class="math inline">\(x\)</span>. Cumple dos propiedades que se verifican directamente en la tabla de arriba: <span class="math inline">\(p_X(x) \geq 0\)</span> para todo <span class="math inline">\(x\)</span>, porque es una probabilidad, y <span class="math inline">\(\sum_x p_X(x) = 1\)</span>, la suma sobre todos los valores posibles siempre da 1, porque el rango de <span class="math inline">\(X\)</span> cubre todo lo que puede pasar.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>ax.bar(valores, [pmf[s] <span class="cf">for</span> s <span class="kw">in</span> valores], color<span class="op">=</span><span class="st">"#2f7bb8"</span>, width<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"s (suma de los dos dados)"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"P(X = s)"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(valores)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">"y"</span>, color<span class="op">=</span><span class="st">"#e4eaf1"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> [<span class="st">"top"</span>, <span class="st">"right"</span>]:</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ax.spines[spine].set_visible(<span class="va">False</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"imagenes/pmf-suma-dos-dados.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/pmf-suma-dos-dados.png" class="img-fluid figure-img" alt="Grafico de barras de la funcion de masa de probabilidad de la suma de dos dados de seis caras, con las probabilidades exactas para cada suma entre 2 y 12 y un pico en el valor 7"></p>
+<figcaption>Grafico de barras con la funcion de masa de probabilidad de la suma de dos dados, con un pico en 7 y valores simetricos que decrecen hacia los extremos 2 y 12.</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El pico en <span class="math inline">\(s = 7\)</span> no es casualidad: es la suma con más combinaciones posibles de las 36 igualmente probables. Sumar 2 o sumar 12 requiere una combinación exacta y única (dos unos, o dos seises), mientras que sumar 7 se logra de seis formas distintas. La forma de la gráfica, simétrica y con un pico en el centro, refleja directamente cuántas combinaciones del espacio muestral producen cada suma.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="variable-aleatoria-continua-la-función-de-densidad" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="variable-aleatoria-continua-la-función-de-densidad"><span class="header-section-number">10</span> 10. Variable aleatoria continua: la función de densidad</h2>
+<section id="desde-el-ejemplo-el-tiempo-de-espera-de-un-bus" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-el-tiempo-de-espera-de-un-bus">Desde el ejemplo: el tiempo de espera de un bus</h3>
+<p>Suponga que, en un paradero dado, el tiempo de espera hasta que llega el próximo bus promedia 6 minutos, y que la espera no tiene “memoria”: haber esperado ya 5 minutos sin que llegue no hace más ni menos probable que llegue en el minuto siguiente. Esa situación se modela con una variable aleatoria continua <span class="math inline">\(X\)</span>, el número de minutos de espera, que sigue una distribución <strong>exponencial</strong> con media 6.</p>
+<p>Con una variable continua no tiene sentido preguntar “¿cuál es la probabilidad de esperar exactamente 5,00000… minutos?”: esa probabilidad es cero, porque hay infinitos valores posibles alrededor de 5 (5,001, 5,0001, 5,00001, y así indefinidamente) y ninguno concentra una porción positiva de la probabilidad total. Lo que sí tiene sentido, y lo que en la práctica interesa, es preguntar por la probabilidad de esperar <strong>entre</strong> dos valores, como entre 2 y 10 minutos.</p>
+</section>
+<section id="definición-formal-7" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-7">Definición formal</h3>
+<p>Para una variable aleatoria continua <span class="math inline">\(X\)</span>, la <strong>función de densidad de probabilidad</strong> (PDF) se denota <span class="math inline">\(f_X(x)\)</span>, y la probabilidad de que <span class="math inline">\(X\)</span> caiga en un intervalo <span class="math inline">\((a, b]\)</span> es el área bajo la curva de <span class="math inline">\(f_X\)</span> entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[P(a &lt; X \leq b) = \int_a^b f_X(x)\,dx\]</span></p>
+<p><span class="math inline">\(f_X(x)\)</span> por sí sola no es una probabilidad: es una densidad, una medida de qué tan concentrada está la probabilidad alrededor de <span class="math inline">\(x\)</span>, y solo se convierte en probabilidad al integrarla sobre un intervalo. Esta es la razón formal detrás de <span class="math inline">\(P(X = x) = 0\)</span> para cualquier variable continua: el “área” bajo la curva sobre un solo punto, un intervalo de ancho cero, es cero. <span class="math inline">\(f_X\)</span> cumple <span class="math inline">\(f_X(x) \geq 0\)</span> para todo <span class="math inline">\(x\)</span>, y el área bajo toda la curva vale 1, igual que la suma de todas las probabilidades en el caso discreto.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>media_espera <span class="op">=</span> <span class="dv">6</span>  <span class="co"># minutos, tiempo promedio de espera del bus</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">400</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>densidad <span class="op">=</span> stats.expon.pdf(x, scale<span class="op">=</span>media_espera)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>a, b <span class="op">=</span> <span class="dv">2</span>, <span class="dv">10</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>prob_intervalo <span class="op">=</span> stats.expon.cdf(b, scale<span class="op">=</span>media_espera) <span class="op">-</span> stats.expon.cdf(a, scale<span class="op">=</span>media_espera)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(2 &lt; X &lt;= 10) ="</span>, <span class="bu">round</span>(prob_intervalo, <span class="dv">4</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>P(2 &lt; X &lt;= 10) = 0.5277</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, densidad, color<span class="op">=</span><span class="st">"#2f7bb8"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>x_sombra <span class="op">=</span> np.linspace(a, b, <span class="dv">200</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>ax.fill_between(x_sombra, stats.expon.pdf(x_sombra, scale<span class="op">=</span>media_espera), color<span class="op">=</span><span class="st">"#2f7bb8"</span>, alpha<span class="op">=</span><span class="fl">0.25</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x (minutos de espera)"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"f(x)"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>ax.grid(color<span class="op">=</span><span class="st">"#e4eaf1"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> [<span class="st">"top"</span>, <span class="st">"right"</span>]:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    ax.spines[spine].set_visible(<span class="va">False</span>)</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"imagenes/densidad-tiempo-espera-bus.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/densidad-tiempo-espera-bus.png" class="img-fluid figure-img" alt="Funcion de densidad exponencial del tiempo de espera de un bus con media 6 minutos, con el area bajo la curva entre 2 y 10 minutos sombreada, que representa la probabilidad de esperar entre 2 y 10 minutos"></p>
+<figcaption>Curva de densidad exponencial decreciente del tiempo de espera del bus, con el area entre 2 y 10 minutos sombreada bajo la curva.</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El área sombreada, 0,5277, dice que hay 52,77% de probabilidad de que el pasajero espere entre 2 y 10 minutos por el próximo bus. La curva completa nunca toca el eje horizontal para <span class="math inline">\(x \geq 0\)</span> pero se acerca cada vez más a cero a medida que <span class="math inline">\(x\)</span> crece: esperas de más de 20 minutos son posibles pero cada vez menos probables, sin que exista un límite superior estricto.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="la-función-de-distribución-acumulada" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="la-función-de-distribución-acumulada"><span class="header-section-number">11</span> 11. La función de distribución acumulada</h2>
+<section id="desde-los-ejemplos-qué-tan-probable-es-no-pasarse-de-un-valor" class="level3">
+<h3 class="anchored" data-anchor-id="desde-los-ejemplos-qué-tan-probable-es-no-pasarse-de-un-valor">Desde los ejemplos: ¿qué tan probable es no pasarse de un valor?</h3>
+<p>Con la suma de dos dados, una pregunta distinta a “¿cuál es la probabilidad de sumar exactamente 7?” es “¿cuál es la probabilidad de sumar 7 o menos?”. Esta segunda pregunta acumula la probabilidad de todos los valores desde el mínimo posible hasta el que interesa. Con el tiempo de espera del bus, la pregunta análoga es “¿cuál es la probabilidad de esperar 5 minutos o menos?”.</p>
+</section>
+<section id="definición-formal-8" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-8">Definición formal</h3>
+<p>La <strong>función de distribución acumulada</strong> (CDF), o simplemente función de distribución, de una variable aleatoria <span class="math inline">\(X\)</span> se denota <span class="math inline">\(F_X(x)\)</span> y se define, para discretas y continuas por igual, como:</p>
+<p><span class="math display">\[F_X(x) = P(X \leq x)\]</span></p>
+<p>Para una variable aleatoria discreta, <span class="math inline">\(F_X(x)\)</span> se construye sumando la PMF de todos los valores del rango que sean menores o iguales a <span class="math inline">\(x\)</span>. Para una continua, se construye integrando la PDF desde <span class="math inline">\(-\infty\)</span> hasta <span class="math inline">\(x\)</span>; el punto 14 de esta guía retoma esa relación con más detalle.</p>
+</section>
+<section id="uso-la-cdf-de-la-suma-de-dos-dados-y-la-del-tiempo-de-espera-del-bus" class="level3">
+<h3 class="anchored" data-anchor-id="uso-la-cdf-de-la-suma-de-dos-dados-y-la-del-tiempo-de-espera-del-bus">Uso: la CDF de la suma de dos dados y la del tiempo de espera del bus</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cdf_dado <span class="op">=</span> {}</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>acumulado <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> valores:</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    acumulado <span class="op">+=</span> pmf[s]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    cdf_dado[s] <span class="op">=</span> acumulado</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"s | F(s)"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> valores:</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(s, <span class="bu">round</span>(cdf_dado[s], <span class="dv">4</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>s | F(s)
+2 0.0278
+3 0.0833
+4 0.1667
+5 0.2778
+6 0.4167
+7 0.5833
+8 0.7222
+9 0.8333
+10 0.9167
+11 0.9722
+12 1.0</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x_bus <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">400</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cdf_bus <span class="op">=</span> stats.expon.cdf(x_bus, scale<span class="op">=</span>media_espera)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>x_escalera <span class="op">=</span> [<span class="dv">0</span>] <span class="op">+</span> valores</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>y_escalera <span class="op">=</span> [<span class="dv">0</span>] <span class="op">+</span> [cdf_dado[s] <span class="cf">for</span> s <span class="kw">in</span> valores]</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>ax1.step(x_escalera, y_escalera, where<span class="op">=</span><span class="st">"post"</span>, color<span class="op">=</span><span class="st">"#2f7bb8"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"s (suma de los dos dados)"</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"F(s)"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>ax1.set_xticks(valores)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>ax1.grid(color<span class="op">=</span><span class="st">"#e4eaf1"</span>)</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>ax1.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>ax2.plot(x_bus, cdf_bus, color<span class="op">=</span><span class="st">"#c4682c"</span>, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"x (minutos de espera)"</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"F(x)"</span>)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>ax2.grid(color<span class="op">=</span><span class="st">"#e4eaf1"</span>)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>ax2.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax <span class="kw">in</span> (ax1, ax2):</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> spine <span class="kw">in</span> [<span class="st">"top"</span>, <span class="st">"right"</span>]:</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        ax.spines[spine].set_visible(<span class="va">False</span>)</span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"imagenes/cdf-discreta-y-continua.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/cdf-discreta-y-continua.png" class="img-fluid figure-img" alt="Dos graficas de funcion de distribucion acumulada lado a lado: a la izquierda una escalera discreta para la suma de dos dados, a la derecha una curva continua para el tiempo de espera de un bus, ambas crecientes de 0 a 1"></p>
+<figcaption>A la izquierda, una escalera creciente que va de 0 a 1: la CDF de la suma de dos dados, con un salto en cada entero de 2 a 12. A la derecha, una curva suave y creciente que tambien va de 0 a 1: la CDF continua del tiempo de espera del bus.</figcaption>
+</figure>
+</div>
+</div>
+<p>La CDF discreta sube en saltos, uno por cada valor posible de la suma, y se mantiene plana entre un entero y el siguiente porque no hay valores intermedios que acumular. La CDF continua sube sin saltos, de forma suave, porque siempre hay valores intermedios entre cualquier par de minutos.</p>
+</section>
+</section>
+<section id="propiedades-de-la-función-de-distribución" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="propiedades-de-la-función-de-distribución"><span class="header-section-number">12</span> 12. Propiedades de la función de distribución</h2>
+<p>Cualquier función de distribución acumulada, sin importar si la variable es discreta o continua, cumple cuatro propiedades, visibles en las dos gráficas de la sección anterior:</p>
+<ol type="1">
+<li><strong>Toma valores entre 0 y 1</strong>: <span class="math inline">\(0 \leq F_X(x) \leq 1\)</span> para todo <span class="math inline">\(x\)</span>, porque es una probabilidad acumulada.</li>
+<li><strong>Es no decreciente</strong>: si <span class="math inline">\(x_1 &lt; x_2\)</span>, entonces <span class="math inline">\(F_X(x_1) \leq F_X(x_2)\)</span>. Acumular hasta un valor más alto nunca puede dar una probabilidad menor que acumular hasta uno más bajo, porque en el peor caso no se suma nada nuevo. Se ve en las dos curvas de la sección anterior: ninguna baja en ningún tramo.</li>
+<li><strong>Tiene límites en los extremos</strong>: <span class="math inline">\(\lim_{x \to -\infty} F_X(x) = 0\)</span> (nada queda por debajo de menos infinito) y <span class="math inline">\(\lim_{x \to +\infty} F_X(x) = 1\)</span> (todo queda por debajo de más infinito). En la CDF de los dados, <span class="math inline">\(F_X(2) = 0{,}0278\)</span> ya casi arranca en 0 porque 2 es el mínimo posible, y <span class="math inline">\(F_X(12) = 1\)</span> exactamente, porque 12 es el máximo. En la CDF del bus, la curva se acerca a 1 sin tocarlo nunca del todo dentro de cualquier rango finito de minutos, porque en teoría la espera podría durar cualquier cantidad de tiempo.</li>
+<li><strong>Es continua por la derecha</strong>: en cualquier punto de salto (que solo ocurre en variables discretas o con parte discreta), el valor de <span class="math inline">\(F_X\)</span> justo en el punto coincide con el valor inmediatamente después del salto, no con el de antes. En la escalera de los dados, <span class="math inline">\(F_X(7) = 0{,}5833\)</span> es el valor que incluye el salto que ocurre exactamente en 7, no el valor de <span class="math inline">\(0{,}4167\)</span> que tenía la función justo antes de llegar a 7.</li>
+</ol>
+<p>Los saltos de la CDF discreta ocurren exactamente en los valores del rango de <span class="math inline">\(X\)</span> donde <span class="math inline">\(p_X(x) &gt; 0\)</span>, y el tamaño de cada salto es igual a <span class="math inline">\(p_X(x)\)</span> en ese punto: el salto en <span class="math inline">\(s = 7\)</span> mide <span class="math inline">\(0{,}5833 - 0{,}4167 = 0{,}1667\)</span>, que es justo <span class="math inline">\(p_X(7)\)</span> calculado en la sección 9. La CDF continua del bus no tiene saltos en ningún punto, consistente con que <span class="math inline">\(P(X = x) = 0\)</span> para toda variable continua.</p>
+</section>
+<section id="calcular-probabilidades-con-la-función-de-distribución" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="calcular-probabilidades-con-la-función-de-distribución"><span class="header-section-number">13</span> 13. Calcular probabilidades con la función de distribución</h2>
+<section id="desde-el-ejemplo-tres-preguntas-sobre-la-espera-del-bus" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-tres-preguntas-sobre-la-espera-del-bus">Desde el ejemplo: tres preguntas sobre la espera del bus</h3>
+<p>Con la CDF del tiempo de espera del bus ya construida, tres preguntas naturales de un pasajero se responden sin volver a integrar la densidad desde cero: ¿cuál es la probabilidad de esperar 5 minutos o menos?, ¿cuál es la probabilidad de esperar más de 5 minutos?, y ¿cuál es la probabilidad de esperar entre 2 y 10 minutos?</p>
+</section>
+<section id="definición-formal-9" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-9">Definición formal</h3>
+<p>A partir de <span class="math inline">\(F_X\)</span> se calculan probabilidades sin volver a la PMF o a la PDF:</p>
+<ul>
+<li><span class="math inline">\(P(X \leq x) = F_X(x)\)</span>, por definición.</li>
+<li><span class="math inline">\(P(X &gt; x) = 1 - F_X(x)\)</span>, porque “más que <span class="math inline">\(x\)</span>” es el complemento de “<span class="math inline">\(x\)</span> o menos”.</li>
+<li><span class="math inline">\(P(a &lt; X \leq b) = F_X(b) - F_X(a)\)</span>: la probabilidad acumulada hasta <span class="math inline">\(b\)</span> menos la que ya estaba acumulada hasta <span class="math inline">\(a\)</span> deja exactamente la franja entre los dos.</li>
+</ul>
+</section>
+<section id="uso-las-tres-preguntas-del-pasajero" class="level3">
+<h3 class="anchored" data-anchor-id="uso-las-tres-preguntas-del-pasajero">Uso: las tres preguntas del pasajero</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>p_menor_igual_5 <span class="op">=</span> stats.expon.cdf(<span class="dv">5</span>, scale<span class="op">=</span>media_espera)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>p_mayor_5 <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> p_menor_igual_5</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>p_entre_2_y_10 <span class="op">=</span> stats.expon.cdf(<span class="dv">10</span>, scale<span class="op">=</span>media_espera) <span class="op">-</span> stats.expon.cdf(<span class="dv">2</span>, scale<span class="op">=</span>media_espera)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(X &lt;= 5) ="</span>, <span class="bu">round</span>(p_menor_igual_5, <span class="dv">4</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(X &gt; 5) ="</span>, <span class="bu">round</span>(p_mayor_5, <span class="dv">4</span>))</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(2 &lt; X &lt;= 10) ="</span>, <span class="bu">round</span>(p_entre_2_y_10, <span class="dv">4</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>P(X &lt;= 5) = 0.5654
+P(X &gt; 5) = 0.4346
+P(2 &lt; X &lt;= 10) = 0.5277</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un poco más de la mitad de las veces (56,54%) el pasajero espera 5 minutos o menos, y en un 43,46% de las veces espera más de 5. El valor <span class="math inline">\(P(2 &lt; X \leq 10) = 0{,}5277\)</span> coincide con el área sombreada de la sección 10, calculada ahí integrando la densidad directamente: es la misma probabilidad, obtenida esta vez restando dos valores de la CDF en vez de integrar.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="cómo-se-relacionan-la-pmf-la-pdf-y-la-cdf" class="level2" data-number="14">
+<h2 data-number="14" class="anchored" data-anchor-id="cómo-se-relacionan-la-pmf-la-pdf-y-la-cdf"><span class="header-section-number">14</span> 14. Cómo se relacionan la PMF, la PDF y la CDF</h2>
+<section id="desde-los-ejemplos-ir-y-volver-entre-la-tabla-y-la-escalera-entre-la-curva-y-su-pendiente" class="level3">
+<h3 class="anchored" data-anchor-id="desde-los-ejemplos-ir-y-volver-entre-la-tabla-y-la-escalera-entre-la-curva-y-su-pendiente">Desde los ejemplos: ir y volver entre la tabla y la escalera, entre la curva y su pendiente</h3>
+<p>En la suma de dos dados, la tabla de la PMF y la escalera de la CDF contienen la misma información escrita de dos formas: la PMF dice cuánto probabilidad tiene cada valor por separado, y la CDF dice cuánto se ha acumulado hasta cada valor. En el tiempo de espera del bus, la curva de densidad y la curva de la CDF también contienen la misma información: una es la razón de cambio instantánea de la otra.</p>
+</section>
+<section id="definición-formal-de-la-pmf-a-la-cdf-y-de-vuelta-caso-discreto" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-de-la-pmf-a-la-cdf-y-de-vuelta-caso-discreto">Definición formal: de la PMF a la CDF y de vuelta, caso discreto</h3>
+<p>Para una variable discreta, ir de la PMF a la CDF es sumar acumulando, como se hizo en la sección 11. Para volver de la CDF a la PMF en un valor <span class="math inline">\(x\)</span> del rango, se resta el valor de <span class="math inline">\(F_X\)</span> justo antes de <span class="math inline">\(x\)</span> (su límite por la izquierda, <span class="math inline">\(F_X(x^-)\)</span>) del valor en <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[p_X(x) = F_X(x) - F_X(x^-)\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x0 <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>p_manual <span class="op">=</span> cdf_dado[x0] <span class="op">-</span> cdf_dado[x0 <span class="op">-</span> <span class="dv">1</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p_X(</span><span class="sc">{</span>x0<span class="sc">}</span><span class="ss">) via F(</span><span class="sc">{</span>x0<span class="sc">}</span><span class="ss">) - F(</span><span class="sc">{</span>x0 <span class="op">-</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">):"</span>, <span class="bu">round</span>(p_manual, <span class="dv">4</span>))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"p_X(</span><span class="sc">{</span>x0<span class="sc">}</span><span class="ss">) directo de la tabla:"</span>, <span class="bu">round</span>(pmf[x0], <span class="dv">4</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>p_X(7) via F(7) - F(6): 0.1667
+p_X(7) directo de la tabla: 0.1667</code></pre>
+<p>Como los valores de la suma de dos dados son enteros consecutivos, <span class="math inline">\(F_X(x^-)\)</span> coincide con <span class="math inline">\(F_X(x - 1)\)</span>, y las dos formas de calcular <span class="math inline">\(p_X(7)\)</span> dan exactamente el mismo número.</p>
+</section>
+<section id="definición-formal-de-la-pdf-a-la-cdf-y-de-vuelta-caso-continuo" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-de-la-pdf-a-la-cdf-y-de-vuelta-caso-continuo">Definición formal: de la PDF a la CDF y de vuelta, caso continuo</h3>
+<p>Para una variable continua, la CDF es la integral acumulada de la densidad desde <span class="math inline">\(-\infty\)</span>:</p>
+<p><span class="math display">\[F_X(x) = \int_{-\infty}^{x} f_X(t)\,dt\]</span></p>
+<p>y, en la otra dirección, la densidad es la derivada de la CDF donde esa derivada existe:</p>
+<p><span class="math display">\[f_X(x) = F_X'(x)\]</span></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>h <span class="op">=</span> <span class="fl">1e-4</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>f_numerico <span class="op">=</span> (stats.expon.cdf(x1 <span class="op">+</span> h, scale<span class="op">=</span>media_espera) <span class="op">-</span> stats.expon.cdf(x1 <span class="op">-</span> h, scale<span class="op">=</span>media_espera)) <span class="op">/</span> (<span class="dv">2</span> <span class="op">*</span> h)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>f_teorico <span class="op">=</span> stats.expon.pdf(x1, scale<span class="op">=</span>media_espera)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"f(</span><span class="sc">{</span>x1<span class="sc">}</span><span class="ss">) aproximada como F'(</span><span class="sc">{</span>x1<span class="sc">}</span><span class="ss">):"</span>, <span class="bu">round</span>(f_numerico, <span class="dv">4</span>))</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"f(</span><span class="sc">{</span>x1<span class="sc">}</span><span class="ss">) evaluada directo:"</span>, <span class="bu">round</span>(f_teorico, <span class="dv">4</span>))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>f(6) aproximada como F'(6): 0.0613
+f(6) evaluada directo: 0.0613</code></pre>
+<p>Aproximar la derivada de <span class="math inline">\(F_X\)</span> en <span class="math inline">\(x = 6\)</span> con una diferencia de cocientes muy pequeña (<span class="math inline">\(h = 0{,}0001\)</span>) da el mismo valor, hasta el redondeo, que evaluar la densidad directamente en ese punto: confirma numéricamente que <span class="math inline">\(f_X\)</span> es, en efecto, la razón de cambio de <span class="math inline">\(F_X\)</span>.</p>
+<p>En resumen: cuándo usar cada función depende de qué se pregunte. Si la pregunta es “¿cuál es la probabilidad de exactamente este valor?”, en discretas se usa la PMF y en continuas esa pregunta vale cero, por lo que no aplica. Si la pregunta es “¿cuál es la probabilidad de este valor o menos?”, se usa la CDF, sea discreta o continua. Si la pregunta es “¿qué tan concentrada está la probabilidad alrededor de este valor?” en una variable continua, se usa la densidad, aunque su valor no sea directamente una probabilidad.</p>
+</section>
+</section>
+<section id="de-la-teoría-a-los-datos-variables-aleatorias-y-columnas-reales" class="level2" data-number="15">
+<h2 data-number="15" class="anchored" data-anchor-id="de-la-teoría-a-los-datos-variables-aleatorias-y-columnas-reales"><span class="header-section-number">15</span> 15. De la teoría a los datos: variables aleatorias y columnas reales</h2>
+<section id="desde-el-ejemplo-cronometrar-varias-esperas-reales" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-cronometrar-varias-esperas-reales">Desde el ejemplo: cronometrar varias esperas reales</h3>
+<p>Todo lo anterior describió el tiempo de espera del bus como una variable aleatoria teórica, con una media fija de 6 minutos conocida de antemano. En la práctica, para saber si ese modelo es razonable, alguien tendría que pararse en el paradero, cronometrar la espera cada vez que llega un bus, y anotar cada tiempo en una lista. Esa lista de tiempos cronometrados es una <strong>muestra</strong>, y cada tiempo individual dentro de ella es una <strong>realización</strong> de la variable aleatoria.</p>
+</section>
+<section id="definición-formal-10" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-10">Definición formal</h3>
+<p>Cuando el mismo experimento aleatorio se repite <span class="math inline">\(n\)</span> veces de forma independiente, cada repetición produce una <strong>realización</strong> de la variable aleatoria <span class="math inline">\(X\)</span>, denotada <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span>. Una vez que el experimento ya ocurrió y se registraron los valores, cada <span class="math inline">\(X_i\)</span> deja de ser incierta: se convierte en un número fijo, la <strong>muestra observada</strong>. La diferencia entre la <strong>distribución teórica</strong> de <span class="math inline">\(X\)</span> (lo que la sección 10 llamó <span class="math inline">\(f_X\)</span>, definida de antemano por un modelo) y la <strong>distribución observada</strong> de una muestra es la diferencia entre lo que un modelo predice y lo que efectivamente se registró en un conjunto finito de repeticiones. Esa distinción es la misma que separaba, en la Unidad 1, describir datos ya existentes de modelar la incertidumbre antes de que el dato ocurra.</p>
+</section>
+<section id="uso-simular-una-muestra-de-200-esperas" class="level3">
+<h3 class="anchored" data-anchor-id="uso-simular-una-muestra-de-200-esperas">Uso: simular una muestra de 200 esperas</h3>
+<p>Sin salir a cronometrar un bus real, es posible generar una muestra que se comporte como si viniera del modelo exponencial de media 6 minutos, usando un generador de números aleatorios. Esto no reemplaza cronometrar buses reales, pero permite estudiar cómo se comporta una muestra frente a la teoría que la generó, con control total sobre esa teoría.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(<span class="dv">2026</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>muestra <span class="op">=</span> rng.exponential(scale<span class="op">=</span>media_espera, size<span class="op">=</span>n)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Primeras 5 realizaciones (minutos):"</span>, np.<span class="bu">round</span>(muestra[:<span class="dv">5</span>], <span class="dv">2</span>))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Promedio muestral:"</span>, <span class="bu">round</span>(muestra.mean(), <span class="dv">2</span>))</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Promedio teorico (media_espera):"</span>, media_espera)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>Primeras 5 realizaciones (minutos): [0.89 7.59 2.57 4.12 5.87]
+Promedio muestral: 6.99
+Promedio teorico (media_espera): 6</code></pre>
+<p>Cada uno de los 200 números en <code>muestra</code> es una realización <span class="math inline">\(X_i\)</span>: la primera dice que, en esa repetición simulada, el pasajero esperó 0,89 minutos; la segunda, que esperó 7,59 minutos. El promedio de las 200 realizaciones, 6,99 minutos, se acerca al promedio teórico de 6 minutos sin coincidir exactamente, porque 200 repeticiones son finitas y están sujetas a variabilidad propia de la muestra.</p>
+</section>
+</section>
+<section id="la-distribución-empírica" class="level2" data-number="16">
+<h2 data-number="16" class="anchored" data-anchor-id="la-distribución-empírica"><span class="header-section-number">16</span> 16. La distribución empírica</h2>
+<section id="desde-el-ejemplo-construir-una-cdf-con-los-datos-en-mano" class="level3">
+<h3 class="anchored" data-anchor-id="desde-el-ejemplo-construir-una-cdf-con-los-datos-en-mano">Desde el ejemplo: construir una CDF con los datos en mano</h3>
+<p>Con las 200 esperas simuladas ya generadas, es posible preguntar, igual que en la sección 13 pero ahora usando los datos y no el modelo teórico: ¿qué proporción de esas 200 esperas fue de 5 minutos o menos? Contar directamente sobre la muestra, en vez de usar la fórmula teórica, construye una versión de la CDF basada enteramente en los datos observados.</p>
+</section>
+<section id="definición-formal-11" class="level3">
+<h3 class="anchored" data-anchor-id="definición-formal-11">Definición formal</h3>
+<p>La <strong>función de distribución empírica</strong>, denotada <span class="math inline">\(\hat{F}_n(x)\)</span>, se calcula sobre una muestra de tamaño <span class="math inline">\(n\)</span> como la proporción de realizaciones que no superan <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[\hat{F}_n(x) = \frac{1}{n}\sum_{i=1}^{n} \mathbb{1}(X_i \leq x)\]</span></p>
+<p>donde <span class="math inline">\(\mathbb{1}(X_i \leq x)\)</span> vale 1 si esa realización cumple la condición y 0 si no, así que la suma cuenta cuántas de las <span class="math inline">\(n\)</span> realizaciones son menores o iguales que <span class="math inline">\(x\)</span>, y dividir entre <span class="math inline">\(n\)</span> convierte ese conteo en una proporción. A diferencia de la CDF teórica <span class="math inline">\(F_X\)</span>, que viene de un modelo fijado de antemano, <span class="math inline">\(\hat{F}_n\)</span> depende de la muestra concreta que se haya observado: dos muestras distintas del mismo experimento producen dos <span class="math inline">\(\hat{F}_n\)</span> ligeramente distintas, aunque ambas provengan de la misma <span class="math inline">\(F_X\)</span> teórica.</p>
+</section>
+<section id="uso-comparar-la-cdf-empírica-contra-la-teórica" class="level3">
+<h3 class="anchored" data-anchor-id="uso-comparar-la-cdf-empírica-contra-la-teórica">Uso: comparar la CDF empírica contra la teórica</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>x_ecdf <span class="op">=</span> np.sort(muestra)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>y_ecdf <span class="op">=</span> np.arange(<span class="dv">1</span>, n <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> n</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>x_teorica <span class="op">=</span> np.linspace(<span class="dv">0</span>, x_ecdf.<span class="bu">max</span>(), <span class="dv">400</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>cdf_teorica <span class="op">=</span> stats.expon.cdf(x_teorica, scale<span class="op">=</span>media_espera)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ax.step(x_ecdf, y_ecdf, where<span class="op">=</span><span class="st">"post"</span>, color<span class="op">=</span><span class="st">"#2f7bb8"</span>, linewidth<span class="op">=</span><span class="fl">1.8</span>, label<span class="op">=</span><span class="st">"CDF empirica (200 esperas simuladas)"</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>ax.plot(x_teorica, cdf_teorica, color<span class="op">=</span><span class="st">"#c4682c"</span>, linewidth<span class="op">=</span><span class="dv">2</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"CDF teorica, exponencial con media 6"</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x (minutos de espera)"</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"F(x)"</span>)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>ax.grid(color<span class="op">=</span><span class="st">"#e4eaf1"</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> [<span class="st">"top"</span>, <span class="st">"right"</span>]:</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    ax.spines[spine].set_visible(<span class="va">False</span>)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"imagenes/ecdf-vs-teorica-tiempo-espera.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/ecdf-vs-teorica-tiempo-espera.png" class="img-fluid figure-img" alt="Comparacion entre la funcion de distribucion acumulada empirica de 200 tiempos de espera de bus simulados y la funcion de distribucion acumulada teorica exponencial con media 6 minutos, mostrando que la empirica sigue de cerca a la teorica"></p>
+<figcaption>Una escalera azul, la CDF empirica de las 200 esperas simuladas, muy pegada a una curva punteada naranja, la CDF teorica exponencial con media 6, desde 0 hasta que ambas se acercan a 1.</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Interpretación en contexto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La escalera empírica sube en 200 saltos diminutos, uno por cada realización de la muestra, y se mantiene muy cerca de la curva teórica en todo momento, sin coincidir exactamente en ningún tramo. Esa cercanía sin coincidencia exacta es la esperada: la muestra viene efectivamente del modelo exponencial de media 6, así que su distribución empírica debería parecerse a la teórica, y la distancia entre las dos disminuiría todavía más si la muestra fuera de 2000 esperas en vez de 200.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="simulación-y-aplicación-en-analítica" class="level2" data-number="17">
+<h2 data-number="17" class="anchored" data-anchor-id="simulación-y-aplicación-en-analítica"><span class="header-section-number">17</span> 17. Simulación y aplicación en analítica</h2>
+<section id="un-ejercicio-completo-el-modelo-predice-bien-la-proporción-de-esperas-cortas" class="level3">
+<h3 class="anchored" data-anchor-id="un-ejercicio-completo-el-modelo-predice-bien-la-proporción-de-esperas-cortas">Un ejercicio completo: ¿el modelo predice bien la proporción de esperas cortas?</h3>
+<p>Esta sección cierra la guía con un ejercicio que reúne PMF, PDF, CDF y distribución empírica en un solo flujo, usando el mismo modelo del tiempo de espera del bus, pero con una muestra más grande para ver el efecto de aumentar el número de repeticiones.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>muestra <span class="op">=</span> rng.exponential(scale<span class="op">=</span>media_espera, size<span class="op">=</span>n)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>p_simulada <span class="op">=</span> (muestra <span class="op">&lt;=</span> <span class="dv">5</span>).mean()</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>p_teorica <span class="op">=</span> stats.expon.cdf(<span class="dv">5</span>, scale<span class="op">=</span>media_espera)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(X &lt;= 5) simulada con 500 esperas:"</span>, <span class="bu">round</span>(p_simulada, <span class="dv">4</span>))</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P(X &lt;= 5) teorica:"</span>, <span class="bu">round</span>(p_teorica, <span class="dv">4</span>))</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, muestra.<span class="bu">max</span>(), <span class="dv">400</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>densidad_teorica <span class="op">=</span> stats.expon.pdf(x, scale<span class="op">=</span>media_espera)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.2</span>))</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>ax.hist(muestra, bins<span class="op">=</span><span class="dv">25</span>, density<span class="op">=</span><span class="va">True</span>, color<span class="op">=</span><span class="st">"#2f7bb8"</span>, alpha<span class="op">=</span><span class="fl">0.55</span>, edgecolor<span class="op">=</span><span class="st">"white"</span>, label<span class="op">=</span><span class="st">"Histograma de 500 esperas simuladas"</span>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>ax.plot(x, densidad_teorica, color<span class="op">=</span><span class="st">"#c4682c"</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">"Densidad teorica, exponencial con media 6"</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"x (minutos de espera)"</span>)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"densidad"</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>ax.grid(color<span class="op">=</span><span class="st">"#e4eaf1"</span>)</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>ax.set_axisbelow(<span class="va">True</span>)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>ax.legend(frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> spine <span class="kw">in</span> [<span class="st">"top"</span>, <span class="st">"right"</span>]:</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    ax.spines[spine].set_visible(<span class="va">False</span>)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"imagenes/histograma-vs-densidad-simulacion-bus.png"</span>, dpi<span class="op">=</span><span class="dv">150</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="text"><code>P(X &lt;= 5) simulada con 500 esperas: 0.56
+P(X &lt;= 5) teorica: 0.5654</code></pre>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/histograma-vs-densidad-simulacion-bus.png" class="img-fluid figure-img" alt="Histograma de 500 tiempos de espera de bus simulados con la curva de densidad exponencial teorica de media 6 minutos superpuesta, mostrando que el histograma sigue de cerca la forma de la densidad teorica"></p>
+<figcaption>Histograma azul de 500 tiempos de espera simulados, con la curva naranja de la densidad exponencial teorica superpuesta y ajustando de cerca a la forma del histograma.</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Ejercicio propuesto: cambiar el escenario
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Repita la simulación cambiando <code>media_espera</code> a 3 minutos, manteniendo el mismo tamaño de muestra (500), y responda: ¿la probabilidad de esperar 5 minutos o menos sube o baja frente al escenario de media 6? Antes de correr el código, prediga la respuesta usando la fórmula <span class="math inline">\(P(X \leq 5) = F_X(5) = 1 - e^{-5/\text{media}}\)</span> de la distribución exponencial, y luego verifíquela ejecutando el ejercicio con el nuevo valor.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretación-en-el-problema-cotidiano" class="level3">
+<h3 class="anchored" data-anchor-id="interpretación-en-el-problema-cotidiano">Interpretación en el problema cotidiano</h3>
+<p>Con 500 repeticiones simuladas, la proporción observada de esperas de 5 minutos o menos (0,56) prácticamente coincide con la que predice el modelo teórico (0,5654), y el histograma sigue de cerca la forma de la curva de densidad. Esa coincidencia no es un accidente de esta simulación en particular: es la consecuencia esperada de que las 500 realizaciones efectivamente provienen del modelo exponencial que se está comparando contra ellas. En un caso real, con datos cronometrados de un paradero de verdad, encontrar ese mismo nivel de acuerdo entre lo observado y lo que predice un modelo exponencial sería evidencia a favor de usar ese modelo para responder preguntas futuras sobre la espera, como cuántos minutos hay que anunciar como espera máxima razonable, o qué proporción de pasajeros esperaría más de 15 minutos en un mal día.</p>
+</section>
+<section id="el-hilo-completo-de-la-guía" class="level3">
+<h3 class="anchored" data-anchor-id="el-hilo-completo-de-la-guía">El hilo completo de la guía</h3>
+<ol type="1">
+<li><strong>Experimento</strong>: lanzar dos monedas, lanzar dos dados, o cronometrar la espera de un bus, procesos cuyo resultado no se puede predecir con certeza antes de observarlo.</li>
+<li><strong>Espacio muestral</strong>: el conjunto de todos los resultados posibles de ese experimento, <span class="math inline">\(\Omega\)</span>.</li>
+<li><strong>Evento</strong>: un subconjunto de <span class="math inline">\(\Omega\)</span> que agrupa los resultados que cumplen una condición de interés.</li>
+<li><strong>Probabilidad</strong>: un número entre 0 y 1 asignado a cada evento, que cumple los axiomas de Kolmogorov.</li>
+<li><strong>Variable aleatoria</strong>: una función <span class="math inline">\(X\)</span> que traduce cada resultado del experimento a un número real.</li>
+<li><strong>Distribución</strong>: la descripción completa de cómo se reparte la probabilidad entre los valores posibles de <span class="math inline">\(X\)</span>.</li>
+<li><strong>PMF o PDF</strong>: la forma concreta de esa distribución, como tabla de probabilidades si <span class="math inline">\(X\)</span> es discreta, o como curva de densidad si <span class="math inline">\(X\)</span> es continua.</li>
+<li><strong>CDF</strong>: la probabilidad acumulada hasta cada valor, construida a partir de la PMF o de la PDF.</li>
+<li><strong>Datos observados</strong>: una muestra de realizaciones del experimento repetido, cuya distribución empírica se puede comparar contra la distribución teórica para evaluar si el modelo elegido es razonable.</li>
+</ol>
+</section>
+</section>
+<section id="lista-de-verificación" class="level2" data-number="18">
+<h2 data-number="18" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">18</span> Lista de verificación</h2>
+<div class="checklist">
+<ul class="task-list">
+<li><label><input type="checkbox">Distingues un experimento determinístico de uno aleatorio, y explicas por qué la moneda y el bus son aleatorios y hervir agua no lo es.</label></li>
+<li><label><input type="checkbox">Construyes correctamente el espacio muestral de un experimento simple, sin omitir resultados ni solaparlos, y distingues un espacio finito de uno infinito discreto y de uno continuo.</label></li>
+<li><label><input type="checkbox">Defines un evento como subconjunto de <span class="math inline">\(\Omega\)</span>, y calculas su unión, intersección y complemento con otro evento.</label></li>
+<li><label><input type="checkbox">Enuncias los tres axiomas de Kolmogorov y aplicas la regla de la unión a dos eventos que se solapan.</label></li>
+<li><label><input type="checkbox">Explicas por qué hace falta una variable aleatoria y la defines formalmente como una función <span class="math inline">\(X: \Omega \to \mathbb{R}\)</span>, distinguiendo <span class="math inline">\(X\)</span> de una observación <span class="math inline">\(x\)</span>.</label></li>
+<li><label><input type="checkbox">Distingues una variable aleatoria discreta de una continua, y reconoces casos donde la clasificación podría confundir.</label></li>
+<li><label><input type="checkbox">Defines la función de masa de probabilidad de una variable discreta, verificas que sus valores suman 1, y la representas en una tabla y en un gráfico de barras.</label></li>
+<li><label><input type="checkbox">Defines la función de densidad de una variable continua, interpretas el área bajo la curva como probabilidad, y explicas por qué <span class="math inline">\(P(X = x) = 0\)</span> para cualquier valor puntual.</label></li>
+<li><label><input type="checkbox">Defines la función de distribución acumulada, la calculas para un caso discreto y uno continuo, y enuncias sus cuatro propiedades.</label></li>
+<li><label><input type="checkbox">Calculas <span class="math inline">\(P(X \leq x)\)</span>, <span class="math inline">\(P(X &gt; x)\)</span> y <span class="math inline">\(P(a &lt; X \leq b)\)</span> a partir de la CDF, sin volver a la PMF o a la PDF.</label></li>
+<li><label><input type="checkbox">Explicas la relación entre PMF, PDF y CDF en ambos sentidos: acumular para construir la CDF, y diferenciar o restar para recuperar la PMF o la PDF.</label></li>
+<li><label><input type="checkbox">Distingues una variable aleatoria teórica de una muestra observada, y defines qué es una realización <span class="math inline">\(X_i\)</span>.</label></li>
+<li><label><input type="checkbox">Construyes la distribución empírica de una muestra y la comparas visualmente contra la distribución teórica que la generó.</label></li>
+<li><label><input type="checkbox">Corres una simulación completa en Python, interpretas sus resultados en el contexto del ejemplo cotidiano elegido, y explicas por qué el acuerdo entre lo simulado y lo teórico no es casualidad.</label></li>
+</ul>
+</div>
+</section>
+<section id="recursos" class="level2" data-number="19">
+<h2 data-number="19" class="anchored" data-anchor-id="recursos"><span class="header-section-number">19</span> Recursos</h2>
+<ul>
+<li>Ross, S. M. (2014). <em>Introduction to Probability and Statistics for Engineers and Scientists</em> (quinta edición). Academic Press. Capítulos sobre espacio muestral, variables aleatorias y funciones de distribución.</li>
+<li>Wasserman, L. (2004). <em>All of Statistics: A Concise Course in Statistical Inference</em>. Springer. Capítulo 2, sobre variables aleatorias y sus distribuciones.</li>
+<li>Documentación de <code>scipy.stats</code>, en particular las distribuciones <code>scipy.stats.expon</code> usadas en esta guía: <a href="https://docs.scipy.org/doc/scipy/reference/stats.html" class="uri">https://docs.scipy.org/doc/scipy/reference/stats.html</a>.</li>
+</ul>
+<div class="pie-doc">
+<p>Estadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de código y los gráficos de datos son reales, obtenidas ejecutando el código exacto de esta guía.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

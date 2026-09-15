@@ -1,0 +1,31 @@
+<svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif">
+  <style>
+    .caja { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+    .punto { fill: #2f7bb8; }
+    .txt { fill: #16202b; font-size: 15px; }
+    .txt-sec { fill: #5b6876; font-size: 13px; }
+    .titulo { fill: #16202b; font-size: 15px; font-weight: 600; }
+  </style>
+
+  <rect x="40" y="40" width="800" height="260" rx="9" class="caja" />
+  <text x="66" y="72" class="titulo">&#937; = espacio muestral de lanzar dos monedas</text>
+
+  <circle cx="180" cy="150" r="7" class="punto" />
+  <text x="180" y="128" class="txt" text-anchor="middle">CC</text>
+  <text x="180" y="185" class="txt-sec" text-anchor="middle">cara, cara</text>
+
+  <circle cx="360" cy="150" r="7" class="punto" />
+  <text x="360" y="128" class="txt" text-anchor="middle">CS</text>
+  <text x="360" y="185" class="txt-sec" text-anchor="middle">cara, sello</text>
+
+  <circle cx="540" cy="150" r="7" class="punto" />
+  <text x="540" y="128" class="txt" text-anchor="middle">SC</text>
+  <text x="540" y="185" class="txt-sec" text-anchor="middle">sello, cara</text>
+
+  <circle cx="720" cy="150" r="7" class="punto" />
+  <text x="720" y="128" class="txt" text-anchor="middle">SS</text>
+  <text x="720" y="185" class="txt-sec" text-anchor="middle">sello, sello</text>
+
+  <text x="440" y="250" class="txt-sec" text-anchor="middle">Cada punto es un resultado elemental &#969;. El espacio muestral tiene 4 resultados posibles.</text>
+  <text x="440" y="275" class="txt-sec" text-anchor="middle">&#937; = { CC, CS, SC, SS }</text>
+</svg>

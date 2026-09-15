@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="flecha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6876" />
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="460" fill="#ffffff" />
+
+  <!-- Fila 1: experimento, espacio muestral, evento, probabilidad, variable aleatoria -->
+  <g stroke="#17456f" stroke-width="2" fill="#eef2f6">
+    <rect x="40" y="60" width="200" height="90" rx="10" />
+    <rect x="270" y="60" width="200" height="90" rx="10" />
+    <rect x="500" y="60" width="200" height="90" rx="10" />
+    <rect x="730" y="60" width="200" height="90" rx="10" />
+    <rect x="960" y="60" width="200" height="90" rx="10" />
+  </g>
+
+  <g fill="#0f2540" font-size="20" font-weight="600" text-anchor="middle">
+    <text x="140" y="111">Experimento</text>
+    <text x="370" y="100">Espacio</text>
+    <text x="370" y="124">muestral</text>
+    <text x="600" y="111">Evento</text>
+    <text x="830" y="100">Probabilidad</text>
+    <text x="830" y="124">P(A)</text>
+    <text x="1060" y="100">Variable</text>
+    <text x="1060" y="124">aleatoria X</text>
+  </g>
+
+  <!-- Flechas horizontales fila 1 -->
+  <g stroke="#5b6876" stroke-width="3" marker-end="url(#flecha)">
+    <line x1="240" y1="105" x2="266" y2="105" />
+    <line x1="470" y1="105" x2="496" y2="105" />
+    <line x1="700" y1="105" x2="726" y2="105" />
+    <line x1="930" y1="105" x2="956" y2="105" />
+  </g>
+
+  <!-- Flecha vertical de fila 1 a fila 2 -->
+  <line x1="1060" y1="150" x2="1060" y2="296" stroke="#5b6876" stroke-width="3" marker-end="url(#flecha)" />
+
+  <!-- Fila 2: distribucion, pmf/pdf, cdf, datos observados -->
+  <g stroke="#0e8f8f" stroke-width="2" fill="#eef2f6">
+    <rect x="960" y="300" width="200" height="90" rx="10" />
+    <rect x="730" y="300" width="200" height="90" rx="10" />
+    <rect x="500" y="300" width="200" height="90" rx="10" />
+    <rect x="270" y="300" width="200" height="90" rx="10" />
+  </g>
+
+  <g fill="#0f2540" font-size="20" font-weight="600" text-anchor="middle">
+    <text x="1060" y="351">Distribucion</text>
+    <text x="830" y="340">PMF o PDF</text>
+    <text x="830" y="364">p(x), f(x)</text>
+    <text x="600" y="340">CDF</text>
+    <text x="600" y="364">F(x)</text>
+    <text x="370" y="340">Datos</text>
+    <text x="370" y="364">observados</text>
+  </g>
+
+  <!-- Flechas horizontales fila 2, de derecha a izquierda -->
+  <g stroke="#5b6876" stroke-width="3" marker-end="url(#flecha)">
+    <line x1="960" y1="345" x2="934" y2="345" />
+    <line x1="730" y1="345" x2="704" y2="345" />
+    <line x1="500" y1="345" x2="474" y2="345" />
+  </g>
+
+  <text x="600" y="430" text-anchor="middle" font-size="17" fill="#5b6876">Cada paso se apoya en el anterior: sin espacio muestral no hay evento, sin variable aleatoria no hay distribucion, sin distribucion no hay PMF, PDF ni CDF.</text>
+</svg>
