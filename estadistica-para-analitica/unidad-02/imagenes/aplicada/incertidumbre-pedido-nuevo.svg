@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" font-family="Segoe UI, Arial, sans-serif">
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6876"/></marker>
+<marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#17456f"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0e8f8f"/></marker>
+<marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b7791f"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a32d22"/></marker>
+<marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0f2540"/></marker>
+</defs>
+<rect x="0" y="0" width="1200" height="320" fill="#ffffff"/>
+<text x="30.0" y="45.7" font-size="22" font-weight="400" fill="#5b6876" text-anchor="start" >tiempo_entrega_min, en minutos</text>
+<rect x="30.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="71.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >51.0</text>
+<rect x="120.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="161.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >47.9</text>
+<rect x="210.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="251.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >46.4</text>
+<rect x="300.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="341.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >44.9</text>
+<rect x="390.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="431.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >49.2</text>
+<rect x="480.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="521.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >57.5</text>
+<rect x="570.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="611.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >34.1</text>
+<rect x="660.0" y="80.0" width="82.0" height="60.0" rx="10" fill="#e6eff8" stroke="#17456f" stroke-width="2" />
+<text x="701.0" y="118.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >32.5</text>
+<text x="756.0" y="120.5" font-size="30" font-weight="700" fill="#5b6876" text-anchor="start" >...</text>
+<path d="M 30.0 158.0 V 168.0 H 742.0 V 158.0" stroke="#17456f" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+<text x="386.0" y="210.8" font-size="25" font-weight="600" fill="#17456f" text-anchor="middle" >600 pedidos ya ocurridos: los conocemos</text>
+<line x1="870.0" y1="44.0" x2="870.0" y2="300.0" stroke="#5b6876" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 8" />
+<text x="870.0" y="32.4" font-size="24" font-weight="700" fill="#5b6876" text-anchor="middle" >ahora</text>
+<rect x="930.0" y="70.0" width="210.0" height="90.0" rx="14" fill="#fbf3e2" stroke="#b7791f" stroke-width="3" stroke-dasharray="10 7" />
+<text x="1035.0" y="137.4" font-size="64" font-weight="700" fill="#b7791f" text-anchor="middle" >?</text>
+<text x="1035.0" y="210.5" font-size="25" font-weight="600" fill="#b7791f" text-anchor="middle" >pedido nuevo:</text>
+<text x="1035.0" y="243.0" font-size="25" font-weight="600" fill="#b7791f" text-anchor="middle" >aún no sabemos</text>
+</svg>

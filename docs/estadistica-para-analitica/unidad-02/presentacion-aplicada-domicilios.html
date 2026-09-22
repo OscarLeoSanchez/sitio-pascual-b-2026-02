@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Oscar Leonel Sánchez Conde">
+  <title>Estadística para Analítica. Del dato a la distribución</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-49ccf37044e968520c588672f6c6305b.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="#0f2540" class="quarto-title-block center">
+  <h1 class="title">Estadística para Analítica</h1>
+  <p class="subtitle">Del dato a la distribución: el caso de una plataforma de domicilios</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Oscar Leonel Sánchez Conde 
+</div>
+        <p class="quarto-title-affiliation">
+            Institución Universitaria Pascual Bravo
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="la-regla-de-esta-sesión" class="slide level2">
+<h2>La regla de esta sesión</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/metodo-practica-primero.svg" alt="Cadena de siete pasos: pregunta, datos, exploración, cálculo, interpretación, concepto y decisión. El concepto aparece después de la práctica."></p>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Primero la práctica. El nombre del concepto llega cuando ya lo necesitamos.</p>
+</div>
+</div>
+</section>
+<section id="el-caso-una-plataforma-de-domicilios" class="slide level2">
+<h2>El caso: una plataforma de domicilios</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/ciclo-pedido.svg" alt="Cinco etapas de un pedido: el cliente lo hace, el comercio lo prepara, el domiciliario lo recoge, recorre la ruta y entrega. El tiempo de entrega abarca todas las etapas."></p>
+</div>
+<div class="fragment">
+<p>La plataforma registró <strong>600 pedidos</strong> durante varias semanas, en distintas zonas, horarios y condiciones de clima.</p>
+</div>
+<div class="fragment">
+<div class="aviso">
+<p>La gerencia quiere publicar: <strong>“Entregamos su pedido en máximo 45 minutos.”</strong></p>
+</div>
+</div>
+</section>
+<section id="las-diez-preguntas-de-la-gerencia" class="slide level2">
+<h2>Las diez preguntas de la gerencia</h2>
+<div class="pasos">
+<ol type="1">
+<li class="fragment">¿Cuánto tarda normalmente un pedido?</li>
+<li class="fragment">¿Podemos saber exactamente cuánto tardará el próximo?</li>
+<li class="fragment">¿Qué valores puede tomar el tiempo de entrega?</li>
+<li class="fragment">¿Qué tan probable es que llegue en 30 minutos o menos?</li>
+<li class="fragment">¿Y que tarde entre 30 y 45 minutos?</li>
+<li class="fragment">¿Qué porcentaje se entrega en máximo 45 minutos?</li>
+<li class="fragment">¿Cuánto tiempo cubre el 80, el 90 o el 95 % de los pedidos?</li>
+<li class="fragment">¿La lluvia cambia la distribución de los tiempos?</li>
+<li class="fragment">¿Cambia según la franja horaria?</li>
+<li class="fragment">¿Es razonable prometer 45 minutos?</li>
+</ol>
+</div>
+</section>
+<section id="ruta-de-la-sesión" class="slide level2">
+<h2>Ruta de la sesión</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/ruta-sesion.svg" alt="Ocho estaciones en dos filas: cargar los datos, del fenómeno a la variable, eventos y probabilidad, probabilidad acumulada, cuantiles, comparar grupos, discretas y densidad, y la decisión."></p>
+</div>
+</section>
+<section>
+<section id="cargar-los-datos" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Cargar los datos</h1>
+<div class="acto-numero">
+<p>Acto 1</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Qué tenemos y qué nos falta saber?</p>
+</div>
+</section>
+<section id="preparar-el-entorno" class="slide level2 fase-practica compacto">
+<h2>Preparar el entorno</h2>
+<p>Tres bibliotecas: <strong>pandas</strong> para la tabla, <strong>numpy</strong> para el cálculo y <strong>matplotlib</strong> para dibujar.</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c01"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c01-1"><a href="#c01-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="c01-2"><a href="#c01-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="c01-3"><a href="#c01-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="c01-4"><a href="#c01-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c01-5"><a href="#c01-5" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">"display.width"</span>, <span class="dv">100</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Un estilo común para todas las gráficas de la sesión:</p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c02"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c02-1"><a href="#c02-1" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="c02-2"><a href="#c02-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"figure.figsize"</span>: (<span class="dv">10</span>, <span class="fl">4.6</span>),</span>
+<span id="c02-3"><a href="#c02-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.spines.top"</span>: <span class="va">False</span>,</span>
+<span id="c02-4"><a href="#c02-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.spines.right"</span>: <span class="va">False</span>,</span>
+<span id="c02-5"><a href="#c02-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.grid"</span>: <span class="va">True</span>,</span>
+<span id="c02-6"><a href="#c02-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"grid.alpha"</span>: <span class="fl">0.25</span>,</span>
+<span id="c02-7"><a href="#c02-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.titlesize"</span>: <span class="dv">15</span>,</span>
+<span id="c02-8"><a href="#c02-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.titleweight"</span>: <span class="st">"bold"</span>,</span>
+<span id="c02-9"><a href="#c02-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.labelsize"</span>: <span class="dv">13</span>,</span>
+<span id="c02-10"><a href="#c02-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>: <span class="dv">12</span>,</span>
+<span id="c02-11"><a href="#c02-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.prop_cycle"</span>: plt.cycler(</span>
+<span id="c02-12"><a href="#c02-12" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span>[<span class="st">"#2f7bb8"</span>, <span class="st">"#0e8f8f"</span>, <span class="st">"#b7791f"</span>, <span class="st">"#a32d22"</span>]</span>
+<span id="c02-13"><a href="#c02-13" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="c02-14"><a href="#c02-14" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="antes-de-ejecutar" class="slide level2 fase-pregunta">
+<h2>Antes de ejecutar</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué creen que representa cada fila?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Un pedido observado.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué columna usaríamos para evaluar la promesa de entrega?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p><code>tiempo_entrega_min</code>, o <code>retrasado_45min</code>.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué columnas podrían explicar las diferencias en el tiempo?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Distancia, lluvia, preparación, franja, zona, tipo de pedido.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué columna guarda la incertidumbre de un pedido futuro?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p><code>tiempo_entrega_min</code>: es lo que aún no sabemos.</p>
+</div>
+</div>
+</section>
+<section id="leer-el-archivo" class="slide level2 fase-practica">
+<h2>Leer el archivo</h2>
+<p>El archivo <code>pedidos_estadistica_analitica.csv</code> se descarga desde la página de la unidad y se guarda junto al cuaderno.</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c03"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c03-1"><a href="#c03-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"pedidos_estadistica_analitica.csv"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c04"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c04-1"><a href="#c04-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<!--salida:c04-->
+
+<table class="dataframe tabla-df caption-top">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">pedido_<wbr>id</th>
+<th data-quarto-table-cell-role="th">fecha</th>
+<th data-quarto-table-cell-role="th">dia_<wbr>semana</th>
+<th data-quarto-table-cell-role="th">hora_<wbr>pedido</th>
+<th data-quarto-table-cell-role="th">franja</th>
+<th data-quarto-table-cell-role="th">zona</th>
+<th data-quarto-table-cell-role="th">tipo_<wbr>pedido</th>
+<th data-quarto-table-cell-role="th">distancia_<wbr>km</th>
+<th data-quarto-table-cell-role="th">lluvia</th>
+<th data-quarto-table-cell-role="th">tiempo_<wbr>preparacion_<wbr>min</th>
+<th data-quarto-table-cell-role="th">tiempo_<wbr>entrega_<wbr>min</th>
+<th data-quarto-table-cell-role="th">retrasado_<wbr>45min</th>
+<th data-quarto-table-cell-role="th">incidencia</th>
+<th data-quarto-table-cell-role="th">satisfaccion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>P0001</td>
+<td>2026-08-25</td>
+<td>Martes</td>
+<td>09:30</td>
+<td>Manana</td>
+<td>Occidente</td>
+<td>Comida</td>
+<td>5.87</td>
+<td>Si</td>
+<td>14.4</td>
+<td>51.0</td>
+<td>Si</td>
+<td>Ninguna</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>P0002</td>
+<td>2026-08-21</td>
+<td>Viernes</td>
+<td>17:30</td>
+<td>Tarde</td>
+<td>Occidente</td>
+<td>Comida</td>
+<td>8.43</td>
+<td>No</td>
+<td>15.5</td>
+<td>47.9</td>
+<td>Si</td>
+<td>Ninguna</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>P0003</td>
+<td>2026-09-09</td>
+<td>Miercoles</td>
+<td>14:45</td>
+<td>Almuerzo</td>
+<td>Sur</td>
+<td>Comida</td>
+<td>6.32</td>
+<td>No</td>
+<td>23.8</td>
+<td>46.4</td>
+<td>Si</td>
+<td>Ninguna</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>P0004</td>
+<td>2026-08-05</td>
+<td>Miercoles</td>
+<td>12:55</td>
+<td>Almuerzo</td>
+<td>Norte</td>
+<td>Mercado</td>
+<td>5.26</td>
+<td>No</td>
+<td>23.2</td>
+<td>44.9</td>
+<td>No</td>
+<td>Ninguna</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>P0005</td>
+<td>2026-08-17</td>
+<td>Lunes</td>
+<td>11:40</td>
+<td>Manana</td>
+<td>Centro</td>
+<td>Comida</td>
+<td>2.51</td>
+<td>Si</td>
+<td>18.0</td>
+<td>49.2</td>
+<td>Si</td>
+<td>Ninguna</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Contrasten con lo que respondieron: ¿coincide con lo que ven en la tabla?</p>
+</div>
+</div>
+</section>
+<section id="filas-y-columnas" class="slide level2 fase-practica">
+<h2>Filas y columnas</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c05"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c05-1"><a href="#c05-1" aria-hidden="true" tabindex="-1"></a>df.shape</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c05"><code>(600, 14)</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Qué significa que la tabla tenga filas y columnas?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p><strong>600</strong> filas: 600 pedidos observados. <strong>14</strong> columnas: 14 características de cada pedido.</p>
+</div>
+</div>
+</section>
+<section id="diccionario-de-datos" class="slide level2">
+<h2>Diccionario de datos</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/diccionario-datos.svg" alt="Las catorce columnas del archivo agrupadas en identificación, cuándo, dónde y qué, condiciones y resultado. El tiempo de entrega, en verde azulado, será la variable X."></p>
+</div>
+</section>
+<section id="qué-tipo-de-dato-trae-cada-columna" class="slide level2 fase-practica minimo">
+<h2>¿Qué tipo de dato trae cada columna?</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c06"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c06-1"><a href="#c06-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c06"><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 600 entries, 0 to 599
+Data columns (total 14 columns):
+ #   Column                  Non-Null Count  Dtype  
+---  ------                  --------------  -----  
+ 0   pedido_id               600 non-null    object 
+ 1   fecha                   600 non-null    object 
+ 2   dia_semana              600 non-null    object 
+ 3   hora_pedido             600 non-null    object 
+ 4   franja                  600 non-null    object 
+ 5   zona                    600 non-null    object 
+ 6   tipo_pedido             600 non-null    object 
+ 7   distancia_km            600 non-null    float64
+ 8   lluvia                  600 non-null    object 
+ 9   tiempo_preparacion_min  600 non-null    float64
+ 10  tiempo_entrega_min      600 non-null    float64
+ 11  retrasado_45min         600 non-null    object 
+ 12  incidencia              600 non-null    object 
+ 13  satisfaccion            600 non-null    int64  
+dtypes: float64(3), int64(1), object(10)
+memory usage: 65.8+ KB</code></pre>
+</div>
+</section>
+<section id="la-variable-de-interés" class="slide level2 fase-practica compacto">
+<h2>La variable de interés</h2>
+<p>Le damos un nombre corto a la columna que vamos a estudiar:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c07"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c07-1"><a href="#c07-1" aria-hidden="true" tabindex="-1"></a>tiempo <span class="op">=</span> df[<span class="st">"tiempo_entrega_min"</span>]</span>
+<span id="c07-2"><a href="#c07-2" aria-hidden="true" tabindex="-1"></a>tiempo.head(<span class="dv">15</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c07"><code>0     51.0
+1     47.9
+2     46.4
+3     44.9
+4     49.2
+5     57.5
+6     34.1
+7     32.5
+8     63.7
+9     71.9
+10    34.9
+11    52.7
+12    33.8
+13    67.4
+14    47.1
+Name: tiempo_entrega_min, dtype: float64</code></pre>
+</div>
+</section>
+<section id="resumen-numérico" class="slide level2 fase-practica compacto">
+<h2>Resumen numérico</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c08"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c08-1"><a href="#c08-1" aria-hidden="true" tabindex="-1"></a>tiempo.describe()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c08"><code>count    600.000000
+mean      44.223333
+std       11.594048
+min       12.000000
+25%       36.300000
+50%       43.600000
+75%       51.250000
+max       88.400000
+Name: tiempo_entrega_min, dtype: float64</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Qué dicen juntas la media y la mediana?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Están muy cerca (44.2 y 43.6): la distribución es casi simétrica, con una cola hacia tiempos altos (máximo 88.4).</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="del-fenómeno-a-la-variable-aleatoria" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Del fenómeno a la variable aleatoria</h1>
+<div class="acto-numero">
+<p>Acto 2</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Podemos saber cuánto tardará el próximo pedido?</p>
+</div>
+</section>
+<section id="llega-un-pedido-nuevo" class="slide level2 fase-pregunta">
+<h2>Llega un pedido nuevo</h2>
+<div class="caja-pregunta">
+<p>Si entra un pedido en este momento, ¿sabemos exactamente cuánto va a tardar?</p>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/incertidumbre-pedido-nuevo.svg" alt="Seiscientos pedidos ya ocurridos con sus tiempos conocidos, una línea que marca el ahora y un pedido nuevo con tiempo desconocido."></p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p><strong>No.</strong> Conocemos la historia, pero no el resultado individual del próximo pedido.</p>
+</div>
+</div>
+</section>
+<section id="qué-hace-incierto-el-resultado" class="slide level2 fase-practica">
+<h2>¿Qué hace incierto el resultado?</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿El tiempo está determinado antes de que ocurra?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>No: depende de muchos factores que aún no se han dado.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Podemos repetir el proceso?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sí: cada pedido nuevo repite el mismo proceso en condiciones parecidas.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Todos los pedidos tardan lo mismo?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>No: los tiempos van de 12.0 a 88.4 minutos.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué produce esa variabilidad?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Distancia, lluvia, preparación, franja, tráfico, incidencias.</p>
+</div>
+</div>
+</section>
+<section id="experimento-aleatorio" class="slide level2 fase-concepto imagen-baja">
+<h2>Experimento aleatorio</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p>Proceso que puede repetirse en condiciones similares, pero cuyo <strong>resultado específico no se conoce antes de observarlo</strong>.</p>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/experimento-aleatorio.svg" alt="Seis factores (distancia, lluvia, preparación, franja, tráfico e incidencias) entran al experimento observar un pedido, que produce un tiempo de entrega distinto cada vez."></p>
+</div>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>En nuestro caso: observar un pedido y registrar su tiempo total de entrega.</p>
+</div>
+</div>
+</section>
+<section id="qué-resultados-puede-tener" class="slide level2 fase-pregunta">
+<h2>¿Qué resultados puede tener?</h2>
+<div class="caja-pregunta">
+<p>Antes de medir algo, ¿qué es lo que puede pasar?</p>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="caja-pregunta">
+<p>Un dado</p>
+</div>
+<p><span class="math inline">\(\Omega=\{1,2,3,4,5,6\}\)</span></p>
+</div><div class="column" style="width:55%;">
+<div class="caja-pregunta">
+<p>Un pedido</p>
+</div>
+<p>El resultado completo es toda la fila: zona, distancia, lluvia, preparación, tráfico, incidencias y tiempo final.</p>
+</div></div>
+</div>
+<div class="fragment">
+<div class="concepto">
+<p><span class="rotulo">Espacio muestral</span></p>
+<p>Conjunto <span class="math inline">\(\Omega\)</span> de <strong>todos los resultados posibles</strong> del experimento.</p>
+</div>
+</div>
+</section>
+<section id="de-un-pedido-a-un-número" class="slide level2 fase-pregunta">
+<h2>De un pedido a un número</h2>
+<div class="caja-pregunta">
+<p>¿Cómo convertimos cada pedido en un valor numérico que podamos analizar?</p>
+</div>
+<div class="fragment">
+<p>No siempre necesitamos el resultado completo. Elegimos <strong>una característica numérica</strong>:</p>
+</div>
+<div class="fragment">
+<div class="grande">
+<p><span class="math inline">\(X\)</span> = tiempo total de entrega de un pedido</p>
+</div>
+</div>
+</section>
+<section id="variable-aleatoria" class="slide level2 fase-concepto imagen-baja">
+<h2>Variable aleatoria</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p>Función que asigna un número real a cada resultado del espacio muestral:</p>
+<p><span class="math display">\[X:\Omega\rightarrow\mathbb{R}\]</span></p>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/omega-a-x-recta.svg" alt="Cinco pedidos del espacio muestral, cada uno con una flecha hacia su valor de tiempo sobre una recta numérica en minutos."></p>
+</div>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Es aleatoria porque su valor depende de un resultado incierto.</p>
+</div>
+</div>
+</section>
+<section id="realizaciones-de-x" class="slide level2 fase-practica">
+<h2>Realizaciones de X</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c09"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c09-1"><a href="#c09-1" aria-hidden="true" tabindex="-1"></a>tiempo.head()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c09"><code>0    51.0
+1    47.9
+2    46.4
+3    44.9
+4    49.2
+Name: tiempo_entrega_min, dtype: float64</code></pre>
+</div>
+<div class="fragment">
+<div class="concepto">
+<p><span class="rotulo">Notación</span></p>
+<p><span class="math inline">\(X\)</span> es la variable. Los valores <span class="math inline">\(x_1=51.0,\; x_2=47.9,\; x_3=46.4,\dots\)</span> son <strong>realizaciones observadas</strong>.</p>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿<code>tiempo</code> es la variable aleatoria?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>No.&nbsp;Son 600 realizaciones de <span class="math inline">\(X\)</span>: los datos que ya ocurrieron.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="discreta-o-continua" class="slide level2 fase-practica">
+<h2>¿Discreta o continua?</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c10-1"><a href="#c10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores distintos de tiempo:"</span>, tiempo.nunique())</span>
+<span id="c10-2"><a href="#c10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores distintos de satisfacción:"</span>, df[<span class="st">"satisfaccion"</span>].nunique())</span>
+<span id="c10-3"><a href="#c10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">sorted</span>(df[<span class="st">"satisfaccion"</span>].unique().tolist()))</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c10"><code>Valores distintos de tiempo: 324
+Valores distintos de satisfacción: 4
+[2, 3, 4, 5]</code></pre>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Podría el tiempo de entrega valer 20.263 minutos?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sí. Depende de la precisión con que se mida.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="discreta-y-continua" class="slide level2 fase-concepto imagen-baja">
+<h2>Discreta y continua</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p><strong>Discreta:</strong> toma valores separados, se cuenta.<br>
+<strong>Continua:</strong> toma cualquier valor de un intervalo, se mide.</p>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/discreta-vs-continua.svg" alt="A la izquierda, una variable discreta con puntos aislados sobre los enteros. A la derecha, una variable continua con un segmento sin huecos."></p>
+</div>
+</div>
+<div class="fragment">
+<div class="remate">
+<p><span class="math inline">\(X\)</span> (tiempo de entrega) es continua. <span class="math inline">\(Y\)</span> (pedidos retrasados en un día) es discreta.</p>
+</div>
+</div>
+</section>
+<section id="visualizar-la-variabilidad" class="slide level2 fase-practica">
+<h2>Visualizar la variabilidad</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c11" data-fig="histograma-tiempos"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c11-1"><a href="#c11-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c11-2"><a href="#c11-2" aria-hidden="true" tabindex="-1"></a>plt.hist(tiempo, bins<span class="op">=</span><span class="dv">20</span>, edgecolor<span class="op">=</span><span class="st">"white"</span>)</span>
+<span id="c11-3"><a href="#c11-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tiempo de entrega (min)"</span>)</span>
+<span id="c11-4"><a href="#c11-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="c11-5"><a href="#c11-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Tiempos de entrega observados"</span>)</span>
+<span id="c11-6"><a href="#c11-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="leer-el-histograma" class="slide level2 fase-practica grafico">
+<h2>Leer el histograma</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-histograma-tiempos.svg" alt="Histograma de los tiempos de entrega, con la mayoría de pedidos entre 35 y 55 minutos y una cola hacia la derecha."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Todos los tiempos son igualmente frecuentes?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>No: unos valores aparecen mucho más que otros.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Dónde se concentra la mayoría?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Entre 35 y 55 minutos.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Hay pedidos muy lentos?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sí: una cola hacia la derecha.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Una frecuencia es una probabilidad?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Todavía no. Falta dividir entre el total.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="distribución" class="slide level2 fase-concepto">
+<h2>Distribución</h2>
+<div class="concepto">
+<p><span class="rotulo">Idea</span></p>
+<p>Los valores de una variable <strong>no aparecen todos con la misma frecuencia</strong>. La forma en que se reparten es su <strong>distribución</strong>.</p>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>El histograma es una foto de la distribución de <span class="math inline">\(X\)</span> en nuestros 600 pedidos.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="eventos-y-probabilidad" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Eventos y probabilidad</h1>
+<div class="acto-numero">
+<p>Acto 3</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Qué tan probable es que un pedido llegue en 30 minutos o menos?</p>
+</div>
+</section>
+<section id="cuántos-pedidos-llegaron-en-30-minutos-o-menos" class="slide level2 fase-pregunta compacto">
+<h2>¿Cuántos pedidos llegaron en 30 minutos o menos?</h2>
+<p>La empresa considera satisfactoria una entrega en máximo 30 minutos. Python responde <code>True</code> o <code>False</code> para cada pedido. Después miramos los que sí cumplen:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c12-1"><a href="#c12-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> tiempo <span class="op">&lt;=</span> <span class="dv">30</span></span>
+<span id="c12-2"><a href="#c12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.head(<span class="dv">10</span>).tolist())</span>
+<span id="c12-3"><a href="#c12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tiempo[A].head(<span class="dv">5</span>).tolist())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c12"><code>[False, False, False, False, False, False, False, False, False, False]
+[23.9, 27.8, 22.1, 25.8, 28.0]</code></pre>
+</div>
+</section>
+<section id="contar-los-casos-favorables" class="slide level2 fase-practica">
+<h2>Contar los casos favorables</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c13-1"><a href="#c13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.<span class="bu">sum</span>())</span>
+<span id="c13-2"><a href="#c13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(A))</span>
+<span id="c13-3"><a href="#c13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.mean())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c13"><code>66
+600
+0.11</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Por qué la media de una serie de <code>True</code> y <code>False</code> es una proporción?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Python cuenta <code>True</code> como 1 y <code>False</code> como 0: promediar es dividir los casos favorables entre el total.</p>
+</div>
+</div>
+</section>
+<section id="evento" class="slide level2 fase-concepto">
+<h2>Evento</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p>Conjunto de resultados del espacio muestral que <strong>cumplen una condición</strong>.</p>
+<p><span class="math display">\[A=\{X\le 30\}\]</span></p>
+</div>
+<div class="fragment">
+<p>Cada <code>True</code> de la serie <code>A</code> es un pedido que pertenece al evento.</p>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>La condición se escribe en Python con un operador de comparación.</p>
+</div>
+</div>
+</section>
+<section id="de-la-frecuencia-a-la-probabilidad" class="slide level2 fase-practica">
+<h2>De la frecuencia a la probabilidad</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c14-1"><a href="#c14-1" aria-hidden="true" tabindex="-1"></a>p_30 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">30</span>).mean()</span>
+<span id="c14-2"><a href="#c14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(X &lt;= 30) = </span><span class="sc">{</span>p_30<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c14"><code>P(X &lt;= 30) = 0.110</code></pre>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/frecuencia-a-probabilidad.svg" alt="Una cuadrícula de 600 cuadros, uno por pedido, con 66 resaltados que cumplen el evento. La proporción es 0.110. A la derecha, la diferencia entre dato observado e inferencia."></p>
+</div>
+</div>
+</section>
+<section id="probabilidad-empírica" class="slide level2 fase-concepto">
+<h2>Probabilidad empírica</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p><span class="math display">\[\hat P(A)=\frac{\text{casos favorables}}{\text{casos totales}}\]</span></p>
+</div>
+<div class="fragment">
+<p><strong>Dato observado:</strong> en la muestra, el 11.0 % de los pedidos llegó en 30 minutos o menos.</p>
+</div>
+<div class="fragment">
+<p><strong>Inferencia:</strong> si estos pedidos representan el proceso, esa proporción <strong>estima</strong> la probabilidad de que un pedido futuro tarde máximo 30 minutos.</p>
+</div>
+</section>
+<section id="otros-eventos" class="slide level2 fase-practica compacto">
+<h2>Otros eventos</h2>
+<p>Tres preguntas, tres eventos:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c15-1"><a href="#c15-1" aria-hidden="true" tabindex="-1"></a>p_le_45 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).mean()</span>
+<span id="c15-2"><a href="#c15-2" aria-hidden="true" tabindex="-1"></a>p_gt_60 <span class="op">=</span> (tiempo <span class="op">&gt;</span> <span class="dv">60</span>).mean()</span>
+<span id="c15-3"><a href="#c15-3" aria-hidden="true" tabindex="-1"></a>p_30_45 <span class="op">=</span> ((tiempo <span class="op">&gt;</span> <span class="dv">30</span>) <span class="op">&amp;</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>)).mean()</span>
+<span id="c15-4"><a href="#c15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c15-5"><a href="#c15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(X &lt;= 45)      = </span><span class="sc">{</span>p_le_45<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="c15-6"><a href="#c15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(X &gt; 60)       = </span><span class="sc">{</span>p_gt_60<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="c15-7"><a href="#c15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(30 &lt; X &lt;= 45) = </span><span class="sc">{</span>p_30_45<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c15"><code>P(X &lt;= 45)      = 0.548
+P(X &gt; 60)       = 0.088
+P(30 &lt; X &lt;= 45) = 0.438</code></pre>
+</div>
+</section>
+<section id="preguntas-sobre-el-operador" class="slide level2 fase-pregunta">
+<h2>Preguntas sobre el operador &amp;</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué significa <code>&amp;</code> en la tercera línea?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Que se cumplan las dos condiciones a la vez.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Por qué necesitamos dos condiciones?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Porque el evento es un intervalo: tiene un límite inferior y uno superior.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Importa la diferencia entre <span class="math inline">\(30&lt;X&lt;45\)</span> y <span class="math inline">\(30\le X\le 45\)</span>?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>En una variable continua, casi nada: los valores exactos en un punto tienen probabilidad cero.</p>
+</div>
+</div>
+</section>
+<section id="cuatro-eventos-que-no-se-traslapan" class="slide level2 fase-practica">
+<h2>Cuatro eventos que no se traslapan</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/eventos-sobre-eje.svg" alt="Eje de tiempo con cuatro eventos disjuntos: hasta 30 minutos, entre 30 y 45, entre 45 y 60, y más de 60, con sus proporciones. Suman uno."></p>
+</div>
+</section>
+<section id="complemento" class="slide level2 fase-practica compacto">
+<h2>Complemento</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c16-1"><a href="#c16-1" aria-hidden="true" tabindex="-1"></a>p_le_45 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).mean()</span>
+<span id="c16-2"><a href="#c16-2" aria-hidden="true" tabindex="-1"></a>p_gt_45 <span class="op">=</span> (tiempo <span class="op">&gt;</span> <span class="dv">45</span>).mean()</span>
+<span id="c16-3"><a href="#c16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c16-4"><a href="#c16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>p_le_45<span class="sc">:.3f}</span><span class="ss"> + </span><span class="sc">{</span>p_gt_45<span class="sc">:.3f}</span><span class="ss"> = </span><span class="sc">{</span>p_le_45 <span class="op">+</span> p_gt_45<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c16"><code>0.548 + 0.452 = 1.000</code></pre>
+</div>
+<div class="fragment">
+<div class="concepto">
+<p><span class="rotulo">Regla</span></p>
+<p><span class="math inline">\(A^c=\{X&gt;45\}\)</span> es el <strong>complemento</strong> de <span class="math inline">\(A=\{X\le 45\}\)</span>:</p>
+<p><span class="math display">\[P(A^c)=1-P(A)\]</span></p>
+</div>
+</div>
+</section>
+<section id="complemento-en-un-dibujo" class="slide level2">
+<h2>Complemento en un dibujo</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/complemento.svg" alt="Una barra al cien por ciento dividida entre los pedidos de hasta 45 minutos, con 0.548, y los de más de 45 minutos, con 0.452."></p>
+</div>
+</section>
+<section id="calcula-tú" class="slide level2 fase-actividad">
+<h2>Calcula tú</h2>
+<p>Con lo que ya sabemos, calcula:</p>
+<div class="fragment">
+<ol type="1">
+<li><span class="math inline">\(P(X\le 35)\)</span><br>
+</li>
+<li><span class="math inline">\(P(X&gt;55)\)</span></li>
+</ol>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c17-1"><a href="#c17-1" aria-hidden="true" tabindex="-1"></a>p_35 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">35</span>).mean()</span>
+<span id="c17-2"><a href="#c17-2" aria-hidden="true" tabindex="-1"></a>p_55 <span class="op">=</span> (tiempo <span class="op">&gt;</span> <span class="dv">55</span>).mean()</span>
+<span id="c17-3"><a href="#c17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c17-4"><a href="#c17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(X &lt;= 35) = </span><span class="sc">{</span>p_35<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="c17-5"><a href="#c17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(X &gt; 55)  = </span><span class="sc">{</span>p_55<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c17"><code>P(X &lt;= 35) = 0.218
+P(X &gt; 55)  = 0.167</code></pre>
+</div>
+</section></section>
+<section>
+<section id="probabilidad-acumulada" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Probabilidad acumulada</h1>
+<div class="acto-numero">
+<p>Acto 4</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Qué porcentaje de pedidos llega en máximo 45 minutos… o en cualquier otro límite?</p>
+</div>
+</section>
+<section id="y-si-cambiamos-el-límite" class="slide level2 fase-pregunta compacto">
+<h2>¿Y si cambiamos el límite?</h2>
+<div class="caja-pregunta">
+<p>¿Qué probabilidad hay de que el pedido llegue antes de distintos límites de tiempo?</p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c20-1"><a href="#c20-1" aria-hidden="true" tabindex="-1"></a>limites <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>]</span>
+<span id="c20-2"><a href="#c20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c20-3"><a href="#c20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> t <span class="kw">in</span> limites:</span>
+<span id="c20-4"><a href="#c20-4" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> (tiempo <span class="op">&lt;=</span> t).mean()</span>
+<span id="c20-5"><a href="#c20-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"P(X &lt;= </span><span class="sc">{</span>t<span class="sc">}</span><span class="ss">) = </span><span class="sc">{</span>p<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c20"><code>P(X &lt;= 20) = 0.008
+P(X &lt;= 25) = 0.028
+P(X &lt;= 30) = 0.110
+P(X &lt;= 35) = 0.218
+P(X &lt;= 40) = 0.368
+P(X &lt;= 45) = 0.548
+P(X &lt;= 50) = 0.710
+P(X &lt;= 55) = 0.833
+P(X &lt;= 60) = 0.912
+P(X &lt;= 70) = 0.970</code></pre>
+</div>
+</section>
+<section id="la-tabla-acumulada" class="slide level2 fase-practica compacto">
+<h2>La tabla acumulada</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c21-1"><a href="#c21-1" aria-hidden="true" tabindex="-1"></a>tabla_acumulada <span class="op">=</span> pd.DataFrame({</span>
+<span id="c21-2"><a href="#c21-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"x"</span>: limites,</span>
+<span id="c21-3"><a href="#c21-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"P(X&lt;=x)"</span>: [(tiempo <span class="op">&lt;=</span> t).mean() <span class="cf">for</span> t <span class="kw">in</span> limites],</span>
+<span id="c21-4"><a href="#c21-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="c21-5"><a href="#c21-5" aria-hidden="true" tabindex="-1"></a>tabla_acumulada.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c21"><code>    x  P(X&lt;=x)
+0  20    0.008
+1  25    0.028
+2  30    0.110
+3  35    0.218
+4  40    0.368
+5  45    0.548
+6  50    0.710
+7  55    0.833
+8  60    0.912
+9  70    0.970</code></pre>
+</div>
+</section>
+<section id="lo-que-muestra-la-tabla" class="slide level2 fase-pregunta">
+<h2>Lo que muestra la tabla</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Por qué las probabilidades nunca bajan al aumentar <span class="math inline">\(x\)</span>?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Cada evento <span class="math inline">\(\{X\le x\}\)</span> contiene al anterior.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué pasa con <span class="math inline">\(x\)</span> extremadamente pequeño?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La probabilidad se acerca a 0.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Y con <span class="math inline">\(x\)</span> extremadamente grande?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Se acerca a 1.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué tiene <span class="math inline">\(\{X\le 40\}\)</span> que no tenga <span class="math inline">\(\{X\le 30\}\)</span>?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Los pedidos entre 30 y 40 minutos.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Qué estamos acumulando?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La probabilidad de todos los valores hasta <span class="math inline">\(x\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="acumular-es-sumar-de-izquierda-a-derecha" class="slide level2">
+<h2>Acumular es sumar de izquierda a derecha</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/acumular-histograma.svg" alt="Histograma en intervalos de diez minutos con la proporción de cada barra y debajo la suma acumulada, que termina en uno."></p>
+</div>
+</section>
+<section id="función-de-distribución-acumulada" class="slide level2 fase-concepto">
+<h2>Función de distribución acumulada</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p><span class="math display">\[\boxed{F_X(x)=P(X\le x)}\]</span></p>
+</div>
+<div class="fragment">
+<p>A cada valor <span class="math inline">\(x\)</span> le asigna la <strong>probabilidad acumulada</strong> hasta ese punto.</p>
+</div>
+<div class="fragment">
+<p>En los datos: <span class="math inline">\(F_X(40)\approx 0.368\)</span>. El 36.8 % de los pedidos tarda 40 minutos o menos.</p>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Sigla en inglés: <strong>CDF</strong>, cumulative distribution function.</p>
+</div>
+</div>
+</section>
+<section id="construir-la-cdf-empírica" class="slide level2 fase-practica compacto">
+<h2>Construir la CDF empírica</h2>
+<p>Ordenamos los tiempos y a cada uno le asignamos su lugar dividido entre <span class="math inline">\(n\)</span>:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c22-1"><a href="#c22-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.sort(tiempo.to_numpy())</span>
+<span id="c22-2"><a href="#c22-2" aria-hidden="true" tabindex="-1"></a>F <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(x) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(x)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c23-1"><a href="#c23-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame({<span class="st">"x"</span>: x[:<span class="dv">10</span>], <span class="st">"F(x)"</span>: F[:<span class="dv">10</span>]})</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c23"><code>      x      F(x)
+0  12.0  0.001667
+1  16.4  0.003333
+2  16.8  0.005000
+3  17.3  0.006667
+4  18.1  0.008333
+5  21.3  0.010000
+6  22.0  0.011667
+7  22.0  0.013333
+8  22.1  0.015000
+9  22.1  0.016667</code></pre>
+</div>
+</section>
+<section id="cómo-se-construye-paso-a-paso" class="slide level2">
+<h2>Cómo se construye, paso a paso</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/ecdf-construccion.svg" alt="Cinco valores ordenados reciben los acumulados 0.2, 0.4, 0.6, 0.8 y 1.0 y forman una escalera. Con seiscientos pedidos cada escalón sube 1/600."></p>
+</div>
+</section>
+<section id="graficar-la-cdf-empírica" class="slide level2 fase-practica">
+<h2>Graficar la CDF empírica</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c24" data-fig="cdf-empirica"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c24-1"><a href="#c24-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c24-2"><a href="#c24-2" aria-hidden="true" tabindex="-1"></a>plt.step(x, F, where<span class="op">=</span><span class="st">"post"</span>)</span>
+<span id="c24-3"><a href="#c24-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tiempo de entrega (min)"</span>)</span>
+<span id="c24-4"><a href="#c24-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"F(x) = P(X &lt;= x)"</span>)</span>
+<span id="c24-5"><a href="#c24-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"CDF empírica del tiempo de entrega"</span>)</span>
+<span id="c24-6"><a href="#c24-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.02</span>)</span>
+<span id="c24-7"><a href="#c24-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="leer-la-cdf" class="slide level2 fase-practica grafico">
+<h2>Leer la CDF</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-cdf-empirica.svg" alt="Función de distribución acumulada empírica: una escalera que sube de 0 a 1 entre 12 y 88 minutos, con mayor pendiente cerca de 45 minutos."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Dónde crece más rápido la curva?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Entre 35 y 55 minutos: ahí se concentran los pedidos.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Qué indica una zona casi horizontal?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Casi no hay pedidos con esos tiempos.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Por qué nunca baja?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Solo acumula: nunca resta probabilidad.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Por qué termina cerca de 1?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Al final ya están todos los pedidos.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="propiedades-de-toda-cdf" class="slide level2 fase-concepto">
+<h2>Propiedades de toda CDF</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/propiedades-cdf.svg" alt="Curva de la CDF empírica con cuatro propiedades numeradas: siempre entre 0 y 1, nunca baja, por la izquierda parte de 0 y por la derecha llega a 1."></p>
+</div>
+</section>
+<section id="usar-la-cdf-para-calcular-intervalos" class="slide level2 fase-practica compacto">
+<h2>Usar la CDF para calcular intervalos</h2>
+<div class="caja-pregunta">
+<p>¿Cómo obtenemos <span class="math inline">\(P(30&lt;X\le 45)\)</span> solo con la CDF?</p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c25-1"><a href="#c25-1" aria-hidden="true" tabindex="-1"></a>F45 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).mean()</span>
+<span id="c25-2"><a href="#c25-2" aria-hidden="true" tabindex="-1"></a>F30 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">30</span>).mean()</span>
+<span id="c25-3"><a href="#c25-3" aria-hidden="true" tabindex="-1"></a>directa <span class="op">=</span> ((tiempo <span class="op">&gt;</span> <span class="dv">30</span>) <span class="op">&amp;</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>)).mean()</span>
+<span id="c25-4"><a href="#c25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c25-5"><a href="#c25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Directa:       </span><span class="sc">{</span>directa<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="c25-6"><a href="#c25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F(45) - F(30): </span><span class="sc">{</span>F45 <span class="op">-</span> F30<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c25"><code>Directa:       0.438
+F(45) - F(30): 0.438</code></pre>
+</div>
+<div class="fragment">
+<div class="concepto">
+<p><span class="rotulo">Regla</span></p>
+<p><span class="math display">\[P(a&lt;X\le b)=F(b)-F(a)\]</span></p>
+</div>
+</div>
+</section>
+<section id="el-intervalo-en-la-curva" class="slide level2">
+<h2>El intervalo en la curva</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/cdf-intervalo.svg" alt="La CDF empírica con guías en 30 y 45 minutos que muestran F(30) igual a 0.110 y F(45) igual a 0.548. La distancia vertical entre ambas es la probabilidad del intervalo, 0.438."></p>
+</div>
+</section>
+<section id="calcula-tú-1" class="slide level2 fase-actividad">
+<h2>Calcula tú</h2>
+<p>Con la CDF, calcula:</p>
+<div class="fragment">
+<p><span class="math inline">\(P(35&lt;X\le 50)\)</span></p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c26-1"><a href="#c26-1" aria-hidden="true" tabindex="-1"></a>F50 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">50</span>).mean()</span>
+<span id="c26-2"><a href="#c26-2" aria-hidden="true" tabindex="-1"></a>F35 <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">35</span>).mean()</span>
+<span id="c26-3"><a href="#c26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c26-4"><a href="#c26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"P(35 &lt; X &lt;= 50) = </span><span class="sc">{</span>F50 <span class="op">-</span> F35<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c26"><code>P(35 &lt; X &lt;= 50) = 0.492</code></pre>
+</div>
+</section>
+<section id="de-la-idea-al-código-reutilizable" class="slide level2 fase-practica compacto">
+<h2>De la idea al código reutilizable</h2>
+<p>Lo que hicimos varias veces se convierte en dos funciones:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c27-1"><a href="#c27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ecdf(datos):</span>
+<span id="c27-2"><a href="#c27-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.sort(np.asarray(datos))</span>
+<span id="c27-3"><a href="#c27-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.arange(<span class="dv">1</span>, <span class="bu">len</span>(x) <span class="op">+</span> <span class="dv">1</span>) <span class="op">/</span> <span class="bu">len</span>(x)</span>
+<span id="c27-4"><a href="#c27-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x, y</span>
+<span id="c27-5"><a href="#c27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c27-6"><a href="#c27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c27-7"><a href="#c27-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> F_empirica(datos, x):</span>
+<span id="c27-8"><a href="#c27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.mean(np.asarray(datos) <span class="op">&lt;=</span> x)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c28-1"><a href="#c28-1" aria-hidden="true" tabindex="-1"></a>x, F <span class="op">=</span> ecdf(tiempo)</span>
+<span id="c28-2"><a href="#c28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"F(45) = </span><span class="sc">{</span>F_empirica(tiempo, <span class="dv">45</span>)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c28"><code>F(45) = 0.548</code></pre>
+</div>
+</section>
+<section id="preguntas-sobre-las-funciones" class="slide level2 fase-pregunta">
+<h2>Preguntas sobre las funciones</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Por qué ordenamos los datos en <code>ecdf</code>?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Para que el lugar de cada valor sea su porcentaje acumulado.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Por qué dividimos entre <code>len(x)</code>?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Para que el acumulado sea una proporción entre 0 y 1.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Por qué el último valor de <code>F</code> es 1?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Porque el último dato ya tiene a todos los demás por debajo.</p>
+</div>
+</div>
+</section>
+<section id="la-cdf-empírica-como-promedio" class="slide level2 fase-concepto">
+<h2>La CDF empírica como promedio</h2>
+<div class="concepto">
+<p><span class="rotulo">Fórmula</span></p>
+<p><span class="math display">\[\hat F_n(x)=\frac{1}{n}\sum_{i=1}^{n} I(X_i\le x)\]</span></p>
+</div>
+<div class="fragment">
+<p>Para cada observación se pregunta <span class="math inline">\(X_i\le x\)</span>: si sí vale 1, si no vale 0. Después se promedia.</p>
+</div>
+<div class="fragment">
+<p>Es exactamente lo que hace, en una línea:</p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a aria-hidden="true" tabindex="-1"></a>(tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).mean()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section>
+<section>
+<section id="cuantiles" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Cuantiles</h1>
+<div class="acto-numero">
+<p>Acto 5</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Cuánto tiempo necesito para cubrir el 80, el 90 o el 95 % de los pedidos?</p>
+</div>
+</section>
+<section id="invertir-la-pregunta" class="slide level2 fase-pregunta">
+<h2>Invertir la pregunta</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="caja-respuesta">
+<p><strong>Hasta ahora</strong> Si tengo 40 minutos, ¿qué porcentaje ya llegó?</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="caja-pregunta">
+<p><strong>Ahora</strong> Si quiero cubrir el 90 %, ¿cuántos minutos necesito?</p>
+</div>
+</div></div>
+<div class="fragment">
+<p>Conocemos la probabilidad y buscamos el valor de <span class="math inline">\(x\)</span>.</p>
+</div>
+</section>
+<section id="cuánto-tiempo-cubre-cada-porcentaje" class="slide level2 fase-practica compacto">
+<h2>Cuánto tiempo cubre cada porcentaje</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c30-1"><a href="#c30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> [<span class="fl">0.50</span>, <span class="fl">0.80</span>, <span class="fl">0.90</span>, <span class="fl">0.95</span>]:</span>
+<span id="c30-2"><a href="#c30-2" aria-hidden="true" tabindex="-1"></a>    minutos <span class="op">=</span> tiempo.quantile(p)</span>
+<span id="c30-3"><a href="#c30-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Cubrir el </span><span class="sc">{</span>p<span class="sc">:.0%}</span><span class="ss"> de los pedidos: </span><span class="sc">{</span>minutos<span class="sc">:.1f}</span><span class="ss"> min"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c30"><code>Cubrir el 50% de los pedidos: 43.6 min
+Cubrir el 80% de los pedidos: 53.8 min
+Cubrir el 90% de los pedidos: 58.9 min
+Cubrir el 95% de los pedidos: 65.2 min</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Cómo se lee el resultado del 90 %?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Aproximadamente el 90 % de los pedidos observados tarda <strong>58.9 minutos o menos</strong>.</p>
+</div>
+</div>
+</section>
+<section id="cuantil" class="slide level2 fase-concepto imagen-baja">
+<h2>Cuantil</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p>El <strong>cuantil</strong> <span class="math inline">\(q_p\)</span> es el valor que deja una proporción <span class="math inline">\(p\)</span> de las observaciones por debajo:</p>
+<p><span class="math display">\[F(q_p)\approx p\]</span></p>
+</div>
+<div class="fragment">
+<p>El percentil 90 es el cuantil <span class="math inline">\(q_{0.90}\)</span>. La mediana es <span class="math inline">\(q_{0.50}\)</span>.</p>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/cuantil-inverso.svg" alt="Dos paneles con la misma CDF. A la izquierda se va de 45 minutos a la probabilidad 0.548. A la derecha se va de la probabilidad 0.90 a 58.9 minutos."></p>
+</div>
+</div>
+</section>
+<section id="dos-direcciones-sobre-la-misma-curva" class="slide level2 fase-concepto">
+<h2>Dos direcciones sobre la misma curva</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="concepto">
+<p><span class="rotulo">CDF</span></p>
+<p><span class="math inline">\(x\rightarrow F(x)\)</span></p>
+<p>De minutos a probabilidad.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="concepto">
+<p><span class="rotulo">Cuantil</span></p>
+<p><span class="math inline">\(p\rightarrow Q(p)\)</span></p>
+<p>De probabilidad a minutos.</p>
+</div>
+</div></div>
+<div class="fragment">
+<p><span class="math display">\[Q(p)\approx F^{-1}(p)\]</span></p>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Esta conexión es fundamental en analítica: la promesa de un servicio es un cuantil.</p>
+</div>
+</div>
+</section>
+<section id="calcula-tú-2" class="slide level2 fase-actividad">
+<h2>Calcula tú</h2>
+<p>Encuentra el percentil 75 y el percentil 90 del tiempo de entrega.</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c31-1"><a href="#c31-1" aria-hidden="true" tabindex="-1"></a>tiempo.quantile([<span class="fl">0.75</span>, <span class="fl">0.90</span>])</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c31"><code>0.75    51.25
+0.90    58.92
+Name: tiempo_entrega_min, dtype: float64</code></pre>
+</div>
+</section></section>
+<section>
+<section id="comparar-grupos" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Comparar grupos</h1>
+<div class="acto-numero">
+<p>Acto 6</p>
+</div>
+<div class="acto-pregunta">
+<p>¿La lluvia o la franja horaria cambian la distribución del tiempo?</p>
+</div>
+</section>
+<section id="con-lluvia-y-sin-lluvia" class="slide level2 fase-practica compacto">
+<h2>Con lluvia y sin lluvia</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c40-1"><a href="#c40-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"lluvia"</span>)[<span class="st">"tiempo_entrega_min"</span>].describe().<span class="bu">round</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c40"><code>        count  mean   std   min   25%   50%   75%   max
+lluvia                                                 
+No      430.0  41.9  11.1  12.0  34.0  41.2  48.7  76.4
+Si      170.0  50.0  10.8  22.0  43.2  49.0  56.6  88.4</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Qué diferencia salta a la vista?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Con lluvia la media y la mediana suben alrededor de 8 minutos.</p>
+</div>
+</div>
+</section>
+<section id="el-cumplimiento-de-45-minutos-en-cada-grupo" class="slide level2 fase-practica compacto">
+<h2>El cumplimiento de 45 minutos en cada grupo</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c41-1"><a href="#c41-1" aria-hidden="true" tabindex="-1"></a>cumple_lluvia <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).groupby(df[<span class="st">"lluvia"</span>]).mean()</span>
+<span id="c41-2"><a href="#c41-2" aria-hidden="true" tabindex="-1"></a>cumple_lluvia.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c41"><code>lluvia
+No    0.628
+Si    0.347
+Name: tiempo_entrega_min, dtype: float64</code></pre>
+</div>
+<div class="fragment">
+<div class="concepto">
+<p><span class="rotulo">Adelanto</span></p>
+<p>Calcular <span class="math inline">\(P(X\le 45)\)</span> <strong>dentro de un grupo</strong> es una probabilidad condicional: <span class="math inline">\(P(X\le 45\mid \text{lluvia})\)</span>. En el Tema 2 la formalizamos.</p>
+</div>
+</div>
+</section>
+<section id="una-cdf-por-grupo" class="slide level2 fase-practica compacto">
+<h2>Una CDF por grupo</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c42" data-fig="cdf-lluvia"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c42-1"><a href="#c42-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c42-2"><a href="#c42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c42-3"><a href="#c42-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> condicion, grupo <span class="kw">in</span> df.groupby(<span class="st">"lluvia"</span>):</span>
+<span id="c42-4"><a href="#c42-4" aria-hidden="true" tabindex="-1"></a>    x_g, F_g <span class="op">=</span> ecdf(grupo[<span class="st">"tiempo_entrega_min"</span>])</span>
+<span id="c42-5"><a href="#c42-5" aria-hidden="true" tabindex="-1"></a>    plt.step(x_g, F_g, where<span class="op">=</span><span class="st">"post"</span>, label<span class="op">=</span>condicion)</span>
+<span id="c42-6"><a href="#c42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c42-7"><a href="#c42-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tiempo de entrega (min)"</span>)</span>
+<span id="c42-8"><a href="#c42-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probabilidad acumulada"</span>)</span>
+<span id="c42-9"><a href="#c42-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"CDF empírica según lluvia"</span>)</span>
+<span id="c42-10"><a href="#c42-10" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">"Lluvia"</span>)</span>
+<span id="c42-11"><a href="#c42-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="leer-dos-curvas" class="slide level2 fase-practica grafico">
+<h2>Leer dos curvas</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-cdf-lluvia.svg" alt="Dos CDF empíricas: la de los pedidos con lluvia queda desplazada a la derecha de la de los pedidos sin lluvia."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Coinciden las curvas?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>No: la de lluvia está más a la derecha.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>En 45 minutos, ¿qué grupo lleva más probabilidad acumulada?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sin lluvia: 0.628 contra 0.347.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>Si una curva está desplazada a la derecha, ¿qué significa?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sus tiempos son mayores para la misma probabilidad.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="la-lluvia-es-la-causa" class="slide level2 fase-pregunta">
+<h2>¿La lluvia es la causa?</h2>
+<div class="caja-pregunta">
+<p>¿Podemos afirmar que la lluvia produce los retrasos?</p>
+</div>
+<div class="fragment">
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/asociacion-causalidad.svg" alt="Lluvia y tiempo de entrega unidos por una flecha con signo de interrogación, y otros factores como franja, zona, distancia y tipo de pedido que también apuntan al tiempo."></p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>No solo con esta gráfica. Vemos una <strong>asociación</strong>; la causalidad exige revisar otros factores.</p>
+</div>
+</div>
+</section>
+<section id="revisar-un-posible-factor-de-confusión" class="slide level2 fase-practica compacto">
+<h2>Revisar un posible factor de confusión</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c43-1"><a href="#c43-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"lluvia"</span>)[[<span class="st">"distancia_km"</span>, <span class="st">"tiempo_preparacion_min"</span>]].mean().<span class="bu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c43"><code>        distancia_km  tiempo_preparacion_min
+lluvia                                      
+No              4.96                   14.59
+Si              4.78                   14.41</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿La lluvia trae pedidos más lejanos o con más preparación?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>No: las medias son casi iguales. Esa parte de la diferencia no viene de la distancia ni de la preparación.</p>
+</div>
+</div>
+</section>
+<section id="por-franja-horaria" class="slide level2 fase-practica compacto">
+<h2>Por franja horaria</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c44-1"><a href="#c44-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"franja"</span>)[<span class="st">"tiempo_entrega_min"</span>].describe().<span class="bu">round</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c44"><code>          count  mean   std   min   25%   50%   75%   max
+franja                                                   
+Almuerzo  192.0  44.9  11.7  18.1  36.7  44.2  52.5  88.4
+Manana    121.0  40.0  12.5  12.0  30.2  38.0  48.9  76.4
+Noche     173.0  46.5  10.3  23.6  39.5  46.0  53.9  72.2
+Tarde     114.0  44.1  11.2  16.8  36.9  42.8  50.3  73.2</code></pre>
+</div>
+</section>
+<section id="una-cdf-por-franja" class="slide level2 fase-practica compacto">
+<h2>Una CDF por franja</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c45" data-fig="cdf-franja"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c45-1"><a href="#c45-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c45-2"><a href="#c45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c45-3"><a href="#c45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> franja <span class="kw">in</span> [<span class="st">"Manana"</span>, <span class="st">"Almuerzo"</span>, <span class="st">"Tarde"</span>, <span class="st">"Noche"</span>]:</span>
+<span id="c45-4"><a href="#c45-4" aria-hidden="true" tabindex="-1"></a>    grupo <span class="op">=</span> df[df[<span class="st">"franja"</span>] <span class="op">==</span> franja]</span>
+<span id="c45-5"><a href="#c45-5" aria-hidden="true" tabindex="-1"></a>    x_g, F_g <span class="op">=</span> ecdf(grupo[<span class="st">"tiempo_entrega_min"</span>])</span>
+<span id="c45-6"><a href="#c45-6" aria-hidden="true" tabindex="-1"></a>    plt.step(x_g, F_g, where<span class="op">=</span><span class="st">"post"</span>, label<span class="op">=</span>franja)</span>
+<span id="c45-7"><a href="#c45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c45-8"><a href="#c45-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tiempo de entrega (min)"</span>)</span>
+<span id="c45-9"><a href="#c45-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probabilidad acumulada"</span>)</span>
+<span id="c45-10"><a href="#c45-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"CDF empírica por franja horaria"</span>)</span>
+<span id="c45-11"><a href="#c45-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="c45-12"><a href="#c45-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="leer-cuatro-curvas" class="slide level2 fase-practica grafico">
+<h2>Leer cuatro curvas</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-cdf-franja.svg" alt="Cuatro CDF empíricas por franja horaria. La de la mañana queda más a la izquierda y la de la noche más a la derecha."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Qué franja tiene las entregas más rápidas?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La mañana.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Qué franja tiene las más lentas?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La noche.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Debería aplicarse una sola promesa a todas?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Depende de cuánto cambien sus percentiles.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="cumplimiento-y-percentil-90-por-franja" class="slide level2 fase-practica compacto">
+<h2>Cumplimiento y percentil 90 por franja</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c46-1"><a href="#c46-1" aria-hidden="true" tabindex="-1"></a>por_franja <span class="op">=</span> pd.DataFrame({</span>
+<span id="c46-2"><a href="#c46-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"P(X&lt;=45)"</span>: (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).groupby(df[<span class="st">"franja"</span>]).mean(),</span>
+<span id="c46-3"><a href="#c46-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"percentil 90"</span>: tiempo.groupby(df[<span class="st">"franja"</span>]).quantile(<span class="fl">0.9</span>),</span>
+<span id="c46-4"><a href="#c46-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="c46-5"><a href="#c46-5" aria-hidden="true" tabindex="-1"></a>por_franja.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c46"><code>          P(X&lt;=45)  percentil 90
+franja                          
+Almuerzo     0.552         58.63
+Manana       0.661         54.50
+Noche        0.451         60.48
+Tarde        0.570         58.87</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Qué información adicional necesitaríamos antes de decidir?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Cuántos pedidos hay en cada franja, si el clima se reparte parejo entre ellas y cuánto cuesta cada mejora.</p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="discretas-y-densidad" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>Discretas y densidad</h1>
+<div class="acto-numero">
+<p>Acto 7</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Y si en vez de medir tiempos contamos pedidos?</p>
+</div>
+</section>
+<section id="una-variable-discreta-en-el-mismo-problema" class="slide level2 fase-practica compacto">
+<h2>Una variable discreta en el mismo problema</h2>
+<p>Definimos retraso como <span class="math inline">\(X&gt;45\)</span> y contamos cuántos hubo cada día:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c50-1"><a href="#c50-1" aria-hidden="true" tabindex="-1"></a>retrasos_dia <span class="op">=</span> (</span>
+<span id="c50-2"><a href="#c50-2" aria-hidden="true" tabindex="-1"></a>    df.assign(retraso<span class="op">=</span>(tiempo <span class="op">&gt;</span> <span class="dv">45</span>).astype(<span class="bu">int</span>))</span>
+<span id="c50-3"><a href="#c50-3" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"fecha"</span>)[<span class="st">"retraso"</span>]</span>
+<span id="c50-4"><a href="#c50-4" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">sum</span>()</span>
+<span id="c50-5"><a href="#c50-5" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="c50-6"><a href="#c50-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="c50-7"><a href="#c50-7" aria-hidden="true" tabindex="-1"></a>retrasos_dia.head()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c50"><code>        fecha  retraso
+0  2026-08-03        6
+1  2026-08-04       13
+2  2026-08-05        5
+3  2026-08-06        5
+4  2026-08-07        8</code></pre>
+</div>
+<div class="fragment">
+<div class="grande">
+<p><span class="math inline">\(Y\)</span> = número de pedidos retrasados en un día</p>
+</div>
+</div>
+</section>
+<section id="distribución-de-una-variable-discreta" class="slide level2 fase-practica compacto">
+<h2>Distribución de una variable discreta</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c51-1"><a href="#c51-1" aria-hidden="true" tabindex="-1"></a>pmf <span class="op">=</span> retrasos_dia[<span class="st">"retraso"</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).sort_index()</span>
+<span id="c51-2"><a href="#c51-2" aria-hidden="true" tabindex="-1"></a>pmf.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c51"><code>retraso
+1     0.041
+2     0.041
+3     0.122
+4     0.163
+5     0.245
+6     0.061
+7     0.122
+8     0.122
+9     0.020
+11    0.020
+13    0.020
+14    0.020
+Name: proportion, dtype: float64</code></pre>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c52-1"><a href="#c52-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pmf.<span class="bu">sum</span>())</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c52"><code>1.0</code></pre>
+</div>
+</section>
+<section id="función-de-masa-de-probabilidad" class="slide level2 fase-concepto">
+<h2>Función de masa de probabilidad</h2>
+<div class="concepto">
+<p><span class="rotulo">Definición</span></p>
+<p>Para una variable discreta:</p>
+<p><span class="math display">\[p_X(x)=P(X=x)\]</span></p>
+<p>con <span class="math inline">\(p_X(x)\ge 0\)</span> y <span class="math inline">\(\sum_x p_X(x)=1\)</span>.</p>
+</div>
+<div class="fragment">
+<p>La altura de cada barra <strong>sí</strong> es una probabilidad.</p>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Sigla en inglés: <strong>PMF</strong>, probability mass function.</p>
+</div>
+</div>
+</section>
+<section id="dibujar-la-pmf" class="slide level2 fase-practica">
+<h2>Dibujar la PMF</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c53" data-fig="pmf-retrasos"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c53-1"><a href="#c53-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c53-2"><a href="#c53-2" aria-hidden="true" tabindex="-1"></a>plt.bar(pmf.index, pmf.values)</span>
+<span id="c53-3"><a href="#c53-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Número de retrasos en un día"</span>)</span>
+<span id="c53-4"><a href="#c53-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Probabilidad estimada"</span>)</span>
+<span id="c53-5"><a href="#c53-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PMF empírica de los retrasos diarios"</span>)</span>
+<span id="c53-6"><a href="#c53-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="leer-la-pmf" class="slide level2 fase-practica grafico">
+<h2>Leer la PMF</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-pmf-retrasos.svg" alt="Gráfico de barras con la probabilidad estimada de cada número de retrasos por día, con el máximo en cinco retrasos."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Cuál es el número de retrasos más frecuente?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Cinco, con cerca del 24 % de los días.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Qué probabilidad hay de exactamente 3 retrasos?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Cerca del 12 %.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Qué diferencia hay entre <span class="math inline">\(P(Y=3)\)</span> y <span class="math inline">\(P(Y\le 3)\)</span>?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La primera es un solo valor; la segunda acumula los valores hasta 3.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="la-cdf-de-una-variable-discreta" class="slide level2 fase-practica compacto">
+<h2>La CDF de una variable discreta</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c54-1"><a href="#c54-1" aria-hidden="true" tabindex="-1"></a>cdf_discreta <span class="op">=</span> pmf.cumsum()</span>
+<span id="c54-2"><a href="#c54-2" aria-hidden="true" tabindex="-1"></a>cdf_discreta.<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c54"><code>retraso
+1     0.041
+2     0.082
+3     0.204
+4     0.367
+5     0.612
+6     0.673
+7     0.796
+8     0.918
+9     0.939
+11    0.959
+13    0.980
+14    1.000
+Name: proportion, dtype: float64</code></pre>
+</div>
+<div class="fragment">
+<div class="concepto">
+<p><span class="rotulo">Idea</span></p>
+<p><span class="math inline">\(F_Y(3)=P(Y=0)+P(Y=1)+P(Y=2)+P(Y=3)\)</span>. Aquí se ve por qué se llama <strong>acumulada</strong>.</p>
+</div>
+</div>
+</section>
+<section id="dibujar-la-cdf-discreta" class="slide level2 fase-practica">
+<h2>Dibujar la CDF discreta</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c55" data-fig="cdf-retrasos"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c55-1"><a href="#c55-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c55-2"><a href="#c55-2" aria-hidden="true" tabindex="-1"></a>plt.step(cdf_discreta.index, cdf_discreta.values, where<span class="op">=</span><span class="st">"post"</span>)</span>
+<span id="c55-3"><a href="#c55-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Número de retrasos en un día"</span>)</span>
+<span id="c55-4"><a href="#c55-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"F(y) = P(Y &lt;= y)"</span>)</span>
+<span id="c55-5"><a href="#c55-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"CDF empírica de los retrasos diarios"</span>)</span>
+<span id="c55-6"><a href="#c55-6" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, <span class="fl">1.05</span>)</span>
+<span id="c55-7"><a href="#c55-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vista-de-la-cdf-discreta" class="slide level2 fase-practica grafico">
+<h2>Vista de la CDF discreta</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-cdf-retrasos.svg" alt="Escalera que sube de 0 a 1 con un salto en cada número de retrasos observado."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿De qué tamaño es cada salto?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Igual a la probabilidad de ese valor en la PMF.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Dónde está la mediana?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>En el primer valor donde la curva llega o pasa 0.5.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="y-para-el-tiempo-de-entrega-que-es-continuo" class="slide level2 fase-pregunta compacto">
+<h2>Y para el tiempo de entrega, que es continuo</h2>
+<div class="caja-pregunta">
+<p>Si no podemos contar valores aislados, ¿dónde queda la probabilidad?</p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c56" data-fig="densidad-tiempo"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c56-1"><a href="#c56-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c56-2"><a href="#c56-2" aria-hidden="true" tabindex="-1"></a>tiempo.plot(kind<span class="op">=</span><span class="st">"hist"</span>, bins<span class="op">=</span><span class="dv">25</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="c56-3"><a href="#c56-3" aria-hidden="true" tabindex="-1"></a>tiempo.plot(kind<span class="op">=</span><span class="st">"kde"</span>)</span>
+<span id="c56-4"><a href="#c56-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tiempo de entrega (min)"</span>)</span>
+<span id="c56-5"><a href="#c56-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribución del tiempo de entrega"</span>)</span>
+<span id="c56-6"><a href="#c56-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="frecuencia-y-densidad" class="slide level2 fase-practica grafico">
+<h2>Frecuencia y densidad</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-densidad-tiempo.svg" alt="Histograma en escala de densidad con una curva suave que lo recorre, concentrada entre 35 y 55 minutos."></p>
+</div><div class="column" style="width:46%;">
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Dónde hay mayor densidad?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Alrededor de 40 a 50 minutos.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿La altura de la curva es una probabilidad?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>No.</p>
+</div>
+</div>
+<div class="par apilado">
+<div class="caja-pregunta fragment">
+<p>¿Dónde está la probabilidad?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>En el área bajo la curva sobre un intervalo.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section id="el-área-es-la-probabilidad" class="slide level2 fase-practica compacto">
+<h2>El área es la probabilidad</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c57-1"><a href="#c57-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> gaussian_kde</span>
+<span id="c57-2"><a href="#c57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c57-3"><a href="#c57-3" aria-hidden="true" tabindex="-1"></a>kde <span class="op">=</span> gaussian_kde(tiempo)</span>
+<span id="c57-4"><a href="#c57-4" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> kde.integrate_box_1d(<span class="dv">30</span>, <span class="dv">40</span>)</span>
+<span id="c57-5"><a href="#c57-5" aria-hidden="true" tabindex="-1"></a>observada <span class="op">=</span> ((tiempo <span class="op">&gt;</span> <span class="dv">30</span>) <span class="op">&amp;</span> (tiempo <span class="op">&lt;=</span> <span class="dv">40</span>)).mean()</span>
+<span id="c57-6"><a href="#c57-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c57-7"><a href="#c57-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Área bajo la curva entre 30 y 40:   </span><span class="sc">{</span>area<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="c57-8"><a href="#c57-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proporción observada entre 30 y 40: </span><span class="sc">{</span>observada<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c57"><code>Área bajo la curva entre 30 y 40:   0.257
+Proporción observada entre 30 y 40: 0.258</code></pre>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Las dos cifras casi coinciden.</p>
+</div>
+</div>
+</section>
+<section id="dibujar-el-área" class="slide level2 fase-practica compacto">
+<h2>Dibujar el área</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c58" data-fig="area-30-40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c58-1"><a href="#c58-1" aria-hidden="true" tabindex="-1"></a>malla <span class="op">=</span> np.linspace(tiempo.<span class="bu">min</span>(), tiempo.<span class="bu">max</span>(), <span class="dv">300</span>)</span>
+<span id="c58-2"><a href="#c58-2" aria-hidden="true" tabindex="-1"></a>densidad <span class="op">=</span> kde(malla)</span>
+<span id="c58-3"><a href="#c58-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="c58-4"><a href="#c58-4" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">5.2</span>))</span>
+<span id="c58-5"><a href="#c58-5" aria-hidden="true" tabindex="-1"></a>plt.plot(malla, densidad)</span>
+<span id="c58-6"><a href="#c58-6" aria-hidden="true" tabindex="-1"></a>plt.fill_between(malla, densidad, where<span class="op">=</span>(malla <span class="op">&gt;=</span> <span class="dv">30</span>) <span class="op">&amp;</span> (malla <span class="op">&lt;=</span> <span class="dv">40</span>), alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="c58-7"><a href="#c58-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Tiempo de entrega (min)"</span>)</span>
+<span id="c58-8"><a href="#c58-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Densidad"</span>)</span>
+<span id="c58-9"><a href="#c58-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"P(30 &lt; X &lt;= 40) como área"</span>)</span>
+<span id="c58-10"><a href="#c58-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="vista-del-área" class="slide level2 fase-concepto grafico">
+<h2>Vista del área</h2>
+<div class="columns">
+<div class="column" style="width:54%;">
+<p><img data-src="imagenes/aplicada/graf-area-30-40.svg" alt="Curva de densidad del tiempo de entrega con el área entre 30 y 40 minutos sombreada."></p>
+</div><div class="column" style="width:46%;">
+<div class="concepto">
+<p><span class="rotulo">Densidad</span></p>
+<p>Para una variable continua:</p>
+<p><span class="math display">\[P(a&lt;X&lt;b)=\int_a^b f(x)\,dx\]</span></p>
+<p>Además <span class="math inline">\(P(X=x)=0\)</span> para cualquier valor puntual.</p>
+</div>
+<div class="fragment">
+<p><strong>Sigla en inglés: PDF</strong>, probability density function.</p>
+</div>
+</div></div>
+</section>
+<section id="pmf-pdf-y-cdf" class="slide level2 fase-concepto">
+<h2>PMF, PDF y CDF</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/pmf-pdf-cdf.svg" alt="Tres columnas. PMF: barras cuya altura es probabilidad, para variables discretas. PDF: curva cuyo área es probabilidad, para variables continuas. CDF: sirve para ambas."></p>
+</div>
+</section></section>
+<section>
+<section id="la-decisión" class="title-slide slide level1 acto center" data-background-color="#0f2540">
+<h1>La decisión</h1>
+<div class="acto-numero">
+<p>Acto 8</p>
+</div>
+<div class="acto-pregunta">
+<p>¿Es razonable prometer entrega en máximo 45 minutos?</p>
+</div>
+</section>
+<section id="lo-que-dicen-los-datos" class="slide level2 fase-practica compacto">
+<h2>Lo que dicen los datos</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c60-1"><a href="#c60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cumplimiento global: </span><span class="sc">{</span>(tiempo <span class="op">&lt;=</span> <span class="dv">45</span>)<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c60"><code>Cumplimiento global: 0.548</code></pre>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c61-1"><a href="#c61-1" aria-hidden="true" tabindex="-1"></a>cumple <span class="op">=</span> (tiempo <span class="op">&lt;=</span> <span class="dv">45</span>).groupby([df[<span class="st">"lluvia"</span>], df[<span class="st">"franja"</span>]]).mean()</span>
+<span id="c61-2"><a href="#c61-2" aria-hidden="true" tabindex="-1"></a>cumple.unstack().<span class="bu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<pre class="salida" for="c61"><code>franja  Almuerzo  Manana  Noche  Tarde
+lluvia                                
+No         0.607   0.763  0.525  0.653
+Si         0.404   0.250  0.291  0.410</code></pre>
+</div>
+</section>
+<section id="qué-promesa-cubre-a-la-mayoría" class="slide level2 fase-practica compacto">
+<h2>¿Qué promesa cubre a la mayoría?</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c62-1"><a href="#c62-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> promesa <span class="kw">in</span> [<span class="dv">45</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">65</span>]:</span>
+<span id="c62-2"><a href="#c62-2" aria-hidden="true" tabindex="-1"></a>    cobertura <span class="op">=</span> (tiempo <span class="op">&lt;=</span> promesa).mean()</span>
+<span id="c62-3"><a href="#c62-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Promesa de </span><span class="sc">{</span>promesa<span class="sc">}</span><span class="ss"> min: cumple </span><span class="sc">{</span>cobertura<span class="sc">:.1%}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c62"><code>Promesa de 45 min: cumple 54.8%
+Promesa de 50 min: cumple 71.0%
+Promesa de 55 min: cumple 83.3%
+Promesa de 60 min: cumple 91.2%
+Promesa de 65 min: cumple 94.8%</code></pre>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>¿Qué promesa se acerca al 90 %?</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>60 minutos cubre el 91.2 %. El cuantil lo confirma: <span class="math inline">\(q_{0.90}=58.9\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="preguntas-de-decisión" class="slide level2 fase-decision">
+<h2>Preguntas de decisión</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿El 54.8 % es suficiente para convertirlo en una promesa?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Casi la mitad de los clientes recibiría un pedido tardío.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿La conclusión cambia con lluvia?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sí: 34.7 % con lluvia contra 62.8 % sin lluvia.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Cambia según la franja?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Sí: de 45.1 % por la noche a 66.1 % por la mañana.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>¿Estamos describiendo datos históricos o garantizando resultados futuros?</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Describimos el pasado. Una probabilidad estimada no es una certeza.</p>
+</div>
+</div>
+</section>
+<section id="una-lectura-posible" class="slide level2 fase-decision">
+<h2>Una lectura posible</h2>
+<ul>
+<li class="fragment"><strong>No prometer 45 minutos a todos:</strong> solo se cumple el 54.8 % de las veces.</li>
+<li class="fragment"><strong>Una promesa de 60 minutos</strong> cubriría el 91.2 % de los pedidos.</li>
+<li class="fragment"><strong>Ajustar por contexto:</strong> con lluvia o de noche el cuantil 90 es más alto.</li>
+<li class="fragment"><strong>Costo:</strong> garantizar el percentil 95 (65.2 min) significa más capacidad operativa.</li>
+</ul>
+<div class="fragment">
+<div class="aviso">
+<p>Límites del análisis: 600 pedidos, siete semanas y comparaciones descriptivas. No demuestran causalidad.</p>
+</div>
+</div>
+</section>
+<section id="reto-por-equipos" class="slide level2 fase-actividad">
+<h2>Reto por equipos</h2>
+<div class="diagrama">
+<p><img data-src="imagenes/aplicada/equipos-reto.svg" alt="Cinco equipos, uno por dimensión: lluvia, zona, franja, tipo de pedido y día de la semana. Cada uno entrega nueve elementos, de la descripción de los grupos a una limitación del análisis."></p>
+</div>
+</section>
+<section id="punto-de-partida-para-el-reto" class="slide level2 fase-actividad compacto">
+<h2>Punto de partida para el reto</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="c63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="c63-1"><a href="#c63-1" aria-hidden="true" tabindex="-1"></a>resumen <span class="op">=</span> (</span>
+<span id="c63-2"><a href="#c63-2" aria-hidden="true" tabindex="-1"></a>    df.groupby(<span class="st">"zona"</span>)[<span class="st">"tiempo_entrega_min"</span>]</span>
+<span id="c63-3"><a href="#c63-3" aria-hidden="true" tabindex="-1"></a>    .agg([<span class="st">"count"</span>, <span class="st">"mean"</span>, <span class="st">"median"</span>])</span>
+<span id="c63-4"><a href="#c63-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="c63-5"><a href="#c63-5" aria-hidden="true" tabindex="-1"></a>resumen.<span class="bu">round</span>(<span class="dv">1</span>)</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<pre class="salida" for="c63"><code>           count  mean  median
+zona                          
+Centro       128  37.9    37.4
+Norte        100  46.8    44.8
+Occidente    118  42.8    42.6
+Oriente      115  45.3    45.5
+Sur          139  48.6    48.6</code></pre>
+</div>
+<div class="fragment">
+<div class="remate">
+<p>Cambien <code>zona</code> por la dimensión de su equipo y sigan las nueve entregas.</p>
+</div>
+</div>
+</section>
+<section id="errores-conceptuales-frecuentes" class="slide level2 fase-pregunta">
+<h2>Errores conceptuales frecuentes</h2>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>“La variable aleatoria son los datos.”</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Los datos son realizaciones observadas de la variable.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>“Probabilidad y frecuencia son lo mismo.”</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La frecuencia observada estima la probabilidad bajo ciertos supuestos.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>“La CDF da la probabilidad de exactamente <span class="math inline">\(x\)</span>.”</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Es acumulada: <span class="math inline">\(F(x)=P(X\le x)\)</span>.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>“La altura de una PDF es la probabilidad.”</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>La probabilidad es el área bajo la curva.</p>
+</div>
+</div>
+<div class="par">
+<div class="caja-pregunta fragment">
+<p>“Llueve y tarda más, así que la lluvia es la causa.”</p>
+</div>
+<div class="caja-respuesta fragment">
+<p>Es una asociación. La causalidad pide un análisis más riguroso.</p>
+</div>
+</div>
+</section>
+<section id="el-hilo-completo-con-nuestro-caso" class="slide level2 fase-sintesis solo-mapa">
+<h2>El hilo completo, con nuestro caso</h2>
+<svg class="mapa" viewbox="0 0 1180 420" font-family="Segoe UI, Arial, sans-serif" role="img" aria-label="Cadena de diez pasos, del fenómeno real a la decisión, con el valor que tomó cada uno en el caso de los domicilios."><defs><marker id="pta" viewbox="0 0 10 10" refx="9" refy="5" markerwidth="7" markerheight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6876"></path></marker></defs>
+<g class="fragment">
+<rect x="10" y="20" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="10" y="20" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="110.0" y="76" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Fenómeno real</text>
+<text x="110.0" y="112" text-anchor="middle" font-size="19" fill="#16202b">Un pedido</text><text x="110.0" y="138" text-anchor="middle" font-size="19" fill="#16202b">a domicilio</text>
+</g>
+<line class="fragment" x1="214" y1="95" x2="246" y2="95" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="250" y="20" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="250" y="20" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="350.0" y="76" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Experimento</text>
+<text x="350.0" y="112" text-anchor="middle" font-size="19" fill="#16202b">Observar</text><text x="350.0" y="138" text-anchor="middle" font-size="19" fill="#16202b">un pedido</text>
+</g>
+<line class="fragment" x1="454" y1="95" x2="486" y2="95" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="490" y="20" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="490" y="20" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="590.0" y="76" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Espacio muestral</text>
+<text x="590.0" y="112" text-anchor="middle" font-size="19" fill="#16202b">Ω: todos los</text><text x="590.0" y="138" text-anchor="middle" font-size="19" fill="#16202b">pedidos posibles</text>
+</g>
+<line class="fragment" x1="694" y1="95" x2="726" y2="95" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="730" y="20" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="730" y="20" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="830.0" y="76" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Variable aleatoria</text>
+<text x="830.0" y="112" text-anchor="middle" font-size="19" fill="#16202b">X: tiempo</text><text x="830.0" y="138" text-anchor="middle" font-size="19" fill="#16202b">de entrega</text>
+</g>
+<line class="fragment" x1="934" y1="95" x2="966" y2="95" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="970" y="20" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="970" y="20" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="1070.0" y="76" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Realizaciones</text>
+<text x="1070.0" y="112" text-anchor="middle" font-size="19" fill="#16202b">600 tiempos</text><text x="1070.0" y="138" text-anchor="middle" font-size="19" fill="#16202b">observados</text>
+</g>
+<path class="fragment" d="M 1070 176 L 1070 205 L 110 205 L 110 234" fill="none" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></path>
+<g class="fragment">
+<rect x="10" y="240" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="10" y="240" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="110.0" y="296" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Evento</text>
+<text x="110.0" y="332" text-anchor="middle" font-size="19" fill="#16202b">A = {X ≤ 45}</text>
+</g>
+<line class="fragment" x1="214" y1="315" x2="246" y2="315" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="250" y="240" width="200" height="150" rx="12" fill="#eef2f6" stroke="#17456f" stroke-width="2"></rect>
+<rect x="250" y="240" width="200" height="10" rx="5" fill="#17456f"></rect>
+<text x="350.0" y="296" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Probabilidad</text>
+<text x="350.0" y="332" text-anchor="middle" font-size="19" fill="#16202b">P(A) = 0.548</text>
+</g>
+<line class="fragment" x1="454" y1="315" x2="486" y2="315" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="490" y="240" width="200" height="150" rx="12" fill="#effaf9" stroke="#0e8f8f" stroke-width="2"></rect>
+<rect x="490" y="240" width="200" height="10" rx="5" fill="#0e8f8f"></rect>
+<text x="590.0" y="296" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Distribución</text>
+<text x="590.0" y="332" text-anchor="middle" font-size="19" fill="#16202b">F(x) = P(X ≤ x)</text>
+</g>
+<line class="fragment" x1="694" y1="315" x2="726" y2="315" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="730" y="240" width="200" height="150" rx="12" fill="#effaf9" stroke="#0e8f8f" stroke-width="2"></rect>
+<rect x="730" y="240" width="200" height="10" rx="5" fill="#0e8f8f"></rect>
+<text x="830.0" y="296" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Cuantil</text>
+<text x="830.0" y="332" text-anchor="middle" font-size="19" fill="#16202b">Q(0.90) = 58.9 min</text>
+</g>
+<line class="fragment" x1="934" y1="315" x2="966" y2="315" stroke="#5b6876" stroke-width="3" marker-end="url(#pta)"></line>
+<g class="fragment">
+<rect x="970" y="240" width="200" height="150" rx="12" fill="#dbe9f5" stroke="#0f2540" stroke-width="2"></rect>
+<rect x="970" y="240" width="200" height="10" rx="5" fill="#0f2540"></rect>
+<text x="1070.0" y="296" text-anchor="middle" font-size="22" font-weight="700" fill="#0f2540">Decisión</text>
+<text x="1070.0" y="332" text-anchor="middle" font-size="19" fill="#16202b">Definir la promesa</text>
+</g>
+</svg>
+</section>
+<section id="lo-que-ya-sabemos-responder" class="slide level2 fase-sintesis">
+<h2>Lo que ya sabemos responder</h2>
+<div class="caja-pregunta">
+<p>“¿Qué probabilidad hay de que esta variable <strong>no supere</strong> cierto valor?”</p>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Es una <strong>probabilidad acumulada</strong>: se estudia con la CDF, <span class="math inline">\(F(x)=P(X\le x)\)</span>.</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-pregunta">
+<p>“¿Qué valor necesitamos para <strong>cubrir al 90 %</strong> de los casos?”</p>
+</div>
+</div>
+<div class="fragment">
+<div class="caja-respuesta">
+<p>Es un <strong>cuantil</strong> de la misma distribución.</p>
+</div>
+</div>
+</section>
+<section id="lo-que-viene" class="slide level2">
+<h2>Lo que viene</h2>
+<ul>
+<li class="fragment">Hoy comparamos <span class="math inline">\(P(X\le 45)\)</span> dentro de cada grupo sin ponerle nombre.</li>
+<li class="fragment"><strong>Tema 2:</strong> probabilidad condicional, independencia y teorema de Bayes.</li>
+<li class="fragment"><strong>Tema 3:</strong> valor esperado y varianza: resumir una variable en dos números.</li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'fast',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 10,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 7.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copiado");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copiado");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

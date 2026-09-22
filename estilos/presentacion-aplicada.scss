@@ -1,0 +1,327 @@
+/*-- scss:rules --*/
+
+// Capa adicional para las presentaciones con enfoque aplicado. Va despues de
+// presentacion.scss y solo se carga en esas presentaciones, asi que no cambia
+// el CSS de las demas. Usa las variables de la paleta definidas alla.
+
+/* Etiqueta de fase. Cada diapositiva declara en que momento del ciclo esta:
+   se practica primero y el concepto llega despues. */
+.reveal h2::before {
+  display: inline-block;
+  font-size: 0.34em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.3em 0.9em;
+  border-radius: 999px;
+  margin-right: 1.1em;
+  vertical-align: middle;
+  position: relative;
+  top: -0.16em;
+}
+
+.reveal section.fase-practica h2::before { content: "Práctica"; background: $azul-500; }
+.reveal section.fase-pregunta h2::before { content: "Pregunta"; background: #b7791f; }
+.reveal section.fase-concepto h2::before { content: "Concepto"; background: $teal-500; }
+.reveal section.fase-actividad h2::before { content: "Tu turno"; background: $verde-700; }
+.reveal section.fase-decision h2::before { content: "Decisión"; background: $azul-900; }
+.reveal section.fase-sintesis h2::before { content: "Síntesis"; background: $gris-600; }
+
+/* Portada oscura */
+.reveal .title-slide h1.title {
+  color: #fff;
+}
+
+.reveal .title-slide p.subtitle {
+  color: #cfe3f4;
+  border-top-color: #4fd1c5;
+}
+
+.reveal .title-slide .author,
+.reveal .title-slide .institute {
+  color: #a9c4dc;
+}
+
+/* Diapositivas de acto: fondo oscuro, numero grande y la pregunta del acto */
+.reveal section.acto h1 {
+  color: #fff;
+  font-size: 1.9em;
+  margin: 0.15em 0 0.45em;
+}
+
+.reveal section.acto .acto-numero {
+  font-size: 0.62em;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #4fd1c5;
+}
+
+.reveal section.acto .acto-pregunta {
+  font-size: 1.05em;
+  line-height: 1.35;
+  color: #dbe9f5;
+  border-left: 6px solid #4fd1c5;
+  padding-left: 0.8em;
+  max-width: 24em;
+}
+
+/* Concepto: aparece despues de la practica, con el nombre formal */
+.reveal .concepto {
+  font-size: 0.9em;
+  background: #effaf9;
+  border: 1px solid #b9e4e1;
+  border-left: 8px solid $teal-500;
+  border-radius: 10px;
+  padding: 0.55em 1em 0.6em;
+  margin: 0.45em 0;
+
+  p {
+    margin: 0.2em 0;
+  }
+
+  .rotulo {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $teal-500;
+    margin-bottom: 0.15em;
+  }
+}
+
+/* Pregunta y respuesta. La respuesta entra con un clic aparte. */
+.reveal .caja-pregunta {
+  background: #fdf8ec;
+  border-left: 6px solid #b7791f;
+  border-radius: 8px;
+  padding: 0.4em 0.9em;
+  margin: 0.3em 0;
+  font-weight: 650;
+  color: #6b4a10;
+}
+
+.reveal .caja-respuesta {
+  background: #eef8f2;
+  border-left: 6px solid $verde-700;
+  border-radius: 8px;
+  padding: 0.4em 0.9em;
+  margin: 0.3em 0 0.5em;
+  color: #1f5a41;
+}
+
+.reveal .caja-pregunta p,
+.reveal .caja-respuesta p {
+  margin: 0;
+}
+
+/* Pregunta con su respuesta al lado, en una sola fila */
+.reveal .par {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9em;
+  align-items: stretch;
+  font-size: 0.72em;
+  margin-bottom: 0.35em;
+
+  .caja-pregunta,
+  .caja-respuesta {
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Variante en una columna, para cuando el par comparte diapositiva con un grafico */
+.reveal .par.apilado {
+  grid-template-columns: 1fr;
+  gap: 0.35em;
+  font-size: 0.66em;
+  margin-bottom: 0.6em;
+}
+
+/* Salida del codigo: la respuesta que da Python */
+.reveal pre.salida {
+  border: 1px solid #b9e4e1;
+  border-left: 6px solid $teal-500;
+  background: #fff;
+  margin-top: 0.25em;
+}
+
+.reveal pre.salida code {
+  color: #0a4f4f;
+}
+
+/* Codigo y salida, mas compactos para bloques largos */
+.reveal .compacto pre code {
+  font-size: 0.6em;
+  line-height: 1.3;
+}
+
+.reveal .minimo pre code {
+  font-size: 0.5em;
+  line-height: 1.25;
+}
+
+.reveal .fila-codigo {
+  display: flex;
+  gap: 0.8em;
+  align-items: flex-start;
+
+  > * {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+/* Tabla del df.head(): 14 columnas caben con letra chica */
+.reveal .tabla-df {
+  font-size: 0.4em;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #b9e4e1;
+  border-left: 6px solid $teal-500;
+  background: #fff;
+
+  th,
+  td {
+    padding: 0.25em 0.5em;
+    text-align: right;
+    border-bottom: 1px solid $gris-100;
+    white-space: nowrap;
+  }
+
+  th {
+    color: $azul-900;
+    background: $gris-050;
+    font-weight: 700;
+    white-space: normal;
+    vertical-align: bottom;
+  }
+}
+
+/* Fragmento de texto suelto, una frase para cerrar la idea */
+.reveal .remate {
+  font-size: 0.9em;
+  font-weight: 650;
+  color: $azul-700;
+  margin-top: 0.4em;
+}
+
+/* Lista de pasos con numero, para las listas que aparecen una a una */
+.reveal .pasos ol {
+  list-style: none;
+  counter-reset: paso;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.reveal .pasos ol li {
+  counter-increment: paso;
+  position: relative;
+  padding-left: 1.9em;
+  margin-bottom: 0.55em;
+}
+
+.reveal .pasos ol li::before {
+  content: counter(paso);
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.4em;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 700;
+  color: #fff;
+  background: $azul-500;
+  border-radius: 50%;
+}
+
+/* Etiquetas de fase explicadas en la primera diapositiva */
+.reveal .chip {
+  display: inline-block;
+  font-size: 0.55em;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.3em 0.9em;
+  border-radius: 999px;
+  min-width: 7.5em;
+  text-align: center;
+}
+
+.reveal .chip-practica { background: $azul-500; }
+.reveal .chip-pregunta { background: #b7791f; }
+.reveal .chip-concepto { background: $teal-500; }
+.reveal .chip-actividad { background: $verde-700; }
+.reveal .chip-decision { background: $azul-900; }
+
+.reveal .leyenda {
+  font-size: 0.85em;
+}
+
+.reveal .fila-leyenda {
+  margin-bottom: 0.9em;
+
+  p {
+    margin: 0;
+  }
+
+  .chip {
+    margin-right: 1em;
+  }
+}
+
+/* Diagramas y graficos a ancho completo */
+/* Alturas en px del lienzo de 1280x720: las vh dependen de la ventana y no de
+   la escala de la diapositiva. */
+.reveal .diagrama img {
+  width: 1120px;
+  max-width: 100%;
+  max-height: 560px;
+}
+
+.reveal section.imagen-baja .diagrama img {
+  width: auto;
+  max-height: 300px;
+}
+
+.reveal .grafico img {
+  max-height: 470px;
+}
+
+.reveal .pasos {
+  font-size: 0.86em;
+}
+
+/* SVG en linea (mapa final) */
+.reveal svg.mapa {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 560px;
+}
+
+.reveal svg.mapa .fragment {
+  transition: opacity 0.35s ease;
+}
+
+/* Formulas de bloque dentro de la tarjeta de concepto: menos aire */
+.reveal .concepto mjx-container[display="true"],
+.reveal .concepto .katex-display,
+.reveal .concepto .math.display {
+  margin: 0.25em 0 !important;
+}
+
+/* Codigo: sin barras de desplazamiento; las lineas largas se parten */
+.reveal pre,
+.reveal pre code,
+.reveal pre.sourceCode,
+.reveal div.sourceCode {
+  overflow: visible !important;
+}

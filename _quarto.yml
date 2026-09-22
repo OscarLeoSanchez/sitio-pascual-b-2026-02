@@ -79,6 +79,8 @@ website:
               href: estadistica-para-analitica/unidad-02/variables-aleatorias.qmd
             - text: "1. Presentación: variables aleatorias"
               href: estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.qmd
+            - text: "1. Presentación aplicada: caso domicilios"
+              href: estadistica-para-analitica/unidad-02/presentacion-aplicada-domicilios.qmd
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

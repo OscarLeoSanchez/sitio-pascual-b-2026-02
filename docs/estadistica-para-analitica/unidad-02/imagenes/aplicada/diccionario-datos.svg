@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 570" font-family="Segoe UI, Arial, sans-serif">
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6876"/></marker>
+<marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#17456f"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0e8f8f"/></marker>
+<marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b7791f"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a32d22"/></marker>
+<marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0f2540"/></marker>
+</defs>
+<rect x="0" y="0" width="1200" height="570" fill="#ffffff"/>
+<clipPath id="cl1"><rect x="20.0" y="20.0" width="1160.0" height="86.0" rx="10"/></clipPath>
+<rect x="20.0" y="20.0" width="1160.0" height="86.0" rx="10" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" />
+<rect x="20.0" y="34.0" width="8.0" height="58.0" rx="4" fill="#17456f" stroke="none" stroke-width="2" />
+<text x="48.0" y="72.1" font-size="26" font-weight="700" fill="#0f2540" text-anchor="start" >Identificación</text>
+<rect x="270.0" y="30.0" width="147.4" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="343.7" y="60.4" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >pedido_id</text>
+<text x="343.7" y="85.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<clipPath id="cl2"><rect x="20.0" y="116.0" width="1160.0" height="86.0" rx="10"/></clipPath>
+<rect x="20.0" y="116.0" width="1160.0" height="86.0" rx="10" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" />
+<rect x="20.0" y="130.0" width="8.0" height="58.0" rx="4" fill="#17456f" stroke="none" stroke-width="2" />
+<text x="48.0" y="168.1" font-size="26" font-weight="700" fill="#0f2540" text-anchor="start" >Cuándo</text>
+<rect x="270.0" y="126.0" width="97.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="318.5" y="156.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >fecha</text>
+<text x="318.5" y="181.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >fecha</text>
+<rect x="383.0" y="126.0" width="160.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="463.0" y="156.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >dia_semana</text>
+<text x="463.0" y="181.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<rect x="559.0" y="126.0" width="172.6" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="645.3" y="156.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >hora_pedido</text>
+<text x="645.3" y="181.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >hora</text>
+<rect x="747.6" y="126.0" width="136.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="815.6" y="156.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >franja</text>
+<text x="815.6" y="181.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<clipPath id="cl3"><rect x="20.0" y="212.0" width="1160.0" height="86.0" rx="10"/></clipPath>
+<rect x="20.0" y="212.0" width="1160.0" height="86.0" rx="10" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" />
+<rect x="20.0" y="226.0" width="8.0" height="58.0" rx="4" fill="#17456f" stroke="none" stroke-width="2" />
+<text x="48.0" y="264.1" font-size="26" font-weight="700" fill="#0f2540" text-anchor="start" >Dónde y qué</text>
+<rect x="270.0" y="222.0" width="136.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="338.0" y="252.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >zona</text>
+<text x="338.0" y="277.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<rect x="422.0" y="222.0" width="172.6" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="508.3" y="252.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >tipo_pedido</text>
+<text x="508.3" y="277.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<rect x="610.6" y="222.0" width="207.4" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="714.3" y="252.3" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >distancia_km</text>
+<text x="714.3" y="277.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >numérica continua</text>
+<clipPath id="cl4"><rect x="20.0" y="308.0" width="1160.0" height="86.0" rx="10"/></clipPath>
+<rect x="20.0" y="308.0" width="1160.0" height="86.0" rx="10" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" />
+<rect x="20.0" y="322.0" width="8.0" height="58.0" rx="4" fill="#17456f" stroke="none" stroke-width="2" />
+<text x="48.0" y="360.1" font-size="26" font-weight="700" fill="#0f2540" text-anchor="start" >Condiciones</text>
+<rect x="270.0" y="318.0" width="136.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="338.0" y="348.4" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >lluvia</text>
+<text x="338.0" y="373.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<rect x="422.0" y="318.0" width="311.2" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="577.6" y="348.4" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >tiempo_preparacion_min</text>
+<text x="577.6" y="373.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >numérica continua</text>
+<rect x="749.2" y="318.0" width="160.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="829.2" y="348.4" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >incidencia</text>
+<text x="829.2" y="373.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<clipPath id="cl5"><rect x="20.0" y="404.0" width="1160.0" height="86.0" rx="10"/></clipPath>
+<rect x="20.0" y="404.0" width="1160.0" height="86.0" rx="10" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" />
+<rect x="20.0" y="418.0" width="8.0" height="58.0" rx="4" fill="#0e8f8f" stroke="none" stroke-width="2" />
+<text x="48.0" y="456.1" font-size="26" font-weight="700" fill="#0f2540" text-anchor="start" >Resultado</text>
+<rect x="270.0" y="414.0" width="260.8" height="66.0" rx="10" fill="#d9f0ef" stroke="#0e8f8f" stroke-width="3" />
+<text x="400.4" y="444.4" font-size="21" font-weight="700" fill="#0e8f8f" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >tiempo_entrega_min</text>
+<text x="400.4" y="469.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >numérica continua</text>
+<circle cx="526.8" cy="416.0" r="20" fill="#0e8f8f" stroke="none" stroke-width="2" />
+<text x="526.8" y="424.4" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" >X</text>
+<rect x="546.8" y="414.0" width="223.0" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="658.3" y="444.4" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >retrasado_45min</text>
+<text x="658.3" y="469.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >categórica</text>
+<rect x="785.8" y="414.0" width="185.2" height="66.0" rx="10" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="878.4" y="444.4" font-size="21" font-weight="700" fill="#0f2540" text-anchor="middle" font-family="Cascadia Mono, Consolas, monospace" >satisfaccion</text>
+<text x="878.4" y="469.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" >ordinal</text>
+<text x="600.0" y="552.4" font-size="21" font-weight="400" fill="#5b6876" text-anchor="middle" >pandas las lee así: 10 object, 3 float64, 1 int64</text>
+</svg>

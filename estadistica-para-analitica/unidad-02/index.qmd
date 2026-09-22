@@ -36,7 +36,7 @@ el calendario del módulo: lo único que cambia es dónde vive el contenido.
 ::: {.calendario}
 | Tema | Saber de la carta descriptiva |
 |---|---|
-| **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) | Variables aleatorias, espacio muestral y función de distribución |
+| **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) ([presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html)) ([datos: pedidos_estadistica_analitica.csv](recursos/pedidos_estadistica_analitica.csv)) | Variables aleatorias, espacio muestral y función de distribución |
 | **2. Probabilidad condicional, independencia y teorema de Bayes** (en preparación) | Probabilidad condicional y teorema de Bayes |
 | **3. Valor esperado y varianza** (en preparación) | Valor esperado y varianza |
 | **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** (en preparación) | Modelos para variables aleatorias discretas |

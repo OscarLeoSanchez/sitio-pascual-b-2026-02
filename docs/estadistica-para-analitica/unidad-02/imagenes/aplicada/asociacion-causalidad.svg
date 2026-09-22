@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" font-family="Segoe UI, Arial, sans-serif">
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#5b6876"/></marker>
+<marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#17456f"/></marker>
+<marker id="at" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0e8f8f"/></marker>
+<marker id="aa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#b7791f"/></marker>
+<marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a32d22"/></marker>
+<marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#0f2540"/></marker>
+</defs>
+<rect x="0" y="0" width="1200" height="450" fill="#ffffff"/>
+<rect x="270.0" y="16.0" width="430.0" height="170.0" rx="14" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" stroke-dasharray="10 7" />
+<text x="485.0" y="47.4" font-size="21" font-weight="400" fill="#5b6876" text-anchor="middle" >Otras variables que también varían</text>
+<rect x="290.0" y="62.0" width="190.0" height="48.0" rx="24" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="385.0" y="93.7" font-size="22" font-weight="600" fill="#0f2540" text-anchor="middle" >Franja</text>
+<rect x="490.0" y="62.0" width="190.0" height="48.0" rx="24" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="585.0" y="93.7" font-size="22" font-weight="600" fill="#0f2540" text-anchor="middle" >Zona</text>
+<rect x="290.0" y="122.0" width="190.0" height="48.0" rx="24" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="385.0" y="153.7" font-size="22" font-weight="600" fill="#0f2540" text-anchor="middle" >Distancia</text>
+<rect x="490.0" y="122.0" width="190.0" height="48.0" rx="24" fill="#ffffff" stroke="#17456f" stroke-width="2" />
+<text x="585.0" y="153.7" font-size="22" font-weight="600" fill="#0f2540" text-anchor="middle" >Tipo de pedido</text>
+<rect x="30.0" y="255.0" width="220.0" height="90.0" rx="16" fill="#e6eff8" stroke="#17456f" stroke-width="3" />
+<text x="140.0" y="310.5" font-size="30" font-weight="700" fill="#0f2540" text-anchor="middle" >Lluvia</text>
+<rect x="560.0" y="255.0" width="300.0" height="90.0" rx="16" fill="#d9f0ef" stroke="#0e8f8f" stroke-width="3" />
+<text x="710.0" y="309.4" font-size="27" font-weight="700" fill="#0f2540" text-anchor="middle" >Tiempo de entrega</text>
+<line x1="254.0" y1="300.0" x2="556.0" y2="300.0" stroke="#17456f" stroke-width="5" stroke-linecap="round" marker-end="url(#ab)" />
+<circle cx="405.0" cy="300.0" r="26" fill="#fbf3e2" stroke="#b7791f" stroke-width="3" />
+<text x="405.0" y="311.9" font-size="34" font-weight="700" fill="#b7791f" text-anchor="middle" >?</text>
+<line x1="640.0" y1="190.0" x2="700.0" y2="250.0" stroke="#5b6876" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ag)" />
+<line x1="330.0" y1="190.0" x2="150.0" y2="250.0" stroke="#5b6876" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 6" marker-end="url(#ag)" />
+<text x="205.0" y="199.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="middle" font-style="italic" >se asocian</text>
+<text x="730.0" y="239.0" font-size="20" font-weight="400" fill="#5b6876" text-anchor="start" font-style="italic" >también influyen</text>
+<rect x="30.0" y="380.0" width="830.0" height="58.0" rx="12" fill="#fbf3e2" stroke="#b7791f" stroke-width="2" />
+<text x="445.0" y="419.1" font-size="29" font-weight="700" fill="#b7791f" text-anchor="middle" >Asociación observada no es causalidad</text>
+<clipPath id="cl1"><rect x="890.0" y="20.0" width="290.0" height="418.0" rx="10"/></clipPath>
+<rect x="890.0" y="20.0" width="290.0" height="418.0" rx="10" fill="#f6f8fa" stroke="#cfd8e3" stroke-width="2" />
+<rect x="890.0" y="20.0" width="290.0" height="6" fill="#0e8f8f" clip-path="url(#cl1)"/>
+<text x="1035.0" y="70.8" font-size="25" font-weight="700" fill="#0f2540" text-anchor="middle" >Con los datos</text>
+<text x="1035.0" y="111.3" font-size="21" font-weight="400" fill="#5b6876" text-anchor="middle" >distancia media (km)</text>
+<rect x="912.0" y="130.0" width="246.0" height="96.0" rx="12" fill="#ffffff" stroke="#cfd8e3" stroke-width="2" />
+<text x="1035.0" y="165.7" font-size="22" font-weight="400" fill="#5b6876" text-anchor="middle" >sin lluvia</text>
+<text x="1035.0" y="208.6" font-size="36" font-weight="700" fill="#17456f" text-anchor="middle" >4.96 km</text>
+<rect x="912.0" y="246.0" width="246.0" height="96.0" rx="12" fill="#ffffff" stroke="#cfd8e3" stroke-width="2" />
+<text x="1035.0" y="281.7" font-size="22" font-weight="400" fill="#5b6876" text-anchor="middle" >con lluvia</text>
+<text x="1035.0" y="324.6" font-size="36" font-weight="700" fill="#17456f" text-anchor="middle" >4.78 km</text>
+<text x="1035.0" y="392.4" font-size="21" font-weight="400" fill="#5b6876" text-anchor="middle" >casi igual en los dos grupos</text>
+<text x="1035.0" y="422.4" font-size="21" font-weight="400" fill="#5b6876" text-anchor="middle" >revisar variable por variable</text>
+</svg>
