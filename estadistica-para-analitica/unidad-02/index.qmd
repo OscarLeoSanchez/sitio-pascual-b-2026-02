@@ -15,6 +15,17 @@ number-sections: false
 | Cierre     | 30% de la nota, con modelos continuos de probabilidad     |
 :::
 
+## Sesión aplicada del Tema 1: caso de los domicilios
+
+Esta sesión parte de los datos: 600 pedidos de una plataforma de domicilios. Primero se calcula con
+Python y después se define cada concepto. Descarguen el archivo y guárdenlo en la misma carpeta de
+su cuaderno antes de la clase.
+
+[Descargar el dataset (CSV)](recursos/pedidos_estadistica_analitica.csv){.btn .btn-primary
+role="button" download="pedidos_estadistica_analitica.csv"}
+[Abrir la presentación aplicada](presentacion-aplicada-domicilios.html){.btn .btn-outline-primary
+role="button"}
+
 ## De qué se trata esta unidad
 
 La Unidad 1 describió lo que ya se midió: gráficos, tablas y medidas resumen de datos que ya
@@ -36,7 +47,7 @@ el calendario del módulo: lo único que cambia es dónde vive el contenido.
 ::: {.calendario}
 | Tema | Saber de la carta descriptiva |
 |---|---|
-| **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) ([presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html)) ([datos: pedidos_estadistica_analitica.csv](recursos/pedidos_estadistica_analitica.csv)) | Variables aleatorias, espacio muestral y función de distribución |
+| **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) ([presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html)) | Variables aleatorias, espacio muestral y función de distribución |
 | **2. Probabilidad condicional, independencia y teorema de Bayes** (en preparación) | Probabilidad condicional y teorema de Bayes |
 | **3. Valor esperado y varianza** (en preparación) | Valor esperado y varianza |
 | **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** (en preparación) | Modelos para variables aleatorias discretas |
