@@ -197,11 +197,22 @@
     ]
   },
   {
+    "objectID": "herramientas-programacion-1/unidad-02/matrices.html#retos-para-pensar",
+    "href": "herramientas-programacion-1/unidad-02/matrices.html#retos-para-pensar",
+    "title": "Unidad 2. Matrices",
+    "section": "6 Retos para pensar",
+    "text": "6 Retos para pensar\nAntes de pasar a las funciones, conviene entrenar la cabeza con la matriz: ocho problemas clásicos (totales, diagonales, transpuesta, rotación, espiral, buscaminas y multiplicación). Cada uno muestra primero el problema y, cuando decidas verla, la solución paso a paso sobre la cuadrícula, antes de llegar al código en C#.\nAbrir los retos con matrices",
+    "crumbs": [
+      "Unidad 2. Arreglos y funciones",
+      "2. Matrices"
+    ]
+  },
+  {
     "objectID": "herramientas-programacion-1/unidad-02/matrices.html#lo-que-sigue-funciones",
     "href": "herramientas-programacion-1/unidad-02/matrices.html#lo-que-sigue-funciones",
     "title": "Unidad 2. Matrices",
-    "section": "6 Lo que sigue: funciones",
-    "text": "6 Lo que sigue: funciones\nEl código de esta guía ya se repitió varias veces: el for anidado para recorrer la matriz completa aparece igual en la sección de recorrido y en la del total general, y volvería a aparecer si el proyecto necesitara imprimir el inventario en otro punto del programa. El siguiente tema enseña a empacar ese bloque de código en una función, para escribirlo una sola vez y llamarlo cada vez que haga falta, con los datos de entrada y el resultado que necesite cada llamada.",
+    "section": "7 Lo que sigue: funciones",
+    "text": "7 Lo que sigue: funciones\nEl código de esta guía ya se repitió varias veces: el for anidado para recorrer la matriz completa aparece igual en la sección de recorrido y en la del total general, y volvería a aparecer si el proyecto necesitara imprimir el inventario en otro punto del programa. El siguiente tema enseña a empacar ese bloque de código en una función, para escribirlo una sola vez y llamarlo cada vez que haga falta, con los datos de entrada y el resultado que necesite cada llamada.",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "2. Matrices"
@@ -211,8 +222,8 @@
     "objectID": "herramientas-programacion-1/unidad-02/matrices.html#lista-de-verificación",
     "href": "herramientas-programacion-1/unidad-02/matrices.html#lista-de-verificación",
     "title": "Unidad 2. Matrices",
-    "section": "7 Lista de verificación",
-    "text": "7 Lista de verificación\n\n\nExplicas por qué varios vectores paralelos no garantizan que la misma posición represente el mismo producto en todos.\nDefines una matriz como una colección del mismo tipo organizada en filas y columnas, con acceso por dos índices.\nDeclaras una matriz con tamaño fijo y con valores literales por filas.\nDistingues GetLength(0) y GetLength(1) de .Length, y sabes qué devuelve cada uno.\nRecorres una matriz completa con dos for anidados, entendiendo cuál ciclo es la fila y cuál la columna.\nLees y modificas una celda por sus dos índices sin confundir fila con columna.",
+    "section": "8 Lista de verificación",
+    "text": "8 Lista de verificación\n\n\nExplicas por qué varios vectores paralelos no garantizan que la misma posición represente el mismo producto en todos.\nDefines una matriz como una colección del mismo tipo organizada en filas y columnas, con acceso por dos índices.\nDeclaras una matriz con tamaño fijo y con valores literales por filas.\nDistingues GetLength(0) y GetLength(1) de .Length, y sabes qué devuelve cada uno.\nRecorres una matriz completa con dos for anidados, entendiendo cuál ciclo es la fila y cuál la columna.\nLees y modificas una celda por sus dos índices sin confundir fila con columna.",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "2. Matrices"
@@ -222,8 +233,8 @@
     "objectID": "herramientas-programacion-1/unidad-02/matrices.html#recursos",
     "href": "herramientas-programacion-1/unidad-02/matrices.html#recursos",
     "title": "Unidad 2. Matrices",
-    "section": "8 Recursos",
-    "text": "8 Recursos\n\nArreglos multidimensionales: learn.microsoft.com/dotnet/csharp/programming-guide/arrays/multidimensional-arrays\nArray.GetLength: learn.microsoft.com/dotnet/api/system.array.getlength\nFormato de alineación en cadenas interpoladas: learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
+    "section": "9 Recursos",
+    "text": "9 Recursos\n\nArreglos multidimensionales: learn.microsoft.com/dotnet/csharp/programming-guide/arrays/multidimensional-arrays\nArray.GetLength: learn.microsoft.com/dotnet/api/system.array.getlength\nFormato de alineación en cadenas interpoladas: learn.microsoft.com/dotnet/csharp/language-reference/tokens/interpolated\n\n\nHerramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "2. Matrices"

@@ -251,9 +251,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#sumar-el-total-general" id="toc-sumar-el-total-general" class="nav-link" data-scroll-target="#sumar-el-total-general">Sumar el total general</a></li>
   </ul></li>
   <li><a href="#acceder-y-modificar-una-celda" id="toc-acceder-y-modificar-una-celda" class="nav-link" data-scroll-target="#acceder-y-modificar-una-celda"><span class="header-section-number">5</span> Acceder y modificar una celda</a></li>
-  <li><a href="#lo-que-sigue-funciones" id="toc-lo-que-sigue-funciones" class="nav-link" data-scroll-target="#lo-que-sigue-funciones"><span class="header-section-number">6</span> Lo que sigue: funciones</a></li>
-  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">7</span> Lista de verificación</a></li>
-  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">8</span> Recursos</a></li>
+  <li><a href="#retos-para-pensar" id="toc-retos-para-pensar" class="nav-link" data-scroll-target="#retos-para-pensar"><span class="header-section-number">6</span> Retos para pensar</a></li>
+  <li><a href="#lo-que-sigue-funciones" id="toc-lo-que-sigue-funciones" class="nav-link" data-scroll-target="#lo-que-sigue-funciones"><span class="header-section-number">7</span> Lo que sigue: funciones</a></li>
+  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">8</span> Lista de verificación</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">9</span> Recursos</a></li>
   </ul>
 </nav>
     </div>
@@ -279,7 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 de septiembre de 2026</p>
+      <p class="date">5 de octubre de 2026</p>
     </div>
   </div>
   
@@ -464,12 +465,17 @@ Columnas (productos): 4</code></pre>
 Cantidad actualizada en [1,2]: 20</code></pre>
 <p><code>cantidades[1, 2] = 20</code> reemplaza, no suma: la celda queda en 20, no en 7 + 20. Es el mismo comportamiento que <code>precios[2] = 7990.00</code> en el tema anterior, con un índice más.</p>
 </section>
-<section id="lo-que-sigue-funciones" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="lo-que-sigue-funciones"><span class="header-section-number">6</span> Lo que sigue: funciones</h2>
+<section id="retos-para-pensar" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="retos-para-pensar"><span class="header-section-number">6</span> Retos para pensar</h2>
+<p>Antes de pasar a las funciones, conviene entrenar la cabeza con la matriz: ocho problemas clásicos (totales, diagonales, transpuesta, rotación, espiral, buscaminas y multiplicación). Cada uno muestra primero el problema y, cuando decidas verla, la solución <strong>paso a paso</strong> sobre la cuadrícula, antes de llegar al código en C#.</p>
+<p><a href="retos-matrices.html" class="btn btn-primary" role="button">Abrir los retos con matrices</a></p>
+</section>
+<section id="lo-que-sigue-funciones" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="lo-que-sigue-funciones"><span class="header-section-number">7</span> Lo que sigue: funciones</h2>
 <p>El código de esta guía ya se repitió varias veces: el <code>for</code> anidado para recorrer la matriz completa aparece igual en la sección de recorrido y en la del total general, y volvería a aparecer si el proyecto necesitara imprimir el inventario en otro punto del programa. El siguiente tema enseña a empacar ese bloque de código en una <strong>función</strong>, para escribirlo una sola vez y llamarlo cada vez que haga falta, con los datos de entrada y el resultado que necesite cada llamada.</p>
 </section>
-<section id="lista-de-verificación" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">7</span> Lista de verificación</h2>
+<section id="lista-de-verificación" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">8</span> Lista de verificación</h2>
 <div class="checklist">
 <ul class="task-list">
 <li><label><input type="checkbox">Explicas por qué varios vectores paralelos no garantizan que la misma posición represente el mismo producto en todos.</label></li>
@@ -481,8 +487,8 @@ Cantidad actualizada en [1,2]: 20</code></pre>
 </ul>
 </div>
 </section>
-<section id="recursos" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="recursos"><span class="header-section-number">8</span> Recursos</h2>
+<section id="recursos" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="recursos"><span class="header-section-number">9</span> Recursos</h2>
 <ul>
 <li>Arreglos multidimensionales: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/programming-guide/arrays/multidimensional-arrays">learn.microsoft.com/dotnet/csharp/programming-guide/arrays/multidimensional-arrays</a></li>
 <li><code>Array.GetLength</code>: <a href="https://learn.microsoft.com/es-es/dotnet/api/system.array.getlength">learn.microsoft.com/dotnet/api/system.array.getlength</a></li>

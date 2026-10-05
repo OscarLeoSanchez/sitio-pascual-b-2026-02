@@ -247,6 +247,12 @@ Cantidad actualizada en [1,2]: 20
 `cantidades[1, 2] = 20` reemplaza, no suma: la celda queda en 20, no en 7 + 20. Es el mismo
 comportamiento que `precios[2] = 7990.00` en el tema anterior, con un índice más.
 
+## Retos para pensar
+
+Antes de pasar a las funciones, conviene entrenar la cabeza con la matriz: ocho problemas clásicos (totales, diagonales, transpuesta, rotación, espiral, buscaminas y multiplicación). Cada uno muestra primero el problema y, cuando decidas verla, la solución **paso a paso** sobre la cuadrícula, antes de llegar al código en C#.
+
+[Abrir los retos con matrices](retos-matrices.html){.btn .btn-primary role="button"}
+
 ## Lo que sigue: funciones
 
 El código de esta guía ya se repitió varias veces: el `for` anidado para recorrer la matriz

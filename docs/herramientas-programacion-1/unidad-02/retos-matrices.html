@@ -1,0 +1,917 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pensar con matrices</title>
+<meta name="description" content="Ocho algoritmos con matrices explicados paso a paso, de forma visual, antes de escribir el código en C#.">
+<style>
+:root{
+  --bg:#0d1320;--surface:#151e31;--surface2:#1c2842;--line:#2b3a59;--ink:#e9eefc;--muted:#97a6c7;
+  --accent:#ffb84d;--accent-ink:#201400;--cool:#4cc9f0;--good:#5ee0a0;--violet:#b69cff;--pink:#ff7aa8;--red:#ff6b6b;
+  --code-bg:#0a101c;--shadow:0 10px 30px rgba(0,0,0,.35);
+  --cell:clamp(36px,5.4vw,56px);
+  --radius:16px;
+  --sans:"Inter","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --mono:"Cascadia Code","JetBrains Mono",Consolas,"SFMono-Regular",monospace;
+}
+:root[data-theme="light"]{
+  --bg:#f5f2ea;--surface:#ffffff;--surface2:#efeae0;--line:#dcd4c3;--ink:#18223a;--muted:#59668a;
+  --accent:#e08a0b;--accent-ink:#1d1200;--cool:#0b86b8;--good:#15834f;--violet:#6a4fd1;--pink:#c93a72;--red:#d23b3b;
+  --code-bg:#fbf9f4;--shadow:0 10px 28px rgba(60,45,10,.12);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]):not([data-theme="light"]){
+    --bg:#f5f2ea;--surface:#ffffff;--surface2:#efeae0;--line:#dcd4c3;--ink:#18223a;--muted:#59668a;
+    --accent:#e08a0b;--accent-ink:#1d1200;--cool:#0b86b8;--good:#15834f;--violet:#6a4fd1;--pink:#c93a72;--red:#d23b3b;
+    --code-bg:#fbf9f4;--shadow:0 10px 28px rgba(60,45,10,.12);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+code,.mono{font-family:var(--mono)}
+code,pre,.pseudo,.cell,.var,.coord,.count{font-variant-ligatures:none}
+code{background:var(--surface2);padding:.08em .38em;border-radius:6px;font-size:.88em}
+a{color:var(--cool)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--cool);outline-offset:2px}
+
+/* ---------- barra superior ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:12px;height:58px}
+.brand{font-weight:700;letter-spacing:.2px;white-space:nowrap;font-size:15px}
+.brand span{color:var(--accent)}
+.chips{display:flex;gap:6px;overflow-x:auto;flex:1;scrollbar-width:none;padding:4px 2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;padding:0 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface);text-decoration:none;color:var(--muted);font-weight:600;font-size:14px;transition:.2s}
+.chip:hover{border-color:var(--accent);color:var(--ink)}
+.chip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chip.ok::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--good);margin-left:6px}
+.themebtn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center}
+.themebtn svg{width:18px;height:18px}
+
+/* ---------- hero ---------- */
+.hero{padding:56px 0 28px;display:grid;grid-template-columns:1.25fr .75fr;gap:32px;align-items:center}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:.25em 0 .3em;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--muted);max-width:56ch}
+.heroviz{justify-self:center}
+.mini{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;width:min(320px,80vw)}
+.mini i{aspect-ratio:1;border-radius:11px;background:var(--surface2);border:1px solid var(--line);transition:background .35s,transform .35s,box-shadow .35s}
+.mini i.on{background:var(--accent);transform:scale(1.1);box-shadow:0 0 22px color-mix(in srgb,var(--accent) 60%,transparent)}
+.mini i.tr{background:color-mix(in srgb,var(--good) 40%,var(--surface2))}
+.ritual{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 8px;padding:0;list-style:none;counter-reset:r}
+.ritual li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;counter-increment:r}
+.ritual li::before{content:counter(r);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:800;margin-bottom:8px}
+.ritual b{display:block}
+.ritual span{color:var(--muted);font-size:15px}
+
+/* ---------- explorador ---------- */
+.explorer{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;margin:36px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+.explorer h2{margin:0 0 6px;font-size:24px}
+.explorer p{margin:.3em 0;color:var(--muted)}
+.coord{font-family:var(--mono);font-size:clamp(18px,3vw,26px);background:var(--code-bg);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-top:10px;display:inline-block}
+.coord b{color:var(--accent)}
+
+/* ---------- ejercicio ---------- */
+.lab{margin:56px 0;scroll-margin-top:70px}
+.labhead{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 20px;margin-bottom:14px}
+.num{font-size:clamp(54px,8vw,84px);line-height:.85;font-weight:800;color:transparent;-webkit-text-stroke:2px var(--accent);letter-spacing:-.04em}
+.labhead h2{margin:0;font-size:clamp(24px,3.6vw,34px);line-height:1.15}
+.labhead p{margin:.2em 0 0;color:var(--muted);max-width:62ch}
+.level{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:3px 10px;border:1px solid currentColor}
+.level.l1{color:var(--good)}.level.l2{color:var(--cool)}.level.l3{color:var(--pink)}
+.think{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin:18px 0}
+.think details{background:color-mix(in srgb,var(--violet) 12%,var(--surface));border:1px solid color-mix(in srgb,var(--violet) 45%,var(--line));border-radius:14px;padding:12px 16px}
+.think summary{cursor:pointer;font-weight:600;list-style:none}
+.think summary::before{content:"?";display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--violet);color:#fff;margin-right:10px;font-weight:800}
+.think summary::-webkit-details-marker{display:none}
+.think .hint{margin:10px 0 2px;color:var(--muted);font-size:15.5px}
+.think small{display:block;color:var(--violet);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:11px;margin-bottom:4px}
+
+.ask{background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--cool);border-radius:var(--radius);padding:14px 20px;margin-bottom:14px;font-size:18px}
+.ask small,.solhead{display:block;color:var(--cool);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:12px}
+.ask p{margin:.3em 0 0}
+.pboard{min-height:200px}
+.tip{color:var(--muted);font-size:15px;margin:10px 0 0}
+.solution{margin-top:34px;padding-top:22px;border-top:2px dashed var(--line)}
+.solhead{margin-bottom:12px;color:var(--accent);font-size:13px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}
+.board{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 18px;display:flex;flex-wrap:wrap;gap:26px 34px;justify-content:center;align-content:center;min-height:300px;box-shadow:var(--shadow)}
+.gwrap{display:flex;flex-direction:column;align-items:center;gap:8px}
+.gtitle{font-family:var(--mono);font-size:14px;color:var(--muted)}
+.gtitle b{color:var(--ink)}
+.grid{display:grid;gap:5px;align-items:center;justify-items:center}
+.lab-i{font-family:var(--mono);font-size:11.5px;color:var(--muted);min-width:var(--cell);text-align:center}
+.lab-r{min-width:auto;padding-right:4px}
+.cell{width:var(--cell);height:var(--cell);display:grid;place-items:center;border-radius:10px;background:var(--surface2);border:1px solid var(--line);font-family:var(--mono);font-weight:600;font-size:calc(var(--cell)*.36);transition:background .25s,transform .25s,box-shadow .25s,opacity .25s,color .25s}
+.cell.pop{animation:pop .45s ease}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.cell.empty{color:var(--muted);font-weight:400}
+.cell.mine{color:var(--red);font-size:calc(var(--cell)*.5)}
+.cell.blank{background:transparent;border-color:transparent}
+.cell.tot{border-style:dashed;border-color:var(--good)}
+.cell.ref{opacity:.9}
+.cell.band{background:color-mix(in srgb,var(--accent) 14%,var(--surface2));border-color:color-mix(in srgb,var(--accent) 40%,var(--line))}
+.cell.reg{box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--accent) 45%,transparent)}
+.cell.read{background:color-mix(in srgb,var(--cool) 24%,var(--surface2))}
+.cell.done{background:color-mix(in srgb,var(--good) 34%,var(--surface2));border-color:color-mix(in srgb,var(--good) 55%,var(--line))}
+.cell.al{background:color-mix(in srgb,var(--accent) 26%,var(--surface2))}
+.cell.bl{background:color-mix(in srgb,var(--cool) 26%,var(--surface2))}
+.cell.peek{background:color-mix(in srgb,var(--cool) 40%,var(--surface2));border-color:var(--cool)}
+.cell.hit{background:color-mix(in srgb,var(--red) 38%,var(--surface2));border-color:var(--red)}
+.cell.dim{opacity:.32}
+.cell.best{background:var(--violet);color:#fff;border-color:var(--violet)}
+.cell.swap{background:var(--pink);color:#fff;border-color:var(--pink)}
+.cell.b{background:var(--cool);color:#04202b;border-color:var(--cool);transform:scale(1.08)}
+.cell.hot,.cell.a{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);transform:scale(1.1);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 28%,transparent)}
+.cell.hot.best{background:var(--violet);color:#fff;border-color:var(--violet);box-shadow:0 0 0 4px color-mix(in srgb,var(--violet) 35%,transparent)}
+
+.side{display:flex;flex-direction:column;gap:12px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.panel h3{margin:0 0 8px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.vars{display:flex;flex-wrap:wrap;gap:7px;min-height:34px}
+.var{display:inline-flex;font-family:var(--mono);font-size:14px;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.var i{font-style:normal;background:var(--surface2);padding:3px 8px;color:var(--muted)}
+.var b{padding:3px 9px;color:var(--accent);max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.var.ch b{animation:flash .6s}
+@keyframes flash{0%{background:var(--accent);color:var(--accent-ink)}100%{background:transparent}}
+.pseudo{font-family:var(--mono);font-size:13.5px;line-height:1.75;white-space:pre-wrap;word-break:break-word}
+.pseudo div{padding:0 8px;border-radius:7px;border-left:3px solid transparent;color:var(--muted);transition:.2s}
+.pseudo div.on{background:color-mix(in srgb,var(--accent) 20%,transparent);border-left-color:var(--accent);color:var(--ink)}
+
+.say{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:var(--radius);padding:16px 20px;min-height:104px;font-size:18px}
+.say .q{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;color:var(--ink);font-weight:600}
+.say .q::before{content:"?";flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--violet);color:#fff;font-weight:800}
+.say .ans{transition:filter .3s,opacity .3s}
+.say .ans.hide{filter:blur(8px);opacity:.5;user-select:none;pointer-events:none}
+.reveal{margin-top:6px;border:1px solid var(--violet);background:transparent;border-radius:999px;padding:5px 14px;color:var(--violet);font-weight:600}
+.reveal:hover{background:var(--violet);color:#fff}
+
+.ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:9px 15px;font-weight:600;transition:.15s}
+.btn:hover{border-color:var(--accent)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.main{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn svg{width:16px;height:16px;fill:currentColor}
+.seek{flex:1;min-width:140px;accent-color:var(--accent)}
+.count{font-family:var(--mono);font-size:14px;color:var(--muted);min-width:96px;text-align:right}
+.sel{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:inherit}
+
+.after{margin-top:18px}
+.unlock{display:flex;flex-wrap:wrap;gap:12px;align-items:center;border:2px dashed var(--line);border-radius:var(--radius);padding:16px 18px;color:var(--muted)}
+.unlock.ready{border-color:var(--good);color:var(--ink);background:color-mix(in srgb,var(--good) 10%,transparent)}
+.unlock .btn{margin-left:auto}
+.shake{animation:shake .4s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.codebox{margin-top:14px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:14px}
+.codebox>div{min-width:0}
+.cb{position:relative;background:var(--code-bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.cb header{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;border-bottom:1px solid var(--line);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.cb pre{margin:0;padding:14px 16px;overflow:auto;font-family:var(--mono);font-size:13.5px;line-height:1.65;max-height:520px}
+.cp{border:1px solid var(--line);background:transparent;border-radius:8px;padding:3px 10px;font-size:12px;color:var(--muted)}
+.cp:hover{color:var(--ink);border-color:var(--accent)}
+.k{color:var(--violet)}.s{color:var(--good)}.n{color:var(--accent)}.c{color:var(--muted);font-style:italic}.t{color:var(--cool)}
+.notes{display:flex;flex-direction:column;gap:12px}
+.notes ul{margin:0;padding-left:20px}
+.notes li{margin:.4em 0}
+.reto{background:color-mix(in srgb,var(--pink) 11%,var(--surface));border:1px solid color-mix(in srgb,var(--pink) 45%,var(--line));border-radius:var(--radius);padding:14px 16px}
+.reto h3{color:var(--pink)}
+.next{display:inline-block;margin-top:14px;font-weight:700;text-decoration:none}
+
+/* ---------- patrones ---------- */
+.patterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:18px 0}
+.pat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.pat code{display:inline-block;color:var(--accent);font-size:15px;margin-bottom:6px}
+.pat p{margin:.2em 0;color:var(--muted);font-size:15.5px}
+footer{padding:40px 0 70px;color:var(--muted);font-size:14px;text-align:center}
+.kbd{font-family:var(--mono);border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:0 6px;font-size:12px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:34px}
+  .heroviz{display:none}
+  .ritual{grid-template-columns:1fr 1fr}
+  .stage{grid-template-columns:1fr}
+  .codebox{grid-template-columns:1fr}
+  .explorer{grid-template-columns:1fr}
+  .brand{display:none}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .ritual{grid-template-columns:1fr}
+  .board{padding:16px 8px;gap:20px 16px}
+  .say{font-size:16.5px}
+  .count{text-align:left}
+  .grid{gap:3px}
+  :root{--cell:clamp(32px,10vw,44px)}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="wrap">
+  <div class="brand"><a href="matrices.html" style="color:inherit;text-decoration:none">Matrices <span>en acción</span></a></div>
+  <nav class="chips" id="chips" aria-label="Ejercicios"></nav>
+  <button class="themebtn" id="theme" aria-label="Cambiar entre tema claro y oscuro" title="Tema claro u oscuro">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+  </button>
+</div></div>
+
+<main class="wrap">
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">Herramientas de Programación I &nbsp;|&nbsp; Unidad 2</div>
+    <h1>Pensar con <em>matrices</em></h1>
+    <p class="lead">Ocho problemas para entrenar la cabeza antes que los dedos. En cada uno primero miras el algoritmo moverse celda por celda, entiendes por qué funciona, y solo entonces ves el código en C#.</p>
+  </div>
+  <div class="heroviz" aria-hidden="true"><div class="mini" id="mini"></div></div>
+</section>
+
+<ol class="ritual">
+  <li><b>Piensa</b><span>Lee la pregunta y apuesta una respuesta antes de tocar nada.</span></li>
+  <li><b>Observa</b><span>Avanza paso a paso. Fíjate en las variables que cambian a la derecha.</span></li>
+  <li><b>Predice</b><span>Cuando aparezca un signo de interrogación, responde antes de revelar.</span></li>
+  <li><b>Codifica</b><span>Al llegar al último paso se desbloquea el código. Compáralo con lo que viste.</span></li>
+</ol>
+
+<section class="explorer" aria-labelledby="exp-t">
+  <div id="exgrid"></div>
+  <div>
+    <h2 id="exp-t">Calentamiento: dos coordenadas</h2>
+    <p>Una matriz se lee siempre en el mismo orden: <b>primero la fila, después la columna</b>. Toca una celda y mira cómo se escribe.</p>
+    <div class="coord" id="excoord">matriz[<b>?</b>, <b>?</b>]</div>
+    <p id="exnote">Las filas bajan y las columnas avanzan hacia la derecha. Ambas empiezan en 0.</p>
+  </div>
+</section>
+
+<div id="labs"></div>
+
+<section class="lab" id="patrones">
+  <div class="labhead">
+    <div><h2>Lo que se repite en todos</h2>
+    <p>Los ocho ejercicios usan pocas ideas sobre los índices. Si las reconoces, un problema nuevo deja de parecer nuevo.</p></div>
+  </div>
+  <div class="patterns">
+    <div class="pat"><code>for i { for j { ... } }</code><p>Recorrer todo. El ciclo de afuera elige la fila, el de adentro recorre sus columnas.</p></div>
+    <div class="pat"><code>i == j</code><p>Diagonal principal. Fila y columna son iguales.</p></div>
+    <div class="pat"><code>i + j == n - 1</code><p>Diagonal secundaria. Fila y columna suman el último índice.</p></div>
+    <div class="pat"><code>j &gt; i</code><p>Triángulo superior. Evita intercambiar cada pareja dos veces.</p></div>
+    <div class="pat"><code>[i, j]  y  [j, i]</code><p>Intercambiar los índices es transponer.</p></div>
+    <div class="pat"><code>nf &gt;= 0 &amp;&amp; nf &lt; filas</code><p>Antes de mirar a un vecino, comprueba que exista.</p></div>
+    <div class="pat"><code>arriba++  abajo--</code><p>Límites que se encogen: el rectángulo pendiente se achica en cada vuelta.</p></div>
+    <div class="pat"><code>for i { for j { for k } }</code><p>Tres ciclos cuando cada resultado necesita su propio recorrido interno.</p></div>
+  </div>
+  <div class="panel"><h3>Para trabajar en clase</h3>
+    <p style="margin:.2em 0">1. En parejas, cada estudiante predice el resultado en papel con otra matriz. 2. Se verifica con el botón <b>Otros números</b>. 3. Se escribe el código sin mirar. 4. Se resuelve el reto del final de cada ejercicio.</p>
+  </div>
+</section>
+
+</main>
+<footer>
+  <div class="wrap">Atajos de teclado: <span class="kbd">Flecha derecha</span> siguiente, <span class="kbd">Flecha izquierda</span> anterior, <span class="kbd">Espacio</span> reproducir o pausar.<br>Herramientas de Programación I, Institución Universitaria Pascual Bravo, 2026-02.<br><a href="matrices.html">Volver a la guía de matrices</a><br><br><b>Transparencia.</b> La redacción de este material contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5.5 de Anthropic. Todo el contenido fue revisado y validado. El código y las salidas son reales, obtenidos ejecutando los programas exactos que se muestran contra el SDK de .NET 10.0.302.</div>
+</footer>
+
+<!-- =============== MOTOR: algoritmos y cuadros (sin DOM) =============== -->
+<script id="engine">
+const range=(a,b)=>{const o=[];for(let i=a;i<=b;i++)o.push(i);return o};
+const cp=a=>a.map(r=>r.slice());
+const ri=(lo,hi)=>lo+Math.floor(Math.random()*(hi-lo+1));
+const rm=(R,C,lo,hi)=>Array.from({length:R},()=>Array.from({length:C},()=>ri(lo,hi)));
+class Marks{
+  constructor(){this.m={}}
+  add(r,c,cls){const k=r+','+c;this.m[k]=this.m[k]?this.m[k]+' '+cls:cls;return this}
+  row(r,C,cls){for(let c=0;c<C;c++)this.add(r,c,cls);return this}
+  col(c,R,cls){for(let r=0;r<R;r++)this.add(r,c,cls);return this}
+}
+
+/* ---------- 1. totales por fila y columna ---------- */
+function framesTotales(A){
+  const R=A.length,C=A[0].length,F=[];
+  const rowT=Array(R).fill(''),colT=Array(C).fill('');
+  const rl=[...range(0,R-1),'Total'],cl=[...range(0,C-1),'Total'];
+  const view=mk=>{
+    const d=A.map((row,i)=>[...row,rowT[i]]);d.push([...colT,'']);
+    for(let i=0;i<R;i++)mk.add(i,C,'tot');
+    for(let j=0;j<C;j++)mk.add(R,j,'tot');
+    mk.add(R,C,'blank');
+    return {t:'matriz',d,m:mk.m,rl,cl};
+  };
+  const push=(o,mk)=>F.push({p:0,line:-1,vars:[],...o,grids:[view(mk||new Marks())]});
+  push({say:`La matriz tiene <b>${R} filas</b> y <b>${C} columnas</b>. Queremos el total de cada fila y, después, el de cada columna.`});
+  for(let i=0;i<R;i++){
+    let s=0;
+    const band=()=>new Marks().row(i,C,'band');
+    push({line:1,vars:[['i',i],['suma',0]],say:`Fila ${i}: antes de sumar, la suma empieza en <code>0</code>. Esto ocurre <b>una vez por fila</b>.`},band());
+    for(let j=0;j<C;j++){
+      const v=A[i][j],m=band();
+      for(let k=0;k<j;k++)m.add(i,k,'read');
+      m.add(i,j,'hot');
+      push({line:3,vars:[['i',i],['j',j],['suma',s+v]],say:`Sumamos <code>matriz[${i}, ${j}]</code> = <b>${v}</b>. La suma pasa de ${s} a <b>${s+v}</b>.`},m);
+      s+=v;
+    }
+    rowT[i]=s;
+    const m=band();m.add(i,C,'done');
+    push({line:4,vars:[['i',i],['suma',s]],say:`Terminó la fila ${i}. Guardamos <b>${s}</b> como su total.`},m);
+  }
+  push({q:'Ahora queremos los totales de las columnas. ¿Qué hay que cambiar en los ciclos?',
+    say:'Solo el <b>orden</b> de los ciclos. El de afuera elige la columna <code>j</code> y el de adentro baja por las filas <code>i</code>.',p:1});
+  for(let j=0;j<C;j++){
+    let s=0;
+    const band=()=>new Marks().col(j,R,'band');
+    push({p:1,line:1,vars:[['j',j],['suma',0]],say:`Columna ${j}: la suma vuelve a empezar en <code>0</code>.`},band());
+    for(let i=0;i<R;i++){
+      const v=A[i][j],m=band();
+      for(let k=0;k<i;k++)m.add(k,j,'read');
+      m.add(i,j,'hot');
+      push({p:1,line:3,vars:[['j',j],['i',i],['suma',s+v]],say:`Bajamos a <code>matriz[${i}, ${j}]</code> = <b>${v}</b>. La suma pasa de ${s} a <b>${s+v}</b>.`},m);
+      s+=v;
+    }
+    colT[j]=s;
+    const m=band();m.add(R,j,'done');
+    push({p:1,line:4,vars:[['j',j],['suma',s]],say:`Terminó la columna ${j}. Total: <b>${s}</b>.`},m);
+  }
+  const fin=new Marks();
+  for(let i=0;i<R;i++)fin.add(i,C,'done');
+  for(let j=0;j<C;j++)fin.add(R,j,'done');
+  push({p:1,line:-1,say:'Con dos pares de ciclos anidados obtuvimos todos los totales. El patrón es: <b>el ciclo de adentro es el que recorre la línea</b>, el de afuera solo decide cuál.'},fin);
+  return F;
+}
+
+/* ---------- 2. el mayor y su posicion ---------- */
+function framesMayor(A){
+  const R=A.length,C=A[0].length,F=[];
+  let mayor=A[0][0],pf=0,pc=0;
+  const seen=new Set();
+  const view=(cur)=>{
+    const m=new Marks();
+    seen.forEach(k=>{const [r,c]=k.split(',').map(Number);m.add(r,c,'read')});
+    m.add(pf,pc,'best');
+    if(cur)m.add(cur[0],cur[1],'hot');
+    return {t:'matriz',d:A,m:m.m};
+  };
+  const vs=(i,j)=>[['mayor',mayor],['posFila',pf],['posColumna',pc],...(i===undefined?[]:[['i',i],['j',j]])];
+  const push=(o,cur)=>F.push({p:0,line:-1,vars:vs(),...o,grids:[view(cur)]});
+  push({line:0,say:`Suponemos que el mayor es el primero: <code>mayor = matriz[0, 0]</code> = <b>${mayor}</b>. Guardamos también <b>dónde</b> está: fila 0, columna 0.`});
+  for(let i=0;i<R;i++)for(let j=0;j<C;j++){
+    const v=A[i][j];
+    let say,line=3;
+    if(v>mayor){
+      say=`¿<b>${v}</b> &gt; ${mayor}? <b>Sí</b>. Es el nuevo mayor. Actualizamos el valor y también la posición: [${i}, ${j}].`;
+      mayor=v;pf=i;pc=j;line=4;
+    }else if(i===0&&j===0){
+      say=`Se compara contra sí mismo: ${v} &gt; ${v} es falso. Es una vuelta de más, inofensiva.`;
+    }else{
+      say=`¿<b>${v}</b> &gt; ${mayor}? <b>No</b>. El mayor sigue siendo ${mayor}, en [${pf}, ${pc}].`;
+    }
+    push({line,vars:vs(i,j),say},[i,j]);
+    seen.add(i+','+j);
+  }
+  push({q:'Si dos celdas tuvieran el mismo valor máximo, ¿cuál posición guardaría este algoritmo?',
+    line:5,say:`La <b>primera</b> que aparece en el recorrido, porque usamos <code>&gt;</code> y no <code>&gt;=</code>. Con <code>&gt;=</code> quedaría la última. Resultado aquí: <b>${mayor}</b> en [${pf}, ${pc}].`});
+  return F;
+}
+
+/* ---------- 3. diagonales ---------- */
+function framesDiagonales(A){
+  const n=A.length,F=[];
+  const push=(o,m)=>F.push({p:0,line:-1,vars:[],...o,grids:[{t:'matriz',d:A,m:(m||new Marks()).m}]});
+  const diag=kind=>{
+    const m=new Marks();
+    for(let i=0;i<n;i++){
+      if(kind!=='b')m.add(i,i,'al');
+      if(kind!=='a')m.add(i,n-1-i,'bl');
+    }
+    return m;
+  };
+  push({say:`Una matriz cuadrada de ${n}x${n} tiene dos diagonales. Antes de programar, hay que encontrar la <b>regla</b> que describe a cada una.`});
+  push({q:`Mira las celdas resaltadas: [0,0], [1,1], [2,2], [${n-1},${n-1}]. ¿Qué tienen en común sus coordenadas?`,
+    say:'Fila y columna son <b>iguales</b>: <code>i == j</code>. Esa es la diagonal principal.'},diag('a'));
+  push({q:`Ahora la otra: [0,${n-1}], [1,${n-2}], [2,${n-3}], [${n-1},0]. Aquí fila y columna no son iguales. ¿Qué cumplen?`,
+    say:`La fila y la columna siempre <b>suman ${n-1}</b> (el último índice): <code>i + j == n - 1</code>. Si la fila es <code>i</code>, la columna es <code>n - 1 - i</code>.`},diag('b'));
+  push({line:0,vars:[['n',n],['sumaPrincipal',0],['sumaSecundaria',0]],say:`Con las dos reglas no hace falta recorrer las ${n*n} celdas: basta <b>un solo ciclo de ${n} vueltas</b>. En cada vuelta tocamos una celda de cada diagonal.`},diag());
+  let sp=0,ss=0;
+  for(let i=0;i<n;i++){
+    const j=n-1-i,m=diag();
+    for(let k=0;k<i;k++){m.add(k,k,'done');m.add(k,n-1-k,'done')}
+    m.add(i,i,'a');m.add(i,j,'b');
+    const a=A[i][i],b=A[i][j];
+    push({line:2,vars:[['i',i],['n-1-i',j],['sumaPrincipal',sp+a],['sumaSecundaria',ss+b]],
+      say:`Vuelta <b>i = ${i}</b>. Principal: <code>matriz[${i}, ${i}]</code> = <b>${a}</b>. Secundaria: <code>matriz[${i}, ${j}]</code> = <b>${b}</b>.`},m);
+    sp+=a;ss+=b;
+  }
+  const f=new Marks();
+  for(let i=0;i<n;i++){f.add(i,i,'done');f.add(i,n-1-i,'done')}
+  push({line:4,vars:[['sumaPrincipal',sp],['sumaSecundaria',ss]],say:`Principal: <b>${sp}</b>. Secundaria: <b>${ss}</b>. Hicimos ${n} vueltas en lugar de ${n*n}.`},f);
+  return F;
+}
+
+/* ---------- 4. transpuesta (copia) ---------- */
+function framesTranspuesta(A){
+  const R=A.length,C=A[0].length,F=[];
+  const T=Array.from({length:C},()=>Array(R).fill(''));
+  const done=[];
+  const push=(o,ma,mt)=>F.push({p:0,line:-1,vars:[],...o,grids:[
+    {t:'matriz',d:A,m:(ma||new Marks()).m},
+    {t:'transpuesta',d:cp(T),m:(mt||new Marks()).m}]});
+  const dn=()=>{const m=new Marks();done.forEach(([r,c])=>m.add(r,c,'done'));return m};
+  push({q:`La matriz tiene ${R} filas y ${C} columnas. ¿Cuántas filas y columnas tendrá su transpuesta?`,
+    line:0,vars:[['filas',R],['columnas',C]],say:`Se <b>invierten</b>: la transpuesta tiene <b>${C} filas y ${R} columnas</b>. Se crea con <code>new int[columnas, filas]</code>.`});
+  for(let i=0;i<R;i++)for(let j=0;j<C;j++){
+    const v=A[i][j];
+    const ma=new Marks().row(i,C,'band'),mt=dn();
+    mt.col(i,C,'band');
+    ma.add(i,j,'hot');mt.add(j,i,'hot');
+    T[j][i]=v;
+    push({line:3,vars:[['i',i],['j',j],['valor',v]],
+      say:`<code>matriz[${i}, ${j}]</code> = <b>${v}</b> viaja a <code>transpuesta[${j}, ${i}]</code>. Los dos índices <b>cambian de lugar</b>.`},ma,mt);
+    done.push([j,i]);
+  }
+  const mt=new Marks();done.forEach(([r,c])=>mt.add(r,c,'done'));
+  push({line:-1,q:'Mira la fila 0 de la original y la columna 0 de la transpuesta. ¿Qué observas?',
+    say:'Son <b>los mismos números</b>. Cada fila de la original se convirtió en una columna. Eso es transponer.'},null,mt);
+  return F;
+}
+
+/* ---------- 5. rotar 90 grados ---------- */
+function framesRotar(A0){
+  const n=A0.length,F=[];
+  const A=cp(A0);
+  const push=(o,m)=>F.push({p:0,line:-1,vars:[],...o,grids:[
+    {t:'original',d:cp(A0),m:{},ref:true},
+    {t:'matriz',d:cp(A),m:(m||new Marks()).m}]});
+  push({q:'Rotar una matriz 90 grados parece difícil. ¿Se podrá lograr con dos movimientos sencillos que ya conoces?',
+    say:'Sí. Primero <b>transponemos</b> (filas se vuelven columnas) y luego <b>invertimos cada fila</b>. Veamos con la matriz de la izquierda.'});
+  const tri=new Marks();
+  for(let i=0;i<n;i++)for(let j=0;j<n;j++){tri.add(i,j,j>i?'band':'dim')}
+  push({q:'Para transponer en la misma matriz intercambiamos [i, j] con [j, i]. Si recorremos las celdas, ¿qué pasa con cada pareja?',
+    line:1,say:'Cada pareja se intercambia <b>dos veces</b> (una desde cada lado) y queda como estaba. Por eso solo recorremos el triángulo de arriba: <code>j</code> empieza en <code>i + 1</code>.'},tri);
+  for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){
+    const m=new Marks().add(i,j,'hot').add(j,i,'b');
+    const a=A[i][j],b=A[j][i];
+    push({line:2,vars:[['i',i],['j',j],['aux',a]],say:`Intercambiamos <code>[${i}, ${j}]</code> (vale <b>${a}</b>) con <code>[${j}, ${i}]</code> (vale <b>${b}</b>). Guardamos ${a} en <code>aux</code> para no perderlo.`},m);
+    A[i][j]=b;A[j][i]=a;
+    push({line:4,vars:[['i',i],['j',j],['aux',a]],say:`Hecho: <code>[${i}, ${j}]</code> ahora vale <b>${b}</b> y <code>[${j}, ${i}]</code> vale <b>${a}</b>.`},new Marks().add(i,j,'swap').add(j,i,'swap'));
+  }
+  push({line:-1,p:1,say:'Primer movimiento terminado: las <b>filas ahora son columnas</b>. Falta el segundo: invertir el orden de cada fila.'});
+  for(let i=0;i<n;i++)for(let j=0;j<Math.floor(n/2);j++){
+    const k=n-1-j,a=A[i][j],b=A[i][k];
+    const m=new Marks();for(let c=0;c<n;c++)m.add(i,c,'band');
+    m.add(i,j,'hot').add(i,k,'b');
+    push({p:1,line:2,vars:[['i',i],['j',j],['n-1-j',k]],say:`En la fila ${i}, intercambiamos el extremo izquierdo <code>[${i}, ${j}]</code> (${a}) con el derecho <code>[${i}, ${k}]</code> (${b}).`},m);
+    A[i][j]=b;A[i][k]=a;
+    push({p:1,line:2,vars:[['i',i],['j',j],['n-1-j',k]],say:`Fila ${i} después del intercambio.`},new Marks().add(i,j,'swap').add(i,k,'swap'));
+  }
+  const f=new Marks();for(let i=0;i<n;i++)for(let j=0;j<n;j++)f.add(i,j,'done');
+  push({p:1,line:-1,say:`Compara con la original: el <b>${A0[0][0]}</b> que estaba arriba a la izquierda terminó arriba a la derecha. La matriz giró 90 grados en el sentido de las manecillas del reloj.`},f);
+  return F;
+}
+
+/* ---------- 6. espiral ---------- */
+function framesEspiral(A){
+  const R=A.length,C=A[0].length,F=[];
+  let t=0,b=R-1,l=0,r=C-1;
+  const ord=Array.from({length:R},()=>Array(C).fill(''));
+  const visited=new Set();
+  let out=[];
+  const view=cur=>{
+    const m=new Marks();
+    for(let i=t;i<=b;i++)for(let j=l;j<=r;j++)m.add(i,j,'reg');
+    visited.forEach(k=>{const [x,y]=k.split(',').map(Number);m.add(x,y,'done')});
+    if(cur)m.add(cur[0],cur[1],'hot');
+    return m;
+  };
+  const vs=()=>[['arriba',t],['abajo',b],['izq',l],['der',r],['salida',out.join(' ')||'(vacía)']];
+  const push=(o,cur)=>F.push({p:0,line:-1,vars:vs(),...o,grids:[
+    {t:'matriz',d:A,m:view(cur).m},{t:'orden de visita',d:cp(ord),m:{}}]});
+  const visit=(i,j,line,txt)=>{
+    visited.add(i+','+j);out.push(A[i][j]);ord[i][j]=out.length;
+    push({line,say:`${txt} Visitamos <code>matriz[${i}, ${j}]</code> = <b>${A[i][j]}</b>. Va en el lugar número ${out.length}.`},[i,j]);
+  };
+  push({line:0,say:'Imaginemos un <b>rectángulo</b> que marca lo que aún no hemos recorrido. Lo describen cuatro límites: <code>arriba</code>, <code>abajo</code>, <code>izq</code> y <code>der</code>. Cada vez que terminamos un lado, el rectángulo se encoge.'});
+  while(t<=b&&l<=r){
+    for(let j=l;j<=r;j++)visit(t,j,2,'Hacia la derecha por la fila de arriba.');
+    t++;
+    push({line:2,say:`Terminó la fila de arriba: <code>arriba++</code> (ahora vale ${t}). El rectángulo perdió esa fila.`});
+    for(let i=t;i<=b;i++)visit(i,r,3,'Hacia abajo por la columna de la derecha.');
+    r--;
+    push({line:3,say:t>b?'No quedaba ninguna celda nueva en esta columna. De todos modos hacemos <code>der--</code>.':`Terminó la columna de la derecha: <code>der--</code> (ahora vale ${r}).`});
+    if(t<=b){
+      for(let j=r;j>=l;j--)visit(b,j,4,'Hacia la izquierda por la fila de abajo.');
+      b--;
+      push({line:4,say:`Terminó la fila de abajo: <code>abajo--</code> (ahora vale ${b}).`});
+    }else{
+      const rep=range(l,r).reverse().map(j=>A[b][j]);
+      push({q:`Ahora <code>arriba</code> (${t}) es mayor que <code>abajo</code> (${b}). ¿Qué pasaría si no existiera este <code>if</code>?`,line:4,
+        say:`Recorreríamos otra vez la fila ${b} de derecha a izquierda y <b>repetiríamos números</b> ya visitados${rep.length?` (${rep.join(', ')})`:''}. El <code>if</code> evita visitar dos veces la misma celda.`});
+    }
+    if(l<=r){
+      for(let i=b;i>=t;i--)visit(i,l,5,'Hacia arriba por la columna de la izquierda.');
+      l++;
+      push({line:5,say:t>b?`No quedaban celdas nuevas aquí. Hacemos <code>izq++</code> (ahora vale ${l}).`:`Terminó la columna de la izquierda: <code>izq++</code> (ahora vale ${l}).`});
+    }else{
+      push({line:5,say:`Ahora <code>izq</code> (${l}) es mayor que <code>der</code> (${r}): no queda columna que recorrer, y el <code>if</code> lo detecta.`});
+    }
+  }
+  push({line:1,say:`La condición del <code>while</code> ya no se cumple (el rectángulo quedó vacío). Orden final: <b>${out.join(', ')}</b>.`});
+  return F;
+}
+
+/* ---------- 7. buscaminas ---------- */
+function framesBuscaminas(B){
+  const R=B.length,C=B[0].length,F=[];
+  const P=B.map(row=>row.map(x=>x==='*'?'*':''));
+  const count=(f,c)=>{let n=0;for(let a=-1;a<=1;a++)for(let d=-1;d<=1;d++){const x=f+a,y=c+d;if(x>=0&&x<R&&y>=0&&y<C&&B[x][y]==='*')n++}return n};
+  const done=[];
+  const push=(o,mt,mp)=>{
+    const m=(mt||new Marks()).m,q=(mp||new Marks());
+    done.forEach(([r,c])=>q.add(r,c,'done'));
+    F.push({p:0,line:-1,vars:[],...o,grids:[{t:'tablero',d:B,m},{t:'pistas',d:cp(P),m:q.m}]});
+  };
+  push({q:'En el Buscaminas, cada casilla vacía muestra cuántas minas tiene alrededor. ¿Cuántas casillas hay que mirar y qué problema aparece en los bordes?',
+    say:'Hay que mirar <b>8 vecinas</b> (el cuadro de 3x3 menos el centro). En una esquina o un borde algunas vecinas <b>no existen</b>: hay que comprobar que estén dentro del tablero <b>antes</b> de preguntarlas.'});
+  const detail=(f,c,intro)=>{
+    let cuenta=0;
+    push({line:1,vars:[['f',f],['c',c],['cuenta',0]],say:intro},new Marks().add(f,c,'hot'));
+    for(let df=-1;df<=1;df++)for(let dc=-1;dc<=1;dc++){
+      const nf=f+df,nc=c+dc,dentro=nf>=0&&nf<R&&nc>=0&&nc<C;
+      const m=new Marks().add(f,c,'hot');
+      let say,line=4;
+      if(!dentro){
+        say=`Vecina <code>[${nf}, ${nc}]</code>: está <b>fuera</b> del tablero. Se ignora, sin preguntar nada.`;
+      }else if(df===0&&dc===0){
+        m.add(f,c,'hot');
+        say=`<code>df = 0, dc = 0</code> es la casilla misma. No es mina, así que no suma (no hace falta excluirla aparte).`;
+      }else if(B[nf][nc]==='*'){
+        m.add(nf,nc,'hit');cuenta++;line=6;
+        say=`Vecina <code>[${nf}, ${nc}]</code>: <b>hay mina</b>. <code>cuenta</code> sube a <b>${cuenta}</b>.`;
+      }else{
+        m.add(nf,nc,'peek');
+        say=`Vecina <code>[${nf}, ${nc}]</code>: está dentro y no hay mina.`;
+      }
+      push({line,vars:[['df',df],['dc',dc],['nf',nf],['nc',nc],['dentro',dentro],['cuenta',cuenta]],say},m);
+    }
+    P[f][c]=cuenta;done.push([f,c]);
+    push({line:7,vars:[['f',f],['c',c],['cuenta',cuenta]],say:`Terminó la casilla [${f}, ${c}]: guardamos <b>${cuenta}</b> en <code>pistas[${f}, ${c}]</code>.`},new Marks().add(f,c,'done'));
+  };
+  detail(0,0,'Empecemos por la esquina <code>[0, 0]</code>, la más complicada: casi la mitad de sus vecinas no existen.');
+  const fc=1,cc=2;
+  detail(fc,cc,`Ahora una casilla del interior, <code>[${fc}, ${cc}]</code>: aquí las 8 vecinas sí existen.`);
+  for(let f=0;f<R;f++)for(let c=0;c<C;c++)if(B[f][c]!=='*'&&!done.some(([x,y])=>x===f&&y===c)){P[f][c]=count(f,c);done.push([f,c])}
+  push({line:0,say:'El mismo doble ciclo se repite para <b>todas</b> las casillas sin mina. Este es el tablero completo de pistas.'});
+  return F;
+}
+
+/* ---------- 8. multiplicacion ---------- */
+function framesMultiplicacion(D){
+  const A=D.a,B=D.b,n=A.length,m=B[0].length,p=B.length,F=[];
+  const Rz=Array.from({length:n},()=>Array(m).fill(''));
+  const done=[];
+  const push=(o,ma,mb,mr)=>{
+    const r=mr||new Marks();done.forEach(([x,y])=>r.add(x,y,'done'));
+    F.push({p:0,line:-1,vars:[],...o,grids:[
+      {t:'a',d:A,m:(ma||new Marks()).m},{t:'b',d:B,m:(mb||new Marks()).m},{t:'resultado',d:cp(Rz),m:r.m}]});
+  };
+  push({q:'¿Qué condición deben cumplir las dimensiones de A y B para poder multiplicarlas? ¿Y de qué tamaño será el resultado?',
+    line:0,say:`Las <b>columnas de A (${p}) deben ser iguales a las filas de B (${p})</b>. El resultado tiene las filas de A y las columnas de B: <b>${n}x${m}</b>.`});
+  for(let i=0;i<n;i++)for(let j=0;j<m;j++){
+    let s=0;
+    const base=()=>[new Marks().row(i,p,'band'),new Marks().col(j,p,'band')];
+    let [ma,mb]=base();
+    push({line:3,vars:[['i',i],['j',j],['suma',0]],say:`Vamos a calcular <code>resultado[${i}, ${j}]</code>: la <b>fila ${i} de A</b> se encuentra con la <b>columna ${j} de B</b>.`},ma,mb,new Marks().add(i,j,'hot'));
+    for(let k=0;k<p;k++){
+      [ma,mb]=base();
+      for(let q=0;q<k;q++){ma.add(i,q,'read');mb.add(q,j,'read')}
+      ma.add(i,k,'a');mb.add(k,j,'b');
+      const x=A[i][k],y=B[k][j];
+      push({line:5,vars:[['i',i],['j',j],['k',k],['suma',s+x*y]],say:`<code>k = ${k}</code>: <b>${x}</b> * <b>${y}</b> = ${x*y}. La suma pasa de ${s} a <b>${s+x*y}</b>.`},ma,mb,new Marks().add(i,j,'hot'));
+      s+=x*y;
+    }
+    Rz[i][j]=s;done.push([i,j]);
+    [ma,mb]=base();
+    push({line:6,vars:[['i',i],['j',j],['suma',s]],say:`Terminó el recorrido interno. Guardamos <b>${s}</b> en <code>resultado[${i}, ${j}]</code>.`},ma,mb);
+  }
+  push({line:-1,say:'Cada celda del resultado necesitó su <b>propio ciclo interno</b>. Por eso son tres ciclos anidados: <code>i</code>, <code>j</code> y <code>k</code>.'});
+  return F;
+}
+
+const fixedMine=[['.','*','.','.','.'],['.','.','.','*','.'],['*','.','.','.','.'],['.','.','*','.','.']];
+const randMine=()=>{const b=Array.from({length:4},()=>Array.from({length:5},()=>Math.random()<.27?'*':'.'));b[0][0]='.';b[1][2]='.';return b};
+
+const ALGS=[
+ {id:'totales',name:'Totales por fila y por columna',lvl:1,why:'El recorrido básico. Sirve para sumar ventas por sucursal, notas por estudiante, cantidades por bodega.',
+  fixed:()=>[[10,5,0,8],[3,12,7,1],[0,9,4,6]],random:()=>rm(3,4,0,15),frames:framesTotales,
+  think:[{q:'¿Qué ciclo va por fuera y cuál por dentro si queremos sumar cada fila?',h:'El de afuera decide <i>cuál</i> fila es. El de adentro recorre las columnas de esa fila.'},
+         {q:'¿Dónde debe vivir la instrucción suma = 0?',h:'Si queda fuera del ciclo de afuera, la suma de una fila arrastra a la siguiente. Observa el primer paso de cada fila.'}],
+  pseudo:[['para cada fila i:','    suma = 0','    para cada columna j:','        suma = suma + matriz[i, j]','    guardar suma como total de la fila i'],
+          ['para cada columna j:','    suma = 0','    para cada fila i:','        suma = suma + matriz[i, j]','    guardar suma como total de la columna j']],
+  observe:['El índice del ciclo interno es el que se mueve; el de afuera se queda quieto mientras se recorre una línea.','<code>suma = 0</code> va <b>dentro</b> del ciclo de afuera: se reinicia en cada fila.','Para columnas no se escribe código nuevo: se <b>invierten</b> los ciclos.'],
+  reto:'Calcula también el total general y el promedio de cada fila. ¿Qué tipo de dato necesitas para el promedio?'},
+ {id:'mayor',name:'El mayor y dónde está',lvl:1,why:'Buscar un máximo y recordar su posición. La base de cualquier "mejor", "más barato" o "más caro".',
+  fixed:()=>[[10,5,0,8],[3,12,7,1],[0,9,4,6]],random:()=>rm(3,4,0,20),frames:framesMayor,
+  think:[{q:'¿Con qué valor debe empezar la variable mayor?',h:'Si empiezas en 0 y todos los números son negativos, el 0 gana sin estar en la matriz. Parte de un valor real de la matriz.'},
+         {q:'Además del valor, ¿qué más hay que guardar?',h:'La posición: fila y columna. Se actualizan juntas y en el mismo momento que el mayor.'}],
+  pseudo:[['mayor = matriz[0, 0];  posFila = 0;  posColumna = 0','para cada fila i:','    para cada columna j:','        si matriz[i, j] > mayor:','            mayor = matriz[i, j];  posFila = i;  posColumna = j','mostrar mayor, posFila y posColumna']],
+  observe:['Las tres variables (<code>mayor</code>, <code>posFila</code>, <code>posColumna</code>) cambian <b>juntas</b>, dentro del mismo <code>if</code>.','Comparamos con <code>&gt;</code>: ante un empate se queda la primera posición.'],
+  reto:'Encuentra también el menor. Luego cuenta cuántas veces aparece el mayor en la matriz.'},
+ {id:'diagonales',name:'Diagonales con un solo ciclo',lvl:2,why:'Descubrir una regla de índices en lugar de revisar todas las celdas.',
+  fixed:()=>[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]],random:()=>rm(4,4,1,20),frames:framesDiagonales,
+  think:[{q:'¿Cuántas celdas tiene la diagonal principal de una matriz de 4x4? ¿Y cuántas visitarías con dos ciclos anidados?',h:'Son 4 celdas, pero dos ciclos anidados revisarían 16 y descartarían 12. Con la regla correcta alcanza un ciclo.'},
+         {q:'Si en la secundaria la fila es i, ¿cuál es la columna?',h:'Piensa en la última fila y la primera columna: la columna va bajando mientras la fila sube. Mira la regla de las sumas.'}],
+  pseudo:[['sumaPrincipal = 0;  sumaSecundaria = 0','para i desde 0 hasta n - 1:','    sumaPrincipal = sumaPrincipal + matriz[i, i]','    sumaSecundaria = sumaSecundaria + matriz[i, n - 1 - i]','mostrar sumaPrincipal y sumaSecundaria']],
+  observe:['Una regla de índices vale más que un <code>if</code> dentro de dos ciclos: n vueltas en lugar de n * n.','En <code>matriz[i, n - 1 - i]</code> la segunda coordenada se calcula a partir de la primera.'],
+  reto:'¿Qué pasa en una matriz de 5x5? El centro pertenece a las dos diagonales. ¿Cómo evitas contarlo dos veces en el total de ambas?'},
+ {id:'transpuesta',name:'La transpuesta',lvl:2,why:'Intercambiar el papel de filas y columnas. Aparece en estadística, gráficos y casi toda operación con matrices.',
+  fixed:()=>[[10,5,0,8],[3,12,7,1],[0,9,4,6]],random:()=>rm(3,4,0,15),frames:framesTranspuesta,
+  think:[{q:'Si la original es de 3x4, ¿de qué tamaño se declara la transpuesta?',h:'Dimensiones invertidas. Si la declaras igual que la original, el programa se cae con IndexOutOfRangeException.'},
+         {q:'¿Qué relación hay entre la posición de un valor antes y después?',h:'El valor que estaba en [i, j] termina en [j, i]. Solo se intercambian los índices.'}],
+  pseudo:[['crear transpuesta con (columnas) filas y (filas) columnas','para cada fila i:','    para cada columna j:','        transpuesta[j, i] = matriz[i, j]']],
+  observe:['La línea clave es una sola: <code>transpuesta[j, i] = matriz[i, j]</code>.','Declarar <code>new int[columnas, filas]</code> y no <code>new int[filas, columnas]</code> es el error más común.'],
+  reto:'Transpón una matriz cuadrada <b>sin crear otra matriz</b>. Pista: el siguiente ejercicio lo hace.'},
+ {id:'rotar',name:'Rotar 90 grados',lvl:3,why:'Componer dos movimientos simples para resolver uno complejo. Un clásico de entrevistas técnicas.',
+  fixed:()=>[[1,2,3],[4,5,6],[7,8,9]],random:()=>rm(3,3,1,9),frames:framesRotar,
+  think:[{q:'Dibuja en papel la matriz de 1 a 9 y rótala 90 grados a la derecha. ¿A dónde viaja la primera fila?',h:'La fila de arriba termina como la columna de la derecha, leída de arriba hacia abajo.'},
+         {q:'¿Qué dos operaciones sencillas combinadas producen esa rotación?',h:'Transponer y luego invertir el orden dentro de cada fila. Compruébalo con el 1, el 3, el 7 y el 9.'}],
+  pseudo:[['para i desde 0 hasta n - 1:','    para j desde i + 1 hasta n - 1:','        aux = matriz[i, j]','        matriz[i, j] = matriz[j, i]','        matriz[j, i] = aux'],
+          ['para cada fila i:','    para j desde 0 hasta n / 2 - 1:','        intercambiar matriz[i, j] con matriz[i, n - 1 - j]']],
+  observe:['<code>j = i + 1</code> evita intercambiar cada pareja dos veces.','Intercambiar siempre necesita una variable auxiliar: sin <code>aux</code> se pisa un valor.','<code>j &lt; n / 2</code> en la segunda fase: si recorres toda la fila, la inviertes dos veces.'],
+  reto:'Gira la matriz 90 grados hacia la izquierda. ¿Cuál de los dos movimientos cambia, y cómo?'},
+ {id:'espiral',name:'Recorrido en espiral',lvl:3,why:'Controlar límites que cambian mientras el programa avanza. Pensar en fronteras, no en celdas.',
+  fixed:()=>[[1,2,3,4],[5,6,7,8],[9,10,11,12]],random:()=>rm(3,4,1,30),frames:framesEspiral,
+  think:[{q:'Recorre a mano la matriz en espiral y anota el orden. ¿Qué cambia cada vez que terminas un lado?',h:'El lado ya recorrido deja de formar parte del problema: el rectángulo pendiente se achica.'},
+         {q:'¿Qué crees que puede salir mal cuando queda una sola fila o una sola columna?',h:'Se podrían recorrer celdas dos veces. Mira con atención los dos if del final del ciclo.'}],
+  pseudo:[['arriba = 0;  abajo = filas - 1;  izq = 0;  der = columnas - 1','mientras arriba <= abajo y izq <= der:','    recorrer la fila "arriba" de izq a der;  arriba++','    recorrer la columna "der" de arriba a abajo;  der--','    si arriba <= abajo: recorrer fila "abajo" de der a izq;  abajo--','    si izq <= der: recorrer columna "izq" de abajo a arriba;  izq++']],
+  observe:['Se piensa en <b>cuatro límites</b>, no en celdas sueltas. Cada lado consumido mueve un límite.','Los dos <code>if</code> existen para el caso en que el rectángulo se vuelve una sola línea.','La condición del <code>while</code> protege del rectángulo vacío.'],
+  reto:'Haz el problema contrario: llena una matriz vacía con los números 1, 2, 3, ... siguiendo la espiral.'},
+ {id:'buscaminas',name:'Buscaminas: contar vecinos',lvl:3,why:'Recorrer una vecindad sin salirse de la matriz. Sirve para imágenes, juegos y mapas.',
+  fixed:()=>fixedMine.map(r=>r.slice()),random:randMine,frames:framesBuscaminas,
+  think:[{q:'Para la casilla [2, 2], ¿cuáles son las coordenadas de sus 8 vecinas?',h:'Suma y resta 1 a la fila y a la columna: de [1,1] a [3,3], todas menos la del centro.'},
+         {q:'¿Qué pasa si preguntas por tablero[-1, 0]?',h:'Se produce IndexOutOfRangeException. Hay que comprobar los límites antes de leer.'}],
+  pseudo:[['para cada celda (f, c) que no sea mina:','    cuenta = 0','    para df desde -1 hasta 1:','        para dc desde -1 hasta 1:','            nf = f + df;  nc = c + dc','            dentro = nf, nc están dentro del tablero','            si dentro y tablero[nf, nc] es mina:','                cuenta = cuenta + 1','    pistas[f, c] = cuenta']],
+  observe:['Los desplazamientos <code>df</code> y <code>dc</code> van de -1 a 1: dos ciclos pequeños dentro de los grandes.','El orden importa: primero <code>dentro</code>, después la lectura. Con <code>&amp;&amp;</code> la segunda parte no se evalúa si la primera falla.','No hace falta excluir la casilla central: ya sabemos que no es mina.'],
+  reto:'Cuenta solo las 4 vecinas de arriba, abajo, izquierda y derecha. ¿Qué cambia en los ciclos de df y dc?'},
+ {id:'multiplicacion',name:'Multiplicar matrices',lvl:3,why:'Tres ciclos anidados con sentido: cada celda del resultado es una fila contra una columna.',
+  fixed:()=>({a:[[1,2,3],[4,5,6]],b:[[7,8],[9,10],[11,12]]}),random:()=>({a:rm(2,3,1,6),b:rm(3,2,1,6)}),frames:framesMultiplicacion,
+  think:[{q:'¿Se puede multiplicar una matriz de 2x3 por una de 3x2? ¿Y una de 2x3 por otra de 2x3?',h:'Las columnas de la primera deben ser iguales a las filas de la segunda.'},
+         {q:'Para una sola celda del resultado, ¿qué fila y qué columna se combinan?',h:'La celda [i, j] usa la fila i de A y la columna j de B, multiplicando de a pares y sumando.'}],
+  pseudo:[['verificar: columnas de A = filas de B','para cada fila i de A:','    para cada columna j de B:','        suma = 0','        para k desde 0 hasta columnasA - 1:','            suma = suma + a[i, k] * b[k, j]','        resultado[i, j] = suma']],
+  observe:['El ciclo de <code>k</code> es el "producto punto": recorre a la vez una fila de A y una columna de B.','<code>suma = 0</code> va antes del ciclo de <code>k</code>: una suma nueva por cada celda.','Se verifica la compatibilidad antes de hacer cualquier cuenta.'],
+  reto:'Multiplica dos matrices de 2x2 en ambos órdenes (A por B y B por A). ¿Dan el mismo resultado?'}
+];
+</script>
+
+<!-- =============== INTERFAZ =============== -->
+<script>
+const SNIP={"01": {"code": "int[,] matriz =\n{\n    { 10, 5, 0, 8 },\n    { 3, 12, 7, 1 },\n    { 0, 9, 4, 6 }\n};\nint filas = matriz.GetLength(0);\nint columnas = matriz.GetLength(1);\n\n// Total de cada fila: el ciclo de afuera elige la fila, el de adentro recorre sus columnas\nfor (int i = 0; i < filas; i++)\n{\n    int suma = 0;\n    for (int j = 0; j < columnas; j++)\n    {\n        suma = suma + matriz[i, j];\n    }\n    Console.WriteLine($\"Total de la fila {i}: {suma}\");\n}\n\n// Total de cada columna: se invierten los ciclos\nfor (int j = 0; j < columnas; j++)\n{\n    int suma = 0;\n    for (int i = 0; i < filas; i++)\n    {\n        suma = suma + matriz[i, j];\n    }\n    Console.WriteLine($\"Total de la columna {j}: {suma}\");\n}", "out": "Total de la fila 0: 23\nTotal de la fila 1: 23\nTotal de la fila 2: 19\nTotal de la columna 0: 13\nTotal de la columna 1: 26\nTotal de la columna 2: 11\nTotal de la columna 3: 15"}, "02": {"code": "int[,] matriz =\n{\n    { 10, 5, 0, 8 },\n    { 3, 12, 7, 1 },\n    { 0, 9, 4, 6 }\n};\nint filas = matriz.GetLength(0);\nint columnas = matriz.GetLength(1);\n\nint mayor = matriz[0, 0];\nint posFila = 0;\nint posColumna = 0;\n\nfor (int i = 0; i < filas; i++)\n{\n    for (int j = 0; j < columnas; j++)\n    {\n        if (matriz[i, j] > mayor)\n        {\n            mayor = matriz[i, j];\n            posFila = i;\n            posColumna = j;\n        }\n    }\n}\n\nConsole.WriteLine($\"El mayor es {mayor} y esta en [{posFila}, {posColumna}]\");", "out": "El mayor es 12 y esta en [1, 1]"}, "03": {"code": "int[,] matriz =\n{\n    { 1, 2, 3, 4 },\n    { 5, 6, 7, 8 },\n    { 9, 10, 11, 12 },\n    { 13, 14, 15, 16 }\n};\nint n = matriz.GetLength(0);\n\nint sumaPrincipal = 0;\nint sumaSecundaria = 0;\n\n// Un solo ciclo: en cada vuelta se toca una celda de cada diagonal\nfor (int i = 0; i < n; i++)\n{\n    sumaPrincipal = sumaPrincipal + matriz[i, i];\n    sumaSecundaria = sumaSecundaria + matriz[i, n - 1 - i];\n}\n\nConsole.WriteLine($\"Diagonal principal: {sumaPrincipal}\");\nConsole.WriteLine($\"Diagonal secundaria: {sumaSecundaria}\");", "out": "Diagonal principal: 34\nDiagonal secundaria: 34"}, "04": {"code": "int[,] matriz =\n{\n    { 10, 5, 0, 8 },\n    { 3, 12, 7, 1 },\n    { 0, 9, 4, 6 }\n};\nint filas = matriz.GetLength(0);\nint columnas = matriz.GetLength(1);\n\n// La transpuesta tiene las dimensiones invertidas\nint[,] transpuesta = new int[columnas, filas];\n\nfor (int i = 0; i < filas; i++)\n{\n    for (int j = 0; j < columnas; j++)\n    {\n        transpuesta[j, i] = matriz[i, j];\n    }\n}\n\nfor (int i = 0; i < columnas; i++)\n{\n    for (int j = 0; j < filas; j++)\n    {\n        Console.Write($\"{transpuesta[i, j],4}\");\n    }\n    Console.WriteLine();\n}", "out": "  10   3   0\n   5  12   9\n   0   7   4\n   8   1   6"}, "05": {"code": "int[,] matriz =\n{\n    { 1, 2, 3 },\n    { 4, 5, 6 },\n    { 7, 8, 9 }\n};\nint n = matriz.GetLength(0);\n\n// Paso 1: transponer. Solo se visita el triangulo de arriba (j > i)\nfor (int i = 0; i < n; i++)\n{\n    for (int j = i + 1; j < n; j++)\n    {\n        int aux = matriz[i, j];\n        matriz[i, j] = matriz[j, i];\n        matriz[j, i] = aux;\n    }\n}\n\n// Paso 2: invertir el orden de cada fila\nfor (int i = 0; i < n; i++)\n{\n    for (int j = 0; j < n / 2; j++)\n    {\n        int aux = matriz[i, j];\n        matriz[i, j] = matriz[i, n - 1 - j];\n        matriz[i, n - 1 - j] = aux;\n    }\n}\n\nfor (int i = 0; i < n; i++)\n{\n    for (int j = 0; j < n; j++)\n    {\n        Console.Write($\"{matriz[i, j],3}\");\n    }\n    Console.WriteLine();\n}", "out": "  7  4  1\n  8  5  2\n  9  6  3"}, "06": {"code": "int[,] matriz =\n{\n    { 1, 2, 3, 4 },\n    { 5, 6, 7, 8 },\n    { 9, 10, 11, 12 }\n};\nint filas = matriz.GetLength(0);\nint columnas = matriz.GetLength(1);\n\nint arriba = 0;\nint abajo = filas - 1;\nint izq = 0;\nint der = columnas - 1;\nstring salida = \"\";\n\nwhile (arriba <= abajo && izq <= der)\n{\n    // hacia la derecha por la fila de arriba\n    for (int j = izq; j <= der; j++) salida = salida + matriz[arriba, j] + \" \";\n    arriba++;\n\n    // hacia abajo por la columna de la derecha\n    for (int i = arriba; i <= abajo; i++) salida = salida + matriz[i, der] + \" \";\n    der--;\n\n    // hacia la izquierda por la fila de abajo (si todavia queda)\n    if (arriba <= abajo)\n    {\n        for (int j = der; j >= izq; j--) salida = salida + matriz[abajo, j] + \" \";\n        abajo--;\n    }\n\n    // hacia arriba por la columna de la izquierda (si todavia queda)\n    if (izq <= der)\n    {\n        for (int i = abajo; i >= arriba; i--) salida = salida + matriz[i, izq] + \" \";\n        izq++;\n    }\n}\n\nConsole.WriteLine(salida.Trim());", "out": "1 2 3 4 8 12 11 10 9 5 6 7"}, "07": {"code": "char[,] tablero =\n{\n    { '.', '*', '.', '.', '.' },\n    { '.', '.', '.', '*', '.' },\n    { '*', '.', '.', '.', '.' },\n    { '.', '.', '*', '.', '.' }\n};\nint filas = tablero.GetLength(0);\nint columnas = tablero.GetLength(1);\n\nfor (int f = 0; f < filas; f++)\n{\n    for (int c = 0; c < columnas; c++)\n    {\n        if (tablero[f, c] == '*')\n        {\n            Console.Write(\" *\");\n            continue;\n        }\n\n        int cuenta = 0;\n        for (int df = -1; df <= 1; df++)\n        {\n            for (int dc = -1; dc <= 1; dc++)\n            {\n                int nf = f + df;\n                int nc = c + dc;\n                bool dentro = nf >= 0 && nf < filas && nc >= 0 && nc < columnas;\n                if (dentro && tablero[nf, nc] == '*')\n                {\n                    cuenta = cuenta + 1;\n                }\n            }\n        }\n        Console.Write($\" {cuenta}\");\n    }\n    Console.WriteLine();\n}", "out": " 1 * 2 1 1\n 2 2 2 * 1\n * 2 2 2 1\n 1 2 * 1 0"}, "08": {"code": "int[,] a =\n{\n    { 1, 2, 3 },\n    { 4, 5, 6 }\n};\nint[,] b =\n{\n    { 7, 8 },\n    { 9, 10 },\n    { 11, 12 }\n};\nint filasA = a.GetLength(0);\nint columnasA = a.GetLength(1);\nint columnasB = b.GetLength(1);\n\nif (columnasA != b.GetLength(0))\n{\n    Console.WriteLine(\"No se pueden multiplicar: columnas de A distinto de filas de B\");\n    return;\n}\n\nint[,] resultado = new int[filasA, columnasB];\n\nfor (int i = 0; i < filasA; i++)\n{\n    for (int j = 0; j < columnasB; j++)\n    {\n        int suma = 0;\n        for (int k = 0; k < columnasA; k++)\n        {\n            suma = suma + a[i, k] * b[k, j];\n        }\n        resultado[i, j] = suma;\n    }\n}\n\nfor (int i = 0; i < filasA; i++)\n{\n    for (int j = 0; j < columnasB; j++)\n    {\n        Console.Write($\"{resultado[i, j],5}\");\n    }\n    Console.WriteLine();\n}", "out": "   58   64\n  139  154"}};
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ASK={
+ totales:'Calcular el <b>total de cada fila</b> y el <b>total de cada columna</b>. Si las filas fueran bodegas y las columnas productos: ¿cuántas unidades tiene cada bodega y cuántas hay de cada producto? Las casillas punteadas son donde irán los totales.',
+ mayor:'Encontrar el <b>valor mayor</b> de la matriz y decir <b>en qué fila y columna</b> está. No basta con el número: también hay que saber dónde vive.',
+ diagonales:'Sumar los elementos de la <b>diagonal principal</b> (de arriba a la izquierda hasta abajo a la derecha) y los de la <b>diagonal secundaria</b> (de arriba a la derecha hasta abajo a la izquierda), visitando la menor cantidad de celdas posible.',
+ transpuesta:'Construir una <b>segunda matriz</b> donde las filas de la original pasen a ser columnas. Fíjate en el tamaño de la matriz vacía de la derecha: ya está invertido.',
+ rotar:'<b>Girar la matriz 90 grados</b> en el sentido de las manecillas del reloj, modificándola <b>en su lugar</b>, sin crear otra matriz. Dibuja en papel dónde termina cada número.',
+ espiral:'Recorrer la matriz en <b>espiral</b>: empezar arriba a la izquierda, ir hacia la derecha, bajar, volver por abajo y subir, cerrando hacia el centro. Se pide escribir los valores <b>en el orden en que se visitan</b>.',
+ buscaminas:'En cada casilla <b>sin mina</b> hay que escribir <b>cuántas minas hay en sus casillas vecinas</b> (hasta 8, contando diagonales). Las minas ya están marcadas con un asterisco en la matriz de pistas.',
+ multiplicacion:'Calcular el <b>producto de A por B</b>. El resultado, vacío a la derecha, tiene las filas de A y las columnas de B. ¿Cada número del resultado, de dónde sale?'
+};
+const LV=['','Calentamiento','Para pensar','Reto'];
+const ICON={
+  prev:'<svg viewBox="0 0 16 16"><path d="M10.5 2.5v11l-7-5.5z"/></svg>',
+  next:'<svg viewBox="0 0 16 16"><path d="M5.5 2.5v11l7-5.5z"/></svg>',
+  play:'<svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg>',
+  pause:'<svg viewBox="0 0 16 16"><path d="M3.5 2.5h3v11h-3zM9.5 2.5h3v11h-3z"/></svg>',
+  reset:'<svg viewBox="0 0 16 16"><path d="M8 2a6 6 0 1 0 5.7 4h-2A4 4 0 1 1 8 4v2.5l4-3.5-4-3.5z"/></svg>'
+};
+
+function hl(code){
+  const re=/(\/\/[^\n]*)|(\$?"(?:[^"\\]|\\.)*")|('(?:[^'\\]|\\.)')|\b(int|char|string|bool|for|while|if|else|continue|return|new|var|true|false)\b|\b(\d+)\b|\b(Console)\b/g;
+  return esc(code).replace(re,(m,c,s,ch,k,n,t)=>c?`<span class="c">${c}</span>`:s?`<span class="s">${s}</span>`:ch?`<span class="s">${ch}</span>`:k?`<span class="k">${k}</span>`:n?`<span class="n">${n}</span>`:`<span class="t">${t}</span>`);
+}
+
+/* ---- dibujo de cuadriculas ---- */
+function drawGrid(host,spec,prev){
+  const R=spec.d.length,C=spec.d[0].length;
+  const sig=spec.t+'|'+R+'x'+C+'|'+(spec.rl?spec.rl.join():'')+(spec.cl?spec.cl.join():'');
+  if(host.dataset.sig!==sig){
+    host.dataset.sig=sig;
+    host.innerHTML=`<div class="gtitle"><b>${esc(spec.t)}</b></div><div class="grid" style="grid-template-columns:auto repeat(${C},var(--cell))"></div>`;
+    const g=$('.grid',host);
+    g.appendChild(Object.assign(document.createElement('div'),{className:'lab-i'}));
+    for(let j=0;j<C;j++)g.appendChild(Object.assign(document.createElement('div'),{className:'lab-i',textContent:spec.cl?spec.cl[j]:j}));
+    for(let i=0;i<R;i++){
+      g.appendChild(Object.assign(document.createElement('div'),{className:'lab-i lab-r',textContent:spec.rl?spec.rl[i]:i}));
+      for(let j=0;j<C;j++){const c=document.createElement('div');c.className='cell';c.dataset.k=i+','+j;g.appendChild(c)}
+    }
+  }
+  const cells=host.querySelectorAll('.cell');
+  cells.forEach(el=>{
+    const [i,j]=el.dataset.k.split(',').map(Number);
+    const v=spec.d[i][j];
+    const txt=v===undefined||v===null?'':String(v);
+    let cls='cell';
+    if(txt==='*')cls+=' mine';
+    else if(txt==='.')cls+=' empty';
+    if(spec.ref)cls+=' ref';
+    const mk=spec.m[i+','+j];if(mk)cls+=' '+mk;
+    if(el.textContent!==txt){
+      if(txt!==''&&el.dataset.seen==='1')cls+=' pop';
+      el.textContent=txt;
+    }
+    if(txt!=='')el.dataset.seen='1';
+    el.className=cls;
+  });
+}
+
+/* ---- laboratorio ---- */
+const labs=[];let activeLab=null;
+class Lab{
+  constructor(alg,idx,root){
+    this.alg=alg;this.idx=idx;this.root=root;this.i=0;this.timer=null;this.revealed=false;this.reached=false;
+    this.data=alg.fixed();this.frames=alg.frames(this.data);this.prevVars={};
+    this.build();this.show();
+  }
+  build(){
+    const a=this.alg,n=this.idx+1,s=SNIP[String(n).padStart(2,'0')];
+    this.root.innerHTML=`
+    <div class="labhead">
+      <div class="num" aria-hidden="true">${n}</div>
+      <div><span class="level l${a.lvl}">${LV[a.lvl]}</span><h2>${a.name}</h2><p>${a.why}</p></div>
+    </div>
+    <div class="problem">
+      <div class="ask"><small>El problema</small><p>${ASK[a.id]}</p></div>
+      <div class="board pboard" data-r="pboard"></div>
+      <div class="think">${a.think.map(t=>`<details><summary>${t.q}</summary><p class="hint"><small>Pista</small>${t.h}</p></details>`).join('')}</div>
+      <div class="ctrl">
+        <button class="btn main" data-r="reveal">Ya lo pensé: ver la solución paso a paso</button>
+        <button class="btn" data-r="rand">Otros números</button>
+        <button class="btn" data-r="orig">${ICON.reset}Matriz original</button>
+      </div>
+      <p class="tip">Antes de seguir: intenta resolverlo en papel. Cuando tengas una idea, revela la solución y compárala.</p>
+    </div>
+    <div class="solution" data-r="solution" hidden>
+    <div class="solhead">La solución, paso a paso</div>
+    <div class="stage">
+      <div class="board" data-r="board"></div>
+      <aside class="side">
+        <div class="panel"><h3>Variables</h3><div class="vars" data-r="vars"></div></div>
+        <div class="panel"><h3>Idea en palabras</h3><div class="pseudo" data-r="pseudo"></div></div>
+      </aside>
+    </div>
+    <div class="say" data-r="say" aria-live="polite"></div>
+    <div class="ctrl">
+      <button class="btn" data-r="prev">${ICON.prev}Anterior</button>
+      <button class="btn main" data-r="play">${ICON.play}<span>Reproducir</span></button>
+      <button class="btn" data-r="next">Siguiente${ICON.next}</button>
+      <input class="seek" type="range" min="0" value="0" data-r="seek" aria-label="Paso">
+      <span class="count mono" data-r="count"></span>
+      <label>Velocidad <select class="sel" data-r="speed"><option value="1500">Lenta</option><option value="950" selected>Normal</option><option value="500">Rápida</option></select></label>
+    </div>
+    <div class="after">
+      <div class="unlock" data-r="unlock"><span data-r="umsg"></span><button class="btn" data-r="code">Ver el código</button></div>
+      <div class="codebox" data-r="codebox" hidden>
+        <div>
+          <div class="cb"><header><span>C# listo para ejecutar</span><button class="cp" data-r="copy">Copiar</button></header><pre><code>${hl(s.code)}</code></pre></div>
+        </div>
+        <div class="notes">
+          <div class="cb"><header><span>Salida con la matriz original</span></header><pre>${esc(s.out)}</pre></div>
+          <div class="panel"><h3>Qué observar</h3><ul>${a.observe.map(o=>`<li>${o}</li>`).join('')}</ul></div>
+          <div class="reto"><h3>Reto</h3><p style="margin:0">${a.reto}</p></div>
+        </div>
+      </div>
+      ${this.idx<ALGS.length-1?`<a class="next" href="#${ALGS[this.idx+1].id}">Siguiente ejercicio: ${ALGS[this.idx+1].name}</a>`:`<a class="next" href="#patrones">Ver lo que se repite en todos</a>`}
+    </div>
+    </div>`;
+    const r=k=>$(`[data-r="${k}"]`,this.root);
+    this.el={pboard:r('pboard'),solution:r('solution'),reveal:r('reveal'),board:r('board'),vars:r('vars'),pseudo:r('pseudo'),say:r('say'),prev:r('prev'),next:r('next'),play:r('play'),seek:r('seek'),count:r('count'),speed:r('speed'),unlock:r('unlock'),umsg:r('umsg'),code:r('code'),codebox:r('codebox')};
+    this.el.prev.onclick=()=>{this.stop();this.go(this.i-1)};
+    this.el.next.onclick=()=>{this.stop();this.go(this.i+1)};
+    this.el.play.onclick=()=>this.toggle();
+    this.el.seek.oninput=e=>{this.stop();this.go(+e.target.value)};
+    r('rand').onclick=()=>{this.stop();this.data=this.alg.random();this.reload()};
+    r('orig').onclick=()=>{this.stop();this.data=this.alg.fixed();this.reload()};
+    this.el.code.onclick=()=>{
+      if(!this.reached){this.el.unlock.classList.remove('shake');void this.el.unlock.offsetWidth;this.el.unlock.classList.add('shake');return}
+      this.el.codebox.hidden=!this.el.codebox.hidden;
+      this.el.code.textContent=this.el.codebox.hidden?'Ver el código':'Ocultar el código';
+    };
+    r('copy').onclick=e=>{try{navigator.clipboard.writeText(s.code);e.target.textContent='Copiado';setTimeout(()=>e.target.textContent='Copiar',1400)}catch(_){}};
+    this.el.reveal.onclick=()=>{
+      this.el.solution.hidden=false;this.el.reveal.disabled=true;this.el.reveal.textContent='Solución abajo';
+      this.show();this.el.solution.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+    this.drawProblem();
+    this.root.addEventListener('pointerdown',()=>{activeLab=this});
+    this.el.seek.max=this.frames.length-1;
+  }
+  drawProblem(){
+    const gs=this.frames[0].grids.filter(g=>g.t!=='original');
+    gs.forEach((g,k)=>{
+      let h=this.el.pboard.children[k];
+      if(!h){h=document.createElement('div');h.className='gwrap';this.el.pboard.appendChild(h)}
+      const m={};Object.keys(g.m).forEach(key=>{const t=g.m[key].split(' ').filter(x=>x==='tot'||x==='blank');if(t.length)m[key]=t.join(' ')});
+      drawGrid(h,{...g,m,ref:false});
+    });
+  }
+  reload(){this.drawProblem();this.frames=this.alg.frames(this.data);this.i=0;this.el.seek.max=this.frames.length-1;this.prevVars={};this.show()}
+  go(n){this.i=Math.max(0,Math.min(this.frames.length-1,n));this.revealed=false;this.show()}
+  toggle(){this.timer?this.stop():this.start()}
+  start(){
+    if(this.i>=this.frames.length-1)this.go(0);
+    this.el.play.innerHTML=ICON.pause+'<span>Pausar</span>';
+    const tick=()=>{
+      if(this.i>=this.frames.length-1){this.stop();return}
+      const f=this.frames[this.i];
+      if(f.q&&!this.revealed){this.stop();return}
+      this.go(this.i+1);
+      this.timer=setTimeout(tick,+this.el.speed.value);
+    };
+    this.timer=setTimeout(tick,300);
+  }
+  stop(){clearTimeout(this.timer);this.timer=null;this.el.play.innerHTML=ICON.play+'<span>Reproducir</span>'}
+  show(){
+    const f=this.frames[this.i],e=this.el;
+    f.grids.forEach((g,k)=>{
+      let h=e.board.children[k];
+      if(!h){h=document.createElement('div');h.className='gwrap';e.board.appendChild(h)}
+      drawGrid(h,g);
+    });
+    while(e.board.children.length>f.grids.length)e.board.lastChild.remove();
+    const pv=this.prevVars,nv={};
+    e.vars.innerHTML=f.vars.length?f.vars.map(([k,v])=>{nv[k]=String(v);return `<span class="var${pv[k]!==undefined&&pv[k]!==String(v)?' ch':''}"><i>${esc(k)}</i><b>${esc(String(v))}</b></span>`}).join(''):'<span style="color:var(--muted);font-size:14px">Aún no hay variables en juego.</span>';
+    this.prevVars=nv;
+    const lines=this.alg.pseudo[Math.min(f.p||0,this.alg.pseudo.length-1)];
+    e.pseudo.innerHTML=lines.map((l,k)=>`<div class="${k===f.line?'on':''}">${esc(l)||'&nbsp;'}</div>`).join('');
+    if(f.q){
+      const hide=!this.revealed;
+      e.say.innerHTML=`<div class="q">${f.q}</div><div class="ans ${hide?'hide':''}">${f.say}</div>${hide?'<button class="reveal">Mostrar la respuesta</button>':''}`;
+      const b=$('.reveal',e.say);
+      if(b)b.onclick=()=>{this.revealed=true;this.show()};
+    }else e.say.innerHTML=`<div class="ans">${f.say}</div>`;
+    e.prev.disabled=this.i===0;e.next.disabled=this.i===this.frames.length-1;
+    e.seek.value=this.i;e.count.textContent=`Paso ${this.i+1} de ${this.frames.length}`;
+    if(this.i===this.frames.length-1&&!this.reached){this.reached=true;$(`.chip[data-i="${this.idx}"]`)?.classList.add('ok')}
+    e.unlock.classList.toggle('ready',this.reached);
+    e.umsg.textContent=this.reached?'Ya viste el algoritmo completo. Ahora sí: el código.':'El código se desbloquea al llegar al último paso. Primero entiende, después escribe.';
+  }
+}
+
+/* ---- armado de la pagina ---- */
+const chips=$('#chips'),host=$('#labs');
+ALGS.forEach((a,i)=>{
+  const c=document.createElement('a');c.className='chip';c.href='#'+a.id;c.textContent=i+1;c.title=a.name;c.dataset.i=i;chips.appendChild(c);
+  const s=document.createElement('section');s.className='lab';s.id=a.id;host.appendChild(s);
+  labs.push(new Lab(a,i,s));
+});
+const io=new IntersectionObserver(es=>{
+  es.forEach(en=>{if(en.isIntersecting){const l=labs.find(x=>x.root===en.target);activeLab=l;
+    document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',+c.dataset.i===l.idx))}})
+},{rootMargin:'-35% 0px -55% 0px'});
+labs.forEach(l=>io.observe(l.root));
+document.addEventListener('keydown',e=>{
+  if(!activeLab||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)&&e.target.type!=='range')return;
+  if(e.key==='ArrowRight'){e.preventDefault();activeLab.stop();activeLab.go(activeLab.i+1)}
+  else if(e.key==='ArrowLeft'){e.preventDefault();activeLab.stop();activeLab.go(activeLab.i-1)}
+  else if(e.key===' '&&e.target.tagName!=='BUTTON'){e.preventDefault();activeLab.toggle()}
+});
+
+/* ---- tema ---- */
+const root=document.documentElement;
+try{if(matchMedia('(prefers-color-scheme: light)').matches)root.dataset.theme='light'}catch(_){}
+$('#theme').onclick=()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark'};
+
+/* ---- hero animado ---- */
+(function(){
+  const m=$('#mini');const cells=[];
+  for(let i=0;i<15;i++){const c=document.createElement('i');m.appendChild(c);cells.push(c)}
+  let k=0;
+  const order=[];for(let r=0;r<3;r++)for(let c=0;c<5;c++)order.push(r*5+(r%2?4-c:c));
+  const step=()=>{cells.forEach(c=>c.className='');for(let q=0;q<k;q++)cells[order[q]].className='tr';cells[order[k]].className='on';k=(k+1)%order.length};
+  step();
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(step,420);
+})();
+
+/* ---- explorador de coordenadas ---- */
+(function(){
+  const d=[[10,5,0,8],[3,12,7,1],[0,9,4,6]];
+  const h=document.createElement('div');h.className='gwrap';$('#exgrid').appendChild(h);
+  const draw=(r,c)=>{
+    const m=new Marks();
+    if(r!==undefined){for(let j=0;j<4;j++)m.add(r,j,'band');for(let i=0;i<3;i++)m.add(i,c,'band');m.add(r,c,'hot')}
+    drawGrid(h,{t:'matriz',d,m:m.m});
+    h.querySelectorAll('.cell').forEach(el=>{el.style.cursor='pointer';el.onclick=()=>{const [i,j]=el.dataset.k.split(',').map(Number);pick(i,j)}});
+  };
+  const pick=(i,j)=>{
+    $('#excoord').innerHTML=`matriz[<b>${i}</b>, <b>${j}</b>] = <b>${d[i][j]}</b>`;
+    $('#exnote').textContent=`Se baja hasta la fila ${i} y se avanza hasta la columna ${j}. Fila primero, columna después.`;
+    draw(i,j);
+  };
+  draw();
+})();
+</script>
+</body>
+</html>
