@@ -16,6 +16,8 @@ date-format: "D [de] MMMM [de] YYYY"
 
 Esta guía se probó con el SDK de .NET **10.0.302**.
 
+[Abrir la presentación interactiva de la sesión](presentacion-funciones.html){.btn .btn-primary role="button"}
+
 ## El problema que resuelve una función
 
 En el tema anterior calculaste el total de un vector de precios con un `for` que suma sobre
