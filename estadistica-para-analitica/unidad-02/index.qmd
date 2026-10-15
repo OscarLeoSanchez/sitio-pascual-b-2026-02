@@ -15,6 +15,14 @@ number-sections: false
 | Cierre     | 30% de la nota, con modelos continuos de probabilidad     |
 :::
 
+## Presentaciones de la unidad
+
+Una presentación por sesión. Abre la que corresponde al tema que vas a trabajar.
+
+[Tema 1. Variables aleatorias](presentacion-variables-aleatorias.html){.btn .btn-outline-primary role="button"}
+[Tema 1. Presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html){.btn .btn-outline-primary role="button"}
+[Temas 2 y 3. Condicional, Bayes, valor esperado y varianza](presentacion-condicional-bayes.html){.btn .btn-primary role="button"}
+
 ## Sesión aplicada del Tema 1: caso de los domicilios
 
 Esta sesión parte de los datos: 600 pedidos de una plataforma de domicilios. Primero se calcula con
@@ -23,14 +31,10 @@ su cuaderno antes de la clase.
 
 [Descargar el dataset (CSV)](recursos/pedidos_estadistica_analitica.csv){.btn .btn-primary
 role="button" download="pedidos_estadistica_analitica.csv"}
-[Abrir la presentación aplicada](presentacion-aplicada-domicilios.html){.btn .btn-outline-primary
-role="button"}
 
 ## Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza
 
-Esta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D.
-
-[Abrir la presentación de los Temas 2 y 3](presentacion-condicional-bayes.html){.btn .btn-primary role="button"}
+Esta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D, y el modo clase (tecla M) salta las diapositivas de profundización.
 
 ## De qué se trata esta unidad
 

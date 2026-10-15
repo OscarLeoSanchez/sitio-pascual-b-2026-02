@@ -83,6 +83,8 @@ website:
               href: estadistica-para-analitica/unidad-02/presentacion-variables-aleatorias.qmd
             - text: "1. Presentación aplicada: caso domicilios"
               href: estadistica-para-analitica/unidad-02/presentacion-aplicada-domicilios.qmd
+            - text: "2 y 3. Presentación: condicional, Bayes, valor esperado y varianza"
+              href: estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

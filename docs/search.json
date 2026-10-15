@@ -245,7 +245,7 @@
     "href": "herramientas-programacion-1/unidad-02/funciones.html",
     "title": "Unidad 2. Funciones: parámetros de entrada y valor de retorno",
     "section": "",
-    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones\n\n\nSaber\nFunciones: parámetros de entrada y valor de retorno\nEsta guía se probó con el SDK de .NET 10.0.302.",
+    "text": "Asignatura\nHerramientas de Programación I (ET0047)\n\n\nPrograma\nTecnología en Desarrollo de Software\n\n\nUnidad\nUnidad 2. Creando aplicaciones informáticas utilizando arreglos y funciones\n\n\nSaber\nFunciones: parámetros de entrada y valor de retorno\nEsta guía se probó con el SDK de .NET 10.0.302.\nAbrir la presentación interactiva de la sesión",
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "3. Funciones"
@@ -2071,7 +2071,7 @@
     "href": "estadistica-para-analitica/unidad-02/index.html#sesión-aplicada-del-tema-1-caso-de-los-domicilios",
     "title": "Unidad 2. Modelos de probabilidad",
     "section": "Sesión aplicada del Tema 1: caso de los domicilios",
-    "text": "Sesión aplicada del Tema 1: caso de los domicilios\nEsta sesión parte de los datos: 600 pedidos de una plataforma de domicilios. Primero se calcula con Python y después se define cada concepto. Descarguen el archivo y guárdenlo en la misma carpeta de su cuaderno antes de la clase.\nDescargar el dataset (CSV) Abrir la presentación aplicada",
+    "text": "Sesión aplicada del Tema 1: caso de los domicilios\nEsta sesión parte de los datos: 600 pedidos de una plataforma de domicilios. Primero se calcula con Python y después se define cada concepto. Descarguen el archivo y guárdenlo en la misma carpeta de su cuaderno antes de la clase.\nDescargar el dataset (CSV)",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "Presentación de la unidad"
@@ -2093,7 +2093,7 @@
     "href": "estadistica-para-analitica/unidad-02/index.html#cómo-está-organizada",
     "title": "Unidad 2. Modelos de probabilidad",
     "section": "Cómo está organizada",
-    "text": "Cómo está organizada\nIgual que la Unidad 2 de Herramientas de Programación I, el material de esta unidad se publica por tema, no por semana. El ritmo semanal y el porcentaje de cierre siguen siendo los que fija el calendario del módulo: lo único que cambia es dónde vive el contenido.\n\n\n\n\nTema\nSaber de la carta descriptiva\n\n\n\n\n1. Variables aleatorias, espacio muestral y función de distribución (presentación) (presentación aplicada: caso domicilios)\nVariables aleatorias, espacio muestral y función de distribución\n\n\n2. Probabilidad condicional, independencia y teorema de Bayes (en preparación)\nProbabilidad condicional y teorema de Bayes\n\n\n3. Valor esperado y varianza (en preparación)\nValor esperado y varianza\n\n\n4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson (en preparación)\nModelos para variables aleatorias discretas\n\n\n5. Modelos continuos: uniforme, normal, gamma y exponencial (en preparación)\nModelos para variables aleatorias continuas\n\n\n\n\nEl tema 5 cierra la unidad con la entrega evaluada del 30%.\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.",
+    "text": "Cómo está organizada\nIgual que la Unidad 2 de Herramientas de Programación I, el material de esta unidad se publica por tema, no por semana. El ritmo semanal y el porcentaje de cierre siguen siendo los que fija el calendario del módulo: lo único que cambia es dónde vive el contenido.\n\n\n\n\nTema\nSaber de la carta descriptiva\n\n\n\n\n1. Variables aleatorias, espacio muestral y función de distribución (presentación) (presentación aplicada: caso domicilios)\nVariables aleatorias, espacio muestral y función de distribución\n\n\n2. Probabilidad condicional, independencia y teorema de Bayes (presentación de la sesión)\nProbabilidad condicional y teorema de Bayes\n\n\n3. Valor esperado y varianza (presentación de la sesión)\nValor esperado y varianza\n\n\n4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson (en preparación)\nModelos para variables aleatorias discretas\n\n\n5. Modelos continuos: uniforme, normal, gamma y exponencial (en preparación)\nModelos para variables aleatorias continuas\n\n\n\n\nEl tema 5 cierra la unidad con la entrega evaluada del 30%.\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "Presentación de la unidad"
@@ -5860,6 +5860,28 @@
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "1. Vectores"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-2-y-3-condicional-bayes-valor-esperado-y-varianza",
+    "href": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-2-y-3-condicional-bayes-valor-esperado-y-varianza",
+    "title": "Unidad 2. Modelos de probabilidad",
+    "section": "Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza",
+    "text": "Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza\nEsta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D, y el modo clase (tecla M) salta las diapositivas de profundización.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "Presentación de la unidad"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
+    "href": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
+    "title": "Unidad 2. Modelos de probabilidad",
+    "section": "Presentaciones de la unidad",
+    "text": "Presentaciones de la unidad\nUna presentación por sesión. Abre la que corresponde al tema que vas a trabajar.\nTema 1. Variables aleatorias Tema 1. Presentación aplicada: caso domicilios Temas 2 y 3. Condicional, Bayes, valor esperado y varianza",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "Presentación de la unidad"
     ]
   }
 ]
