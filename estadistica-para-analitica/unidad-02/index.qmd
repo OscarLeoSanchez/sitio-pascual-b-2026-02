@@ -26,6 +26,12 @@ role="button" download="pedidos_estadistica_analitica.csv"}
 [Abrir la presentación aplicada](presentacion-aplicada-domicilios.html){.btn .btn-outline-primary
 role="button"}
 
+## Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza
+
+Esta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D.
+
+[Abrir la presentación de los Temas 2 y 3](presentacion-condicional-bayes.html){.btn .btn-primary role="button"}
+
 ## De qué se trata esta unidad
 
 La Unidad 1 describió lo que ya se midió: gráficos, tablas y medidas resumen de datos que ya
@@ -48,8 +54,8 @@ el calendario del módulo: lo único que cambia es dónde vive el contenido.
 | Tema | Saber de la carta descriptiva |
 |---|---|
 | **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) ([presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html)) | Variables aleatorias, espacio muestral y función de distribución |
-| **2. Probabilidad condicional, independencia y teorema de Bayes** (en preparación) | Probabilidad condicional y teorema de Bayes |
-| **3. Valor esperado y varianza** (en preparación) | Valor esperado y varianza |
+| **2. Probabilidad condicional, independencia y teorema de Bayes** ([presentación de la sesión](presentacion-condicional-bayes.html)) | Probabilidad condicional y teorema de Bayes |
+| **3. Valor esperado y varianza** ([presentación de la sesión](presentacion-condicional-bayes.html)) | Valor esperado y varianza |
 | **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** (en preparación) | Modelos para variables aleatorias discretas |
 | **5. Modelos continuos: uniforme, normal, gamma y exponencial** (en preparación) | Modelos para variables aleatorias continuas |
 :::

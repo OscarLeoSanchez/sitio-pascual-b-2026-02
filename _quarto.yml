@@ -6,6 +6,7 @@ project:
   resources:
     - .nojekyll
     - herramientas-programacion-1/unidad-02/retos-matrices.html
+    - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
 
 lang: es
 
