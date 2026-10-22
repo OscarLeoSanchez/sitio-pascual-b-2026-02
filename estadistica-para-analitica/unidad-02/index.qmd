@@ -22,6 +22,7 @@ Una presentación por sesión. Abre la que corresponde al tema que vas a trabaja
 [Tema 1. Variables aleatorias](presentacion-variables-aleatorias.html){.btn .btn-outline-primary role="button"}
 [Tema 1. Presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html){.btn .btn-outline-primary role="button"}
 [Temas 2 y 3. Condicional, Bayes, valor esperado y varianza](presentacion-condicional-bayes.html){.btn .btn-primary role="button"}
+[Tema 2. Salió positivo: ejemplos y práctica](presentacion-pedidos-tarde.html){.btn .btn-outline-primary role="button"}
 
 ## Sesión aplicada del Tema 1: caso de los domicilios
 
@@ -58,7 +59,7 @@ el calendario del módulo: lo único que cambia es dónde vive el contenido.
 | Tema | Saber de la carta descriptiva |
 |---|---|
 | **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) ([presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html)) | Variables aleatorias, espacio muestral y función de distribución |
-| **2. Probabilidad condicional, independencia y teorema de Bayes** ([presentación de la sesión](presentacion-condicional-bayes.html)) | Probabilidad condicional y teorema de Bayes |
+| **2. Probabilidad condicional, independencia y teorema de Bayes** ([presentación de la sesión](presentacion-condicional-bayes.html)) ([presentación: salió positivo, ejemplos y práctica](presentacion-pedidos-tarde.html)) | Probabilidad condicional y teorema de Bayes |
 | **3. Valor esperado y varianza** ([presentación de la sesión](presentacion-condicional-bayes.html)) | Valor esperado y varianza |
 | **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** (en preparación) | Modelos para variables aleatorias discretas |
 | **5. Modelos continuos: uniforme, normal, gamma y exponencial** (en preparación) | Modelos para variables aleatorias continuas |

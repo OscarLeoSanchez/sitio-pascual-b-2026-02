@@ -8,6 +8,7 @@ project:
     - herramientas-programacion-1/unidad-02/retos-matrices.html
     - herramientas-programacion-1/unidad-02/presentacion-funciones.html
     - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
+    - estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
 
 lang: es
 
@@ -86,6 +87,8 @@ website:
               href: estadistica-para-analitica/unidad-02/presentacion-aplicada-domicilios.qmd
             - text: "2 y 3. Presentación: condicional, Bayes, valor esperado y varianza"
               href: estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
+            - text: "2. Presentación: salió positivo, ejemplos y práctica"
+              href: estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"
