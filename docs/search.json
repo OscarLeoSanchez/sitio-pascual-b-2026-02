@@ -2067,11 +2067,33 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
+    "href": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
+    "title": "Unidad 2. Modelos de probabilidad",
+    "section": "Presentaciones de la unidad",
+    "text": "Presentaciones de la unidad\nUna presentación por sesión. Abre la que corresponde al tema que vas a trabajar.\nTema 1. Variables aleatorias Tema 1. Presentación aplicada: caso domicilios Temas 2 y 3. Condicional, Bayes, valor esperado y varianza Tema 2. Salió positivo: ejemplos y práctica",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "Presentación de la unidad"
+    ]
+  },
+  {
     "objectID": "estadistica-para-analitica/unidad-02/index.html#sesión-aplicada-del-tema-1-caso-de-los-domicilios",
     "href": "estadistica-para-analitica/unidad-02/index.html#sesión-aplicada-del-tema-1-caso-de-los-domicilios",
     "title": "Unidad 2. Modelos de probabilidad",
     "section": "Sesión aplicada del Tema 1: caso de los domicilios",
     "text": "Sesión aplicada del Tema 1: caso de los domicilios\nEsta sesión parte de los datos: 600 pedidos de una plataforma de domicilios. Primero se calcula con Python y después se define cada concepto. Descarguen el archivo y guárdenlo en la misma carpeta de su cuaderno antes de la clase.\nDescargar el dataset (CSV)",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "Presentación de la unidad"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-2-y-3-condicional-bayes-valor-esperado-y-varianza",
+    "href": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-2-y-3-condicional-bayes-valor-esperado-y-varianza",
+    "title": "Unidad 2. Modelos de probabilidad",
+    "section": "Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza",
+    "text": "Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza\nEsta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D, y el modo clase (tecla M) salta las diapositivas de profundización.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "Presentación de la unidad"
@@ -5860,28 +5882,6 @@
     "crumbs": [
       "Unidad 2. Arreglos y funciones",
       "1. Vectores"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-2-y-3-condicional-bayes-valor-esperado-y-varianza",
-    "href": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-2-y-3-condicional-bayes-valor-esperado-y-varianza",
-    "title": "Unidad 2. Modelos de probabilidad",
-    "section": "Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza",
-    "text": "Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza\nEsta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D, y el modo clase (tecla M) salta las diapositivas de profundización.",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "Presentación de la unidad"
-    ]
-  },
-  {
-    "objectID": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
-    "href": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
-    "title": "Unidad 2. Modelos de probabilidad",
-    "section": "Presentaciones de la unidad",
-    "text": "Presentaciones de la unidad\nUna presentación por sesión. Abre la que corresponde al tema que vas a trabajar.\nTema 1. Variables aleatorias Tema 1. Presentación aplicada: caso domicilios Temas 2 y 3. Condicional, Bayes, valor esperado y varianza Tema 2. Salió positivo: ejemplos y práctica",
-    "crumbs": [
-      "Unidad 2. Modelos de probabilidad",
-      "Presentación de la unidad"
     ]
   }
 ]

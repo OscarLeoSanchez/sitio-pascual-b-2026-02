@@ -7,6 +7,7 @@ project:
     - .nojekyll
     - herramientas-programacion-1/unidad-02/retos-matrices.html
     - herramientas-programacion-1/unidad-02/presentacion-funciones.html
+    - herramientas-programacion-1/unidad-03/presentacion-poo.html
     - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
     - estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
 
@@ -54,6 +55,10 @@ website:
               href: herramientas-programacion-1/unidad-02/paso-de-parametros.qmd
             - text: "5. Menús"
               href: herramientas-programacion-1/unidad-02/menus.qmd
+        - section: "Unidad 3. Programación orientada a objetos y aplicaciones gráficas"
+          contents:
+            - text: "Semana 11. Presentación: programación orientada a objetos desde cero"
+              href: herramientas-programacion-1/unidad-03/presentacion-poo.html
     - id: estadistica
       style: docked
       background: light

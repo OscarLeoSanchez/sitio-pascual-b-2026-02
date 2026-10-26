@@ -91,7 +91,7 @@ semana. El ritmo semanal y el porcentaje de cierre no cambian.
 ::: {.calendario}
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|
-| 11 | Paradigma de la POO: clases y objetos. Atributos, métodos y constructores | Definición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase | - |
+| **[11](unidad-03/presentacion-poo.html)** | Paradigma de la POO: clases y objetos. Atributos, métodos y constructores | Definición del paradigma de la POO, clases, objetos. Atributos, métodos y constructores de una clase | - |
 | 12 | Instanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML | Instanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados | - |
 | 13 | Estándares de documentación para escritura de código | Estándares de documentación para escritura de códigos de programación | - |
 | 14 | Manejo de archivos de texto para persistencia | Manejo de archivos de texto | - |
