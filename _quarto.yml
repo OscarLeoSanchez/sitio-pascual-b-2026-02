@@ -10,6 +10,7 @@ project:
     - herramientas-programacion-1/unidad-03/presentacion-poo.html
     - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
     - estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
+    - estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
 
 lang: es
 
@@ -94,6 +95,8 @@ website:
               href: estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
             - text: "2. Presentación: salió positivo, ejemplos y práctica"
               href: estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
+            - text: "4 y 5. Presentación: modelos discretos y continuos"
+              href: estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

@@ -2071,7 +2071,7 @@
     "href": "estadistica-para-analitica/unidad-02/index.html#presentaciones-de-la-unidad",
     "title": "Unidad 2. Modelos de probabilidad",
     "section": "Presentaciones de la unidad",
-    "text": "Presentaciones de la unidad\nUna presentación por sesión. Abre la que corresponde al tema que vas a trabajar.\nTema 1. Variables aleatorias Tema 1. Presentación aplicada: caso domicilios Temas 2 y 3. Condicional, Bayes, valor esperado y varianza Tema 2. Salió positivo: ejemplos y práctica",
+    "text": "Presentaciones de la unidad\nUna presentación por sesión. Abre la que corresponde al tema que vas a trabajar.\nTema 1. Variables aleatorias Tema 1. Presentación aplicada: caso domicilios Temas 2 y 3. Condicional, Bayes, valor esperado y varianza Tema 2. Salió positivo: ejemplos y práctica Temas 4 y 5. Modelos discretos y continuos",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "Presentación de la unidad"
@@ -2100,6 +2100,28 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-4-y-5-modelos-discretos-y-continuos",
+    "href": "estadistica-para-analitica/unidad-02/index.html#sesión-de-los-temas-4-y-5-modelos-discretos-y-continuos",
+    "title": "Unidad 2. Modelos de probabilidad",
+    "section": "Sesión de los Temas 4 y 5: modelos discretos y continuos",
+    "text": "Sesión de los Temas 4 y 5: modelos discretos y continuos\nEsta sesión presenta los ocho modelos de probabilidad de la unidad: uniforme, binomial, hipergeométrica y Poisson (discretos), y uniforme, normal, exponencial y gamma (continuos). Cada modelo se define con su función de masa o de densidad, su valor esperado y su varianza, y se contrasta con datos reales mediante simulación en Python. Cada bloque de código tiene un botón Funciones que explica para qué sirve cada llamada. El modo de pantalla completa y las flechas del teclado permiten recorrerla paso a paso.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "Presentación de la unidad"
+    ]
+  },
+  {
+    "objectID": "estadistica-para-analitica/unidad-02/index.html#datos-de-los-temas-4-y-5",
+    "href": "estadistica-para-analitica/unidad-02/index.html#datos-de-los-temas-4-y-5",
+    "title": "Unidad 2. Modelos de probabilidad",
+    "section": "Datos de los temas 4 y 5",
+    "text": "Datos de los temas 4 y 5\nDescarguen los archivos y guárdenlos en la misma carpeta de su cuaderno antes de la clase. Cada uno se lee con pd.read_csv(\"nombre.csv\").\n\n\n\nArchivo\nContenido\nFilas\n\n\n\n\npartidos_premier_2015_16.csv\nPartidos de la Premier League 2015/16: jornada, fecha, equipos y goles de cada uno\n380\n\n\npartidos_mundial_2022.csv\nPartidos del Mundial de Catar 2022: fecha, fase, equipos y goles\n64\n\n\ngoles_mundial_2022.csv\nCada gol del Mundial 2022: partido, equipo, periodo, minuto, segundo, si fue de penal o autogol\n172\n\n\npenales_mundial_2022.csv\nPenales del Mundial 2022, en juego y en tandas, con su resultado\n64\n\n\npases_mundial_2022.csv\nPases por equipo y partido en el tiempo reglamentario\n128\n\n\nsismos_colombia_m5.csv\nSismos de magnitud 5,0 o más con epicentro en Colombia, de 2000 a 2025: fecha y hora UTC, magnitud, profundidad en km y lugar\n149\n\n\n\nLos datos de partidos provienen de StatsBomb Open Data y se redistribuyen aquí como subconjuntos preparados para la clase, con atribución a StatsBomb. El catálogo de sismos proviene del catálogo de terremotos del USGS.",
+    "crumbs": [
+      "Unidad 2. Modelos de probabilidad",
+      "Presentación de la unidad"
+    ]
+  },
+  {
     "objectID": "estadistica-para-analitica/unidad-02/index.html#de-qué-se-trata-esta-unidad",
     "href": "estadistica-para-analitica/unidad-02/index.html#de-qué-se-trata-esta-unidad",
     "title": "Unidad 2. Modelos de probabilidad",
@@ -2115,7 +2137,7 @@
     "href": "estadistica-para-analitica/unidad-02/index.html#cómo-está-organizada",
     "title": "Unidad 2. Modelos de probabilidad",
     "section": "Cómo está organizada",
-    "text": "Cómo está organizada\nIgual que la Unidad 2 de Herramientas de Programación I, el material de esta unidad se publica por tema, no por semana. El ritmo semanal y el porcentaje de cierre siguen siendo los que fija el calendario del módulo: lo único que cambia es dónde vive el contenido.\n\n\n\n\nTema\nSaber de la carta descriptiva\n\n\n\n\n1. Variables aleatorias, espacio muestral y función de distribución (presentación) (presentación aplicada: caso domicilios)\nVariables aleatorias, espacio muestral y función de distribución\n\n\n2. Probabilidad condicional, independencia y teorema de Bayes (presentación de la sesión) (presentación: salió positivo, ejemplos y práctica)\nProbabilidad condicional y teorema de Bayes\n\n\n3. Valor esperado y varianza (presentación de la sesión)\nValor esperado y varianza\n\n\n4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson (en preparación)\nModelos para variables aleatorias discretas\n\n\n5. Modelos continuos: uniforme, normal, gamma y exponencial (en preparación)\nModelos para variables aleatorias continuas\n\n\n\n\nEl tema 5 cierra la unidad con la entrega evaluada del 30%.\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.",
+    "text": "Cómo está organizada\nIgual que la Unidad 2 de Herramientas de Programación I, el material de esta unidad se publica por tema, no por semana. El ritmo semanal y el porcentaje de cierre siguen siendo los que fija el calendario del módulo: lo único que cambia es dónde vive el contenido.\n\n\n\n\nTema\nSaber de la carta descriptiva\n\n\n\n\n1. Variables aleatorias, espacio muestral y función de distribución (presentación) (presentación aplicada: caso domicilios)\nVariables aleatorias, espacio muestral y función de distribución\n\n\n2. Probabilidad condicional, independencia y teorema de Bayes (presentación de la sesión) (presentación: salió positivo, ejemplos y práctica)\nProbabilidad condicional y teorema de Bayes\n\n\n3. Valor esperado y varianza (presentación de la sesión)\nValor esperado y varianza\n\n\n4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson (presentación de la sesión)\nModelos para variables aleatorias discretas\n\n\n5. Modelos continuos: uniforme, normal, gamma y exponencial (presentación de la sesión)\nModelos para variables aleatorias continuas\n\n\n\n\nEl tema 5 cierra la unidad con la entrega evaluada del 30%.\n\nEstadística para Analítica. Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.\nTransparencia. La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado.",
     "crumbs": [
       "Unidad 2. Modelos de probabilidad",
       "Presentación de la unidad"

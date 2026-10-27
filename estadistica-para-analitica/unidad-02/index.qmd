@@ -21,8 +21,9 @@ Una presentación por sesión. Abre la que corresponde al tema que vas a trabaja
 
 [Tema 1. Variables aleatorias](presentacion-variables-aleatorias.html){.btn .btn-outline-primary role="button"}
 [Tema 1. Presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html){.btn .btn-outline-primary role="button"}
-[Temas 2 y 3. Condicional, Bayes, valor esperado y varianza](presentacion-condicional-bayes.html){.btn .btn-primary role="button"}
+[Temas 2 y 3. Condicional, Bayes, valor esperado y varianza](presentacion-condicional-bayes.html){.btn .btn-outline-primary role="button"}
 [Tema 2. Salió positivo: ejemplos y práctica](presentacion-pedidos-tarde.html){.btn .btn-outline-primary role="button"}
+[Temas 4 y 5. Modelos discretos y continuos](presentacion-modelos-probabilidad.html){.btn .btn-primary role="button"}
 
 ## Sesión aplicada del Tema 1: caso de los domicilios
 
@@ -36,6 +37,25 @@ role="button" download="pedidos_estadistica_analitica.csv"}
 ## Sesión de los Temas 2 y 3: condicional, Bayes, valor esperado y varianza
 
 Esta sesión sigue el mismo caso de los 600 pedidos. Cada concepto parte de una pregunta, la resuelve con código y después la define con su ecuación y un ejemplo resuelto a mano. Las definiciones quedan siempre a la mano con la tecla D, y el modo clase (tecla M) salta las diapositivas de profundización.
+
+## Sesión de los Temas 4 y 5: modelos discretos y continuos
+
+Esta sesión presenta los ocho modelos de probabilidad de la unidad: uniforme, binomial, hipergeométrica y Poisson (discretos), y uniforme, normal, exponencial y gamma (continuos). Cada modelo se define con su función de masa o de densidad, su valor esperado y su varianza, y se contrasta con datos reales mediante simulación en Python. Cada bloque de código tiene un botón *Funciones* que explica para qué sirve cada llamada. El modo de pantalla completa y las flechas del teclado permiten recorrerla paso a paso.
+
+## Datos de los temas 4 y 5
+
+Descarguen los archivos y guárdenlos en la misma carpeta de su cuaderno antes de la clase. Cada uno se lee con `pd.read_csv("nombre.csv")`.
+
+| Archivo | Contenido | Filas |
+|---|---|---|
+| [partidos_premier_2015_16.csv](recursos/partidos_premier_2015_16.csv){download="partidos_premier_2015_16.csv"} | Partidos de la Premier League 2015/16: jornada, fecha, equipos y goles de cada uno | 380 |
+| [partidos_mundial_2022.csv](recursos/partidos_mundial_2022.csv){download="partidos_mundial_2022.csv"} | Partidos del Mundial de Catar 2022: fecha, fase, equipos y goles | 64 |
+| [goles_mundial_2022.csv](recursos/goles_mundial_2022.csv){download="goles_mundial_2022.csv"} | Cada gol del Mundial 2022: partido, equipo, periodo, minuto, segundo, si fue de penal o autogol | 172 |
+| [penales_mundial_2022.csv](recursos/penales_mundial_2022.csv){download="penales_mundial_2022.csv"} | Penales del Mundial 2022, en juego y en tandas, con su resultado | 64 |
+| [pases_mundial_2022.csv](recursos/pases_mundial_2022.csv){download="pases_mundial_2022.csv"} | Pases por equipo y partido en el tiempo reglamentario | 128 |
+| [sismos_colombia_m5.csv](recursos/sismos_colombia_m5.csv){download="sismos_colombia_m5.csv"} | Sismos de magnitud 5,0 o más con epicentro en Colombia, de 2000 a 2025: fecha y hora UTC, magnitud, profundidad en km y lugar | 149 |
+
+Los datos de partidos provienen de [StatsBomb Open Data](https://github.com/statsbomb/open-data) y se redistribuyen aquí como subconjuntos preparados para la clase, con atribución a StatsBomb. El catálogo de sismos proviene del [catálogo de terremotos del USGS](https://earthquake.usgs.gov/fdsnws/event/1/).
 
 ## De qué se trata esta unidad
 
@@ -61,8 +81,8 @@ el calendario del módulo: lo único que cambia es dónde vive el contenido.
 | **[1. Variables aleatorias, espacio muestral y función de distribución](variables-aleatorias.qmd)** ([presentación](presentacion-variables-aleatorias.html)) ([presentación aplicada: caso domicilios](presentacion-aplicada-domicilios.html)) | Variables aleatorias, espacio muestral y función de distribución |
 | **2. Probabilidad condicional, independencia y teorema de Bayes** ([presentación de la sesión](presentacion-condicional-bayes.html)) ([presentación: salió positivo, ejemplos y práctica](presentacion-pedidos-tarde.html)) | Probabilidad condicional y teorema de Bayes |
 | **3. Valor esperado y varianza** ([presentación de la sesión](presentacion-condicional-bayes.html)) | Valor esperado y varianza |
-| **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** (en preparación) | Modelos para variables aleatorias discretas |
-| **5. Modelos continuos: uniforme, normal, gamma y exponencial** (en preparación) | Modelos para variables aleatorias continuas |
+| **4. Modelos discretos: uniforme, binomial, hipergeométrica y Poisson** ([presentación de la sesión](presentacion-modelos-probabilidad.html)) | Modelos para variables aleatorias discretas |
+| **5. Modelos continuos: uniforme, normal, gamma y exponencial** ([presentación de la sesión](presentacion-modelos-probabilidad.html)) | Modelos para variables aleatorias continuas |
 :::
 
 El tema 5 cierra la unidad con la entrega evaluada del 30%.
