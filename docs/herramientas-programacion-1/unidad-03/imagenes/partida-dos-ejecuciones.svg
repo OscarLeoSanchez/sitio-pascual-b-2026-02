@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="430" viewBox="0 0 880 430" role="img" aria-label="Dos ejecuciones del programa: en la primera no existe partida.txt, se crea una partida nueva, Aragorn recibe 30 de dano, se guarda Guerrero;Aragorn;70;15 y sale vida 70; en la segunda se lee el archivo, la partida se carga, Aragorn recibe otros 30, se guarda Guerrero;Aragorn;40;15 y sale vida 40; el archivo sobrevive entre ejecuciones" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="pde-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="pde-punta-t" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <text x="170" y="28" text-anchor="middle" class="etq" font-size="18px" fill="#2f7bb8">Ejecucion 1</text>
+  <text x="710" y="28" text-anchor="middle" class="etq" font-size="18px" fill="#2f7bb8">Ejecucion 2</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 170,98 L 170,116" marker-end="url(#pde-punta)"/>
+    <path d="M 170,170 L 170,188" marker-end="url(#pde-punta)"/>
+    <path d="M 170,242 L 170,260" marker-end="url(#pde-punta)"/>
+    <path d="M 170,314 L 170,332" marker-end="url(#pde-punta)"/>
+    <path d="M 710,98 L 710,116" marker-end="url(#pde-punta)"/>
+    <path d="M 710,170 L 710,188" marker-end="url(#pde-punta)"/>
+    <path d="M 710,242 L 710,260" marker-end="url(#pde-punta)"/>
+    <path d="M 710,314 L 710,332" marker-end="url(#pde-punta)"/>
+  </g>
+
+  <rect x="15" y="44" width="310" height="52" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="170" y="76" text-anchor="middle" class="txt">No existe partida.txt</text>
+  <rect x="15" y="118" width="310" height="52" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="170" y="150" text-anchor="middle" class="etq" fill="#2f7bb8">Partida nueva</text>
+  <rect x="15" y="190" width="310" height="52" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="170" y="222" text-anchor="middle" class="txt">Aragorn recibe 30 de dano</text>
+  <rect x="15" y="262" width="310" height="52" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="170" y="283" text-anchor="middle" class="sec">se guarda</text>
+  <text x="170" y="305" text-anchor="middle" class="codigo">Guerrero;Aragorn;70;15</text>
+  <rect x="15" y="334" width="310" height="52" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="170" y="366" text-anchor="middle" class="codigo" font-weight="700">Aragorn: vida 70</text>
+
+  <rect x="555" y="44" width="310" height="52" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="710" y="76" text-anchor="middle" class="txt">Lee el archivo partida.txt</text>
+  <rect x="555" y="118" width="310" height="52" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="710" y="150" text-anchor="middle" class="etq" fill="#2f7bb8">Partida cargada</text>
+  <rect x="555" y="190" width="310" height="52" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="710" y="222" text-anchor="middle" class="txt">Aragorn recibe otros 30</text>
+  <rect x="555" y="262" width="310" height="52" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="710" y="283" text-anchor="middle" class="sec">se guarda</text>
+  <text x="710" y="305" text-anchor="middle" class="codigo">Guerrero;Aragorn;40;15</text>
+  <rect x="555" y="334" width="310" height="52" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="710" y="366" text-anchor="middle" class="codigo" font-weight="700">Aragorn: vida 40</text>
+
+  <path d="M 325,288 L 360,288 L 360,70 L 553,70" fill="none" stroke="#0e8f8f" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#pde-punta-t)"/>
+  <text x="374" y="160" class="etq" fill="#0e8f8f">el archivo sobrevive</text>
+  <text x="374" y="182" class="etq" fill="#0e8f8f">entre ejecuciones</text>
+</svg>

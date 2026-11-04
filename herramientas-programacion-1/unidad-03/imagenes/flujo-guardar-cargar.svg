@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="420" viewBox="0 0 880 420" role="img" aria-label="Flujo de guardar y cargar: guardar convierte cada Personaje con ToLinea y lo escribe con StreamWriter WriteLine en partida.txt; cargar pregunta File.Exists, si no existe devuelve lista vacia, si existe lee con StreamReader ReadLine y convierte con Personaje.DesdeLinea, y si devuelve null la linea se descarta" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="fgc-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="fgc-punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <text x="15" y="26" class="etq" fill="#c4682c" font-size="18px">GUARDAR</text>
+
+  <rect x="15" y="40" width="180" height="70" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="105" y="70" text-anchor="middle" class="codigo">List&lt;Personaje&gt;</text>
+  <text x="105" y="92" text-anchor="middle" class="sec">los objetos</text>
+  <rect x="235" y="40" width="135" height="70" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="302" y="81" text-anchor="middle" class="codigo">p.ToLinea()</text>
+  <rect x="410" y="40" width="135" height="70" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="477" y="70" text-anchor="middle" class="codigo">StreamWriter</text>
+  <text x="477" y="92" text-anchor="middle" class="codigo">.WriteLine</text>
+  <rect x="585" y="40" width="125" height="70" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="647" y="81" text-anchor="middle" class="codigo">partida.txt</text>
+
+  <g stroke="#5b6876" stroke-width="2.25" fill="none">
+    <path d="M 195,75 L 233,75" marker-end="url(#fgc-punta)"/>
+    <path d="M 370,75 L 408,75" marker-end="url(#fgc-punta)"/>
+    <path d="M 545,75 L 583,75" marker-end="url(#fgc-punta)"/>
+  </g>
+
+  <path d="M 15,140 L 865,140" stroke="#cfd8e3" stroke-width="1.5" fill="none"/>
+  <text x="15" y="168" class="etq" fill="#c4682c" font-size="18px">CARGAR</text>
+
+  <path d="M 105,185 L 195,240 L 105,295 L 15,240 z" fill="#f3ecf8" stroke="#7a3f9d" stroke-width="2.25"/>
+  <text x="105" y="236" text-anchor="middle" class="codigo">File.Exists</text>
+  <text x="105" y="257" text-anchor="middle" class="codigo">(ruta)?</text>
+  <rect x="235" y="202" width="135" height="76" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="302" y="246" text-anchor="middle" class="codigo">partida.txt</text>
+  <rect x="410" y="202" width="135" height="76" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="477" y="231" text-anchor="middle" class="codigo">StreamReader</text>
+  <text x="477" y="253" text-anchor="middle" class="codigo">.ReadLine</text>
+  <rect x="585" y="202" width="125" height="76" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="647" y="226" text-anchor="middle" class="codigo">Personaje.</text>
+  <text x="647" y="248" text-anchor="middle" class="codigo">DesdeLinea</text>
+  <text x="647" y="270" text-anchor="middle" class="codigo">(linea)</text>
+  <rect x="750" y="202" width="115" height="76" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="807" y="231" text-anchor="middle" class="codigo">List&lt;</text>
+  <text x="807" y="253" text-anchor="middle" class="codigo">Personaje&gt;</text>
+
+  <g stroke="#5b6876" stroke-width="2.25" fill="none">
+    <path d="M 195,240 L 233,240" marker-end="url(#fgc-punta)"/>
+    <path d="M 370,240 L 408,240" marker-end="url(#fgc-punta)"/>
+    <path d="M 545,240 L 583,240" marker-end="url(#fgc-punta)"/>
+    <path d="M 710,240 L 748,240" marker-end="url(#fgc-punta)"/>
+  </g>
+  <path d="M 105,295 L 105,343" stroke="#b3372c" stroke-width="2.25" fill="none" marker-end="url(#fgc-punta-r)"/>
+  <text x="115" y="322" class="etq" fill="#b3372c">no</text>
+  <text x="214" y="228" text-anchor="middle" class="etq" fill="#0e8f8f">si</text>
+
+  <rect x="15" y="345" width="180" height="46" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="105" y="374" text-anchor="middle" class="codigo">lista vacia</text>
+
+  <path d="M 647,278 L 647,343" stroke="#7a3f9d" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+  <rect x="440" y="345" width="425" height="46" rx="10" fill="#ffffff" stroke="#7a3f9d" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="652" y="374" text-anchor="middle" class="txt">si devuelve null, la linea se descarta</text>
+</svg>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="440" viewBox="0 0 880 440" role="img" aria-label="Las tres caras del objeto Gandalf: el plano UML de la clase Mago, el codigo new Mago Gandalf 80 40, y la linea del archivo Mago;Gandalf;80;40 con cuatro campos tipo, nombre, vida y extra; ToLinea convierte el objeto en linea y DesdeLinea la convierte de regreso" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="tco-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <text x="440" y="24" text-anchor="middle" class="etq" fill="#2f7bb8">Cara 1: Plano</text>
+  <rect x="290" y="34" width="300" height="30" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="440" y="55" text-anchor="middle" class="etq" fill="#2f7bb8" font-size="17px">Mago</text>
+  <rect x="290" y="64" width="300" height="30" fill="#e9f6f5" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="440" y="85" text-anchor="middle" class="codigo">Nombre, Vida, Mana</text>
+  <rect x="290" y="94" width="300" height="30" fill="#fbefe6" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="440" y="115" text-anchor="middle" class="codigo">Atacar(), ToLinea()</text>
+
+  <text x="185" y="186" text-anchor="middle" class="etq" fill="#0e8f8f">Cara 2: Codigo</text>
+  <text x="695" y="186" text-anchor="middle" class="etq" fill="#0e8f8f">Cara 3: Archivo</text>
+
+  <rect x="15" y="198" width="340" height="72" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="185" y="240" text-anchor="middle" class="codigo">new Mago("Gandalf", 80, 40)</text>
+  <rect x="525" y="198" width="340" height="72" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="540" y="240" class="codigo">Mago;Gandalf;80;40</text>
+
+  <g stroke="#c4682c" stroke-width="2.5" fill="none">
+    <path d="M 357,222 L 523,222" marker-end="url(#tco-punta)"/>
+    <path d="M 523,250 L 357,250" marker-end="url(#tco-punta)"/>
+  </g>
+  <text x="440" y="212" text-anchor="middle" class="codigo" fill="#c4682c" font-weight="700">ToLinea()</text>
+  <text x="440" y="276" text-anchor="middle" class="codigo" fill="#c4682c" font-weight="700">DesdeLinea()</text>
+
+  <g stroke-width="3">
+    <path d="M 540,250 L 578,250" stroke="#2f7bb8"/>
+    <path d="M 588,250 L 654,250" stroke="#7a3f9d"/>
+    <path d="M 662,250 L 682,250" stroke="#c4682c"/>
+    <path d="M 691,250 L 710,250" stroke="#0e8f8f"/>
+  </g>
+  <g stroke-width="1.75" fill="none">
+    <path d="M 559,254 L 565,330" stroke="#2f7bb8"/>
+    <path d="M 621,254 L 651,330" stroke="#7a3f9d"/>
+    <path d="M 672,254 L 737,330" stroke="#c4682c"/>
+    <path d="M 700,254 L 823,330" stroke="#0e8f8f"/>
+  </g>
+
+  <rect x="525" y="332" width="80" height="58" rx="9" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2"/>
+  <text x="565" y="356" text-anchor="middle" class="etq" fill="#2f7bb8">tipo</text>
+  <text x="565" y="377" text-anchor="middle" class="sec">Mago</text>
+  <rect x="611" y="332" width="80" height="58" rx="9" fill="#f3ecf8" stroke="#7a3f9d" stroke-width="2"/>
+  <text x="651" y="356" text-anchor="middle" class="etq" fill="#7a3f9d">nombre</text>
+  <text x="651" y="377" text-anchor="middle" class="sec">Gandalf</text>
+  <rect x="697" y="332" width="80" height="58" rx="9" fill="#fbefe6" stroke="#c4682c" stroke-width="2"/>
+  <text x="737" y="356" text-anchor="middle" class="etq" fill="#c4682c">vida</text>
+  <text x="737" y="377" text-anchor="middle" class="sec">80</text>
+  <rect x="783" y="332" width="80" height="58" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2"/>
+  <text x="823" y="356" text-anchor="middle" class="etq" fill="#0e8f8f">extra</text>
+  <text x="823" y="377" text-anchor="middle" class="sec">40</text>
+
+  <text x="185" y="360" text-anchor="middle" class="txt">Gandalf es el mismo objeto,</text>
+  <text x="185" y="382" text-anchor="middle" class="txt">visto de tres formas.</text>
+  <text x="440" y="424" text-anchor="middle" class="sec">El extra de un Mago es el mana; el de un Guerrero seria la fuerza.</text>
+</svg>

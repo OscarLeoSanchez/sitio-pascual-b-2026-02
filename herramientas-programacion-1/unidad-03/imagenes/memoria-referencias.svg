@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="440" viewBox="0 0 880 440" role="img" aria-label="Memoria y referencias: las variables aragorn y copia apuntan al mismo objeto Guerrero con Vida 70 despues de RecibirDano 30, y la variable boromir apunta a otro objeto con Vida 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="mr-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#7a3f9d"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <text x="120" y="34" text-anchor="middle" class="txt" font-weight="700">Variables</text>
+  <text x="680" y="34" text-anchor="middle" class="txt" font-weight="700">Objetos en memoria</text>
+
+  <rect x="40" y="70" width="160" height="44" rx="9" fill="#ffffff" stroke="#5b6876" stroke-width="2"/>
+  <text x="120" y="98" text-anchor="middle" class="codigo" font-weight="700">aragorn</text>
+  <rect x="40" y="140" width="160" height="44" rx="9" fill="#ffffff" stroke="#5b6876" stroke-width="2"/>
+  <text x="120" y="168" text-anchor="middle" class="codigo" font-weight="700">copia</text>
+  <rect x="40" y="300" width="160" height="44" rx="9" fill="#ffffff" stroke="#5b6876" stroke-width="2"/>
+  <text x="120" y="328" text-anchor="middle" class="codigo" font-weight="700">boromir</text>
+
+  <rect x="500" y="52" width="360" height="130" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="680" y="78" text-anchor="middle" class="etq" fill="#0e8f8f" font-size="18px">Guerrero</text>
+  <text x="522" y="106" class="codigo">Nombre = "Aragorn"</text>
+  <text x="522" y="132" class="codigo" fill="#b3372c" font-weight="700">Vida   = 70</text>
+  <text x="522" y="158" class="codigo">Fuerza = 15</text>
+
+  <rect x="500" y="280" width="360" height="130" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="680" y="306" text-anchor="middle" class="etq" fill="#0e8f8f" font-size="18px">Guerrero</text>
+  <text x="522" y="334" class="codigo">Nombre = "Boromir"</text>
+  <text x="522" y="360" class="codigo">Vida   = 100</text>
+  <text x="522" y="386" class="codigo">Fuerza = 12</text>
+
+  <g stroke="#7a3f9d" stroke-width="2.25" fill="none">
+    <path d="M 200,92 L 498,104" marker-end="url(#mr-punta)"/>
+    <path d="M 200,162 L 498,142" marker-end="url(#mr-punta)"/>
+    <path d="M 200,322 L 498,336" marker-end="url(#mr-punta)"/>
+  </g>
+
+  <text x="360" y="224" text-anchor="middle" class="etq" fill="#7a3f9d">un solo objeto, dos variables</text>
+  <text x="360" y="246" text-anchor="middle" class="sec">(Vida 70 despues de RecibirDano(30))</text>
+  <text x="360" y="400" text-anchor="middle" class="sec">otro objeto, otra variable</text>
+</svg>

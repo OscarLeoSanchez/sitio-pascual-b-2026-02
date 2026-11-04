@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="440" viewBox="0 0 880 440" role="img" aria-label="Polimorfismo: un arreglo de Personaje con aragorn, gandalf y gandalf recibe la llamada p.Atacar(orco) y produce tres resultados distintos segun la clase y el estado de cada objeto" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="pa-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <text x="440" y="26" text-anchor="middle" class="txt" font-weight="700" font-size="18px">Un mensaje, tres resultados</text>
+  <text x="60" y="64" class="codigo" font-weight="700">Personaje[] equipo</text>
+
+  <rect x="60" y="76" width="190" height="44" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="155" y="104" text-anchor="middle" class="codigo">[0] aragorn</text>
+  <rect x="345" y="76" width="190" height="44" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="440" y="104" text-anchor="middle" class="codigo">[1] gandalf</text>
+  <rect x="630" y="76" width="190" height="44" rx="9" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="725" y="104" text-anchor="middle" class="codigo">[2] gandalf</text>
+
+  <g stroke="#5b6876" stroke-width="2.25" fill="none">
+    <path d="M 155,120 L 340,170" marker-end="url(#pa-punta)"/>
+    <path d="M 440,120 L 440,168" marker-end="url(#pa-punta)"/>
+    <path d="M 725,120 L 540,170" marker-end="url(#pa-punta)"/>
+    <path d="M 340,214 L 155,286" marker-end="url(#pa-punta)"/>
+    <path d="M 440,214 L 440,286" marker-end="url(#pa-punta)"/>
+    <path d="M 540,214 L 725,286" marker-end="url(#pa-punta)"/>
+  </g>
+
+  <rect x="320" y="172" width="240" height="42" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="440" y="199" text-anchor="middle" class="codigo" font-weight="700" fill="#c4682c">p.Atacar(orco)</text>
+
+  <rect x="20" y="290" width="270" height="110" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="155" y="318" text-anchor="middle" class="etq" fill="#2f7bb8">Guerrero</text>
+  <text x="155" y="350" text-anchor="middle" class="txt">resta 15 al Orco,</text>
+  <text x="155" y="372" text-anchor="middle" class="txt">devuelve true</text>
+
+  <rect x="305" y="290" width="270" height="110" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="440" y="318" text-anchor="middle" class="etq" fill="#2f7bb8">Mago</text>
+  <text x="440" y="350" text-anchor="middle" class="txt">gasta 10 de mana, resta 25,</text>
+  <text x="440" y="372" text-anchor="middle" class="txt">devuelve true</text>
+
+  <rect x="590" y="290" width="270" height="110" rx="10" fill="#f9eceb" stroke="#b3372c" stroke-width="2.25"/>
+  <text x="725" y="318" text-anchor="middle" class="etq" fill="#b3372c">Mago sin mana suficiente</text>
+  <text x="725" y="350" text-anchor="middle" class="txt">devuelve false,</text>
+  <text x="725" y="372" text-anchor="middle" class="txt">no pasa nada</text>
+
+  <text x="440" y="428" text-anchor="middle" class="sec">Mismo mensaje, y cada objeto responde segun su clase.</text>
+</svg>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="400" viewBox="0 0 880 400" role="img" aria-label="Caja UML de la clase abstracta Personaje con tres compartimentos: nombre, atributos y metodos, y llamadas que explican el nombre de la clase, los atributos, los metodos, el signo mas de publico, el signo menos de privado y la cursiva de abstracto" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ucp-punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+  </defs>
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <rect x="260" y="50" width="400" height="60" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="460" y="78" text-anchor="middle" class="etq" fill="#2f7bb8" font-size="19px" font-style="italic">Personaje</text>
+  <text x="460" y="100" text-anchor="middle" class="sec">abstracta</text>
+
+  <rect x="260" y="110" width="400" height="112" fill="#e9f6f5" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="276" y="136" class="codigo">+ VidaMaxima : int = 100</text>
+  <text x="276" y="162" class="codigo">+ Nombre : string</text>
+  <text x="276" y="188" class="codigo">+ Vida : int {private set}</text>
+  <text x="276" y="214" class="codigo">+ EstaVivo : bool</text>
+
+  <rect x="260" y="222" width="400" height="122" fill="#fbefe6" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="276" y="248" class="codigo">+ RecibirDano(dano : int)</text>
+  <text x="276" y="274" class="codigo">+ Curar(puntos : int)</text>
+  <text x="276" y="300" class="codigo" font-style="italic">+ Atacar(objetivo : Personaje) : bool</text>
+  <text x="276" y="326" class="codigo" font-style="italic">+ ToLinea() : string</text>
+
+  <g fill="#ffffff" stroke="#cfd8e3" stroke-width="1.5">
+    <rect x="20" y="58" width="200" height="44" rx="9"/>
+    <rect x="20" y="136" width="200" height="62" rx="9"/>
+    <rect x="20" y="236" width="200" height="86" rx="9"/>
+    <rect x="680" y="146" width="180" height="58" rx="9"/>
+    <rect x="680" y="216" width="180" height="58" rx="9"/>
+    <rect x="680" y="286" width="180" height="76" rx="9"/>
+  </g>
+
+  <text x="120" y="86" text-anchor="middle" class="etq" fill="#2f7bb8">nombre de la clase</text>
+  <text x="120" y="162" text-anchor="middle" class="etq" fill="#0e8f8f">atributos:</text>
+  <text x="120" y="184" text-anchor="middle" class="sec">nombre : tipo</text>
+  <text x="120" y="262" text-anchor="middle" class="etq" fill="#c4682c">metodos:</text>
+  <text x="120" y="284" text-anchor="middle" class="sec">nombre(parametros)</text>
+  <text x="120" y="306" text-anchor="middle" class="sec">: retorno</text>
+
+  <text x="770" y="172" text-anchor="middle" class="etq" fill="#7a3f9d">+ publico</text>
+  <text x="770" y="194" text-anchor="middle" class="sec">visible desde fuera</text>
+  <text x="770" y="242" text-anchor="middle" class="etq" fill="#7a3f9d">- privado</text>
+  <text x="770" y="264" text-anchor="middle" class="sec">solo dentro de la clase</text>
+  <text x="770" y="312" text-anchor="middle" class="etq" fill="#7a3f9d" font-style="italic">cursiva = abstracto</text>
+  <text x="770" y="334" text-anchor="middle" class="sec">sin cuerpo en esta clase</text>
+  <text x="770" y="353" text-anchor="middle" class="sec">las hijas lo escriben</text>
+
+  <g stroke="#5b6876" stroke-width="2" fill="none">
+    <path d="M 220,80 L 258,80" marker-end="url(#ucp-punta)"/>
+    <path d="M 220,167 L 258,167" marker-end="url(#ucp-punta)"/>
+    <path d="M 220,279 L 258,279" marker-end="url(#ucp-punta)"/>
+    <path d="M 680,175 L 662,175" marker-end="url(#ucp-punta)"/>
+    <path d="M 680,320 L 662,300" marker-end="url(#ucp-punta)"/>
+  </g>
+
+  <text x="460" y="378" text-anchor="middle" class="sec">Tres compartimentos: arriba el nombre, en medio los datos, abajo las acciones.</text>
+</svg>

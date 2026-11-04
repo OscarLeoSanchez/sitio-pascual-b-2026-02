@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="410" viewBox="0 0 880 410" role="img" aria-label="Dos cajas UML lado a lado sin herencia: Guerrero con Nombre, Vida, Fuerza y Mago con Nombre, Vida, Mana comparten Nombre, Vida, RecibirDano, Curar y EstaVivo repetidos en rojo; Fuerza y Mana son lo propio en verde azulado; Atacar tiene el mismo nombre pero distinto cuerpo en naranja" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .codigo { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; font-weight: 700; }
+  </style>
+  <text x="440" y="28" text-anchor="middle" class="txt" font-weight="700" font-size="18px">Dos clases, mucho repetido</text>
+  <rect x="20" y="50" width="310" height="294" rx="10" fill="#ffffff" stroke="#2f7bb8" stroke-width="2.25"/>
+  <rect x="20" y="50" width="310" height="42" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="175" y="78" text-anchor="middle" class="etq" fill="#2f7bb8" font-size="18px">Guerrero</text>
+  <path d="M 20,198 L 330,198 M 20,200 L 330,200" stroke="#2f7bb8" stroke-width="1.5" fill="none"/>
+  <rect x="28" y="94" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="40" y="114" class="codigo">Nombre</text>
+  <rect x="28" y="128" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="40" y="148" class="codigo">Vida</text>
+  <rect x="28" y="162" width="294" height="28" rx="6" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.5"/>
+  <text x="40" y="182" class="codigo">Fuerza</text>
+  <rect x="28" y="206" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="40" y="226" class="codigo">RecibirDano()</text>
+  <rect x="28" y="240" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="40" y="260" class="codigo">Curar()</text>
+  <rect x="28" y="274" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="40" y="294" class="codigo">EstaVivo</text>
+  <rect x="28" y="308" width="294" height="28" rx="6" fill="#fbefe6" stroke="#c4682c" stroke-width="1.5"/>
+  <text x="40" y="328" class="codigo">Atacar()</text>
+  <rect x="550" y="50" width="310" height="294" rx="10" fill="#ffffff" stroke="#2f7bb8" stroke-width="2.25"/>
+  <rect x="550" y="50" width="310" height="42" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="705" y="78" text-anchor="middle" class="etq" fill="#2f7bb8" font-size="18px">Mago</text>
+  <path d="M 550,198 L 860,198 M 550,200 L 860,200" stroke="#2f7bb8" stroke-width="1.5" fill="none"/>
+  <rect x="558" y="94" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="570" y="114" class="codigo">Nombre</text>
+  <rect x="558" y="128" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="570" y="148" class="codigo">Vida</text>
+  <rect x="558" y="162" width="294" height="28" rx="6" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.5"/>
+  <text x="570" y="182" class="codigo">Mana</text>
+  <rect x="558" y="206" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="570" y="226" class="codigo">RecibirDano()</text>
+  <rect x="558" y="240" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="570" y="260" class="codigo">Curar()</text>
+  <rect x="558" y="274" width="294" height="28" rx="6" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="570" y="294" class="codigo">EstaVivo</text>
+  <rect x="558" y="308" width="294" height="28" rx="6" fill="#fbefe6" stroke="#c4682c" stroke-width="1.5"/>
+  <text x="570" y="328" class="codigo">Atacar()</text>
+  <path d="M 330,108 L 550,108" stroke="#b3372c" stroke-width="2.25" stroke-dasharray="6 5" fill="none"/>
+  <rect x="405" y="97" width="70" height="22" rx="11" fill="#f9eceb" stroke="#b3372c" stroke-width="2"/>
+  <text x="440" y="113" text-anchor="middle" class="etq" fill="#b3372c">igual</text>
+  <path d="M 330,142 L 550,142" stroke="#b3372c" stroke-width="2.25" stroke-dasharray="6 5" fill="none"/>
+  <rect x="405" y="131" width="70" height="22" rx="11" fill="#f9eceb" stroke="#b3372c" stroke-width="2"/>
+  <text x="440" y="147" text-anchor="middle" class="etq" fill="#b3372c">igual</text>
+  <path d="M 330,220 L 550,220" stroke="#b3372c" stroke-width="2.25" stroke-dasharray="6 5" fill="none"/>
+  <rect x="405" y="209" width="70" height="22" rx="11" fill="#f9eceb" stroke="#b3372c" stroke-width="2"/>
+  <text x="440" y="225" text-anchor="middle" class="etq" fill="#b3372c">igual</text>
+  <path d="M 330,254 L 550,254" stroke="#b3372c" stroke-width="2.25" stroke-dasharray="6 5" fill="none"/>
+  <rect x="405" y="243" width="70" height="22" rx="11" fill="#f9eceb" stroke="#b3372c" stroke-width="2"/>
+  <text x="440" y="259" text-anchor="middle" class="etq" fill="#b3372c">igual</text>
+  <path d="M 330,288 L 550,288" stroke="#b3372c" stroke-width="2.25" stroke-dasharray="6 5" fill="none"/>
+  <rect x="405" y="278" width="70" height="20" rx="10" fill="#f9eceb" stroke="#b3372c" stroke-width="2"/>
+  <text x="440" y="292" text-anchor="middle" class="etq" fill="#b3372c">igual</text>
+  <path d="M 330,322 L 550,322" stroke="#c4682c" stroke-width="2.25" stroke-dasharray="6 5" fill="none"/>
+  <rect x="355" y="303" width="170" height="38" rx="19" fill="#fbefe6" stroke="#c4682c" stroke-width="2"/>
+  <text x="440" y="320" text-anchor="middle" class="etq" fill="#c4682c">mismo nombre,</text>
+  <text x="440" y="336" text-anchor="middle" class="etq" fill="#c4682c">distinto cuerpo</text>
+  <rect x="120" y="368" width="22" height="18" rx="4" fill="#f9eceb" stroke="#b3372c" stroke-width="1.5"/>
+  <text x="150" y="383" class="sec">repetido</text>
+  <rect x="340" y="368" width="22" height="18" rx="4" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="1.5"/>
+  <text x="370" y="383" class="sec">lo propio de cada clase</text>
+  <rect x="660" y="368" width="22" height="18" rx="4" fill="#fbefe6" stroke="#c4682c" stroke-width="1.5"/>
+  <text x="690" y="383" class="sec">mismo nombre, otra logica</text>
+</svg>

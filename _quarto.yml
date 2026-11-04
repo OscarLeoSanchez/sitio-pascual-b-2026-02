@@ -8,6 +8,7 @@ project:
     - herramientas-programacion-1/unidad-02/retos-matrices.html
     - herramientas-programacion-1/unidad-02/presentacion-funciones.html
     - herramientas-programacion-1/unidad-03/presentacion-poo.html
+    - herramientas-programacion-1/unidad-03/presentacion-poo-videojuego.html
     - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
     - estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
     - estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
@@ -60,6 +61,10 @@ website:
           contents:
             - text: "Semana 11. Presentación: programación orientada a objetos desde cero"
               href: herramientas-programacion-1/unidad-03/presentacion-poo.html
+            - text: "Semanas 11, 12 y 14. Guía: clases, herencia, UML y archivos de texto"
+              href: herramientas-programacion-1/unidad-03/poo-clases-herencia-archivos.qmd
+            - text: "Semanas 11, 12 y 14. Presentación presencial: POO con un videojuego"
+              href: herramientas-programacion-1/unidad-03/presentacion-poo-videojuego.html
     - id: estadistica
       style: docked
       background: light

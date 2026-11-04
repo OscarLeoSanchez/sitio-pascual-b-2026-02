@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Oscar Leonel Sánchez Conde">
+
+<title>Unidad 3. Programación orientada a objetos: clases, herencia, UML y archivos de texto – Clases Pascual Bravo 2026-02</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../estilos/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8713356167177fd77be9341a95314561.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-63bd06c2c145d35a53f198c60a9c2611.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <h1 class="quarto-secondary-nav-title no-breadcrumbs">Unidad 3. Programación orientada a objetos: clases, herencia, UML y archivos de texto</h1>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Clases Pascual Bravo 2026-02</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación del curso</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 1. Aplicaciones de consola con un IDE</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-01/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 1. Entorno, Git y GitHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/semana-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 2. Sintaxis, variables y consola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/csharp-desde-cero/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C# desde cero (guía de sintaxis)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 2. Arreglos y funciones</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación de la unidad</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/vectores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Vectores</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/funciones.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Funciones</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/paso-de-parametros.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Paso de parámetros</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-02/menus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Menús</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Unidad 3. Programación orientada a objetos y aplicaciones gráficas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-03/presentacion-poo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semana 11. Presentación: programación orientada a objetos desde cero</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-03/poo-clases-herencia-archivos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Semanas 11, 12 y 14. Guía: clases, herencia, UML y archivos de texto</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../herramientas-programacion-1/unidad-03/presentacion-poo-videojuego.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Semanas 11, 12 y 14. Presentación presencial: POO con un videojuego</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta guía</h2>
+   
+  <ul>
+  <li><a href="#la-presentación-de-la-sesión" id="toc-la-presentación-de-la-sesión" class="nav-link active" data-scroll-target="#la-presentación-de-la-sesión"><span class="header-section-number">1</span> La presentación de la sesión</a></li>
+  <li><a href="#qué-vas-a-construir" id="toc-qué-vas-a-construir" class="nav-link" data-scroll-target="#qué-vas-a-construir"><span class="header-section-number">2</span> Qué vas a construir</a></li>
+  <li><a href="#antes-de-empezar-el-proyecto" id="toc-antes-de-empezar-el-proyecto" class="nav-link" data-scroll-target="#antes-de-empezar-el-proyecto"><span class="header-section-number">3</span> Antes de empezar: el proyecto</a></li>
+  <li><a href="#clases-y-objetos" id="toc-clases-y-objetos" class="nav-link" data-scroll-target="#clases-y-objetos"><span class="header-section-number">4</span> 1. Clases y objetos</a>
+  <ul class="collapse">
+  <li><a href="#qué-tiene-y-qué-hace-un-personaje" id="toc-qué-tiene-y-qué-hace-un-personaje" class="nav-link" data-scroll-target="#qué-tiene-y-qué-hace-un-personaje">1.1 Qué tiene y qué hace un personaje</a></li>
+  <li><a href="#tu-primera-clase" id="toc-tu-primera-clase" class="nav-link" data-scroll-target="#tu-primera-clase">1.2 Tu primera clase</a></li>
+  <li><a href="#el-constructor-y-los-atributos-protegidos" id="toc-el-constructor-y-los-atributos-protegidos" class="nav-link" data-scroll-target="#el-constructor-y-los-atributos-protegidos">1.3 El constructor y los atributos protegidos</a></li>
+  <li><a href="#los-métodos-con-reglas" id="toc-los-métodos-con-reglas" class="nav-link" data-scroll-target="#los-métodos-con-reglas">1.4 Los métodos con reglas</a></li>
+  <li><a href="#el-método-atacar-práctica-1" id="toc-el-método-atacar-práctica-1" class="nav-link" data-scroll-target="#el-método-atacar-práctica-1">1.5 El método <code>Atacar</code> (práctica 1)</a></li>
+  </ul></li>
+  <li><a href="#instanciar-objetos-y-usar-sus-miembros" id="toc-instanciar-objetos-y-usar-sus-miembros" class="nav-link" data-scroll-target="#instanciar-objetos-y-usar-sus-miembros"><span class="header-section-number">5</span> 2. Instanciar objetos y usar sus miembros</a>
+  <ul class="collapse">
+  <li><a href="#qué-hace-new-y-qué-es-una-referencia" id="toc-qué-hace-new-y-qué-es-una-referencia" class="nav-link" data-scroll-target="#qué-hace-new-y-qué-es-una-referencia">2.1 Qué hace <code>new</code> y qué es una referencia</a></li>
+  <li><a href="#acceder-a-atributos-y-métodos-con-el-operador-punto" id="toc-acceder-a-atributos-y-métodos-con-el-operador-punto" class="nav-link" data-scroll-target="#acceder-a-atributos-y-métodos-con-el-operador-punto">2.2 Acceder a atributos y métodos con el operador punto</a></li>
+  </ul></li>
+  <li><a href="#herencia-y-polimorfismo" id="toc-herencia-y-polimorfismo" class="nav-link" data-scroll-target="#herencia-y-polimorfismo"><span class="header-section-number">6</span> 3. Herencia y polimorfismo</a>
+  <ul class="collapse">
+  <li><a href="#el-problema-llega-el-mago" id="toc-el-problema-llega-el-mago" class="nav-link" data-scroll-target="#el-problema-llega-el-mago">3.1 El problema: llega el Mago</a></li>
+  <li><a href="#la-clase-base-abstracta" id="toc-la-clase-base-abstracta" class="nav-link" data-scroll-target="#la-clase-base-abstracta">3.2 La clase base abstracta</a></li>
+  <li><a href="#las-clases-derivadas" id="toc-las-clases-derivadas" class="nav-link" data-scroll-target="#las-clases-derivadas">3.3 Las clases derivadas</a></li>
+  <li><a href="#polimorfismo-un-mensaje-muchos-resultados" id="toc-polimorfismo-un-mensaje-muchos-resultados" class="nav-link" data-scroll-target="#polimorfismo-un-mensaje-muchos-resultados">3.4 Polimorfismo: un mensaje, muchos resultados</a></li>
+  </ul></li>
+  <li><a href="#modelado-de-clases-con-uml" id="toc-modelado-de-clases-con-uml" class="nav-link" data-scroll-target="#modelado-de-clases-con-uml"><span class="header-section-number">7</span> 4. Modelado de clases con UML</a>
+  <ul class="collapse">
+  <li><a href="#por-qué-dibujar-antes-de-programar" id="toc-por-qué-dibujar-antes-de-programar" class="nav-link" data-scroll-target="#por-qué-dibujar-antes-de-programar">4.1 Por qué dibujar antes de programar</a></li>
+  <li><a href="#la-caja-de-una-clase" id="toc-la-caja-de-una-clase" class="nav-link" data-scroll-target="#la-caja-de-una-clase">4.2 La caja de una clase</a></li>
+  <li><a href="#relaciones-la-herencia" id="toc-relaciones-la-herencia" class="nav-link" data-scroll-target="#relaciones-la-herencia">4.3 Relaciones: la herencia</a></li>
+  <li><a href="#del-código-al-plano-y-del-plano-al-código-práctica-2" id="toc-del-código-al-plano-y-del-plano-al-código-práctica-2" class="nav-link" data-scroll-target="#del-código-al-plano-y-del-plano-al-código-práctica-2">4.4 Del código al plano y del plano al código (práctica 2)</a></li>
+  </ul></li>
+  <li><a href="#persistencia-en-archivos-de-texto" id="toc-persistencia-en-archivos-de-texto" class="nav-link" data-scroll-target="#persistencia-en-archivos-de-texto"><span class="header-section-number">8</span> 5. Persistencia en archivos de texto</a>
+  <ul class="collapse">
+  <li><a href="#el-problema-la-memoria-se-olvida" id="toc-el-problema-la-memoria-se-olvida" class="nav-link" data-scroll-target="#el-problema-la-memoria-se-olvida">5.1 El problema: la memoria se olvida</a></li>
+  <li><a href="#decidir-el-formato-del-archivo" id="toc-decidir-el-formato-del-archivo" class="nav-link" data-scroll-target="#decidir-el-formato-del-archivo">5.2 Decidir el formato del archivo</a></li>
+  <li><a href="#de-objeto-a-línea-tolinea" id="toc-de-objeto-a-línea-tolinea" class="nav-link" data-scroll-target="#de-objeto-a-línea-tolinea">5.3 De objeto a línea: <code>ToLinea</code></a></li>
+  <li><a href="#de-línea-a-objeto-desdelinea" id="toc-de-línea-a-objeto-desdelinea" class="nav-link" data-scroll-target="#de-línea-a-objeto-desdelinea">5.4 De línea a objeto: <code>DesdeLinea</code></a></li>
+  <li><a href="#guardar-la-partida-escribir-un-archivo" id="toc-guardar-la-partida-escribir-un-archivo" class="nav-link" data-scroll-target="#guardar-la-partida-escribir-un-archivo">5.5 Guardar la partida: escribir un archivo</a></li>
+  <li><a href="#cargar-la-partida-leer-un-archivo" id="toc-cargar-la-partida-leer-un-archivo" class="nav-link" data-scroll-target="#cargar-la-partida-leer-un-archivo">5.6 Cargar la partida: leer un archivo</a></li>
+  <li><a href="#el-programa-completo-dos-ejecuciones-una-partida" id="toc-el-programa-completo-dos-ejecuciones-una-partida" class="nav-link" data-scroll-target="#el-programa-completo-dos-ejecuciones-una-partida">5.7 El programa completo: dos ejecuciones, una partida</a></li>
+  <li><a href="#cuando-el-archivo-falla" id="toc-cuando-el-archivo-falla" class="nav-link" data-scroll-target="#cuando-el-archivo-falla">5.8 Cuando el archivo falla</a></li>
+  <li><a href="#las-tres-caras-del-mismo-objeto" id="toc-las-tres-caras-del-mismo-objeto" class="nav-link" data-scroll-target="#las-tres-caras-del-mismo-objeto">5.9 Las tres caras del mismo objeto</a></li>
+  </ul></li>
+  <li><a href="#reto-agrega-un-arquero" id="toc-reto-agrega-un-arquero" class="nav-link" data-scroll-target="#reto-agrega-un-arquero"><span class="header-section-number">9</span> 6. Reto: agrega un Arquero</a></li>
+  <li><a href="#código-completo-del-proyecto" id="toc-código-completo-del-proyecto" class="nav-link" data-scroll-target="#código-completo-del-proyecto"><span class="header-section-number">10</span> Código completo del proyecto</a></li>
+  <li><a href="#errores-frecuentes" id="toc-errores-frecuentes" class="nav-link" data-scroll-target="#errores-frecuentes"><span class="header-section-number">11</span> Errores frecuentes</a></li>
+  <li><a href="#lista-de-verificación" id="toc-lista-de-verificación" class="nav-link" data-scroll-target="#lista-de-verificación"><span class="header-section-number">12</span> Lista de verificación</a></li>
+  <li><a href="#recursos" id="toc-recursos" class="nav-link" data-scroll-target="#recursos"><span class="header-section-number">13</span> Recursos</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Unidad 3. Programación orientada a objetos: clases, herencia, UML y archivos de texto</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Oscar Leonel Sánchez Conde </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">4 de noviembre de 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+  /* En esta guía hay fragmentos de código largos dentro de listas y tablas: en teléfono se parten en vez de ensanchar la página */
+  p code, li code, td code { white-space: normal; overflow-wrap: anywhere; }
+</style>
+<div class="ficha">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Asignatura</td>
+<td>Herramientas de Programación I (ET0047)</td>
+</tr>
+<tr class="even">
+<td>Programa</td>
+<td>Tecnología en Desarrollo de Software</td>
+</tr>
+<tr class="odd">
+<td>Unidad</td>
+<td>Unidad 3. Diseño y desarrollo de aplicaciones gráficas aplicando la POO</td>
+</tr>
+<tr class="even">
+<td>Saberes</td>
+<td>Paradigma de la POO: clases y objetos, atributos, métodos y constructores. Instanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML. Manejo de archivos de texto para persistencia</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Esta guía se probó con el SDK de .NET <strong>10.0.302</strong>.</p>
+<p>Esta guía recorre, paso a paso, la sesión presencial de programación orientada a objetos (POO). Construyes un videojuego de consola con tres clases, lo dibujas con UML y haces que la partida sobreviva al cierre del programa guardándola en un archivo de texto. Cada bloque de código sale de un programa que se compiló y se ejecutó, y cada salida que ves es la salida real. Puedes copiar todo y seguirla en tu computador.</p>
+<section id="la-presentación-de-la-sesión" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="la-presentación-de-la-sesión"><span class="header-section-number">1</span> La presentación de la sesión</h2>
+<p>Esta es la presentación que se usa en clase. Avanza con la flecha derecha o con un clic y retrocede con la flecha izquierda. Haz clic dentro del cuadro antes de usar el teclado.</p>
+<div id="pres-caja" class="presentacion-incrustada" style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; margin: 1.2rem 0; border: 1px solid #c9d1d9; border-radius: 12px; background: #fbf8f1;">
+  <iframe id="pres-marco" src="presentacion-poo-videojuego.html" title="Presentación de la sesión: programación orientada a objetos con un videojuego" loading="lazy" allow="fullscreen" style="position: absolute; top: 0; left: 0; width: 1280px; height: 720px; border: 0; transform-origin: 0 0;"></iframe>
+</div>
+<script>
+(function () {
+  var caja = document.getElementById('pres-caja');
+  var marco = document.getElementById('pres-marco');
+  if (!caja || !marco) return;
+  function ajustar() { marco.style.transform = 'scale(' + (caja.clientWidth / 1280) + ')'; }
+  if (window.ResizeObserver) new ResizeObserver(ajustar).observe(caja);
+  window.addEventListener('resize', ajustar);
+  ajustar();
+})();
+</script>
+<p><a href="presentacion-poo-videojuego.html" class="btn btn-primary" role="button" target="_blank">Abrir la presentación en pantalla completa</a></p>
+</section>
+<section id="qué-vas-a-construir" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="qué-vas-a-construir"><span class="header-section-number">2</span> Qué vas a construir</h2>
+<p>Un videojuego pequeño con <strong>tres clases</strong>. <code>Personaje</code> es una clase abstracta que guarda lo que todos los personajes comparten. <code>Guerrero</code> y <code>Mago</code> heredan de ella y agregan lo suyo. Al final, la partida se guarda en un archivo <code>partida.txt</code> y se recupera la próxima vez que ejecutas el programa.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Clase</th>
+<th>Qué guarda</th>
+<th>Qué hace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Personaje</code> (abstracta)</td>
+<td><code>Nombre</code>, <code>Vida</code>, constante <code>VidaMaxima = 100</code>, <code>EstaVivo</code></td>
+<td><code>RecibirDano</code>, <code>Curar</code>, <code>Atacar</code> (sin cuerpo), <code>ToLinea</code>, <code>DesdeLinea</code></td>
+</tr>
+<tr class="even">
+<td><code>Guerrero</code></td>
+<td><code>Fuerza</code></td>
+<td><code>Atacar</code>: quita tanta vida como su fuerza</td>
+</tr>
+<tr class="odd">
+<td><code>Mago</code></td>
+<td><code>Mana</code>, constantes <code>CostoMana = 10</code> y <code>DanoMagico = 25</code></td>
+<td><code>Atacar</code>: gasta 10 de maná y quita 25 de vida</td>
+</tr>
+</tbody>
+</table>
+<p>El juego cumple cinco reglas de negocio. Las vas a ver aparecer una a una a lo largo de la guía:</p>
+<ol type="1">
+<li>La vida nunca baja de 0 ni pasa de 100, y el constructor corrige los valores inválidos.</li>
+<li><code>RecibirDano</code> resta vida con piso en 0, y <code>Curar</code> suma con techo en 100.</li>
+<li>Un personaje muerto no ataca ni se cura.</li>
+<li>El Guerrero ataca siempre y hace un daño igual a su fuerza.</li>
+<li>El Mago ataca solo si tiene 10 de maná o más. Si no, <code>Atacar</code> devuelve <code>false</code> y no pasa nada.</li>
+</ol>
+<p>Un mismo personaje tiene <strong>tres caras</strong> y la guía las mantiene juntas desde el principio: el plano (un diagrama UML), el código (la clase en C#) y la línea que se guarda en el archivo. Cuando termines, puedes pasar de una cara a otra sin dudar.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/tres-caras-objeto.svg" class="img-fluid figure-img" alt="Las tres caras del mismo objeto Gandalf: plano UML de la clase Mago, codigo C# que crea el objeto y linea de texto del archivo partida.txt, con ToLinea y DesdeLinea como puente entre el codigo y el archivo"></p>
+<figcaption>Las tres caras de un mismo objeto: el plano UML de la clase Mago, el código new Mago(“Gandalf”, 80, 40) y la línea Mago;Gandalf;80;40 del archivo, conectadas por ToLinea y DesdeLinea.</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>Lo que esta guía no cubre.</strong> Interfaces, excepciones con <code>try</code> y <code>catch</code>, JSON, bases de datos e interfaz gráfica. Aparecen en las semanas siguientes.</p>
+</section>
+<section id="antes-de-empezar-el-proyecto" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="antes-de-empezar-el-proyecto"><span class="header-section-number">3</span> Antes de empezar: el proyecto</h2>
+<p>Abre una terminal y crea un proyecto de consola nuevo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dotnet new console <span class="op">-</span>n Videojuego</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cd</span> Videojuego</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El proyecto trae un archivo <code>Program.cs</code>. Cada clase que escribas va en <strong>su propio archivo</strong>, en la misma carpeta que <code>Program.cs</code>, y el nombre del archivo es el nombre de la clase. Al terminar tendrás cinco archivos:</p>
+<ul>
+<li><code>Program.cs</code>: el programa principal, con las instrucciones que se ejecutan.</li>
+<li><code>Personaje.cs</code>: la clase base abstracta.</li>
+<li><code>Guerrero.cs</code>: la clase derivada del guerrero.</li>
+<li><code>Mago.cs</code>: la clase derivada del mago.</li>
+<li><code>Partida.cs</code>: la clase que guarda y carga la partida.</li>
+</ul>
+<p>Para ejecutar, escribe en la terminal, dentro de la carpeta <code>Videojuego</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dotnet run</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La guía avanza por etapas. En cada etapa te indico qué archivo crear o reemplazar. <strong>Reemplazar</strong> significa borrar el contenido anterior del archivo y pegar el nuevo. Las etapas cambian a <code>Guerrero.cs</code> y <code>Program.cs</code> varias veces, porque el diseño mejora conforme aprendes.</p>
+</section>
+<section id="clases-y-objetos" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="clases-y-objetos"><span class="header-section-number">4</span> 1. Clases y objetos</h2>
+<section id="qué-tiene-y-qué-hace-un-personaje" class="level3">
+<h3 class="anchored" data-anchor-id="qué-tiene-y-qué-hace-un-personaje">1.1 Qué tiene y qué hace un personaje</h3>
+<p>Piensa en Aragorn, un guerrero de tu videojuego. Puedes describirlo con dos listas. Lo que <strong>tiene</strong>: un nombre, una cantidad de vida y una fuerza. Lo que <strong>hace</strong>: ataca, recibe daño, se cura.</p>
+<p>La POO organiza el programa alrededor de esa idea. En vez de dejar los datos en variables sueltas y las reglas en funciones sueltas, <strong>se agrupan en una sola pieza</strong>: datos y comportamiento viajan juntos.</p>
+<ul>
+<li>La <strong>clase</strong> es el molde. Dice qué datos y qué acciones tendrá todo guerrero. Es un plano: no es ningún guerrero concreto.</li>
+<li>El <strong>objeto</strong> es una pieza concreta fabricada con ese molde. <code>aragorn</code> y <code>boromir</code> son dos objetos de la misma clase <code>Guerrero</code>, cada uno con sus propios valores.</li>
+<li>Los <strong>atributos</strong> son los datos que guarda cada objeto (<code>Nombre</code>, <code>Vida</code>, <code>Fuerza</code>).</li>
+<li>Los <strong>métodos</strong> son las acciones que sabe hacer (<code>RecibirDano</code>, <code>Curar</code>, <code>Atacar</code>).</li>
+</ul>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/clase-objeto-ficha.svg" class="img-fluid figure-img" alt="La clase Guerrero como molde con sus atributos y metodos, y dos objetos creados a partir de ella, aragorn y boromir, con valores distintos"></p>
+<figcaption>La clase Guerrero es el molde, con lo que un guerrero tiene (Nombre, Vida, Fuerza) y lo que hace (RecibirDano, Curar, Atacar). De ella salen dos objetos, aragorn y boromir, cada uno con sus propios valores.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="tu-primera-clase" class="level3">
+<h3 class="anchored" data-anchor-id="tu-primera-clase">1.2 Tu primera clase</h3>
+<p>Crea el archivo <code>Guerrero.cs</code> con este contenido:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Guerrero</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Nombre <span class="op">=</span> <span class="st">""</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Vida<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Fuerza<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">RecibirDano</span><span class="op">(</span><span class="dt">int</span> dano<span class="op">)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">-=</span> dano<span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Línea por línea:</p>
+<ul>
+<li><code>class Guerrero</code> declara la clase. Todo lo que está entre las llaves <code>{ }</code> pertenece al molde.</li>
+<li><code>public string Nombre = "";</code>, <code>public int Vida;</code> y <code>public int Fuerza;</code> son los <strong>atributos</strong>. <code>public</code> significa que cualquier parte del programa puede leerlos y cambiarlos. El <code>= ""</code> le da un valor inicial vacío al texto.</li>
+<li><code>public void RecibirDano(int dano)</code> es un <strong>método</strong>. <code>void</code> significa que no devuelve nada. Recibe un número, <code>dano</code>, y le resta esa cantidad a <code>Vida</code>.</li>
+</ul>
+<p>Ahora reemplaza <code>Program.cs</code> para crear un guerrero y probarlo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> aragorn <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">();</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>aragorn<span class="op">.</span><span class="fu">Nombre</span> <span class="op">=</span> <span class="st">"Aragorn"</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>aragorn<span class="op">.</span><span class="fu">Vida</span> <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>aragorn<span class="op">.</span><span class="fu">Fuerza</span> <span class="op">=</span> <span class="dv">15</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>aragorn<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{aragorn.Nombre}: vida {aragorn.Vida}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>new Guerrero()</code> crea un objeto a partir de la clase. Después se asignan sus datos uno por uno con el operador punto (<code>aragorn.Nombre = "Aragorn";</code>). Al final, Aragorn recibe 120 de daño y se imprime su vida. Ejecuta con <code>dotnet run</code>:</p>
+<pre class="text"><code>Aragorn: vida -20</code></pre>
+<p><strong>Una vida de -20 es un error.</strong> La clase funciona, pero nada impide que la vida quede negativa. Cualquiera puede escribir <code>aragorn.Vida = -5;</code> y el programa lo acepta. Falta una forma de proteger los datos y de crear el objeto ya con valores válidos. Eso lo resuelven el constructor y la protección de los atributos.</p>
+</section>
+<section id="el-constructor-y-los-atributos-protegidos" class="level3">
+<h3 class="anchored" data-anchor-id="el-constructor-y-los-atributos-protegidos">1.3 El constructor y los atributos protegidos</h3>
+<p>Un <strong>constructor</strong> es un método especial que se ejecuta una sola vez, cuando se crea el objeto con <code>new</code>. Tiene el mismo nombre que la clase y no declara tipo de retorno. Sirve para darle al objeto valores iniciales válidos desde el primer instante.</p>
+<p>Reemplaza <code>Guerrero.cs</code> con la versión completa. Primero verás las piezas por separado y después el archivo entero.</p>
+<p><strong>La constante.</strong> Un valor que no cambia nunca:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Guerrero</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> VidaMaxima <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>const int VidaMaxima = 100;</code> declara una constante. Si algún día el máximo cambia, lo cambias en un solo lugar.</p>
+<p><strong>Las propiedades.</strong> Los atributos pasan de campos públicos a <strong>propiedades</strong> con permisos distintos:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Nombre <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Vida <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Fuerza <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> EstaVivo <span class="op">=&gt;</span> Vida <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>{ get; }</code> significa que cualquiera puede <strong>leer</strong> el valor, pero solo el constructor puede asignarlo. <code>Nombre</code> y <code>Fuerza</code> no deberían cambiar después de crear el personaje.</li>
+<li><code>{ get; private set; }</code> significa que cualquiera puede <strong>leer</strong> <code>Vida</code>, pero solo los métodos de la propia clase pueden <strong>cambiarla</strong>. Es el <strong>encapsulamiento</strong>: los datos quedan protegidos y solo se modifican por las reglas que tú escribes.</li>
+<li><code>EstaVivo =&gt; Vida &gt; 0;</code> es una propiedad calculada: no guarda nada, responde <code>true</code> o <code>false</code> cada vez que se consulta.</li>
+</ul>
+<p><strong>El constructor.</strong> Recibe los datos iniciales y los valida:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> fuerza<span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        Nombre <span class="op">=</span> nombre<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Clamp</span><span class="op">(</span>vida<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> VidaMaxima<span class="op">);</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        Fuerza <span class="op">=</span> fuerza<span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>Math.Clamp(vida, 0, VidaMaxima)</code> recorta el valor para que quede entre 0 y 100. Si te piden una vida de 150, el objeto nace con 100. Si te piden -20, nace con 0. <strong>Esta es la regla 1</strong>: la vida siempre es válida desde el principio.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/constructor-clamp.svg" class="img-fluid figure-img" alt="Flujo del constructor: el valor de vida recibido pasa por Math.Clamp entre 0 y VidaMaxima y el objeto nace con un valor valido"></p>
+<figcaption>El constructor recibe vida igual a 150 y la pasa por Math.Clamp con límites 0 y VidaMaxima: el objeto nace con vida 100. Una vida de -20 se recorta a 0.</figcaption>
+</figure>
+</div>
+</div>
+<p>Con el constructor, crear un guerrero ya no necesita asignar campo por campo: <code>new Guerrero("Aragorn", 100, 15)</code> entrega un objeto listo.</p>
+<p><strong>Protección en acción.</strong> Como <code>Vida</code> tiene <code>private set</code>, ya no se puede escribir desde fuera. Si en <code>Program.cs</code> intentas:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> aragorn <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Aragorn"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>aragorn<span class="op">.</span><span class="fu">Vida</span> <span class="op">=</span> <span class="dv">500</span><span class="op">;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>aragorn<span class="op">.</span><span class="fu">Vida</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>el compilador se niega a construir el programa. En un SDK en español el mensaje es:</p>
+<pre class="text"><code>Program.cs(2,1): error CS0272: La propiedad o el indizador 'Guerrero.Vida' no se pueden usar en este contexto porque el descriptor de acceso set es inaccesible</code></pre>
+<p>El error aparece <strong>al compilar</strong>, antes de ejecutar. Eso es mejor que un error escondido que se descubre jugando.</p>
+</section>
+<section id="los-métodos-con-reglas" class="level3">
+<h3 class="anchored" data-anchor-id="los-métodos-con-reglas">1.4 Los métodos con reglas</h3>
+<p>Los métodos son donde viven las reglas de negocio. Mira los tres que cuidan la vida:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">RecibirDano</span><span class="op">(</span><span class="dt">int</span> dano<span class="op">)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> Vida <span class="op">-</span> dano<span class="op">);</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Curar</span><span class="op">(</span><span class="dt">int</span> puntos<span class="op">)</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span><span class="op">;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Min</span><span class="op">(</span>VidaMaxima<span class="op">,</span> Vida <span class="op">+</span> puntos<span class="op">);</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><strong><code>RecibirDano</code></strong> resta la vida con <code>Math.Max(0, Vida - dano)</code>. <code>Math.Max</code> devuelve el mayor de los dos números, así que la vida nunca baja de 0. Con vida 100 y 30 de daño queda en 70. Con 120 de daño queda en 0, no en -20. <strong>Regla 2, primera parte.</strong></li>
+<li><strong><code>Curar</code></strong> primero revisa <code>if (!EstaVivo) return;</code>. El <code>!</code> significa “no”: si el personaje no está vivo, el método termina sin hacer nada. <strong>Regla 3</strong>: un personaje muerto no se cura. Después suma con <code>Math.Min(VidaMaxima, Vida + puntos)</code>, que devuelve el menor de los dos, así que la vida no pasa de 100. <strong>Regla 2, segunda parte.</strong></li>
+</ul>
+<p>Un método que termina con <code>return;</code> sin valor sale de inmediato. Es una <strong>cláusula de guarda</strong>: se descartan primero los casos que no aplican, y el resto del método queda sin anidar.</p>
+</section>
+<section id="el-método-atacar-práctica-1" class="level3">
+<h3 class="anchored" data-anchor-id="el-método-atacar-práctica-1">1.5 El método <code>Atacar</code> (práctica 1)</h3>
+<p>Falta la acción principal. Antes de mirar la solución, piénsala con las reglas 3 y 4: un guerrero ataca a otro guerrero y le quita tanta vida como su fuerza, pero solo si está vivo. El método debe <strong>devolver</strong> <code>true</code> si el ataque ocurrió y <code>false</code> si no.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Práctica 1: escribe Atacar">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Práctica 1: escribe Atacar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Pistas. La firma empieza con <code>public bool Atacar(Guerrero objetivo)</code>. Usa una cláusula de guarda con <code>EstaVivo</code>. Para quitar vida, llama al método que ya existe en el objetivo.</p>
+<p><strong>Solución:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Guerrero objetivo<span class="op">)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>Fuerza<span class="op">);</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>objetivo.RecibirDano(Fuerza)</code> hace que el <strong>otro</strong> guerrero se aplique el daño con sus propias reglas. Por eso la vida del objetivo nunca queda negativa: la regla vive en <code>RecibirDano</code> y no se repite aquí.</p>
+</div>
+</div>
+</div>
+<p>El archivo <code>Guerrero.cs</code> completo de esta etapa queda así:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Guerrero</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> VidaMaxima <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Nombre <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Vida <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Fuerza <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> EstaVivo <span class="op">=&gt;</span> Vida <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> fuerza<span class="op">)</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        Nombre <span class="op">=</span> nombre<span class="op">;</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Clamp</span><span class="op">(</span>vida<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> VidaMaxima<span class="op">);</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        Fuerza <span class="op">=</span> fuerza<span class="op">;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">RecibirDano</span><span class="op">(</span><span class="dt">int</span> dano<span class="op">)</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> Vida <span class="op">-</span> dano<span class="op">);</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Curar</span><span class="op">(</span><span class="dt">int</span> puntos<span class="op">)</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span><span class="op">;</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Min</span><span class="op">(</span>VidaMaxima<span class="op">,</span> Vida <span class="op">+</span> puntos<span class="op">);</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Guerrero objetivo<span class="op">)</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>Fuerza<span class="op">);</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="instanciar-objetos-y-usar-sus-miembros" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="instanciar-objetos-y-usar-sus-miembros"><span class="header-section-number">5</span> 2. Instanciar objetos y usar sus miembros</h2>
+<section id="qué-hace-new-y-qué-es-una-referencia" class="level3">
+<h3 class="anchored" data-anchor-id="qué-hace-new-y-qué-es-una-referencia">2.1 Qué hace <code>new</code> y qué es una referencia</h3>
+<p><strong>Instanciar</strong> es crear un objeto concreto a partir de una clase. En C# se hace con <code>new</code>. Reemplaza <code>Program.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> aragorn <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Aragorn"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> boromir <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Boromir"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">12</span><span class="op">);</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> copia <span class="op">=</span> aragorn<span class="op">;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>aragorn<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{aragorn.Nombre}: vida {aragorn.Vida}"</span><span class="op">);</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{boromir.Nombre}: vida {boromir.Vida}"</span><span class="op">);</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{copia.Nombre}: vida {copia.Vida}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Cuando C# ejecuta <code>new Guerrero("Aragorn", 100, 15)</code>, pasan tres cosas en orden: reserva espacio en memoria para el objeto, ejecuta el constructor con los datos que le diste y entrega la <strong>referencia</strong>, que es la dirección donde vive el objeto. La variable <code>aragorn</code> no contiene al guerrero. Contiene la referencia que apunta a él.</p>
+<p>Eso explica la tercera línea del programa. <code>var copia = aragorn;</code> <strong>no crea otro guerrero</strong>: copia la referencia. Ahora <code>aragorn</code> y <code>copia</code> son dos nombres para el mismo objeto. Cuando <code>aragorn</code> recibe 30 de daño, <code>copia</code> también lo ve. Ejecuta y compara con tu predicción:</p>
+<pre class="text"><code>Aragorn: vida 70
+Boromir: vida 100
+Aragorn: vida 70</code></pre>
+<p><code>Boromir</code> conserva su vida de 100 porque es otro objeto, y <code>copia</code> imprime <code>Aragorn: vida 70</code> porque apunta al mismo.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/memoria-referencias.svg" class="img-fluid figure-img" alt="Diagrama de memoria con tres variables y dos objetos: aragorn y copia apuntan al mismo objeto con vida 70 y boromir apunta a otro objeto con vida 100"></p>
+<figcaption>En memoria hay dos objetos Guerrero. Las variables aragorn y copia apuntan al mismo objeto, que tiene Vida 70 después de recibir el daño. La variable boromir apunta a otro objeto, con Vida 100.</figcaption>
+</figure>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Un error muy común">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Advertencia</span>Un error muy común
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Creer que <code>var copia = aragorn;</code> hace una copia independiente. Para tener dos guerreros distintos, cada uno se crea con su propio <code>new</code>.</p>
+</div>
+</div>
+</section>
+<section id="acceder-a-atributos-y-métodos-con-el-operador-punto" class="level3">
+<h3 class="anchored" data-anchor-id="acceder-a-atributos-y-métodos-con-el-operador-punto">2.2 Acceder a atributos y métodos con el operador punto</h3>
+<p>Una vez que tienes un objeto, el <strong>operador punto</strong> (<code>.</code>) te deja usar lo que tiene por dentro:</p>
+<ul>
+<li><code>aragorn.Nombre</code> <strong>lee</strong> un atributo.</li>
+<li><code>aragorn.Atacar(boromir)</code> <strong>llama</strong> un método.</li>
+</ul>
+<p>Un método se llama con paréntesis y entre ellos van los datos que necesita. Los atributos se leen sin paréntesis. Reemplaza <code>Program.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> aragorn <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Aragorn"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> boromir <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Boromir"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">12</span><span class="op">);</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> acierto <span class="op">=</span> aragorn<span class="op">.</span><span class="fu">Atacar</span><span class="op">(</span>boromir<span class="op">);</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{aragorn.Nombre} ataca a {boromir.Nombre}: {acierto}"</span><span class="op">);</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{boromir.Nombre}: vida {boromir.Vida}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Línea por línea: <code>aragorn.Atacar(boromir)</code> hace que Aragorn ataque a Boromir. El método devuelve <code>true</code> y esa respuesta se guarda en la variable <code>acierto</code>. Después se imprimen dos líneas leyendo atributos con el punto. Salida:</p>
+<pre class="text"><code>Aragorn ataca a Boromir: True
+Boromir: vida 85</code></pre>
+<p>Aragorn tiene fuerza 15, así que a Boromir le quedan 100 - 15 = 85. El ataque cambió el <strong>estado</strong> de <code>boromir</code> y no el de <code>aragorn</code>.</p>
+</section>
+</section>
+<section id="herencia-y-polimorfismo" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="herencia-y-polimorfismo"><span class="header-section-number">6</span> 3. Herencia y polimorfismo</h2>
+<section id="el-problema-llega-el-mago" class="level3">
+<h3 class="anchored" data-anchor-id="el-problema-llega-el-mago">3.1 El problema: llega el Mago</h3>
+<p>Quieres sumar al Mago. Necesita casi lo mismo que el Guerrero: nombre, vida, <code>RecibirDano</code>, <code>Curar</code>, <code>EstaVivo</code>. Solo cambian dos cosas: en lugar de <code>Fuerza</code> tiene <code>Mana</code>, y su <code>Atacar</code> funciona distinto.</p>
+<p>Si copias y pegas la clase <code>Guerrero</code>, quedan dos clases con cinco miembros idénticos. Cada cambio de una regla obliga a corregir las dos. Con un tercer personaje, serían tres copias.</p>
+<p>Hay un segundo problema. <code>Guerrero.Atacar</code> recibe un <code>Guerrero</code> como objetivo. Un mago no podría atacar a un guerrero y un guerrero no podría atacar a un mago, porque cada clase solo conoce a la suya.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/clases-repetidas.svg" class="img-fluid figure-img" alt="Dos cajas de clase, Guerrero y Mago, con los miembros repetidos marcados como iguales, los atributos propios Fuerza y Mana destacados y Atacar con el mismo nombre pero distinto cuerpo"></p>
+<figcaption>Las clases Guerrero y Mago repetidas lado a lado. Nombre, Vida, RecibirDano, Curar y EstaVivo aparecen escritos dos veces. Atacar tiene el mismo nombre en las dos, pero cada clase lo hace a su manera.</figcaption>
+</figure>
+</div>
+</div>
+<p>La solución es la <strong>herencia</strong>: se escribe lo común una sola vez en una <strong>clase base</strong>, y las <strong>clases derivadas</strong> lo reciben automáticamente y agregan lo suyo.</p>
+</section>
+<section id="la-clase-base-abstracta" class="level3">
+<h3 class="anchored" data-anchor-id="la-clase-base-abstracta">3.2 La clase base abstracta</h3>
+<p>Crea el archivo <code>Personaje.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract</span> <span class="kw">class</span> Personaje</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> VidaMaxima <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Nombre <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Vida <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> EstaVivo <span class="op">=&gt;</span> Vida <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="fu">Personaje</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">)</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        Nombre <span class="op">=</span> nombre<span class="op">;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Clamp</span><span class="op">(</span>vida<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> VidaMaxima<span class="op">);</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">RecibirDano</span><span class="op">(</span><span class="dt">int</span> dano<span class="op">)</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> Vida <span class="op">-</span> dano<span class="op">);</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Curar</span><span class="op">(</span><span class="dt">int</span> puntos<span class="op">)</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span><span class="op">;</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Min</span><span class="op">(</span>VidaMaxima<span class="op">,</span> Vida <span class="op">+</span> puntos<span class="op">);</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">);</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Lo que cambió respecto a <code>Guerrero</code>:</p>
+<ul>
+<li><code>abstract class Personaje</code> marca la clase como <strong>abstracta</strong>: no se puede instanciar con <code>new Personaje(...)</code>. Es un molde general, pensado solo para que otras clases hereden de él.</li>
+<li>El constructor es <code>protected</code>: solo la propia clase y sus derivadas pueden usarlo.</li>
+<li><code>Nombre</code>, <code>Vida</code>, <code>EstaVivo</code>, <code>RecibirDano</code> y <code>Curar</code> pasaron aquí <strong>sin cambios</strong>. Es lo que antes estaba repetido.</li>
+<li>La última línea es lo más importante: <code>public abstract bool Atacar(Personaje objetivo);</code>. Un método <strong>abstracto</strong> no tiene cuerpo. Dice “todos los personajes atacan y devuelven <code>bool</code>”, pero deja a cada clase derivada la tarea de decir cómo. El objetivo es un <code>Personaje</code>, así que cualquier personaje puede atacar a cualquier otro.</li>
+</ul>
+</section>
+<section id="las-clases-derivadas" class="level3">
+<h3 class="anchored" data-anchor-id="las-clases-derivadas">3.3 Las clases derivadas</h3>
+<p>Reemplaza <code>Guerrero.cs</code>. Los dos puntos y el nombre de la base (<code>: Personaje</code>) expresan “hereda de”:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Guerrero <span class="op">:</span> Personaje</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Fuerza <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> fuerza<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>nombre<span class="op">,</span> vida<span class="op">)</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        Fuerza <span class="op">=</span> fuerza<span class="op">;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">)</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>Fuerza<span class="op">);</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>class Guerrero : Personaje</code> hace que <code>Guerrero</code> reciba todo lo público de <code>Personaje</code>. No repites <code>Nombre</code> ni <code>Vida</code>.</li>
+<li><code>: base(nombre, vida)</code> en el constructor llama al constructor de la base para armar la parte común. El guerrero solo guarda lo suyo: la fuerza.</li>
+<li><code>public override bool Atacar(...)</code> <strong>sobrescribe</strong> el método abstracto con su propio cuerpo. La palabra <code>override</code> es obligatoria. El método hace lo mismo que antes: ataca solo si está vivo y quita tanta vida como su fuerza (<strong>regla 4</strong>).</li>
+</ul>
+<p>Crea el archivo <code>Mago.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Mago <span class="op">:</span> Personaje</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> CostoMana <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> DanoMagico <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Mana <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Mago</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> mana<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>nombre<span class="op">,</span> vida<span class="op">)</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>        Mana <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> mana<span class="op">);</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">)</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo <span class="op">||</span> Mana <span class="op">&lt;</span> CostoMana<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>        Mana <span class="op">-=</span> CostoMana<span class="op">;</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>DanoMagico<span class="op">);</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El mago hereda lo común igual que el guerrero y agrega lo suyo: su maná y dos constantes. Su <code>Atacar</code> es distinto: revisa <code>Mana &lt; CostoMana</code>, y si no hay maná suficiente, devuelve <code>false</code> y no hace nada. Si hay, gasta 10 de maná y quita 25 de vida (<strong>regla 5</strong>).</p>
+<p>Fíjate en que <code>Atacar</code> aparece con <strong>el mismo nombre y la misma firma</strong> en las tres clases. Lo que cambia es el cuerpo.</p>
+</section>
+<section id="polimorfismo-un-mensaje-muchos-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="polimorfismo-un-mensaje-muchos-resultados">3.4 Polimorfismo: un mensaje, muchos resultados</h3>
+<p>Reemplaza <code>Program.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> orco <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Orco"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">8</span><span class="op">);</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> aragorn <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Aragorn"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> gandalf <span class="op">=</span> <span class="kw">new</span> <span class="fu">Mago</span><span class="op">(</span><span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">15</span><span class="op">);</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>Personaje<span class="op">[]</span> equipo <span class="op">=</span> <span class="op">{</span> aragorn<span class="op">,</span> gandalf<span class="op">,</span> gandalf <span class="op">};</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> equipo<span class="op">)</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{p.Nombre} ataca: {p.Atacar(orco)}"</span><span class="op">);</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{orco.Nombre}: vida {orco.Vida}"</span><span class="op">);</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>La clave está en el arreglo <code>Personaje[] equipo</code>. Guarda un guerrero y dos veces el mago, pero su tipo es <code>Personaje</code>, y las dos clases derivadas <strong>son</strong> personajes. Dentro del <code>foreach</code>, la variable <code>p</code> es un <code>Personaje</code>, y la llamada <code>p.Atacar(orco)</code> ejecuta la versión de <strong>la clase real del objeto</strong>. Eso se llama <strong>polimorfismo</strong>: una misma llamada hace cosas distintas según quién la recibe. Ejecuta:</p>
+<pre class="text"><code>Aragorn ataca: True
+Gandalf ataca: True
+Gandalf ataca: False
+Orco: vida 60</code></pre>
+<p>Sigue las líneas una por una. Aragorn ataca y quita 15, así que el orco queda en 85. Gandalf tiene 15 de maná, ataca y gasta 10 (queda con 5), y le quita 25, así que el orco queda en 60. En la tercera vuelta Gandalf intenta atacar otra vez con solo 5 de maná: <code>Atacar</code> devuelve <code>False</code> y no cambia nada. El orco termina en 60.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/polimorfismo-atacar.svg" class="img-fluid figure-img" alt="Un mismo mensaje Atacar enviado a un arreglo de Personaje produce tres resultados distintos segun la clase del objeto y el estado de su mana"></p>
+<figcaption>La llamada p.Atacar(orco) dentro de un foreach da tres resultados distintos. El guerrero resta su fuerza al orco. El mago con maná suficiente gasta 10 de maná y resta 25. El mago sin maná devuelve false y no hace nada.</figcaption>
+</figure>
+</div>
+</div>
+<p>El código que llama no necesita saber si el personaje es guerrero o mago. Mañana puedes crear un <code>Arquero</code> y el <code>foreach</code> seguirá funcionando sin tocarlo.</p>
+</section>
+</section>
+<section id="modelado-de-clases-con-uml" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="modelado-de-clases-con-uml"><span class="header-section-number">7</span> 4. Modelado de clases con UML</h2>
+<section id="por-qué-dibujar-antes-de-programar" class="level3">
+<h3 class="anchored" data-anchor-id="por-qué-dibujar-antes-de-programar">4.1 Por qué dibujar antes de programar</h3>
+<p><strong>UML</strong> (Unified Modeling Language) es un lenguaje gráfico estándar para dibujar el diseño de un programa. Un <strong>diagrama de clases</strong> muestra qué clases hay, qué guarda cada una, qué sabe hacer y cómo se relacionan. Dibujarlo antes de programar te deja discutir el diseño sin escribir código, y dibujarlo después te sirve de documentación.</p>
+</section>
+<section id="la-caja-de-una-clase" class="level3">
+<h3 class="anchored" data-anchor-id="la-caja-de-una-clase">4.2 La caja de una clase</h3>
+<p>Una clase se dibuja como una caja con tres compartimentos, de arriba abajo: el <strong>nombre</strong>, los <strong>atributos</strong> y los <strong>métodos</strong>. Esta es la caja de <code>Personaje</code>:</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/uml-caja-personaje.svg" class="img-fluid figure-img" alt="Caja UML de la clase abstracta Personaje con sus atributos y metodos y las llamadas que explican la notacion"></p>
+<figcaption>La caja UML de Personaje con tres compartimentos: nombre, atributos y métodos. Las llamadas laterales explican que + es público, - es privado, la forma nombre : tipo y que la cursiva marca lo abstracto.</figcaption>
+</figure>
+</div>
+</div>
+<p>La notación que usarás todo el semestre:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Se escribe</th>
+<th>Significa</th>
+<th>Ejemplo en <code>Personaje</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>+</code></td>
+<td>público: cualquiera lo puede usar</td>
+<td><code>+ Nombre : string</code></td>
+</tr>
+<tr class="even">
+<td><code>-</code></td>
+<td>privado: solo la propia clase</td>
+<td><code>- campo : tipo</code></td>
+</tr>
+<tr class="odd">
+<td><code>nombre : tipo</code></td>
+<td>un atributo con su tipo</td>
+<td><code>+ Vida : int {private set}</code></td>
+</tr>
+<tr class="even">
+<td><code>nombre(parámetros) : retorno</code></td>
+<td>un método con lo que recibe y devuelve</td>
+<td><code>+ Curar(puntos : int)</code></td>
+</tr>
+<tr class="odd">
+<td><code>= valor</code></td>
+<td>valor inicial o constante</td>
+<td><code>+ VidaMaxima : int = 100</code></td>
+</tr>
+<tr class="even">
+<td>Nombre en cursiva</td>
+<td>clase abstracta</td>
+<td><em>Personaje</em></td>
+</tr>
+<tr class="odd">
+<td>Método en cursiva</td>
+<td>método abstracto</td>
+<td><em>Atacar(objetivo : Personaje) : bool</em></td>
+</tr>
+</tbody>
+</table>
+<p>En C#, <code>Vida</code> se puede <strong>leer</strong> desde fuera pero solo se <strong>cambia</strong> desde dentro. Se dibuja como <code>+ Vida : int {private set}</code>: público para leer, con la nota de que el <code>set</code> es privado.</p>
+</section>
+<section id="relaciones-la-herencia" class="level3">
+<h3 class="anchored" data-anchor-id="relaciones-la-herencia">4.3 Relaciones: la herencia</h3>
+<p>Las clases rara vez viven solas. La relación que ya conoces es la <strong>herencia</strong> (también llamada generalización). Se dibuja con una línea continua que termina en un <strong>triángulo hueco</strong> apuntando a la clase base, y se lee “es un”: un <code>Guerrero</code> <strong>es un</strong> <code>Personaje</code>.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/uml-herencia-personajes.svg" class="img-fluid figure-img" alt="Diagrama de clases con Personaje como clase base abstracta y Guerrero y Mago como clases derivadas, unidas con flechas de herencia"></p>
+<figcaption>Diagrama de clases del videojuego. Personaje, abstracta, arriba. Guerrero y Mago abajo, cada una con una flecha de triángulo hueco hacia Personaje. Las derivadas muestran solo lo propio: Fuerza y Atacar en Guerrero, Mana y Atacar en Mago.</figcaption>
+</figure>
+</div>
+</div>
+<p>Observa tres detalles del dibujo. Las clases derivadas no repiten <code>Nombre</code>, <code>Vida</code> ni <code>RecibirDano</code>: ya vienen de la base. <code>Atacar</code> sí aparece en las dos derivadas, porque cada una lo <strong>sobrescribe</strong> con su propio cuerpo. Y la flecha siempre apunta de la clase específica hacia la general.</p>
+<p>Con solo tres clases no aparece otra relación habitual, la <strong>asociación</strong>, que se dibuja con una línea simple entre dos clases y significa “una clase usa a otra”. Más adelante, cuando un <code>Equipo</code> use <code>Personaje</code>, la verás.</p>
+</section>
+<section id="del-código-al-plano-y-del-plano-al-código-práctica-2" class="level3">
+<h3 class="anchored" data-anchor-id="del-código-al-plano-y-del-plano-al-código-práctica-2">4.4 Del código al plano y del plano al código (práctica 2)</h3>
+<p>Un buen modelador mueve la información en las dos direcciones. Esta tabla te sirve de guía:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>En el código</th>
+<th>En la caja UML</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>class Mago : Personaje</code></td>
+<td>Una caja <code>Mago</code> con una flecha de herencia hacia <code>Personaje</code></td>
+</tr>
+<tr class="even">
+<td><code>public const int CostoMana = 10;</code></td>
+<td><code>+ CostoMana : int = 10</code> en atributos</td>
+</tr>
+<tr class="odd">
+<td><code>public int Mana { get; private set; }</code></td>
+<td><code>+ Mana : int {private set}</code> en atributos</td>
+</tr>
+<tr class="even">
+<td><code>public override bool Atacar(Personaje objetivo)</code></td>
+<td><code>+ Atacar(objetivo : Personaje) : bool</code> en métodos</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled" title="Práctica 2: del código al plano">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Práctica 2: del código al plano
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Dibuja en tu cuaderno la caja UML de la clase <code>Mago</code> a partir de este archivo, sin mirar el diagrama de arriba:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Mago <span class="op">:</span> Personaje</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> CostoMana <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> DanoMagico <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Mana <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Mago</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> mana<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>nombre<span class="op">,</span> vida<span class="op">)</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>        Mana <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> mana<span class="op">);</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">)</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo <span class="op">||</span> Mana <span class="op">&lt;</span> CostoMana<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        Mana <span class="op">-=</span> CostoMana<span class="op">;</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>DanoMagico<span class="op">);</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Solución.</strong> Nombre: <code>Mago</code>, con una flecha de herencia hacia <code>Personaje</code>. Atributos: <code>+ CostoMana : int = 10</code>, <code>+ DanoMagico : int = 25</code> y <code>+ Mana : int {private set}</code>. Métodos: <code>+ Atacar(objetivo : Personaje) : bool</code>. No dibujes <code>Nombre</code>, <code>Vida</code> ni <code>RecibirDano</code>: pertenecen a <code>Personaje</code>.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="persistencia-en-archivos-de-texto" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="persistencia-en-archivos-de-texto"><span class="header-section-number">8</span> 5. Persistencia en archivos de texto</h2>
+<section id="el-problema-la-memoria-se-olvida" class="level3">
+<h3 class="anchored" data-anchor-id="el-problema-la-memoria-se-olvida">5.1 El problema: la memoria se olvida</h3>
+<p>Ejecuta el programa, deja a Aragorn herido, ciérralo y vuelve a abrirlo: Aragorn tiene otra vez 100 de vida. Todo lo que está en variables y objetos vive en la <strong>memoria (RAM)</strong>, y la memoria se borra cuando el programa termina.</p>
+<p>La <strong>persistencia</strong> es guardar los datos fuera de la memoria, en el disco, para que sobrevivan. La forma más simple es un <strong>archivo de texto</strong>: un archivo que puedes abrir con el Bloc de notas y leer con tus ojos.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/memoria-disco-persistencia.svg" class="img-fluid figure-img" alt="Comparacion entre la memoria RAM, que se pierde al cerrar el programa, y el disco, donde el archivo partida.txt sobrevive; flechas de guardar y leer entre ambos"></p>
+<figcaption>La memoria RAM guarda al objeto Aragorn con vida 70, pero se pierde al cerrar el programa. El disco guarda el archivo partida.txt con una línea por personaje y sobrevive. Una flecha guarda de la memoria al disco y otra lee del disco a la memoria.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="decidir-el-formato-del-archivo" class="level3">
+<h3 class="anchored" data-anchor-id="decidir-el-formato-del-archivo">5.2 Decidir el formato del archivo</h3>
+<p>Un archivo de texto no sabe nada de objetos: solo guarda líneas. Tienes que <strong>decidir cómo convertir un objeto en una línea</strong> y cómo convertir una línea de nuevo en un objeto. El formato que usaremos tiene cuatro campos separados por punto y coma:</p>
+<pre class="text"><code>Tipo;Nombre;Vida;Extra</code></pre>
+<p><code>Extra</code> es la fuerza si es un guerrero y el maná si es un mago. Un ejemplo con dos personajes:</p>
+<pre class="text"><code>Guerrero;Aragorn;70;15
+Mago;Gandalf;80;40</code></pre>
+<p>El primer campo, el <strong>tipo</strong>, es indispensable: sin él, al leer no sabrías si crear un <code>Guerrero</code> o un <code>Mago</code>.</p>
+</section>
+<section id="de-objeto-a-línea-tolinea" class="level3">
+<h3 class="anchored" data-anchor-id="de-objeto-a-línea-tolinea">5.3 De objeto a línea: <code>ToLinea</code></h3>
+<p>Cada clase sabe cómo convertirse en texto. En la base se declara el método abstracto y en cada derivada se escribe:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">();</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">()</span> <span class="op">=&gt;</span> $<span class="st">"Guerrero;{Nombre};{Vida};{Fuerza}"</span><span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">()</span> <span class="op">=&gt;</span> $<span class="st">"Mago;{Nombre};{Vida};{Mana}"</span><span class="op">;</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>El <code>=&gt;</code> es una forma corta de escribir un método que devuelve un valor: significa “devuelve esto”. El texto entre comillas con <code>$</code> y llaves <code>{ }</code> es una <strong>cadena interpolada</strong>: C# reemplaza cada <code>{Nombre}</code> por su valor. Agrega esa línea al final de las clases <code>Guerrero</code> y <code>Mago</code> (antes de la llave de cierre de la clase) y la declaración abstracta en <code>Personaje</code>.</p>
+</section>
+<section id="de-línea-a-objeto-desdelinea" class="level3">
+<h3 class="anchored" data-anchor-id="de-línea-a-objeto-desdelinea">5.4 De línea a objeto: <code>DesdeLinea</code></h3>
+<p>La operación inversa es más delicada, porque la línea puede estar mal escrita. Va como método <strong>estático</strong> de <code>Personaje</code> (un método que se llama con el nombre de la clase, sin necesidad de un objeto):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> Personaje<span class="op">?</span> <span class="fu">DesdeLinea</span><span class="op">(</span><span class="dt">string</span> linea<span class="op">)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span><span class="op">[]</span> partes <span class="op">=</span> linea<span class="op">.</span><span class="fu">Split</span><span class="op">(</span><span class="ch">';'</span><span class="op">);</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>partes<span class="op">.</span><span class="fu">Length</span> <span class="op">!=</span> <span class="dv">4</span><span class="op">)</span> <span class="kw">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">2</span><span class="op">],</span> <span class="kw">out</span> <span class="dt">int</span> vida<span class="op">))</span> <span class="kw">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">3</span><span class="op">],</span> <span class="kw">out</span> <span class="dt">int</span> extra<span class="op">))</span> <span class="kw">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> partes<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="kw">switch</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Guerrero"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Mago"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Mago</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>            _ <span class="op">=&gt;</span> <span class="kw">null</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">};</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Paso a paso:</p>
+<ol type="1">
+<li><code>linea.Split(';')</code> parte el texto en pedazos por cada punto y coma y entrega un arreglo de cuatro <code>string</code>.</li>
+<li>Si no hay exactamente cuatro pedazos, la línea es inválida: <code>return null;</code>. <strong><code>null</code> significa “no hay objeto”</strong>. Por eso el retorno se declara <code>Personaje?</code>, con el signo de interrogación.</li>
+<li><code>int.TryParse(partes[2], out int vida)</code> intenta convertir el texto en número. Devuelve <code>true</code> si pudo y deja el número en <code>vida</code>; devuelve <code>false</code> si el texto no es un número. Si falla, también <code>return null;</code>.</li>
+<li>El <code>switch</code> mira el primer pedazo, el tipo, y crea la clase correcta con <code>new</code>. Si el tipo no se conoce, <code>_ =&gt; null</code>.</li>
+</ol>
+</section>
+<section id="guardar-la-partida-escribir-un-archivo" class="level3">
+<h3 class="anchored" data-anchor-id="guardar-la-partida-escribir-un-archivo">5.5 Guardar la partida: escribir un archivo</h3>
+<p>Crea el archivo <code>Partida.cs</code>. Primero, el método que guarda:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Guardar</span><span class="op">(</span>List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> personajes<span class="op">,</span> <span class="dt">string</span> ruta<span class="op">)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">using</span> <span class="dt">var</span> escritor <span class="op">=</span> <span class="kw">new</span> <span class="fu">StreamWriter</span><span class="op">(</span>ruta<span class="op">);</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> personajes<span class="op">)</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>            escritor<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>p<span class="op">.</span><span class="fu">ToLinea</span><span class="op">());</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>new StreamWriter(ruta)</code> abre el archivo para <strong>escribir</strong> (lo crea si no existe y lo reemplaza si existe). Un <strong>flujo</strong> (<em>stream</em>) es el canal por el que viaja el texto entre el programa y el archivo.</li>
+<li><code>using var</code> garantiza que el archivo se <strong>cierre solo</strong> al terminar el método, aunque algo salga mal. Si no cierras un archivo, puede quedar bloqueado o sin guardar el final.</li>
+<li>El <code>foreach</code> recorre la lista y escribe cada personaje con <code>WriteLine(p.ToLinea())</code>: una línea por personaje.</li>
+</ul>
+</section>
+<section id="cargar-la-partida-leer-un-archivo" class="level3">
+<h3 class="anchored" data-anchor-id="cargar-la-partida-leer-un-archivo">5.6 Cargar la partida: leer un archivo</h3>
+<p>Ahora, el método que lee:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> <span class="fu">Cargar</span><span class="op">(</span><span class="dt">string</span> ruta<span class="op">)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> personajes <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;();</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>File<span class="op">.</span><span class="fu">Exists</span><span class="op">(</span>ruta<span class="op">))</span> <span class="kw">return</span> personajes<span class="op">;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">using</span> <span class="dt">var</span> lector <span class="op">=</span> <span class="kw">new</span> <span class="fu">StreamReader</span><span class="op">(</span>ruta<span class="op">);</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span><span class="op">?</span> linea<span class="op">;</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span> <span class="op">((</span>linea <span class="op">=</span> lector<span class="op">.</span><span class="fu">ReadLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>            Personaje<span class="op">?</span> p <span class="op">=</span> Personaje<span class="op">.</span><span class="fu">DesdeLinea</span><span class="op">(</span>linea<span class="op">);</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span>p <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> personajes<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> personajes<span class="op">;</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>if (!File.Exists(ruta)) return personajes;</code> revisa antes si el archivo existe. La primera vez que juegas no hay partida guardada, y eso no es un error: se devuelve una lista vacía.</li>
+<li><code>new StreamReader(ruta)</code> abre el archivo para <strong>leer</strong>, también con <code>using var</code>.</li>
+<li><code>while ((linea = lector.ReadLine()) != null)</code> lee una línea, la guarda en <code>linea</code> y repite mientras queden líneas. <code>ReadLine()</code> devuelve <code>null</code> cuando se acabaron.</li>
+<li>Cada línea pasa por <code>Personaje.DesdeLinea</code>. Si devuelve <code>null</code> (línea dañada), se <strong>descarta</strong> y la carga continúa con las demás.</li>
+</ul>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/flujo-guardar-cargar.svg" class="img-fluid figure-img" alt="Dos flujos: guardar convierte cada personaje en una linea con ToLinea y la escribe con StreamWriter; cargar comprueba que el archivo exista, lee con StreamReader y reconstruye con DesdeLinea descartando lineas invalidas"></p>
+<figcaption>Guardar: la lista de personajes pasa por ToLinea y StreamWriter.WriteLine hacia partida.txt. Cargar: se comprueba File.Exists, StreamReader.ReadLine lee cada línea, DesdeLinea la convierte en personaje, y las líneas que devuelven null se descartan.</figcaption>
+</figure>
+</div>
+</div>
+<p>El archivo <code>Partida.cs</code> completo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">class</span> Partida</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Guardar</span><span class="op">(</span>List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> personajes<span class="op">,</span> <span class="dt">string</span> ruta<span class="op">)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">using</span> <span class="dt">var</span> escritor <span class="op">=</span> <span class="kw">new</span> <span class="fu">StreamWriter</span><span class="op">(</span>ruta<span class="op">);</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> personajes<span class="op">)</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>            escritor<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>p<span class="op">.</span><span class="fu">ToLinea</span><span class="op">());</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> <span class="fu">Cargar</span><span class="op">(</span><span class="dt">string</span> ruta<span class="op">)</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> personajes <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;();</span></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>File<span class="op">.</span><span class="fu">Exists</span><span class="op">(</span>ruta<span class="op">))</span> <span class="kw">return</span> personajes<span class="op">;</span></span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">using</span> <span class="dt">var</span> lector <span class="op">=</span> <span class="kw">new</span> <span class="fu">StreamReader</span><span class="op">(</span>ruta<span class="op">);</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span><span class="op">?</span> linea<span class="op">;</span></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span> <span class="op">((</span>linea <span class="op">=</span> lector<span class="op">.</span><span class="fu">ReadLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>            Personaje<span class="op">?</span> p <span class="op">=</span> Personaje<span class="op">.</span><span class="fu">DesdeLinea</span><span class="op">(</span>linea<span class="op">);</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span>p <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> personajes<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> personajes<span class="op">;</span></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="el-programa-completo-dos-ejecuciones-una-partida" class="level3">
+<h3 class="anchored" data-anchor-id="el-programa-completo-dos-ejecuciones-una-partida">5.7 El programa completo: dos ejecuciones, una partida</h3>
+<p>Reemplaza <code>Program.cs</code>. El programa carga la partida, si existe; si no, crea una nueva. Después hiere a Aragorn, guarda y muestra la vida:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">string</span> Ruta <span class="op">=</span> <span class="st">"partida.txt"</span><span class="op">;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> equipo <span class="op">=</span> Partida<span class="op">.</span><span class="fu">Cargar</span><span class="op">(</span>Ruta<span class="op">);</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>equipo<span class="op">.</span><span class="fu">Count</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    equipo<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Aragorn"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">15</span><span class="op">));</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    equipo<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Mago</span><span class="op">(</span><span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">40</span><span class="op">));</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Partida nueva"</span><span class="op">);</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Partida cargada"</span><span class="op">);</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>equipo<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">RecibirDano</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>Partida<span class="op">.</span><span class="fu">Guardar</span><span class="op">(</span>equipo<span class="op">,</span> Ruta<span class="op">);</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> equipo<span class="op">)</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{p.Nombre}: vida {p.Vida}"</span><span class="op">);</span></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ejecuta <code>dotnet run</code> <strong>por primera vez</strong>. No hay archivo, así que la partida es nueva:</p>
+<pre class="text"><code>Partida nueva
+Aragorn: vida 70
+Gandalf: vida 80</code></pre>
+<p>Mira la carpeta del proyecto: apareció <code>partida.txt</code>. Ábrelo con el Bloc de notas: tiene <code>Guerrero;Aragorn;70;15</code> y <code>Mago;Gandalf;80;40</code>. Ahora ejecuta <code>dotnet run</code> <strong>por segunda vez</strong>:</p>
+<pre class="text"><code>Partida cargada
+Aragorn: vida 40
+Gandalf: vida 80</code></pre>
+<p>El programa dice <code>Partida cargada</code>. Aragorn empezó con 70 (leído del archivo), recibió otros 30 y quedó en 40. <strong>El juego recuerda.</strong> Para empezar de cero, borra <code>partida.txt</code>.</p>
+<div class="diagrama">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="imagenes/partida-dos-ejecuciones.svg" class="img-fluid figure-img" alt="Linea de tiempo con dos ejecuciones: la primera crea la partida y guarda vida 70; la segunda carga el archivo, aplica otro dano y guarda vida 40"></p>
+<figcaption>Dos ejecuciones del mismo programa. En la primera no hay archivo: imprime Partida nueva, Aragorn recibe 30 de daño, se guarda Guerrero;Aragorn;70;15 e imprime vida 70. En la segunda, el programa lee el archivo, imprime Partida cargada, Aragorn recibe otros 30, se guarda con vida 40 e imprime vida 40.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="cuando-el-archivo-falla" class="level3">
+<h3 class="anchored" data-anchor-id="cuando-el-archivo-falla">5.8 Cuando el archivo falla</h3>
+<p>Un archivo es un dato que viene de fuera del programa, y los datos de fuera pueden estar mal. La guía ya maneja dos casos:</p>
+<ul>
+<li><strong>El archivo no existe.</strong> <code>File.Exists</code> lo detecta y <code>Cargar</code> devuelve una lista vacía.</li>
+<li><strong>Una línea está dañada.</strong> <code>DesdeLinea</code> devuelve <code>null</code> y esa línea se ignora.</li>
+</ul>
+<p>Compruébalo. Crea un archivo <code>danada.txt</code> en la carpeta del proyecto con estas dos líneas. En la segunda, el <code>ochenta</code> no es un número:</p>
+<pre class="text"><code>Guerrero;Aragorn;70;15
+Mago;Gandalf;ochenta;40</code></pre>
+<p>Reemplaza <code>Program.cs</code> para cargar ese archivo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> cargados <span class="op">=</span> Partida<span class="op">.</span><span class="fu">Cargar</span><span class="op">(</span><span class="st">"danada.txt"</span><span class="op">);</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Personajes cargados: {cargados.Count}"</span><span class="op">);</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> cargados<span class="op">)</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{p.Nombre}: vida {p.Vida}"</span><span class="op">);</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Ejecuta:</p>
+<pre class="text"><code>Personajes cargados: 1
+Aragorn: vida 70</code></pre>
+<p>Cargó <strong>solo un personaje</strong>: Aragorn. La línea de Gandalf se descartó porque <code>int.TryParse</code> no pudo convertir <code>ochenta</code>, y el programa siguió sin caerse.</p>
+</section>
+<section id="las-tres-caras-del-mismo-objeto" class="level3">
+<h3 class="anchored" data-anchor-id="las-tres-caras-del-mismo-objeto">5.9 Las tres caras del mismo objeto</h3>
+<p>Vuelve al diagrama del principio. Gandalf existe como plano (la caja UML de <code>Mago</code>), como código (<code>new Mago("Gandalf", 80, 40)</code>) y como línea (<code>Mago;Gandalf;80;40</code>). <code>ToLinea</code> lleva del código a la línea y <code>DesdeLinea</code> regresa. Si el formato del archivo que escribe <code>ToLinea</code> no coincide con el que lee <code>DesdeLinea</code>, la carga descarta todo. Los dos métodos deben cambiar juntos.</p>
+</section>
+</section>
+<section id="reto-agrega-un-arquero" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="reto-agrega-un-arquero"><span class="header-section-number">9</span> 6. Reto: agrega un Arquero</h2>
+<p>La herencia y el archivo ya hacen lo difícil. Para comprobar que entendiste el diseño, agrega una clase nueva <strong>sin tocar el <code>foreach</code> del polimorfismo</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Reto: la clase Arquero">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Nota</span>Reto: la clase Arquero
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reglas. El <code>Arquero</code> hereda de <code>Personaje</code> y tiene <code>Flechas</code>. Su <code>Atacar</code> quita 12 de vida y gasta una flecha. Si no quedan flechas o está muerto, devuelve <code>false</code>. Debe guardarse y cargarse con el formato <code>Arquero;Nombre;Vida;Flechas</code>.</p>
+<p>Pistas. Copia la estructura de <code>Mago</code>. Necesitas una línea nueva en el <code>switch</code> de <code>DesdeLinea</code>.</p>
+<p><strong>Solución.</strong> Crea <code>Arquero.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Arquero <span class="op">:</span> Personaje</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> DanoFlecha <span class="op">=</span> <span class="dv">12</span><span class="op">;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Flechas <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Arquero</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> flechas<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>nombre<span class="op">,</span> vida<span class="op">)</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>        Flechas <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> flechas<span class="op">);</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">)</span></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo <span class="op">||</span> Flechas <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>        Flechas<span class="op">--;</span></span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>DanoFlecha<span class="op">);</span></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">()</span> <span class="op">=&gt;</span> $<span class="st">"Arquero;{Nombre};{Vida};{Flechas}"</span><span class="op">;</span></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Agrega una línea al <code>switch</code> de <code>Personaje.DesdeLinea</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> partes<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="kw">switch</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Guerrero"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Mago"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Mago</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Arquero"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Arquero</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>            _ <span class="op">=&gt;</span> <span class="kw">null</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">};</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Y prueba con este <code>Program.cs</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> legolas <span class="op">=</span> <span class="kw">new</span> <span class="fu">Arquero</span><span class="op">(</span><span class="st">"Legolas"</span><span class="op">,</span> <span class="dv">90</span><span class="op">,</span> <span class="dv">1</span><span class="op">);</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> orco <span class="op">=</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Orco"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">8</span><span class="op">);</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>legolas<span class="op">.</span><span class="fu">Atacar</span><span class="op">(</span>orco<span class="op">));</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>legolas<span class="op">.</span><span class="fu">Atacar</span><span class="op">(</span>orco<span class="op">));</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"Orco: vida {orco.Vida}"</span><span class="op">);</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> equipo <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> <span class="op">{</span> legolas<span class="op">,</span> orco <span class="op">};</span></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>Partida<span class="op">.</span><span class="fu">Guardar</span><span class="op">(</span>equipo<span class="op">,</span> <span class="st">"partida.txt"</span><span class="op">);</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> Partida<span class="op">.</span><span class="fu">Cargar</span><span class="op">(</span><span class="st">"partida.txt"</span><span class="op">))</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>p<span class="op">.</span><span class="fu">ToLinea</span><span class="op">());</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Salida:</p>
+<pre class="text"><code>True
+False
+Orco: vida 88
+Arquero;Legolas;90;0
+Guerrero;Orco;88;8</code></pre>
+<p>Legolas tiene una sola flecha: el primer ataque funciona (<code>True</code>), el segundo no (<code>False</code>). El orco queda en 88 (100 menos 12), y el archivo guarda a Legolas con 0 flechas.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="código-completo-del-proyecto" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="código-completo-del-proyecto"><span class="header-section-number">10</span> Código completo del proyecto</h2>
+<p>Esta es la versión final de los cinco archivos, la que produce las dos ejecuciones de la sección 5.7. Copia cada archivo en su pestaña a la carpeta del proyecto.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Personaje.cs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Guerrero.cs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Mago.cs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false" href="">Partida.cs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false" href="">Program.cs</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">abstract</span> <span class="kw">class</span> Personaje</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> VidaMaxima <span class="op">=</span> <span class="dv">100</span><span class="op">;</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Nombre <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Vida <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">bool</span> EstaVivo <span class="op">=&gt;</span> Vida <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="fu">Personaje</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">)</span></span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>        Nombre <span class="op">=</span> nombre<span class="op">;</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Clamp</span><span class="op">(</span>vida<span class="op">,</span> <span class="dv">0</span><span class="op">,</span> VidaMaxima<span class="op">);</span></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">RecibirDano</span><span class="op">(</span><span class="dt">int</span> dano<span class="op">)</span></span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> Vida <span class="op">-</span> dano<span class="op">);</span></span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Curar</span><span class="op">(</span><span class="dt">int</span> puntos<span class="op">)</span></span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span><span class="op">;</span></span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>        Vida <span class="op">=</span> Math<span class="op">.</span><span class="fu">Min</span><span class="op">(</span>VidaMaxima<span class="op">,</span> Vida <span class="op">+</span> puntos<span class="op">);</span></span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">);</span></span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">abstract</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">();</span></span>
+<span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> Personaje<span class="op">?</span> <span class="fu">DesdeLinea</span><span class="op">(</span><span class="dt">string</span> linea<span class="op">)</span></span>
+<span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span><span class="op">[]</span> partes <span class="op">=</span> linea<span class="op">.</span><span class="fu">Split</span><span class="op">(</span><span class="ch">';'</span><span class="op">);</span></span>
+<span id="cb43-33"><a href="#cb43-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>partes<span class="op">.</span><span class="fu">Length</span> <span class="op">!=</span> <span class="dv">4</span><span class="op">)</span> <span class="kw">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb43-34"><a href="#cb43-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">2</span><span class="op">],</span> <span class="kw">out</span> <span class="dt">int</span> vida<span class="op">))</span> <span class="kw">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb43-35"><a href="#cb43-35" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">3</span><span class="op">],</span> <span class="kw">out</span> <span class="dt">int</span> extra<span class="op">))</span> <span class="kw">return</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb43-36"><a href="#cb43-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-37"><a href="#cb43-37" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> partes<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="kw">switch</span></span>
+<span id="cb43-38"><a href="#cb43-38" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb43-39"><a href="#cb43-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Guerrero"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb43-40"><a href="#cb43-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Mago"</span> <span class="op">=&gt;</span> <span class="kw">new</span> <span class="fu">Mago</span><span class="op">(</span>partes<span class="op">[</span><span class="dv">1</span><span class="op">],</span> vida<span class="op">,</span> extra<span class="op">),</span></span>
+<span id="cb43-41"><a href="#cb43-41" aria-hidden="true" tabindex="-1"></a>            _ <span class="op">=&gt;</span> <span class="kw">null</span></span>
+<span id="cb43-42"><a href="#cb43-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">};</span></span>
+<span id="cb43-43"><a href="#cb43-43" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb43-44"><a href="#cb43-44" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb44"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Guerrero <span class="op">:</span> Personaje</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Fuerza <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> fuerza<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>nombre<span class="op">,</span> vida<span class="op">)</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        Fuerza <span class="op">=</span> fuerza<span class="op">;</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">)</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>Fuerza<span class="op">);</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">()</span> <span class="op">=&gt;</span> $<span class="st">"Guerrero;{Nombre};{Vida};{Fuerza}"</span><span class="op">;</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb45"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Mago <span class="op">:</span> Personaje</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> CostoMana <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">const</span> <span class="dt">int</span> DanoMagico <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Mana <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">private</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Mago</span><span class="op">(</span><span class="dt">string</span> nombre<span class="op">,</span> <span class="dt">int</span> vida<span class="op">,</span> <span class="dt">int</span> mana<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>nombre<span class="op">,</span> vida<span class="op">)</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>        Mana <span class="op">=</span> Math<span class="op">.</span><span class="fu">Max</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> mana<span class="op">);</span></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Atacar</span><span class="op">(</span>Personaje objetivo<span class="op">)</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>EstaVivo <span class="op">||</span> Mana <span class="op">&lt;</span> CostoMana<span class="op">)</span> <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>        Mana <span class="op">-=</span> CostoMana<span class="op">;</span></span>
+<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>        objetivo<span class="op">.</span><span class="fu">RecibirDano</span><span class="op">(</span>DanoMagico<span class="op">);</span></span>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToLinea</span><span class="op">()</span> <span class="op">=&gt;</span> $<span class="st">"Mago;{Nombre};{Vida};{Mana}"</span><span class="op">;</span></span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb46"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">class</span> Partida</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Guardar</span><span class="op">(</span>List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> personajes<span class="op">,</span> <span class="dt">string</span> ruta<span class="op">)</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">using</span> <span class="dt">var</span> escritor <span class="op">=</span> <span class="kw">new</span> <span class="fu">StreamWriter</span><span class="op">(</span>ruta<span class="op">);</span></span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> personajes<span class="op">)</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>            escritor<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>p<span class="op">.</span><span class="fu">ToLinea</span><span class="op">());</span></span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> <span class="fu">Cargar</span><span class="op">(</span><span class="dt">string</span> ruta<span class="op">)</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> personajes <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>Personaje<span class="op">&gt;();</span></span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(!</span>File<span class="op">.</span><span class="fu">Exists</span><span class="op">(</span>ruta<span class="op">))</span> <span class="kw">return</span> personajes<span class="op">;</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">using</span> <span class="dt">var</span> lector <span class="op">=</span> <span class="kw">new</span> <span class="fu">StreamReader</span><span class="op">(</span>ruta<span class="op">);</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span><span class="op">?</span> linea<span class="op">;</span></span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>        <span class="kw">while</span> <span class="op">((</span>linea <span class="op">=</span> lector<span class="op">.</span><span class="fu">ReadLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>            Personaje<span class="op">?</span> p <span class="op">=</span> Personaje<span class="op">.</span><span class="fu">DesdeLinea</span><span class="op">(</span>linea<span class="op">);</span></span>
+<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span>p <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span> personajes<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>p<span class="op">);</span></span>
+<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> personajes<span class="op">;</span></span>
+<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb47"><pre class="sourceCode csharp code-with-copy"><code class="sourceCode cs"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dt">const</span> <span class="dt">string</span> Ruta <span class="op">=</span> <span class="st">"partida.txt"</span><span class="op">;</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span>Personaje<span class="op">&gt;</span> equipo <span class="op">=</span> Partida<span class="op">.</span><span class="fu">Cargar</span><span class="op">(</span>Ruta<span class="op">);</span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>equipo<span class="op">.</span><span class="fu">Count</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    equipo<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Guerrero</span><span class="op">(</span><span class="st">"Aragorn"</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> <span class="dv">15</span><span class="op">));</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>    equipo<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Mago</span><span class="op">(</span><span class="st">"Gandalf"</span><span class="op">,</span> <span class="dv">80</span><span class="op">,</span> <span class="dv">40</span><span class="op">));</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Partida nueva"</span><span class="op">);</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">"Partida cargada"</span><span class="op">);</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>equipo<span class="op">[</span><span class="dv">0</span><span class="op">].</span><span class="fu">RecibirDano</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>Partida<span class="op">.</span><span class="fu">Guardar</span><span class="op">(</span>equipo<span class="op">,</span> Ruta<span class="op">);</span></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span>Personaje p <span class="kw">in</span> equipo<span class="op">)</span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>$<span class="st">"{p.Nombre}: vida {p.Vida}"</span><span class="op">);</span></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="errores-frecuentes" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="errores-frecuentes"><span class="header-section-number">11</span> Errores frecuentes</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Error</th>
+<th>Qué pasa</th>
+<th>Cómo se corrige</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Confundir clase con objeto</td>
+<td>Intentar usar <code>Guerrero.Vida</code> sin crear un guerrero</td>
+<td>Primero <code>new Guerrero(...)</code>, después se usa el objeto</td>
+</tr>
+<tr class="even">
+<td>Olvidar <code>new</code></td>
+<td>El compilador marca que la variable no tiene valor</td>
+<td><code>var aragorn = new Guerrero(...)</code></td>
+</tr>
+<tr class="odd">
+<td>Creer que <code>copia = aragorn</code> crea otro objeto</td>
+<td>Los dos nombres cambian juntos</td>
+<td>Crear cada objeto con su propio <code>new</code></td>
+</tr>
+<tr class="even">
+<td>Escribir <code>Atacar</code> sin <code>override</code> en la derivada</td>
+<td>Error de compilación</td>
+<td>Agregar <code>override</code></td>
+</tr>
+<tr class="odd">
+<td>Intentar <code>new Personaje(...)</code></td>
+<td>Error: la clase es abstracta</td>
+<td>Crear un <code>Guerrero</code> o un <code>Mago</code></td>
+</tr>
+<tr class="even">
+<td>No cerrar el archivo</td>
+<td>El archivo queda bloqueado o sin el final</td>
+<td>Usar <code>using var</code></td>
+</tr>
+<tr class="odd">
+<td>Formato distinto entre <code>ToLinea</code> y <code>DesdeLinea</code></td>
+<td>La carga descarta las líneas</td>
+<td>Cambiar los dos métodos juntos</td>
+</tr>
+<tr class="even">
+<td>Olvidar el tipo en la línea del archivo</td>
+<td>No se sabe qué clase crear</td>
+<td>Todo registro empieza por <code>Tipo;</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lista-de-verificación" class="level2" data-number="12">
+<h2 data-number="12" class="anchored" data-anchor-id="lista-de-verificación"><span class="header-section-number">12</span> Lista de verificación</h2>
+<div class="checklist">
+<ul class="task-list">
+<li><label><input type="checkbox">Explicas la diferencia entre clase y objeto con un ejemplo del videojuego.</label></li>
+<li><label><input type="checkbox">Declaras una clase con atributos, métodos y un constructor que valida.</label></li>
+<li><label><input type="checkbox">Instancias objetos con <code>new</code> y usas el operador punto para leer atributos y llamar métodos.</label></li>
+<li><label><input type="checkbox">Explicas por qué <code>var copia = aragorn;</code> no crea otro objeto.</label></li>
+<li><label><input type="checkbox">Escribes una clase base abstracta y dos clases derivadas con <code>override</code>.</label></li>
+<li><label><input type="checkbox">Dibujas la caja UML de una clase y una relación de herencia.</label></li>
+<li><label><input type="checkbox">Guardas objetos en un archivo de texto con <code>StreamWriter</code> y los recuperas con <code>StreamReader</code>.</label></li>
+<li><label><input type="checkbox">Manejas un archivo inexistente y una línea dañada sin que el programa falle.</label></li>
+</ul>
+</div>
+</section>
+<section id="recursos" class="level2" data-number="13">
+<h2 data-number="13" class="anchored" data-anchor-id="recursos"><span class="header-section-number">13</span> Recursos</h2>
+<ul>
+<li>Clases y objetos en C#: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/object-oriented/objects">Microsoft Learn, objetos</a></li>
+<li>Herencia: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/fundamentals/tutorials/inheritance">Microsoft Learn, tutorial de herencia</a></li>
+<li>Clases y métodos abstractos: <a href="https://learn.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/abstract">Microsoft Learn, palabra clave abstract</a></li>
+<li>Lectura y escritura de archivos de texto: <a href="https://learn.microsoft.com/es-es/dotnet/standard/io/how-to-write-text-to-a-file">Microsoft Learn, escribir texto en un archivo</a></li>
+</ul>
+<div class="pie-doc">
+<p>Herramientas de Programación I (ET0047). Institución Universitaria Pascual Bravo. Facultad de Ingeniería. Semestre 2026-02.</p>
+<p><strong>Transparencia.</strong> La redacción de esta guía contó con el apoyo de inteligencia artificial, usando el modelo Claude Sonnet 5 de Anthropic. Todo el contenido fue revisado y validado. Las salidas de terminal son reales, obtenidas ejecutando el código exacto de esta guía contra el SDK de .NET 10.0.302.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/oscarleosanchez\.github\.io\/sitio-pascual-b-2026-02\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Oscar Leonel Sánchez Conde</p>
+</div>   
+    <div class="nav-footer-center">
+<p>Institución Universitaria Pascual Bravo. Facultad de Ingeniería</p>
+</div>
+    <div class="nav-footer-right">
+<p>Semestre 2026-02</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
