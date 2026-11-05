@@ -12,6 +12,7 @@ project:
     - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
     - estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
     - estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
+    - estadistica-para-analitica/unidad-02/presentacion-validacion-modelos.html
     - estadistica-para-analitica/unidad-02/recursos/actividad/**/*.csv
 
 lang: es
@@ -103,6 +104,8 @@ website:
               href: estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
             - text: "4 y 5. Presentación: modelos discretos y continuos"
               href: estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
+            - text: "Presentación: validar el ajuste de un modelo"
+              href: estadistica-para-analitica/unidad-02/presentacion-validacion-modelos.html
             - text: "Actividad evaluativa: elegir el modelo y sustentar"
               href: estadistica-para-analitica/unidad-02/actividad-evaluativa.qmd
   page-footer:
