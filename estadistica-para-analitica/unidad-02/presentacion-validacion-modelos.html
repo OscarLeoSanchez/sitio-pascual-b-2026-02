@@ -4039,8 +4039,8 @@ window.PRU_COD = {
  "continuos": {
   "uniforme": "x = par[\"minuto_de_la_hora_en_que_inicia\"]\na, b = 0, 60  # 1 conocidos\nemp = ((x > 15) & (x < 30)).mean()  # 2 empirico\nmod = (30 - 15) / (b - a)  # 3 modelo\np = st.kstest(x, \"uniform\", args=(0, 60)).pvalue  # 4\nprint(\"se sostiene\" if p > 0.05 else \"falla\")  # 5",
   "normal": "x = paq[\"peso_g\"]\nmu, sd = x.mean(), x.std(ddof=1)  # 1 parametros\nemp = (x < 495).mean()  # 2 empirico\nmod = st.norm.cdf(495, mu, sd)  # 3 modelo\np = st.kstest(x, \"norm\", args=(mu, sd)).pvalue  # 4\nq = st.shapiro(x).pvalue  # 4 tambien Shapiro\nprint(\"se sostiene\" if p > 0.05 else \"falla\")  # 5",
-  "exponencial": "x = tk[\"minutos_desde_anterior\"]\ntheta = x.mean()  # 1 parametro\nemp = (x > 10).mean()  # 2 empirico\nmod = st.expon.sf(10, scale=theta)  # 3 modelo\np = st.kstest(x, \"expon\", args=(0, theta)).pvalue  # 4\nprint(\"se sostiene\" if p > 0.05 else \"falla\")  # 5",
-  "gamma": "x = bs[\"minutos_desde_bus_anterior\"]\nm, v = x.mean(), x.var(ddof=1)\nk, th = m ** 2 / v, v / m  # 1 parametros\nemp = (x > 15).mean()  # 2 empirico\nmod = st.gamma.sf(15, k, scale=th)  # 3 modelo\np = st.kstest(x, \"gamma\", args=(k, 0, th)).pvalue  # 4\nprint(\"se sostiene\" if p > 0.05 else \"falla\")  # 5"
+  "exponencial": "x = tk[\"minutos_desde_anterior\"]\nth = x.mean()  # 1 parametro\nemp = (x > 10).mean()  # 2 empirico\nmod = st.expon.sf(10, scale=th)  # 3 modelo\np = st.kstest(x, \"expon\", args=(0, th)).pvalue  # 4\nprint(\"se sostiene\" if p > 0.05 else \"falla\")  # 5",
+  "gamma": "x = bs[\"minutos_desde_bus_anterior\"]\nm, v = x.mean(), x.var(ddof=1)\nk, th = m ** 2 / v, v / m  # 1 parametros\nemp = (x > 15).mean()  # 2 empirico\nmod = st.gamma.sf(15, k, scale=th)  # 3 modelo\np = st.kstest(x, \"gamma\", (k, 0, th)).pvalue  # 4\nprint(\"se sostiene\" if p > 0.05 else \"falla\")  # 5"
  },
  "hl": {
   "discretos/uniforme": 5,
@@ -4062,6 +4062,13 @@ window.PRU_COD = {
    cfg: diapo, total, texto (narracion por paso, opcional), codigo { id, textos (codigo por paso) o ver (lineas visibles), hl (lineas resaltadas) }, alPaso(k). */
 window.PRU = (function () {
   const err = (m) => console.error('[PRU] ' + m);
+
+  /* Tras un clic en Copiar se suelta el foco: con el foco ahi, Espacio vuelve a copiar en lugar de avanzar el paso */
+  document.addEventListener('click', (e) => {
+    if (e.detail > 0 && e.target.closest && e.target.closest('.codigo-copiar')) {
+      setTimeout(() => document.activeElement && document.activeElement.blur(), 0);
+    }
+  });
 
   function contarPasos(d) {
     const v = new Set();
