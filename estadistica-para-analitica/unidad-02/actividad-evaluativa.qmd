@@ -1,0 +1,351 @@
+---
+title: "Unidad 2. Actividad evaluativa: elegir el modelo y demostrar cómo se llegó a cada resultado"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+number-sections: false
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Unidad     | Unidad 2. Modelos de probabilidad                        |
+| Actividad  | Trabajo en parejas con sustentación de máximo 10 minutos |
+:::
+
+## De qué se trata
+
+Cada pareja recibe UN ejercicio (1 a 5) con sus archivos de datos. Los datos son ficticios pero construidos para parecerse a un caso real. Cada ejercicio tiene seis o siete preguntas. En todas hay que decidir qué modelo de probabilidad corresponde: el enunciado no lo dice, pero cada pregunta trae unas preguntas guía para elegirlo.
+
+Lo más importante no es solo el número final, sino **demostrar cómo se llegó a cada resultado**: qué modelo eligieron y por qué, cómo obtuvieron la respuesta con los datos, cómo la obtuvieron con el modelo (con qué parámetros) y qué concluyen al compararlas.
+
+En cada ejercicio hay al menos una variable donde el modelo que parece obvio NO se ajusta. Si ocurre, no lo fuercen: digan que falla y muestren la evidencia. Eso vale tanto como un ajuste bueno.
+
+## Qué se entrega
+
+1. **El Colab utilizado**, compartido con permiso de lectura y que se ejecute de principio a fin. Debe mostrar los cálculos de cada pregunta, no solo el resultado.
+2. **La presentación** con la que sustentan.
+3. **La sustentación**, de **máximo 10 minutos** por pareja, seguida de preguntas del docente a cada integrante.
+
+Herramientas: Google Colab con Python, pandas, numpy y scipy.stats (matplotlib para gráficos). Para cargar un archivo de datos en Colab:
+
+```python
+import pandas as pd
+url = "https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej1-mesa-ayuda/tickets.csv"  # ejemplo: use el enlace del archivo de su ejercicio
+df = pd.read_csv(url)
+df.head()
+```
+
+## La sustentación (10 minutos máximo)
+
+Presenten las preguntas de su ejercicio en este orden de ideas, con una diapositiva o dos por pregunta y sin leer el código línea por línea:
+
+- **Modelo:** cuál eligieron y por qué (qué se cuenta o se mide, qué supuestos se cumplen).
+- **Cómo llegaron al resultado:** cómo lo calcularon con los datos, qué parámetros estimaron y cómo lo calcularon con el modelo.
+- **Comparación:** los dos resultados lado a lado y si el modelo se sostiene o falla, con la evidencia (gráfico, tabla o valor p).
+
+Con 6 o 7 preguntas en 10 minutos queda poco tiempo por pregunta: ensayen. Si una pregunta es más corta, aprovechen para detenerse en las que tienen trampa (donde un modelo falla o hay una comparación entre dos modelos).
+
+## Rúbrica (100 puntos)
+
+| Componente | Qué se evalúa | Puntos |
+|---|---|---|
+| **Sustentación (70)** | Identificación del modelo y justificación de los supuestos: ¿por qué ese modelo y no otro? | 15 |
+| | Cómo llegaron al resultado: método con los datos, parámetros estimados y cálculo con el modelo, demostrado paso a paso | 20 |
+| | Comparación y conclusión: coinciden o no los dos resultados, se sostiene o falla el modelo y por qué | 15 |
+| | **Individual**: manejo y dominio del tema. El docente pregunta a cada integrante por separado y cada uno recibe su propia nota | 20 |
+| **Documentos (30)** | Colab: se ejecuta de principio a fin, muestra los cálculos y está ordenado | 20 |
+| | Presentación: clara, ordenada y cabe en los 10 minutos | 10 |
+
+Las preguntas individuales piden explicar, no repetir: por ejemplo, por qué este modelo y no otro, qué cambiaría si se modifica un parámetro, cómo se interpreta la probabilidad calculada o qué significa el valor p que obtuvieron.
+
+## Reglas de trabajo
+
+- Los parámetros salen de los datos, no se inventan.
+- Una probabilidad se escribe con la notación, por ejemplo P(X > 12), y con tres decimales.
+- Si una pregunta tiene una ambigüedad, digan qué supuesto adoptaron.
+
+## Ejercicio 1. Mesa de ayuda de una empresa de software
+
+Una empresa registró durante 80 horas continuas todos los tickets que llegaron a su mesa de ayuda. Seis agentes atienden y el sistema asigna cada ticket a un agente. Algunos tickets se escalan a un nivel superior.
+
+**Datos:** [tickets.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej1-mesa-ayuda/tickets.csv) (753 tickets).
+
+| Columna | Significado |
+|---|---|
+| `ticket_id` | Número del ticket, en orden de llegada |
+| `minuto_llegada` | Minutos desde el inicio del registro hasta la llegada del ticket |
+| `minutos_desde_anterior` | Minutos desde el ticket anterior (el primero se mide desde el inicio) |
+| `agente` | Agente asignado, de 1 a 6 |
+| `escalado` | 1 si el ticket fue escalado, 0 si no |
+| `minutos_primera_respuesta` | Minutos hasta que el agente dio la primera respuesta |
+| `bloque_10` | Grupo de 10 tickets consecutivos (el último bloque puede estar incompleto: no lo usen) |
+
+### Pregunta 1.1
+
+En una hora cualquiera del registro, ¿cuál es la probabilidad de que lleguen más de 12 tickets?
+
+- **Para elegir el modelo:** ¿qué se cuenta y en qué intervalo? ¿Hay un tope superior?
+- **Demuestren:** cómo armaron el conteo de tickets por hora (80 valores), qué fracción supera 12 y con qué parámetro calcularon la probabilidad del modelo.
+
+### Pregunta 1.2
+
+Entre dos tickets consecutivos, ¿cuál es la probabilidad de que pasen más de 10 minutos?
+
+- **Para elegir el modelo:** ¿la variable se cuenta o se mide? ¿Es la espera hasta el próximo evento?
+- **Demuestren:** la fracción de tiempos mayores que 10, el parámetro que estimaron, la probabilidad del modelo y el histograma con la curva.
+
+### Pregunta 1.3
+
+Tomen grupos de 5 tickets consecutivos sin solaparse. ¿Cuál es la probabilidad de que reunir un grupo de 5 tickets tarde más de 40 minutos?
+
+- **Para elegir el modelo:** esta suma es la espera hasta el evento número 5. ¿Qué modelo describe una espera hasta el k-ésimo evento y cómo se relaciona con el de la pregunta 1.2?
+- **Demuestren:** cómo construyeron los grupos, la fracción de grupos con suma mayor que 40, los parámetros (forma y escala) y la probabilidad del modelo.
+
+### Pregunta 1.4
+
+En un bloque de 10 tickets, ¿cuál es la probabilidad de que 3 o más sean escalados?
+
+- **Para elegir el modelo:** ¿cuántos intentos hay por bloque, cuál es el éxito y la probabilidad es la misma en todos?
+- **Demuestren:** cómo contaron los escalados por bloque (solo bloques completos), la proporción que usaron como parámetro y la fracción de bloques con 3 o más frente a la probabilidad del modelo.
+
+### Pregunta 1.5
+
+¿Qué fracción de los tickets tarda más de 18 minutos en recibir la primera respuesta? ¿Por debajo de qué tiempo está el 90% de los tickets?
+
+- **Para elegir el modelo:** observen el histograma de `minutos_primera_respuesta`: ¿qué forma tiene y es simétrico?
+- **Demuestren:** el resultado empírico (fracción y percentil 90), los parámetros estimados y los mismos dos resultados con el modelo.
+
+### Pregunta 1.6
+
+Si el sistema asigna agentes sin preferencia, ¿cuál es la probabilidad de que a un ticket le toque el agente 1, 2 o 3? Calculen también el valor esperado y la varianza del número de agente.
+
+- **Para elegir el modelo:** ¿qué valores toma `agente` y qué probabilidad le toca a cada uno si no hay preferencia?
+- **Demuestren:** la tabla de tickets por agente contra lo esperado, la fracción con agente 1 a 3 y el valor esperado y la varianza con el modelo.
+
+## Ejercicio 2. Planta de empaque de cereal
+
+Una planta empaca bolsas de cereal. Hay cuatro fuentes de datos: el pesaje de las bolsas, una auditoría de lotes, las paradas de la línea y los reclamos diarios de clientes.
+
+**Datos:** [paquetes.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej2-planta-empaque/paquetes.csv) (600 bolsas), [auditoria_lotes.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej2-planta-empaque/auditoria_lotes.csv) (120 lotes), [paradas_linea.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej2-planta-empaque/paradas_linea.csv) (150 paradas) y [reclamos_diarios.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej2-planta-empaque/reclamos_diarios.csv) (200 días).
+
+| Archivo | Columnas |
+|---|---|
+| `paquetes.csv` | `paquete_id`; `muestra` (grupo de 10 bolsas consecutivas que se revisan juntas); `peso_g` (peso en gramos); `defectuoso` (1 si tiene un defecto) |
+| `auditoria_lotes.csv` | `lote_id`; `paquetes_lote` (25); `defectuosos_sembrados` (6 bolsas defectuosas conocidas dentro del lote); `paquetes_revisados` (5, sacadas SIN devolverlas); `defectuosos_encontrados` |
+| `paradas_linea.csv` | `parada_id`; `horas_desde_parada_anterior`; `minuto_de_la_hora_en_que_inicia` (entre 0 y 60) |
+| `reclamos_diarios.csv` | `dia`; `reclamos` (reclamos recibidos ese día) |
+
+### Pregunta 2.1
+
+La etiqueta declara un mínimo de 495 g. ¿Qué fracción de las bolsas pesa menos de 495 g? ¿Por debajo de qué peso queda el 5% más liviano?
+
+- **Para elegir el modelo:** observen el histograma de `peso_g`: ¿es una medida continua y qué forma tiene?
+- **Demuestren:** el resultado empírico (fracción y percentil 5), los parámetros estimados y los mismos resultados con el modelo, con el gráfico.
+
+### Pregunta 2.2
+
+En una muestra de 10 bolsas, ¿cuál es la probabilidad de encontrar 2 o más defectuosas?
+
+- **Para elegir el modelo:** ¿cuántos intentos hay, cuál es el éxito y por qué se puede suponer la misma probabilidad en cada bolsa?
+- **Demuestren:** cómo contaron los defectuosos por muestra, la proporción que usaron como parámetro y la fracción de muestras con 2 o más frente a la probabilidad del modelo.
+
+### Pregunta 2.3
+
+En la auditoría, ¿cuál es la probabilidad de que el inspector encuentre al menos 1 defectuosa? Calculen también la respuesta con el modelo de probabilidad fija por bolsa (como si cada revisión fuera independiente) y expliquen por qué no coincide.
+
+- **Para elegir el modelo:** ¿se devuelve cada bolsa antes de sacar la siguiente? ¿Cuáles son los cuatro números del problema (tamaño del lote, defectuosas en el lote, bolsas revisadas y lo que se cuenta)?
+- **Demuestren:** la fracción de lotes con al menos 1 defectuosa, las dos probabilidades del modelo (con y sin reposición) y la razón n/N que explica la diferencia.
+
+### Pregunta 2.4
+
+¿Cuál es la probabilidad de que pasen más de 10 horas entre dos paradas? Si la línea ya lleva 6 horas sin parar, ¿cuál es la probabilidad de que llegue a más de 10 horas en total?
+
+- **Para elegir el modelo:** ¿es la espera hasta el próximo evento? ¿Cuántos parámetros tiene?
+- **Demuestren:** las dos fracciones empíricas, las dos probabilidades del modelo y qué propiedad del modelo explica la relación entre ambas respuestas.
+
+### Pregunta 2.5
+
+¿Cuál es la probabilidad de que una parada empiece entre el minuto 15 y el minuto 30 de la hora? Calculen también el valor esperado y la varianza del minuto de inicio.
+
+- **Para elegir el modelo:** ¿entre qué valores puede estar el minuto y es razonable que ningún minuto sea más probable que otro?
+- **Demuestren:** la fracción empírica, la probabilidad como área del modelo, el valor esperado y la varianza, y el histograma con la línea del modelo.
+
+### Pregunta 2.6
+
+En un día cualquiera, ¿cuál es la probabilidad de recibir más de 5 reclamos? ¿Y de no recibir ninguno?
+
+- **Para elegir el modelo:** ¿qué se cuenta y en qué intervalo? ¿Hay un tope natural?
+- **Demuestren:** las dos fracciones empíricas, el parámetro estimado y las dos probabilidades del modelo, con la tabla de frecuencias observadas contra esperadas.
+
+## Ejercicio 3. Servicio de pagos en línea (API)
+
+Un servicio de pagos monitorea su API. Se tienen las peticiones por segundo durante una hora, mediciones de 1 500 peticiones individuales y los fallos del servicio.
+
+**Datos:** [peticiones_por_segundo.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej3-api-pagos/peticiones_por_segundo.csv) (3 600 segundos), [peticiones.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej3-api-pagos/peticiones.csv) (1 500 peticiones) y [fallos.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej3-api-pagos/fallos.csv) (120 fallos).
+
+| Archivo | Columnas |
+|---|---|
+| `peticiones_por_segundo.csv` | `segundo`; `peticiones` (peticiones recibidas en ese segundo) |
+| `peticiones.csv` | `peticion_id`; `servidor` (1 a 4, lo asigna un balanceador de carga); `latencia_bd_ms` (consulta a la base de datos propia); `latencia_api_externa_ms` (llamada al servicio externo del banco); `error_5xx` (1 si terminó en error de servidor); `lote_20` (grupo de 20 peticiones consecutivas) |
+| `fallos.csv` | `fallo_id`; `horas_desde_fallo_anterior` |
+
+### Pregunta 3.1
+
+En un segundo cualquiera, ¿cuál es la probabilidad de recibir más de 18 peticiones?
+
+- **Para elegir el modelo:** ¿qué se cuenta y en qué intervalo? ¿Hay tope superior?
+- **Demuestren:** la fracción empírica de segundos con más de 18, el parámetro estimado y la probabilidad del modelo. Calculen varianza dividida entre media y digan qué esperaban ver.
+
+### Pregunta 3.2
+
+¿Qué fracción de las consultas a la base de datos tarda más de 150 ms? ¿Cuál es el tiempo por debajo del cual queda el 99% de las consultas?
+
+- **Para elegir el modelo:** observen el histograma de `latencia_bd_ms`: ¿es simétrico y con forma de campana?
+- **Demuestren:** el resultado empírico (fracción y percentil 99), los parámetros estimados y los mismos resultados con el modelo, con la curva sobre el histograma.
+
+### Pregunta 3.3
+
+¿Qué fracción de las llamadas al servicio externo tarda más de 400 ms? Contesten con los datos y con el modelo de campana, y decidan si ese modelo se sostiene.
+
+- **Para elegir el modelo:** observen el histograma de `latencia_api_externa_ms` y calculen la asimetría (`scipy.stats.skew`): ¿es cercana a 0?
+- **Demuestren:** la fracción empírica, la probabilidad con el modelo de campana y la comparación. Si no se sostiene, muestren qué se ve en los datos que lo contradice (el modelo subestima o sobrestima las latencias altas) y prueben un segundo modelo para tiempos positivos con cola a la derecha.
+
+### Pregunta 3.4
+
+En un lote de 20 peticiones, ¿cuál es la probabilidad de que 2 o más terminen en error?
+
+- **Para elegir el modelo:** ¿cuántos intentos hay por lote, cuál es el éxito y la probabilidad es constante?
+- **Demuestren:** cómo contaron los errores por lote, la proporción que usaron como parámetro y la fracción de lotes con 2 o más frente a la probabilidad del modelo.
+
+### Pregunta 3.5
+
+(a) ¿Cuál es la probabilidad de que pasen más de 45 horas entre dos fallos? (b) Tomen grupos de 3 fallos consecutivos sin solaparse: ¿cuál es la probabilidad de que reunir 3 fallos tarde más de 120 horas?
+
+- **Para elegir el modelo:** (a) es la espera hasta el próximo evento. (b) es la espera hasta el evento número 3: ¿qué modelo la describe y con qué parámetros?
+- **Demuestren:** en (a), la fracción empírica y la probabilidad del modelo. En (b), cómo armaron los grupos, la fracción de grupos con suma mayor que 120 y la probabilidad del modelo con la forma y la escala que usaron.
+
+### Pregunta 3.6
+
+Si el balanceador no tiene preferencia, ¿cuál es la probabilidad de que una petición caiga en el servidor 1 o en el 2? Calculen también el valor esperado y la varianza del número de servidor.
+
+- **Para elegir el modelo:** ¿qué valores toma `servidor` y qué probabilidad le toca a cada uno si no hay preferencia?
+- **Demuestren:** la tabla de peticiones por servidor contra lo esperado, la fracción con servidor 1 o 2 y el valor esperado y la varianza con el modelo.
+
+## Ejercicio 4. Estación de transporte masivo
+
+Se estudia una estación con una línea de frecuencia fija (línea A, un tren cada 10 minutos exactos) y una ruta alimentadora de buses con llegadas irregulares.
+
+**Datos:** [llegadas_pasajeros.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej4-estacion-transporte/llegadas_pasajeros.csv) (484 pasajeros), [espera_linea_a.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej4-estacion-transporte/espera_linea_a.csv) (400 pasajeros), [buses_ruta_alimentadora.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej4-estacion-transporte/buses_ruta_alimentadora.csv) (200 buses) y [controles_bus.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej4-estacion-transporte/controles_bus.csv) (150 controles).
+
+| Archivo | Columnas |
+|---|---|
+| `llegadas_pasajeros.csv` | `pasajero_id`; `minuto_llegada` (registro de 120 minutos); `minutos_desde_anterior`; `destino` (estación de destino, 1 a 5) |
+| `espera_linea_a.csv` | `pasajero_id`; `minutos_espera` (espera del tren al llegar en un instante cualquiera) |
+| `buses_ruta_alimentadora.csv` | `bus_id`; `minutos_desde_bus_anterior`; `minutos_viaje` (duración del trayecto) |
+| `controles_bus.csv` | `bus_id`; `pasajeros` (40); `sin_tarjeta` (6 en el bus); `revisados` (8, sacados SIN devolverlos); `sin_tarjeta_encontrados` |
+
+### Pregunta 4.1
+
+En un minuto cualquiera, ¿cuál es la probabilidad de que lleguen más de 6 pasajeros?
+
+- **Para elegir el modelo:** ¿qué se cuenta y en qué intervalo? ¿Hay tope?
+- **Demuestren:** cómo armaron el conteo por minuto (120 valores, incluidos los minutos con 0), la fracción con más de 6 y la probabilidad del modelo con el parámetro estimado.
+
+### Pregunta 4.2
+
+Entre dos pasajeros consecutivos, ¿cuál es la probabilidad de que pasen menos de 10 segundos (1/6 de minuto)?
+
+- **Para elegir el modelo:** ¿la variable se cuenta o se mide? ¿Qué relación tiene con el conteo de la pregunta 4.1?
+- **Demuestren:** la fracción empírica, el parámetro estimado, la probabilidad del modelo y la verificación de que el inverso de la media de los tiempos se parece al promedio de llegadas por minuto de la pregunta 4.1.
+
+### Pregunta 4.3
+
+Un pasajero que llega a la línea A en un instante cualquiera, ¿cuál es la probabilidad de que espere más de 7 minutos? Calculen también el valor esperado y la varianza de la espera.
+
+- **Para elegir el modelo:** el tren pasa cada 10 minutos y el pasajero llega al azar. ¿Entre qué valores está la espera y cómo es la densidad en ese intervalo?
+- **Demuestren:** la fracción empírica, la probabilidad como área, el valor esperado y la varianza del modelo contra los de la muestra, y el histograma.
+
+### Pregunta 4.4
+
+¿Cuál es la probabilidad de que pasen más de 15 minutos entre dos buses de la ruta alimentadora? Prueben también con el modelo más simple para tiempos de espera (el de un solo parámetro) y decidan cuál de los dos se sostiene.
+
+- **Para elegir el modelo:** observen el histograma: ¿hay muchos tiempos muy cortos o se concentran alrededor de la media?
+- **Demuestren:** la fracción empírica y las dos probabilidades de los modelos (el de un parámetro y el de forma y escala, estimando forma = media^2 / varianza y escala = varianza / media). Concluyan cuál se sostiene y qué dice la forma estimada sobre cómo llegan los buses.
+
+### Pregunta 4.5
+
+Si los pasajeros no tienen preferencia de destino, ¿cuál es la probabilidad de que un pasajero vaya a la estación 4 o a la 5? Calculen el valor esperado y la varianza del destino.
+
+- **Para elegir el modelo:** ¿qué valores toma `destino` y qué probabilidad le toca a cada uno si no hay preferencia?
+- **Demuestren:** la tabla de pasajeros por destino contra lo esperado, la fracción con destino 4 o 5 y el valor esperado y la varianza con el modelo.
+
+### Pregunta 4.6
+
+¿Qué fracción de los buses tarda más de 38 minutos en el trayecto? ¿Por debajo de qué tiempo está el 95% de los viajes?
+
+- **Para elegir el modelo:** observen el histograma de `minutos_viaje`: ¿qué forma tiene?
+- **Demuestren:** el resultado empírico (fracción y percentil 95), los parámetros estimados y los mismos resultados con el modelo, con la curva sobre el histograma.
+
+### Pregunta 4.7
+
+En un control (bus de 40 con 6 sin tarjeta, se revisan 8), ¿cuál es la probabilidad de encontrar 2 o más sin tarjeta? Calculen también con el modelo de probabilidad fija por pasajero (6/40) y comparen.
+
+- **Para elegir el modelo:** ¿se devuelve el pasajero revisado? ¿Cuáles son los cuatro números del problema?
+- **Demuestren:** la fracción empírica de controles con 2 o más, las dos probabilidades del modelo (con y sin reposición) y la comparación de sus varianzas teóricas.
+
+## Ejercicio 5. Estación meteorológica
+
+Una estación meteorológica registró 156 semanas (1 092 días) de datos.
+
+**Datos:** [clima_diario.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej5-clima/clima_diario.csv) (1 092 días), [tormentas_semanales.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej5-clima/tormentas_semanales.csv) (156 semanas) y [crecientes_quebrada.csv](https://oscarleosanchez.github.io/sitio-pascual-b-2026-02/estadistica-para-analitica/unidad-02/recursos/actividad/ej5-clima/crecientes_quebrada.csv) (55 eventos).
+
+| Archivo | Columnas |
+|---|---|
+| `clima_diario.csv` | `dia`; `semana` (7 días por semana); `llovio` (1 si llovió); `temp_max_c` (temperatura máxima en grados Celsius); `precipitacion_mm` (0 si no llovió); `hora_inicio_lluvia` (entre 0 y 24, vacío si no llovió) |
+| `tormentas_semanales.csv` | `semana`; `tormentas` (tormentas eléctricas esa semana) |
+| `crecientes_quebrada.csv` | `evento_id`; `dias_desde_la_anterior` (días desde la creciente anterior) |
+
+### Pregunta 5.1
+
+En una semana cualquiera, ¿cuál es la probabilidad de que llueva 3 o más días? ¿Cuántos días de lluvia se esperan por semana?
+
+- **Para elegir el modelo:** ¿cuántos intentos hay por semana, cuál es el éxito y es razonable suponer que un día no influye en el siguiente?
+- **Demuestren:** cómo contaron los días de lluvia por semana, la proporción que usaron como parámetro, la fracción de semanas con 3 o más frente a la probabilidad del modelo y el valor esperado.
+
+### Pregunta 5.2
+
+¿Qué fracción de los días supera los 30 °C? ¿Por encima de qué temperatura está el 10% de los días más calurosos?
+
+- **Para elegir el modelo:** observen el histograma de `temp_max_c`: ¿es continua y simétrica?
+- **Demuestren:** el resultado empírico (fracción y percentil 90), los parámetros estimados y los mismos resultados con el modelo, con la curva sobre el histograma. Con tantos datos, guíense por el valor p de Kolmogorov-Smirnov y el histograma, no por Shapiro-Wilk.
+
+### Pregunta 5.3
+
+En los días en que llueve, ¿cuál es la probabilidad de que caigan más de 20 mm? Usen solo los días con lluvia.
+
+- **Para elegir el modelo:** filtren `llovio == 1` y observen el histograma de `precipitacion_mm`: ¿es simétrico o tiene cola a la derecha? ¿Puede ser negativa?
+- **Demuestren:** la fracción empírica y la probabilidad con dos modelos: el de campana y el de forma y escala (forma = media^2 / varianza y escala = varianza / media). Concluyan cuál ajusta mejor y por qué.
+
+### Pregunta 5.4
+
+En una semana cualquiera, ¿cuál es la probabilidad de que no haya ninguna tormenta? ¿Y de que haya 3 o más?
+
+- **Para elegir el modelo:** ¿qué se cuenta y en qué intervalo? ¿Hay tope?
+- **Demuestren:** las dos fracciones empíricas, el parámetro estimado, las dos probabilidades del modelo y la tabla de frecuencias observadas contra esperadas.
+
+### Pregunta 5.5
+
+¿Cuál es la probabilidad de que pasen más de 30 días entre dos crecientes? Si ya pasaron 20 días sin creciente, ¿cuál es la probabilidad de que pasen más de 50 días en total?
+
+- **Para elegir el modelo:** ¿es la espera hasta el próximo evento? ¿Qué propiedad deberían cumplir las dos respuestas si el modelo es el correcto?
+- **Demuestren:** las dos fracciones empíricas, las dos probabilidades del modelo y la comparación entre ambas. Con solo 55 datos, comenten qué tan confiable es la comparación.
+
+### Pregunta 5.6
+
+Un colega afirma que la lluvia empieza a cualquier hora del día con igual probabilidad. Con los datos, ¿cuál es la probabilidad de que empiece entre las 12 y las 18 horas? Pruébenlo con el modelo que representa esa afirmación y concluyan si el colega tiene razón.
+
+- **Para elegir el modelo:** si la afirmación fuera cierta, ¿cuánta probabilidad tendría cada franja de 6 horas? Escriban el modelo con sus extremos.
+- **Demuestren:** el histograma de `hora_inicio_lluvia` (solo días con lluvia, franjas de 3 horas), la fracción empírica entre 12 y 18, la probabilidad del modelo y el valor p de Kolmogorov-Smirnov. Si el modelo falla, digan en una frase qué patrón de los datos lo contradice.
