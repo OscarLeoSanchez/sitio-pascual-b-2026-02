@@ -1128,6 +1128,9 @@ iframe.resultado { padding: 0; }
       /* Escena ilustrada: lienzo para SVG propios (viewBox libre), sin marco */
       .escena-svg { width: 100%; height: 100%; display: block; }
       .escena-svg text { font-family: var(--fuente); }
+      /* Codigo largo: salto de linea con sangria francesa para que el final de la linea nunca quede cortado (el numero de linea queda fuera de la sangria) */
+      .codigo-cuerpo .ln { white-space: pre-wrap; padding-left: 3.57em; text-indent: -3.57em; }
+      .codigo-cuerpo .ln::before { text-indent: 0; }
       /* Maqueta de ventana de Windows Forms (SVG). Clases compartidas gv-*: todas las diapositivas dibujan la ventana igual */
       .gv-marco { fill: var(--papel); stroke: var(--tinta); stroke-width: 2.5; }
       .gv-barra { fill: var(--cielo-claro); stroke: var(--tinta); stroke-width: 2.5; }
@@ -1183,7 +1186,7 @@ iframe.resultado { padding: 0; }
         <path d="M358 130L362.5 125L367 130ZM358 138L362.5 143L367 138Z" fill="var(--tinta)"/>
         <text class="gv-et" x="24" y="168">Fuerza</text>
         <rect class="gv-caja" x="92" y="154" width="284" height="28" rx="4"/>
-        <text class="gv-val" x="100" y="168.5">15</text>
+        <text class="gv-val" x="100" y="168.5">10</text>
         <path d="M358 164L362.5 159L367 164ZM358 172L362.5 177L367 172Z" fill="var(--tinta)"/>
         <rect class="gv-boton" x="24" y="194" width="112" height="34" rx="7"/>
         <text class="gv-et" x="80" y="211.5" text-anchor="middle">Registrar</text>
@@ -1193,7 +1196,6 @@ iframe.resultado { padding: 0; }
 
     <!-- 1. Portada: sin pasos -->
     <section class="diapo portada" id="s0-portada" data-seccion="Inicio" data-acento="cielo" data-titulo="Interfaz gráfica con Windows Forms">
-      <p class="antetitulo">Una clase práctica en C#</p>
       <h1 class="portada-titulo" style="font-size: 60px">Interfaz gráfica con <em>Windows Forms</em></h1>
       <p class="portada-enfoque">De una ventana vacía a una aplicación que responde.</p>
       <svg class="portada-escena no-entra" viewBox="0 0 560 520" role="img">
@@ -1208,8 +1210,8 @@ iframe.resultado { padding: 0; }
           <circle cx="58" cy="65" r="5" fill="#F2B33D" stroke="none"/>
           <circle cx="76" cy="65" r="5" fill="#5CB77F" stroke="none"/>
           <g stroke="none" style="font-family: var(--mono); font-size: 17px; font-weight: 700" fill="#CBEBD6">
-            <text x="36" y="104">&gt; Nombre: Aragorn</text>
-            <text x="36" y="128">&gt; Tipo: _</text>
+            <text x="36" y="104">Nombre:</text>
+            <text x="36" y="128">Aragorn</text>
           </g>
         </g>
         <!-- La ventana, delante -->
@@ -1352,16 +1354,16 @@ iframe.resultado { padding: 0; }
                   <circle cx="200" cy="113" r="15" fill="var(--tomate)" class="cj"/>
                   <path d="M193 106 L207 120 M207 106 L193 120" stroke="var(--papel)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
                   <rect x="8" y="144" width="524" height="40" rx="20" class="ch-mal"/>
-                  <text x="270" y="165" class="t b c rojo">No se puede corregir sin repetir todo</text>
+                  <text x="270" y="165" class="t b c rojo">Aquí no se puede corregir sin repetir todo</text>
                 </g>
                 <g data-paso="7">
                   <circle cx="22" cy="14" r="11" class="burbuja"/><text x="22" y="15" class="t b c" style="font-size:15px">1</text>
                   <circle cx="162" cy="14" r="11" class="burbuja"/><text x="162" y="15" class="t b c" style="font-size:15px">2</text>
                   <circle cx="302" cy="14" r="11" class="burbuja"/><text x="302" y="15" class="t b c" style="font-size:15px">3</text>
                   <rect x="8" y="196" width="524" height="40" rx="20" class="ch-mal"/>
-                  <text x="270" y="217" class="t b c rojo">Orden fijo: lo decide el programa</text>
+                  <text x="270" y="217" class="t b c rojo">Aquí el orden es fijo: lo decide el programa</text>
                   <rect x="8" y="248" width="524" height="40" rx="20" class="ch-mal"/>
-                  <text x="270" y="269" class="t b c rojo">Un dato a la vez: no ves el registro completo</text>
+                  <text x="270" y="269" class="t b c rojo">Un dato a la vez: el registro se ve al final</text>
                 </g>
               </g>
               <g id="s1-l-fin">
@@ -1369,7 +1371,7 @@ iframe.resultado { padding: 0; }
                   <rect x="8" y="20" width="250" height="216" rx="16" class="ch-mal"/>
                   <rect x="95" y="40" width="76" height="48" rx="6" class="term cj"/>
                   <text x="106" y="64" class="t m b term-u" style="font-size:20px">&gt;_</text>
-                  <text x="133" y="118" class="t g c">Consola</text>
+                  <text x="133" y="118" class="t g c">Esta consola</text>
                   <text x="133" y="156" class="t c">El programa decide</text>
                   <text x="133" y="182" class="t c">cuándo puedes actuar.</text>
                   <rect x="282" y="20" width="250" height="216" rx="16" class="ch-ok"/>
@@ -1459,7 +1461,6 @@ Console.WriteLine($"{personaje.Nombre} registrado: vida {personaje.Vida}");</pre
                 <path d="M206 149 L212 143 L218 149 M206 155 L212 161 L218 155" class="tr" style="stroke-width:2"/>
                 <rect x="110" y="182" width="140" height="38" rx="6" class="gv-boton"/>
                 <text x="180" y="201" class="gv-et" text-anchor="middle">Registrar</text>
-                <text x="22" y="242" class="gv-val" style="fill:var(--tinta-suave)">Listo para registrar</text>
                 <rect x="16" y="54" width="68" height="20" rx="4" class="ctl"/>
                 <rect x="16" y="98" width="42" height="20" rx="4" class="ctl"/>
                 <rect x="16" y="142" width="46" height="20" rx="4" class="ctl"/>
@@ -1589,8 +1590,8 @@ Console.WriteLine($"{personaje.Nombre} registrado: vida {personaje.Vida}");</pre
                 <text x="46" y="56" class="t m term-p" style="font-size:19px">dotnet build</text>
               </g>
               <g data-paso="7">
-                <text x="24" y="82" class="t m term-mal" style="font-size:17px">error CS0246: El nombre del tipo o del</text>
-                <text x="24" y="104" class="t m term-mal" style="font-size:17px">espacio de nombres 'Form' no se encontró</text>
+                <text x="24" y="82" class="t m term-mal" style="font-size:17px">error CS0103: El nombre</text>
+                <text x="24" y="104" class="t m term-mal" style="font-size:17px">'ApplicationConfiguration' no existe...</text>
                 <text x="24" y="126" class="t m term-mal" style="font-size:17px">5 Errores</text>
               </g>
             </svg>
@@ -1655,6 +1656,16 @@ Console.WriteLine($"{personaje.Nombre} registrado: vida {personaje.Vida}");</pre
                     <path d="M243 9 L255 19 M255 9 L243 19" class="tr" style="stroke-width:2"/>
                   </g>
                 </g>
+                <g data-paso="6">
+                  <g id="s1-b-bub">
+                    <circle cx="270" cy="165" r="17" class="burbuja"/>
+                    <text x="270" y="166" class="t b c" style="font-size:23px">?</text>
+                  </g>
+                </g>
+                <g data-paso="7">
+                  <rect x="100" y="260" width="340" height="30" rx="15" class="ch-mal"/>
+                  <text x="270" y="275" class="t b c rojo" style="font-size:17px">Main termina sin Run: no hay ventana</text>
+                </g>
                 <g data-paso="3">
                   <g id="s1-b-prop">
                     <rect x="352" y="12" width="170" height="32" rx="16" class="ch-ok"/>
@@ -1671,7 +1682,7 @@ Console.WriteLine($"{personaje.Nombre} registrado: vida {personaje.Vida}");</pre
                 </g>
               </g>
               <g id="s1-b-b">
-                <g data-paso="6">
+                <g data-paso="8">
                   <rect x="8" y="6" width="524" height="254" rx="18" fill="none" stroke="var(--maiz-osc)" stroke-width="3" stroke-dasharray="10 7"/>
                   <text x="26" y="26" class="t m b" style="font-size:18px;fill:var(--maiz-osc)">Application.Run</text>
                   <rect x="231" y="106" width="78" height="52" rx="6" fill="var(--papel)" class="cj" style="stroke-width:2"/>
@@ -1695,12 +1706,6 @@ Console.WriteLine($"{personaje.Nombre} registrado: vida {personaje.Vida}");</pre
                   <rect x="20" y="168" width="170" height="56" rx="14" class="ch-ok"/>
                   <text x="105" y="186" class="t b c">Atiende</text>
                   <text x="105" y="208" class="t p c" style="font-size:16px">corre el manejador</text>
-                </g>
-                <g data-paso="7">
-                  <g id="s1-b-bub">
-                    <circle cx="302" cy="104" r="17" class="burbuja"/>
-                    <text x="302" y="105" class="t b c" style="font-size:23px">?</text>
-                  </g>
                 </g>
                 <g data-paso="8">
                   <rect x="8" y="272" width="190" height="40" rx="20" class="ch-mal"/>
@@ -2313,7 +2318,7 @@ class VentanaPrincipal : Form
           <div class="crece" data-paso="1">
             <svg class="escena-svg s3" viewBox="-8 -8 376 296" role="img">
               <title>La ventana del registro de personajes con sus controles: nombre, tipo, vida, fuerza, botón y etiqueta de estado</title>
-            <g data-paso="1"><rect class="gv-marco" x="0" y="0" width="360" height="280" rx="9"/><path class="gv-barra" d="M0 30 V9 a9 9 0 0 1 9 -9 H351 a9 9 0 0 1 9 9 V30 Z"/><text id="s3-cat-titulo" class="gv-titulo" x="12" y="16"></text><rect class="gv-min" x="298" y="8" width="16" height="14" rx="3"/><path class="tr fina" d="M302 18 H310"/><rect class="gv-x" x="322" y="7" width="24" height="16" rx="4"/><path class="tr fina" d="M330 11 L338 19 M338 11 L330 19"/></g>
+            <g data-paso="1"><rect class="gv-marco" x="0" y="0" width="360" height="280" rx="9"/><path class="gv-barra" d="M0 30 V9 a9 9 0 0 1 9 -9 H351 a9 9 0 0 1 9 9 V30 Z"/><text id="s3-cat-titulo" class="gv-titulo" x="12" y="16">Registro de personajes</text><rect class="gv-min" x="298" y="8" width="16" height="14" rx="3"/><path class="tr fina" d="M302 18 H310"/><rect class="gv-x" x="322" y="7" width="24" height="16" rx="4"/><path class="tr fina" d="M330 11 L338 19 M338 11 L330 19"/></g>
             <g transform="translate(0,30)">
               <g data-paso="1"><g id="s3-cat-par1" class="ctl"><text class="gv-et" x="20" y="32">Nombre</text><rect class="gv-caja" x="120" y="20" width="200" height="23" rx="2"/></g></g>
               <g data-paso="2">
@@ -2846,9 +2851,13 @@ class VentanaPrincipal : Form
               <g data-paso="2"></g>
               <g data-paso="3"></g>
               <g data-paso="4"></g>
-              <g data-paso="5"></g>
+              <g data-paso="5"><g id="s4-t-q">
+                <circle cx="480" cy="170" r="30" fill="var(--maiz-claro)" stroke="var(--maiz)" stroke-width="3"/>
+                <text x="480" y="172" class="t mid" style="font-size:38px;font-weight:800">?</text>
+              </g></g>
               <g data-paso="6"></g>
               <g data-paso="7"></g>
+              <g data-paso="8"></g>
             </svg>
           </div>
           <div class="narra" data-paso="1"><span class="narra-paso"></span><p class="narra-texto"></p></div>
@@ -2972,7 +2981,7 @@ class VentanaPrincipal : Form
           </div>
           <div id="s4-prac-esc" class="crece s4-fuera" data-paso="3">
             <svg class="escena-svg s4" viewBox="0 0 560 330" role="img">
-              <title>La ventana con la fila Defensa agregada: las demás filas bajan solas. Sin Dock la rejilla se queda pequeña en la esquina y no sigue a la ventana</title>
+              <title>La ventana con la fila Defensa agregada: las filas de abajo se renumeran a mano. Sin Dock la rejilla se queda pequeña en la esquina y no sigue a la ventana</title>
               <g data-paso="3"><g id="s4-pr-v" transform="translate(2,8)"></g></g>
               <g data-paso="4"></g>
               <g data-paso="5"></g>
@@ -3139,7 +3148,9 @@ class VentanaPrincipal : Form
                 <g data-paso="5">
                   <text x="10" y="20" class="tt">Vida</text>
                   <rect x="10" y="48" width="112" height="52" rx="12" fill="var(--maiz-claro)" class="cj"/>
-                  <text x="66" y="74" class="mo mid" style="font-size:22px;font-weight:800">150</text>
+                  <text x="66" y="67" class="tx mid" style="font-size:15px">Un valor de</text>
+                  <text x="66" y="85" class="tx mid" style="font-size:15px">otro lugar</text>
+                  <text x="120" y="122" class="tx mid" style="font-weight:600">por ejemplo, de un archivo</text>
                   <path d="M126 74 H164 M154 64 L166 74 L154 84" class="fl"/>
                   <rect x="168" y="40" width="176" height="68" rx="14" fill="var(--cielo-claro)" class="cj"/>
                   <text x="256" y="64" class="mo mid" style="font-size:18px;font-weight:800">Math.Clamp</text>
@@ -3262,7 +3273,7 @@ class VentanaPrincipal : Form
     <!-- 2. Validar y marcar el error =============================================== -->
     <section class="diapo" id="s5-validar" data-titulo="Validar antes de crear">
       <div class="cabeza">
-        <p class="antetitulo">¿Cómo avisamos sin molestar?</p>
+        <p class="antetitulo">¿Cómo marcamos el campo con error?</p>
         <h2 class="titulo"><em>Validar</em> antes de crear el objeto</h2>
       </div>
       <div class="dividido" data-proporcion="45/55">
@@ -3273,9 +3284,9 @@ class VentanaPrincipal : Form
               <g id="s5-v-card" data-paso="1">
                 <rect x="30" y="14" width="460" height="300" rx="18" fill="var(--cielo-claro)" class="cj"/>
                 <text x="260" y="46" class="tt mid">ErrorProvider</text>
-                <text x="260" y="76" class="tx mid" style="font-weight:600">dibuja el aviso junto al campo</text>
+                <text x="260" y="76" class="tx mid" style="font-weight:600">dibuja un ícono junto al campo</text>
                 <text x="64" y="138" class="gv-et">Nombre</text>
-                <rect x="134" y="120" width="250" height="36" rx="4" class="gv-caja gv-borde-error"/>
+                <rect x="134" y="120" width="250" height="36" rx="4" class="gv-caja"/>
                 <circle cx="420" cy="138" r="14" fill="var(--tomate)" stroke="#2B3A31" stroke-width="2"/>
                 <rect x="418.2" y="129" width="3.6" height="11" rx="1.8" fill="#fff"/>
                 <circle cx="420" cy="145.5" r="2.2" fill="#fff"/>
@@ -3497,16 +3508,16 @@ class VentanaPrincipal : Form
                 <text x="202" y="204" class="tx mid">Enter</text>
               </g></g>
               <g data-paso="6"><g transform="translate(40,4) scale(1.1)" id="s5-f-duda">
-                <path d="M112 80 L124 72 L136 80 Z" fill="var(--maiz-claro)" stroke="var(--maiz)" stroke-width="2.5" stroke-linejoin="round"/>
-                <rect x="100" y="80" width="170" height="34" rx="17" fill="var(--maiz-claro)" stroke="var(--maiz)" stroke-width="2.5"/>
-                <text x="185" y="97" class="tx mid">¿Qué mensaje?</text>
+                <path d="M381 74 V208 H304" fill="none" stroke="var(--maiz)" stroke-width="2.5" stroke-dasharray="3 6" stroke-linecap="round"/>
+                <rect x="132" y="192" width="172" height="32" rx="16" fill="var(--maiz-claro)" stroke="var(--maiz)" stroke-width="2.5"/>
+                <text x="218" y="208" class="tx mid">¿Qué mensaje?</text>
               </g></g>
               <g data-paso="7" id="s5-f-reglas">
                 <rect x="30" y="298" width="210" height="28" rx="14" fill="var(--tomate-claro)" stroke="var(--tomate)" stroke-width="2"/>
                 <text x="135" y="312" class="tx mid mal">Qué pasó: ya existe</text>
                 <text x="260" y="312" class="tx mid">+</text>
                 <rect x="280" y="298" width="210" height="28" rx="14" fill="var(--hoja-claro)" stroke="var(--hoja)" stroke-width="2"/>
-                <text x="385" y="312" class="tx mid bien">Qué hacer: elija otro</text>
+                <text x="385" y="312" class="tx mid bien">Propuesta: elija otro</text>
               </g>
             </svg>
           </div>
@@ -3657,6 +3668,9 @@ class VentanaPrincipal : Form
       .s9-carta svg text { font-family: var(--mono); font-size: 15px; font-weight: 700; fill: #1F2A24; }
       .s9-carta svg text.cap { font-family: var(--fuente); font-size: 15px; font-weight: 700; fill: var(--tomate-osc); }
       .s9-carta h3 { margin: 0; font-size: 19px; line-height: 1.2; color: var(--tomate-osc); min-height: 45px; }
+      .s9-prox { background: var(--cielo-claro); border-color: var(--cielo); }
+      .s9-prox h3 { color: var(--cielo-osc); }
+      .s9-prox .s9-fix { border-color: var(--cielo); }
       .s9-fix { margin: 0; padding: 7px 10px; border-radius: var(--radio-m); background: var(--blanco); border: 2px solid var(--hoja); font-size: 15px; line-height: 1.3; }
       .s9-bandas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
       .s9-banda { display: flex; flex-direction: column; gap: 6px; padding: 8px 14px 10px; border-radius: 16px; min-height: 0; }
@@ -3737,7 +3751,7 @@ class VentanaPrincipal : Form
             <h3>Olvidar el <code>+=</code></h3>
             <p class="s9-fix">Conecta el evento con <code>+=</code> para que el botón avise al manejador.</p>
           </article>
-          <article class="carta s9-carta" data-paso="4">
+          <article class="carta s9-carta s9-prox" data-paso="4">
             <svg viewBox="0 0 188 84" role="img" aria-label="El manejador de eventos lleno de trabajo: leer y mostrar le corresponden, las reglas del juego no" stroke="#2B3A31" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
               <rect x="1" y="4" width="186" height="56" rx="11" fill="#FFFEFB" stroke="#E4572E"/>
               <text x="10" y="22" stroke="none" style="font-size: 14px">AlRegistrar</text>
@@ -3749,8 +3763,8 @@ class VentanaPrincipal : Form
               <text x="153" y="46" text-anchor="middle" stroke="none" style="font-size: 12px; fill: #AE3714">reglas</text>
               <text class="cap" x="94" y="79" text-anchor="middle" stroke="none">mucho en un lugar</text>
             </svg>
-            <h3>Meter la lógica en el manejador</h3>
-            <p class="s9-fix">El manejador lee y muestra; las reglas viven en el dominio.</p>
+            <h3>Lógica dentro del manejador</h3>
+            <p class="s9-fix">Lo resolvemos en la próxima clase, al separar la lógica de la ventana.</p>
           </article>
           <article class="carta s9-carta" data-paso="5">
             <svg viewBox="0 0 188 84" role="img" aria-label="Una caja de nombre vacía que igual registra un personaje sin nombre" stroke="#2B3A31" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
@@ -3772,7 +3786,7 @@ class VentanaPrincipal : Form
           </div>
           <div class="s9-banda desafio" data-paso="7">
             <span class="etiqueta" data-tono="maiz">Reto para practicar</span>
-            <p>Agrega el campo Defensa y valida su rango.</p>
+            <p>Agrega el campo Defensa y limita su rango con <code>Minimum</code> y <code>Maximum</code>.</p>
           </div>
         </div>
       </div>
@@ -6733,6 +6747,11 @@ Kit.listo(() => {
       'Hoy son los cinco primeros pasos. La próxima clase trae los tres últimos: listas, lógica separada y archivos.',
       'En cada paso verán las dos caras de la aplicación: el código que escriben y la ventana que ese código produce.',
     ],
+    alPaso: (k) => {
+      /* paso 0: solo titulo y pregunta guia */
+      document.getElementById('s0-ruta-dg').style.visibility = k ? '' : 'hidden';
+      document.querySelector('#s0-ruta .narra').style.visibility = k ? '' : 'hidden';
+    },
   });
 });
 
@@ -6785,9 +6804,9 @@ Kit.listo(() => {
       'La tercera pide la vida. <code>int.TryParse</code> convierte el texto en número.',
       'Con los tres datos crea el personaje y lo imprime. Es todo el programa: de arriba hacia abajo, una sola vez.',
       { t: 'Escribieron mal el nombre y ya contestaron las tres preguntas. ¿Cómo lo corrigen?', participa: true },
-      'No se puede: hay que cerrar el programa y repetir todo. La consola avanza en una sola dirección.',
-      'El orden es fijo y se pide un dato a la vez. El usuario nunca ve el registro completo.',
-      'El usuario no manda en la consola: el programa decide cuándo actúa. En una ventana es al revés: el usuario actúa y el programa reacciona.',
+      'Este programa no lo permite: va de arriba abajo y hay que repetir todo. Un bucle o un menú lo simularía con más código.',
+      'Aquí el orden es fijo y se pide un dato a la vez. No se ve el registro completo hasta el final.',
+      'En este programa el usuario no manda: el programa decide cuándo actúa. Una ventana lo invierte por diseño: el usuario actúa y el programa reacciona.',
     ],
     alPaso: (k) => {
       mostrar('s1-l-con', k <= 5);
@@ -6836,9 +6855,9 @@ Kit.listo(() => {
       '<code>OutputType</code>: la plantilla dice <code>Exe</code>, programa de consola. Con <code>WinExe</code> es un programa de ventanas, sin consola detrás.',
       '<code>TargetFramework</code> pasa a <code>net10.0-windows</code>: Windows Forms solo existe en Windows.',
       '<code>UseWindowsForms</code> agrega la biblioteca de ventanas: <code>Form</code>, <code>Button</code>, <code>TextBox</code> y todos los controles.',
-      '<code>ImplicitUsings</code> y <code>Nullable</code> ya venían. Por eso <code>Program.cs</code> usa <code>Form</code> sin escribir ningún <code>using</code>.',
+      '<code>ImplicitUsings</code> agrega los <code>using</code> comunes y, con <code>UseWindowsForms</code>, los de ventanas: por eso <code>Form</code> no necesita <code>using</code>.',
       { t: 'Rompan esto: quiten la línea <code>UseWindowsForms</code> y ejecuten <code>dotnet build</code>. ¿Qué dirá el compilador?', participa: true },
-      'No conoce <code>Form</code>: son 5 errores por el mismo motivo. Sin esa línea el proyecto no trae las ventanas.',
+      'No conoce <code>Form</code> ni <code>Application</code>: son 5 errores por el mismo motivo. Sin esa línea el proyecto no trae las ventanas.',
     ],
     alPaso: (k) => {
       mostrar('s1-p-t1', k < 6);
@@ -6856,29 +6875,31 @@ Kit.listo(() => {
   const COD4 = {
     id: 's1-bucle',
     ver: { cs: [7, 17, 17, 17, 17, 17, 17, 17] },
-    hl: { cs: [[5, 7], [10, 15], [12], [13], [14], [9, 10], [15, 16], [10]] },
+    hl: { cs: [[4, 5, 7], [10, 15], [12], [13], [14], [15, 16], [10], [9, 10]] },
   };
   const PROP = ['Text', 'Text', 'Text', 'ClientSize', 'StartPosition'];
   POO.escena({
     diapo: '#s1-bucle',
     texto: [
-      '<code>Main</code> es donde arranca el programa. <code>Initialize</code> deja lista la configuración: fuente, estilos y escala de pantalla.',
-      '<code>Application.Run</code> recibe un <code>Form</code> nuevo y lo abre. Aparece la ventana con el tamaño y la posición que Windows elige.',
+      '<code>Main</code> arranca el programa. <code>[STAThread]</code> es un requisito de Windows Forms. <code>Initialize</code> deja lista la configuración: fuente, estilos y escala.',
+      '<code>Application.Run</code> recibe un <code>Form</code> nuevo y lo abre. Las tres líneas de dentro le darán título, tamaño y posición.',
       'La propiedad <code>Text</code> pone el título de la ventana: <code>Registro de personajes</code>.',
       '<code>ClientSize</code> fija el tamaño del área útil: 480 por 320 píxeles. La ventana crece.',
       '<code>StartPosition</code> en <code>CenterScreen</code> abre la ventana en el centro de la pantalla.',
-      '<code>Application.Run</code> no termina: queda en un ciclo. Espera un evento, lo atiende y vuelve a esperar. Es el <dfn data-def="bucle">bucle de mensajes</dfn>.',
-      { t: '¿Qué pasaría si <code>Main</code> terminara justo después de crear el <code>Form</code>?', participa: true },
-      'El programa termina y la ventana desaparece al instante. <code>Run</code> la mantiene viva hasta que la cierres: ahí entran los clics.',
+      { t: 'Imaginen que <code>Main</code> terminara justo después de crear el <code>Form</code>, sin <code>Run</code>. ¿Qué pasaría?', participa: true },
+      'El programa acaba en menos de un segundo y la ventana ni llega a mostrarse. <code>Main</code> terminó antes de atender a nadie.',
+      'Por eso existe <code>Application.Run</code>: no termina, queda en un ciclo. Espera un evento, lo atiende y vuelve a esperar. Es el <dfn data-def="bucle">bucle de mensajes</dfn>.',
     ],
     alPaso: (k) => {
-      mostrar('s1-b-a', k < 6);
-      mostrar('s1-b-b', k >= 6);
+      mostrar('s1-b-a', k < 8);
+      mostrar('s1-b-b', k >= 8);
       mostrar('s1-b-chips', k < 2);
       mostrar('s1-b-hint', k < 2);
       mostrar('s1-b-dim', k === 4);
       mostrar('s1-b-centro', k >= 5);
-      mostrar('s1-b-bub', k === 7);
+      mostrar('s1-b-bub', k === 6);
+      mostrar('s1-b-prop', k < 6);
+      $('s1-b-win').style.opacity = k === 7 ? '.12' : '1';
       $('s1-b-win').style.transform = k >= 5 ? 'translate(135px,48px) scale(1)' : k === 4 ? 'translate(20px,52px) scale(1)' : 'translate(20px,52px) scale(.78)';
       $('s1-b-tit').style.opacity = k >= 3 ? '1' : '0';
       if (k >= 3) $('s1-b-prop-t').textContent = PROP[Math.min(k, 5) - 1];
@@ -6923,11 +6944,11 @@ Kit.listo(() => {
   POO.escena({
     diapo: '#s2-evento',
     texto: [
-      'En el constructor creamos un botón y una etiqueta con su texto, su posición y su tamaño. Todavía no están en la ventana.',
+      'El usuario hará clic cuando quiera, no cuando el código lo pida. Creamos y configuramos un botón y una etiqueta, aún sin mostrar.',
       '<code>Controls.Add</code> los coloca dentro de la ventana. Ahora sí se ven: el botón <strong>Registrar</strong> y la etiqueta.',
-      'El usuario hará clic cuando quiera. El programa no puede preguntarlo en una línea: tiene que quedar atento a lo que ocurra.',
-      'El botón tiene un <dfn data-def="evento">evento</dfn> <code>Click</code> con su lista de manejadores. <code>+=</code> agrega <code>AlRegistrar</code> a esa lista.',
-      'El <dfn data-def="manejador">manejador</dfn> es un método común. No lo llamamos nosotros: .NET lo ejecuta en cada clic.',
+      'Ahora el usuario hace clic. El programa no puede preguntarlo en una línea: tiene que quedar atento a lo que ocurra.',
+      'El botón tiene un <dfn data-def="evento">evento</dfn> <code>Click</code> con su lista de manejadores. <code>+=</code> agrega <code>AlRegistrar</code> a esa lista, sin paréntesis: con ellos no compila.',
+      'El <dfn data-def="manejador">manejador</dfn> es un método común: .NET lo ejecuta en cada clic. <code>sender</code> es quién lanzó el evento; <code>e</code>, sus datos.',
       'Suma 1 a <code>clics</code> y cambia el <code>Text</code> de la etiqueta. La ventana ahora dice <code>Clic número 1</code>.',
       'Cada clic repite la cadena sin que el programa pregunte nada. Después de tres clics: <code>Clic número 3</code>.',
     ],
@@ -7044,7 +7065,7 @@ Kit.listo(() => {
     texto: [
       'El nombre es texto libre. Lo pedimos con un <code>TextBox</code> y lo leemos con su <dfn data-def="propiedad">propiedad</dfn> <code>Text</code>.',
       { t: '¿Qué control usarían para el tipo, si solo hay dos opciones: Guerrero o Mago?', participa: true },
-      'Un <code>ComboBox</code> deja elegir de una lista cerrada: nadie escribe un tipo inventado. Se lee con <code>SelectedItem</code>.',
+      'Un <code>ComboBox</code> deja elegir de una lista; con <code>DropDownList</code> el usuario solo puede elegir, no escribir. Se lee con <code>SelectedItem</code>.',
       'La vida es un número entre 0 y 100. Un <code>NumericUpDown</code> solo acepta números y se lee con <code>Value</code>.',
       'La fuerza, o el maná, es otro <code>NumericUpDown</code>. Cada dato del personaje ya tiene su <dfn data-def="control">control</dfn> y su propiedad.',
       'El <code>Button</code> no guarda datos: dispara el evento. La etiqueta <code>lblEstado</code> mostrará el resultado.',
@@ -7073,7 +7094,7 @@ Kit.listo(() => {
     diapo: '#s3-codigo',
     texto: [
       'La ventana es una clase que hereda de <code>Form</code>. Ya existe, todavía vacía. Los controles serán campos de esta clase.',
-      'Cada control se crea con <code>new</code>, como cualquier objeto. <code>Text</code> dice qué muestra, <code>Location</code> dónde va, <code>Size</code> cuánto mide.',
+      'Cada control nace con <code>new() { ... }</code>: entre llaves van <code>Text</code> (qué muestra), <code>Location</code> (dónde) y <code>Size</code> (cuánto mide).',
       'Un <code>ComboBox</code> con <code>DropDownList</code> solo deja elegir de la lista: no se puede escribir un tipo inventado.',
       'El <code>NumericUpDown</code> acota el número: <code>Minimum</code> 0, <code>Maximum</code> 100 y <code>Value</code> como valor inicial.',
       'El botón y la etiqueta de estado completan los controles. Hasta aquí siguen siendo fantasmas: existen, pero nadie los ve.',
@@ -7112,10 +7133,10 @@ Kit.listo(() => {
     diapo: '#s3-leer',
     texto: [
       'Al elegir Mago, el combo dispara el <dfn data-def="evento">evento</dfn> <code>SelectedIndexChanged</code> y se ejecuta su <dfn data-def="manejador">manejador</dfn>.',
-      '<code>AlCambiarTipo</code> lee <code>SelectedItem</code> y cambia <code>lblExtra.Text</code>: con Mago dice Maná, si no, Fuerza.',
+      'En <code>AlCambiarTipo</code>, <code>is "Mago"</code> pregunta si lo elegido es Mago: si sí, la etiqueta dice Maná; si no, Fuerza.',
       { t: '<code>numVida.Value</code> es un decimal y el constructor pide un entero. ¿Qué falta?', participa: true },
-      'Un <em>cast</em>: <code>(int)</code> convierte el decimal en entero. Vida y extra ya son datos que el objeto entiende.',
-      '<code>SelectedItem</code> elige la clase y <code>txtNombre.Text</code> da el nombre. Con los cuatro valores se crea el Guerrero.',
+      'Un <em>cast</em>: <code>(int)</code> convierte el decimal en entero, y así el constructor lo acepta.',
+      'El mismo <code>is "Mago"</code> elige la clase; <code>txtNombre.Text</code> da el nombre y <code>numExtra</code> llega con su valor inicial, 10. Se crea el Guerrero.',
       'El resultado se escribe en <code>lblEstado.Text</code>. La ventana muestra: Aragorn registrado: vida 70.',
       'Con Mago, Gandalf, vida 80 y maná 40, el mismo código crea un Mago y escribe: Gandalf registrado: vida 80.',
     ],
@@ -7287,18 +7308,18 @@ Kit.listo(() => {
   const COD_P = {
     id: 's4-pixeles',
     ver: { cs: [12, 12, 12, 12, 47] },
-    hl: { cs: [[7, 11], [7, 11], [7, 11], [7, 11], [7, 11, 15, 19, 24, 28, 33, 37, 42, 46]] },
+    hl: { cs: [[7, 11], [7, 11], [7, 11], [7, 11], [33, 37, 42, 46]] },
   };
   POO.escena({
     diapo: '#s4-pixeles',
     texto: [
-      'La ventana mide 360 por 250 píxeles. Cada control tiene su <code>Location</code>: una posición exacta contada desde la esquina.',
+      'Cada control tiene su <code>Location</code>: una posición exacta contada desde la esquina. El cuadro del nombre va en (120, 20).',
       { t: '¿Qué creen que pasa con los controles si el usuario agranda la ventana?', participa: true },
       'Nada: los controles se quedan donde el código los puso y el resto de la ventana sobra vacío.',
       'Si la achican, los controles se cortan. <code>Location</code> y <code>Size</code> no saben nada del tamaño de la ventana.',
-      'Mismo código, tres tamaños, tres resultados. Y cada campo nuevo obliga a recalcular las <code>Y</code> de todos los demás.',
+      'Mismo código, tres tamaños, tres resultados. Y cada campo nuevo obliga a recalcular las <code>Y</code> de los que quedan debajo.',
     ],
-    alPaso: (k) => { pintarPixeles(k); enfocar('#s4-pixeles', COD_P, k, k === 5); },
+    alPaso: (k) => { pintarPixeles(k); enfocar('#s4-pixeles', COD_P, k, false); },
     codigo: COD_P,
   });
 
@@ -7377,19 +7398,20 @@ Kit.listo(() => {
   const pMi = pildora(tv.sobre, 'MinimumSize', 'maiz'), pNo = pildora(tv.sobre, 'no baja de aquí', 'tom');
   tv.tope = mk('path', { class: 'guia mal', d: 'M0 0 H10' }, tv.sobre);
   function pintarTabla(k) {
-    const W = k === 6 ? 540 : k === 7 ? 360 : 440, H = k === 6 ? 310 : 270;
-    tv.pintar({ W, H, dock: k >= 1, bandas: k === 2, celdas: k >= 3, spans: k >= 4, ctrl: k >= 3, btn: k >= 4, flujo: k === 4, estira: k >= 5, centrar: k >= 5, extra: 0, flechas: k === 5 });
+    const W = k === 7 ? 540 : k === 8 ? 340 : 440, H = k === 7 ? 310 : 270;
+    tv.pintar({ W, H, dock: k >= 1, bandas: k === 2, celdas: k >= 3, spans: k >= 4, ctrl: k >= 3, btn: k >= 4, flujo: false, estira: k >= 6, centrar: k >= 6, extra: 0, flechas: k === 6 });
     poner(pT1, W / 2, H / 2 - 18, k === 1); poner(pT2, W / 2, H / 2 + 20, k === 1);
-    poner(pAn, 16 + pAn.ancho / 2, 242, k === 5);
-    poner(pGr, 16 + pGr.ancho / 2, 276, k === 6);
-    poner(pMi, W + 12 + pMi.ancho / 2, 70, k === 7); poner(pNo, W + 12 + pNo.ancho / 2, 112, k === 7);
+    poner(pAn, 16 + pAn.ancho / 2, 242, k === 6);
+    poner(pGr, 16 + pGr.ancho / 2, 276, k === 7);
+    poner(pMi, W + 12 + pMi.ancho / 2, 70, k === 8); poner(pNo, W + 12 + pNo.ancho / 2, 112, k === 8);
     tv.tope.setAttribute('d', 'M' + (W + 62) + ' 150 H' + (W + 10) + ' M' + (W + 22) + ' 142 L' + (W + 10) + ' 150 L' + (W + 22) + ' 158 M' + (W + 4) + ' 136 V164');
-    op(tv.tope, k === 7);
+    op(tv.tope, k === 8);
+    $('s4-t-q').style.visibility = k === 5 ? 'visible' : 'hidden';
   }
   const COD_T = {
     id: 's4-tabla',
-    ver: { cs: [45, 47, 56, 67, 67, 67, 67] },
-    hl: { cs: [[40, 41, 42, 43, 44, 45], [46, 47], [49, 50, 51, 52, 53, 54, 55, 56], [59, 60, 61, 62, 64, 65], [29, 30, 31, 32, 33, 34, 35, 36, 37], [47], [20]] },
+    ver: { cs: [45, 47, 56, 67, 67, 67, 67, 67] },
+    hl: { cs: [[40, 41, 42, 43, 44, 45], [46, 47], [49, 50, 51, 52, 53, 54, 55, 56], [61, 62, 64, 65], [], [29, 30, 31, 32, 33, 34, 35, 36, 37], [47], [20]] },
   };
   POO.escena({
     diapo: '#s4-tabla',
@@ -7397,10 +7419,11 @@ Kit.listo(() => {
       'Una <dfn data-def="rejilla">rejilla</dfn> (<code>TableLayoutPanel</code>) con <dfn data-def="dock">Dock</dfn> en <code>Fill</code> ocupa toda la ventana y la sigue.',
       'Tiene dos columnas: la de las etiquetas mide lo que mida su texto y la de los campos se queda con todo el resto.',
       'Cada control va a una celda: <code>Controls.Add(control, columna, fila)</code>. Nadie escribe una sola coordenada en píxeles.',
-      'El botón y el estado ocupan las dos columnas con <code>SetColumnSpan</code>. Un <code>FlowLayoutPanel</code> coloca los botones en fila.',
+      'Con <code>SetColumnSpan</code>, el estado y el panel del botón (un <code>FlowLayoutPanel</code>) abarcan las dos columnas.',
+      { t: 'Los campos deben estirarse y las etiquetas no. ¿Qué propiedad de cada control lo decide?', participa: true },
       'Con <dfn data-def="anchor">Anchor</dfn> a izquierda y derecha, el campo se estira hasta llenar su celda. La etiqueta solo se pega a la izquierda.',
       'Agrandamos la ventana: la columna de campos absorbe el espacio y cada control sigue en su celda. Cero líneas cambiadas.',
-      'La encogemos: los campos se acortan y <code>MinimumSize</code> impide que baje de un tamaño donde todo se vea.',
+      'La encogemos: los campos se acortan, pero <code>MinimumSize</code> (340 por 320, tamaño exterior de la ventana) impide bajar más.',
     ],
     alPaso: (k) => { pintarTabla(k); enfocar('#s4-tabla', COD_T, k, false); },
     codigo: COD_T,
@@ -7438,7 +7461,7 @@ Kit.listo(() => {
       'Primero, declarar los dos controles nuevos, igual que <code>lblExtra</code> y <code>numExtra</code>.',
       'Segundo, anclar: la etiqueta entra al bucle de <code>Left</code> y el campo al de <code>Left | Right</code>.',
       'Tercero, ubicar: dos <code>Controls.Add</code> en la fila 4, y el botón y el estado bajan una fila.',
-      'Seis puntos del código, ninguno en píxeles: aparece la fila nueva y las demás bajan solas.',
+      'Ocho cambios, cero píxeles. Las filas de abajo se renumeran a mano: botón a la fila 5, estado a la 6.',
       { t: 'Ahora rompan algo: borren <code>Dock = DockStyle.Fill</code> de la rejilla y ejecuten. ¿Qué creen que verán?', participa: true },
       'Sin <code>Dock</code> la rejilla vuelve a su tamaño por defecto: se queda pequeña en la esquina y corta las filas de abajo.',
     ],
@@ -7463,7 +7486,7 @@ Kit.listo(() => {
   const VERDE = '#228B22'; /* Color.ForestGreen */
   const MSG_ROJO = 'No se registró: corrija el campo marcado';
   const MSG_NOMBRE = 'Escriba un nombre de 1 a 20 caracteres';
-  const MSG_REPE = 'Ya existe un personaje con ese nombre. Elija otro';
+  const MSG_REPE = 'Ya existe un personaje con ese nombre';
 
   /* Los archivos largos no caben en la mitad derecha: se desplaza el cuerpo para que lo resaltado quede a la vista */
   const enfocar = (sel, c, k) => {
@@ -7496,15 +7519,16 @@ Kit.listo(() => {
     + '<text class="gv-et" x="18" y="134">Vida</text><rect class="gv-caja" x="84" y="121" width="280" height="26" rx="3"/>' + giro(134)
     + '<text id="' + p + '-exl" class="gv-et" x="18" y="170">Extra</text><rect class="gv-caja" x="84" y="157" width="280" height="26" rx="3"/>' + giro(170)
     + '<rect class="gv-boton" x="18" y="190" width="92" height="30" rx="5"/><text class="gv-et" x="64" y="205" style="text-anchor:middle">Registrar</text>'
-    + '<g id="' + p + '-err"><rect class="gv-caja gv-borde-error" x="84" y="49" width="280" height="26" rx="3"/>'
+    + '<g id="' + p + '-err">'
     + '<circle cx="381" cy="62" r="8.5" fill="var(--tomate)" stroke="#2B3A31" stroke-width="1.8"/><rect x="379.9" y="56" width="2.2" height="7" rx="1.1" fill="#fff"/><circle cx="381" cy="66.5" r="1.4" fill="#fff"/></g>'
     + '<text id="' + p + '-nom" class="gv-val" x="92" y="62"></text>'
     + '<text id="' + p + '-tipo" class="gv-val" x="92" y="98"></text>'
     + '<text id="' + p + '-vida" class="gv-val" x="92" y="134"></text>'
     + '<text id="' + p + '-ex" class="gv-val" x="92" y="170"></text>'
     + '<text id="' + p + '-est" class="gv-et" x="18" y="242" style="font-weight:600"></text>'
-    + '<g id="' + p + '-tip"><rect id="' + p + '-tip-r" x="84" y="80" width="300" height="26" rx="3" fill="#FFFFE1" stroke="var(--tinta-suave)" stroke-width="1.5"/>'
-    + '<text id="' + p + '-tip-t" class="gv-val" x="94" y="93"></text></g>';
+    + '<g id="' + p + '-tip"><path d="M381 74 V205" fill="none" stroke="var(--tinta-suave)" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>'
+    + '<rect id="' + p + '-tip-r" x="84" y="192" width="300" height="26" rx="3" fill="#FFFFE1" stroke="var(--tinta-suave)" stroke-width="1.5"/>'
+    + '<text id="' + p + '-tip-t" class="gv-val" x="94" y="205"></text></g>';
 
   /* e: { nom, tipo, vida, exl, ex, est, col, err, tip } */
   const pintar = (p, e) => {
@@ -7519,8 +7543,8 @@ Kit.listo(() => {
     $(p + '-err').style.display = e.err ? '' : 'none';
     $(p + '-tip').style.display = e.tip ? '' : 'none';
     if (e.tip) {
-      const w = Math.round(e.tip.length * 7.2 + 22);
-      const x = Math.min(84, 392 - w);
+      const w = Math.round(e.tip.length * 6.9 + 22);
+      const x = 392 - w;
       $(p + '-tip-r').setAttribute('x', x);
       $(p + '-tip-r').setAttribute('width', w);
       $(p + '-tip-t').setAttribute('x', x + 10);
@@ -7544,7 +7568,7 @@ Kit.listo(() => {
       { t: 'Dejo el nombre vacío y hago clic en <code>Registrar</code>. ¿Qué creen que hace el programa?', participa: true },
       'Registra un personaje sin nombre. El manejador lee <code>txtNombre.Text</code>, crea el objeto sin revisar y la etiqueta dice <code>registrado</code>.',
       'Con tres espacios pasa igual: el nombre parece vacío, pero <code>Text</code> no lo está. El programa no lo distingue.',
-      'La vida sí tiene red: <code>NumericUpDown</code> la limita de 0 a 100 y el dominio la corrige con <code>Math.Clamp</code>.',
+      'La vida tiene red: <code>NumericUpDown</code> la limita y <code>Math.Clamp</code> corrige. Asignar <code>Value</code> fuera de rango lanza excepción.',
       'El nombre no tiene ninguna. Antes del <code>new</code> falta una puerta que revise el dato: eso es <dfn data-def="validacion">validar</dfn>.',
     ],
     alPaso: (k) => {
@@ -7553,6 +7577,7 @@ Kit.listo(() => {
       $('s5-p-dom').style.display = k >= 5 ? '' : 'none';
       $('s5-p-pill').textContent = k >= 4 ? 'Tres espacios cuentan como nombre' : 'Personaje sin nombre y nadie avisó';
       $('s5-p-vent').querySelector(':scope > g[data-paso="2"]').style.visibility = k === 2 ? '' : 'hidden';
+      document.querySelector('#s5-problema .narra').style.visibility = k ? '' : 'hidden';
       enfocar('#s5-problema', COD1, k);
     },
     codigo: COD1,
@@ -7567,17 +7592,18 @@ Kit.listo(() => {
   POO.escena({
     diapo: '#s5-validar',
     texto: [
-      'Un <dfn data-def="errorprovider">ErrorProvider</dfn> se declara una vez. Dibuja un ícono rojo junto al control con problema y muestra el mensaje.',
+      'Un <dfn data-def="errorprovider">ErrorProvider</dfn> se declara una vez. Muestra un ícono rojo junto al control; el mensaje aparece al pasar el mouse.',
       'El clic llama a <code>Validar()</code>. Lo primero es <code>errores.Clear()</code>: borrar las marcas de la vez anterior.',
-      '<code>Trim</code> descarta los espacios. Si quedan 0 o más de 20 caracteres, <code>SetError</code> marca el campo, <code>Focus</code> lo enfoca y se devuelve false.',
-      'Lo mismo con el tipo: si no eligieron ninguno, se marca el <code>ComboBox</code> y se devuelve false. Se revisa un campo a la vez.',
+      '<code>Trim</code> quita los espacios del inicio y del final. Si quedan 0 o más de 20 caracteres: <code>SetError</code> marca, <code>Focus</code> enfoca y se devuelve false.',
+      'El <code>ComboBox</code> nace sin selección: lo dejamos vacío a propósito para practicar la validación. Si falta el tipo, se marca y devuelve false.',
       'Si ninguna revisión falla, <code>Validar</code> devuelve true. Vida y extra no se revisan a mano: el <code>NumericUpDown</code> ya los limita.',
       'El manejador pregunta primero. Si <code>Validar()</code> devuelve false, avisa y termina: no se crea ningún personaje. El campo queda marcado.',
     ],
     alPaso: (k) => {
       $('s5-v-card').style.display = k >= 2 ? 'none' : '';
       $('s5-v-flujo').style.display = k >= 6 ? 'none' : '';
-      pintar('s5-v', { nom: '', tipo: '', vida: '100', exl: 'Extra', ex: '10', est: MSG_ROJO, col: ROJO, err: true, tip: MSG_NOMBRE });
+      pintar('s5-v', { nom: '', tipo: '', vida: '100', exl: 'Extra', ex: '10', est: MSG_ROJO, col: ROJO, err: true, tip: '' });
+      document.querySelector('#s5-validar .narra').style.visibility = k ? '' : 'hidden';
       enfocar('#s5-validar', COD2, k);
     },
     codigo: COD2,
@@ -7594,7 +7620,7 @@ Kit.listo(() => {
   const ESTADOS = [
     { ...BASE, err: true },
     { ...BASE, err: true },
-    { ...BASE, ...VERDE_OK, nom: 'Aragorn', tipo: 'Guerrero', vida: '70', exl: 'Fuerza', ex: '15' },
+    { ...BASE, ...VERDE_OK },
     { ...BASE, ...VERDE_OK },
     { ...BASE, ...VERDE_OK, nom: 'Gandalf', tipo: 'Mago', vida: '80', exl: 'Maná', ex: '40' },
     { ...BASE, ...VERDE_OK, nom: 'Aragorn', tipo: 'Guerrero', exl: 'Fuerza', err: true },
@@ -7606,10 +7632,10 @@ Kit.listo(() => {
       'Si algo falla, <code>lblEstado</code> se pone en rojo y dice <code>No se registró: corrija el campo marcado</code>. No se creó nada.',
       'El foco salta al campo con error: <code>Focus</code>. Así el usuario corrige en el acto, sin buscarlo con el mouse.',
       'Con datos válidos pasa lo contrario: la etiqueta se pone en verde y confirma <code>Aragorn registrado: vida 70</code>.',
-      'Después limpia el formulario: nombre vacío, tipo sin elegir, valores iniciales y el foco de vuelta al nombre. Listo para el siguiente.',
+      'Y limpia el formulario en el mismo manejador: nombre vacío, tipo sin elegir, valores iniciales y foco al nombre. Listo para el siguiente.',
       '<code>AcceptButton</code> conecta la tecla Enter con Registrar. Con Enter el resultado es <code>Gandalf registrado: vida 80</code>, sin tocar el mouse.',
       { t: 'Práctica 3: ¿qué mensaje mostrarían si el nombre ya existe? Escríbanlo como lo leería un usuario.', participa: true },
-      'Un buen mensaje dice qué pasó y qué hacer. Lo construiremos con la lista de personajes, la próxima clase.',
+      'Al pasar el mouse sobre el ícono se lee el mensaje. Uno bueno dice qué pasó y qué hacer. Lo construiremos la próxima clase.',
     ],
     alPaso: (k) => {
       pintar('s5-f', ESTADOS[Math.max(k, 1) - 1]);
@@ -7618,6 +7644,7 @@ Kit.listo(() => {
       $('s5-f-limpio').style.visibility = k === 4 ? '' : 'hidden';
       $('s5-f-enter').style.visibility = k === 5 ? '' : 'hidden';
       $('s5-f-duda').style.visibility = k === 6 ? '' : 'hidden';
+      document.querySelector('#s5-feedback .narra').style.visibility = k ? '' : 'hidden';
       enfocar('#s5-feedback', COD3, k);
     },
     codigo: COD3,
@@ -7641,7 +7668,7 @@ Kit.listo(() => {
       nodo('prop', 940, 46, 'Propiedades', 'Text, SelectedItem, Value', 'cielo', 250, 3),
       nodo('even', 550, 170, 'Eventos', 'clic en Registrar', 'maiz', 250, 4),
       nodo('dise', 160, 170, 'Diseño', 'rejilla de dos columnas', 'uva', 250, 5),
-      nodo('vali', 940, 170, 'Validación', 'nombre de 1 a 20 letras', 'hoja', 250, 6),
+      nodo('vali', 940, 170, 'Validación', 'nombre de 1 a 20 caracteres', 'hoja', 290, 6),
       nodo('regi', 950, 292, 'Registro', 'Aragorn registrado: vida 70', 'hoja', 290, 7),
     ],
     conectores: [
@@ -7677,6 +7704,11 @@ Kit.listo(() => {
       'La <dfn data-def="validacion">validación</dfn> revisa los datos antes de registrar, y el <dfn data-def="errorprovider">ErrorProvider</dfn> marca el campo con error.',
       'Resultado: de una ventana vacía a una aplicación que registra personajes, por ejemplo Aragorn con vida 70.',
     ],
+    alPaso: (k) => {
+      /* paso 0: solo titulo y pregunta guia */
+      document.getElementById('s9-mapa-dg').style.visibility = k ? '' : 'hidden';
+      document.querySelector('#s9-mapa .narra').style.visibility = k ? '' : 'hidden';
+    },
   });
 
   /* ---- 2. Errores frecuentes, lo que viene y el reto (7 pasos) ---- */
@@ -7686,11 +7718,14 @@ Kit.listo(() => {
       'Armar todo en <code>Main</code> mezcla el arranque con la ventana. La ventana es una clase propia que hereda de <code>Form</code>.',
       'Con posiciones fijas en píxeles, al cambiar el tamaño los controles quedan en una esquina o cortados.',
       'Sin <code>+=</code> el clic ocurre, pero el botón no sabe a quién avisar y ningún manejador reacciona.',
-      'Si el manejador lo hace todo, crece sin control. Que lea los controles y muestre; las reglas del juego viven en el dominio.',
+      'Un manejador que lo hace todo crece sin control. No lo vimos hoy: lo resolvemos la próxima clase, separando la lógica de la ventana.',
       'Sin validar, un nombre vacío se registra igual. Hay que comprobar antes y avisar dónde corregir.',
       'Lo que viene en la próxima clase: la lista de personajes, separar la lógica de la ventana y guardar en un archivo.',
-      'Un reto para practicar, sin nota: agreguen el campo Defensa a la ventana y validen que su rango sea correcto.',
+      'Un reto para practicar, sin nota: agreguen el campo Defensa y limiten su rango con <code>Minimum</code> y <code>Maximum</code>.',
     ],
+    alPaso: (k) => {
+      document.querySelector('#s9-cierre .narra').style.visibility = k ? '' : 'hidden';
+    },
   });
 });
 
