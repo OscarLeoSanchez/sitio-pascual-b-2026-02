@@ -72,6 +72,8 @@ website:
               href: herramientas-programacion-1/unidad-03/gui-winforms-parte-1.qmd
             - text: "Semana 15. Presentación: interfaz gráfica con Windows Forms, parte 1"
               href: herramientas-programacion-1/unidad-03/presentacion-gui-parte-1.html
+            - text: "Semanas 15 y 16. Guía: interfaz gráfica con Windows Forms, parte 2 (pasos 6 a 8)"
+              href: herramientas-programacion-1/unidad-03/gui-winforms-parte-2.qmd
     - id: estadistica
       style: docked
       background: light

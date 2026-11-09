@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="470" viewBox="0 0 880 470" role="img" aria-label="Las tres capas del paso 7. Arriba, la presentación: VentanaPrincipal.cs, con controles, eventos y mensajes, que usa System.Windows.Forms. En el medio, la lógica: RegistroPersonajes.cs y Validador.cs, con las reglas, la lista y la búsqueda, sin System.Windows.Forms. Abajo, el dominio: Personaje, Guerrero, Mago y Partida. Cada capa llama a la de abajo y ninguna conoce a la de arriba." xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/></marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/></marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/></marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/></marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 15px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 17px; font-weight: 700; fill: #16202b; }
+  </style>
+  <rect x="15" y="20" width="540" height="110" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="285.0" y="47.0" class="tit" text-anchor="middle">Presentación</text>
+  <text x="285.0" y="69.0" class="cod" text-anchor="middle">VentanaPrincipal.cs</text>
+  <text x="285.0" y="91.0" class="sec" text-anchor="middle">controles, eventos y mensajes</text>
+  <text x="285.0" y="113.0" class="sec" text-anchor="middle">usa System.Windows.Forms</text>
+  <rect x="15" y="170" width="540" height="110" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="285.0" y="197.0" class="tit" text-anchor="middle">Lógica</text>
+  <text x="285.0" y="219.0" class="cod" text-anchor="middle">Servicios/RegistroPersonajes.cs   Servicios/Validador.cs</text>
+  <text x="285.0" y="241.0" class="sec" text-anchor="middle">las reglas, la lista y la búsqueda</text>
+  <text x="285.0" y="263.0" class="sec" text-anchor="middle">sin System.Windows.Forms</text>
+  <rect x="15" y="320" width="540" height="110" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="285.0" y="347.0" class="tit" text-anchor="middle">Dominio</text>
+  <text x="285.0" y="369.0" class="cod" text-anchor="middle">Personaje, Guerrero, Mago, Partida</text>
+  <text x="285.0" y="391.0" class="sec" text-anchor="middle">los datos y las reglas del juego</text>
+  <text x="285.0" y="413.0" class="sec" text-anchor="middle">no conoce a nadie de arriba</text>
+  <path d="M 200,130 L 200,168" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="215" y="154" class="sec" text-anchor="start">llama a</text>
+  <path d="M 200,280 L 200,318" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="215" y="304" class="sec" text-anchor="start">usa</text>
+  <path d="M 420,168 L 420,132" fill="none" stroke="#b3372c" stroke-width="2.25" stroke-dasharray="7 5" marker-end="url(#punta-r)"/>
+  <text x="435" y="154" class="sec" text-anchor="start">nunca hacia arriba</text>
+  <text x="590" y="62" class="sec" fill="#5b6876" text-anchor="start">Cambia cuando cambia</text>
+  <text x="590" y="84" class="tit" fill="#5b6876" text-anchor="start">la pantalla</text>
+  <text x="590" y="207" class="sec" fill="#5b6876" text-anchor="start">Cambia cuando cambian</text>
+  <text x="590" y="229" class="tit" fill="#5b6876" text-anchor="start">las reglas</text>
+  <text x="590" y="254" class="sec" fill="#0e8f8f" text-anchor="start">Se prueba desde una consola</text>
+  <text x="590" y="352" class="sec" fill="#5b6876" text-anchor="start">Cambia cuando cambia</text>
+  <text x="590" y="374" class="tit" fill="#5b6876" text-anchor="start">el juego</text>
+  <path d="M 555,75 L 580,75" fill="none" stroke="#5b6876" stroke-width="1.75" stroke-dasharray="3 6"/>
+  <path d="M 555,225 L 580,225" fill="none" stroke="#5b6876" stroke-width="1.75" stroke-dasharray="3 6"/>
+  <path d="M 555,375 L 580,375" fill="none" stroke="#5b6876" stroke-width="1.75" stroke-dasharray="3 6"/>
+</svg>

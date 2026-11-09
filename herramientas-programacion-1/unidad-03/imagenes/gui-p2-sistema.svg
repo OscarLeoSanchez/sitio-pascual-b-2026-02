@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="520" viewBox="0 0 880 520" role="img" aria-label="El sistema completo. VentanaPrincipal contiene la tabla y los botones de registrar, actualizar y eliminar del paso 6, y los botones guardar y abrir con la búsqueda del paso 8. Llama a RegistroPersonajes y Validador, la lógica del paso 7 y del paso 8, sin Windows Forms. Estos usan las clases del dominio Personaje, Guerrero y Mago, que desde el paso 6 tienen Tipo y Extra. Partida lee y escribe el archivo partida.txt en el disco." xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/></marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/></marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/></marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto"><path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/></marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 15px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 14px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 17px; font-weight: 700; fill: #16202b; }
+  </style>
+  <rect x="15" y="20" width="560" height="120" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="295.0" y="52.0" class="tit" text-anchor="middle">VentanaPrincipal</text>
+  <text x="295.0" y="74.0" class="cod" text-anchor="middle">grilla, Registrar, Actualizar, Eliminar</text>
+  <text x="295.0" y="96.0" class="cod" text-anchor="middle">txtBuscar, Guardar, Abrir, diálogos de archivo</text>
+  <text x="295.0" y="118.0" class="sec" text-anchor="middle">tabla y CRUD: paso 6. Guardar, abrir y buscar: paso 8</text>
+  <rect x="15" y="190" width="560" height="120" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="295.0" y="222.0" class="tit" text-anchor="middle">Servicios</text>
+  <text x="295.0" y="244.0" class="cod" text-anchor="middle">RegistroPersonajes: Agregar, Actualizar, Eliminar, Buscar</text>
+  <text x="295.0" y="266.0" class="cod" text-anchor="middle">Validador: Nombre, Tipo</text>
+  <text x="295.0" y="288.0" class="sec" text-anchor="middle">separados de la ventana: paso 7. Reemplazar y punto y coma: paso 8</text>
+  <rect x="15" y="360" width="560" height="120" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="295.0" y="392.0" class="tit" text-anchor="middle">Dominio</text>
+  <text x="295.0" y="414.0" class="cod" text-anchor="middle">Personaje, Guerrero, Mago, Partida</text>
+  <text x="295.0" y="436.0" class="sec" text-anchor="middle">Tipo y Extra de solo lectura: paso 6</text>
+  <text x="295.0" y="458.0" class="sec" text-anchor="middle">Partida guarda y carga con ToLinea y DesdeLinea</text>
+  <path d="M 150,140 L 150,188" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="165" y="170" class="sec" text-anchor="start">llama a</text>
+  <path d="M 150,310 L 150,358" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="165" y="340" class="sec" text-anchor="start">usa</text>
+  <rect x="660" y="360" width="205" height="120" rx="10" fill="#f1f3f5" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="762.5" y="403.0" class="cod" text-anchor="middle">partida.txt</text>
+  <text x="762.5" y="425.0" class="sec" text-anchor="middle">en el disco</text>
+  <text x="762.5" y="447.0" class="sec" text-anchor="middle">junto al ejecutable</text>
+  <path d="M 575,410 L 658,410" fill="none" stroke="#c4682c" stroke-width="2.25" marker-end="url(#punta-o)"/>
+  <path d="M 658,445 L 577,445" fill="none" stroke="#c4682c" stroke-width="2.25" marker-end="url(#punta-o)"/>
+  <text x="617" y="400" class="sec" text-anchor="middle">guarda</text>
+  <text x="617" y="466" class="sec" text-anchor="middle">abre</text>
+  <rect x="660" y="20" width="205" height="120" rx="10" fill="#f1f3f5" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="762.5" y="63.0" class="tit" text-anchor="middle">Usuario</text>
+  <text x="762.5" y="85.0" class="sec" text-anchor="middle">escribe, hace clic,</text>
+  <text x="762.5" y="107.0" class="sec" text-anchor="middle">elige filas y archivos</text>
+  <path d="M 658,80 L 577,80" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+</svg>
