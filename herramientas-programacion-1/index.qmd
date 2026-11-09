@@ -95,7 +95,7 @@ semana. El ritmo semanal y el porcentaje de cierre no cambian.
 | **[12](unidad-03/poo-clases-herencia-archivos.qmd)** | Instanciación de objetos y acceso a atributos y métodos. Modelado de clases con UML | Instanciación de objetos y acceso a atributos y métodos. Modelado de clases mediante lenguajes estandarizados | - |
 | 13 | Estándares de documentación para escritura de código | Estándares de documentación para escritura de códigos de programación | - |
 | **[14](unidad-03/poo-clases-herencia-archivos.qmd)** | Manejo de archivos de texto para persistencia | Manejo de archivos de texto | - |
-| 15 | Elementos GUI con Windows Forms: propiedades y eventos de control | Elementos GUI, propiedades y eventos de control | - |
+| **[15](unidad-03/gui-winforms-parte-1.qmd)** | Elementos GUI con Windows Forms: propiedades y eventos de control | Elementos GUI, propiedades y eventos de control | - |
 | 16 | **Evaluación final.** Aplicación con interfaz gráfica, POO y persistencia en archivo | Todos los de la unidad | **40%** |
 :::
 

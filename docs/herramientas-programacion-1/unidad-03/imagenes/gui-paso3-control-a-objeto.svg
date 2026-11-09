@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="440" viewBox="0 0 880 440" role="img" aria-label="Del control al objeto: txtNombre.Text, cboTipo.SelectedItem, numVida.Value y numExtra.Value se leen en AlRegistrar, se convierten a los tipos que pide el constructor y crean un Guerrero o un Mago, cuyo resultado se escribe en lblEstado.Text" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/>
+    </marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/>
+    </marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .peq { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 14px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #16202b; }
+  </style>
+  <text x="15" y="30" class="tit">En la ventana</text>
+  <text x="330" y="30" class="tit">En el manejador AlRegistrar</text>
+  <text x="675" y="30" class="tit">En el dominio</text>
+  <rect x="15" y="50" width="290" height="68" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="30" y="78" class="cod">txtNombre.Text</text>
+  <text x="30" y="104" class="sec">string: "Aragorn"</text>
+  <rect x="15" y="132" width="290" height="68" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="30" y="160" class="cod">cboTipo.SelectedItem</text>
+  <text x="30" y="186" class="sec">object?: "Guerrero"</text>
+  <rect x="15" y="214" width="290" height="68" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="30" y="242" class="cod">numVida.Value</text>
+  <text x="30" y="268" class="sec">decimal: 70</text>
+  <rect x="15" y="296" width="290" height="68" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="30" y="324" class="cod">numExtra.Value</text>
+  <text x="30" y="350" class="sec">decimal: 10</text>
+  <rect x="330" y="50" width="300" height="314" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="480" y="82" class="etq" text-anchor="middle" fill="#2f7bb8">Se lee, se convierte, se crea</text>
+  <rect x="345" y="100" width="270" height="48" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="480.0" y="129.5" class="peq" text-anchor="middle">int vida = (int)numVida.Value;</text>
+  <rect x="345" y="160" width="270" height="48" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="480.0" y="189.5" class="peq" text-anchor="middle">int extra = (int)numExtra.Value;</text>
+  <rect x="345" y="220" width="270" height="62" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="480.0" y="244.0" class="peq" text-anchor="middle">SelectedItem is "Mago"</text>
+  <text x="480.0" y="269.0" class="sec" text-anchor="middle">decide qué clase crear</text>
+  <rect x="345" y="294" width="270" height="58" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="480.0" y="316.0" class="peq" text-anchor="middle">new Guerrero(nombre,</text>
+  <text x="480.0" y="341.0" class="peq" text-anchor="middle">vida, extra)</text>
+  <path d="M 305,84 L 328,84" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <path d="M 305,166 L 328,166" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <path d="M 305,248 L 328,248" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <path d="M 305,330 L 328,330" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="660" y="50" width="205" height="100" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="762.5" y="68.0" class="etq" text-anchor="middle" fill="#2f7bb8">Guerrero</text>
+  <text x="762.5" y="93.0" class="txt" text-anchor="middle">Nombre: Aragorn</text>
+  <text x="762.5" y="118.0" class="txt" text-anchor="middle">Vida: 70</text>
+  <text x="762.5" y="143.0" class="txt" text-anchor="middle">Fuerza: 10</text>
+  <path d="M 630,323 L 645,323 L 645,100 L 658,100" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="660" y="200" width="205" height="80" rx="10" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="762.5" y="233.0" class="peq" text-anchor="middle">personaje.Nombre</text>
+  <text x="762.5" y="258.0" class="peq" text-anchor="middle">personaje.Vida</text>
+  <path d="M 762,150 L 762,198" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="660" y="310" width="205" height="54" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="762.5" y="342.5" class="cod" text-anchor="middle">lblEstado.Text</text>
+  <path d="M 762,280 L 762,308" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="15" y="410" class="etq" fill="#0e8f8f">Resultado en pantalla: Aragorn registrado: vida 70</text>
+  <text x="15" y="432" class="sec">El constructor del dominio sigue recortando la vida entre 0 y 100.</text>
+</svg>

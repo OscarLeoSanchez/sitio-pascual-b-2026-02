@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="560" viewBox="0 0 880 560" role="img" aria-label="Flujo de la validación: el clic en Registrar o la tecla Enter llaman a AlRegistrar, que llama a Validar. Si el nombre no tiene entre 1 y 20 caracteres o no hay un tipo elegido, se marca el campo con ErrorProvider, se le da el foco y se muestra un mensaje rojo; si todo está bien se crea el personaje, se muestra un mensaje verde y se limpian los campos" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/>
+    </marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/>
+    </marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .peq { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 14px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #16202b; }
+  </style>
+  <rect x="15" y="15" width="260" height="56" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="145.0" y="36.0" class="txt" text-anchor="middle">Clic en Registrar</text>
+  <text x="145.0" y="61.0" class="sec" text-anchor="middle">o tecla Enter (AcceptButton)</text>
+  <path d="M 275,43 L 310,43" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="312" y="15" width="250" height="56" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="437.0" y="36.0" class="txt" text-anchor="middle">AlRegistrar llama a</text>
+  <text x="437.0" y="61.0" class="cod" text-anchor="middle">Validar()</text>
+  <path d="M 437,71 L 437,108" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <path d="M 437,108.0 L 562.0,160 L 437,212.0 L 312.0,160 Z" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="437" y="156" class="txt" text-anchor="middle">¿Nombre de 1</text>
+  <text x="437" y="176" class="txt" text-anchor="middle">a 20 caracteres?</text>
+  <path d="M 437,248.0 L 562.0,300 L 437,352.0 L 312.0,300 Z" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="437" y="296" class="txt" text-anchor="middle">¿Hay un tipo</text>
+  <text x="437" y="316" class="txt" text-anchor="middle">elegido?</text>
+  <path d="M 437,212 L 437,248" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="447" y="236" class="txt" fill="#0e8f8f" font-weight="700">sí</text>
+  <path d="M 437,352 L 437,400" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="447" y="380" class="txt" fill="#0e8f8f" font-weight="700">sí</text>
+  <rect x="300" y="400" width="274" height="76" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="437.0" y="418.5" class="txt" text-anchor="middle">Crear Guerrero o Mago</text>
+  <text x="437.0" y="443.5" class="txt" text-anchor="middle">lblEstado verde</text>
+  <text x="437.0" y="468.5" class="txt" text-anchor="middle">y limpiar los campos</text>
+  <rect x="640" y="125" width="225" height="70" rx="10" fill="#f9eceb" stroke="#b3372c" stroke-width="2.25"/>
+  <text x="752.5" y="140.5" class="peq" text-anchor="middle">SetError(txtNombre, ...)</text>
+  <text x="752.5" y="165.5" class="peq" text-anchor="middle">txtNombre.Focus()</text>
+  <text x="752.5" y="190.5" class="peq" text-anchor="middle">return false</text>
+  <path d="M 562,160 L 638,160" fill="none" stroke="#b3372c" stroke-width="2.25" marker-end="url(#punta-r)"/>
+  <text x="580" y="150" class="txt" fill="#b3372c" font-weight="700">no</text>
+  <rect x="640" y="265" width="225" height="70" rx="10" fill="#f9eceb" stroke="#b3372c" stroke-width="2.25"/>
+  <text x="752.5" y="280.5" class="peq" text-anchor="middle">SetError(cboTipo, ...)</text>
+  <text x="752.5" y="305.5" class="peq" text-anchor="middle">cboTipo.Focus()</text>
+  <text x="752.5" y="330.5" class="peq" text-anchor="middle">return false</text>
+  <path d="M 562,300 L 638,300" fill="none" stroke="#b3372c" stroke-width="2.25" marker-end="url(#punta-r)"/>
+  <text x="580" y="290" class="txt" fill="#b3372c" font-weight="700">no</text>
+  <rect x="640" y="400" width="225" height="76" rx="10" fill="#f9eceb" stroke="#b3372c" stroke-width="2.25"/>
+  <text x="752.5" y="418.5" class="txt" text-anchor="middle">lblEstado rojo:</text>
+  <text x="752.5" y="443.5" class="txt" text-anchor="middle">No se registró: corrija</text>
+  <text x="752.5" y="468.5" class="txt" text-anchor="middle">el campo marcado</text>
+  <path d="M 752,335 L 752,398" fill="none" stroke="#b3372c" stroke-width="2.25" marker-end="url(#punta-r)"/>
+  <path d="M 865,160 L 873,160 L 873,366 L 752,366" fill="none" stroke="#b3372c" stroke-width="2.25"/>
+  <text x="15" y="520" class="txt">Validar() se detiene en el primer error: marca solo un campo cada vez y lleva el foco allí.</text>
+  <text x="15" y="544" class="sec">Vida y extra no se validan a mano: NumericUpDown los limita y el constructor del dominio corrige.</text>
+</svg>

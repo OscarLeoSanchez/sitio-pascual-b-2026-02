@@ -9,6 +9,7 @@ project:
     - herramientas-programacion-1/unidad-02/presentacion-funciones.html
     - herramientas-programacion-1/unidad-03/presentacion-poo.html
     - herramientas-programacion-1/unidad-03/presentacion-poo-videojuego.html
+    - herramientas-programacion-1/unidad-03/presentacion-gui-parte-1.html
     - estadistica-para-analitica/unidad-02/presentacion-condicional-bayes.html
     - estadistica-para-analitica/unidad-02/presentacion-pedidos-tarde.html
     - estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
@@ -67,6 +68,10 @@ website:
               href: herramientas-programacion-1/unidad-03/poo-clases-herencia-archivos.qmd
             - text: "Semanas 11, 12 y 14. Presentación presencial: POO con un videojuego"
               href: herramientas-programacion-1/unidad-03/presentacion-poo-videojuego.html
+            - text: "Semana 15. Guía: interfaz gráfica con Windows Forms, parte 1 (pasos 1 a 5)"
+              href: herramientas-programacion-1/unidad-03/gui-winforms-parte-1.qmd
+            - text: "Semana 15. Presentación: interfaz gráfica con Windows Forms, parte 1"
+              href: herramientas-programacion-1/unidad-03/presentacion-gui-parte-1.html
     - id: estadistica
       style: docked
       background: light

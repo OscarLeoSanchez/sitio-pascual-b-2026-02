@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="405" viewBox="0 0 880 405" role="img" aria-label="Mapa de conceptos de la parte 1: cinco pasos encadenados, cada uno nace de un problema del anterior: ventana y bucle de mensajes, evento y manejador, controles y del control al objeto, contenedores de distribución, validación. Debajo, el dominio de la clase de POO que no cambia" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/>
+    </marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/>
+    </marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .peq { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 14px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #16202b; }
+  </style>
+  <rect x="15" y="20" width="146" height="205" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="88.0" y="52" class="sec" text-anchor="middle">Paso 1</text>
+  <text x="88.0" y="80" class="etq" text-anchor="middle" fill="#2f7bb8">Ventana</text>
+  <text x="88.0" y="122" class="txt" text-anchor="middle">Form</text>
+  <text x="88.0" y="152" class="txt" text-anchor="middle">Application.Run</text>
+  <text x="88.0" y="182" class="txt" text-anchor="middle">bucle de mensajes</text>
+  <path d="M 163,120 L 187,120" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="189" y="20" width="146" height="205" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="262.0" y="52" class="sec" text-anchor="middle">Paso 2</text>
+  <text x="262.0" y="80" class="etq" text-anchor="middle" fill="#2f7bb8">Evento</text>
+  <text x="262.0" y="122" class="txt" text-anchor="middle">Click +=</text>
+  <text x="262.0" y="152" class="txt" text-anchor="middle">manejador</text>
+  <text x="262.0" y="182" class="txt" text-anchor="middle">estado en campos</text>
+  <path d="M 337,120 L 361,120" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="363" y="20" width="146" height="205" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="436.0" y="52" class="sec" text-anchor="middle">Paso 3</text>
+  <text x="436.0" y="80" class="etq" text-anchor="middle" fill="#0e8f8f">Controles</text>
+  <text x="436.0" y="122" class="txt" text-anchor="middle">TextBox, ComboBox</text>
+  <text x="436.0" y="152" class="txt" text-anchor="middle">NumericUpDown</text>
+  <text x="436.0" y="182" class="txt" text-anchor="middle">control a objeto</text>
+  <path d="M 511,120 L 535,120" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="537" y="20" width="146" height="205" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="610.0" y="52" class="sec" text-anchor="middle">Paso 4</text>
+  <text x="610.0" y="80" class="etq" text-anchor="middle" fill="#0e8f8f">Distribución</text>
+  <text x="610.0" y="122" class="txt" text-anchor="middle">Dock y Anchor</text>
+  <text x="610.0" y="152" class="txt" text-anchor="middle">TableLayoutPanel</text>
+  <text x="610.0" y="182" class="txt" text-anchor="middle">FlowLayoutPanel</text>
+  <path d="M 685,120 L 709,120" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="711" y="20" width="146" height="205" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="784.0" y="52" class="sec" text-anchor="middle">Paso 5</text>
+  <text x="784.0" y="80" class="etq" text-anchor="middle" fill="#c4682c">Validación</text>
+  <text x="784.0" y="122" class="txt" text-anchor="middle">Validar()</text>
+  <text x="784.0" y="152" class="txt" text-anchor="middle">ErrorProvider</text>
+  <text x="784.0" y="182" class="txt" text-anchor="middle">foco y Enter</text>
+  <text x="88.0" y="247" class="sec" text-anchor="middle">¿Qué es una</text>
+  <text x="88.0" y="267" class="sec" text-anchor="middle">ventana?</text>
+  <text x="262.0" y="247" class="sec" text-anchor="middle">¿Cómo reacciona</text>
+  <text x="262.0" y="267" class="sec" text-anchor="middle">el programa?</text>
+  <text x="436.0" y="247" class="sec" text-anchor="middle">¿Cómo pido</text>
+  <text x="436.0" y="267" class="sec" text-anchor="middle">y muestro datos?</text>
+  <text x="610.0" y="247" class="sec" text-anchor="middle">¿Y si cambia</text>
+  <text x="610.0" y="267" class="sec" text-anchor="middle">el tamaño?</text>
+  <text x="784.0" y="247" class="sec" text-anchor="middle">¿Y si escribe</text>
+  <text x="784.0" y="267" class="sec" text-anchor="middle">cualquier cosa?</text>
+  <rect x="15" y="295" width="837" height="90" rx="10" fill="#f3f5f7" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="433" y="327" class="etq" text-anchor="middle" fill="#5b6876">Dominio de la clase de POO: no cambia en los pasos 1 a 5</text>
+  <text x="433" y="357" class="txt" text-anchor="middle">Personaje, Guerrero y Mago. La interfaz es una cara nueva sobre el mismo dominio.</text>
+  <path d="M 436.0,295 L 436.0,274" fill="none" stroke="#0e8f8f" stroke-width="2.25" stroke-dasharray="7 5" marker-end="url(#punta-v)"/>
+</svg>

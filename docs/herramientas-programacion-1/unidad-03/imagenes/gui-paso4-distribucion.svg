@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="470" viewBox="0 0 880 470" role="img" aria-label="Distribución con contenedores: un TableLayoutPanel de dos columnas, la primera con ancho automático para las etiquetas y la segunda con el resto del ancho para los campos. Al agrandar la ventana los campos se estiran y las etiquetas no se mueven" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/>
+    </marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/>
+    </marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .peq { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 14px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #16202b; }
+  </style>
+  <rect x="15" y="40" width="300" height="330" rx="8" fill="#f3f5f7" stroke="#5b6876" stroke-width="2"/>
+  <rect x="15" y="40" width="300" height="30" rx="8" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2"/>
+  <text x="27" y="61" class="sec">Ventana angosta</text>
+  <text x="31" y="111" class="txt">Nombre</text>
+  <rect x="105" y="90" width="194" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="31" y="151" class="txt">Tipo</text>
+  <rect x="105" y="130" width="194" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="115" y="151" class="txt">Guerrero</text>
+  <text x="31" y="191" class="txt">Vida</text>
+  <rect x="105" y="170" width="194" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="115" y="191" class="txt">100</text>
+  <text x="31" y="231" class="txt">Fuerza</text>
+  <rect x="105" y="210" width="194" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="115" y="231" class="txt">10</text>
+  <rect x="23" y="250" width="284" height="48" rx="6" fill="#fbefe6" stroke="#c4682c" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <rect x="31" y="256" width="100" height="36" rx="6" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="81.0" y="279.5" class="txt" text-anchor="middle">Registrar</text>
+  <text x="145" y="279" class="sec">FlowLayoutPanel</text>
+  <text x="31" y="322" class="sec">lblEstado, ocupa las dos columnas</text>
+  <rect x="345" y="40" width="520" height="330" rx="8" fill="#f3f5f7" stroke="#5b6876" stroke-width="2"/>
+  <rect x="345" y="40" width="520" height="30" rx="8" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2"/>
+  <text x="357" y="61" class="sec">Ventana ancha</text>
+  <text x="361" y="111" class="txt">Nombre</text>
+  <rect x="435" y="90" width="414" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="361" y="151" class="txt">Tipo</text>
+  <rect x="435" y="130" width="414" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="445" y="151" class="txt">Guerrero</text>
+  <text x="361" y="191" class="txt">Vida</text>
+  <rect x="435" y="170" width="414" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="445" y="191" class="txt">100</text>
+  <text x="361" y="231" class="txt">Fuerza</text>
+  <rect x="435" y="210" width="414" height="30" rx="4" fill="#ffffff" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="445" y="231" class="txt">10</text>
+  <rect x="353" y="250" width="504" height="48" rx="6" fill="#fbefe6" stroke="#c4682c" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <rect x="361" y="256" width="100" height="36" rx="6" fill="#ffffff" stroke="#5b6876" stroke-width="2.25"/>
+  <text x="411.0" y="279.5" class="txt" text-anchor="middle">Registrar</text>
+  <text x="475" y="279" class="sec">FlowLayoutPanel</text>
+  <text x="361" y="322" class="sec">lblEstado, ocupa las dos columnas</text>
+  <text x="65" y="28" class="peq" text-anchor="middle" fill="#c4682c">AutoSize</text>
+  <text x="202.0" y="28" class="peq" text-anchor="middle" fill="#0e8f8f">Percent 100</text>
+  <text x="395" y="28" class="peq" text-anchor="middle" fill="#c4682c">AutoSize</text>
+  <text x="642.0" y="28" class="peq" text-anchor="middle" fill="#0e8f8f">Percent 100</text>
+  <path d="M 318,205 L 342,205" fill="none" stroke="#c4682c" stroke-width="2.25" marker-end="url(#punta-o)"/>
+  <text x="330" y="190" class="sec"></text>
+  <text x="15" y="400" class="txt">Anchor Left: la etiqueta se queda a la izquierda y centrada en su fila.</text>
+  <text x="15" y="424" class="txt">Anchor Left | Right: el campo se estira hasta ocupar toda su celda.</text>
+  <text x="15" y="448" class="txt">FlowLayoutPanel: coloca los botones uno tras otro. SetColumnSpan(control, 2): ocupa las dos columnas.</text>
+</svg>

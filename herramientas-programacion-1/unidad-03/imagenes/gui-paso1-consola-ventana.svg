@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="880" height="430" viewBox="0 0 880 430" role="img" aria-label="Comparación entre la consola y la ventana: en la consola el programa pregunta en un orden fijo y el usuario responde; en la ventana el usuario hace clic, escribe o cierra en el orden que quiera y el programa espera y reacciona" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="punta" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#5b6876"/>
+    </marker>
+    <marker id="punta-o" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#c4682c"/>
+    </marker>
+    <marker id="punta-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#b3372c"/>
+    </marker>
+    <marker id="punta-v" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="9" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 z" fill="#0e8f8f"/>
+    </marker>
+  </defs>
+  <style>
+    .cod { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 16px; fill: #16202b; }
+    .peq { font-family: Cascadia Mono, Consolas, SFMono-Regular, monospace; font-size: 14px; fill: #16202b; }
+    .txt { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #16202b; }
+    .sec { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 15px; fill: #5b6876; }
+    .etq { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 16px; font-weight: 700; }
+    .tit { font-family: Segoe UI, Inter, system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: 700; fill: #16202b; }
+  </style>
+  <rect x="15" y="15" width="400" height="400" rx="14" fill="#f3f5f7" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="215" y="50" class="tit" text-anchor="middle">Consola: el programa lleva la iniciativa</text>
+  <rect x="35" y="85" width="230" height="55" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="150.0" y="118.0" class="cod" text-anchor="middle">Nombre:</text>
+  <rect x="295" y="85" width="100" height="55" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="345.0" y="118.0" class="txt" text-anchor="middle">responde</text>
+  <path d="M 265,112 L 293,112" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="35" y="80" class="sec">Paso 1</text>
+  <path d="M 150,140 L 150,170" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="35" y="170" width="230" height="55" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="150.0" y="203.0" class="cod" text-anchor="middle">Tipo (Guerrero o Mago):</text>
+  <rect x="295" y="170" width="100" height="55" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="345.0" y="203.0" class="txt" text-anchor="middle">responde</text>
+  <path d="M 265,197 L 293,197" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="35" y="165" class="sec">Paso 2</text>
+  <path d="M 150,225 L 150,255" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="35" y="255" width="230" height="55" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="150.0" y="288.0" class="cod" text-anchor="middle">Vida (0 a 100):</text>
+  <rect x="295" y="255" width="100" height="55" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="345.0" y="288.0" class="txt" text-anchor="middle">responde</text>
+  <path d="M 265,282 L 293,282" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <text x="35" y="250" class="sec">Paso 3</text>
+  <path d="M 150,310 L 150,345" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="35" y="345" width="360" height="55" rx="10" fill="#fbefe6" stroke="#c4682c" stroke-width="2.25"/>
+  <text x="215.0" y="378.0" class="etq" text-anchor="middle" fill="#c4682c">El programa termina</text>
+  <rect x="465" y="15" width="400" height="400" rx="14" fill="#f3f5f7" stroke="#5b6876" stroke-width="1.5"/>
+  <text x="665" y="50" class="tit" text-anchor="middle">Ventana: el usuario lleva la iniciativa</text>
+  <rect x="485" y="75" width="190" height="48" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="580.0" y="104.5" class="txt" text-anchor="middle">clic en Registrar</text>
+  <path d="M 675,99 L 710,99" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="485" y="140" width="190" height="48" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="580.0" y="169.5" class="txt" text-anchor="middle">escribe en Nombre</text>
+  <path d="M 675,164 L 710,164" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="485" y="205" width="190" height="48" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="580.0" y="234.5" class="txt" text-anchor="middle">elige un Tipo</text>
+  <path d="M 675,229 L 710,229" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="485" y="270" width="190" height="48" rx="10" fill="#e9f6f5" stroke="#0e8f8f" stroke-width="2.25"/>
+  <text x="580.0" y="299.5" class="txt" text-anchor="middle">cierra la ventana</text>
+  <path d="M 675,294 L 710,294" fill="none" stroke="#5b6876" stroke-width="2.25" marker-end="url(#punta)"/>
+  <rect x="710" y="75" width="140" height="243" rx="10" fill="#eaf2f9" stroke="#2f7bb8" stroke-width="2.25"/>
+  <text x="780" y="140" class="etq" text-anchor="middle" fill="#2f7bb8">El programa</text>
+  <text x="780" y="168" class="etq" text-anchor="middle" fill="#2f7bb8">espera y</text>
+  <text x="780" y="196" class="etq" text-anchor="middle" fill="#2f7bb8">reacciona</text>
+  <text x="780" y="238" class="sec" text-anchor="middle">a cada aviso</text>
+  <text x="665" y="350" class="sec" text-anchor="middle">Los avisos llegan en cualquier</text>
+  <text x="665" y="372" class="sec" text-anchor="middle">orden y en cualquier momento</text>
+</svg>
