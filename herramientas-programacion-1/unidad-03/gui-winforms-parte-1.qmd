@@ -75,7 +75,7 @@ La parte 2 continúa con una lista de objetos en pantalla, la separación de la 
 ## Requisitos
 
 - **Windows 10 u 11.** Windows Forms solo corre en Windows.
-- **SDK de .NET 10.** En una terminal, `dotnet --version` debe imprimir un número que empiece por `10.`. La guía se probó con 10.0.302.
+- **SDK de .NET 10.** En una terminal, `dotnet --version` debe imprimir un número que empiece por `10.`. La guía se probó con 10.0.302. La plantilla `winforms` de la opción B del paso 1 ya viene incluida en el SDK.
 - **VS Code** con la extensión **C#** de Microsoft. Trabajas en el editor y en la terminal; no usas el diseñador visual de ventanas.
 - **Los archivos del dominio**: `Personaje.cs`, `Guerrero.cs` y `Mago.cs` de tu proyecto de la clase de POO. Si no los tienes, aparecen completos en el paso 3 de esta guía.
 
@@ -90,6 +90,7 @@ Windows Forms no se puede ejecutar en macOS ni en Linux. Necesitas una máquina 
 - **Reemplazar un archivo** significa borrar todo su contenido y poner el nuevo. Cada paso muestra el archivo completo, así que puedes llegar a él desde cualquier punto.
 - **No te saltes "Rompe esto y observa".** Cambiar una línea y ver qué pasa es la forma más rápida de entender qué hacía.
 - **Cada paso tiene la misma estructura**: el problema, la idea, el paso a paso, qué debes ver, rompe esto y observa, errores frecuentes, para practicar y lo que aprendiste. Si ya conoces la idea, ve directo al paso a paso; si algo no sale, mira los errores frecuentes.
+- **El proyecto del paso 1 se crea de dos maneras**: a mano (opción A) o con la plantilla `dotnet new winforms` (opción B, un atajo). Haz primero la A.
 - **Una presentación acompaña la clase presencial.** Esta guía cubre lo mismo con más detalle.
 
 ## Paso 1. La primera ventana
@@ -158,6 +159,10 @@ Tres ideas más para este paso:
 - **El hilo de la interfaz tiene una regla.** Windows Forms exige que el hilo que maneja la interfaz sea de un solo compartimento (STA, *single-threaded apartment*). Se declara con un atributo, `[STAThread]`, encima de `Main`.
 
 ### 1.3 Paso a paso
+
+Hay dos maneras de crear el proyecto de este paso. La **opción A** parte de un proyecto de consola y lo convierte a mano en uno de ventanas: es la más lenta, pero entiendes qué hace cada línea. La **opción B** es un atajo: un solo comando crea el proyecto de ventanas con su estructura inicial. Haz primero la A; la B está después, para cuando ya sabes qué hay detrás de lo que el comando genera.
+
+#### Opción A: crear el proyecto a mano
 
 **Crear el proyecto desde cero.** Abre una terminal en la carpeta donde guardas tus proyectos y ejecuta:
 
@@ -234,6 +239,62 @@ Ejecuta el proyecto en la terminal:
 ```powershell
 dotnet run
 ```
+
+#### Opción B: el atajo con la plantilla de Windows Forms
+
+Cuando ya entendiste el `.csproj` y el `Program.cs` de la opción A, no tienes que armarlos a mano en cada proyecto: el SDK de .NET trae una plantilla que los crea por ti. En una carpeta distinta de la que usaste en la opción A, ejecuta:
+
+```powershell
+dotnet new winforms -o RegistroPersonajes
+cd RegistroPersonajes
+code .
+```
+
+`winforms` es el nombre de la plantilla. `-o` (de *output*) es el nombre de la carpeta que se crea, y la plantilla usa ese mismo nombre para el proyecto y para el espacio de nombres del código. No hace falta `mkdir` ni un `dotnet new console` previo. Con un SDK en español, el comando termina con `La plantilla "Aplicación de Windows Forms" se creó correctamente.`, y el texto cambia según el idioma del SDK.
+
+**Qué archivos crea.** Cinco:
+
+| Archivo | Qué contiene |
+|---|---|
+| `RegistroPersonajes.csproj` | La configuración. Tiene las mismas cinco propiedades que armaste en la opción A (`WinExe`, `net10.0-windows`, `UseWindowsForms`, `ImplicitUsings` y `Nullable`), en otro orden |
+| `Program.cs` | Ya trae `[STAThread]`, `static void Main()`, `ApplicationConfiguration.Initialize();` y `Application.Run(new Form1());`: lo mismo que escribiste, pero abre una ventana de la clase `Form1` |
+| `Form1.cs` | La clase `Form1`, declarada `partial`, con un constructor que solo llama a `InitializeComponent()` |
+| `Form1.Designer.cs` | La otra mitad de `Form1`. Define `InitializeComponent()`, que fija el título `Form1` y el tamaño 800 por 450, y lleva el comentario "do not modify" |
+| `RegistroPersonajes.csproj.user` | Una marca para Visual Studio que dice que `Form1.cs` es un formulario. Con VS Code no hace nada |
+
+**Por qué trae un diseñador que este curso no usa.** La plantilla está pensada para el diseñador visual de Visual Studio: arrastras controles sobre la ventana y el diseñador escribe el código por ti en `Form1.Designer.cs`, dentro de `InitializeComponent()`. Por eso `Form1` es una clase `partial`, una clase repartida en dos archivos que el compilador junta en una sola: tu mitad (`Form1.cs`) y la mitad que escribe el diseñador. VS Code no trae ese diseñador, y en este curso escribes la ventana con código para ver cada propiedad y cada evento en lugar de recibirlos ya generados. Esa es la razón de la adaptación que sigue.
+
+**Adaptar la plantilla a este curso.** Borra la ventana de la plantilla y deja el `.csproj`, que ya está bien:
+
+```powershell
+del Form1.cs
+del Form1.Designer.cs
+```
+
+Reemplaza `Program.cs` por el mismo bloque del paso "Reemplazar `Program.cs`" de la opción A y ejecuta:
+
+```powershell
+dotnet run
+```
+
+Si prefieres conservar `Form1`, borra solo `Form1.Designer.cs` y reescribe `Form1.cs` como una clase `Form` normal: sin `partial` y sin la llamada a `InitializeComponent()`. Los pasos siguientes usan una clase propia, `VentanaPrincipal`, y por eso aquí la ventana de la plantilla se borra por completo.
+
+Los pasos siguientes de la guía sirven igual con cualquiera de las dos opciones: en ambos casos terminas con el mismo `.csproj` y el mismo `Program.cs`.
+
+**Cuándo conviene cada opción.**
+
+- **Opción A**: cuando estás aprendiendo, porque cada línea del `.csproj` y de `Program.cs` es una decisión que tú tomas y entiendes.
+- **Opción B**: cuando ya sabes qué hace cada línea y necesitas un proyecto nuevo rápido, sin escribir la configuración otra vez.
+
+Otras opciones del comando: `-f` elige la versión de .NET (`net10.0` es la predeterminada; también existen `net9.0`, `net8.0` y `net6.0`, pero esta guía usa .NET 10), y la ayuda completa sale con:
+
+```powershell
+dotnet new winforms --help
+```
+
+**Qué debes ver con la opción B.** Si ejecutas `dotnet run` justo después de crear el proyecto, sin adaptarlo, aparece una ventana vacía con el título "Form1" y sin ventana de consola. Después de la adaptación, ves la misma ventana que se describe en el paso 1.4.
+
+**Rompe esto y observa (opción B).** Crea una copia de la plantilla en una carpeta aparte con `dotnet new winforms -o Prueba`, entra con `cd Prueba`, borra el diseñador con `del Form1.Designer.cs` y compila con `dotnet build`. Falla con `Form1.cs(7,9): error CS0103: El nombre 'InitializeComponent' no existe en el contexto actual` y el resumen dice `1 Errores`. El constructor de `Form1` llama a `InitializeComponent()`, pero ese método vivía en el archivo que borraste: las dos mitades de una clase `partial` son una sola clase, y sin una mitad falta lo que la otra usa. Borra la carpeta `Prueba` al terminar.
 
 ### 1.4 Qué debes ver
 
@@ -1282,7 +1343,7 @@ El formato del archivo del juego es `Tipo;Nombre;Vida;Extra`, y `;` es el separa
 
 ::: {.checklist}
 - [ ] Explicas por qué una ventana no termina sola mientras está abierta (`Application.Run` y el bucle de mensajes).
-- [ ] Creas un proyecto de ventanas desde cero: `dotnet new console`, `WinExe`, `net10.0-windows` y `UseWindowsForms`.
+- [ ] Creas un proyecto de ventanas desde cero: `dotnet new console`, `WinExe`, `net10.0-windows` y `UseWindowsForms`, y conoces el atajo `dotnet new winforms`.
 - [ ] Explicas qué es un evento y un manejador, y por qué se escribe `+=` y no una llamada.
 - [ ] Guardas estado entre eventos en un campo de la clase de la ventana.
 - [ ] Eliges el control adecuado para un texto libre, una opción de lista y un número con límites.
