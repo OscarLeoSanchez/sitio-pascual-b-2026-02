@@ -18,6 +18,8 @@ project:
     - estadistica-para-analitica/unidad-03/presentacion-inferencia-muestreo-intervalos.html
     - estadistica-para-analitica/unidad-03/presentacion-inferencia-pruebas-hipotesis.html
     - estadistica-para-analitica/unidad-03/presentacion-inferencia-dos-poblaciones-anova.html
+    - estadistica-para-analitica/unidad-03/recursos/saber11_20224.zip
+    - estadistica-para-analitica/unidad-03/recursos/cookie_cats.csv
 
 lang: es
 
@@ -120,6 +122,8 @@ website:
               href: estadistica-para-analitica/unidad-02/actividad-evaluativa.qmd
         - section: "Unidad 3. Inferencia estadística"
           contents:
+            - text: "Presentación de la unidad y datos"
+              href: estadistica-para-analitica/unidad-03/index.qmd
             - text: "11 y 12. Presentación: muestreo, TLC e intervalos de confianza"
               href: estadistica-para-analitica/unidad-03/presentacion-inferencia-muestreo-intervalos.html
             - text: "13. Presentación: pruebas de hipótesis"

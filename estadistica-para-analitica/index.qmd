@@ -107,6 +107,9 @@ semana. El ritmo semanal y el porcentaje de cierre no cambian.
 
 ### Unidad 3. Inferencia estadística
 
+Las presentaciones de cada sesión y los datos para trabajarlas, con sus enlaces de descarga, están en
+**[la portada de la Unidad 3](unidad-03/index.qmd)**.
+
 ::: {.calendario}
 | Sem | Temática | Saberes de la carta descriptiva | % |
 |:---:|---|---|:---:|

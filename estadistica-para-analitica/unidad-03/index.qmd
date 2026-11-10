@@ -1,0 +1,46 @@
+---
+title: "Unidad 3. Inferencia estadística"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+number-sections: false
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Dedicación | 3 horas de acompañamiento directo y 9 de trabajo independiente por semana |
+| Cierre     | 40% de la nota, con la evaluación final de la unidad      |
+:::
+
+## Presentaciones de la unidad
+
+Una presentación por sesión. Cada una abre con un reto para resolver antes de ver el tema, desarrolla los fundamentos con código y termina con una práctica sobre datos reales.
+
+[Temas 11 y 12. Muestreo, teorema del límite central e intervalos de confianza](presentacion-inferencia-muestreo-intervalos.html){.btn .btn-primary role="button"}
+[Tema 13. Pruebas de hipótesis](presentacion-inferencia-pruebas-hipotesis.html){.btn .btn-outline-primary role="button"}
+[Tema 14. Dos poblaciones y ANOVA de una vía](presentacion-inferencia-dos-poblaciones-anova.html){.btn .btn-outline-primary role="button"}
+
+## Datos de las sesiones
+
+Descarguen los archivos y guárdenlos en la misma carpeta de su cuaderno antes de la clase. Los retos y las prácticas de las tres presentaciones trabajan con estos dos conjuntos.
+
+| Archivo | Contenido | Filas |
+|---|---|---|
+| [saber11_20224.zip](recursos/saber11_20224.zip){download="saber11_20224.zip"} (5,8 MB; descomprimido, `saber11_20224.csv` de 45 MB) | Resultados de Saber 11 del periodo 2022-2, todos los registros. Columnas: `punt_global`, `punt_matematicas`, `punt_lectura_critica`, `fami_estratovivienda` (Estrato 1 a 6 y Sin Estrato; faltan 71 842 valores), `cole_naturaleza` (OFICIAL o NO OFICIAL) y `estu_genero` (F o M) | 1&nbsp;065&nbsp;888 |
+| [cookie_cats.csv](recursos/cookie_cats.csv){download="cookie_cats.csv"} (2,7 MB) | Experimento A/B de un juego móvil. Columnas: `userid`, `version` (`gate_30` o `gate_40`, el nivel en que aparece la primera puerta de espera), `sum_gamerounds` (rondas jugadas en los primeros 14 días), `retention_1` y `retention_7` (si el jugador volvió al día 1 y al día 7) | 90&nbsp;189 |
+
+Los dos se leen con `pandas`. Un archivo `.zip` con un solo CSV se puede leer sin descomprimirlo:
+
+```python
+import pandas as pd
+
+jugadores = pd.read_csv("cookie_cats.csv")
+saber = pd.read_csv("saber11_20224.zip", usecols=["punt_global", "fami_estratovivienda"])
+```
+
+Si descomprimen el archivo, usen `saber11_20224.csv`, que es el nombre que aparece en el código de las presentaciones. Con Saber 11 conviene usar siempre `usecols`: el archivo completo tiene más de un millón de filas.
+
+Los resultados de Saber 11 provienen de [Resultados únicos Saber 11](https://www.datos.gov.co/d/kgxf-xxbe) del ICFES en datos.gov.co, con licencia CC BY-SA 4.0. Aquí se redistribuyen seis columnas del periodo 2022-2, sin otro cambio. El experimento Cookie Cats fue publicado por DataCamp y compartido en Kaggle; se redistribuye sin cambios, con fines de clase y con atribución a DataCamp.
