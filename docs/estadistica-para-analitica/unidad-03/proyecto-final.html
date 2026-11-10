@@ -283,13 +283,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#equipos-y-datos" id="toc-equipos-y-datos" class="nav-link" data-scroll-target="#equipos-y-datos">Equipos y datos</a></li>
   <li><a href="#qué-debe-incluir-el-informe" id="toc-qué-debe-incluir-el-informe" class="nav-link" data-scroll-target="#qué-debe-incluir-el-informe">Qué debe incluir el informe</a>
   <ul class="collapse">
-  <li><a href="#problema-y-decisión" id="toc-problema-y-decisión" class="nav-link" data-scroll-target="#problema-y-decisión">1. Problema y decisión</a></li>
-  <li><a href="#datos" id="toc-datos" class="nav-link" data-scroll-target="#datos">2. Datos</a></li>
-  <li><a href="#análisis-descriptivo" id="toc-análisis-descriptivo" class="nav-link" data-scroll-target="#análisis-descriptivo">3. Análisis descriptivo</a></li>
-  <li><a href="#modelos-de-probabilidad" id="toc-modelos-de-probabilidad" class="nav-link" data-scroll-target="#modelos-de-probabilidad">4. Modelos de probabilidad</a></li>
+  <li><a href="#planteamiento-decisión-y-plan-de-análisis" id="toc-planteamiento-decisión-y-plan-de-análisis" class="nav-link" data-scroll-target="#planteamiento-decisión-y-plan-de-análisis">1. Planteamiento, decisión y plan de análisis</a></li>
+  <li><a href="#datos-y-auditoría-de-calidad" id="toc-datos-y-auditoría-de-calidad" class="nav-link" data-scroll-target="#datos-y-auditoría-de-calidad">2. Datos y auditoría de calidad</a></li>
+  <li><a href="#análisis-descriptivo-y-exploratorio" id="toc-análisis-descriptivo-y-exploratorio" class="nav-link" data-scroll-target="#análisis-descriptivo-y-exploratorio">3. Análisis descriptivo y exploratorio</a></li>
+  <li><a href="#probabilidad-y-modelos-de-probabilidad" id="toc-probabilidad-y-modelos-de-probabilidad" class="nav-link" data-scroll-target="#probabilidad-y-modelos-de-probabilidad">4. Probabilidad y modelos de probabilidad</a></li>
   <li><a href="#inferencia" id="toc-inferencia" class="nav-link" data-scroll-target="#inferencia">5. Inferencia</a></li>
-  <li><a href="#decisión" id="toc-decisión" class="nav-link" data-scroll-target="#decisión">6. Decisión</a></li>
+  <li><a href="#regresión-lineal" id="toc-regresión-lineal" class="nav-link" data-scroll-target="#regresión-lineal">6. Regresión lineal</a></li>
+  <li><a href="#decisión-y-validez" id="toc-decisión-y-validez" class="nav-link" data-scroll-target="#decisión-y-validez">7. Decisión y validez</a></li>
   </ul></li>
+  <li><a href="#reproducibilidad" id="toc-reproducibilidad" class="nav-link" data-scroll-target="#reproducibilidad">Reproducibilidad</a></li>
   <li><a href="#qué-se-entrega" id="toc-qué-se-entrega" class="nav-link" data-scroll-target="#qué-se-entrega">Qué se entrega</a></li>
   </ul>
 </nav>
@@ -356,8 +358,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="de-qué-se-trata" class="level2">
 <h2 class="anchored" data-anchor-id="de-qué-se-trata">De qué se trata</h2>
-<p>Definir un problema real y resolverlo con un estudio estadístico completo, que termine en una decisión sustentada con rigor científico. Cada equipo elige su propio problema y sus propios datos.</p>
-<p>Los ejemplos de esta página usan un mismo caso ilustrativo, la accidentalidad vial de una ciudad, solo para mostrar cómo se enlazan las partes. No es un tema sugerido ni un conjunto de datos verificado.</p>
+<p>Conducir un estudio estadístico completo, desde una pregunta bien planteada hasta una decisión sustentada con evidencia y con su incertidumbre, de modo que un tercero pueda reproducirlo y auditarlo.</p>
+<p>El proyecto integra todos los temas del curso: análisis descriptivo, probabilidad y modelos de probabilidad, inferencia, comparación de grupos y regresión lineal. Cada equipo elige su propio problema y sus propios datos.</p>
 </section>
 <section id="equipos-y-datos" class="level2">
 <h2 class="anchored" data-anchor-id="equipos-y-datos">Equipos y datos</h2>
@@ -365,59 +367,91 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Equipos:</strong> individual o en parejas.</li>
 <li><strong>Datos:</strong> un conjunto de Kaggle, de datos abiertos del gobierno o de otra fuente, con al menos 10 000 registros. Si tiene menos, se justifica.</li>
 <li><strong>Fuente:</strong> se indica de dónde salieron los datos y cuál es la fuente, para que otra persona pueda replicar el estudio cuando son abiertos.</li>
+<li><strong>Variables:</strong> el conjunto debe permitir todo lo que sigue. Necesita al menos dos variables numéricas continuas (una será la respuesta de la regresión), una de conteo, una binaria y una categórica de tres o más niveles.</li>
 </ul>
 </section>
 <section id="qué-debe-incluir-el-informe" class="level2">
 <h2 class="anchored" data-anchor-id="qué-debe-incluir-el-informe">Qué debe incluir el informe</h2>
-<section id="problema-y-decisión" class="level3">
-<h3 class="anchored" data-anchor-id="problema-y-decisión">1. Problema y decisión</h3>
+<section id="planteamiento-decisión-y-plan-de-análisis" class="level3">
+<h3 class="anchored" data-anchor-id="planteamiento-decisión-y-plan-de-análisis">1. Planteamiento, decisión y plan de análisis</h3>
 <ul>
-<li><strong>Preguntas:</strong> ¿qué se quiere resolver?, ¿quién decide?, ¿qué cambiaría según el resultado?</li>
-<li><strong>Ejemplo:</strong> la secretaría de movilidad debe decidir en qué franjas horarias reforzar los controles. Si los accidentes graves se concentran de noche, se traslada personal al turno nocturno.</li>
+<li>Un problema delimitado, con la población objetivo definida.</li>
+<li>Una decisión concreta con al menos dos alternativas y el criterio para elegir entre ellas.</li>
+<li>La diferencia mínima que sería relevante para esa decisión y el costo de cada error posible (falsa alarma y omisión), que sustenta el nivel de significancia y la potencia buscada.</li>
+<li>Un plan de análisis escrito antes de ejecutar los contrastes: preguntas, hipótesis, nivel de significancia, pruebas previstas y tamaño del efecto relevante.</li>
 </ul>
 </section>
-<section id="datos" class="level3">
-<h3 class="anchored" data-anchor-id="datos">2. Datos</h3>
+<section id="datos-y-auditoría-de-calidad" class="level3">
+<h3 class="anchored" data-anchor-id="datos-y-auditoría-de-calidad">2. Datos y auditoría de calidad</h3>
 <ul>
-<li><strong>Preguntas:</strong> ¿de dónde salen?, ¿qué significa cada variable?, ¿qué se hizo con los faltantes y los atípicos, y por qué?</li>
-<li><strong>Ejemplo:</strong> incidentes viales del portal de datos abiertos de la ciudad (nombre del conjunto, año y enlace), una fila por accidente. Se eliminaron los registros sin hora porque la hora es la variable central del análisis.</li>
+<li>Origen, fecha de obtención, unidad de observación y quién y cómo recolectó los datos.</li>
+<li>Qué población representan y qué sesgos de selección o de medición pueden tener.</li>
+<li>Diccionario de variables con unidades y la clasificación de cada una: numérica discreta o continua, categórica nominal u ordinal.</li>
+<li>Auditoría de duplicados, valores imposibles, inconsistencias, faltantes (cuántos, en qué variables y por qué probablemente faltan) y atípicos.</li>
+<li>Cada decisión de limpieza se justifica y se cuantifica: cuántos registros afecta y si cambia los resultados.</li>
 </ul>
 </section>
-<section id="análisis-descriptivo" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-descriptivo">3. Análisis descriptivo</h3>
+<section id="análisis-descriptivo-y-exploratorio" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-descriptivo-y-exploratorio">3. Análisis descriptivo y exploratorio</h3>
 <ul>
-<li><strong>Preguntas:</strong> ¿cómo se distribuyen las variables?, ¿qué diferencias aparecen entre grupos?</li>
-<li><strong>Ejemplo:</strong> proporción de accidentes graves por franja horaria en un gráfico de barras, y heridos por accidente según el día de la semana en un boxplot.</li>
+<li>Tablas de frecuencia e histogramas de las variables numéricas, con medidas de localización (media, mediana, moda y cuantiles) y de dispersión (varianza, desviación estándar y coeficiente de variación), e interpretación de su forma.</li>
+<li>Boxplots por los grupos relevantes, con identificación y tratamiento de los atípicos.</li>
+<li>Gráficos de barras y tablas de contingencia para las variables categóricas, cruzadas con las demás.</li>
+<li>Gráficos de dispersión y gráficos condicionales (por grupo o por segmento) para estudiar las relaciones entre variables numéricas.</li>
+<li>Búsqueda de heterogeneidad entre subgrupos y de posibles variables que confunden. Lo que surja de la exploración se declara exploratorio y se distingue de lo confirmatorio del plan.</li>
 </ul>
 </section>
-<section id="modelos-de-probabilidad" class="level3">
-<h3 class="anchored" data-anchor-id="modelos-de-probabilidad">4. Modelos de probabilidad</h3>
+<section id="probabilidad-y-modelos-de-probabilidad" class="level3">
+<h3 class="anchored" data-anchor-id="probabilidad-y-modelos-de-probabilidad">4. Probabilidad y modelos de probabilidad</h3>
 <ul>
-<li><strong>Preguntas:</strong> ¿qué modelo describe esta variable?, ¿se ajusta a los datos?, ¿qué pasa si no se ajusta?</li>
-<li><strong>Ejemplo:</strong> accidentes por día como variable de conteo. Se ajusta una Poisson y se revisa si la varianza se parece a la media. Si es mucho mayor, el modelo se queda corto y se dice.</li>
+<li><strong>Variable aleatoria y distribución:</strong> definir al menos una variable aleatoria del estudio, con su espacio muestral, y comparar su función de distribución acumulada empírica con la del modelo.</li>
+<li><strong>Probabilidad condicional, independencia y Bayes:</strong> calcular con los datos al menos una probabilidad condicional relevante para la decisión, evaluar si dos eventos son independientes y aplicar el teorema de Bayes a un caso del problema (por ejemplo, la probabilidad de un evento dado un resultado observado), contrastando el cálculo con el conteo directo en los datos.</li>
+<li><strong>Valor esperado y varianza:</strong> calcularlos e interpretarlos para las variables modeladas, y vincularlos con la decisión (costo o beneficio esperado).</li>
+<li><strong>Modelos:</strong> al menos un modelo discreto (uniforme, binomial, hipergeométrico o Poisson) y uno continuo (uniforme, normal, exponencial o gamma), cada uno justificado por el mecanismo que genera los datos. Estimación de los parámetros y evaluación del ajuste con gráficos (histograma frente a la curva del modelo) y pruebas de bondad de ajuste. Comparación con datos simulados desde el modelo ajustado. Si el modelo falla, un diagnóstico de por qué (sobredispersión, colas pesadas, mezcla de subpoblaciones) y qué implica para el análisis.</li>
 </ul>
 </section>
 <section id="inferencia" class="level3">
 <h3 class="anchored" data-anchor-id="inferencia">5. Inferencia</h3>
 <ul>
-<li><strong>Preguntas:</strong> ¿qué se quiere estimar o contrastar?, ¿qué diferencia es real y cuál puede ser azar?, ¿qué tan grande es?</li>
-<li><strong>Ejemplo:</strong> hipótesis escrita antes de mirar los datos: “la proporción de accidentes graves es mayor de noche que de día”. Intervalo para cada proporción, contraste de la diferencia y, si hay cuatro franjas, ANOVA de los heridos con Tukey. Se reporta el tamaño de la diferencia, no solo el valor p.</li>
+<li><strong>Muestreo y distribución muestral:</strong> el mecanismo de muestreo que generó los datos. Se comprueba por simulación, tratando el conjunto como población, el error estándar de la media y el teorema del límite central para distintos tamaños de muestra.</li>
+<li><strong>Estimación:</strong> estimación puntual e intervalos de confianza para al menos una media y una proporción, interpretados correctamente. La cobertura del intervalo se verifica por simulación.</li>
+<li><strong>Contrastes:</strong> al menos tres contrastes confirmatorios, sobre medias y proporciones, previstos en el plan. De cada uno se reportan hipótesis, estadístico, valor p, decisión, intervalo y tamaño del efecto. Se verifican los supuestos y se explica qué se hizo cuando no se cumplen (Welch o prueba de permutación). Se reporta la potencia para el efecto relevante.</li>
+<li><strong>Comparación de grupos:</strong> al menos dos poblaciones, con intervalo para la diferencia de medias y de proporciones, y una variable de tres o más niveles con ANOVA de una vía, verificación de supuestos, comparaciones por pares con Tukey y tamaño del efecto. Se explica por qué no bastan muchas pruebas t.</li>
+<li><strong>Pruebas múltiples:</strong> cuántas pruebas se hicieron en total, incluidas las exploratorias, y el riesgo acumulado de falsos positivos.</li>
+<li><strong>Robustez:</strong> los análisis principales se repiten con y sin atípicos, y con otra decisión razonable de limpieza, y se informa si la conclusión cambia.</li>
 </ul>
 </section>
-<section id="decisión" class="level3">
-<h3 class="anchored" data-anchor-id="decisión">6. Decisión</h3>
+<section id="regresión-lineal" class="level3">
+<h3 class="anchored" data-anchor-id="regresión-lineal">6. Regresión lineal</h3>
 <ul>
-<li><strong>Preguntas:</strong> ¿qué se recomienda?, ¿con cuánta certeza?, ¿qué limita el estudio?</li>
-<li><strong>Ejemplo:</strong> reforzar los controles nocturnos en las zonas con más proporción de graves. El estudio es observacional, no prueba que la hora cause la gravedad, y solo cubre un año.</li>
+<li>Al menos un modelo de regresión lineal con una variable respuesta numérica relevante para la decisión y predictores justificados, ajustando primero un modelo simple y luego uno múltiple.</li>
+<li>Interpretación de cada coeficiente con sus unidades, con su intervalo de confianza y su contraste de hipótesis.</li>
+<li>Medidas de ajuste, como el R cuadrado ajustado, con sus límites, y comparación de al menos dos especificaciones del modelo. Con varios predictores se revisa la correlación entre ellos.</li>
+<li>Verificación de los supuestos con los residuos (linealidad, varianza constante, normalidad e independencia) e identificación de las observaciones influyentes, con lo que ocurre al quitarlas.</li>
+<li>Predicción para casos nuevos con su intervalo, e indicación de hasta dónde es válido extrapolar.</li>
+<li>Asociación no es causalidad: se dice qué permite y qué no permite concluir el modelo.</li>
 </ul>
 </section>
+<section id="decisión-y-validez" class="level3">
+<h3 class="anchored" data-anchor-id="decisión-y-validez">7. Decisión y validez</h3>
+<ul>
+<li>La recomendación como una de las alternativas, con el resultado cuantificado en las unidades de la decisión (estimaciones, intervalos y predicciones) frente a la diferencia mínima relevante.</li>
+<li>La distinción entre significancia estadística y relevancia práctica.</li>
+<li>Las amenazas a la validez: sesgo de selección y de medición, variables omitidas, estudio observacional frente a experimental, causalidad y generalización.</li>
+<li>Qué evidencia cambiaría la decisión y qué estudio adicional haría falta.</li>
+</ul>
+</section>
+</section>
+<section id="reproducibilidad" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibilidad">Reproducibilidad</h2>
+<p>El código se ejecuta de principio a fin con semilla fija, y los datos están referenciados. Se indican las versiones de las librerías. Cada cifra del informe sale de una celda ejecutada, sin números copiados a mano.</p>
 </section>
 <section id="qué-se-entrega" class="level2">
 <h2 class="anchored" data-anchor-id="qué-se-entrega">Qué se entrega</h2>
 <ol type="1">
-<li><strong>El informe</strong>, con los seis apartados anteriores.</li>
-<li><strong>El código reproducible</strong>, con semilla fija y la ruta de los datos, de modo que otra persona lo ejecute de arriba abajo y obtenga lo mismo.</li>
-<li><strong>La sustentación</strong>, en la que cada integrante responde por todo el trabajo.</li>
+<li><strong>El informe</strong>, con los siete apartados anteriores.</li>
+<li><strong>El código reproducible.</strong></li>
+<li><strong>La sustentación</strong>, en la que cada integrante responde por todo el trabajo y justifica cada decisión metodológica.</li>
 </ol>
 
 
