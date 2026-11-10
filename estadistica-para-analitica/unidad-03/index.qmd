@@ -23,6 +23,12 @@ Una presentación por sesión. Cada una abre con un reto para resolver antes de 
 [Tema 13. Pruebas de hipótesis](presentacion-inferencia-pruebas-hipotesis.html){.btn .btn-outline-primary role="button"}
 [Tema 14. Dos poblaciones y ANOVA de una vía](presentacion-inferencia-dos-poblaciones-anova.html){.btn .btn-outline-primary role="button"}
 
+## Proyecto final
+
+El trabajo de la unidad es un proyecto: un estudio estadístico completo, con datos y problema propios, que termina en una decisión.
+
+[Proyecto final: estudio estadístico para una decisión](proyecto-final.qmd){.btn .btn-primary role="button"}
+
 ## Datos de las sesiones
 
 Descarguen los archivos y guárdenlos en la misma carpeta de su cuaderno antes de la clase. Los retos y las prácticas de las tres presentaciones trabajan con estos dos conjuntos.

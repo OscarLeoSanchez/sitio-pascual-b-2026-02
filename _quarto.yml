@@ -130,6 +130,8 @@ website:
               href: estadistica-para-analitica/unidad-03/presentacion-inferencia-pruebas-hipotesis.html
             - text: "14. Presentación: dos poblaciones y ANOVA"
               href: estadistica-para-analitica/unidad-03/presentacion-inferencia-dos-poblaciones-anova.html
+            - text: "Proyecto final: estudio estadístico para una decisión"
+              href: estadistica-para-analitica/unidad-03/proyecto-final.qmd
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"

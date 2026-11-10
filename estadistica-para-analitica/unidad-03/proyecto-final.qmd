@@ -1,0 +1,66 @@
+---
+title: "Unidad 3. Proyecto final: estudio estadístico para una decisión"
+author: "Oscar Leonel Sánchez Conde"
+date: last-modified
+date-format: "D [de] MMMM [de] YYYY"
+number-sections: false
+---
+
+::: {.ficha}
+|            |                                                          |
+|------------|----------------------------------------------------------|
+| Módulo     | Estadística para Analítica                               |
+| Programa   | Especialización en Big Data                              |
+| Unidad     | Unidad 3. Inferencia estadística                         |
+| Actividad  | Proyecto individual o en parejas, con sustentación       |
+:::
+
+## De qué se trata
+
+Definir un problema real y resolverlo con un estudio estadístico completo, que termine en una decisión sustentada con rigor científico. Cada equipo elige su propio problema y sus propios datos.
+
+Los ejemplos de esta página usan un mismo caso ilustrativo, la accidentalidad vial de una ciudad, solo para mostrar cómo se enlazan las partes. No es un tema sugerido ni un conjunto de datos verificado.
+
+## Equipos y datos
+
+- **Equipos:** individual o en parejas.
+- **Datos:** un conjunto de Kaggle, de datos abiertos del gobierno o de otra fuente, con al menos 10 000 registros. Si tiene menos, se justifica.
+- **Fuente:** se indica de dónde salieron los datos y cuál es la fuente, para que otra persona pueda replicar el estudio cuando son abiertos.
+
+## Qué debe incluir el informe
+
+### 1. Problema y decisión
+
+- **Preguntas:** ¿qué se quiere resolver?, ¿quién decide?, ¿qué cambiaría según el resultado?
+- **Ejemplo:** la secretaría de movilidad debe decidir en qué franjas horarias reforzar los controles. Si los accidentes graves se concentran de noche, se traslada personal al turno nocturno.
+
+### 2. Datos
+
+- **Preguntas:** ¿de dónde salen?, ¿qué significa cada variable?, ¿qué se hizo con los faltantes y los atípicos, y por qué?
+- **Ejemplo:** incidentes viales del portal de datos abiertos de la ciudad (nombre del conjunto, año y enlace), una fila por accidente. Se eliminaron los registros sin hora porque la hora es la variable central del análisis.
+
+### 3. Análisis descriptivo
+
+- **Preguntas:** ¿cómo se distribuyen las variables?, ¿qué diferencias aparecen entre grupos?
+- **Ejemplo:** proporción de accidentes graves por franja horaria en un gráfico de barras, y heridos por accidente según el día de la semana en un boxplot.
+
+### 4. Modelos de probabilidad
+
+- **Preguntas:** ¿qué modelo describe esta variable?, ¿se ajusta a los datos?, ¿qué pasa si no se ajusta?
+- **Ejemplo:** accidentes por día como variable de conteo. Se ajusta una Poisson y se revisa si la varianza se parece a la media. Si es mucho mayor, el modelo se queda corto y se dice.
+
+### 5. Inferencia
+
+- **Preguntas:** ¿qué se quiere estimar o contrastar?, ¿qué diferencia es real y cuál puede ser azar?, ¿qué tan grande es?
+- **Ejemplo:** hipótesis escrita antes de mirar los datos: "la proporción de accidentes graves es mayor de noche que de día". Intervalo para cada proporción, contraste de la diferencia y, si hay cuatro franjas, ANOVA de los heridos con Tukey. Se reporta el tamaño de la diferencia, no solo el valor p.
+
+### 6. Decisión
+
+- **Preguntas:** ¿qué se recomienda?, ¿con cuánta certeza?, ¿qué limita el estudio?
+- **Ejemplo:** reforzar los controles nocturnos en las zonas con más proporción de graves. El estudio es observacional, no prueba que la hora cause la gravedad, y solo cubre un año.
+
+## Qué se entrega
+
+1. **El informe**, con los seis apartados anteriores.
+2. **El código reproducible**, con semilla fija y la ruta de los datos, de modo que otra persona lo ejecute de arriba abajo y obtenga lo mismo.
+3. **La sustentación**, en la que cada integrante responde por todo el trabajo.
