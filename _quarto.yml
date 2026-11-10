@@ -15,6 +15,9 @@ project:
     - estadistica-para-analitica/unidad-02/presentacion-modelos-probabilidad.html
     - estadistica-para-analitica/unidad-02/presentacion-validacion-modelos.html
     - estadistica-para-analitica/unidad-02/recursos/actividad/**/*.csv
+    - estadistica-para-analitica/unidad-03/presentacion-inferencia-muestreo-intervalos.html
+    - estadistica-para-analitica/unidad-03/presentacion-inferencia-pruebas-hipotesis.html
+    - estadistica-para-analitica/unidad-03/presentacion-inferencia-dos-poblaciones-anova.html
 
 lang: es
 
@@ -115,6 +118,14 @@ website:
               href: estadistica-para-analitica/unidad-02/presentacion-validacion-modelos.html
             - text: "Actividad evaluativa: elegir el modelo y sustentar"
               href: estadistica-para-analitica/unidad-02/actividad-evaluativa.qmd
+        - section: "Unidad 3. Inferencia estadística"
+          contents:
+            - text: "11 y 12. Presentación: muestreo, TLC e intervalos de confianza"
+              href: estadistica-para-analitica/unidad-03/presentacion-inferencia-muestreo-intervalos.html
+            - text: "13. Presentación: pruebas de hipótesis"
+              href: estadistica-para-analitica/unidad-03/presentacion-inferencia-pruebas-hipotesis.html
+            - text: "14. Presentación: dos poblaciones y ANOVA"
+              href: estadistica-para-analitica/unidad-03/presentacion-inferencia-dos-poblaciones-anova.html
   page-footer:
     background: light
     left: "Oscar Leonel Sánchez Conde"
