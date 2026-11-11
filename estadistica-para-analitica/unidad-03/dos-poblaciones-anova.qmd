@@ -14,6 +14,8 @@ date-format: "D [de] MMMM [de] YYYY"
 | Saber      | Comparación de dos poblaciones y de varios tratamientos con ANOVA de una vía |
 :::
 
+Esta guía acompaña la presentación de la sesión: [abrir la presentación](presentacion-inferencia-dos-poblaciones-anova.html).
+
 ## La pregunta de la sesión
 
 Una empresa lanza dos versiones de un producto, asigna cada usuario al azar a una de ellas y mide el mismo resultado en los dos grupos. Las dos cifras casi nunca coinciden. La pregunta de la sesión es si esa diferencia señala una diferencia real entre las versiones o cabe dentro de lo que produce el azar del muestreo, y qué cambia cuando en lugar de dos versiones hay cuatro o veinte.

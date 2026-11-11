@@ -14,6 +14,8 @@ date-format: "D [de] MMMM [de] YYYY"
 | Saber      | Muestreo, distribución muestral, teorema del límite central e intervalos de confianza |
 :::
 
+Esta guía acompaña la presentación de la sesión: [abrir la presentación](presentacion-inferencia-muestreo-intervalos.html).
+
 ## La pregunta de la sesión
 
 Una encuesta de opinión entrevista a 1&nbsp;000 personas, reporta que el 52 % apoya al candidato A y declara un margen de error de 3 puntos. El país tiene millones de votantes. La pregunta de la sesión es esta: ¿cuánto se equivoca una muestra al estimar un parámetro de la población?

@@ -14,6 +14,8 @@ date-format: "D [de] MMMM [de] YYYY"
 | Saber      | Pruebas de hipótesis: valor p, inferencia sobre una proporción y una media |
 :::
 
+Esta guía acompaña la presentación de la sesión: [abrir la presentación](presentacion-inferencia-pruebas-hipotesis.html).
+
 La pregunta de la sesión es esta: ¿los datos contradicen una afirmación sobre un parámetro? Un equipo de producto tiene una cifra histórica, rediseña algo, mide una muestra y obtiene un número distinto. Esa diferencia puede venir del cambio o del azar del muestreo, y una prueba de hipótesis es el procedimiento que separa las dos explicaciones con una regla fijada antes de mirar el resultado.
 
 Al terminar esta guía sabrás hacer seis cosas:

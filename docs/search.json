@@ -787,7 +787,7 @@
     "href": "estadistica-para-analitica/unidad-03/pruebas-hipotesis.html",
     "title": "Pruebas de hipótesis: valor p, proporción y media",
     "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 3. Inferencia estadística\n\n\nSaber\nPruebas de hipótesis: valor p, inferencia sobre una proporción y una media\nLa pregunta de la sesión es esta: ¿los datos contradicen una afirmación sobre un parámetro? Un equipo de producto tiene una cifra histórica, rediseña algo, mide una muestra y obtiene un número distinto. Esa diferencia puede venir del cambio o del azar del muestreo, y una prueba de hipótesis es el procedimiento que separa las dos explicaciones con una regla fijada antes de mirar el resultado.\nAl terminar esta guía sabrás hacer seis cosas:\nLa guía parte de un reto que conviene intentar antes de leer la teoría. Después construye una a una las piezas que ese reto necesita, lo resuelve paso a paso, y termina con una práctica sobre datos reales y un resumen. Las secciones se agrupan en cinco bloques:",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 3. Inferencia estadística\n\n\nSaber\nPruebas de hipótesis: valor p, inferencia sobre una proporción y una media\nEsta guía acompaña la presentación de la sesión: abrir la presentación.\nLa pregunta de la sesión es esta: ¿los datos contradicen una afirmación sobre un parámetro? Un equipo de producto tiene una cifra histórica, rediseña algo, mide una muestra y obtiene un número distinto. Esa diferencia puede venir del cambio o del azar del muestreo, y una prueba de hipótesis es el procedimiento que separa las dos explicaciones con una regla fijada antes de mirar el resultado.\nAl terminar esta guía sabrás hacer seis cosas:\nLa guía parte de un reto que conviene intentar antes de leer la teoría. Después construye una a una las piezas que ese reto necesita, lo resuelve paso a paso, y termina con una práctica sobre datos reales y un resumen. Las secciones se agrupan en cinco bloques:",
     "crumbs": [
       "Unidad 3. Inferencia estadística",
       "13. Guía: pruebas de hipótesis"
@@ -1073,7 +1073,7 @@
     "href": "estadistica-para-analitica/unidad-03/muestreo-intervalos.html",
     "title": "Unidad 3. Muestreo, teorema del límite central e intervalos de confianza",
     "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 3. Inferencia estadística\n\n\nSaber\nMuestreo, distribución muestral, teorema del límite central e intervalos de confianza",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 3. Inferencia estadística\n\n\nSaber\nMuestreo, distribución muestral, teorema del límite central e intervalos de confianza\nEsta guía acompaña la presentación de la sesión: abrir la presentación.",
     "crumbs": [
       "Unidad 3. Inferencia estadística",
       "11 y 12. Guía: muestreo, TLC e intervalos de confianza"
@@ -1205,7 +1205,7 @@
     "href": "estadistica-para-analitica/unidad-03/dos-poblaciones-anova.html",
     "title": "Unidad 3. Dos poblaciones y ANOVA de una vía",
     "section": "",
-    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 3. Inferencia estadística\n\n\nSaber\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía",
+    "text": "Módulo\nEstadística para Analítica\n\n\nPrograma\nEspecialización en Big Data\n\n\nUnidad\nUnidad 3. Inferencia estadística\n\n\nSaber\nComparación de dos poblaciones y de varios tratamientos con ANOVA de una vía\nEsta guía acompaña la presentación de la sesión: abrir la presentación.",
     "crumbs": [
       "Unidad 3. Inferencia estadística",
       "14. Guía: dos poblaciones y ANOVA"
