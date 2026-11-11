@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 504 266.4" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <rect x="0" y="0" width="504" height="266.4" fill="#ffffff"/>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="anova-muestra-estratos-figure_1">
+  <g id="anova-muestra-estratos-patch_1">
+   <path d="M 0 266.4 
+L 504 266.4 
+L 504 0 
+L 0 0 
+L 0 266.4 
+z
+" style="fill: none"/>
+  </g>
+  <g id="anova-muestra-estratos-axes_1">
+   <g id="anova-muestra-estratos-patch_2">
+    <path d="M 64.01 229.16 
+L 486.72 229.16 
+L 486.72 19.706904 
+L 64.01 19.706904 
+L 64.01 229.16 
+z
+" style="fill: none"/>
+   </g>
+   <g id="anova-muestra-estratos-matplotlib.axis_1">
+    <g id="anova-muestra-estratos-xtick_1">
+     <g id="anova-muestra-estratos-line2d_1">
+      <path d="M 118.728389 229.16 
+L 118.728389 19.706904 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_2">
+      <defs>
+       <path id="anova-muestra-estratos-mea76ef63d1" d="M 0 0 
+L 0 3.5 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mea76ef63d1" x="118.728389" y="229.16" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_1">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="118.728389" y="246.524375" transform="rotate(-0 118.728389 246.524375)">Estrato 1</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-xtick_2">
+     <g id="anova-muestra-estratos-line2d_3">
+      <path d="M 223.152796 229.16 
+L 223.152796 19.706904 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_4">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mea76ef63d1" x="223.152796" y="229.16" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_2">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="223.152796" y="246.524375" transform="rotate(-0 223.152796 246.524375)">Estrato 2</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-xtick_3">
+     <g id="anova-muestra-estratos-line2d_5">
+      <path d="M 327.577204 229.16 
+L 327.577204 19.706904 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_6">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mea76ef63d1" x="327.577204" y="229.16" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_3">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="327.577204" y="246.524375" transform="rotate(-0 327.577204 246.524375)">Estrato 3</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-xtick_4">
+     <g id="anova-muestra-estratos-line2d_7">
+      <path d="M 432.001611 229.16 
+L 432.001611 19.706904 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_8">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mea76ef63d1" x="432.001611" y="229.16" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_4">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="432.001611" y="246.524375" transform="rotate(-0 432.001611 246.524375)">Estrato 4</text>
+     </g>
+    </g>
+   </g>
+   <g id="anova-muestra-estratos-matplotlib.axis_2">
+    <g id="anova-muestra-estratos-ytick_1">
+     <g id="anova-muestra-estratos-line2d_9">
+      <path d="M 64.01 222.489519 
+L 486.72 222.489519 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_10">
+      <defs>
+       <path id="anova-muestra-estratos-mff126412d3" d="M 0 0 
+L -3.5 0 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="222.489519" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_5">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="227.671707" transform="rotate(-0 57.01 227.671707)">150</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-ytick_2">
+     <g id="anova-muestra-estratos-line2d_11">
+      <path d="M 64.01 189.137116 
+L 486.72 189.137116 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_12">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="189.137116" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_6">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="194.319303" transform="rotate(-0 57.01 194.319303)">200</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-ytick_3">
+     <g id="anova-muestra-estratos-line2d_13">
+      <path d="M 64.01 155.784712 
+L 486.72 155.784712 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_14">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="155.784712" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_7">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="160.966899" transform="rotate(-0 57.01 160.966899)">250</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-ytick_4">
+     <g id="anova-muestra-estratos-line2d_15">
+      <path d="M 64.01 122.432308 
+L 486.72 122.432308 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_16">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="122.432308" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_8">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="127.614496" transform="rotate(-0 57.01 127.614496)">300</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-ytick_5">
+     <g id="anova-muestra-estratos-line2d_17">
+      <path d="M 64.01 89.079904 
+L 486.72 89.079904 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_18">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="89.079904" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_9">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="94.262092" transform="rotate(-0 57.01 94.262092)">350</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-ytick_6">
+     <g id="anova-muestra-estratos-line2d_19">
+      <path d="M 64.01 55.727501 
+L 486.72 55.727501 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_20">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="55.727501" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_10">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="60.909688" transform="rotate(-0 57.01 60.909688)">400</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-ytick_7">
+     <g id="anova-muestra-estratos-line2d_21">
+      <path d="M 64.01 22.375097 
+L 486.72 22.375097 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-muestra-estratos-line2d_22">
+      <g>
+       <use xlink:href="#anova-muestra-estratos-mff126412d3" x="64.01" y="22.375097" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-muestra-estratos-text_11">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="57.01" y="27.557284" transform="rotate(-0 57.01 27.557284)">450</text>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-text_12">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="27.075" y="124.433452" transform="rotate(-90 27.075 124.433452)">Puntaje global</text>
+    </g>
+   </g>
+   <g id="anova-muestra-estratos-line2d_23">
+    <path d="M 64.01 150.312138 
+L 486.72 150.312138 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke-dasharray: 6.66,2.88; stroke-dashoffset: 0; stroke: #16202b; stroke-width: 1.8"/>
+   </g>
+   <g id="anova-muestra-estratos-PathCollection_1">
+    <defs>
+     <path id="anova-muestra-estratos-mf510bacbc9" d="M 0 2 
+C 0.530406 2 1.03916 1.789267 1.414214 1.414214 
+C 1.789267 1.03916 2 0.530406 2 0 
+C 2 -0.530406 1.789267 -1.03916 1.414214 -1.414214 
+C 1.03916 -1.789267 0.530406 -2 0 -2 
+C -0.530406 -2 -1.03916 -1.789267 -1.414214 -1.414214 
+C -1.789267 -1.03916 -2 -0.530406 -2 0 
+C -2 0.530406 -1.789267 1.03916 -1.414214 1.414214 
+C -1.03916 1.789267 -0.530406 2 0 2 
+z
+"/>
+    </defs>
+    <g clip-path="url(#anova-muestra-estratos-pf14f5afc05)">
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="103.976491" y="121.098212" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="125.156943" y="180.465491" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="117.224479" y="142.44375" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="112.778311" y="147.113087" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="112.062314" y="163.122241" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="132.076755" y="194.4735" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="137.343428" y="167.791577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="103.903821" y="174.462058" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="125.748353" y="117.095923" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="109.461059" y="213.817894" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="140.18378" y="127.101645" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="138.019135" y="119.097068" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="124.97121" y="176.463202" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="130.340605" y="144.444894" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="119.424652" y="167.124529" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="133.702214" y="139.10851" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="116.356644" y="147.113087" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="111.322347" y="195.140548" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="108.523583" y="159.787" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="106.154286" y="175.129106" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="119.914589" y="148.447183" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="115.554024" y="188.470067" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="126.226007" y="182.466635" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="96.344998" y="159.119952" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="116.325462" y="147.113087" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="112.533887" y="183.133683" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="104.732902" y="185.134827" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="123.087167" y="127.101645" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="115.75624" y="113.760683" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="109.538651" y="180.465491" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="105.377008" y="160.454048" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="135.941143" y="184.467779" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="132.395813" y="184.467779" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="123.631351" y="192.472356" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="111.611266" y="179.131394" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="139.258302" y="117.762971" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="121.640373" y="163.789289" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="115.639056" y="181.132539" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="137.127743" y="185.801875" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="110.427734" y="191.805308" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="127.733714" y="144.444894" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="110.17404" y="114.427731" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="107.772529" y="168.458625" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="127.956373" y="110.425443" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="106.225913" y="207.814462" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="118.411831" y="148.447183" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="122.405436" y="117.762971" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="104.434651" y="181.799587" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="129.353144" y="157.118808" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="120.956028" y="179.131394" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="124.311068" y="205.146269" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="112.853838" y="151.115375" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="115.06153" y="117.095923" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="118.49083" y="175.796154" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="117.348651" y="152.449471" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="126.798439" y="161.788144" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="122.274444" y="135.77327" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="114.881298" y="213.817894" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="95.837832" y="170.459769" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="132.238158" y="155.784712" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+    </g>
+   </g>
+   <g id="anova-muestra-estratos-PathCollection_2">
+    <g clip-path="url(#anova-muestra-estratos-pf14f5afc05)">
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="224.043438" y="201.143981" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="215.183089" y="175.796154" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="223.15073" y="191.805308" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="204.472963" y="170.459769" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="241.747629" y="179.131394" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="245.654576" y="153.783568" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="202.878119" y="181.132539" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="216.638983" y="222.489519" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="233.723514" y="169.125673" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="214.617644" y="193.806452" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="226.233514" y="131.103933" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="219.319504" y="136.440318" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="235.751951" y="133.772125" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="244.217741" y="137.107366" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="240.9983" y="117.095923" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="228.709387" y="191.13826" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="207.543509" y="163.789289" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="243.693841" y="135.77327" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="201.26526" y="170.459769" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="213.858206" y="174.462058" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="213.118649" y="165.790433" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="231.04764" y="133.105077" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="222.572171" y="161.788144" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="204.447353" y="138.441462" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="200.770205" y="173.79501" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="227.945765" y="112.426587" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="222.761483" y="163.122241" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="227.810974" y="209.148558" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="226.094484" y="102.420866" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="241.093119" y="142.44375" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="242.376768" y="97.084481" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="208.82923" y="167.791577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="243.466809" y="137.107366" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="236.372897" y="179.131394" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="229.540599" y="153.783568" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="230.48623" y="119.764116" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="225.269114" y="180.465491" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="242.324684" y="127.101645" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="210.897111" y="213.150846" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="227.716042" y="213.150846" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="237.59124" y="157.785856" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="206.371276" y="212.483798" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="228.460025" y="204.479221" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="218.688311" y="135.106221" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="235.376299" y="172.460914" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="203.290681" y="132.438029" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="228.060569" y="93.749241" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="239.559398" y="158.452904" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="229.049962" y="154.450616" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="214.943846" y="209.148558" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="230.311117" y="147.780135" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="215.716447" y="134.439173" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="230.899085" y="147.113087" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="206.076434" y="129.769837" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="213.044135" y="147.113087" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="201.68273" y="132.438029" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="204.03479" y="100.419722" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="225.669282" y="143.110798" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="210.825205" y="202.478077" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="223.891739" y="167.791577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+    </g>
+   </g>
+   <g id="anova-muestra-estratos-PathCollection_3">
+    <g clip-path="url(#anova-muestra-estratos-pf14f5afc05)">
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="334.908903" y="151.782423" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="345.091466" y="156.45176" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="320.91773" y="129.102789" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="319.246093" y="207.814462" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="319.015798" y="103.754962" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="310.018641" y="185.801875" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="335.074947" y="126.434596" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="342.264289" y="163.789289" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="326.336865" y="181.132539" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="330.255779" y="167.791577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="348.64287" y="200.476933" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="336.716707" y="120.431164" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="338.835758" y="116.428875" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="345.473383" y="127.768693" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="314.518707" y="98.418577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="334.476844" y="86.411712" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="337.565772" y="101.08677" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="343.301461" y="140.442606" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="320.399659" y="134.439173" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="336.251705" y="117.095923" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="332.374071" y="163.122241" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="323.412639" y="127.768693" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="309.275963" y="167.124529" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="320.825258" y="91.081048" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="348.872816" y="98.418577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="314.552383" y="123.099356" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="309.825129" y="173.79501" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="321.497505" y="175.796154" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="309.243572" y="95.083337" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="316.880754" y="157.118808" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="346.620111" y="154.450616" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="319.250831" y="101.08677" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="331.523547" y="111.092491" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="315.573378" y="149.114231" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="335.295333" y="121.098212" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="310.469229" y="144.444894" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="340.893" y="145.778991" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="324.036826" y="135.77327" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="313.04243" y="95.750385" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="339.442929" y="202.478077" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="330.071309" y="91.081048" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="324.735168" y="71.069606" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="315.659816" y="119.097068" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="340.505049" y="82.409424" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="321.387491" y="160.454048" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="306.583711" y="93.082193" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="348.959404" y="99.085625" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="306.003593" y="179.798442" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="310.138995" y="123.766404" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="326.006401" y="96.417433" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="314.154091" y="106.423154" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="320.002196" y="165.790433" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="330.681606" y="155.117664" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="348.613548" y="189.137116" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="347.624328" y="139.10851" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="307.999113" y="181.799587" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="343.810814" y="120.431164" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="312.314784" y="113.760683" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="341.886529" y="207.814462" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="318.220022" y="213.150846" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+    </g>
+   </g>
+   <g id="anova-muestra-estratos-PathCollection_4">
+    <g clip-path="url(#anova-muestra-estratos-pf14f5afc05)">
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="442.010389" y="108.424298" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="442.054445" y="131.103933" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="448.108298" y="121.76526" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="454.038854" y="101.08677" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="421.685688" y="87.745808" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="437.896966" y="127.768693" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="442.994864" y="177.13025" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="412.68695" y="118.43002" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="439.489153" y="161.788144" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="423.800831" y="102.420866" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="416.447217" y="119.097068" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="434.274667" y="203.812173" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="430.250286" y="103.754962" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="435.543178" y="131.103933" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="438.522261" y="59.729789" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="431.940449" y="167.791577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="450.616965" y="169.125673" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="417.202818" y="195.807596" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="422.297276" y="159.119952" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="425.395464" y="123.766404" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="444.60857" y="102.420866" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="438.990023" y="205.813317" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="418.51269" y="204.479221" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="443.232918" y="79.741231" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="444.477852" y="99.085625" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="444.418325" y="114.427731" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="412.629221" y="187.803019" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="418.775343" y="109.091347" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="450.168263" y="195.807596" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="449.435277" y="103.087914" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="418.473634" y="122.432308" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="434.362155" y="181.132539" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="421.09768" y="151.115375" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="428.155169" y="98.418577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="409.990588" y="167.791577" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="421.974205" y="89.079904" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="421.465146" y="175.796154" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="451.25929" y="186.468923" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="436.043555" y="149.781279" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="417.184545" y="157.785856" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="428.673438" y="153.783568" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="431.67705" y="147.780135" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="438.31286" y="166.457481" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="433.492484" y="114.427731" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="428.371483" y="166.457481" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="423.308167" y="195.140548" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="435.447594" y="161.788144" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="453.86454" y="84.410568" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="434.436189" y="137.107366" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="449.783557" y="206.480365" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="409.72996" y="99.085625" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="418.359904" y="199.809885" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="448.76151" y="177.797298" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="435.193664" y="95.083337" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="431.429945" y="145.111943" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="425.973596" y="164.456337" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="422.594738" y="202.478077" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="440.218257" y="95.750385" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="425.832574" y="131.770981" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="429.025857" y="216.486087" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+    </g>
+   </g>
+   <g id="anova-muestra-estratos-line2d_24"/>
+   <g id="anova-muestra-estratos-patch_3">
+    <path d="M 64.01 229.16 
+L 64.01 19.706904 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-muestra-estratos-patch_4">
+    <path d="M 64.01 229.16 
+L 486.72 229.16 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-muestra-estratos-line2d_25">
+    <path d="M 83.224091 161.6325 
+L 154.232688 161.6325 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #c4682c; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="anova-muestra-estratos-line2d_26">
+    <path d="M 187.648498 158.397317 
+L 258.657095 158.397317 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #c4682c; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="anova-muestra-estratos-line2d_27">
+    <path d="M 292.072905 137.652122 
+L 363.081502 137.652122 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #c4682c; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="anova-muestra-estratos-line2d_28">
+    <path d="M 396.497312 143.566615 
+L 467.505909 143.566615 
+" clip-path="url(#anova-muestra-estratos-pf14f5afc05)" style="fill: none; stroke: #c4682c; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="anova-muestra-estratos-legend_1">
+    <g id="anova-muestra-estratos-PathCollection_5">
+     <g>
+      <use xlink:href="#anova-muestra-estratos-mf510bacbc9" x="84.81" y="29.240343" style="fill: #2f7bb8; fill-opacity: 0.55"/>
+     </g>
+    </g>
+    <g id="anova-muestra-estratos-text_13">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="104.31" y="32.652843" transform="rotate(-0 104.31 32.652843)">estudiante</text>
+    </g>
+    <g id="anova-muestra-estratos-line2d_29">
+     <path d="M 190.270469 28.102843 
+L 199.370469 28.102843 
+L 208.470469 28.102843 
+" style="fill: none; stroke: #c4682c; stroke-width: 4; stroke-linecap: square"/>
+    </g>
+    <g id="anova-muestra-estratos-text_14">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="218.870469" y="32.652843" transform="rotate(-0 218.870469 32.652843)">media del estrato</text>
+    </g>
+    <g id="anova-muestra-estratos-line2d_30">
+     <path d="M 344.789688 28.102843 
+L 353.889688 28.102843 
+L 362.989688 28.102843 
+" style="fill: none; stroke-dasharray: 6.66,2.88; stroke-dashoffset: 0; stroke: #16202b; stroke-width: 1.8"/>
+    </g>
+    <g id="anova-muestra-estratos-text_15">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="373.389688" y="32.652843" transform="rotate(-0 373.389688 32.652843)">media global</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="anova-muestra-estratos-pf14f5afc05">
+   <rect x="64.01" y="19.706904" width="422.71" height="209.453096"/>
+  </clipPath>
+ </defs>
+</svg>

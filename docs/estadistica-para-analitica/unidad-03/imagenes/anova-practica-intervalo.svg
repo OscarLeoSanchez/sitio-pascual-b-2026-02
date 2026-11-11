@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 324" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <rect x="0" y="0" width="460.8" height="324" fill="#ffffff"/>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="s3_d_intervalo_b_figure_1">
+  <g id="s3_d_intervalo_b_patch_1">
+   <path d="M 0 324 
+L 460.8 324 
+L 460.8 0 
+L 0 0 
+L 0 324 
+z
+" style="fill: none"/>
+  </g>
+  <g id="s3_d_intervalo_b_axes_1">
+   <g id="s3_d_intervalo_b_patch_2">
+    <path d="M 55.28 137.136 
+L 440.055 137.136 
+L 440.055 17.28 
+L 55.28 17.28 
+L 55.28 137.136 
+z
+" style="fill: none"/>
+   </g>
+   <g id="s3_d_intervalo_b_matplotlib.axis_1">
+    <g id="s3_d_intervalo_b_xtick_1">
+     <g id="s3_d_intervalo_b_line2d_1">
+      <path d="M 72.769773 137.136 
+L 72.769773 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_2">
+      <defs>
+       <path id="s3_d_intervalo_b_m3abdd58bc2" d="M 0 0 
+L 0 3.5 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="72.769773" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_1">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="72.769773" y="153.760063" transform="rotate(-0 72.769773 153.760063)">0</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_2">
+     <g id="s3_d_intervalo_b_line2d_3">
+      <path d="M 142.728864 137.136 
+L 142.728864 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_4">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="142.728864" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_2">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="142.728864" y="153.760063" transform="rotate(-0 142.728864 153.760063)">20</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_3">
+     <g id="s3_d_intervalo_b_line2d_5">
+      <path d="M 212.687955 137.136 
+L 212.687955 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_6">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="212.687955" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_3">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="212.687955" y="153.760063" transform="rotate(-0 212.687955 153.760063)">40</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_4">
+     <g id="s3_d_intervalo_b_line2d_7">
+      <path d="M 282.647045 137.136 
+L 282.647045 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_8">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="282.647045" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_4">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="282.647045" y="153.760063" transform="rotate(-0 282.647045 153.760063)">60</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_5">
+     <g id="s3_d_intervalo_b_line2d_9">
+      <path d="M 352.606136 137.136 
+L 352.606136 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_10">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="352.606136" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_5">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="352.606136" y="153.760063" transform="rotate(-0 352.606136 153.760063)">80</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_6">
+     <g id="s3_d_intervalo_b_line2d_11">
+      <path d="M 422.565227 137.136 
+L 422.565227 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_12">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="422.565227" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_6">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="422.565227" y="153.760063" transform="rotate(-0 422.565227 153.760063)">100</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_text_7">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="247.6675" y="171.317875" transform="rotate(-0 247.6675 171.317875)">Puntaje de matemáticas (muestras de 200)</text>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_matplotlib.axis_2">
+    <g id="s3_d_intervalo_b_ytick_1">
+     <g id="s3_d_intervalo_b_line2d_13">
+      <path d="M 55.28 137.136 
+L 440.055 137.136 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_14">
+      <defs>
+       <path id="s3_d_intervalo_b_me38a61a82a" d="M 0 0 
+L -3.5 0 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_me38a61a82a" x="55.28" y="137.136" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_8">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="48.28" y="141.948031" transform="rotate(-0 48.28 141.948031)">0</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_ytick_2">
+     <g id="s3_d_intervalo_b_line2d_15">
+      <path d="M 55.28 90.544746 
+L 440.055 90.544746 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_16">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_me38a61a82a" x="55.28" y="90.544746" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_9">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="48.28" y="95.356778" transform="rotate(-0 48.28 95.356778)">20</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_ytick_3">
+     <g id="s3_d_intervalo_b_line2d_17">
+      <path d="M 55.28 43.953493 
+L 440.055 43.953493 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_18">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_me38a61a82a" x="55.28" y="43.953493" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_10">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="48.28" y="48.765524" transform="rotate(-0 48.28 48.765524)">40</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_text_11">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="27.044375" y="77.208" transform="rotate(-90 27.044375 77.208)">Estudiantes</text>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_patch_3">
+    <path d="M 72.769773 137.136 
+L 90.259545 137.136 
+L 90.259545 137.136 
+L 72.769773 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_4">
+    <path d="M 90.259545 137.136 
+L 107.749318 137.136 
+L 107.749318 137.136 
+L 90.259545 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_5">
+    <path d="M 107.749318 137.136 
+L 125.239091 137.136 
+L 125.239091 137.136 
+L 107.749318 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_6">
+    <path d="M 125.239091 137.136 
+L 142.728864 137.136 
+L 142.728864 137.136 
+L 125.239091 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_7">
+    <path d="M 142.728864 137.136 
+L 160.218636 137.136 
+L 160.218636 125.488187 
+L 142.728864 125.488187 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_8">
+    <path d="M 160.218636 137.136 
+L 177.708409 137.136 
+L 177.708409 130.147312 
+L 160.218636 130.147312 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_9">
+    <path d="M 177.708409 137.136 
+L 195.198182 137.136 
+L 195.198182 120.829061 
+L 177.708409 120.829061 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_10">
+    <path d="M 195.198182 137.136 
+L 212.687955 137.136 
+L 212.687955 85.885621 
+L 195.198182 85.885621 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_11">
+    <path d="M 212.687955 137.136 
+L 230.177727 137.136 
+L 230.177727 88.215184 
+L 212.687955 88.215184 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_12">
+    <path d="M 230.177727 137.136 
+L 247.6675 137.136 
+L 247.6675 55.601306 
+L 230.177727 55.601306 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_13">
+    <path d="M 247.6675 137.136 
+L 265.157273 137.136 
+L 265.157273 62.589994 
+L 247.6675 62.589994 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_14">
+    <path d="M 265.157273 137.136 
+L 282.647045 137.136 
+L 282.647045 78.896933 
+L 265.157273 78.896933 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_15">
+    <path d="M 282.647045 137.136 
+L 300.136818 137.136 
+L 300.136818 88.215184 
+L 282.647045 88.215184 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_16">
+    <path d="M 300.136818 137.136 
+L 317.626591 137.136 
+L 317.626591 95.203872 
+L 300.136818 95.203872 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_17">
+    <path d="M 317.626591 137.136 
+L 335.116364 137.136 
+L 335.116364 118.499499 
+L 317.626591 118.499499 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_18">
+    <path d="M 335.116364 137.136 
+L 352.606136 137.136 
+L 352.606136 130.147312 
+L 335.116364 130.147312 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_19">
+    <path d="M 352.606136 137.136 
+L 370.095909 137.136 
+L 370.095909 137.136 
+L 352.606136 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_20">
+    <path d="M 370.095909 137.136 
+L 387.585682 137.136 
+L 387.585682 137.136 
+L 370.095909 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_21">
+    <path d="M 387.585682 137.136 
+L 405.075455 137.136 
+L 405.075455 137.136 
+L 387.585682 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_22">
+    <path d="M 405.075455 137.136 
+L 422.565227 137.136 
+L 422.565227 137.136 
+L 405.075455 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #2f7bb8; opacity: 0.75"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_23">
+    <path d="M 72.769773 137.136 
+L 90.259545 137.136 
+L 90.259545 137.136 
+L 72.769773 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_24">
+    <path d="M 90.259545 137.136 
+L 107.749318 137.136 
+L 107.749318 137.136 
+L 90.259545 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_25">
+    <path d="M 107.749318 137.136 
+L 125.239091 137.136 
+L 125.239091 137.136 
+L 107.749318 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_26">
+    <path d="M 125.239091 137.136 
+L 142.728864 137.136 
+L 142.728864 137.136 
+L 125.239091 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_27">
+    <path d="M 142.728864 137.136 
+L 160.218636 137.136 
+L 160.218636 134.806437 
+L 142.728864 134.806437 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_28">
+    <path d="M 160.218636 137.136 
+L 177.708409 137.136 
+L 177.708409 132.476875 
+L 160.218636 132.476875 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_29">
+    <path d="M 177.708409 137.136 
+L 195.198182 137.136 
+L 195.198182 106.851685 
+L 177.708409 106.851685 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_30">
+    <path d="M 195.198182 137.136 
+L 212.687955 137.136 
+L 212.687955 95.203872 
+L 195.198182 95.203872 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_31">
+    <path d="M 212.687955 137.136 
+L 230.177727 137.136 
+L 230.177727 97.533434 
+L 212.687955 97.533434 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_32">
+    <path d="M 230.177727 137.136 
+L 247.6675 137.136 
+L 247.6675 92.874309 
+L 230.177727 92.874309 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_33">
+    <path d="M 247.6675 137.136 
+L 265.157273 137.136 
+L 265.157273 69.578682 
+L 247.6675 69.578682 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_34">
+    <path d="M 265.157273 137.136 
+L 282.647045 137.136 
+L 282.647045 78.896933 
+L 265.157273 78.896933 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_35">
+    <path d="M 282.647045 137.136 
+L 300.136818 137.136 
+L 300.136818 64.919557 
+L 282.647045 64.919557 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_36">
+    <path d="M 300.136818 137.136 
+L 317.626591 137.136 
+L 317.626591 76.56737 
+L 300.136818 76.56737 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_37">
+    <path d="M 317.626591 137.136 
+L 335.116364 137.136 
+L 335.116364 106.851685 
+L 317.626591 106.851685 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_38">
+    <path d="M 335.116364 137.136 
+L 352.606136 137.136 
+L 352.606136 130.147312 
+L 335.116364 130.147312 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_39">
+    <path d="M 352.606136 137.136 
+L 370.095909 137.136 
+L 370.095909 134.806437 
+L 352.606136 134.806437 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_40">
+    <path d="M 370.095909 137.136 
+L 387.585682 137.136 
+L 387.585682 137.136 
+L 370.095909 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_41">
+    <path d="M 387.585682 137.136 
+L 405.075455 137.136 
+L 405.075455 137.136 
+L 387.585682 137.136 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_42">
+    <path d="M 405.075455 137.136 
+L 422.565227 137.136 
+L 422.565227 132.476875 
+L 405.075455 132.476875 
+z
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: #7a3f9d; opacity: 0.6"/>
+   </g>
+   <g id="s3_d_intervalo_b_line2d_19">
+    <path d="M 251.043026 137.136 
+L 251.043026 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #2f7bb8; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_line2d_20">
+    <path d="M 262.061583 137.136 
+L 262.061583 17.28 
+" clip-path="url(#s3_d_intervalo_b_p88743421fd)" style="fill: none; stroke: #7a3f9d; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_43">
+    <path d="M 55.28 137.136 
+L 55.28 17.28 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_44">
+    <path d="M 55.28 137.136 
+L 440.055 137.136 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_legend_1">
+    <g id="s3_d_intervalo_b_patch_45">
+     <path d="M 66.98 38.604063 
+L 92.98 38.604063 
+L 92.98 29.504063 
+L 66.98 29.504063 
+z
+" style="fill: #2f7bb8; opacity: 0.75"/>
+    </g>
+    <g id="s3_d_intervalo_b_text_12">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="103.38" y="38.604063" transform="rotate(-0 103.38 38.604063)">oficial, media 50,97</text>
+    </g>
+    <g id="s3_d_intervalo_b_patch_46">
+     <path d="M 66.98 57.718125 
+L 92.98 57.718125 
+L 92.98 48.618125 
+L 66.98 48.618125 
+z
+" style="fill: #7a3f9d; opacity: 0.6"/>
+    </g>
+    <g id="s3_d_intervalo_b_text_13">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="103.38" y="57.718125" transform="rotate(-0 103.38 57.718125)">no oficial, media 54,12</text>
+    </g>
+   </g>
+  </g>
+  <g id="s3_d_intervalo_b_axes_2">
+   <g id="s3_d_intervalo_b_patch_47">
+    <path d="M 55.28 270.52 
+L 440.055 270.52 
+L 440.055 190.616 
+L 55.28 190.616 
+L 55.28 270.52 
+z
+" style="fill: none"/>
+   </g>
+   <g id="s3_d_intervalo_b_matplotlib.axis_3">
+    <g id="s3_d_intervalo_b_xtick_7">
+     <g id="s3_d_intervalo_b_line2d_21">
+      <path d="M 55.28 270.52 
+L 55.28 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_22">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="55.28" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_14">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="55.28" y="287.144062" transform="rotate(-0 55.28 287.144062)">-1</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_8">
+     <g id="s3_d_intervalo_b_line2d_23">
+      <path d="M 98.032778 270.52 
+L 98.032778 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_24">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="98.032778" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_15">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="98.032778" y="287.144062" transform="rotate(-0 98.032778 287.144062)">0</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_9">
+     <g id="s3_d_intervalo_b_line2d_25">
+      <path d="M 140.785556 270.52 
+L 140.785556 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_26">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="140.785556" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_16">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="140.785556" y="287.144062" transform="rotate(-0 140.785556 287.144062)">1</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_10">
+     <g id="s3_d_intervalo_b_line2d_27">
+      <path d="M 183.538333 270.52 
+L 183.538333 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_28">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="183.538333" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_17">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="183.538333" y="287.144062" transform="rotate(-0 183.538333 287.144062)">2</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_11">
+     <g id="s3_d_intervalo_b_line2d_29">
+      <path d="M 226.291111 270.52 
+L 226.291111 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_30">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="226.291111" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_18">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="226.291111" y="287.144062" transform="rotate(-0 226.291111 287.144062)">3</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_12">
+     <g id="s3_d_intervalo_b_line2d_31">
+      <path d="M 269.043889 270.52 
+L 269.043889 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_32">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="269.043889" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_19">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="269.043889" y="287.144062" transform="rotate(-0 269.043889 287.144062)">4</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_13">
+     <g id="s3_d_intervalo_b_line2d_33">
+      <path d="M 311.796667 270.52 
+L 311.796667 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_34">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="311.796667" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_20">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="311.796667" y="287.144062" transform="rotate(-0 311.796667 287.144062)">5</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_14">
+     <g id="s3_d_intervalo_b_line2d_35">
+      <path d="M 354.549444 270.52 
+L 354.549444 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_36">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="354.549444" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_21">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="354.549444" y="287.144062" transform="rotate(-0 354.549444 287.144062)">6</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_15">
+     <g id="s3_d_intervalo_b_line2d_37">
+      <path d="M 397.302222 270.52 
+L 397.302222 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_38">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="397.302222" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_22">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="397.302222" y="287.144062" transform="rotate(-0 397.302222 287.144062)">7</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_xtick_16">
+     <g id="s3_d_intervalo_b_line2d_39">
+      <path d="M 440.055 270.52 
+L 440.055 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="s3_d_intervalo_b_line2d_40">
+      <g>
+       <use xlink:href="#s3_d_intervalo_b_m3abdd58bc2" x="440.055" y="270.52" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="s3_d_intervalo_b_text_23">
+      <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="440.055" y="287.144062" transform="rotate(-0 440.055 287.144062)">8</text>
+     </g>
+    </g>
+    <g id="s3_d_intervalo_b_text_24">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="247.6675" y="304.647187" transform="rotate(-0 247.6675 304.647187)">Diferencia de medias, no oficial menos oficial (puntos)</text>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_matplotlib.axis_4"/>
+   <g id="s3_d_intervalo_b_line2d_41">
+    <path d="M 98.032778 270.52 
+L 98.032778 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke-dasharray: 7.4,3.2; stroke-dashoffset: 0; stroke: #5b6876; stroke-width: 2"/>
+   </g>
+   <g id="s3_d_intervalo_b_LineCollection_1">
+    <path d="M 127.914552 230.568 
+L 337.493504 230.568 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #2f7bb8; stroke-width: 3"/>
+   </g>
+   <g id="s3_d_intervalo_b_line2d_42">
+    <defs>
+     <path id="s3_d_intervalo_b_m61528db2a8" d="M 0 7 
+L 0 -7 
+" style="stroke: #2f7bb8"/>
+    </defs>
+    <g clip-path="url(#s3_d_intervalo_b_pcbee74ec62)">
+     <use xlink:href="#s3_d_intervalo_b_m61528db2a8" x="127.914552" y="230.568" style="fill: #2f7bb8; stroke: #2f7bb8"/>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_line2d_43">
+    <g clip-path="url(#s3_d_intervalo_b_pcbee74ec62)">
+     <use xlink:href="#s3_d_intervalo_b_m61528db2a8" x="337.493504" y="230.568" style="fill: #2f7bb8; stroke: #2f7bb8"/>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_line2d_44">
+    <path d="M 335.189035 270.52 
+L 335.189035 190.616 
+" clip-path="url(#s3_d_intervalo_b_pcbee74ec62)" style="fill: none; stroke: #c4682c; stroke-width: 3; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_line2d_45">
+    <defs>
+     <path id="s3_d_intervalo_b_mf4a3019a77" d="M 0 4.5 
+C 1.193414 4.5 2.338109 4.025852 3.181981 3.181981 
+C 4.025852 2.338109 4.5 1.193414 4.5 0 
+C 4.5 -1.193414 4.025852 -2.338109 3.181981 -3.181981 
+C 2.338109 -4.025852 1.193414 -4.5 0 -4.5 
+C -1.193414 -4.5 -2.338109 -4.025852 -3.181981 -3.181981 
+C -4.025852 -2.338109 -4.5 -1.193414 -4.5 0 
+C -4.5 1.193414 -4.025852 2.338109 -3.181981 3.181981 
+C -2.338109 4.025852 -1.193414 4.5 0 4.5 
+z
+" style="stroke: #2f7bb8"/>
+    </defs>
+    <g clip-path="url(#s3_d_intervalo_b_pcbee74ec62)">
+     <use xlink:href="#s3_d_intervalo_b_mf4a3019a77" x="232.704028" y="230.568" style="fill: #2f7bb8; stroke: #2f7bb8"/>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_patch_48">
+    <path d="M 55.28 270.52 
+L 55.28 190.616 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_patch_49">
+    <path d="M 55.28 270.52 
+L 440.055 270.52 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="s3_d_intervalo_b_text_25">
+    <!-- diferencia nula, $H_0$ -->
+    <g style="fill: #5b6876" transform="translate(104.445694 206.152889)">
+     <text>
+      <tspan x="0" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">d</tspan>
+      <tspan x="7.655273" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">i</tspan>
+      <tspan x="10.803711" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">f</tspan>
+      <tspan x="14.872559" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">e</tspan>
+      <tspan x="21.670898" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">r</tspan>
+      <tspan x="26.19043" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">e</tspan>
+      <tspan x="32.98877" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">n</tspan>
+      <tspan x="40.345703" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">c</tspan>
+      <tspan x="46.350586" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">i</tspan>
+      <tspan x="49.499023" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">a</tspan>
+      <tspan x="56.113281" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876"> </tspan>
+      <tspan x="59.674316" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">n</tspan>
+      <tspan x="67.03125" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">u</tspan>
+      <tspan x="74.388184" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">l</tspan>
+      <tspan x="77.536621" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">a</tspan>
+      <tspan x="84.150879" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876">,</tspan>
+      <tspan x="86.969238" y="-0.234375" style="font-size: 13px; font-family: 'Segoe UI'; fill: #5b6876"> </tspan>
+      <tspan x="90.530273" y="-0.234375" style="font-style: oblique; font-size: 13px; font-family: 'DejaVu Sans'; fill: #5b6876">H</tspan>
+      <tspan x="100.305664" y="1.898438" style="font-size: 9.1px; font-family: 'DejaVu Sans'; fill: #5b6876">0</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="s3_d_intervalo_b_text_26">
+    <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="232.704028" y="254.983111" transform="rotate(-0 232.704028 254.983111)">diferencia 3,15; intervalo (0,70; 5,60)</text>
+   </g>
+   <g id="s3_d_intervalo_b_text_27">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start; fill: #c4682c" x="339.464313" y="206.152889" transform="rotate(-0 339.464313 206.152889)">población: 5,55</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="s3_d_intervalo_b_p88743421fd">
+   <rect x="55.28" y="17.28" width="384.775" height="119.856"/>
+  </clipPath>
+  <clipPath id="s3_d_intervalo_b_pcbee74ec62">
+   <rect x="55.28" y="190.616" width="384.775" height="79.904"/>
+  </clipPath>
+ </defs>
+</svg>

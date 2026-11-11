@@ -1,0 +1,63 @@
+<svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif">
+  <style>
+    .caja { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+    .num { font-size: 15px; font-weight: 700; fill: #5b6876; }
+    .titulo { fill: #16202b; font-size: 16px; font-weight: 600; }
+    .sub { fill: #5b6876; font-size: 13px; }
+    .cinta-a { fill: #2f7bb8; }
+    .cinta-b { fill: #e0a526; }
+    .cinta-c { fill: #7b4fa0; }
+    .flecha { stroke: #5b6876; stroke-width: 2; fill: none; }
+    .punta { fill: #5b6876; }
+  </style>
+
+  <!-- Fila 1: etapas 1 a 3 -->
+  <rect x="30" y="40" width="240" height="110" rx="9" class="caja"/>
+  <rect x="30" y="40" width="8" height="110" class="cinta-a"/>
+  <text x="54" y="72" class="num">ETAPA 1</text>
+  <text x="54" y="98" class="titulo">Formular H0 y H1</text>
+  <text x="54" y="122" class="sub">afirmaciones sobre el parámetro</text>
+
+  <rect x="320" y="40" width="240" height="110" rx="9" class="caja"/>
+  <rect x="320" y="40" width="8" height="110" class="cinta-a"/>
+  <text x="344" y="72" class="num">ETAPA 2</text>
+  <text x="344" y="98" class="titulo">Fijar el nivel alfa</text>
+  <text x="344" y="122" class="sub">antes de ver los datos</text>
+
+  <rect x="610" y="40" width="240" height="110" rx="9" class="caja"/>
+  <rect x="610" y="40" width="8" height="110" class="cinta-b"/>
+  <text x="634" y="72" class="num">ETAPA 3</text>
+  <text x="634" y="98" class="titulo">Calcular el estadístico</text>
+  <text x="634" y="122" class="sub">con los datos de la muestra</text>
+
+  <!-- Fila 2: etapas 4 a 6 -->
+  <rect x="30" y="230" width="240" height="110" rx="9" class="caja"/>
+  <rect x="30" y="230" width="8" height="110" class="cinta-a"/>
+  <text x="54" y="262" class="num">ETAPA 4</text>
+  <text x="54" y="288" class="titulo">Distribución bajo H0</text>
+  <text x="54" y="312" class="sub">los valores que produce el azar</text>
+
+  <rect x="320" y="230" width="240" height="110" rx="9" class="caja"/>
+  <rect x="320" y="230" width="8" height="110" class="cinta-b"/>
+  <text x="344" y="262" class="num">ETAPA 5</text>
+  <text x="344" y="288" class="titulo">Calcular el valor p</text>
+  <text x="344" y="312" class="sub">qué tan extremo es lo observado</text>
+
+  <rect x="610" y="230" width="240" height="110" rx="9" class="caja"/>
+  <rect x="610" y="230" width="8" height="110" class="cinta-c"/>
+  <text x="634" y="262" class="num">ETAPA 6</text>
+  <text x="634" y="288" class="titulo">Decidir y concluir</text>
+  <text x="634" y="312" class="sub">en el lenguaje del caso</text>
+
+  <!-- Conectores -->
+  <path d="M270 95 H312" class="flecha"/>
+  <path d="M312 89 L322 95 L312 101 Z" class="punta"/>
+  <path d="M560 95 H602" class="flecha"/>
+  <path d="M602 89 L612 95 L602 101 Z" class="punta"/>
+  <path d="M730 150 V190 H150 V222" class="flecha"/>
+  <path d="M144 222 L150 232 L156 222 Z" class="punta"/>
+  <path d="M270 285 H312" class="flecha"/>
+  <path d="M312 279 L322 285 L312 291 Z" class="punta"/>
+  <path d="M560 285 H602" class="flecha"/>
+  <path d="M602 279 L612 285 L602 291 Z" class="punta"/>
+</svg>

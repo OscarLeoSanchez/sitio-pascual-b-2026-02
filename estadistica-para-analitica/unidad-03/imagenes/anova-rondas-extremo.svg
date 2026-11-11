@@ -1,0 +1,1045 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 309.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <rect x="0" y="0" width="460.8" height="309.6" fill="#ffffff"/>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="anova-rondas-extremo-figure_1">
+  <g id="anova-rondas-extremo-patch_1">
+   <path d="M 0 309.6 
+L 460.8 309.6 
+L 460.8 0 
+L 0 0 
+L 0 309.6 
+z
+" style="fill: none"/>
+  </g>
+  <g id="anova-rondas-extremo-axes_1">
+   <g id="anova-rondas-extremo-patch_2">
+    <path d="M 67.920163 249.496 
+L 443.52 249.496 
+L 443.52 17.28 
+L 67.920163 17.28 
+L 67.920163 249.496 
+z
+" style="fill: none"/>
+   </g>
+   <g id="anova-rondas-extremo-matplotlib.axis_1">
+    <g id="anova-rondas-extremo-xtick_1">
+     <g id="anova-rondas-extremo-line2d_1">
+      <path d="M 104.383087 249.496 
+L 104.383087 17.28 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_2">
+      <defs>
+       <path id="anova-rondas-extremo-m98fcf0ade3" d="M 0 0 
+L 0 3.5 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m98fcf0ade3" x="104.383087" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_1">
+      <!-- $\mathdefault{10^{0}}$ -->
+      <g style="fill: #5b6876" transform="translate(92.463087 268.341)">
+       <text>
+        <tspan x="0" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.026563" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_2">
+     <g id="anova-rondas-extremo-line2d_3">
+      <path d="M 168.795954 249.496 
+L 168.795954 17.28 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_4">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m98fcf0ade3" x="168.795954" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_2">
+      <!-- $\mathdefault{10^{1}}$ -->
+      <g style="fill: #5b6876" transform="translate(156.875954 268.341)">
+       <text>
+        <tspan x="0" y="-0.382812" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.382812" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-5.982812" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_3">
+     <g id="anova-rondas-extremo-line2d_5">
+      <path d="M 233.20882 249.496 
+L 233.20882 17.28 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_6">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m98fcf0ade3" x="233.20882" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_3">
+      <!-- $\mathdefault{10^{2}}$ -->
+      <g style="fill: #5b6876" transform="translate(221.28882 268.341)">
+       <text>
+        <tspan x="0" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.026563" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">2</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_4">
+     <g id="anova-rondas-extremo-line2d_7">
+      <path d="M 297.621687 249.496 
+L 297.621687 17.28 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_8">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m98fcf0ade3" x="297.621687" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_4">
+      <!-- $\mathdefault{10^{3}}$ -->
+      <g style="fill: #5b6876" transform="translate(285.701687 268.341)">
+       <text>
+        <tspan x="0" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.026563" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">3</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_5">
+     <g id="anova-rondas-extremo-line2d_9">
+      <path d="M 362.034553 249.496 
+L 362.034553 17.28 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_10">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m98fcf0ade3" x="362.034553" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_5">
+      <!-- $\mathdefault{10^{4}}$ -->
+      <g style="fill: #5b6876" transform="translate(350.114553 268.341)">
+       <text>
+        <tspan x="0" y="-0.557813" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.557813" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.157813" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">4</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_6">
+     <g id="anova-rondas-extremo-line2d_11">
+      <path d="M 426.44742 249.496 
+L 426.44742 17.28 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_12">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m98fcf0ade3" x="426.44742" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_6">
+      <!-- $\mathdefault{10^{5}}$ -->
+      <g style="fill: #5b6876" transform="translate(414.52742 268.341)">
+       <text>
+        <tspan x="0" y="-0.557813" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.557813" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.157813" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">5</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_7">
+     <g id="anova-rondas-extremo-line2d_13">
+      <defs>
+       <path id="anova-rondas-extremo-mdd2e68eb3c" d="M 0 0 
+L 0 2 
+" style="stroke: #5b6876; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="70.702968" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_8">
+     <g id="anova-rondas-extremo-line2d_14">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="78.750631" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_9">
+     <g id="anova-rondas-extremo-line2d_15">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="84.992882" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_10">
+     <g id="anova-rondas-extremo-line2d_16">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="90.093173" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_11">
+     <g id="anova-rondas-extremo-line2d_17">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="94.405408" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_12">
+     <g id="anova-rondas-extremo-line2d_18">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="98.140836" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_13">
+     <g id="anova-rondas-extremo-line2d_19">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="101.435716" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_14">
+     <g id="anova-rondas-extremo-line2d_20">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="123.773292" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_15">
+     <g id="anova-rondas-extremo-line2d_21">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="135.115835" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_16">
+     <g id="anova-rondas-extremo-line2d_22">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="143.163497" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_17">
+     <g id="anova-rondas-extremo-line2d_23">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="149.405749" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_18">
+     <g id="anova-rondas-extremo-line2d_24">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="154.50604" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_19">
+     <g id="anova-rondas-extremo-line2d_25">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="158.818275" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_20">
+     <g id="anova-rondas-extremo-line2d_26">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="162.553702" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_21">
+     <g id="anova-rondas-extremo-line2d_27">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="165.848583" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_22">
+     <g id="anova-rondas-extremo-line2d_28">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="188.186159" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_23">
+     <g id="anova-rondas-extremo-line2d_29">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="199.528702" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_24">
+     <g id="anova-rondas-extremo-line2d_30">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="207.576364" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_25">
+     <g id="anova-rondas-extremo-line2d_31">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="213.818615" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_26">
+     <g id="anova-rondas-extremo-line2d_32">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="218.918906" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_27">
+     <g id="anova-rondas-extremo-line2d_33">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="223.231141" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_28">
+     <g id="anova-rondas-extremo-line2d_34">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="226.966569" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_29">
+     <g id="anova-rondas-extremo-line2d_35">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="230.261449" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_30">
+     <g id="anova-rondas-extremo-line2d_36">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="252.599025" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_31">
+     <g id="anova-rondas-extremo-line2d_37">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="263.941568" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_32">
+     <g id="anova-rondas-extremo-line2d_38">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="271.98923" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_33">
+     <g id="anova-rondas-extremo-line2d_39">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="278.231482" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_34">
+     <g id="anova-rondas-extremo-line2d_40">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="283.331773" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_35">
+     <g id="anova-rondas-extremo-line2d_41">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="287.644008" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_36">
+     <g id="anova-rondas-extremo-line2d_42">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="291.379435" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_37">
+     <g id="anova-rondas-extremo-line2d_43">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="294.674316" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_38">
+     <g id="anova-rondas-extremo-line2d_44">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="317.011892" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_39">
+     <g id="anova-rondas-extremo-line2d_45">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="328.354435" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_40">
+     <g id="anova-rondas-extremo-line2d_46">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="336.402097" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_41">
+     <g id="anova-rondas-extremo-line2d_47">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="342.644349" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_42">
+     <g id="anova-rondas-extremo-line2d_48">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="347.74464" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_43">
+     <g id="anova-rondas-extremo-line2d_49">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="352.056874" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_44">
+     <g id="anova-rondas-extremo-line2d_50">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="355.792302" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_45">
+     <g id="anova-rondas-extremo-line2d_51">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="359.087182" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_46">
+     <g id="anova-rondas-extremo-line2d_52">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="381.424758" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_47">
+     <g id="anova-rondas-extremo-line2d_53">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="392.767301" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_48">
+     <g id="anova-rondas-extremo-line2d_54">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="400.814963" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_49">
+     <g id="anova-rondas-extremo-line2d_55">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="407.057215" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_50">
+     <g id="anova-rondas-extremo-line2d_56">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="412.157506" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_51">
+     <g id="anova-rondas-extremo-line2d_57">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="416.469741" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_52">
+     <g id="anova-rondas-extremo-line2d_58">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="420.205168" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-xtick_53">
+     <g id="anova-rondas-extremo-line2d_59">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-mdd2e68eb3c" x="423.500049" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-text_7">
+     <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="255.720081" y="288.0985" transform="rotate(-0 255.720081 288.0985)">Rondas jugadas, 1 o más (escala log)</text>
+    </g>
+   </g>
+   <g id="anova-rondas-extremo-matplotlib.axis_2">
+    <g id="anova-rondas-extremo-ytick_1">
+     <g id="anova-rondas-extremo-line2d_60">
+      <path d="M 67.920163 241.423454 
+L 443.52 241.423454 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_61">
+      <defs>
+       <path id="anova-rondas-extremo-m0694cbcf80" d="M 0 0 
+L -3.5 0 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m0694cbcf80" x="67.920163" y="241.423454" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_8">
+      <!-- $\mathdefault{10^{0}}$ -->
+      <g style="fill: #5b6876" transform="translate(37.080163 247.345954)">
+       <text>
+        <tspan x="0" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.026563" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_2">
+     <g id="anova-rondas-extremo-line2d_62">
+      <path d="M 67.920163 189.309553 
+L 443.52 189.309553 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_63">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m0694cbcf80" x="67.920163" y="189.309553" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_9">
+      <!-- $\mathdefault{10^{1}}$ -->
+      <g style="fill: #5b6876" transform="translate(37.080163 195.232053)">
+       <text>
+        <tspan x="0" y="-0.382812" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.382812" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-5.982812" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_3">
+     <g id="anova-rondas-extremo-line2d_64">
+      <path d="M 67.920163 137.195651 
+L 443.52 137.195651 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_65">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m0694cbcf80" x="67.920163" y="137.195651" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_10">
+      <!-- $\mathdefault{10^{2}}$ -->
+      <g style="fill: #5b6876" transform="translate(37.080163 143.118151)">
+       <text>
+        <tspan x="0" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.026563" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">2</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_4">
+     <g id="anova-rondas-extremo-line2d_66">
+      <path d="M 67.920163 85.081749 
+L 443.52 85.081749 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_67">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m0694cbcf80" x="67.920163" y="85.081749" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_11">
+      <!-- $\mathdefault{10^{3}}$ -->
+      <g style="fill: #5b6876" transform="translate(37.080163 91.004249)">
+       <text>
+        <tspan x="0" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.426563" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.026563" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">3</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_5">
+     <g id="anova-rondas-extremo-line2d_68">
+      <path d="M 67.920163 32.967848 
+L 443.52 32.967848 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-rondas-extremo-line2d_69">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m0694cbcf80" x="67.920163" y="32.967848" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-rondas-extremo-text_12">
+      <!-- $\mathdefault{10^{4}}$ -->
+      <g style="fill: #5b6876" transform="translate(37.080163 38.890348)">
+       <text>
+        <tspan x="0" y="-0.557813" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">1</tspan>
+        <tspan x="8.625" y="-0.557813" style="font-size: 16px; font-family: 'Segoe UI'; fill: #5b6876">0</tspan>
+        <tspan x="17.39" y="-6.157813" style="font-size: 11.2px; font-family: 'Segoe UI'; fill: #5b6876">4</tspan>
+       </text>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_6">
+     <g id="anova-rondas-extremo-line2d_70">
+      <defs>
+       <path id="anova-rondas-extremo-m53214662cb" d="M 0 0 
+L -2 0 
+" style="stroke: #5b6876; stroke-width: 0.6"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="249.496" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_7">
+     <g id="anova-rondas-extremo-line2d_71">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="246.473813" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_8">
+     <g id="anova-rondas-extremo-line2d_72">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="243.808056" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_9">
+     <g id="anova-rondas-extremo-line2d_73">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="225.735607" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_10">
+     <g id="anova-rondas-extremo-line2d_74">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="216.558804" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_11">
+     <g id="anova-rondas-extremo-line2d_75">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="210.047759" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_12">
+     <g id="anova-rondas-extremo-line2d_76">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="204.9974" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_13">
+     <g id="anova-rondas-extremo-line2d_77">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="200.870957" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_14">
+     <g id="anova-rondas-extremo-line2d_78">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="197.382098" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_15">
+     <g id="anova-rondas-extremo-line2d_79">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="194.359912" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_16">
+     <g id="anova-rondas-extremo-line2d_80">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="191.694154" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_17">
+     <g id="anova-rondas-extremo-line2d_81">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="173.621705" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_18">
+     <g id="anova-rondas-extremo-line2d_82">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="164.444903" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_19">
+     <g id="anova-rondas-extremo-line2d_83">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="157.933858" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_20">
+     <g id="anova-rondas-extremo-line2d_84">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="152.883499" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_21">
+     <g id="anova-rondas-extremo-line2d_85">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="148.757055" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_22">
+     <g id="anova-rondas-extremo-line2d_86">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="145.268197" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_23">
+     <g id="anova-rondas-extremo-line2d_87">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="142.24601" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_24">
+     <g id="anova-rondas-extremo-line2d_88">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="139.580252" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_25">
+     <g id="anova-rondas-extremo-line2d_89">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="121.507803" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_26">
+     <g id="anova-rondas-extremo-line2d_90">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="112.331001" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_27">
+     <g id="anova-rondas-extremo-line2d_91">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="105.819956" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_28">
+     <g id="anova-rondas-extremo-line2d_92">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="100.769597" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_29">
+     <g id="anova-rondas-extremo-line2d_93">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="96.643153" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_30">
+     <g id="anova-rondas-extremo-line2d_94">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="93.154295" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_31">
+     <g id="anova-rondas-extremo-line2d_95">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="90.132108" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_32">
+     <g id="anova-rondas-extremo-line2d_96">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="87.466351" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_33">
+     <g id="anova-rondas-extremo-line2d_97">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="69.393902" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_34">
+     <g id="anova-rondas-extremo-line2d_98">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="60.217099" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_35">
+     <g id="anova-rondas-extremo-line2d_99">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="53.706054" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_36">
+     <g id="anova-rondas-extremo-line2d_100">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="48.655695" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_37">
+     <g id="anova-rondas-extremo-line2d_101">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="44.529252" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_38">
+     <g id="anova-rondas-extremo-line2d_102">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="41.040393" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_39">
+     <g id="anova-rondas-extremo-line2d_103">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="38.018207" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_40">
+     <g id="anova-rondas-extremo-line2d_104">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="35.352449" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-ytick_41">
+     <g id="anova-rondas-extremo-line2d_105">
+      <g>
+       <use xlink:href="#anova-rondas-extremo-m53214662cb" x="67.920163" y="17.28" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.6"/>
+      </g>
+     </g>
+    </g>
+    <g id="anova-rondas-extremo-text_13">
+     <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="29.315162" y="133.388" transform="rotate(-90 29.315162 133.388)">Jugadores (escala log)</text>
+    </g>
+   </g>
+   <g id="anova-rondas-extremo-patch_3">
+    <path d="M 84.992882 310.6 
+L 84.992882 62.19464 
+L 115.72563 62.19464 
+L 115.72563 67.257352 
+L 130.015544 67.257352 
+L 130.015544 70.566727 
+L 139.42807 70.566727 
+L 139.42807 71.392035 
+L 146.458378 71.392035 
+L 146.458378 61.282913 
+L 156.745167 61.282913 
+L 156.745167 57.658893 
+L 167.361067 57.658893 
+L 167.361067 58.657611 
+L 177.191125 58.657611 
+L 177.191125 57.685861 
+L 186.005251 57.685861 
+L 186.005251 55.884133 
+L 196.058434 55.884133 
+L 196.058434 58.721077 
+L 205.014849 58.721077 
+L 205.014849 56.799484 
+L 214.645498 56.799484 
+L 214.645498 63.16182 
+L 223.824255 63.16182 
+L 223.824255 67.578831 
+L 233.068599 67.578831 
+L 233.068599 71.392035 
+L 242.320006 71.392035 
+L 242.320006 75.060839 
+L 251.529819 75.060839 
+L 251.529819 82.699411 
+L 260.73397 82.699411 
+L 260.73397 90.245556 
+L 269.996701 90.245556 
+L 269.996701 101.599405 
+L 279.193833 101.599405 
+L 279.193833 116.098187 
+L 288.412631 116.098187 
+L 288.412631 141.141753 
+L 297.607696 141.141753 
+L 297.607696 160.318459 
+L 306.803476 160.318459 
+L 306.803476 185.183109 
+L 316.022498 185.183109 
+L 316.022498 216.558804 
+L 325.225159 216.558804 
+L 325.225159 241.423454 
+L 334.428336 241.423454 
+L 334.428336 310.6 
+M 398.841578 310.6 
+L 398.841578 241.423454 
+L 408.043611 241.423454 
+L 408.043611 310.6 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #2f7bb8; stroke-width: 2.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-rondas-extremo-patch_4">
+    <path d="M 84.992882 310.6 
+L 84.992882 61.867689 
+L 115.72563 61.867689 
+L 115.72563 65.192141 
+L 130.015544 65.192141 
+L 130.015544 68.735893 
+L 139.42807 68.735893 
+L 139.42807 71.803665 
+L 146.458378 71.803665 
+L 146.458378 60.2851 
+L 156.745167 60.2851 
+L 156.745167 58.059965 
+L 167.361067 58.059965 
+L 167.361067 57.679116 
+L 177.191125 57.679116 
+L 177.191125 57.060459 
+L 186.005251 57.060459 
+L 186.005251 55.605515 
+L 196.058434 55.605515 
+L 196.058434 59.902438 
+L 205.014849 59.902438 
+L 205.014849 59.636167 
+L 214.645498 59.636167 
+L 214.645498 61.924566 
+L 223.824255 61.924566 
+L 223.824255 65.705464 
+L 233.068599 65.705464 
+L 233.068599 69.72448 
+L 242.320006 69.72448 
+L 242.320006 74.743283 
+L 251.529819 74.743283 
+L 251.529819 82.2157 
+L 260.73397 82.2157 
+L 260.73397 89.850952 
+L 269.996701 89.850952 
+L 269.996701 102.755372 
+L 279.193833 102.755372 
+L 279.193833 118.148646 
+L 288.412631 118.148646 
+L 288.412631 137.652894 
+L 297.607696 137.652894 
+L 297.607696 154.283911 
+L 306.803476 154.283911 
+L 306.803476 183.37152 
+L 316.022498 183.37152 
+L 316.022498 204.9974 
+L 325.225159 204.9974 
+L 325.225159 310.6 
+" clip-path="url(#anova-rondas-extremo-p0f3d778d83)" style="fill: none; stroke: #7a3f9d; stroke-width: 2.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-rondas-extremo-patch_5">
+    <path d="M 67.920163 249.496 
+L 67.920163 17.28 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-rondas-extremo-patch_6">
+    <path d="M 67.920163 249.496 
+L 443.52 249.496 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-rondas-extremo-patch_7">
+    <path d="M 378.078923 165.23305 
+Q 392.150617 199.876046 405.46496 232.654527 
+" style="fill: none; stroke: #b8452c; stroke-width: 1.8; stroke-linecap: round"/>
+    <path d="M 405.986433 225.966622 
+L 405.46496 232.654527 
+L 400.42752 228.224606 
+z
+" style="fill: #b8452c; stroke: #b8452c; stroke-width: 1.8; stroke-linecap: round"/>
+   </g>
+   <g id="anova-rondas-extremo-text_14">
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #b8452c" transform="translate(323.254144 141.078545)">1 jugador:</text>
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #b8452c" transform="translate(323.254144 157.933858)">49 854 rondas</text>
+   </g>
+   <g id="anova-rondas-extremo-legend_1">
+    <g id="anova-rondas-extremo-patch_8">
+     <path d="M 343.487813 40.244375 
+L 371.487813 40.244375 
+L 371.487813 30.444375 
+L 343.487813 30.444375 
+L 343.487813 40.244375 
+z
+" style="fill: none; stroke: #2f7bb8; stroke-width: 2.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="anova-rondas-extremo-text_15">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="382.687813" y="40.244375" transform="rotate(-0 382.687813 40.244375)">gate_30</text>
+    </g>
+    <g id="anova-rondas-extremo-patch_9">
+     <path d="M 343.487813 60.903125 
+L 371.487813 60.903125 
+L 371.487813 51.103125 
+L 343.487813 51.103125 
+L 343.487813 60.903125 
+z
+" style="fill: none; stroke: #7a3f9d; stroke-width: 2.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="anova-rondas-extremo-text_16">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="382.687813" y="60.903125" transform="rotate(-0 382.687813 60.903125)">gate_40</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="anova-rondas-extremo-p0f3d778d83">
+   <rect x="67.920163" y="17.28" width="375.599838" height="232.216"/>
+  </clipPath>
+ </defs>
+</svg>

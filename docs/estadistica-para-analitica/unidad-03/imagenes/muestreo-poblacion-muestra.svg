@@ -1,0 +1,134 @@
+<svg viewBox="0 0 880 375" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Inter, system-ui, -apple-system, sans-serif">
+  <style>
+    .caja { fill: #ffffff; stroke: #cfd8e3; stroke-width: 1.5; }
+    .txt { fill: #16202b; font-size: 15px; }
+    .sec { fill: #5b6876; font-size: 13px; }
+    .tit { fill: #16202b; font-size: 16px; font-weight: 600; }
+    .sim { fill: #16202b; font-size: 20px; font-style: italic; }
+    .flecha { stroke: #5b6876; stroke-width: 2; fill: none; }
+  </style>
+  <defs><marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5b6876"/></marker></defs>
+  <rect class="caja" x="20" y="50" width="330" height="215" rx="8"/>
+  <text x="40" y="80" class="tit" text-anchor="start" >Población</text>
+  <text x="40" y="100" class="sec" text-anchor="start" >N unidades</text>
+  <circle cx="52" cy="128" r="7" fill="#2f7bb8"/>
+  <circle cx="72" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="92" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="112" cy="128" r="7" fill="#2f7bb8"/>
+  <circle cx="132" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="152" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="172" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="192" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="212" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="232" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="252" cy="128" r="7" fill="#2f7bb8"/>
+  <circle cx="272" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="292" cy="128" r="5" fill="#9fb3c8"/>
+  <circle cx="312" cy="128" r="7" fill="#2f7bb8"/>
+  <circle cx="52" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="72" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="92" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="112" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="132" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="152" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="172" cy="148" r="7" fill="#2f7bb8"/>
+  <circle cx="192" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="212" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="232" cy="148" r="7" fill="#2f7bb8"/>
+  <circle cx="252" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="272" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="292" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="312" cy="148" r="5" fill="#9fb3c8"/>
+  <circle cx="52" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="72" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="92" cy="168" r="7" fill="#2f7bb8"/>
+  <circle cx="112" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="132" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="152" cy="168" r="7" fill="#2f7bb8"/>
+  <circle cx="172" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="192" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="212" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="232" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="252" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="272" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="292" cy="168" r="7" fill="#2f7bb8"/>
+  <circle cx="312" cy="168" r="5" fill="#9fb3c8"/>
+  <circle cx="52" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="72" cy="188" r="7" fill="#2f7bb8"/>
+  <circle cx="92" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="112" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="132" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="152" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="172" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="192" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="212" cy="188" r="7" fill="#2f7bb8"/>
+  <circle cx="232" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="252" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="272" cy="188" r="7" fill="#2f7bb8"/>
+  <circle cx="292" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="312" cy="188" r="5" fill="#9fb3c8"/>
+  <circle cx="52" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="72" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="92" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="112" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="132" cy="208" r="7" fill="#2f7bb8"/>
+  <circle cx="152" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="172" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="192" cy="208" r="7" fill="#2f7bb8"/>
+  <circle cx="212" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="232" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="252" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="272" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="292" cy="208" r="5" fill="#9fb3c8"/>
+  <circle cx="312" cy="208" r="5" fill="#9fb3c8"/>
+  <text x="40" y="232" class="txt" text-anchor="start" >Parámetro:</text>
+  <text x="122" y="232" class="sim" text-anchor="start" >p</text>
+  <text x="140" y="232" class="txt" text-anchor="start" >o</text>
+  <text x="160" y="232" class="sim" text-anchor="start" >μ</text>
+  <text x="40" y="256" class="sec" text-anchor="start" >fijo, casi siempre desconocido</text>
+  <rect class="caja" x="530" y="50" width="330" height="225" rx="8"/>
+  <text x="550" y="80" class="tit" text-anchor="start" >Muestra</text>
+  <text x="550" y="100" class="sec" text-anchor="start" >n unidades elegidas de la población</text>
+  <circle cx="572" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="596" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="620" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="644" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="668" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="692" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="716" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="740" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="764" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="788" cy="138" r="7" fill="#2f7bb8"/>
+  <circle cx="572" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="596" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="620" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="644" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="668" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="692" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="716" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="740" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="764" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="788" cy="162" r="7" fill="#2f7bb8"/>
+  <circle cx="572" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="596" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="620" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="644" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="668" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="692" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="716" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="740" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="764" cy="186" r="7" fill="#2f7bb8"/>
+  <circle cx="788" cy="186" r="7" fill="#2f7bb8"/>
+  <text x="550" y="232" class="txt" text-anchor="start" >Estadístico:</text>
+  <text x="652" y="232" class="sim" text-anchor="middle" fill="#16202b">p</text>
+  <polyline points="647,218 652,212 657,218" fill="none" stroke="#16202b" stroke-width="1.6"/>
+  <text x="672" y="232" class="txt" text-anchor="start" >o</text>
+  <text x="698" y="232" class="sim" text-anchor="middle" fill="#16202b">x</text>
+  <line x1="692" y1="215" x2="704" y2="215" stroke="#16202b" stroke-width="1.6"/>
+  <text x="550" y="256" class="sec" text-anchor="start" >cambia de una muestra a otra</text>
+  <line class="flecha" x1="360" y1="150" x2="520" y2="150" marker-end="url(#punta)"/>
+  <text x="440" y="128" class="txt" text-anchor="middle" >Muestreo aleatorio</text>
+  <text x="440" y="174" class="txt" text-anchor="middle" >simple</text>
+  <path class="flecha" d="M695,285 C695,345 185,345 185,285" marker-end="url(#punta)"/>
+  <text x="440" y="360" class="txt" text-anchor="middle" >Inferencia: el estadístico estima el parámetro y se cuantifica su error</text>
+</svg>

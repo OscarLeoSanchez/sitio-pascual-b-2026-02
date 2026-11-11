@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 309.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <rect x="0" y="0" width="460.8" height="309.6" fill="#ffffff"/>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="anova-permutacion-figure_1">
+  <g id="anova-permutacion-patch_1">
+   <path d="M 0 309.6 
+L 460.8 309.6 
+L 460.8 0 
+L 0 0 
+L 0 309.6 
+z
+" style="fill: none"/>
+  </g>
+  <g id="anova-permutacion-axes_1">
+   <g id="anova-permutacion-patch_2">
+    <path d="M 77.78 251.08 
+L 440.524161 251.08 
+L 440.524161 17.28 
+L 77.78 17.28 
+L 77.78 251.08 
+z
+" style="fill: none"/>
+   </g>
+   <g id="anova-permutacion-matplotlib.axis_1">
+    <g id="anova-permutacion-xtick_1">
+     <g id="anova-permutacion-line2d_1">
+      <path d="M 151.672329 251.08 
+L 151.672329 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_2">
+      <defs>
+       <path id="anova-permutacion-md0a712f4a1" d="M 0 0 
+L 0 3.5 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-permutacion-md0a712f4a1" x="151.672329" y="251.08" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_1">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="151.672329" y="269.925" transform="rotate(-0 151.672329 269.925)">-0,008</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-xtick_2">
+     <g id="anova-permutacion-line2d_3">
+      <path d="M 205.412205 251.08 
+L 205.412205 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_4">
+      <g>
+       <use xlink:href="#anova-permutacion-md0a712f4a1" x="205.412205" y="251.08" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_2">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="205.412205" y="269.925" transform="rotate(-0 205.412205 269.925)">-0,004</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-xtick_3">
+     <g id="anova-permutacion-line2d_5">
+      <path d="M 259.15208 251.08 
+L 259.15208 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_6">
+      <g>
+       <use xlink:href="#anova-permutacion-md0a712f4a1" x="259.15208" y="251.08" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_3">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="259.15208" y="269.925" transform="rotate(-0 259.15208 269.925)">0</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-xtick_4">
+     <g id="anova-permutacion-line2d_7">
+      <path d="M 312.891956 251.08 
+L 312.891956 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_8">
+      <g>
+       <use xlink:href="#anova-permutacion-md0a712f4a1" x="312.891956" y="251.08" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_4">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="312.891956" y="269.925" transform="rotate(-0 312.891956 269.925)">0,004</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-xtick_5">
+     <g id="anova-permutacion-line2d_9">
+      <path d="M 366.631832 251.08 
+L 366.631832 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_10">
+      <g>
+       <use xlink:href="#anova-permutacion-md0a712f4a1" x="366.631832" y="251.08" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_5">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="366.631832" y="269.925" transform="rotate(-0 366.631832 269.925)">0,008</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-text_6">
+     <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="259.15208" y="289.45" transform="rotate(-0 259.15208 289.45)">Diferencia de retención a 7 días</text>
+    </g>
+   </g>
+   <g id="anova-permutacion-matplotlib.axis_2">
+    <g id="anova-permutacion-ytick_1">
+     <g id="anova-permutacion-line2d_11">
+      <path d="M 77.78 251.08 
+L 440.524161 251.08 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_12">
+      <defs>
+       <path id="anova-permutacion-mc3abe928c6" d="M 0 0 
+L -3.5 0 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-permutacion-mc3abe928c6" x="77.78" y="251.08" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_7">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="70.78" y="257.0025" transform="rotate(-0 70.78 257.0025)">0</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-ytick_2">
+     <g id="anova-permutacion-line2d_13">
+      <path d="M 77.78 206.455633 
+L 440.524161 206.455633 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_14">
+      <g>
+       <use xlink:href="#anova-permutacion-mc3abe928c6" x="77.78" y="206.455633" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_8">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="70.78" y="212.378133" transform="rotate(-0 70.78 212.378133)">200</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-ytick_3">
+     <g id="anova-permutacion-line2d_15">
+      <path d="M 77.78 161.831266 
+L 440.524161 161.831266 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_16">
+      <g>
+       <use xlink:href="#anova-permutacion-mc3abe928c6" x="77.78" y="161.831266" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_9">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="70.78" y="167.753766" transform="rotate(-0 70.78 167.753766)">400</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-ytick_4">
+     <g id="anova-permutacion-line2d_17">
+      <path d="M 77.78 117.206899 
+L 440.524161 117.206899 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_18">
+      <g>
+       <use xlink:href="#anova-permutacion-mc3abe928c6" x="77.78" y="117.206899" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_10">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="70.78" y="123.129399" transform="rotate(-0 70.78 123.129399)">600</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-ytick_5">
+     <g id="anova-permutacion-line2d_19">
+      <path d="M 77.78 72.582532 
+L 440.524161 72.582532 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_20">
+      <g>
+       <use xlink:href="#anova-permutacion-mc3abe928c6" x="77.78" y="72.582532" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_11">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="70.78" y="78.505032" transform="rotate(-0 70.78 78.505032)">800</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-ytick_6">
+     <g id="anova-permutacion-line2d_21">
+      <path d="M 77.78 27.958165 
+L 440.524161 27.958165 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-permutacion-line2d_22">
+      <g>
+       <use xlink:href="#anova-permutacion-mc3abe928c6" x="77.78" y="27.958165" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-permutacion-text_12">
+      <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="70.78" y="33.880665" transform="rotate(-0 70.78 33.880665)">1000</text>
+     </g>
+    </g>
+    <g id="anova-permutacion-text_13">
+     <text style="font-size: 16px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="28.515" y="134.18" transform="rotate(-90 28.515 134.18)">Barajadas</text>
+    </g>
+   </g>
+   <g id="anova-permutacion-patch_3">
+    <path d="M 118.084907 251.08 
+L 124.802391 251.08 
+L 124.802391 250.856878 
+L 118.084907 250.856878 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_4">
+    <path d="M 124.802391 251.08 
+L 131.519876 251.08 
+L 131.519876 251.08 
+L 124.802391 251.08 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_5">
+    <path d="M 131.519876 251.08 
+L 138.23736 251.08 
+L 138.23736 250.633756 
+L 131.519876 250.633756 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_6">
+    <path d="M 138.23736 251.08 
+L 144.954845 251.08 
+L 144.954845 250.410634 
+L 138.23736 250.410634 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_7">
+    <path d="M 144.954845 251.08 
+L 151.672329 251.08 
+L 151.672329 250.410634 
+L 144.954845 250.410634 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_8">
+    <path d="M 151.672329 251.08 
+L 158.389814 251.08 
+L 158.389814 248.402538 
+L 151.672329 248.402538 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_9">
+    <path d="M 158.389814 251.08 
+L 165.107298 251.08 
+L 165.107298 247.956294 
+L 158.389814 247.956294 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_10">
+    <path d="M 165.107298 251.08 
+L 171.824782 251.08 
+L 171.824782 245.725076 
+L 165.107298 245.725076 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_11">
+    <path d="M 171.824782 251.08 
+L 178.542267 251.08 
+L 178.542267 242.60137 
+L 171.824782 242.60137 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_12">
+    <path d="M 178.542267 251.08 
+L 185.259751 251.08 
+L 185.259751 234.345862 
+L 178.542267 234.345862 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_13">
+    <path d="M 185.259751 251.08 
+L 191.977236 251.08 
+L 191.977236 230.106547 
+L 185.259751 230.106547 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_14">
+    <path d="M 191.977236 251.08 
+L 198.69472 251.08 
+L 198.69472 217.165481 
+L 191.977236 217.165481 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_15">
+    <path d="M 198.69472 251.08 
+L 205.412205 251.08 
+L 205.412205 208.240608 
+L 198.69472 208.240608 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_16">
+    <path d="M 205.412205 251.08 
+L 212.129689 251.08 
+L 212.129689 188.829008 
+L 205.412205 188.829008 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_17">
+    <path d="M 212.129689 251.08 
+L 218.847174 251.08 
+L 218.847174 173.656723 
+L 212.129689 173.656723 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_18">
+    <path d="M 218.847174 251.08 
+L 225.564658 251.08 
+L 225.564658 156.030098 
+L 218.847174 156.030098 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_19">
+    <path d="M 225.564658 251.08 
+L 232.282143 251.08 
+L 232.282143 126.354894 
+L 225.564658 126.354894 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_20">
+    <path d="M 232.282143 251.08 
+L 238.999627 251.08 
+L 238.999627 112.967584 
+L 232.282143 112.967584 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_21">
+    <path d="M 238.999627 251.08 
+L 245.717112 251.08 
+L 245.717112 117.430021 
+L 238.999627 117.430021 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_22">
+    <path d="M 245.717112 251.08 
+L 252.434596 251.08 
+L 252.434596 85.300476 
+L 245.717112 85.300476 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_23">
+    <path d="M 252.434596 251.08 
+L 259.15208 251.08 
+L 259.15208 73.921263 
+L 252.434596 73.921263 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_24">
+    <path d="M 259.15208 251.08 
+L 265.869565 251.08 
+L 265.869565 68.566339 
+L 259.15208 68.566339 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_25">
+    <path d="M 265.869565 251.08 
+L 272.587049 251.08 
+L 272.587049 92.663497 
+L 265.869565 92.663497 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_26">
+    <path d="M 272.587049 251.08 
+L 279.304534 251.08 
+L 279.304534 103.373345 
+L 272.587049 103.373345 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_27">
+    <path d="M 279.304534 251.08 
+L 286.022018 251.08 
+L 286.022018 101.811492 
+L 279.304534 101.811492 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_28">
+    <path d="M 286.022018 251.08 
+L 292.739503 251.08 
+L 292.739503 135.949133 
+L 286.022018 135.949133 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_29">
+    <path d="M 292.739503 251.08 
+L 299.456987 251.08 
+L 299.456987 168.078677 
+L 292.739503 168.078677 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_30">
+    <path d="M 299.456987 251.08 
+L 306.174472 251.08 
+L 306.174472 167.632434 
+L 299.456987 167.632434 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_31">
+    <path d="M 306.174472 251.08 
+L 312.891956 251.08 
+L 312.891956 189.721495 
+L 306.174472 189.721495 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_32">
+    <path d="M 312.891956 251.08 
+L 319.609441 251.08 
+L 319.609441 206.009389 
+L 312.891956 206.009389 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_33">
+    <path d="M 319.609441 251.08 
+L 326.326925 251.08 
+L 326.326925 221.181674 
+L 319.609441 221.181674 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_34">
+    <path d="M 326.326925 251.08 
+L 333.04441 251.08 
+L 333.04441 226.536598 
+L 326.326925 226.536598 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_35">
+    <path d="M 333.04441 251.08 
+L 339.761894 251.08 
+L 339.761894 237.469568 
+L 333.04441 237.469568 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_36">
+    <path d="M 339.761894 251.08 
+L 346.479378 251.08 
+L 346.479378 241.932005 
+L 339.761894 241.932005 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_37">
+    <path d="M 346.479378 251.08 
+L 353.196863 251.08 
+L 353.196863 244.386345 
+L 346.479378 244.386345 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_38">
+    <path d="M 353.196863 251.08 
+L 359.914347 251.08 
+L 359.914347 246.617563 
+L 353.196863 246.617563 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_39">
+    <path d="M 359.914347 251.08 
+L 366.631832 251.08 
+L 366.631832 247.063807 
+L 359.914347 247.063807 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_40">
+    <path d="M 366.631832 251.08 
+L 373.349316 251.08 
+L 373.349316 249.741269 
+L 366.631832 249.741269 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_41">
+    <path d="M 373.349316 251.08 
+L 380.066801 251.08 
+L 380.066801 250.187513 
+L 373.349316 250.187513 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_42">
+    <path d="M 380.066801 251.08 
+L 386.784285 251.08 
+L 386.784285 250.856878 
+L 380.066801 250.856878 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_43">
+    <path d="M 386.784285 251.08 
+L 393.50177 251.08 
+L 393.50177 250.856878 
+L 386.784285 250.856878 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-patch_44">
+    <path d="M 393.50177 251.08 
+L 400.219254 251.08 
+L 400.219254 251.08 
+L 393.50177 251.08 
+z
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: #f9dd9e; stroke: #c4682c; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="anova-permutacion-line2d_23">
+    <path d="M 148.967892 251.08 
+L 148.967892 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke-dasharray: 11.1,4.8; stroke-dashoffset: 0; stroke: #2f7bb8; stroke-width: 3"/>
+   </g>
+   <g id="anova-permutacion-line2d_24">
+    <path d="M 369.336268 251.08 
+L 369.336268 17.28 
+" clip-path="url(#anova-permutacion-pf8fe9ea04b)" style="fill: none; stroke-dasharray: 11.1,4.8; stroke-dashoffset: 0; stroke: #2f7bb8; stroke-width: 3"/>
+   </g>
+   <g id="anova-permutacion-patch_45">
+    <path d="M 77.78 251.08 
+L 77.78 17.28 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-permutacion-patch_46">
+    <path d="M 77.78 251.08 
+L 440.524161 251.08 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-permutacion-text_14">
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #c4682c" transform="translate(227.559502 35.398687)">barajadas</text>
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #c4682c" transform="translate(228.87083 52.254)">(bajo H0)</text>
+   </g>
+   <g id="anova-permutacion-text_15">
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #2f7bb8" transform="translate(369.336268 35.398687)"> observada</text>
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #2f7bb8" transform="translate(369.336268 52.174312)"> 0,0082</text>
+   </g>
+   <g id="anova-permutacion-text_16">
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #2f7bb8" x="148.967892" y="35.398687" transform="rotate(-0 148.967892 35.398687)">opuesta </text>
+   </g>
+   <g id="anova-permutacion-text_17">
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #2f7bb8" transform="translate(369.336268 141.309531)"> 17 de</text>
+    <text style="font-size: 15px; font-family: 'Segoe UI', 'DejaVu Sans'; fill: #2f7bb8" transform="translate(369.336268 158.085156)"> 10 000</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="anova-permutacion-pf8fe9ea04b">
+   <rect x="77.78" y="17.28" width="362.744161" height="233.8"/>
+  </clipPath>
+ </defs>
+</svg>

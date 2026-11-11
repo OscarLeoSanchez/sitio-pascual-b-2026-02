@@ -15,6 +15,14 @@ number-sections: false
 | Cierre     | 40% de la nota, con la evaluación final de la unidad      |
 :::
 
+## Guías de la unidad
+
+Una guía por sesión. Cada guía explica el tema completo, con ejemplos en Python, la solución paso a paso del reto y de la práctica, y se puede leer sin abrir la presentación.
+
+[Temas 11 y 12. Guía de muestreo, teorema del límite central e intervalos de confianza](muestreo-intervalos.qmd){.btn .btn-primary role="button"}
+[Tema 13. Guía de pruebas de hipótesis](pruebas-hipotesis.qmd){.btn .btn-outline-primary role="button"}
+[Tema 14. Guía de dos poblaciones y ANOVA de una vía](dos-poblaciones-anova.qmd){.btn .btn-outline-primary role="button"}
+
 ## Presentaciones de la unidad
 
 Una presentación por sesión. Cada una abre con un reto para resolver antes de ver el tema, desarrolla los fundamentos con código y termina con una práctica sobre datos reales.

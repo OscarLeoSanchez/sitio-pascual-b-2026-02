@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 496.8 244.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <rect x="0" y="0" width="496.8" height="244.8" fill="#ffffff"/>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="anova-tukey-figure_1">
+  <g id="anova-tukey-patch_1">
+   <path d="M 0 244.8 
+L 496.8 244.8 
+L 496.8 0 
+L 0 0 
+L 0 244.8 
+z
+" style="fill: none"/>
+  </g>
+  <g id="anova-tukey-axes_1">
+   <g id="anova-tukey-patch_2">
+    <path d="M 67.12 190.6 
+L 479.52 190.6 
+L 479.52 17.28 
+L 67.12 17.28 
+L 67.12 190.6 
+z
+" style="fill: none"/>
+   </g>
+   <g id="anova-tukey-matplotlib.axis_1">
+    <g id="anova-tukey-xtick_1">
+     <g id="anova-tukey-line2d_1">
+      <path d="M 121.702353 190.6 
+L 121.702353 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-tukey-line2d_2">
+      <defs>
+       <path id="anova-tukey-m3ac14a99bb" d="M 0 0 
+L 0 3.5 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-tukey-m3ac14a99bb" x="121.702353" y="190.6" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_1">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="121.702353" y="207.964375" transform="rotate(-0 121.702353 207.964375)">-20</text>
+     </g>
+    </g>
+    <g id="anova-tukey-xtick_2">
+     <g id="anova-tukey-line2d_3">
+      <path d="M 182.349412 190.6 
+L 182.349412 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-tukey-line2d_4">
+      <g>
+       <use xlink:href="#anova-tukey-m3ac14a99bb" x="182.349412" y="190.6" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_2">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="182.349412" y="207.964375" transform="rotate(-0 182.349412 207.964375)">0</text>
+     </g>
+    </g>
+    <g id="anova-tukey-xtick_3">
+     <g id="anova-tukey-line2d_5">
+      <path d="M 242.996471 190.6 
+L 242.996471 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-tukey-line2d_6">
+      <g>
+       <use xlink:href="#anova-tukey-m3ac14a99bb" x="242.996471" y="190.6" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_3">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="242.996471" y="207.964375" transform="rotate(-0 242.996471 207.964375)">20</text>
+     </g>
+    </g>
+    <g id="anova-tukey-xtick_4">
+     <g id="anova-tukey-line2d_7">
+      <path d="M 303.643529 190.6 
+L 303.643529 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-tukey-line2d_8">
+      <g>
+       <use xlink:href="#anova-tukey-m3ac14a99bb" x="303.643529" y="190.6" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_4">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="303.643529" y="207.964375" transform="rotate(-0 303.643529 207.964375)">40</text>
+     </g>
+    </g>
+    <g id="anova-tukey-xtick_5">
+     <g id="anova-tukey-line2d_9">
+      <path d="M 364.290588 190.6 
+L 364.290588 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-tukey-line2d_10">
+      <g>
+       <use xlink:href="#anova-tukey-m3ac14a99bb" x="364.290588" y="190.6" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_5">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="364.290588" y="207.964375" transform="rotate(-0 364.290588 207.964375)">60</text>
+     </g>
+    </g>
+    <g id="anova-tukey-xtick_6">
+     <g id="anova-tukey-line2d_11">
+      <path d="M 424.937647 190.6 
+L 424.937647 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #e4eaf1; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="anova-tukey-line2d_12">
+      <g>
+       <use xlink:href="#anova-tukey-m3ac14a99bb" x="424.937647" y="190.6" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_6">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #5b6876" x="424.937647" y="207.964375" transform="rotate(-0 424.937647 207.964375)">80</text>
+     </g>
+    </g>
+    <g id="anova-tukey-text_7">
+     <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: middle; fill: #16202b" x="273.32" y="225.6975" transform="rotate(-0 273.32 225.6975)">Diferencia de medias (puntos)</text>
+    </g>
+   </g>
+   <g id="anova-tukey-matplotlib.axis_2">
+    <g id="anova-tukey-ytick_1">
+     <g id="anova-tukey-line2d_13">
+      <defs>
+       <path id="anova-tukey-m833671dc84" d="M 0 0 
+L -3.5 0 
+" style="stroke: #5b6876; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#anova-tukey-m833671dc84" x="67.12" y="34.052903" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_8">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="60.12" y="39.235091" transform="rotate(-0 60.12 39.235091)">E2 - E1</text>
+     </g>
+    </g>
+    <g id="anova-tukey-ytick_2">
+     <g id="anova-tukey-line2d_14">
+      <g>
+       <use xlink:href="#anova-tukey-m833671dc84" x="67.12" y="62.007742" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_9">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="60.12" y="67.189929" transform="rotate(-0 60.12 67.189929)">E3 - E1</text>
+     </g>
+    </g>
+    <g id="anova-tukey-ytick_3">
+     <g id="anova-tukey-line2d_15">
+      <g>
+       <use xlink:href="#anova-tukey-m833671dc84" x="67.12" y="89.962581" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_10">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="60.12" y="95.144768" transform="rotate(-0 60.12 95.144768)">E4 - E1</text>
+     </g>
+    </g>
+    <g id="anova-tukey-ytick_4">
+     <g id="anova-tukey-line2d_16">
+      <g>
+       <use xlink:href="#anova-tukey-m833671dc84" x="67.12" y="117.917419" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_11">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="60.12" y="123.099607" transform="rotate(-0 60.12 123.099607)">E3 - E2</text>
+     </g>
+    </g>
+    <g id="anova-tukey-ytick_5">
+     <g id="anova-tukey-line2d_17">
+      <g>
+       <use xlink:href="#anova-tukey-m833671dc84" x="67.12" y="145.872258" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_12">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="60.12" y="151.054446" transform="rotate(-0 60.12 151.054446)">E4 - E2</text>
+     </g>
+    </g>
+    <g id="anova-tukey-ytick_6">
+     <g id="anova-tukey-line2d_18">
+      <g>
+       <use xlink:href="#anova-tukey-m833671dc84" x="67.12" y="173.827097" style="fill: #5b6876; stroke: #5b6876; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="anova-tukey-text_13">
+      <text style="font-size: 14px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: end; fill: #5b6876" x="60.12" y="179.009284" transform="rotate(-0 60.12 179.009284)">E4 - E3</text>
+     </g>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_19">
+    <path d="M 123.23097 34.052903 
+L 270.881677 34.052903 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #9aa5b1; stroke-width: 5"/>
+   </g>
+   <g id="anova-tukey-line2d_20">
+    <defs>
+     <path id="anova-tukey-m4e8c7203b1" d="M 0 4.5 
+C 1.193414 4.5 2.338109 4.025852 3.181981 3.181981 
+C 4.025852 2.338109 4.5 1.193414 4.5 0 
+C 4.5 -1.193414 4.025852 -2.338109 3.181981 -3.181981 
+C 2.338109 -4.025852 1.193414 -4.5 0 -4.5 
+C -1.193414 -4.5 -2.338109 -4.025852 -3.181981 -3.181981 
+C -4.025852 -2.338109 -4.5 -1.193414 -4.5 0 
+C -4.5 1.193414 -4.025852 2.338109 -3.181981 3.181981 
+C -2.338109 4.025852 -1.193414 4.5 0 4.5 
+z
+" style="stroke: #9aa5b1"/>
+    </defs>
+    <g clip-path="url(#anova-tukey-pf15e363019)">
+     <use xlink:href="#anova-tukey-m4e8c7203b1" x="197.056324" y="34.052903" style="fill: #9aa5b1; stroke: #9aa5b1"/>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_21">
+    <path d="M 217.537147 62.007742 
+L 365.187853 62.007742 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #2f7bb8; stroke-width: 5"/>
+   </g>
+   <g id="anova-tukey-line2d_22">
+    <defs>
+     <path id="anova-tukey-mb92ceeab9c" d="M 0 4.5 
+C 1.193414 4.5 2.338109 4.025852 3.181981 3.181981 
+C 4.025852 2.338109 4.5 1.193414 4.5 0 
+C 4.5 -1.193414 4.025852 -2.338109 3.181981 -3.181981 
+C 2.338109 -4.025852 1.193414 -4.5 0 -4.5 
+C -1.193414 -4.5 -2.338109 -4.025852 -3.181981 -3.181981 
+C -4.025852 -2.338109 -4.5 -1.193414 -4.5 0 
+C -4.5 1.193414 -4.025852 2.338109 -3.181981 3.181981 
+C -2.338109 4.025852 -1.193414 4.5 0 4.5 
+z
+" style="stroke: #2f7bb8"/>
+    </defs>
+    <g clip-path="url(#anova-tukey-pf15e363019)">
+     <use xlink:href="#anova-tukey-mb92ceeab9c" x="291.3625" y="62.007742" style="fill: #2f7bb8; stroke: #2f7bb8"/>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_23">
+    <path d="M 190.650284 89.962581 
+L 338.300991 89.962581 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #2f7bb8; stroke-width: 5"/>
+   </g>
+   <g id="anova-tukey-line2d_24">
+    <g clip-path="url(#anova-tukey-pf15e363019)">
+     <use xlink:href="#anova-tukey-mb92ceeab9c" x="264.475637" y="89.962581" style="fill: #2f7bb8; stroke: #2f7bb8"/>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_25">
+    <path d="M 202.830235 117.917419 
+L 350.480942 117.917419 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #2f7bb8; stroke-width: 5"/>
+   </g>
+   <g id="anova-tukey-line2d_26">
+    <g clip-path="url(#anova-tukey-pf15e363019)">
+     <use xlink:href="#anova-tukey-mb92ceeab9c" x="276.655588" y="117.917419" style="fill: #2f7bb8; stroke: #2f7bb8"/>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_27">
+    <path d="M 175.943372 145.872258 
+L 323.594079 145.872258 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #9aa5b1; stroke-width: 5"/>
+   </g>
+   <g id="anova-tukey-line2d_28">
+    <g clip-path="url(#anova-tukey-pf15e363019)">
+     <use xlink:href="#anova-tukey-m4e8c7203b1" x="249.768725" y="145.872258" style="fill: #9aa5b1; stroke: #9aa5b1"/>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_29">
+    <path d="M 81.637196 173.827097 
+L 229.287902 173.827097 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke: #9aa5b1; stroke-width: 5"/>
+   </g>
+   <g id="anova-tukey-line2d_30">
+    <g clip-path="url(#anova-tukey-pf15e363019)">
+     <use xlink:href="#anova-tukey-m4e8c7203b1" x="155.462549" y="173.827097" style="fill: #9aa5b1; stroke: #9aa5b1"/>
+    </g>
+   </g>
+   <g id="anova-tukey-line2d_31">
+    <path d="M 182.349412 190.6 
+L 182.349412 17.28 
+" clip-path="url(#anova-tukey-pf15e363019)" style="fill: none; stroke-dasharray: 5.92,2.56; stroke-dashoffset: 0; stroke: #16202b; stroke-width: 1.6"/>
+   </g>
+   <g id="anova-tukey-patch_3">
+    <path d="M 67.12 190.6 
+L 67.12 17.28 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-tukey-patch_4">
+    <path d="M 67.12 190.6 
+L 479.52 190.6 
+" style="fill: none; stroke: #5b6876; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="anova-tukey-legend_1">
+    <g id="anova-tukey-patch_5">
+     <path d="M 349.721094 156.795937 
+L 365.321094 156.795937 
+L 365.321094 147.695937 
+L 349.721094 147.695937 
+z
+" style="fill: #2f7bb8; stroke: #2f7bb8; stroke-linejoin: miter"/>
+    </g>
+    <g id="anova-tukey-text_14">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="375.721094" y="156.795937" transform="rotate(-0 375.721094 156.795937)">no contiene el 0</text>
+    </g>
+    <g id="anova-tukey-patch_6">
+     <path d="M 349.721094 175.91 
+L 365.321094 175.91 
+L 365.321094 166.81 
+L 349.721094 166.81 
+z
+" style="fill: #9aa5b1; stroke: #9aa5b1; stroke-linejoin: miter"/>
+    </g>
+    <g id="anova-tukey-text_15">
+     <text style="font-size: 13px; font-family: 'Segoe UI', 'DejaVu Sans'; text-anchor: start" x="375.721094" y="175.91" transform="rotate(-0 375.721094 175.91)">contiene el 0</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="anova-tukey-pf15e363019">
+   <rect x="67.12" y="17.28" width="412.4" height="173.32"/>
+  </clipPath>
+ </defs>
+</svg>
