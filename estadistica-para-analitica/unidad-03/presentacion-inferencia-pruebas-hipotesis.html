@@ -17,7 +17,7 @@
      cielo  = producto y requisitos
      hoja   = conformidad y evidencia
      maiz   = actividades de proceso: revisiones, auditorías, controles, decisiones
-     tomate = defectos, fallas y riesgo
+     rojo = defectos, fallas y riesgo
      uva    = estándares, normas y certificación
    El color de una sección o de un nodo debe decir qué tipo de cosa es, no decorar.
    ========================================================================== */
@@ -36,7 +36,7 @@
 
   --hoja: #2F8F5B;   --hoja-claro: #DDF1E4;   --hoja-osc: #1E6B43;
   --maiz: #F2B33D;   --maiz-claro: #FFF1CC;   --maiz-osc: #855400;
-  --tomate: #E4572E; --tomate-claro: #FFE3DB; --tomate-osc: #AE3714;
+  --rojo: #E4572E; --rojo-claro: #FFE3DB; --rojo-osc: #AE3714;
   --cielo: #3B82C4;  --cielo-claro: #DCEBF9;  --cielo-osc: #1D5A94;
   --uva: #7A5BC7;    --uva-claro: #ECE6FA;    --uva-osc: #553A9E;
 
@@ -59,13 +59,13 @@
 
 [data-acento="hoja"]   { --acento: var(--hoja);   --acento-claro: var(--hoja-claro);   --acento-osc: var(--hoja-osc); }
 [data-acento="maiz"]   { --acento: var(--maiz);   --acento-claro: var(--maiz-claro);   --acento-osc: var(--maiz-osc); }
-[data-acento="tomate"] { --acento: var(--tomate); --acento-claro: var(--tomate-claro); --acento-osc: var(--tomate-osc); }
+[data-acento="rojo"] { --acento: var(--rojo); --acento-claro: var(--rojo-claro); --acento-osc: var(--rojo-osc); }
 [data-acento="cielo"]  { --acento: var(--cielo);  --acento-claro: var(--cielo-claro);  --acento-osc: var(--cielo-osc); }
 [data-acento="uva"]    { --acento: var(--uva);    --acento-claro: var(--uva-claro);    --acento-osc: var(--uva-osc); }
 
 [data-tono="hoja"]   { --tono: var(--hoja);   --tono-claro: var(--hoja-claro);   --tono-osc: var(--hoja-osc); }
 [data-tono="maiz"]   { --tono: var(--maiz);   --tono-claro: var(--maiz-claro);   --tono-osc: var(--maiz-osc); }
-[data-tono="tomate"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+[data-tono="rojo"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 [data-tono="cielo"]  { --tono: var(--cielo);  --tono-claro: var(--cielo-claro);  --tono-osc: var(--cielo-osc); }
 [data-tono="uva"]    { --tono: var(--uva);    --tono-claro: var(--uva-claro);    --tono-osc: var(--uva-osc); }
 [data-tono="tinta"]  { --tono: var(--tinta);  --tono-claro: var(--papel-2);      --tono-osc: var(--tinta); }
@@ -359,7 +359,7 @@ kbd { font-family: var(--mono); font-size: 12.5px; background: var(--papel); bor
   background: color-mix(in srgb, var(--tono-claro) 72%, var(--blanco)); border: 1px solid color-mix(in srgb, var(--tono) 26%, transparent); font-size: 19px; line-height: 1.45; }
 .callout[data-tipo="idea"] { --tono: var(--hoja); --tono-claro: var(--hoja-claro); --tono-osc: var(--hoja-osc); }
 .callout[data-tipo="observa"] { --tono: var(--cielo); --tono-claro: var(--cielo-claro); --tono-osc: var(--cielo-osc); }
-.callout[data-tipo="cuidado"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+.callout[data-tipo="cuidado"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 .callout[data-tipo="analogia"] { --tono: var(--uva); --tono-claro: var(--uva-claro); --tono-osc: var(--uva-osc); }
 .callout-ico { grid-row: span 2; width: 38px; height: 38px; border-radius: 12px; background: var(--tono); color: #fff; display: grid; place-items: center; }
 .callout-ico svg { width: 21px; height: 21px; }
@@ -396,7 +396,7 @@ dfn[data-def]:hover, span[data-def]:hover, dfn[data-def][aria-expanded="true"], 
 .pf-bloque[data-tipo="definicion"] > .pfb-ico { background: var(--cielo-claro); color: var(--cielo-osc); }
 .pf-bloque[data-tipo="analogia"] > .pfb-ico { background: var(--uva-claro); color: var(--uva-osc); }
 .pf-bloque[data-tipo="ejemplo"] > .pfb-ico { background: var(--hoja-claro); color: var(--hoja-osc); }
-.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--tomate-claro); color: var(--tomate-osc); }
+.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--rojo-claro); color: var(--rojo-osc); }
 .pf-bloque ul { margin: 0; padding-left: 18px; }
 .pf-bloque code { font-size: .86em; }
 
@@ -491,7 +491,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .tabla-kit tr.resaltada td { background: var(--maiz-claro); }
 .tabla-kit .si, .tabla-kit .no, .tabla-kit .medio { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; }
 .tabla-kit .si { color: var(--hoja-osc); }
-.tabla-kit .no { color: var(--tomate-osc); }
+.tabla-kit .no { color: var(--rojo-osc); }
 .tabla-kit .medio { color: var(--maiz-osc); }
 .tabla-kit svg { width: 18px; height: 18px; }
 
@@ -660,19 +660,19 @@ html.experto .solo-experto.callout { display: grid !important; }
 .opcion:disabled { cursor: default; }
 .opcion.correcta { border-color: var(--hoja); background: var(--hoja-claro); }
 .opcion.correcta .letra { background: var(--hoja); border-color: var(--hoja); color: #fff; }
-.opcion.incorrecta { border-color: var(--tomate); background: var(--tomate-claro); }
-.opcion.incorrecta .letra { background: var(--tomate); border-color: var(--tomate); color: #fff; }
+.opcion.incorrecta { border-color: var(--rojo); background: var(--rojo-claro); }
+.opcion.incorrecta .letra { background: var(--rojo); border-color: var(--rojo); color: #fff; }
 .opcion.atenuada { opacity: .5; }
 .opcion .marca-res { margin-left: auto; width: 24px; height: 24px; flex: none; }
 .opcion code { font-size: .88em; }
 .sacude { animation: kitSacude .45s ease; }
 .retro { border-radius: 14px; padding: 12px 16px; font-size: 16.5px; line-height: 1.5; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; animation: kitEntra .5s var(--curva); }
 .retro.ok { background: var(--hoja-claro); color: #12432A; }
-.retro.mal { background: var(--tomate-claro); color: #6B2410; }
+.retro.mal { background: var(--rojo-claro); color: #6B2410; }
 .retro.info { background: var(--uva-claro); color: #2F1F5E; }
 .retro .r-ico { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; }
 .retro.ok .r-ico { background: var(--hoja); }
-.retro.mal .r-ico { background: var(--tomate); }
+.retro.mal .r-ico { background: var(--rojo); }
 .retro.info .r-ico { background: var(--uva); }
 .retro .r-ico svg { width: 17px; height: 17px; }
 .retro b { display: block; margin-bottom: 2px; }
@@ -685,7 +685,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .reto-estado { margin-left: auto; text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--papel-2); color: var(--tinta-suave); display: inline-flex; gap: 6px; align-items: center; transition: background .3s, color .3s; }
 .reto-estado::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .reto-estado[data-estado="logrado"] { background: var(--hoja-claro); color: var(--hoja-osc); }
-.reto-estado[data-estado="revisa"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.reto-estado[data-estado="revisa"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .reto-estado[data-estado="verificando"] { background: var(--cielo-claro); color: var(--cielo-osc); }
 .reto-instruccion { font-size: 17px; line-height: 1.5; }
 
@@ -738,7 +738,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .autoeval-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 10px 8px 14px; border: 1px solid var(--linea); background: var(--blanco); border-radius: 14px; font-size: 16.5px; line-height: 1.35; }
 .autoeval-niveles { display: flex; gap: 4px; padding: 3px; background: var(--papel-2); border-radius: 11px; border: 1px solid var(--linea); }
 .autoeval-niveles button { border: 0; background: transparent; border-radius: 8px; padding: 5px 10px; font-size: 13.5px; font-weight: 700; color: var(--tinta-suave); }
-.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="2"] { background: var(--maiz-claro); color: var(--maiz-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="3"] { background: var(--hoja-claro); color: var(--hoja-osc); }
 .autoeval-resumen { font-size: 16px; color: var(--tinta-suave); min-height: 24px; }
@@ -1166,7 +1166,7 @@ iframe.resultado { padding: 0; }
       /* Bloque A de la sesion 2: portada, ruta y alcance, y los dos retos */
       .s2a-pila { display: flex; flex-direction: column; gap: 8px; min-height: 0; }
       .s2a-tarjeta { --tono: var(--cielo); --tono-claro: var(--cielo-claro); --tono-osc: var(--cielo-osc); padding: 8px 14px 9px; background: var(--papel); border: 1px solid var(--linea); border-left: 6px solid var(--tono); border-radius: var(--radio-m); box-shadow: var(--sombra); font-size: 17px; line-height: 1.36; color: var(--tinta); }
-      .s2a-tarjeta.t-tomate { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); background: var(--tomate-claro); }
+      .s2a-tarjeta.t-rojo { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); background: var(--rojo-claro); }
       .s2a-tarjeta.t-maiz { --tono: var(--maiz); --tono-claro: var(--maiz-claro); --tono-osc: var(--maiz-osc); }
       .s2a-tarjeta p { margin: 0; }
       .s2a-rot { display: block; margin: 0 0 3px; font-size: 13px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--tono-osc); }
@@ -1220,7 +1220,7 @@ iframe.resultado { padding: 0; }
     </section>
 
     <!-- 3. Reto 1: enunciado formal con datos, tarea y restriccion; codigo de arranque con su salida real -->
-    <section class="diapo" id="s2a-reto1" data-seccion="Reto" data-acento="tomate" data-num="01" data-titulo="Retención frente a una línea base">
+    <section class="diapo" id="s2a-reto1" data-seccion="Reto" data-acento="rojo" data-num="01" data-titulo="Retención frente a una línea base">
       <div class="cabeza">
         <p class="antetitulo">¿La diferencia con la línea base es del rediseño o del azar?</p>
         <h2 class="titulo">Retención frente a una <em>línea base</em></h2>
@@ -1243,7 +1243,7 @@ iframe.resultado { padding: 0; }
               </tbody>
             </table>
           </div>
-          <div class="s2a-tarjeta t-tomate" data-paso="5">
+          <div class="s2a-tarjeta t-rojo" data-paso="5">
             <span class="s2a-rot">Pregunta</span>
             <p>¿La diferencia entre 0,1860 y 0,1902 es atribuible al rediseño o al azar del muestreo?</p>
           </div>
@@ -1275,7 +1275,7 @@ retencion observada: 0.1860</pre></div>
     </section>
 
     <!-- 4. Reto 2: criterios de una solucion y registro en el pizarron -->
-    <section class="diapo" id="s2a-reto2" data-titulo="Criterios de una solución" data-acento="tomate">
+    <section class="diapo" id="s2a-reto2" data-titulo="Criterios de una solución" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Qué debe cumplir una solución y qué se registra en el pizarrón?</p>
         <h2 class="titulo">Criterios de una <em>solución</em></h2>
@@ -1331,10 +1331,10 @@ retencion observada: 0.1860</pre></div>
       .s2b-lecturas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
       .s2b-lectura { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
       .s2b-lectura .mal, .s2b-lectura .bien { padding: 12px 16px; border-radius: var(--radio-m); font-size: 18px; line-height: 1.38; color: var(--tinta); }
-      .s2b-lectura .mal { background: var(--tomate-claro); border: 2px solid var(--tomate); min-height: 104px; }
+      .s2b-lectura .mal { background: var(--rojo-claro); border: 2px solid var(--rojo); min-height: 104px; }
       .s2b-lectura .bien { background: var(--cielo-claro); border: 2px solid var(--cielo); }
       .s2b-lectura .rotulo { display: block; margin-bottom: 4px; font-size: 13px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-      .s2b-lectura .mal .rotulo { color: var(--tomate-osc); }
+      .s2b-lectura .mal .rotulo { color: var(--rojo-osc); }
       .s2b-lectura .bien .rotulo { color: var(--cielo-osc); }
       .s2b-lectura .katex-display { margin: .25em 0; }
     </style>
@@ -3692,14 +3692,14 @@ valor p con la normal = 0.3161</pre></div>
         <div class="columna">
           <div class="crece"><svg class="escena-svg" viewBox="0 0 540 170" role="img"><title>Escala del valor p de 0 a 1 con la franja de rechazo hasta alfa igual a 0,05 y el valor p del caso</title>
             <g data-paso="3">
-              <rect x="30" y="58" width="45" height="40" fill="var(--tomate-claro)" stroke="var(--tomate)" stroke-width="2"/>
+              <rect x="30" y="58" width="45" height="40" fill="var(--rojo-claro)" stroke="var(--rojo)" stroke-width="2"/>
               <rect x="75" y="58" width="455" height="40" fill="var(--cielo-claro)" stroke="var(--cielo)" stroke-width="2"/>
-              <text x="40" y="42" font-size="16" font-weight="800" fill="var(--tomate-osc)">se rechaza H0</text>
-              <path d="M52 47V56" stroke="var(--tomate)" stroke-width="2.5" stroke-linecap="round"/>
+              <text x="40" y="42" font-size="16" font-weight="800" fill="var(--rojo-osc)">se rechaza H0</text>
+              <path d="M52 47V56" stroke="var(--rojo)" stroke-width="2.5" stroke-linecap="round"/>
               <text x="200" y="84" font-size="17" font-weight="800" fill="var(--cielo-osc)" text-anchor="middle">no se rechaza H0</text>
               <path d="M30 98V108M75 98V108M120 98V108M210 98V108M300 98V108M390 98V108M480 98V108M530 98V108" stroke="#2B3A31" stroke-width="2" stroke-linecap="round"/>
               <text x="30" y="128" font-size="16" fill="var(--tinta-suave)" text-anchor="middle">0</text>
-              <text x="75" y="128" font-size="16" font-weight="800" fill="var(--tomate-osc)" text-anchor="middle">0,05</text>
+              <text x="75" y="128" font-size="16" font-weight="800" fill="var(--rojo-osc)" text-anchor="middle">0,05</text>
               <text x="122" y="128" font-size="16" fill="var(--tinta-suave)" text-anchor="middle">0,1</text>
               <text x="210" y="128" font-size="16" fill="var(--tinta-suave)" text-anchor="middle">0,2</text>
               <text x="300" y="128" font-size="16" fill="var(--tinta-suave)" text-anchor="middle">0,3</text>
@@ -4919,7 +4919,7 @@ proporción de rechazos = 0.050</pre></div>
 <!-- ===== s2_c_teoria.html ===== -->
     <!-- Sesion 2, bloque C: teoria 11 a 17 (caso completo para una proporcion, contraste t para una media, colas,
          intervalo y contraste, errores y potencia, significancia y relevancia) y mapa de cierre. Prefijo s2c.
-         Color: cielo = modelo o procedimiento, hoja = datos reales, maiz = calculo, tomate = error o riesgo, uva = relacion. -->
+         Color: cielo = modelo o procedimiento, hoja = datos reales, maiz = calculo, rojo = error o riesgo, uva = relacion. -->
     <style>
       .s2c-marca { position: absolute; width: 0; height: 0; }
       .s2c-tabla { font-size: 15.5px; }
@@ -4939,7 +4939,7 @@ proporción de rechazos = 0.050</pre></div>
       .s2c-decision th, .s2c-decision td { padding: 8px 10px; text-align: center; }
       .s2c-decision td:first-child { text-align: left; font-weight: 700; }
       .s2c-celda { display: block; padding: 6px 8px; border-radius: 10px; font-weight: 700; line-height: 1.3; }
-      .s2c-celda.mal { background: var(--tomate-claro); color: var(--tomate-osc); }
+      .s2c-celda.mal { background: var(--rojo-claro); color: var(--rojo-osc); }
       .s2c-celda.bien { background: var(--hoja-claro); color: var(--hoja-osc); }
       .s2c-tarjeta { border-left: 5px solid var(--tono); }
       .s2c-tarjeta .eq-titulo { color: var(--tono-osc); }
@@ -12747,10 +12747,10 @@ L 224.609766 34.842656
       .s2d-datos b { display: block; font-size: 14px; font-weight: 800; color: var(--tinta-suave); }
       .s2d-veredicto { padding: 6px 14px; border-radius: var(--radio-m); font-size: 17.5px; font-weight: 700; line-height: 1.25; }
       .s2d-veredicto.ok { background: var(--hoja-claro); border: 2px solid var(--hoja); }
-      .s2d-veredicto.mal { background: var(--tomate-claro); border: 2px solid var(--tomate); }
+      .s2d-veredicto.mal { background: var(--rojo-claro); border: 2px solid var(--rojo); }
       .s2d-lectura { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
       .s2d-lectura li { padding: 7px 14px; border-left: 5px solid var(--cielo); background: var(--cielo-claro); border-radius: 0 var(--radio-m) var(--radio-m) 0; font-size: 17.5px; line-height: 1.33; }
-      .s2d-lectura li.riesgo { border-left-color: var(--tomate); background: var(--tomate-claro); }
+      .s2d-lectura li.riesgo { border-left-color: var(--rojo); background: var(--rojo-claro); }
       .s2d-lectura li.accion { border-left-color: var(--maiz); background: var(--maiz-claro); }
     </style>
 
@@ -21896,7 +21896,7 @@ media real de Estrato 6 = 48.83</pre></div>
   /* ------------------------------------------------------------------------
      Flujo: diagrama SVG con nodos, conectores, paquetes animados y narración
      ------------------------------------------------------------------------ */
-  const TONOS = ['hoja', 'maiz', 'tomate', 'cielo', 'uva', 'tinta'];
+  const TONOS = ['hoja', 'maiz', 'rojo', 'cielo', 'uva', 'tinta'];
   const colorTono = (t, v = '') => (TONOS.includes(t) ? 'var(--' + (t === 'tinta' ? 'tinta' : t + v) + ')' : t);
 
   class Flujo {
@@ -23007,7 +23007,7 @@ media real de Estrato 6 = 48.83</pre></div>
   function chispas(el) {
     if (reducido()) return;
     const c = h('div', { class: 'chispas', 'aria-hidden': 'true' });
-    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--tomate)', 'var(--cielo)', 'var(--uva)'];
+    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--rojo)', 'var(--cielo)', 'var(--uva)'];
     for (let i = 0; i < 26; i++) {
       const a = Math.random() * Math.PI * 2;
       const r = 80 + Math.random() * 160;
@@ -24048,7 +24048,7 @@ media real de Estrato 6 = 48.83</pre></div>
    - La narracion es <div class="narra" data-paso="1"> con .narra-paso y .narra-texto; su texto sale de `texto[k-1]`.
    - MOD.escena({ diapo, texto, codigo, diagrama, alPaso }) conecta el paso actual del motor con el texto,
      el codigo (lineas visibles y resaltadas) y el diagrama.
-   Color: cielo = modelo y estructura, hoja = datos reales, maiz = calculo y acciones, tomate = limite o error del modelo,
+   Color: cielo = modelo y estructura, hoja = datos reales, maiz = calculo y acciones, rojo = limite o error del modelo,
    uva = relaciones entre modelos. */
 (function () {
   const err = (m) => console.error('[MOD] ' + m);
@@ -24343,7 +24343,7 @@ Kit.listo(() => { setTimeout(() => {
 /* ===== s2_a_inicio.js ===== */
 (function () {
 /* Sesion 2, bloque A: portada, ruta y alcance, reto 1 y reto 2.
-   Color: tomate = el reto, cielo = hipotesis y estadistico, maiz = valor p y decision, uva = errores y potencia, hoja = practica. */
+   Color: rojo = el reto, cielo = hipotesis y estadistico, maiz = valor p y decision, uva = errores y potencia, hoja = practica. */
 Kit.glosario({
   s2a_retencion: {
     termino: 'Retención a 7 días',
@@ -24358,7 +24358,7 @@ Kit.glosario({
 Kit.listo(() => {
   /* ---- Ruta de la sesion: seis bloques con el color de su seccion y, en el paso 7, el alcance (7 pasos) ---- */
   const BLOQUES = [
-    { id: 'reto', nombre: 'Reto', sub: 'problema inicial en parejas', tono: 'tomate', x: 190, y: 62 },
+    { id: 'reto', nombre: 'Reto', sub: 'problema inicial en parejas', tono: 'rojo', x: 190, y: 62 },
     { id: 'hip', nombre: 'Hipótesis y estadístico de prueba', sub: 'qué se afirma y cómo se mide', tono: 'cielo', x: 564, y: 62 },
     { id: 'vp', nombre: 'Valor p y decisión', sub: 'cuánta sorpresa y cuándo rechazar', tono: 'maiz', x: 938, y: 62 },
     { id: 'inf', nombre: 'Inferencia: proporción y media', sub: 'el procedimiento completo', tono: 'cielo', x: 190, y: 172 },
@@ -24415,7 +24415,7 @@ Kit.listo(() => {
 /* Sesion 2, bloque B: hipotesis, estadistico de prueba, valor p y decision (once diapositivas por pasos).
    Caso: retencion a 7 dias de Cookie Cats; linea base 0,1902 (gate_30) y muestra de 2 000 jugadores de gate_40 (372 vuelven).
    Todo estado se calcula desde el paso k para que retroceder funcione. LaTeX con String.raw; "<" se escribe \lt.
-   Color: cielo = modelo o procedimiento, hoja = datos reales, maiz = calculo, tomate = riesgo o error, uva = relacion. */
+   Color: cielo = modelo o procedimiento, hoja = datos reales, maiz = calculo, rojo = riesgo o error, uva = relacion. */
 (window.MOD_FN_EXTRA = window.MOD_FN_EXTRA || []).push(
   { k: 'np.sqrt', firma: 'np.sqrt(x)', que: 'Raíz cuadrada. Aquí calcula el error estándar $\\sqrt{p_0(1-p_0)/n}$.', par: [['x', 'número o arreglo no negativo']] },
   { k: 'stats.binomtest', firma: 'stats.binomtest(k, n, p, alternative="less")', que: 'Prueba binomial exacta para una proporción. Bajo $H_0$ el número de éxitos $X$ sigue una binomial $(n, p)$; con alternative="less" el valor p es $P(X \\le k)$. Devuelve un objeto cuyo atributo .pvalue es el valor p.', par: [['k', 'éxitos observados: jugadores retenidos'], ['n', 'tamaño de la muestra'], ['p', 'proporción que afirma $H_0$, es decir $p_0$'], ['alternative', '"less" para $H_1: p \\lt p_0$; "greater" para $p \\gt p_0$; "two-sided" para $p \\neq p_0$']] },
@@ -24519,7 +24519,7 @@ Kit.listo(() => {
     vista: [1128, 300],
     nodos: [
       { id: 'e1', x: 190, y: 62, etiqueta: '1. Formular H0 y H1', sub: 'afirmaciones sobre el parámetro', tono: 'cielo', ancho: 320, alto: 84, paso: 1 },
-      { id: 'e2', x: 564, y: 62, etiqueta: '2. Fijar el nivel alfa', sub: 'antes de ver los datos', tono: 'tomate', ancho: 320, alto: 84, paso: 2 },
+      { id: 'e2', x: 564, y: 62, etiqueta: '2. Fijar el nivel alfa', sub: 'antes de ver los datos', tono: 'rojo', ancho: 320, alto: 84, paso: 2 },
       { id: 'e3', x: 938, y: 62, etiqueta: '3. Calcular el estadístico', sub: 'con los datos de la muestra', tono: 'maiz', ancho: 320, alto: 84, paso: 3 },
       { id: 'e4', x: 938, y: 228, etiqueta: '4. Distribución bajo H0', sub: 'valores que produce el azar', tono: 'cielo', ancho: 320, alto: 84, paso: 4 },
       { id: 'e5', x: 564, y: 228, etiqueta: '5. Calcular el valor p', sub: 'qué tan extremo es el resultado', tono: 'maiz', ancho: 320, alto: 84, paso: 5 },
@@ -24648,7 +24648,7 @@ Kit.listo(() => {
 (function () {
 /* Sesion 2, bloque C: teoria 11 a 17 y mapa de cierre. Todo estado que cambia se calcula desde el paso k,
    para que retroceder funcione. El LaTeX va con String.raw. Cifras: los .txt de las carpetas codigo/s2_c_ (proporcion, media, potencia, relevancia).
-   Color: cielo = procedimiento, hoja = datos reales, maiz = calculo, tomate = error, uva = relacion. */
+   Color: cielo = procedimiento, hoja = datos reales, maiz = calculo, rojo = error, uva = relacion. */
 
 /* Funciones del codigo de este bloque que funciones.js no describe (o que conviene describir con mas detalle) */
 (window.MOD_FN_EXTRA = window.MOD_FN_EXTRA || []).push(
@@ -24798,7 +24798,7 @@ Kit.listo(() => {
       nodo('colas', 334, 168, 'Una o dos colas', 'dirección de H1', 'cielo', 1),
       nodo('zt', 556, 168, 'z o t', 'proporción o media', 'maiz', 2),
       nodo('ic', 778, 168, 'Intervalo', 'nivel 1 - alfa', 'uva', 4),
-      nodo('errores', 1000, 168, 'Errores I y II', 'alfa, beta, potencia', 'tomate', 5),
+      nodo('errores', 1000, 168, 'Errores I y II', 'alfa, beta, potencia', 'rojo', 5),
       nodo('relevancia', 1000, 290, 'Relevancia', 'efecto e intervalo', 'uva', 6),
     ],
     conectores: [

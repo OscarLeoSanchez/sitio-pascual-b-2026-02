@@ -27,7 +27,7 @@
 
   --hoja: #2F8F5B;   --hoja-claro: #DDF1E4;   --hoja-osc: #1E6B43;
   --maiz: #F2B33D;   --maiz-claro: #FFF1CC;   --maiz-osc: #855400;
-  --tomate: #E4572E; --tomate-claro: #FFE3DB; --tomate-osc: #AE3714;
+  --rojo: #E4572E; --rojo-claro: #FFE3DB; --rojo-osc: #AE3714;
   --cielo: #3B82C4;  --cielo-claro: #DCEBF9;  --cielo-osc: #1D5A94;
   --uva: #7A5BC7;    --uva-claro: #ECE6FA;    --uva-osc: #553A9E;
 
@@ -50,13 +50,13 @@
 
 [data-acento="hoja"]   { --acento: var(--hoja);   --acento-claro: var(--hoja-claro);   --acento-osc: var(--hoja-osc); }
 [data-acento="maiz"]   { --acento: var(--maiz);   --acento-claro: var(--maiz-claro);   --acento-osc: var(--maiz-osc); }
-[data-acento="tomate"] { --acento: var(--tomate); --acento-claro: var(--tomate-claro); --acento-osc: var(--tomate-osc); }
+[data-acento="rojo"] { --acento: var(--rojo); --acento-claro: var(--rojo-claro); --acento-osc: var(--rojo-osc); }
 [data-acento="cielo"]  { --acento: var(--cielo);  --acento-claro: var(--cielo-claro);  --acento-osc: var(--cielo-osc); }
 [data-acento="uva"]    { --acento: var(--uva);    --acento-claro: var(--uva-claro);    --acento-osc: var(--uva-osc); }
 
 [data-tono="hoja"]   { --tono: var(--hoja);   --tono-claro: var(--hoja-claro);   --tono-osc: var(--hoja-osc); }
 [data-tono="maiz"]   { --tono: var(--maiz);   --tono-claro: var(--maiz-claro);   --tono-osc: var(--maiz-osc); }
-[data-tono="tomate"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+[data-tono="rojo"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 [data-tono="cielo"]  { --tono: var(--cielo);  --tono-claro: var(--cielo-claro);  --tono-osc: var(--cielo-osc); }
 [data-tono="uva"]    { --tono: var(--uva);    --tono-claro: var(--uva-claro);    --tono-osc: var(--uva-osc); }
 [data-tono="tinta"]  { --tono: var(--tinta);  --tono-claro: var(--papel-2);      --tono-osc: var(--tinta); }
@@ -350,7 +350,7 @@ kbd { font-family: var(--mono); font-size: 12.5px; background: var(--papel); bor
   background: color-mix(in srgb, var(--tono-claro) 72%, var(--blanco)); border: 1px solid color-mix(in srgb, var(--tono) 26%, transparent); font-size: 19px; line-height: 1.45; }
 .callout[data-tipo="idea"] { --tono: var(--hoja); --tono-claro: var(--hoja-claro); --tono-osc: var(--hoja-osc); }
 .callout[data-tipo="observa"] { --tono: var(--cielo); --tono-claro: var(--cielo-claro); --tono-osc: var(--cielo-osc); }
-.callout[data-tipo="cuidado"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+.callout[data-tipo="cuidado"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 .callout[data-tipo="analogia"] { --tono: var(--uva); --tono-claro: var(--uva-claro); --tono-osc: var(--uva-osc); }
 .callout-ico { grid-row: span 2; width: 38px; height: 38px; border-radius: 12px; background: var(--tono); color: #fff; display: grid; place-items: center; }
 .callout-ico svg { width: 21px; height: 21px; }
@@ -387,7 +387,7 @@ dfn[data-def]:hover, span[data-def]:hover, dfn[data-def][aria-expanded="true"], 
 .pf-bloque[data-tipo="definicion"] > .pfb-ico { background: var(--cielo-claro); color: var(--cielo-osc); }
 .pf-bloque[data-tipo="analogia"] > .pfb-ico { background: var(--uva-claro); color: var(--uva-osc); }
 .pf-bloque[data-tipo="ejemplo"] > .pfb-ico { background: var(--hoja-claro); color: var(--hoja-osc); }
-.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--tomate-claro); color: var(--tomate-osc); }
+.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--rojo-claro); color: var(--rojo-osc); }
 .pf-bloque ul { margin: 0; padding-left: 18px; }
 .pf-bloque code { font-size: .86em; }
 
@@ -483,7 +483,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .tabla-kit tr.resaltada td { background: var(--maiz-claro); }
 .tabla-kit .si, .tabla-kit .no, .tabla-kit .medio { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; }
 .tabla-kit .si { color: var(--hoja-osc); }
-.tabla-kit .no { color: var(--tomate-osc); }
+.tabla-kit .no { color: var(--rojo-osc); }
 .tabla-kit .medio { color: var(--maiz-osc); }
 .tabla-kit svg { width: 18px; height: 18px; }
 
@@ -648,19 +648,19 @@ html.experto .solo-experto.callout { display: grid !important; }
 .opcion:disabled { cursor: default; }
 .opcion.correcta { border-color: var(--hoja); background: var(--hoja-claro); }
 .opcion.correcta .letra { background: var(--hoja); border-color: var(--hoja); color: #fff; }
-.opcion.incorrecta { border-color: var(--tomate); background: var(--tomate-claro); }
-.opcion.incorrecta .letra { background: var(--tomate); border-color: var(--tomate); color: #fff; }
+.opcion.incorrecta { border-color: var(--rojo); background: var(--rojo-claro); }
+.opcion.incorrecta .letra { background: var(--rojo); border-color: var(--rojo); color: #fff; }
 .opcion.atenuada { opacity: .5; }
 .opcion .marca-res { margin-left: auto; width: 24px; height: 24px; flex: none; }
 .opcion code { font-size: .88em; }
 .sacude { animation: kitSacude .45s ease; }
 .retro { border-radius: 14px; padding: 12px 16px; font-size: 16.5px; line-height: 1.5; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; animation: kitEntra .5s var(--curva); }
 .retro.ok { background: var(--hoja-claro); color: #12432A; }
-.retro.mal { background: var(--tomate-claro); color: #6B2410; }
+.retro.mal { background: var(--rojo-claro); color: #6B2410; }
 .retro.info { background: var(--uva-claro); color: #2F1F5E; }
 .retro .r-ico { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; }
 .retro.ok .r-ico { background: var(--hoja); }
-.retro.mal .r-ico { background: var(--tomate); }
+.retro.mal .r-ico { background: var(--rojo); }
 .retro.info .r-ico { background: var(--uva); }
 .retro .r-ico svg { width: 17px; height: 17px; }
 .retro b { display: block; margin-bottom: 2px; }
@@ -673,7 +673,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .reto-estado { margin-left: auto; text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--papel-2); color: var(--tinta-suave); display: inline-flex; gap: 6px; align-items: center; transition: background .3s, color .3s; }
 .reto-estado::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .reto-estado[data-estado="logrado"] { background: var(--hoja-claro); color: var(--hoja-osc); }
-.reto-estado[data-estado="revisa"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.reto-estado[data-estado="revisa"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .reto-estado[data-estado="forma"] { background: var(--cielo-claro); color: var(--cielo-osc); }
 .retro.forma { background: var(--cielo-claro); color: var(--cielo-osc); }
 .retro.forma .r-ico { background: var(--cielo); }
@@ -729,7 +729,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .autoeval-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 10px 8px 14px; border: 1px solid var(--linea); background: var(--blanco); border-radius: 14px; font-size: 16.5px; line-height: 1.35; }
 .autoeval-niveles { display: flex; gap: 4px; padding: 3px; background: var(--papel-2); border-radius: 11px; border: 1px solid var(--linea); }
 .autoeval-niveles button { border: 0; background: transparent; border-radius: 8px; padding: 5px 10px; font-size: 13.5px; font-weight: 700; color: var(--tinta-suave); }
-.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="2"] { background: var(--maiz-claro); color: var(--maiz-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="3"] { background: var(--hoja-claro); color: var(--hoja-osc); }
 .autoeval-resumen { font-size: 16px; color: var(--tinta-suave); min-height: 24px; }
@@ -898,7 +898,7 @@ iframe.resultado { padding: 0; }
     <symbol id="i-flecha-der" viewBox="0 0 24 24"><path d="M4 12h15M14 6.5l5.5 5.5-5.5 5.5"/></symbol>
 
     <!-- ===== Ilustraciones: viewBox 64, trazo tinta 2.5, rellenos pastel ===== -->
-    <symbol id="ilu-tomate" viewBox="0 0 64 64">
+    <symbol id="ilu-rojo" viewBox="0 0 64 64">
       <ellipse cx="32" cy="38" rx="23" ry="19.5" fill="#F27A57" stroke="#2B3A31" stroke-width="2.5"/>
       <path d="M24 22.5c-4 4.5-5 11-3 17M40 22.5c4 4.5 5 11 3 17" fill="none" stroke="#D9573A" stroke-width="2" stroke-linecap="round"/>
       <path d="M15.5 34c1.2-5.2 4.6-8.6 9-10" fill="none" stroke="#FFD0C0" stroke-width="3.2" stroke-linecap="round"/>
@@ -1234,7 +1234,7 @@ Total con descuento: 39735,14</pre>
           <p class="carta-titulo">Salida del programa</p>
           <div class="fila" style="gap: 10px; flex-wrap: wrap">
             <button class="boton primario" type="button" id="a-ejecutar">Ejecutar el programa</button>
-            <button class="boton suave" type="button" id="a-prisa" data-tono="tomate">Editar con prisa</button>
+            <button class="boton suave" type="button" id="a-prisa" data-tono="rojo">Editar con prisa</button>
           </div>
           <div class="a-consola" id="a-consola" aria-live="polite"></div>
           <p class="nota a-estado" id="a-estado"></p>
@@ -1327,7 +1327,7 @@ static double CalcularTotalConDescuento(
 Total antes del descuento: 44150,15
 Total con descuento: 39735,14</pre>
           <div class="comparar">
-            <div class="comparar-lado" data-tono="tomate">
+            <div class="comparar-lado" data-tono="rojo">
               <h3>Antes</h3>
               <p class="nota"><strong>2 copias</strong> del <code>for</code>. Cambiar la regla: 2 ediciones.</p>
             </div>
@@ -1502,7 +1502,7 @@ static double CalcularTotal(double[] precios)
         <div class="columna" style="gap: 14px">
           <p class="nota" style="margin: 0">El <dfn data-def="cuerpo">cuerpo</dfn> es lo que va entre las llaves de la función. Cada variable que declaras ahí es <strong>local</strong>: existe mientras la función corre y desaparece al terminar. Lo que queda fuera de las llaves es de <dfn data-def="main">Main</dfn>, el punto desde donde el programa llama a las funciones.</p>
           <div class="chips" id="b-ambito-chips" aria-label="Cómo se usa total">
-            <button class="chip" type="button" data-valor="fuera" data-tono="tomate" aria-checked="true"><span class="bolita"></span>Usar total desde afuera</button>
+            <button class="chip" type="button" data-valor="fuera" data-tono="rojo" aria-checked="true"><span class="bolita"></span>Usar total desde afuera</button>
             <button class="chip" type="button" data-valor="retorno" data-tono="hoja"><span class="bolita"></span>Usar lo que devuelve</button>
           </div>
           <div class="b-cajas" id="b-ambito-cajas" aria-live="polite"></div>
@@ -1715,7 +1715,7 @@ Console.WriteLine($"Subtotal: {subtotal:F2}");</pre>
           <div class="chips" id="b-orden-chips" aria-label="Cómo se pasan los argumentos">
             <button class="chip" type="button" data-valor="bien" data-tono="hoja" aria-checked="true"><span class="bolita"></span>En orden</button>
             <button class="chip" type="button" data-valor="mismo" data-tono="maiz"><span class="bolita"></span>Cambiados, mismo tipo</button>
-            <button class="chip" type="button" data-valor="distinto" data-tono="tomate"><span class="bolita"></span>Cambiados, otro tipo</button>
+            <button class="chip" type="button" data-valor="distinto" data-tono="rojo"><span class="bolita"></span>Cambiados, otro tipo</button>
           </div>
           <div class="b-term" id="b-term-orden" aria-live="polite"></div>
           <div id="b-orden-callout"></div>
@@ -2068,7 +2068,7 @@ static bool TienePreciosValidos(double[] precios)
         <section data-tipo="definiciones">
           <p><strong>Retorno anticipado:</strong> un <code>return</code> que aparece antes del final y termina la función apenas se cumple la condición.</p>
         </section>
-        <section data-tipo="analogia"><p>Un inspector que revisa una caja de tomates: apenas ve uno podrido, rechaza la caja y deja de mirar los demás.</p></section>
+        <section data-tipo="analogia"><p>Un inspector que revisa una caja de rojos: apenas ve uno podrido, rechaza la caja y deja de mirar los demás.</p></section>
         <section data-tipo="errores"><ul><li>Poner <code>return true;</code> dentro del ciclo: la función termina con el primer precio y no revisa el resto.</li></ul></section>
       </template>
     </section>
@@ -2167,7 +2167,7 @@ static double CalcularTotal(double[] precios)
 }</pre>
           <div class="columna" style="gap: 12px">
             <div class="columna" style="gap: 8px">
-              <span class="etiqueta" data-tono="tomate" id="c-trop-etq" style="align-self: flex-start">Error del compilador</span>
+              <span class="etiqueta" data-tono="rojo" id="c-trop-etq" style="align-self: flex-start">Error del compilador</span>
               <div id="c-trop-salida" style="background: #2A322D; color: #E8E4D8; border-radius: 12px; padding: 12px 14px; font-family: var(--mono); font-size: 14px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; font-variant-ligatures: none"></div>
             </div>
             <div class="carta plana" style="padding: 14px 18px">
@@ -2232,8 +2232,8 @@ Console.WriteLine($"Total: {CalcularTotal(preciosConError)}");</pre>
             <text x="85" y="132" text-anchor="middle" fill="var(--maiz-osc)">Predice</text>
             <rect x="205" y="70" width="150" height="150" rx="20" fill="var(--cielo-claro)" stroke="var(--cielo)" stroke-width="3"/>
             <text x="280" y="132" text-anchor="middle" fill="var(--cielo-osc)">Refactoriza</text>
-            <rect x="400" y="70" width="150" height="150" rx="20" fill="var(--tomate-claro)" stroke="var(--tomate)" stroke-width="3"/>
-            <text x="475" y="132" text-anchor="middle" fill="var(--tomate-osc)">Corrige</text>
+            <rect x="400" y="70" width="150" height="150" rx="20" fill="var(--rojo-claro)" stroke="var(--rojo)" stroke-width="3"/>
+            <text x="475" y="132" text-anchor="middle" fill="var(--rojo-osc)">Corrige</text>
           </g>
           <g style="font-weight: 600; font-size: 16px" fill="var(--tinta-suave)" text-anchor="middle">
             <text x="85" y="162">qué imprime</text>
@@ -2657,23 +2657,23 @@ Console.WriteLine($"Con descuento: {AplicarDescuento(total, 0.10):F2}");</pre>
       <div class="dividido" data-proporcion="40/60">
         <div class="columna" style="gap: 6px">
           <p class="carta-titulo">Errores y descuidos frecuentes</p>
-          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="tomate">
+          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="rojo">
             <summary><span class="pf-titulo">Declarar <code>double</code> y olvidar <code>return</code></span><span class="pf-sub">CS0161: no todas las rutas devuelven un valor</span></summary>
             <div class="pf-cuerpo"><div class="pf-bloque" data-tipo="ejemplo" data-etiqueta="Corrección"><code>return total;</code> antes de la llave final.</div></div>
           </details>
-          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="tomate">
+          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="rojo">
             <summary><span class="pf-titulo">Llamar y no guardar el resultado</span><span class="pf-sub">Compila, pero el valor se pierde</span></summary>
             <div class="pf-cuerpo"><div class="pf-bloque" data-tipo="ejemplo" data-etiqueta="Corrección"><code>double total = CalcularTotal(precios);</code></div></div>
           </details>
-          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="tomate">
+          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="rojo">
             <summary><span class="pf-titulo">Pasar un valor donde va un vector</span><span class="pf-sub">CS1503: no convierte double en double[]</span></summary>
             <div class="pf-cuerpo"><div class="pf-bloque" data-tipo="ejemplo" data-etiqueta="Corrección">Pasa el vector: <code>CalcularTotal(precios)</code>.</div></div>
           </details>
-          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="tomate">
+          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="rojo">
             <summary><span class="pf-titulo">Esperar un valor de <code>void</code></span><span class="pf-sub">CS0029: no se puede convertir void en double</span></summary>
             <div class="pf-cuerpo"><div class="pf-bloque" data-tipo="ejemplo" data-etiqueta="Corrección">Cambia <code>void</code> por <code>double</code> y agrega <code>return</code>.</div></div>
           </details>
-          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="tomate">
+          <details class="profundiza compacta" data-grupo="d-errores" data-icono="cuidado" data-acento="rojo">
             <summary><span class="pf-titulo">Escribir código después de <code>return</code></span><span class="pf-sub">Advertencia CS0162: compila, pero ese código nunca se ejecuta</span></summary>
             <div class="pf-cuerpo"><div class="pf-bloque" data-tipo="ejemplo" data-etiqueta="Corrección">Lo que debe correr va antes de <code>return</code>.</div></div>
           </details>
@@ -3302,7 +3302,7 @@ Console.WriteLine(precios[0]);</pre>
   /* ------------------------------------------------------------------------
      Flujo: diagrama SVG con nodos, conectores, paquetes animados y narración
      ------------------------------------------------------------------------ */
-  const TONOS = ['hoja', 'maiz', 'tomate', 'cielo', 'uva', 'tinta'];
+  const TONOS = ['hoja', 'maiz', 'rojo', 'cielo', 'uva', 'tinta'];
   const colorTono = (t, v = '') => (TONOS.includes(t) ? 'var(--' + (t === 'tinta' ? 'tinta' : t + v) + ')' : t);
 
   class Flujo {
@@ -4395,7 +4395,7 @@ Console.WriteLine(precios[0]);</pre>
   function chispas(el) {
     if (reducido()) return;
     const c = h('div', { class: 'chispas', 'aria-hidden': 'true' });
-    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--tomate)', 'var(--cielo)', 'var(--uva)'];
+    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--rojo)', 'var(--cielo)', 'var(--uva)'];
     for (let i = 0; i < 26; i++) {
       const a = Math.random() * Math.PI * 2;
       const r = 80 + Math.random() * 160;
@@ -5560,7 +5560,7 @@ Kit.glosario(Object.assign({},
     termino: 'Retorno anticipado',
     corta: 'Un <code>return</code> que aparece antes del final de la función y la termina apenas se cumple una condición.',
     larga: 'Evita trabajo innecesario: <code>TienePreciosValidos</code> sale con <code>return false;</code> en cuanto encuentra un precio negativo y no revisa el resto. Si el recorrido termina sin encontrar ninguno, se llega al <code>return true;</code> del final.',
-    analogia: 'Un inspector que rechaza la caja de tomates apenas ve uno podrido: no necesita revisar los demás para decidir.',
+    analogia: 'Un inspector que rechaza la caja de rojos apenas ve uno podrido: no necesita revisar los demás para decidir.',
     ejemplo: 'static bool TienePreciosValidos(double[] precios)\n{\n    foreach (double precio in precios)\n    {\n        if (precio < 0)\n        {\n            return false;\n        }\n    }\n    return true;\n}',
     lang: 'csharp',
     errores: 'Poner <code>return true;</code> dentro del ciclo: la función termina con el primer precio y no revisa los demás.',
@@ -5646,14 +5646,14 @@ Kit.listo(() => {
     '.a-copias { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: start; }',
     '.a-copia { background: var(--blanco); border: 1.5px solid var(--linea); border-radius: 14px; padding: 8px 10px 9px; display: flex; flex-direction: column; gap: 6px; min-width: 0; transition: border-color .25s, background .25s; }',
     '.a-copia.nueva { border-color: var(--hoja); background: var(--hoja-claro); }',
-    '.a-copia.olvidada { border-color: var(--tomate); background: var(--tomate-claro); animation: kitSacude .45s ease; }',
+    '.a-copia.olvidada { border-color: var(--rojo); background: var(--rojo-claro); animation: kitSacude .45s ease; }',
     '.a-copia-cab { display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; min-width: 0; }',
     '.a-copia-num { flex: none; width: 24px; height: 24px; border-radius: 8px; display: grid; place-items: center; background: var(--cielo-claro); color: var(--cielo-osc); font-size: 13px; font-weight: 800; }',
     '.a-copia-lugar { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }',
     '.a-copia code { display: block; font-size: 12.5px; white-space: normal; overflow-wrap: anywhere; background: var(--papel); }',
     '.a-copia.nueva code { background: var(--blanco); }',
     '.a-nuevo { color: var(--hoja-osc); font-weight: 800; }',
-    '.a-copia-nota { font-size: 13.5px; font-weight: 650; color: var(--tomate-osc); }',
+    '.a-copia-nota { font-size: 13.5px; font-weight: 650; color: var(--rojo-osc); }',
     '.a-panel { display: flex; flex-direction: column; gap: 12px; }',
     '.a-consola { background: #2A322D; color: #E8E4D8; border-radius: 14px; padding: 8px 10px; font-family: var(--mono); font-size: 13.5px; line-height: 1.55; min-height: 150px; max-height: 190px; overflow: auto; font-variant-ligatures: none; transition: opacity .3s; }',
     '.a-consola.a-vieja { opacity: .5; }',
@@ -5663,7 +5663,7 @@ Kit.listo(() => {
     '.a-fila-c.bien b { color: #A8DDB5; }',
     '.a-fila-c i { font-style: normal; font-size: 12px; margin-left: 8px; }',
     '.a-estado { min-height: 46px; font-size: 16px; }',
-    '.a-estado.mal { color: var(--tomate-osc); font-weight: 650; }',
+    '.a-estado.mal { color: var(--rojo-osc); font-weight: 650; }',
     '.a-estado.ok { color: var(--hoja-osc); font-weight: 650; }',
   ].join('\n');
   document.head.append(estilo);
@@ -5824,7 +5824,7 @@ Kit.listo(() => {
       const todos = (est) => LUGARES.reduce((o, id) => { o[id] = est; return o; }, {});
       const pasos = [
         { pulso: LUGARES, duracion: 1900, texto: 'Hoy el mismo <code>for</code> está copiado en cinco lugares: la pantalla, el descuento, el reporte, la validación y el resumen.',
-          estado: todos({ texto: 'for copiado', tono: 'tomate' }) },
+          estado: todos({ texto: 'for copiado', tono: 'rojo' }) },
         { nodo: 'funcion', duracion: 1800, texto: 'Escribes el <code>for</code> una sola vez y le pones un nombre: <code>CalcularTotal</code>.',
           estado: { funcion: { texto: 'for con nombre', tono: 'cielo' } } },
         { desde: 'pantalla', hasta: 'funcion', paquete: 'CalcularTotal(precios)', tono: 'maiz', duracion: 1500,
@@ -5969,8 +5969,8 @@ Kit.listo(() => {
 .b-caja-t { margin: 0 0 2px; font-family: var(--mono); font-size: 14px; font-weight: 800; color: var(--tono-osc); }
 .b-var { display: flex; justify-content: space-between; gap: 8px; font-family: var(--mono); font-size: 14px; background: var(--blanco); border: 1.5px solid var(--hoja); border-radius: 10px; padding: 3px 10px; }
 .b-var b { font-weight: 700; color: var(--hoja-osc); }
-.b-var.b-no { border-style: dashed; border-color: var(--tomate); background: var(--tomate-claro); color: var(--tomate-osc); }
-.b-var.b-no b { color: var(--tomate-osc); }
+.b-var.b-no { border-style: dashed; border-color: var(--rojo); background: var(--rojo-claro); color: var(--rojo-osc); }
+.b-var.b-no b { color: var(--rojo-osc); }
 .b-var.b-tachada span { text-decoration: line-through; }
 .b-term { background: #1F2A24; color: #F3EEE2; border-radius: 14px; padding: 10px 14px 12px; font-family: var(--mono); font-size: 14px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; min-height: 72px; }
 .b-term .b-t-barra { display: block; font-family: var(--fuente); font-size: 11.5px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: #A9B5AD; margin-bottom: 4px; }
@@ -5984,7 +5984,7 @@ Kit.listo(() => {
 .b-param-v { font-size: 15px; font-weight: 700; color: var(--tinta-suave); }
 .b-items { display: flex; gap: 6px; flex-wrap: wrap; }
 .b-item { font-family: var(--mono); font-size: 15px; font-weight: 700; background: var(--hoja-claro); color: var(--hoja-osc); border: 1.5px solid var(--hoja); border-radius: 9px; padding: 2px 9px; }
-.b-item.b-neg { background: var(--tomate-claro); color: var(--tomate-osc); border-color: var(--tomate); }
+.b-item.b-neg { background: var(--rojo-claro); color: var(--rojo-osc); border-color: var(--rojo); }
 .b-item.b-vacio { background: var(--papel-2); color: var(--tinta-suave); border: 1.5px dashed var(--linea-2); font-style: italic; font-family: var(--fuente); font-weight: 600; }
 .b-sale { margin: 0; font-size: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .b-val { font-family: var(--mono); font-weight: 800; background: var(--hoja-claro); border: 2px solid var(--hoja); border-radius: 10px; padding: 2px 10px; color: var(--hoja-osc); }
@@ -6393,10 +6393,10 @@ Kit.listo(() => {
           pasos.push({
             nodo: id, duracion: 1900,
             texto: '<code>' + fmt(datos[i]) + '</code> es negativo: el <code>if</code> entra.',
-            codigo: cod(ID, [5, 6, 7]), estado: { [id]: { texto: 'es negativo', tono: 'tomate' } },
+            codigo: cod(ID, [5, 6, 7]), estado: { [id]: { texto: 'es negativo', tono: 'rojo' } },
           });
           pasos.push({
-            desde: id, hasta: 'res', paquete: 'false', tono: 'tomate', duracion: 1300,
+            desde: id, hasta: 'res', paquete: 'false', tono: 'rojo', duracion: 1300,
             texto: '<code>return false;</code> termina la función en este punto.',
             codigo: cod(ID, [7], 'La función termina aquí'),
           });
@@ -6405,7 +6405,7 @@ Kit.listo(() => {
           pasos.push({
             nodo: 'res', duracion: 2300,
             texto: 'Devuelve <code>' + bool(false) + '</code> sin mirar el resto. El <code>return true;</code> del final no se ejecuta.',
-            codigo: cod(ID, [7]), estado: Object.assign({ res: { texto: bool(false), tono: 'tomate' } }, sinRevisar),
+            codigo: cod(ID, [7]), estado: Object.assign({ res: { texto: bool(false), tono: 'rojo' } }, sinRevisar),
           });
           return pasos;
         }
@@ -6567,7 +6567,7 @@ Kit.listo(() => {
         lineas: [4, 11],
         nota: 'Declara un <code>double</code> y nunca lo entrega',
         etiqueta: 'Error del compilador',
-        tono: 'tomate',
+        tono: 'rojo',
         salida: "Program.cs(4,15): error CS0161: 'CalcularTotal(double[])': no todas las rutas de acceso de código devuelven un valor",
         explica: 'El <code>for</code> calcula <code>total</code>, pero la función termina sin entregarlo. Agrega <code>return total;</code> antes de la última llave.',
       },
@@ -6576,7 +6576,7 @@ Kit.listo(() => {
         lineas: [11],
         nota: 'Esto es un <code>string</code>, no un <code>double</code>',
         etiqueta: 'Error del compilador',
-        tono: 'tomate',
+        tono: 'rojo',
         salida: "Program.cs(11,12): error CS0029: No se puede convertir implícitamente el tipo 'string' en 'double'",
         explica: 'La firma promete un <code>double</code> y <code>return</code> entrega un <code>string</code>. El valor debe tener el tipo de retorno: <code>return total;</code>.',
       },
@@ -6598,7 +6598,7 @@ Kit.listo(() => {
         lineas: [11],
         nota: 'Una función <code>void</code> no devuelve valores',
         etiqueta: 'Error del compilador',
-        tono: 'tomate',
+        tono: 'rojo',
         salida: "Program.cs(11,5): error CS0127: Como 'MostrarVector(double[], string)' devuelve void, una palabra clave return no debe ir seguida de una expresión de objeto",
         explica: 'Una función <code>void</code> no entrega valores. Quita el valor y deja <code>return;</code>, o borra la línea. Si necesitas la cantidad, cambia el tipo de retorno a <code>int</code>.',
       },
@@ -7779,7 +7779,7 @@ Kit.listo(() => {
         if (ok) aciertos++;
         const p = f.querySelector('.d-fila-retro');
         p.textContent = ok ? SI[clave] : NO[clave];
-        p.style.color = ok ? 'var(--hoja-osc)' : 'var(--tomate-osc)';
+        p.style.color = ok ? 'var(--hoja-osc)' : 'var(--rojo-osc)';
       });
       estado.textContent = aciertos === 3
         ? 'Los tres errores identificados. En la diapositiva siguiente, mira cuáles avisa el compilador.'
@@ -7793,8 +7793,8 @@ Kit.listo(() => {
     tituloSvg: 'Dos bloques que repiten la misma idea sobre dos vectores se reemplazan por una sola función',
     vista: [450, 280],
     nodos: [
-      { id: 'b1', x: 105, y: 70, ancho: 190, etiqueta: 'Bloque 1', sub: 'recorre precios', tono: 'tomate', paso: 1 },
-      { id: 'b2', x: 105, y: 210, ancho: 190, etiqueta: 'Bloque 2', sub: 'recorre preciosOferta', tono: 'tomate', paso: 1 },
+      { id: 'b1', x: 105, y: 70, ancho: 190, etiqueta: 'Bloque 1', sub: 'recorre precios', tono: 'rojo', paso: 1 },
+      { id: 'b2', x: 105, y: 210, ancho: 190, etiqueta: 'Bloque 2', sub: 'recorre preciosOferta', tono: 'rojo', paso: 1 },
       { id: 'f', x: 340, y: 140, ancho: 170, etiqueta: 'Maximo', sub: 'un solo bloque', tono: 'cielo', paso: 2 },
     ],
     conectores: [
@@ -7808,7 +7808,7 @@ Kit.listo(() => {
     tituloSvg: 'Una función que suma, descuenta e imprime se parte en dos funciones que devuelven un valor y en quien las llama',
     vista: [520, 250],
     nodos: [
-      { id: 'grande', x: 110, y: 125, ancho: 200, etiqueta: 'ReporteInventario', sub: 'tres tareas en una', tono: 'tomate', paso: 1 },
+      { id: 'grande', x: 110, y: 125, ancho: 200, etiqueta: 'ReporteInventario', sub: 'tres tareas en una', tono: 'rojo', paso: 1 },
       { id: 't1', x: 410, y: 45, ancho: 190, alto: 66, etiqueta: 'CalcularTotal', sub: 'devuelve el total', tono: 'cielo', paso: 2 },
       { id: 't2', x: 410, y: 125, ancho: 190, alto: 66, etiqueta: 'AplicarDescuento', sub: 'devuelve el descuento', tono: 'cielo', paso: 2 },
       { id: 't3', x: 410, y: 205, ancho: 190, alto: 66, etiqueta: 'Quien llama', sub: 'imprime los resultados', tono: 'maiz', paso: 2 },
@@ -7825,7 +7825,7 @@ Kit.listo(() => {
     tituloSvg: 'Mapa conceptual: el código repetido se resuelve con una función que tiene nombre, firma, parámetros, cuerpo y return, y se usa con una llamada',
     vista: [1120, 440],
     nodos: [
-      { id: 'problema', x: 130, y: 40, ancho: 210, alto: 66, etiqueta: 'Código repetido', sub: 'el mismo bloque pegado', tono: 'tomate', paso: 1 },
+      { id: 'problema', x: 130, y: 40, ancho: 210, alto: 66, etiqueta: 'Código repetido', sub: 'el mismo bloque pegado', tono: 'rojo', paso: 1 },
       { id: 'funcion', x: 560, y: 40, ancho: 210, alto: 66, etiqueta: 'Función', sub: 'bloque con nombre', tono: 'cielo', paso: 1 },
       { id: 'firma', x: 250, y: 155, ancho: 210, alto: 66, etiqueta: 'Firma', sub: 'la línea que la declara', tono: 'cielo', paso: 2 },
       { id: 'nombre', x: 105, y: 270, ancho: 200, alto: 66, etiqueta: 'Nombre', sub: 'en PascalCase', tono: 'cielo', paso: 2 },

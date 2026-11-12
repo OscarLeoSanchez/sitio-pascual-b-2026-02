@@ -17,7 +17,7 @@
      cielo  = producto y requisitos
      hoja   = conformidad y evidencia
      maiz   = actividades de proceso: revisiones, auditorías, controles, decisiones
-     tomate = defectos, fallas y riesgo
+     rojo = defectos, fallas y riesgo
      uva    = estándares, normas y certificación
    El color de una sección o de un nodo debe decir qué tipo de cosa es, no decorar.
    ========================================================================== */
@@ -36,7 +36,7 @@
 
   --hoja: #2F8F5B;   --hoja-claro: #DDF1E4;   --hoja-osc: #1E6B43;
   --maiz: #F2B33D;   --maiz-claro: #FFF1CC;   --maiz-osc: #855400;
-  --tomate: #E4572E; --tomate-claro: #FFE3DB; --tomate-osc: #AE3714;
+  --rojo: #E4572E; --rojo-claro: #FFE3DB; --rojo-osc: #AE3714;
   --cielo: #3B82C4;  --cielo-claro: #DCEBF9;  --cielo-osc: #1D5A94;
   --uva: #7A5BC7;    --uva-claro: #ECE6FA;    --uva-osc: #553A9E;
 
@@ -59,13 +59,13 @@
 
 [data-acento="hoja"]   { --acento: var(--hoja);   --acento-claro: var(--hoja-claro);   --acento-osc: var(--hoja-osc); }
 [data-acento="maiz"]   { --acento: var(--maiz);   --acento-claro: var(--maiz-claro);   --acento-osc: var(--maiz-osc); }
-[data-acento="tomate"] { --acento: var(--tomate); --acento-claro: var(--tomate-claro); --acento-osc: var(--tomate-osc); }
+[data-acento="rojo"] { --acento: var(--rojo); --acento-claro: var(--rojo-claro); --acento-osc: var(--rojo-osc); }
 [data-acento="cielo"]  { --acento: var(--cielo);  --acento-claro: var(--cielo-claro);  --acento-osc: var(--cielo-osc); }
 [data-acento="uva"]    { --acento: var(--uva);    --acento-claro: var(--uva-claro);    --acento-osc: var(--uva-osc); }
 
 [data-tono="hoja"]   { --tono: var(--hoja);   --tono-claro: var(--hoja-claro);   --tono-osc: var(--hoja-osc); }
 [data-tono="maiz"]   { --tono: var(--maiz);   --tono-claro: var(--maiz-claro);   --tono-osc: var(--maiz-osc); }
-[data-tono="tomate"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+[data-tono="rojo"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 [data-tono="cielo"]  { --tono: var(--cielo);  --tono-claro: var(--cielo-claro);  --tono-osc: var(--cielo-osc); }
 [data-tono="uva"]    { --tono: var(--uva);    --tono-claro: var(--uva-claro);    --tono-osc: var(--uva-osc); }
 [data-tono="tinta"]  { --tono: var(--tinta);  --tono-claro: var(--papel-2);      --tono-osc: var(--tinta); }
@@ -359,7 +359,7 @@ kbd { font-family: var(--mono); font-size: 12.5px; background: var(--papel); bor
   background: color-mix(in srgb, var(--tono-claro) 72%, var(--blanco)); border: 1px solid color-mix(in srgb, var(--tono) 26%, transparent); font-size: 19px; line-height: 1.45; }
 .callout[data-tipo="idea"] { --tono: var(--hoja); --tono-claro: var(--hoja-claro); --tono-osc: var(--hoja-osc); }
 .callout[data-tipo="observa"] { --tono: var(--cielo); --tono-claro: var(--cielo-claro); --tono-osc: var(--cielo-osc); }
-.callout[data-tipo="cuidado"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+.callout[data-tipo="cuidado"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 .callout[data-tipo="analogia"] { --tono: var(--uva); --tono-claro: var(--uva-claro); --tono-osc: var(--uva-osc); }
 .callout-ico { grid-row: span 2; width: 38px; height: 38px; border-radius: 12px; background: var(--tono); color: #fff; display: grid; place-items: center; }
 .callout-ico svg { width: 21px; height: 21px; }
@@ -396,7 +396,7 @@ dfn[data-def]:hover, span[data-def]:hover, dfn[data-def][aria-expanded="true"], 
 .pf-bloque[data-tipo="definicion"] > .pfb-ico { background: var(--cielo-claro); color: var(--cielo-osc); }
 .pf-bloque[data-tipo="analogia"] > .pfb-ico { background: var(--uva-claro); color: var(--uva-osc); }
 .pf-bloque[data-tipo="ejemplo"] > .pfb-ico { background: var(--hoja-claro); color: var(--hoja-osc); }
-.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--tomate-claro); color: var(--tomate-osc); }
+.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--rojo-claro); color: var(--rojo-osc); }
 .pf-bloque ul { margin: 0; padding-left: 18px; }
 .pf-bloque code { font-size: .86em; }
 
@@ -491,7 +491,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .tabla-kit tr.resaltada td { background: var(--maiz-claro); }
 .tabla-kit .si, .tabla-kit .no, .tabla-kit .medio { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; }
 .tabla-kit .si { color: var(--hoja-osc); }
-.tabla-kit .no { color: var(--tomate-osc); }
+.tabla-kit .no { color: var(--rojo-osc); }
 .tabla-kit .medio { color: var(--maiz-osc); }
 .tabla-kit svg { width: 18px; height: 18px; }
 
@@ -660,19 +660,19 @@ html.experto .solo-experto.callout { display: grid !important; }
 .opcion:disabled { cursor: default; }
 .opcion.correcta { border-color: var(--hoja); background: var(--hoja-claro); }
 .opcion.correcta .letra { background: var(--hoja); border-color: var(--hoja); color: #fff; }
-.opcion.incorrecta { border-color: var(--tomate); background: var(--tomate-claro); }
-.opcion.incorrecta .letra { background: var(--tomate); border-color: var(--tomate); color: #fff; }
+.opcion.incorrecta { border-color: var(--rojo); background: var(--rojo-claro); }
+.opcion.incorrecta .letra { background: var(--rojo); border-color: var(--rojo); color: #fff; }
 .opcion.atenuada { opacity: .5; }
 .opcion .marca-res { margin-left: auto; width: 24px; height: 24px; flex: none; }
 .opcion code { font-size: .88em; }
 .sacude { animation: kitSacude .45s ease; }
 .retro { border-radius: 14px; padding: 12px 16px; font-size: 16.5px; line-height: 1.5; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; animation: kitEntra .5s var(--curva); }
 .retro.ok { background: var(--hoja-claro); color: #12432A; }
-.retro.mal { background: var(--tomate-claro); color: #6B2410; }
+.retro.mal { background: var(--rojo-claro); color: #6B2410; }
 .retro.info { background: var(--uva-claro); color: #2F1F5E; }
 .retro .r-ico { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; }
 .retro.ok .r-ico { background: var(--hoja); }
-.retro.mal .r-ico { background: var(--tomate); }
+.retro.mal .r-ico { background: var(--rojo); }
 .retro.info .r-ico { background: var(--uva); }
 .retro .r-ico svg { width: 17px; height: 17px; }
 .retro b { display: block; margin-bottom: 2px; }
@@ -685,7 +685,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .reto-estado { margin-left: auto; text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--papel-2); color: var(--tinta-suave); display: inline-flex; gap: 6px; align-items: center; transition: background .3s, color .3s; }
 .reto-estado::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .reto-estado[data-estado="logrado"] { background: var(--hoja-claro); color: var(--hoja-osc); }
-.reto-estado[data-estado="revisa"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.reto-estado[data-estado="revisa"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .reto-estado[data-estado="verificando"] { background: var(--cielo-claro); color: var(--cielo-osc); }
 .reto-instruccion { font-size: 17px; line-height: 1.5; }
 
@@ -738,7 +738,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .autoeval-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 10px 8px 14px; border: 1px solid var(--linea); background: var(--blanco); border-radius: 14px; font-size: 16.5px; line-height: 1.35; }
 .autoeval-niveles { display: flex; gap: 4px; padding: 3px; background: var(--papel-2); border-radius: 11px; border: 1px solid var(--linea); }
 .autoeval-niveles button { border: 0; background: transparent; border-radius: 8px; padding: 5px 10px; font-size: 13.5px; font-weight: 700; color: var(--tinta-suave); }
-.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="2"] { background: var(--maiz-claro); color: var(--maiz-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="3"] { background: var(--hoja-claro); color: var(--hoja-osc); }
 .autoeval-resumen { font-size: 16px; color: var(--tinta-suave); min-height: 24px; }
@@ -1412,14 +1412,14 @@ iframe.resultado { padding: 0; }
     <style>
       /* Los tres dolores: tarjetas ilustradas, escala del problema y puente hacia el objeto */
       .s1d-cuerpo { display: flex; flex-direction: column; justify-content: center; gap: 14px; min-height: 0; }
-      .s1d-carta { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px 14px; background: var(--tomate-claro); border-color: color-mix(in srgb, var(--tomate) 38%, var(--linea)); box-shadow: none; }
+      .s1d-carta { display: flex; flex-direction: column; gap: 6px; padding: 12px 16px 14px; background: var(--rojo-claro); border-color: color-mix(in srgb, var(--rojo) 38%, var(--linea)); box-shadow: none; }
       .s1d-carta svg { width: 100%; height: 100px; display: block; }
       .s1d-carta svg text { font-family: var(--mono); font-size: 16px; font-weight: 700; fill: #1F2A24; }
-      .s1d-carta h3 { margin: 0; font-size: 23px; line-height: 1.2; color: var(--tomate-osc); }
+      .s1d-carta h3 { margin: 0; font-size: 23px; line-height: 1.2; color: var(--rojo-osc); }
       .s1d-carta p { margin: 0; font-size: 18px; line-height: 1.35; color: var(--tinta); }
       .s1d-fila { display: flex; align-items: center; gap: 14px; min-height: 58px; }
       .s1d-escala { display: flex; align-items: center; gap: 12px; }
-      .s1d-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 12px; border-radius: 999px; background: var(--tomate-claro); border: 2px solid var(--tomate); font-size: 20px; font-weight: 800; color: var(--tomate-osc); white-space: nowrap; }
+      .s1d-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px 8px 12px; border-radius: 999px; background: var(--rojo-claro); border: 2px solid var(--rojo); font-size: 20px; font-weight: 800; color: var(--rojo-osc); white-space: nowrap; }
       .s1d-chip svg { width: 28px; height: 28px; flex: none; }
       .s1d-puente { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
       .s1d-puente > svg { width: 40px; height: 28px; flex: none; }
@@ -1430,7 +1430,7 @@ iframe.resultado { padding: 0; }
     </style>
 
     <!-- 1. Variables sueltas (etapa e1) -->
-    <section class="diapo" id="s1-variables" data-seccion="El problema" data-acento="tomate" data-num="01" data-titulo="Un libro, tres variables">
+    <section class="diapo" id="s1-variables" data-seccion="El problema" data-acento="rojo" data-num="01" data-titulo="Un libro, tres variables">
       <div class="cabeza">
         <p class="antetitulo">¿Qué pasa si cada dato vive en su propia variable?</p>
         <h2 class="titulo">Un libro, <em>tres variables</em></h2>
@@ -1485,7 +1485,7 @@ public class Main {
     </section>
 
     <!-- 2. Arreglos paralelos (etapa e2) -->
-    <section class="diapo" id="s1-arreglos" data-titulo="Arreglos paralelos" data-acento="tomate">
+    <section class="diapo" id="s1-arreglos" data-titulo="Arreglos paralelos" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Y si usamos arreglos paralelos?</p>
         <h2 class="titulo">Tres arreglos que <em>deben ir juntos</em></h2>
@@ -1533,7 +1533,7 @@ public class Main {
     </section>
 
     <!-- 3. Funcion suelta (etapa e3) -->
-    <section class="diapo" id="s1-funciones" data-titulo="Una función que no protege" data-acento="tomate">
+    <section class="diapo" id="s1-funciones" data-titulo="Una función que no protege" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Y si ponemos las reglas en funciones?</p>
         <h2 class="titulo">Una función <em>que no protege nada</em></h2>
@@ -1589,7 +1589,7 @@ public class Main {
     </section>
 
     <!-- 4. Los tres dolores (sin codigo) -->
-    <section class="diapo" id="s1-duele" data-titulo="Tres dolores" data-acento="tomate">
+    <section class="diapo" id="s1-duele" data-titulo="Tres dolores" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Qué es lo que más nos duele?</p>
         <h2 class="titulo">Tres <em>dolores</em></h2>
@@ -2036,7 +2036,7 @@ public class Main {
       .m3-var { fill: var(--papel-2); stroke: #2B3A31; stroke-width: 2.5; }
       .m3-tv { font-size: 19px !important; font-weight: 700; text-anchor: middle; }
       .m3-flecha { fill: none; stroke: var(--uva); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-      .m3-flecha.mal { stroke: var(--tomate); }
+      .m3-flecha.mal { stroke: var(--rojo); }
       .m3-cuerpo { fill: var(--papel); stroke: #2B3A31; stroke-width: 2.5; }
       .m3-cab { fill: var(--hoja-claro); stroke: #2B3A31; stroke-width: 2.5; }
       .m3-th { font-family: var(--fuente) !important; font-size: 19px !important; font-weight: 800; text-anchor: middle; }
@@ -2044,10 +2044,10 @@ public class Main {
       .m3-lab { fill: var(--tinta-suave) !important; }
       .m3-val { text-anchor: end; font-weight: 700; fill: var(--hoja-osc) !important; }
       .m3-val.vacio { font-weight: 500; font-style: italic; fill: var(--tinta-tenue) !important; }
-      .m3-val.neg { fill: var(--tomate-osc) !important; }
+      .m3-val.neg { fill: var(--rojo-osc) !important; }
       .m3-vbg { fill: none; stroke: none; transition: fill .35s, stroke .35s; }
       .m3-vbg.cambia { fill: var(--maiz-claro); stroke: var(--maiz); stroke-width: 2; }
-      .m3-vbg.error { fill: var(--tomate-claro); stroke: var(--tomate); stroke-width: 2; }
+      .m3-vbg.error { fill: var(--rojo-claro); stroke: var(--rojo); stroke-width: 2; }
       .m3-halo { fill: none; stroke: var(--maiz); stroke-width: 4; opacity: 0; transition: opacity .3s; }
       .m3-halo.on { opacity: 1; }
       .m3-halo.hoja { stroke: var(--hoja); }
@@ -2066,17 +2066,17 @@ public class Main {
       .uml .et2 { font-family: var(--fuente) !important; font-size: 16px !important; fill: var(--tinta-suave) !important; }
       /* Antes y despues */
       .ad { width: 100%; height: auto; display: block; overflow: visible; }
-      .ad .izq { fill: var(--tomate-claro); stroke: var(--tomate); stroke-width: 2.5; }
+      .ad .izq { fill: var(--rojo-claro); stroke: var(--rojo); stroke-width: 2.5; }
       .ad .der { fill: var(--hoja-claro); stroke: var(--hoja); stroke-width: 2.5; }
       .ad .rot { font-family: var(--fuente) !important; font-size: 19px !important; font-weight: 800; }
-      .ad .ant { fill: var(--tomate-osc) !important; }
+      .ad .ant { fill: var(--rojo-osc) !important; }
       .ad .des { fill: var(--hoja-osc) !important; }
       .ad .pieza { fill: var(--papel); stroke: #2B3A31; stroke-width: 2; }
-      .ad .pieza.mal { stroke: var(--tomate); }
+      .ad .pieza.mal { stroke: var(--rojo); }
       .ad .pieza.dato { fill: var(--hoja-claro); stroke: var(--hoja-osc); }
       .ad .pieza.accion { fill: var(--maiz-claro); stroke: var(--maiz-osc); }
       .ad .pieza.cab { fill: var(--hoja-claro); }
-      .ad .suelta { fill: none; stroke: var(--tomate); stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; }
+      .ad .suelta { fill: none; stroke: var(--rojo); stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; }
       .ad .paso-flecha { fill: none; stroke: #2B3A31; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
       .ad .sello { fill: var(--hoja); stroke: #2B3A31; stroke-width: 2.5; }
       .ad .sello-ck { fill: none; stroke: #fff; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
@@ -2085,7 +2085,7 @@ public class Main {
       #s3-metodo .codigo-cuerpo pre, #s3-predice .codigo-cuerpo pre { line-height: 1.38 !important; }
       /* Tarjeta de salida de programa */
       .s3-salida { display: flex; align-items: center; gap: 14px; padding: 12px 18px; background: var(--papel-2); border: 2.5px solid #2B3A31; border-radius: var(--radio-m); }
-      .s3-salida.mal { background: var(--tomate-claro); border-color: var(--tomate); }
+      .s3-salida.mal { background: var(--rojo-claro); border-color: var(--rojo); }
       .s3-sal-et { padding: 3px 12px; border-radius: 999px; background: var(--tinta); color: var(--papel); font-size: 14px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
       .s3-sal-pre { margin: 0; font-family: var(--mono); font-size: 19px; font-weight: 600; color: var(--tinta); }
       /* Ranura donde se turnan escena, prediccion y salida */
@@ -2483,7 +2483,7 @@ public class Main {
     </section>
 
     <!-- 6. Nada protege el estado ================================================== -->
-    <section class="diapo" id="s3-sin-proteccion" data-acento="tomate" data-titulo="Nada protege el estado">
+    <section class="diapo" id="s3-sin-proteccion" data-acento="rojo" data-titulo="Nada protege el estado">
       <div class="cabeza">
         <p class="antetitulo">¿Qué impide que copias sea negativa?</p>
         <h2 class="titulo">Nada <em>protege</em> el estado</h2>
@@ -2761,7 +2761,7 @@ public class Libro {
     </section>
 
     <!-- 3. El lenguaje lo impide -->
-    <section class="diapo" id="s4-intento" data-titulo="El lenguaje lo impide" data-acento="tomate">
+    <section class="diapo" id="s4-intento" data-titulo="El lenguaje lo impide" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Qué pasa si alguien intenta cambiarlo?</p>
         <h2 class="titulo">El lenguaje <em>lo impide</em></h2>
@@ -2823,7 +2823,7 @@ public class Main {
 </div>
           </div>
           <div class="carta" id="s4-int-msg" data-paso="2">
-            <span class="etiqueta" data-tono="tomate" id="s4-int-lang">C#</span>
+            <span class="etiqueta" data-tono="rojo" id="s4-int-lang">C#</span>
             <p id="s4-int-txt" style="margin:10px 0 0;font-family:var(--mono);font-size:15px;line-height:1.5">error CS0272: La propiedad o el indizador 'Libro.Copias' no se pueden usar en este contexto porque el descriptor de acceso set es inaccesible</p>
           </div>
         </div>
@@ -2843,7 +2843,7 @@ public class Main {
               <title>La compuerta de prestar pregunta si copias es mayor que cero: si sí devuelve true y resta, si no devuelve false</title>
               <defs>
                 <marker id="s4-m4-maiz" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#F2B33D" stroke="none"/></marker>
-                <marker id="s4-m4-tomate" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#E4572E" stroke="none"/></marker>
+                <marker id="s4-m4-rojo" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#E4572E" stroke="none"/></marker>
                 <marker id="s4-m4-hoja" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#2F8F5B" stroke="none"/></marker>
               </defs>
               <g data-paso="1"><g>
@@ -2855,7 +2855,7 @@ public class Main {
                 <text x="270" y="157" text-anchor="middle" font-size="18" font-weight="800" fill="#1F2A24" stroke="none">¿copias &gt; 0?</text>
               </g></g>
               <g data-paso="2"><g>
-                <path d="M334 172L394 222" stroke="#E4572E" stroke-width="5" marker-end="url(#s4-m4-tomate)"/>
+                <path d="M334 172L394 222" stroke="#E4572E" stroke-width="5" marker-end="url(#s4-m4-rojo)"/>
                 <rect x="396" y="204" width="132" height="70" rx="14" fill="#FFE3DB" stroke="#E4572E" stroke-width="3"/>
                 <text x="462" y="234" text-anchor="middle" font-size="22" font-weight="800" fill="#1F2A24" stroke="none" style="font-family:var(--mono)">false</text>
                 <text x="462" y="260" text-anchor="middle" font-size="17" fill="#1F2A24" stroke="none">no resta</text>
@@ -3775,12 +3775,12 @@ public class Usuario {
     <style>
       /* Cierre: errores frecuentes con su correccion y lo que queda para despues */
       .s9e-rejilla { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; align-content: center; min-height: 0; }
-      .s9e-carta { display: grid; grid-template-columns: 172px 1fr; gap: 14px; align-items: center; padding: 12px 16px; background: var(--tomate-claro); border-color: color-mix(in srgb, var(--tomate) 38%, var(--linea)); box-shadow: none; }
+      .s9e-carta { display: grid; grid-template-columns: 172px 1fr; gap: 14px; align-items: center; padding: 12px 16px; background: var(--rojo-claro); border-color: color-mix(in srgb, var(--rojo) 38%, var(--linea)); box-shadow: none; }
       .s9e-carta svg { width: 172px; height: 102px; display: block; }
       .s9e-carta svg text { font-family: var(--mono); font-size: 16px; font-weight: 700; fill: #1F2A24; }
-      .s9e-carta svg text.cap { font-family: var(--fuente); font-size: 16px; font-weight: 700; fill: var(--tomate-osc); }
+      .s9e-carta svg text.cap { font-family: var(--fuente); font-size: 16px; font-weight: 700; fill: var(--rojo-osc); }
       .s9e-texto { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-      .s9e-texto h3 { margin: 0; font-size: 22px; line-height: 1.2; color: var(--tomate-osc); }
+      .s9e-texto h3 { margin: 0; font-size: 22px; line-height: 1.2; color: var(--rojo-osc); }
       .s9e-fix { display: flex; align-items: flex-start; gap: 10px; margin: 0; padding: 8px 12px; border-radius: var(--radio-m); background: var(--blanco); border: 2px solid var(--hoja); font-size: 18px; line-height: 1.3; }
       .s9e-fix .etiqueta { flex: none; margin-top: 1px; }
       .s9s-rejilla { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -3813,7 +3813,7 @@ public class Usuario {
     </section>
 
     <!-- 2. Errores frecuentes -->
-    <section class="diapo" id="s9-errores" data-titulo="Errores frecuentes" data-acento="tomate">
+    <section class="diapo" id="s9-errores" data-titulo="Errores frecuentes" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Dónde se tropieza al empezar?</p>
         <h2 class="titulo">Errores <em>frecuentes</em></h2>
@@ -4503,7 +4503,7 @@ public class Usuario {
   /* ------------------------------------------------------------------------
      Flujo: diagrama SVG con nodos, conectores, paquetes animados y narración
      ------------------------------------------------------------------------ */
-  const TONOS = ['hoja', 'maiz', 'tomate', 'cielo', 'uva', 'tinta'];
+  const TONOS = ['hoja', 'maiz', 'rojo', 'cielo', 'uva', 'tinta'];
   const colorTono = (t, v = '') => (TONOS.includes(t) ? 'var(--' + (t === 'tinta' ? 'tinta' : t + v) + ')' : t);
 
   class Flujo {
@@ -5614,7 +5614,7 @@ public class Usuario {
   function chispas(el) {
     if (reducido()) return;
     const c = h('div', { class: 'chispas', 'aria-hidden': 'true' });
-    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--tomate)', 'var(--cielo)', 'var(--uva)'];
+    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--rojo)', 'var(--cielo)', 'var(--uva)'];
     for (let i = 0; i < 26; i++) {
       const a = Math.random() * Math.PI * 2;
       const r = 80 + Math.random() * 160;
@@ -6655,7 +6655,7 @@ public class Usuario {
    - La narracion es <div class="narra" data-paso="1"> con .narra-paso y .narra-texto; su texto sale de `texto[k-1]`.
    - POO.escena({ diapo, texto, codigo, diagrama, alPaso }) conecta el paso actual del motor con el texto,
      el codigo (lineas visibles y resaltadas) y el diagrama.
-   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones y metodos, tomate = problema o error,
+   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones y metodos, rojo = problema o error,
    uva = relaciones y colaboracion. */
 (function () {
   const LANGS = ['cs', 'py', 'java'];
@@ -6870,7 +6870,7 @@ Kit.listo(() => {
 
   /* ---- La ruta: seis bloques en cadena (6 pasos) ---- */
   const BLOQUES = [
-    { id: 'b1', nombre: ['El problema'], crece: ['datos sueltos', 'que se enredan'], tono: 'tomate' },
+    { id: 'b1', nombre: ['El problema'], crece: ['datos sueltos', 'que se enredan'], tono: 'rojo' },
     { id: 'b2', nombre: ['Pensar en', 'objetos'], crece: ['todo objeto', 'tiene y hace'], tono: 'cielo' },
     { id: 'b3', nombre: ['Nuestra', 'primera clase'], crece: ['nace la', 'clase Libro'], tono: 'hoja' },
     { id: 'b4', nombre: ['Encapsulamiento', 'y constructores'], crece: ['se protege', 'el estado'], tono: 'maiz' },
@@ -6924,7 +6924,7 @@ Kit.listo(() => {
 /* ===== s1_problema.js ===== */
 (function () {
 /* El problema: variables sueltas, arreglos paralelos, funcion sin proteccion y los tres dolores.
-   Color: tomate = problema, hoja = datos correctos, maiz = acciones, cielo = estructura. */
+   Color: rojo = problema, hoja = datos correctos, maiz = acciones, cielo = estructura. */
 Kit.listo(() => {
   const NS = 'http://www.w3.org/2000/svg';
   const txt = (svg, attrs, t) => {
@@ -6948,13 +6948,13 @@ Kit.listo(() => {
     tituloSvg: 'Las tres variables sueltas de Rayuela, las tres de Ficciones, y lo que pasa con cinco mil libros',
     vista: [540, 260],
     nodos: [
-      celda('t1', 88, 34, 'titulo1', '"Rayuela"', 'tomate', 1),
-      celda('a1', 270, 34, 'autor1', '"Cortázar"', 'tomate', 1),
-      celda('c1', 452, 34, 'copias1', '3', 'tomate', 1),
-      celda('t2', 88, 98, 'titulo2', '"Ficciones"', 'tomate', 2),
-      celda('a2', 270, 98, 'autor2', '"Borges"', 'tomate', 2),
-      celda('c2', 452, 98, 'copias2', '1', 'tomate', 2),
-      celda('mas', 270, 162, '5000 libros', '15000 variables sueltas', 'tomate', 3, 440),
+      celda('t1', 88, 34, 'titulo1', '"Rayuela"', 'rojo', 1),
+      celda('a1', 270, 34, 'autor1', '"Cortázar"', 'rojo', 1),
+      celda('c1', 452, 34, 'copias1', '3', 'rojo', 1),
+      celda('t2', 88, 98, 'titulo2', '"Ficciones"', 'rojo', 2),
+      celda('a2', 270, 98, 'autor2', '"Borges"', 'rojo', 2),
+      celda('c2', 452, 98, 'copias2', '1', 'rojo', 2),
+      celda('mas', 270, 162, '5000 libros', '15000 variables sueltas', 'rojo', 3, 440),
       celda('sal', 270, 226, 'Salida', 'Rayuela, copias: 2', 'hoja', 4, 440),
     ],
     conectores: [],
@@ -6994,8 +6994,8 @@ Kit.listo(() => {
     celda('ha', COL[1], 30, 'autores', null, 'cielo', 2, 144, 40),
     celda('hc', COL[2], 30, 'copias', null, 'cielo', 2, 144, 40),
     celda('sort', 82, 252, 'Ordenar', 'solo títulos', 'maiz', 3, 130, 52),
-    celda('mal', 235, 252, 'Desalineado', 'datos cruzados', 'tomate', 4, 130, 52),
-    celda('sal', 420, 252, 'Salida', 'Aura, copias: 3', 'tomate', 5, 200, 52),
+    celda('mal', 235, 252, 'Desalineado', 'datos cruzados', 'rojo', 4, 130, 52),
+    celda('sal', 420, 252, 'Salida', 'Aura, copias: 3', 'rojo', 5, 200, 52),
   ];
   FILA.forEach((y, i) => {
     nodosArr.push(celda('t' + i, COL[0], y, TIT[i], null, 'hoja', 1, 144, 44));
@@ -7039,7 +7039,7 @@ Kit.listo(() => {
       for (let i = 0; i < 3; i++) {
         et(dg, 't' + i, ordenado ? ORD[i] : TIT[i]);
         const malo = ordenado && i !== 1;
-        ['t', 'a', 'c'].forEach((p) => tono(dg, p + i, malo ? 'tomate' : 'hoja'));
+        ['t', 'a', 'c'].forEach((p) => tono(dg, p + i, malo ? 'rojo' : 'hoja'));
       }
       POO.activar(dg, k === 3 ? 'sort' : k === 4 ? 'mal' : k === 5 ? 'c0' : null);
     },
@@ -7056,7 +7056,7 @@ Kit.listo(() => {
       celda('fn', 100, 150, 'prestar(copias, i)', 'resta 1 a copias[i]', 'maiz', 1, 180, 64),
       celda('l1', 290, 150, 'Llamada 1', 'posición 1', 'maiz', 2, 140, 56),
       celda('l2', 450, 150, 'Llamada 2', 'posición 1', 'maiz', 3, 140, 56),
-      celda('sal', 270, 252, 'Salida', 'Ficciones, copias: -1', 'tomate', 4, 340, 56),
+      celda('sal', 270, 252, 'Salida', 'Ficciones, copias: -1', 'rojo', 4, 340, 56),
     ],
     conectores: [
       { desde: 'l1', hasta: 'fic', flecha: true, tono: 'maiz', paso: 2 },
@@ -7084,7 +7084,7 @@ Kit.listo(() => {
     alPaso: (k, dg) => {
       const valor = k >= 3 ? '-1' : k === 2 ? '0' : '1';
       POO.sub(dg, 'fic', 'copias[1]: ' + valor);
-      tono(dg, 'fic', k >= 3 ? 'tomate' : 'hoja');
+      tono(dg, 'fic', k >= 3 ? 'rojo' : 'hoja');
       POO.activar(dg, k >= 1 && k <= 3 ? 'fic' : null);
     },
   });
@@ -7456,9 +7456,9 @@ Kit.listo(() => {
 
   /* ---------- 6. s3-sin-proteccion ---------- */
   const entra = `<g data-paso="2"><path d="M346 184 H304 M314 174 L302 184 L314 194" class="m3-flecha mal"/>` +
-    `<rect x="350" y="170" width="150" height="28" rx="14" fill="var(--tomate-claro)" stroke="var(--tomate)" stroke-width="2"/>` +
+    `<rect x="350" y="170" width="150" height="28" rx="14" fill="var(--rojo-claro)" stroke="var(--rojo)" stroke-width="2"/>` +
     `<text x="425" y="185" text-anchor="middle" font-weight="700">copias = -5</text></g>` +
-    `<g data-paso="3"><circle cx="295" cy="84" r="15" fill="var(--tomate)" stroke="#2B3A31" stroke-width="2.5"/>` +
+    `<g data-paso="3"><circle cx="295" cy="84" r="15" fill="var(--rojo)" stroke="#2B3A31" stroke-width="2.5"/>` +
     `<text x="295" y="85" text-anchor="middle" font-weight="800" fill="#fff" style="fill:#fff">!</text></g>`;
   memoria('s3-error-mem', 210, 'La variable ficciones apunta a un objeto Libro cuya copias recibe el valor negativo menos cinco',
     objeto('e', { n: 'ficciones', cx: 170, paso: 1, extra: entra }), [5]);
@@ -7811,7 +7811,7 @@ Kit.listo(() => {
     nodos: [
       { id: 'pide', x: 270, y: 34, etiqueta: 'Ana pide un libro', sub: 'PedirPrestado(libro)', tono: 'hoja', ancho: 250, alto: 62, paso: 1 },
       { id: 'limite', x: 270, y: 136, etiqueta: '¿Ya tiene 2 préstamos?', sub: 'prestamos >= 2', tono: 'maiz', ancho: 300, alto: 76, paso: 1 },
-      { id: 'no', x: 92, y: 262, etiqueta: 'false', sub: 'responde que no', tono: 'tomate', ancho: 170, alto: 70, paso: 2 },
+      { id: 'no', x: 92, y: 262, etiqueta: 'false', sub: 'responde que no', tono: 'rojo', ancho: 170, alto: 70, paso: 2 },
       { id: 'libro', x: 448, y: 262, etiqueta: 'Prestar()', sub: 'sigue como antes', tono: 'uva', ancho: 170, alto: 70, paso: 2 },
     ],
     conectores: [
@@ -7848,7 +7848,7 @@ Kit.listo(() => {
 /* ===== s9_cierre.js ===== */
 (function () {
 /* Cierre: mapa de la clase, errores frecuentes y lo que viene despues.
-   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones, uva = colaboracion, tomate = error. */
+   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones, uva = colaboracion, rojo = error. */
 Kit.listo(() => {
   /* ---- 1. El mapa de la clase (6 pasos) ---- */
   const nodo = (id, x, y, etiqueta, sub, tono, ancho, paso) => ({ id, x, y, etiqueta, sub, tono, ancho, alto: 70, paso });

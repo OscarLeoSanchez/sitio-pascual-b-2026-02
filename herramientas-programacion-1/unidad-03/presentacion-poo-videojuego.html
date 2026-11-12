@@ -17,7 +17,7 @@
      cielo  = producto y requisitos
      hoja   = conformidad y evidencia
      maiz   = actividades de proceso: revisiones, auditorías, controles, decisiones
-     tomate = defectos, fallas y riesgo
+     rojo = defectos, fallas y riesgo
      uva    = estándares, normas y certificación
    El color de una sección o de un nodo debe decir qué tipo de cosa es, no decorar.
    ========================================================================== */
@@ -36,7 +36,7 @@
 
   --hoja: #2F8F5B;   --hoja-claro: #DDF1E4;   --hoja-osc: #1E6B43;
   --maiz: #F2B33D;   --maiz-claro: #FFF1CC;   --maiz-osc: #855400;
-  --tomate: #E4572E; --tomate-claro: #FFE3DB; --tomate-osc: #AE3714;
+  --rojo: #E4572E; --rojo-claro: #FFE3DB; --rojo-osc: #AE3714;
   --cielo: #3B82C4;  --cielo-claro: #DCEBF9;  --cielo-osc: #1D5A94;
   --uva: #7A5BC7;    --uva-claro: #ECE6FA;    --uva-osc: #553A9E;
 
@@ -59,13 +59,13 @@
 
 [data-acento="hoja"]   { --acento: var(--hoja);   --acento-claro: var(--hoja-claro);   --acento-osc: var(--hoja-osc); }
 [data-acento="maiz"]   { --acento: var(--maiz);   --acento-claro: var(--maiz-claro);   --acento-osc: var(--maiz-osc); }
-[data-acento="tomate"] { --acento: var(--tomate); --acento-claro: var(--tomate-claro); --acento-osc: var(--tomate-osc); }
+[data-acento="rojo"] { --acento: var(--rojo); --acento-claro: var(--rojo-claro); --acento-osc: var(--rojo-osc); }
 [data-acento="cielo"]  { --acento: var(--cielo);  --acento-claro: var(--cielo-claro);  --acento-osc: var(--cielo-osc); }
 [data-acento="uva"]    { --acento: var(--uva);    --acento-claro: var(--uva-claro);    --acento-osc: var(--uva-osc); }
 
 [data-tono="hoja"]   { --tono: var(--hoja);   --tono-claro: var(--hoja-claro);   --tono-osc: var(--hoja-osc); }
 [data-tono="maiz"]   { --tono: var(--maiz);   --tono-claro: var(--maiz-claro);   --tono-osc: var(--maiz-osc); }
-[data-tono="tomate"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+[data-tono="rojo"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 [data-tono="cielo"]  { --tono: var(--cielo);  --tono-claro: var(--cielo-claro);  --tono-osc: var(--cielo-osc); }
 [data-tono="uva"]    { --tono: var(--uva);    --tono-claro: var(--uva-claro);    --tono-osc: var(--uva-osc); }
 [data-tono="tinta"]  { --tono: var(--tinta);  --tono-claro: var(--papel-2);      --tono-osc: var(--tinta); }
@@ -359,7 +359,7 @@ kbd { font-family: var(--mono); font-size: 12.5px; background: var(--papel); bor
   background: color-mix(in srgb, var(--tono-claro) 72%, var(--blanco)); border: 1px solid color-mix(in srgb, var(--tono) 26%, transparent); font-size: 19px; line-height: 1.45; }
 .callout[data-tipo="idea"] { --tono: var(--hoja); --tono-claro: var(--hoja-claro); --tono-osc: var(--hoja-osc); }
 .callout[data-tipo="observa"] { --tono: var(--cielo); --tono-claro: var(--cielo-claro); --tono-osc: var(--cielo-osc); }
-.callout[data-tipo="cuidado"] { --tono: var(--tomate); --tono-claro: var(--tomate-claro); --tono-osc: var(--tomate-osc); }
+.callout[data-tipo="cuidado"] { --tono: var(--rojo); --tono-claro: var(--rojo-claro); --tono-osc: var(--rojo-osc); }
 .callout[data-tipo="analogia"] { --tono: var(--uva); --tono-claro: var(--uva-claro); --tono-osc: var(--uva-osc); }
 .callout-ico { grid-row: span 2; width: 38px; height: 38px; border-radius: 12px; background: var(--tono); color: #fff; display: grid; place-items: center; }
 .callout-ico svg { width: 21px; height: 21px; }
@@ -396,7 +396,7 @@ dfn[data-def]:hover, span[data-def]:hover, dfn[data-def][aria-expanded="true"], 
 .pf-bloque[data-tipo="definicion"] > .pfb-ico { background: var(--cielo-claro); color: var(--cielo-osc); }
 .pf-bloque[data-tipo="analogia"] > .pfb-ico { background: var(--uva-claro); color: var(--uva-osc); }
 .pf-bloque[data-tipo="ejemplo"] > .pfb-ico { background: var(--hoja-claro); color: var(--hoja-osc); }
-.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--tomate-claro); color: var(--tomate-osc); }
+.pf-bloque[data-tipo="errores"] > .pfb-ico { background: var(--rojo-claro); color: var(--rojo-osc); }
 .pf-bloque ul { margin: 0; padding-left: 18px; }
 .pf-bloque code { font-size: .86em; }
 
@@ -491,7 +491,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .tabla-kit tr.resaltada td { background: var(--maiz-claro); }
 .tabla-kit .si, .tabla-kit .no, .tabla-kit .medio { display: inline-flex; align-items: center; gap: 6px; font-weight: 650; }
 .tabla-kit .si { color: var(--hoja-osc); }
-.tabla-kit .no { color: var(--tomate-osc); }
+.tabla-kit .no { color: var(--rojo-osc); }
 .tabla-kit .medio { color: var(--maiz-osc); }
 .tabla-kit svg { width: 18px; height: 18px; }
 
@@ -660,19 +660,19 @@ html.experto .solo-experto.callout { display: grid !important; }
 .opcion:disabled { cursor: default; }
 .opcion.correcta { border-color: var(--hoja); background: var(--hoja-claro); }
 .opcion.correcta .letra { background: var(--hoja); border-color: var(--hoja); color: #fff; }
-.opcion.incorrecta { border-color: var(--tomate); background: var(--tomate-claro); }
-.opcion.incorrecta .letra { background: var(--tomate); border-color: var(--tomate); color: #fff; }
+.opcion.incorrecta { border-color: var(--rojo); background: var(--rojo-claro); }
+.opcion.incorrecta .letra { background: var(--rojo); border-color: var(--rojo); color: #fff; }
 .opcion.atenuada { opacity: .5; }
 .opcion .marca-res { margin-left: auto; width: 24px; height: 24px; flex: none; }
 .opcion code { font-size: .88em; }
 .sacude { animation: kitSacude .45s ease; }
 .retro { border-radius: 14px; padding: 12px 16px; font-size: 16.5px; line-height: 1.5; display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; animation: kitEntra .5s var(--curva); }
 .retro.ok { background: var(--hoja-claro); color: #12432A; }
-.retro.mal { background: var(--tomate-claro); color: #6B2410; }
+.retro.mal { background: var(--rojo-claro); color: #6B2410; }
 .retro.info { background: var(--uva-claro); color: #2F1F5E; }
 .retro .r-ico { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: #fff; }
 .retro.ok .r-ico { background: var(--hoja); }
-.retro.mal .r-ico { background: var(--tomate); }
+.retro.mal .r-ico { background: var(--rojo); }
 .retro.info .r-ico { background: var(--uva); }
 .retro .r-ico svg { width: 17px; height: 17px; }
 .retro b { display: block; margin-bottom: 2px; }
@@ -685,7 +685,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .reto-estado { margin-left: auto; text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: var(--papel-2); color: var(--tinta-suave); display: inline-flex; gap: 6px; align-items: center; transition: background .3s, color .3s; }
 .reto-estado::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
 .reto-estado[data-estado="logrado"] { background: var(--hoja-claro); color: var(--hoja-osc); }
-.reto-estado[data-estado="revisa"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.reto-estado[data-estado="revisa"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .reto-estado[data-estado="verificando"] { background: var(--cielo-claro); color: var(--cielo-osc); }
 .reto-instruccion { font-size: 17px; line-height: 1.5; }
 
@@ -738,7 +738,7 @@ html.experto .solo-experto.callout { display: grid !important; }
 .autoeval-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 8px 10px 8px 14px; border: 1px solid var(--linea); background: var(--blanco); border-radius: 14px; font-size: 16.5px; line-height: 1.35; }
 .autoeval-niveles { display: flex; gap: 4px; padding: 3px; background: var(--papel-2); border-radius: 11px; border: 1px solid var(--linea); }
 .autoeval-niveles button { border: 0; background: transparent; border-radius: 8px; padding: 5px 10px; font-size: 13.5px; font-weight: 700; color: var(--tinta-suave); }
-.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--tomate-claro); color: var(--tomate-osc); }
+.autoeval-niveles button[aria-pressed="true"][data-nivel="1"] { background: var(--rojo-claro); color: var(--rojo-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="2"] { background: var(--maiz-claro); color: var(--maiz-osc); }
 .autoeval-niveles button[aria-pressed="true"][data-nivel="3"] { background: var(--hoja-claro); color: var(--hoja-osc); }
 .autoeval-resumen { font-size: 16px; color: var(--tinta-suave); min-height: 24px; }
@@ -1233,7 +1233,7 @@ iframe.resultado { padding: 0; }
     </section>
 
     <!-- 2. El gancho: un juego que olvida -->
-    <section class="diapo" id="s0-gancho" data-titulo="Un juego que olvida" data-acento="tomate">
+    <section class="diapo" id="s0-gancho" data-titulo="Un juego que olvida" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Qué pasa con la partida al cerrar el juego?</p>
         <h2 class="titulo">Un juego que <em>olvida</em></h2>
@@ -1319,25 +1319,25 @@ iframe.resultado { padding: 0; }
       .s1 .mid { text-anchor: middle; }
       .s1 .fin { text-anchor: end; }
       .s1 .neg { font-weight: 700; }
-      .s1 .t-mal { fill: var(--tomate-osc); }
+      .s1 .t-mal { fill: var(--rojo-osc); }
       .s1 .t-ok { fill: var(--hoja-osc); }
       .s1 .cj { stroke: #2B3A31; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
       .s1 .tr { stroke: #2B3A31; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; fill: none; }
       .s1 .fl { fill: none; stroke: var(--maiz-osc); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
-      .s1 .fl.mal { stroke: var(--tomate); }
+      .s1 .fl.mal { stroke: var(--rojo); }
       .s1 .pildora { stroke-width: 2; }
       .s1 .pildora-t { font-family: var(--fuente); font-weight: 800; text-anchor: middle; font-size: 15px; letter-spacing: .08em; }
       .s1 .sep { stroke: var(--linea-2); stroke-width: 1.5; }
       .s1 .lab { fill: var(--tinta-suave); }
       .s1 .val { text-anchor: end; font-weight: 700; fill: var(--hoja-osc); }
-      .s1 .val.neg { fill: var(--tomate-osc); }
+      .s1 .val.neg { fill: var(--rojo-osc); }
       .s1 .vbg { fill: none; stroke: none; transition: fill .35s, stroke .35s; }
       .s1 .vbg.cambia { fill: var(--maiz-claro); stroke: var(--maiz); stroke-width: 2; }
-      .s1 .vbg.error { fill: var(--tomate-claro); stroke: var(--tomate); stroke-width: 2; }
+      .s1 .vbg.error { fill: var(--rojo-claro); stroke: var(--rojo); stroke-width: 2; }
       .s1 .vbg.ok { fill: var(--hoja-claro); stroke: var(--hoja); stroke-width: 2; }
       .s1 .vacio { fill: none; stroke: var(--tinta-tenue); stroke-width: 2.5; stroke-dasharray: 7 7; stroke-linecap: round; }
       .s1 .sal { fill: var(--papel-2); stroke: #2B3A31; stroke-width: 2.5; }
-      .s1 .sal.mal { fill: var(--tomate-claro); stroke: var(--tomate); }
+      .s1 .sal.mal { fill: var(--rojo-claro); stroke: var(--rojo); }
       /* Caja UML */
       .s1 .uml-nom { font-family: var(--fuente); font-size: 26px; font-weight: 800; text-anchor: middle; }
       .s1 .uml-fila { font-size: 19px; font-weight: 600; }
@@ -1378,7 +1378,7 @@ iframe.resultado { padding: 0; }
             <g data-paso="1">
               <ellipse cx="155" cy="282" rx="86" ry="9" fill="var(--linea)"/>
               <g transform="translate(55,12)">
-                <ellipse cx="100" cy="22" rx="13" ry="20" fill="var(--tomate-claro)" class="cj"/>
+                <ellipse cx="100" cy="22" rx="13" ry="20" fill="var(--rojo-claro)" class="cj"/>
                 <rect x="70" y="188" width="28" height="68" rx="9" fill="#8FBBE6" class="cj"/>
                 <rect x="102" y="188" width="28" height="68" rx="9" fill="#8FBBE6" class="cj"/>
                 <rect x="62" y="246" width="40" height="22" rx="9" fill="#DCD1F6" class="cj"/>
@@ -1486,7 +1486,7 @@ iframe.resultado { padding: 0; }
                 <text x="448" y="191" class="et2">lo que hace</text>
               </g>
               <g data-paso="4">
-                <rect x="30" y="216" width="320" height="30" rx="15" fill="var(--tomate-claro)" stroke="var(--tomate)" stroke-width="2"/>
+                <rect x="30" y="216" width="320" height="30" rx="15" fill="var(--rojo-claro)" stroke="var(--rojo)" stroke-width="2"/>
                 <text x="190" y="231" class="sans et2" style="fill:var(--tinta);font-weight:700">+ significa público: cualquiera lo cambia</text>
               </g>
             </svg>
@@ -1563,9 +1563,9 @@ class Guerrero
                   <path d="M384 114 H408 M398 104 L410 114 L398 124" class="fl"/>
                   <rect id="s1-c-out" x="412" y="94" width="120" height="40" rx="20" fill="var(--papel-2)" stroke="#2B3A31" stroke-width="2.5"/>
                   <text id="s1-c-out-t" x="472" y="114" class="mid neg">?</text>
-                  <rect x="340" y="210" width="150" height="26" fill="none" stroke="var(--tomate)" stroke-width="2.5" stroke-dasharray="7 6"/>
+                  <rect x="340" y="210" width="150" height="26" fill="none" stroke="var(--rojo)" stroke-width="2.5" stroke-dasharray="7 6"/>
                   <path d="M490 196 V206 M482 198 L490 208 L498 198" class="fl mal" style="stroke-width:3"/>
-                  <text x="490" y="256" class="sans peq mid t-mal" style="fill:var(--tomate-osc)">150</text>
+                  <text x="490" y="256" class="sans peq mid t-mal" style="fill:var(--rojo-osc)">150</text>
                 </g>
                 <g data-paso="6">
                   <path d="M486 190 Q415 168 348 190 M356 180 L346 191 L360 195" class="fl" style="stroke:var(--hoja-osc)"/>
@@ -1642,7 +1642,7 @@ class Guerrero
                 <rect id="s1-mt-chip" x="40" y="58" width="230" height="32" rx="16" fill="var(--maiz-claro)" stroke="var(--maiz)" stroke-width="2"/>
                 <text id="s1-mt-chip-t" x="155" y="74" class="mid neg">RecibirDano(120)</text>
                 <g id="s1-mt-estado" class="ocultable off">
-                  <rect x="290" y="58" width="210" height="32" rx="16" fill="var(--tomate-claro)" stroke="var(--tomate)" stroke-width="2"/>
+                  <rect x="290" y="58" width="210" height="32" rx="16" fill="var(--rojo-claro)" stroke="var(--rojo)" stroke-width="2"/>
                   <text x="395" y="74" class="mid neg t-mal">EstaVivo = false</text>
                 </g>
                 <rect x="40" y="128" width="460" height="40" rx="12" class="barra-fondo"/>
@@ -1933,19 +1933,19 @@ Boromir: vida 85</span></pre></div>
       .r3 .caja, .u3 .caja { stroke: #2B3A31; stroke-width: 2.5; stroke-linejoin: round; }
       .r3 .rotulo { font-family: var(--fuente); font-size: 16px; font-weight: 800; fill: var(--tinta-suave); letter-spacing: .06em; }
       .bg3 { fill: none; stroke: none; transition: fill .35s, stroke .35s; }
-      .bg3.rep { fill: var(--tomate-claro); stroke: var(--tomate); stroke-width: 2; }
+      .bg3.rep { fill: var(--rojo-claro); stroke: var(--rojo); stroke-width: 2; }
       .bg3.prop { fill: var(--hoja-claro); stroke: var(--hoja); stroke-width: 2; }
       .bg3.comun { fill: var(--uva-claro); stroke: var(--uva); stroke-width: 2; stroke-dasharray: 6 4; }
       .bg3.accion { fill: var(--maiz-claro); stroke: var(--maiz); stroke-width: 2; }
-      .bg3.mal { fill: var(--tomate-claro); stroke: var(--tomate); stroke-width: 2; }
+      .bg3.mal { fill: var(--rojo-claro); stroke: var(--rojo); stroke-width: 2; }
       .u3 .cursiva { font-style: italic; }
       .u3 .tagfila { font-family: var(--fuente); font-size: 16px; font-weight: 700; fill: var(--tinta-suave); text-anchor: end; }
       .sep3 { stroke: #2B3A31; stroke-width: 2.5; fill: none; stroke-linecap: round; }
       .gen3 { fill: none; stroke: var(--uva); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
       .gen3-punta { fill: var(--papel); stroke: var(--uva); stroke-width: 3; stroke-linejoin: round; }
-      .r3 .union { fill: none; stroke: var(--tomate); stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; transition: stroke .35s; }
+      .r3 .union { fill: none; stroke: var(--rojo); stroke-width: 2.5; stroke-dasharray: 6 6; stroke-linecap: round; transition: stroke .35s; }
       .r3 .union.comun { stroke: var(--uva); }
-      .r3 .pildora { fill: var(--tomate-claro); stroke: var(--tomate); stroke-width: 2; transition: fill .35s, stroke .35s; }
+      .r3 .pildora { fill: var(--rojo-claro); stroke: var(--rojo); stroke-width: 2; transition: fill .35s, stroke .35s; }
       .r3 .pildora.comun { fill: var(--uva-claro); stroke: var(--uva); }
       .r3 .pildora-t { font-family: var(--fuente); font-size: 16px; font-weight: 800; text-anchor: middle; }
       .s3-salida { display: flex; align-items: center; gap: 14px; padding: 12px 18px; background: var(--papel-2); border: 2.5px solid #2B3A31; border-radius: var(--radio-m); }
@@ -2758,7 +2758,7 @@ abstract class Personaje
     </section>
 
     <!-- 5. Cuando el archivo falla -->
-    <section class="diapo" id="s5-fallas" data-titulo="Cuando el archivo falla" data-acento="tomate">
+    <section class="diapo" id="s5-fallas" data-titulo="Cuando el archivo falla" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Qué pasa si el archivo no sirve?</p>
         <h2 class="titulo">Cuando el archivo <em>falla</em></h2>
@@ -2770,7 +2770,7 @@ abstract class Personaje
               <title>Si partida.txt no existe, la lista queda vacía; si una línea está dañada, DesdeLinea devuelve null y Cargar la ignora</title>
               <defs>
                 <marker id="s5-x-hoja" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#2F8F5B" stroke="none"/></marker>
-                <marker id="s5-x-tomate" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#E4572E" stroke="none"/></marker>
+                <marker id="s5-x-rojo" viewBox="0 0 4 4" refX="3" refY="2" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0L4 2L0 4Z" fill="#E4572E" stroke="none"/></marker>
               </defs>
               <!-- pasos 1 y 2: el archivo no existe -->
               <g id="s5f-a">
@@ -2808,7 +2808,7 @@ abstract class Personaje
               <g data-paso="4"><g>
                 <rect x="20" y="196" width="190" height="44" rx="22" fill="#FFE3DB" stroke="#E4572E" stroke-width="3"/>
                 <text x="115" y="224" text-anchor="middle" font-size="17" font-weight="800" fill="#1F2A24" stroke="none" style="font-family:var(--mono)">TryParse falla</text>
-                <path d="M212 218H240" stroke="#E4572E" stroke-width="5" marker-end="url(#s5-x-tomate)"/>
+                <path d="M212 218H240" stroke="#E4572E" stroke-width="5" marker-end="url(#s5-x-rojo)"/>
                 <rect x="244" y="196" width="276" height="44" rx="22" fill="#FFE3DB" stroke="#E4572E" stroke-width="3"/>
                 <text x="382" y="224" text-anchor="middle" font-size="17" font-weight="800" fill="#1F2A24" stroke="none" style="font-family:var(--mono)">DesdeLinea devuelve null</text>
               </g></g>
@@ -3000,11 +3000,11 @@ foreach (Personaje p in equipo)
     <style>
       /* Cierre: cinco errores frecuentes con su correccion, lo que no entro y el reto */
       .s9-rejilla { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; align-content: start; min-height: 0; }
-      .s9-carta { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px 12px; background: var(--tomate-claro); border-color: color-mix(in srgb, var(--tomate) 38%, var(--linea)); box-shadow: none; }
+      .s9-carta { display: flex; flex-direction: column; gap: 6px; padding: 10px 12px 12px; background: var(--rojo-claro); border-color: color-mix(in srgb, var(--rojo) 38%, var(--linea)); box-shadow: none; }
       .s9-carta svg { width: 100%; height: 72px; display: block; }
       .s9-carta svg text { font-family: var(--mono); font-size: 16px; font-weight: 700; fill: #1F2A24; }
-      .s9-carta svg text.cap { font-family: var(--fuente); font-size: 16px; font-weight: 700; fill: var(--tomate-osc); }
-      .s9-carta h3 { margin: 0; font-size: 19px; line-height: 1.2; color: var(--tomate-osc); min-height: 46px; }
+      .s9-carta svg text.cap { font-family: var(--fuente); font-size: 16px; font-weight: 700; fill: var(--rojo-osc); }
+      .s9-carta h3 { margin: 0; font-size: 19px; line-height: 1.2; color: var(--rojo-osc); min-height: 46px; }
       .s9-fix { margin: 0; padding: 7px 10px; border-radius: var(--radio-m); background: var(--blanco); border: 2px solid var(--hoja); font-size: 16px; line-height: 1.3; }
       .s9-bandas { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 6px; }
       .s9-banda { display: flex; flex-direction: column; gap: 6px; padding: 8px 14px 10px; border-radius: 16px; min-height: 0; }
@@ -3027,7 +3027,7 @@ foreach (Personaje p in equipo)
     </section>
 
     <!-- 2. Errores frecuentes, lo que no entro y el reto -->
-    <section class="diapo" id="s9-cierre" data-titulo="Errores frecuentes y un reto" data-acento="tomate">
+    <section class="diapo" id="s9-cierre" data-titulo="Errores frecuentes y un reto" data-acento="rojo">
       <div class="cabeza">
         <p class="antetitulo">¿Dónde se tropieza, y qué sigue?</p>
         <h2 class="titulo">Errores <em>frecuentes</em> y un reto</h2>
@@ -3666,7 +3666,7 @@ foreach (Personaje p in equipo)
   /* ------------------------------------------------------------------------
      Flujo: diagrama SVG con nodos, conectores, paquetes animados y narración
      ------------------------------------------------------------------------ */
-  const TONOS = ['hoja', 'maiz', 'tomate', 'cielo', 'uva', 'tinta'];
+  const TONOS = ['hoja', 'maiz', 'rojo', 'cielo', 'uva', 'tinta'];
   const colorTono = (t, v = '') => (TONOS.includes(t) ? 'var(--' + (t === 'tinta' ? 'tinta' : t + v) + ')' : t);
 
   class Flujo {
@@ -4777,7 +4777,7 @@ foreach (Personaje p in equipo)
   function chispas(el) {
     if (reducido()) return;
     const c = h('div', { class: 'chispas', 'aria-hidden': 'true' });
-    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--tomate)', 'var(--cielo)', 'var(--uva)'];
+    const colores = ['var(--hoja)', 'var(--maiz)', 'var(--rojo)', 'var(--cielo)', 'var(--uva)'];
     for (let i = 0; i < 26; i++) {
       const a = Math.random() * Math.PI * 2;
       const r = 80 + Math.random() * 160;
@@ -5818,7 +5818,7 @@ foreach (Personaje p in equipo)
    - La narracion es <div class="narra" data-paso="1"> con .narra-paso y .narra-texto; su texto sale de `texto[k-1]`.
    - POO.escena({ diapo, texto, codigo, diagrama, alPaso }) conecta el paso actual del motor con el texto,
      el codigo (lineas visibles y resaltadas) y el diagrama.
-   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones y metodos, tomate = problema o error,
+   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones y metodos, rojo = problema o error,
    uva = relaciones y colaboracion. */
 (function () {
   const err = (m) => console.error('[POO] ' + m);
@@ -6377,7 +6377,7 @@ Kit.listo(() => {
     `<g data-paso="1">${variable(65, 4, 140, 'aragorn')}<path d="M135 42 V78 M127 68 L135 80 L143 68" class="m2-flecha"/>${tarjeta('p', 'aragorn', 20, 84, 230)}` +
       `${variable(335, 4, 140, 'boromir')}<path d="M405 42 V78 M397 68 L405 80 L413 68" class="m2-flecha"/>${tarjeta('p', 'boromir', 290, 84, 230)}</g>` +
     `<g data-paso="2">${flecha(210, 332, 21)}${chip('p-chip-atacar', 190, 36, 170, 'Atacar(boromir)', 'maiz')}</g>` +
-    `<g data-paso="3">${chip('p-chip-dano', 330, 212, 90, '-15 vida', 'tomate')}</g>` +
+    `<g data-paso="3">${chip('p-chip-dano', 330, 212, 90, '-15 vida', 'rojo')}</g>` +
     `<g data-paso="4">${chip('p-chip-acierto', 60, 212, 150, 'acierto = true', 'hoja')}</g>`,
     [5, 6]);
   POO.escena({
@@ -6459,7 +6459,7 @@ Kit.listo(() => {
     texto: [
       'Esta es la clase <strong>Guerrero</strong> que ya escribimos: tres atributos y cuatro métodos.',
       'Entra el Mago. Necesita casi lo mismo, así que copiamos la clase Guerrero y cambiamos lo que no sirve.',
-      'Lo que está en tomate quedó escrito dos veces: Nombre, Vida, RecibirDano, Curar y EstaVivo. Un cambio, dos arreglos.',
+      'Lo que está en rojo quedó escrito dos veces: Nombre, Vida, RecibirDano, Curar y EstaVivo. Un cambio, dos arreglos.',
       'Lo propio queda en verde: Fuerza y Mana. Atacar se llama igual en las dos, pero cada clase lo hace a su manera.',
       { t: '¿Cómo ataca un Mago a un Guerrero si cada clase solo conoce a la suya?', participa: true },
       'Falta un tipo común: una clase base con lo repetido y con Atacar declarado, que cada derivada completa a su manera.',
@@ -6809,7 +6809,7 @@ Kit.listo(() => {
 /* ===== s9_cierre.js ===== */
 (function () {
 /* Cierre: mapa del juego, errores frecuentes, lo que no entro y el reto.
-   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones, uva = herencia, tomate = error. */
+   Color: cielo = clase y estructura, hoja = objetos y datos, maiz = acciones, uva = herencia, rojo = error. */
 Kit.listo(() => {
   /* ---- 1. El mapa del juego (7 pasos) ---- */
   const nodo = (id, x, y, etiqueta, sub, tono, ancho, paso) => ({ id, x, y, etiqueta, sub, tono, ancho, alto: 70, paso });
