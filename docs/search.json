@@ -6116,6 +6116,17 @@
     ]
   },
   {
+    "objectID": "estadistica-para-analitica/unidad-03/proyecto-final.html#rúbrica-de-evaluación",
+    "href": "estadistica-para-analitica/unidad-03/proyecto-final.html#rúbrica-de-evaluación",
+    "title": "Unidad 3. Proyecto final: estudio estadístico para una decisión",
+    "section": "Rúbrica de evaluación",
+    "text": "Rúbrica de evaluación\nLa nota del proyecto se reparte en tres criterios, uno por cada cosa que se entrega. La sustentación pesa el 60% y es el criterio principal; el informe y el código reproducible pesan el 20% cada uno.\n\n\n\n\n\n\n\n\nCriterio\nPeso\nQué se valora\n\n\n\n\nSustentación\n60%\nComunicar el estudio con claridad, justificar cada decisión metodológica y responder por todo el trabajo\n\n\nInforme\n20%\nLos siete apartados completos, con análisis correctos y conclusiones sustentadas\n\n\nCódigo reproducible\n20%\nQue otra persona ejecute el código de principio a fin y obtenga las mismas cifras del informe\n\n\n\n\nSustentación (60%)\n\n\n\n\n\n\n\n\n\nAspecto\nExcelente\nAceptable\nInsuficiente\n\n\n\n\nComunicación del estudio\nLa pregunta, el método y la decisión se entienden sin leer el informe\nSe entiende el estudio, con partes confusas o desordenadas\nNo se entiende qué se hizo ni por qué\n\n\nJustificación metodológica\nCada prueba y cada modelo se justifica y se comprueban sus supuestos\nJustifica la mayoría de las decisiones, con supuestos sin revisar\nAplica procedimientos sin explicar por qué\n\n\nRespuesta a las preguntas\nCada integrante responde por todo el trabajo con precisión\nResponde lo propio, con dudas sobre lo demás\nNo sabe explicar sus propios resultados\n\n\n\n\n\nInforme (20%)\n\n\n\n\n\n\n\n\n\nAspecto\nExcelente\nAceptable\nInsuficiente\n\n\n\n\nPlanteamiento y datos\nPregunta, decisión y datos bien definidos, con auditoría de calidad\nPregunta clara, con auditoría de datos incompleta\nPregunta vaga o datos sin documentar\n\n\nAnálisis e inferencia\nLos análisis son correctos, y el valor p y los intervalos se interpretan bien\nAnálisis correctos, con interpretaciones imprecisas\nErrores de método o interpretaciones equivocadas\n\n\nDecisión y validez\nLa decisión sale de la evidencia, con su incertidumbre y sus amenazas a la validez\nDecisión sustentada, con poca discusión de límites\nConclusión sin relación con los resultados\n\n\n\n\n\nCódigo reproducible (20%)\n\n\n\n\n\n\n\n\n\nAspecto\nExcelente\nAceptable\nInsuficiente\n\n\n\n\nEjecución\nCorre de principio a fin con semilla fija y sin errores\nCorre, con ajustes menores\nNo corre\n\n\nOrigen de las cifras\nCada cifra del informe sale de una celda ejecutada\nLa mayoría de las cifras sale del código\nHay cifras copiadas a mano\n\n\nReferencias y versiones\nDatos referenciados y versiones de las librerías indicadas\nFalta una de las dos\nNinguna de las dos",
+    "crumbs": [
+      "Unidad 3. Inferencia estadística",
+      "Proyecto final: estudio estadístico para una decisión"
+    ]
+  },
+  {
     "objectID": "herramientas-programacion-1/csharp-desde-cero/index.html",
     "href": "herramientas-programacion-1/csharp-desde-cero/index.html",
     "title": "C# desde cero: guía de sintaxis básica",

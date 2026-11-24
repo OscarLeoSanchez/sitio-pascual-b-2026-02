@@ -94,3 +94,37 @@ El código se ejecuta de principio a fin con semilla fija, y los datos están re
 1. **El informe**, con los siete apartados anteriores.
 2. **El código reproducible.**
 3. **La sustentación**, en la que cada integrante responde por todo el trabajo y justifica cada decisión metodológica.
+
+## Rúbrica de evaluación
+
+La nota del proyecto se reparte en tres criterios, uno por cada cosa que se entrega. La sustentación pesa el 60% y es el criterio principal; el informe y el código reproducible pesan el 20% cada uno.
+
+| Criterio | Peso | Qué se valora |
+|---|---|---|
+| Sustentación | 60% | Comunicar el estudio con claridad, justificar cada decisión metodológica y responder por todo el trabajo |
+| Informe | 20% | Los siete apartados completos, con análisis correctos y conclusiones sustentadas |
+| Código reproducible | 20% | Que otra persona ejecute el código de principio a fin y obtenga las mismas cifras del informe |
+
+### Sustentación (60%)
+
+| Aspecto | Excelente | Aceptable | Insuficiente |
+|---|---|---|---|
+| Comunicación del estudio | La pregunta, el método y la decisión se entienden sin leer el informe | Se entiende el estudio, con partes confusas o desordenadas | No se entiende qué se hizo ni por qué |
+| Justificación metodológica | Cada prueba y cada modelo se justifica y se comprueban sus supuestos | Justifica la mayoría de las decisiones, con supuestos sin revisar | Aplica procedimientos sin explicar por qué |
+| Respuesta a las preguntas | Cada integrante responde por todo el trabajo con precisión | Responde lo propio, con dudas sobre lo demás | No sabe explicar sus propios resultados |
+
+### Informe (20%)
+
+| Aspecto | Excelente | Aceptable | Insuficiente |
+|---|---|---|---|
+| Planteamiento y datos | Pregunta, decisión y datos bien definidos, con auditoría de calidad | Pregunta clara, con auditoría de datos incompleta | Pregunta vaga o datos sin documentar |
+| Análisis e inferencia | Los análisis son correctos, y el valor p y los intervalos se interpretan bien | Análisis correctos, con interpretaciones imprecisas | Errores de método o interpretaciones equivocadas |
+| Decisión y validez | La decisión sale de la evidencia, con su incertidumbre y sus amenazas a la validez | Decisión sustentada, con poca discusión de límites | Conclusión sin relación con los resultados |
+
+### Código reproducible (20%)
+
+| Aspecto | Excelente | Aceptable | Insuficiente |
+|---|---|---|---|
+| Ejecución | Corre de principio a fin con semilla fija y sin errores | Corre, con ajustes menores | No corre |
+| Origen de las cifras | Cada cifra del informe sale de una celda ejecutada | La mayoría de las cifras sale del código | Hay cifras copiadas a mano |
+| Referencias y versiones | Datos referenciados y versiones de las librerías indicadas | Falta una de las dos | Ninguna de las dos |
