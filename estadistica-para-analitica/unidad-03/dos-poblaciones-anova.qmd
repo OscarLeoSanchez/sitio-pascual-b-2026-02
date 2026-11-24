@@ -16,6 +16,10 @@ date-format: "D [de] MMMM [de] YYYY"
 
 Esta guía acompaña la presentación de la sesión: [abrir la presentación](presentacion-inferencia-dos-poblaciones-anova.html).
 
+::: {.text-center}
+[Abrir la presentación de ANOVA de una vía](presentacion-anova-una-via.html){.btn .btn-primary .btn-lg role="button"}
+:::
+
 ## La pregunta de la sesión
 
 Una empresa lanza dos versiones de un producto, asigna cada usuario al azar a una de ellas y mide el mismo resultado en los dos grupos. Las dos cifras casi nunca coinciden. La pregunta de la sesión es si esa diferencia señala una diferencia real entre las versiones o cabe dentro de lo que produce el azar del muestreo, y qué cambia cuando en lugar de dos versiones hay cuatro o veinte.
